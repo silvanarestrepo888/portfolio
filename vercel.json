@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "public": true,
+  "functions": {
+    "src/app/**/*.tsx": {
+      "includeFiles": "public/**"
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
