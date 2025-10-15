@@ -233,52 +233,78 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* PHASE 4: LUXURY HERO - Advanced Background Effects */}
+      {/* IMPACTFUL HERO: Full-Screen Photo Background */}
       <section 
         id="hero"
         className="min-h-screen flex items-center justify-center relative overflow-hidden" 
-        style={{backgroundColor: '#fffbee'}}
       >
-        {/* LANDOR LUXURY: Clean, sophisticated background */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="w-full h-full bg-gradient-to-br from-rose-50 to-amber-50"></div>
-        </div>
-        {/* LANDOR LUXURY: Sophisticated static gradient */}
+        {/* Full-Screen Professional Photo Background */}
+        <motion.div 
+          className="absolute inset-0 z-0"
+          initial={{ scale: 0.95 }}
+          animate={{ 
+            scale: [0.95, 1, 0.95],
+            filter: ['brightness(0.7)', 'brightness(0.75)', 'brightness(0.7)']
+          }}
+          transition={{ 
+            duration: 12, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+        >
+          <Image
+            src="/silvana-profile.jpg"
+            alt="Silvana Restrepo - Principal Experience Architect"
+            fill
+            quality={100}
+            priority
+            className="object-cover"
+            style={{ objectPosition: 'center top' }}
+          />
+        </motion.div>
+        
+        {/* Professional Overlay for Text Readability */}
         <div 
-          className="absolute inset-0 opacity-8"
+          className="absolute inset-0 z-5"
           style={{
-            background: 'linear-gradient(135deg, rgba(255, 182, 193, 0.15) 0%, rgba(255, 218, 185, 0.15) 100%)'
+            background: 'linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(255,102,99,0.3) 100%)'
           }}
         />
         
-        {/* Pure Elegant Content */}
+        {/* IMPACTFUL TYPOGRAPHY OVERLAY */}
         <div className="container mx-auto px-8 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.5 }}
-            className="max-w-5xl mx-auto"
+            transition={{ duration: 2 }}
+            className="max-w-6xl mx-auto"
           >
-            {/* H1: Hero titles (Experience/Architect) - LANDOR PERFECTION */}
+            {/* H1: EXPERIENCE ARCHITECT - Large Impactful Display */}
             <motion.h1 
               style={{
-                fontSize: 'clamp(4rem, 8vw, 8rem)',
-                letterSpacing: '-0.03em',
+                fontSize: 'clamp(5rem, 12vw, 12rem)',
+                letterSpacing: '-0.04em',
                 fontWeight: 300,
                 lineHeight: '0.9',
                 textAlign: 'center',
+                color: 'white',
+                textShadow: '0 8px 32px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.3)',
                 margin: '0 auto 4rem auto',
-                maxWidth: '1000px'
+                maxWidth: '1200px'
               }}
             >
               <motion.span 
-                className="block text-gray-800"
-                initial={{ opacity: 0, y: 60 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.8, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-                style={{ marginBottom: '-0.2em' }}
+                className="block"
+                initial={{ opacity: 0, y: 100, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 2, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+                style={{ 
+                  color: 'white',
+                  display: 'block',
+                  marginBottom: '-0.1em'
+                }}
                 whileHover={{ 
-                  color: '#ff6663',
+                  textShadow: '0 8px 32px rgba(255,102,99,0.5), 0 4px 16px rgba(0,0,0,0.3)',
                   transition: { duration: 0.4 }
                 }}
               >
@@ -287,15 +313,16 @@ export default function Home() {
               
               <motion.span 
                 className="block"
-                initial={{ opacity: 0, y: 60 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.8, delay: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
+                initial={{ opacity: 0, y: 100, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 2, delay: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                 style={{ 
                   color: '#ff6663',
-                  fontWeight: 500
+                  fontWeight: 400,
+                  textShadow: '0 8px 32px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.3)'
                 }}
                 whileHover={{ 
-                  color: '#e55555',
+                  color: '#ffffff',
                   transition: { duration: 0.4 }
                 }}
               >
@@ -318,7 +345,8 @@ export default function Home() {
                 style={{
                   backgroundColor: '#ff6663',
                   color: 'white',
-                  boxShadow: '0 8px 25px rgba(255, 102, 99, 0.3)'
+                  boxShadow: '0 12px 40px rgba(255, 102, 99, 0.4), 0 4px 20px rgba(0,0,0,0.2)',
+                  border: 'none'
                 }}
                 whileHover={{ 
                   scale: 1.08, 
@@ -350,9 +378,10 @@ export default function Home() {
                 }}
                 className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-lg font-medium transition-all duration-700 relative overflow-hidden group"
                 style={{
-                  border: '2px solid rgba(255, 102, 99, 0.3)',
-                  color: '#ff6663',
-                  background: 'transparent'
+                  border: '2px solid rgba(255, 255, 255, 0.6)',
+                  color: 'white',
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  backdropFilter: 'blur(10px)'
                 }}
                 whileHover={{ 
                   scale: 1.08, 
@@ -362,17 +391,17 @@ export default function Home() {
                 whileTap={{ scale: 0.95 }}
                 onMouseEnter={(e) => {
                   const target = e.currentTarget;
-                  target.style.backgroundColor = '#ff6663';
+                  target.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
                   target.style.color = 'white';
-                  target.style.borderColor = '#ff6663';
-                  target.style.boxShadow = '0 15px 35px rgba(255, 102, 99, 0.3)';
+                  target.style.borderColor = 'rgba(255, 255, 255, 0.9)';
+                  target.style.boxShadow = '0 15px 40px rgba(255, 255, 255, 0.2), 0 8px 20px rgba(0,0,0,0.3)';
                   target.style.transform = 'translateY(-4px) scale(1.08)';
                 }}
                 onMouseLeave={(e) => {
                   const target = e.currentTarget;
-                  target.style.backgroundColor = 'transparent';
-                  target.style.color = '#ff6663';
-                  target.style.borderColor = 'rgba(255, 102, 99, 0.3)';
+                  target.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                  target.style.color = 'white';
+                  target.style.borderColor = 'rgba(255, 255, 255, 0.6)';
                   target.style.boxShadow = 'none';
                   target.style.transform = 'translateY(0px) scale(1)';
                 }}
