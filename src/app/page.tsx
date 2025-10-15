@@ -2144,7 +2144,7 @@ export default function Home() {
                     {/* Previous Project */}
                     <motion.button
                       onClick={() => {
-                        const prevIndex = selectedProject === 0 ? filteredProjects.length - 1 : selectedProject - 1;
+                        const prevIndex = selectedProject === 0 ? projects.length - 1 : selectedProject - 1;
                         setSelectedProject(prevIndex);
                       }}
                       className="flex items-center gap-4 p-4 rounded-xl transition-all duration-300 hover:bg-gray-50 touch-manipulation w-full md:w-auto justify-center md:justify-start"
@@ -2154,7 +2154,7 @@ export default function Home() {
                     >
                       <div className="w-12 h-12 rounded-lg overflow-hidden relative flex-shrink-0">
                         <Image
-                          src={filteredProjects[selectedProject === 0 ? filteredProjects.length - 1 : selectedProject - 1].image}
+                          src={projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].image}
                           alt="Previous project"
                           fill
                           className="object-cover"
@@ -2163,7 +2163,7 @@ export default function Home() {
                       <div className="text-left">
                         <p className="text-xs text-gray-500 uppercase tracking-wide">Previous Project</p>
                         <p className="text-sm font-medium text-gray-800">
-                          {filteredProjects[selectedProject === 0 ? filteredProjects.length - 1 : selectedProject - 1].title}
+                          {projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].title}
                         </p>
                       </div>
                     </motion.button>
@@ -2177,7 +2177,7 @@ export default function Home() {
                         </span>
                         <span className="text-gray-400">of</span>
                         <span className="text-lg font-medium text-gray-600">
-                          {filteredProjects.length}
+                          {projects.length}
                         </span>
                       </div>
                     </div>
@@ -2185,7 +2185,7 @@ export default function Home() {
                     {/* Next Project */}
                     <motion.button
                       onClick={() => {
-                        const nextIndex = (selectedProject + 1) % filteredProjects.length;
+                        const nextIndex = (selectedProject + 1) % projects.length;
                         setSelectedProject(nextIndex);
                       }}
                       className="flex items-center gap-4 p-4 rounded-xl transition-all duration-300 hover:bg-gray-50 touch-manipulation w-full md:w-auto justify-center md:justify-start"
@@ -2196,12 +2196,12 @@ export default function Home() {
                       <div className="text-right md:text-left order-2 md:order-1">
                         <p className="text-xs text-gray-500 uppercase tracking-wide">Next Project</p>
                         <p className="text-sm font-medium text-gray-800">
-                          {filteredProjects[(selectedProject + 1) % filteredProjects.length].title}
+                          {projects[(selectedProject + 1) % projects.length].title}
                         </p>
                       </div>
                       <div className="w-12 h-12 rounded-lg overflow-hidden relative flex-shrink-0 order-1 md:order-2">
                         <Image
-                          src={filteredProjects[(selectedProject + 1) % filteredProjects.length].image}
+                          src={projects[(selectedProject + 1) % projects.length].image}
                           alt="Next project"
                           fill
                           className="object-cover"
