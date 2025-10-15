@@ -9,9 +9,6 @@
       "maxDuration": 10
     }
   },
-  "skewProtection": {
-    "maxAge": 300
-  },
   "headers": [
     {
       "source": "/(.*)",
@@ -60,12 +57,6 @@
           "value": "public, max-age=3600"
         }
       ]
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
     }
   ],
   "cleanUrls": true,

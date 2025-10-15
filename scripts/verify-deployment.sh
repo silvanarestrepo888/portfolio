@@ -9,7 +9,7 @@ echo ""
 
 # Check if domain is accessible
 echo "1. 🌐 Domain Accessibility Check"
-if curl -s --head https://experiencearchitect.design/ | head -n 1 | grep "200 OK" > /dev/null; then
+if curl -s --head https://experiencearchitect.design/ | head -n 1 | grep "200" > /dev/null; then
     echo "   ✅ Domain is accessible"
 else
     echo "   ❌ Domain is not accessible"
