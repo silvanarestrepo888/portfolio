@@ -287,13 +287,16 @@ export default function Home() {
             transition={{ duration: 1.5 }}
             className="max-w-5xl mx-auto"
           >
-            {/* Sophisticated Typography */}
+            {/* H1: Hero titles (Experience/Architect) - LANDOR PERFECTION */}
             <motion.h1 
-              className="font-light leading-none"
               style={{
-                fontSize: 'clamp(3rem, 8vw, 8rem)',
+                fontSize: 'clamp(4rem, 8vw, 8rem)',
                 letterSpacing: '-0.03em',
-                fontWeight: 300
+                fontWeight: 300,
+                lineHeight: '0.9',
+                textAlign: 'center',
+                margin: '0 auto 4rem auto',
+                maxWidth: '1000px'
               }}
             >
               <motion.span 
@@ -680,12 +683,7 @@ export default function Home() {
               Projects
             </h2>
             <motion.p 
-              className="content-desktop"
-              style={{ 
-                fontSize: '1.125rem',
-                lineHeight: '1.7',
-                color: '#6B7280'
-              }}
+              className="description-landor"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
@@ -802,10 +800,10 @@ export default function Home() {
                         transformStyle: 'preserve-3d'
                       }}
                     >
-                      <div className="grid md:grid-cols-5 items-stretch min-h-[500px]">
-                        {/* PHASE 4: Image Section - Enhanced Parallax & Interactions */}
+                      <div className="grid md:grid-cols-3 items-stretch min-h-[520px]" style={{position: 'relative'}}>
+                        {/* LANDOR VISUAL EXPLORATION: Image consuming most of screen */}
                         <motion.div 
-                          className="md:col-span-3 relative flex items-center overflow-hidden group"
+                          className="md:col-span-2 relative flex items-center overflow-hidden group"
                           animate={{ y: [0, -4, 0] }}
                           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                           whileHover={{ scale: 1.02 }}
@@ -861,18 +859,22 @@ export default function Home() {
                           </div>
                         </motion.div>
                         
-                        {/* Content Section - 38.2% (Golden Ratio) - Perfect Symmetric Balance */}
-                        <div className="md:col-span-2 p-8 flex flex-col justify-center space-y-6 h-full">
+                        {/* LANDOR CONTENT AREA: Information hierarchy on right side */}
+                        <div className="md:col-span-1 p-8 flex flex-col justify-center h-full" style={{background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,102,99,0.02) 100%)', gap: '1.5rem'}}>
                           <motion.div
                             initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 1, delay: 0.3 }}
                           >
+                            {/* H3: Project titles - LANDOR PERFECTION */}
                             <h3 
-                              className="text-2xl font-light text-gray-800"
                               style={{ 
+                                fontSize: '1.75rem',
+                                fontWeight: '400',
                                 lineHeight: '1.2',
-                                letterSpacing: '-0.02em'
+                                letterSpacing: '-0.02em',
+                                color: '#374151',
+                                marginBottom: '1rem'
                               }}
                             >
                               {project.title}
@@ -884,12 +886,19 @@ export default function Home() {
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 1, delay: 0.4 }}
                           >
-                            <p 
-                              className="text-lg font-normal text-gray-600"
-                              style={{ lineHeight: '1.7' }}
+                            {/* H4: Subheadings and descriptions - LANDOR CONSISTENCY */}
+                            <h4 
+                              style={{ 
+                                fontSize: '1.125rem',
+                                fontWeight: '400',
+                                lineHeight: '1.4',
+                                color: '#6B7280',
+                                marginBottom: '1rem',
+                                letterSpacing: '0'
+                              }}
                             >
                               {project.subtitle}
-                            </p>
+                            </h4>
                           </motion.div>
                           
                           <motion.div
@@ -899,10 +908,20 @@ export default function Home() {
                           >
                             <p 
                               className="text-lg font-medium"
-                              style={{ color: '#ff6663' }}
+                              style={{ color: '#ff6663', marginBottom: '0.5rem' }}
                             >
                               {project.client}
                             </p>
+                            {/* LANDOR VISUAL EXPLORATION: Essential project details */}
+                            <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', alignItems: 'center', marginBottom: '1rem'}}>
+                              <span style={{fontSize: '0.875rem', color: '#9CA3AF', fontWeight: '500'}}>
+                                {project.year}
+                              </span>
+                              <span style={{color: '#D1D5DB'}}>•</span>
+                              <span style={{fontSize: '0.875rem', color: '#9CA3AF', fontWeight: '500'}}>
+                                {project.location}
+                              </span>
+                            </div>
                           </motion.div>
                           
                           {/* 2 Primary Tags */}
@@ -1086,12 +1105,7 @@ export default function Home() {
               Experience
             </h2>
             <motion.p 
-              className="content-desktop"
-              style={{ 
-                fontSize: '1.125rem',
-                lineHeight: '1.7',
-                color: '#6B7280'
-              }}
+              className="description-landor"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
@@ -1227,12 +1241,7 @@ export default function Home() {
               Services
             </h2>
             <motion.p 
-              className="content-desktop"
-              style={{ 
-                fontSize: '1.125rem',
-                lineHeight: '1.7',
-                color: '#6B7280'
-              }}
+              className="description-landor"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
