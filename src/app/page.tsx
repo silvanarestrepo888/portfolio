@@ -154,9 +154,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen" style={{backgroundColor: '#fffbee'}}>
-      {/* Elegant Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-100">
-        <div className="container mx-auto px-8 py-6">
+      {/* LANDOR LUXURY NAVIGATION - Enhanced Visual Clarity */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 navigation-breathing">
+        <div className="container mx-auto px-8 py-8">
           <div className="flex justify-center items-center">
             {/* Centered Navigation with Section Numbers */}
             <motion.div 
@@ -180,7 +180,7 @@ export default function Home() {
                 silvana.
               </motion.a>
               
-              {/* Navigation Items with Numbers */}
+              {/* LANDOR NAVIGATION - Enhanced Visual Hierarchy */}
               {[
                 { name: 'About', number: '01' },
                 { name: 'Projects', number: '02' },
@@ -190,7 +190,7 @@ export default function Home() {
                 <motion.a
                   key={item.name}
                   href={`#${item.name.toLowerCase()}`}
-                  className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors duration-300"
+                  className="flex items-center gap-3 text-sm font-medium text-gray-700 hover:text-gray-900 transition-all duration-500 px-4 py-2 rounded-lg hover:bg-gray-50"
                   style={{ 
                     letterSpacing: '0.05em',
                     minWidth: '44px',
@@ -351,50 +351,39 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Refined Text Column */}
             <motion.div
-              className="space-y-12 text-center lg:text-left"
-              initial={{ opacity: 1, y: 0 }}
+              className="space-y-16 text-center lg:text-left content-breathing-room-lg"
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.1 }}
+              transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
               viewport={{ once: true }}
             >
-              <div className="text-center lg:text-left">
+              <div className="text-center lg:text-left section-header">
                 <motion.h2 
-                  className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-800"
-                  style={{ 
-                    lineHeight: '1.1',
-                    letterSpacing: '-0.02em',
-                    marginBottom: 'var(--title-margin)'
-                  }}
-                  initial={{ opacity: 1, y: 0 }}
+                  className="section-title text-h2 text-gray-800"
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.1 }}
+                  transition={{ duration: 1, delay: 0.2 }}
                 >
-                  <span 
-                    className="text-lg font-light block mb-4"
-                    style={{ 
-                      color: 'rgba(255, 102, 99, 0.6)',
-                      letterSpacing: '0.2em'
-                    }}
-                  >
+                  <span className="section-number">
                     01
                   </span>
                   About Me
                 </motion.h2>
                 
                 <motion.p 
-                  className="text-lg text-gray-600 font-normal text-center lg:text-left mx-auto lg:mx-0 max-w-2xl mb-8"
+                  className="section-description text-lg text-gray-600 font-normal"
                   style={{ lineHeight: '1.7' }}
-                  initial={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.1 }}
+                  transition={{ duration: 1, delay: 0.3 }}
                   viewport={{ once: true }}
                 >
                   Discover the journey of strategic design thinking, business transformation, and the human perspective that drives meaningful innovation across industries.
                 </motion.p>
               </div>
               
-              {/* Elegant Content with Simplified Spacing */}
-              <div className="max-w-3xl space-y-8">
+              {/* Body: 3-sentence paragraph structure - Phase 3 */}
+              <div className="max-w-3xl space-y-12 content-breathing-room-lg">
                 <motion.p 
                   className="text-lg text-gray-700 font-normal"
                   style={{ lineHeight: '1.7' }}
@@ -434,8 +423,8 @@ export default function Home() {
                   viewport={{ once: true }}
                 >
                   <p 
-                    className="text-2xl text-gray-800 font-normal italic"
-                    style={{ lineHeight: '1.5' }}
+                    className="text-2xl text-gray-800 font-normal"
+                    style={{ lineHeight: '1.5', fontStyle: 'italic' }}
                   >
                     The art of{' '}
                     <span style={{color: '#ff6663', fontWeight: '500'}}>MY CRAFT</span>
@@ -666,11 +655,12 @@ export default function Home() {
                     }}
                     onClick={() => setSelectedProject(index)}
                   >
-                    {/* Fixed Side-by-Side Carousel - 60% Image / 40% Content */}
+                    {/* LANDOR LUXURY PROJECT CARDS - Dramatic Breathing Room */}
                     <div 
-                      className="bg-white rounded-3xl overflow-hidden elevation-3 max-w-6xl mx-auto"
+                      className="bg-white rounded-3xl overflow-hidden elevation-3 max-w-6xl mx-auto project-card-spacing"
                       style={{
-                        boxShadow: '0 40px 80px rgba(255, 102, 99, 0.12)'
+                        boxShadow: '0 40px 80px rgba(255, 102, 99, 0.12)',
+                        margin: '4rem auto'
                       }}
                     >
                       <div className="grid md:grid-cols-5 items-stretch min-h-[500px]">
@@ -1742,8 +1732,8 @@ export default function Home() {
                   style={{ borderLeftColor: '#ff6663', backgroundColor: 'rgba(255, 102, 99, 0.05)' }}
                 >
                   <blockquote 
-                    className="text-2xl text-gray-800 mb-6 italic"
-                    style={{ lineHeight: '1.5' }}
+                    className="text-2xl text-gray-800 mb-6"
+                    style={{ lineHeight: '1.5', fontStyle: 'italic' }}
                   >
                     {projects[selectedProject].testimonial}
                   </blockquote>
