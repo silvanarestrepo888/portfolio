@@ -25,3 +25,4 @@ if [ $? -eq 0 ]; then
 else
     echo "❌ Build failed. Please fix the errors and try again."
 fi
+
