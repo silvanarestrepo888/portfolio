@@ -1675,13 +1675,20 @@ export default function Home() {
             transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Scroll Progress Bar */}
+            {/* Enhanced Scroll Progress Bar - Phase 4.1 */}
             <motion.div 
               className="fixed top-0 left-0 right-0 h-1 z-50"
               style={{ 
                 backgroundColor: '#ff6663',
                 scaleX: 0.3,
                 transformOrigin: "0%"
+              }}
+              animate={{
+                scaleX: [0.3, 0.7, 1]
+              }}
+              transition={{
+                duration: 2,
+                ease: "easeInOut"
               }}
             />
             
@@ -1719,14 +1726,21 @@ export default function Home() {
                   transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                 />
                 
-                {/* Navigation Buttons */}
+                {/* Enhanced Navigation Buttons - Phase 4.1 */}
                 <div className="absolute top-6 left-6 right-6 flex justify-between items-center">
-                  {/* Back to Projects */}
+                  {/* Back to Projects - Always Visible Top-Left */}
                   <motion.button
                     onClick={() => setSelectedProject(null)}
-                    className="flex items-center gap-2 px-4 py-2 bg-white/90 rounded-xl text-sm font-medium text-gray-700"
-                    whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.95)' }}
+                    className="flex items-center gap-2 px-6 py-3 bg-white/95 rounded-xl text-sm font-medium text-gray-700 shadow-lg backdrop-blur-sm"
+                    whileHover={{ 
+                      scale: 1.05, 
+                      backgroundColor: 'rgba(255, 255, 255, 1)',
+                      boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+                    }}
                     whileTap={{ scale: 0.95 }}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6 }}
                   >
                     ← Back to Projects
                   </motion.button>
@@ -1734,13 +1748,17 @@ export default function Home() {
                   {/* Close Button */}
                   <motion.button
                     onClick={() => setSelectedProject(null)}
-                    className="w-12 h-12 bg-white/90 rounded-xl flex items-center justify-center"
+                    className="w-12 h-12 bg-white/95 rounded-xl flex items-center justify-center shadow-lg backdrop-blur-sm"
                     whileHover={{ 
                       scale: 1.1, 
-                      backgroundColor: 'rgba(255, 102, 99, 0.9)'
+                      backgroundColor: 'rgba(255, 102, 99, 0.9)',
+                      boxShadow: '0 8px 25px rgba(255, 102, 99, 0.3)'
                     }}
                     whileTap={{ scale: 0.9 }}
                     transition={{ type: "spring", stiffness: 400 }}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
                   >
                     <motion.span 
                       className="text-xl font-bold text-gray-800"
@@ -1750,15 +1768,22 @@ export default function Home() {
                     </motion.span>
                   </motion.button>
                   
-                  {/* Next Project */}
+                  {/* Next Project - Always Visible Top-Right */}
                   <motion.button
                     onClick={() => {
                       const nextIndex = (selectedProject + 1) % filteredProjects.length;
                       setSelectedProject(nextIndex);
                     }}
-                    className="flex items-center gap-2 px-4 py-2 bg-white/90 rounded-xl text-sm font-medium text-gray-700"
-                    whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.95)' }}
+                    className="flex items-center gap-2 px-6 py-3 bg-white/95 rounded-xl text-sm font-medium text-gray-700 shadow-lg backdrop-blur-sm"
+                    whileHover={{ 
+                      scale: 1.05, 
+                      backgroundColor: 'rgba(255, 255, 255, 1)',
+                      boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+                    }}
                     whileTap={{ scale: 0.95 }}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6 }}
                   >
                     Next Project →
                   </motion.button>
@@ -1813,49 +1838,76 @@ export default function Home() {
                 ))}
               </motion.div>
 
-              {/* Mobile Navigation Bar */}
-              <div className="md:hidden flex justify-between items-center p-4 border-b border-gray-100 bg-white">
-                <button 
+              {/* Enhanced Mobile Navigation Bar - Phase 4.1 */}
+              <div className="md:hidden flex justify-between items-center p-6 border-b border-gray-100 bg-white/95 backdrop-blur-sm sticky top-0 z-40">
+                <motion.button 
                   onClick={() => setSelectedProject(null)}
-                  className="flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg"
+                  className="flex items-center gap-2 px-6 py-3 text-sm bg-gray-100 rounded-xl font-medium touch-manipulation"
+                  whileTap={{ scale: 0.95 }}
+                  style={{ minHeight: '44px', minWidth: '44px' }}
                 >
-                  ← Back to Projects
-                </button>
-                <span className="text-sm font-medium text-gray-600">
-                  Project {selectedProject + 1} of {projects.length}
-                </span>
-                <button 
+                  ← Back
+                </motion.button>
+                <div className="text-center">
+                  <span className="text-xs text-gray-500 uppercase tracking-wide block">Project</span>
+                  <span className="text-sm font-medium text-gray-800">
+                    {selectedProject + 1} of {filteredProjects.length}
+                  </span>
+                </div>
+                <motion.button 
                   onClick={() => {
                     const nextIndex = (selectedProject + 1) % filteredProjects.length;
                     setSelectedProject(nextIndex);
                   }}
-                  className="flex items-center gap-2 px-4 py-2 text-sm bg-gray-100 rounded-lg"
+                  className="flex items-center gap-2 px-6 py-3 text-sm bg-gray-100 rounded-xl font-medium touch-manipulation"
+                  whileTap={{ scale: 0.95 }}
+                  style={{ minHeight: '44px', minWidth: '44px' }}
                 >
                   Next →
-                </button>
+                </motion.button>
               </div>
               
               {/* Enhanced Content with Section Navigation */}
               <div style={{ padding: 'var(--space-8)' }}>
-                {/* Enhanced Section Jump Navigation */}
+                {/* Enhanced Section Jump Navigation - Phase 4.1 Mobile Optimized */}
                 <div className="sticky top-4 bg-white/95 backdrop-blur-sm p-4 rounded-xl mb-12 z-30">
-                  <div className="flex justify-center gap-8">
-                    <a href="#context" className="text-sm font-medium text-gray-600 hover:text-coral transition-colors">
-                      01. Context
+                  <div className="flex justify-center gap-4 md:gap-8 flex-wrap">
+                    <a 
+                      href="#context" 
+                      className="text-sm font-medium text-gray-600 hover:text-coral transition-colors px-3 py-2 rounded-lg touch-manipulation"
+                      style={{ minHeight: '44px', display: 'flex', alignItems: 'center', minWidth: '44px', justifyContent: 'center' }}
+                    >
+                      <span className="hidden md:inline">01. Context</span>
+                      <span className="md:hidden">Context</span>
                     </a>
-                    <a href="#challenge" className="text-sm font-medium text-gray-600 hover:text-coral transition-colors">
-                      02. Challenge  
+                    <a 
+                      href="#approach" 
+                      className="text-sm font-medium text-gray-600 hover:text-coral transition-colors px-3 py-2 rounded-lg touch-manipulation"
+                      style={{ minHeight: '44px', display: 'flex', alignItems: 'center', minWidth: '44px', justifyContent: 'center' }}
+                    >
+                      <span className="hidden md:inline">02. Approach</span>
+                      <span className="md:hidden">Approach</span>
                     </a>
-                    <a href="#impact" className="text-sm font-medium text-gray-600 hover:text-coral transition-colors">
-                      03. Impact
+                    <a 
+                      href="#impact" 
+                      className="text-sm font-medium text-gray-600 hover:text-coral transition-colors px-3 py-2 rounded-lg touch-manipulation"
+                      style={{ minHeight: '44px', display: 'flex', alignItems: 'center', minWidth: '44px', justifyContent: 'center' }}
+                    >
+                      <span className="hidden md:inline">03. Impact</span>
+                      <span className="md:hidden">Impact</span>
                     </a>
-                    <a href="#gallery" className="text-sm font-medium text-gray-600 hover:text-coral transition-colors">
-                      04. Gallery
+                    <a 
+                      href="#gallery" 
+                      className="text-sm font-medium text-gray-600 hover:text-coral transition-colors px-3 py-2 rounded-lg touch-manipulation"
+                      style={{ minHeight: '44px', display: 'flex', alignItems: 'center', minWidth: '44px', justifyContent: 'center' }}
+                    >
+                      <span className="hidden md:inline">04. Gallery</span>
+                      <span className="md:hidden">Gallery</span>
                     </a>
                   </div>
                 </div>
 
-                {/* Project Metadata (centered) */}
+                {/* Enhanced Project Metadata with Tag Limits */}
                 <div className="text-center border-b border-gray-100 pb-8 mb-12">
                   <h3 className="text-4xl font-light text-gray-800 mb-4">{projects[selectedProject].title}</h3>
                   <p className="text-xl font-medium mb-4" style={{ color: '#ff6663' }}>{projects[selectedProject].client}</p>
@@ -1864,12 +1916,14 @@ export default function Home() {
                     <span>Year: {projects[selectedProject].year}</span>
                     <span>Location: {projects[selectedProject].location}</span>
                   </div>
+                  
+                  {/* Enhanced Tag Display - Phase 4.1 Compliance */}
                   <div className="space-y-4 mb-6">
-                    {/* Capability Tags */}
+                    {/* 3 Capacity Tags Maximum */}
                     <div>
                       <h6 className="text-sm font-medium text-gray-600 mb-2">Core Capabilities</h6>
                       <div className="flex justify-center gap-2 flex-wrap">
-                        {projects[selectedProject].tech.map((tech, index) => (
+                        {projects[selectedProject].tech.slice(0, 3).map((tech, index) => (
                           <span 
                             key={index}
                             className="px-4 py-2 rounded-full text-sm font-medium"
@@ -1881,32 +1935,36 @@ export default function Home() {
                       </div>
                     </div>
                     
-                    {/* Industry Tags */}
+                    {/* 1 Industry Tag Only */}
                     {projects[selectedProject].industryTags && (
                       <div>
                         <h6 className="text-sm font-medium text-gray-600 mb-2">Industry Focus</h6>
                         <div className="flex justify-center gap-2 flex-wrap">
-                          {projects[selectedProject].industryTags.map((tag, index) => (
-                            <span 
-                              key={index}
-                              className="px-4 py-2 rounded-full text-sm font-medium"
-                              style={{ backgroundColor: 'rgba(255, 102, 99, 0.1)', color: '#ff6663' }}
-                            >
-                              {tag}
-                            </span>
-                          ))}
+                          <span 
+                            className="px-4 py-2 rounded-full text-sm font-medium"
+                            style={{ backgroundColor: 'rgba(255, 102, 99, 0.1)', color: '#ff6663' }}
+                          >
+                            {projects[selectedProject].industryTags[0]}
+                          </span>
                         </div>
                       </div>
                     )}
                   </div>
+                  
+                  {/* Integrated Client Website Button */}
                   <a 
                     href={projects[selectedProject].website} 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 hover:underline"
-                    style={{ color: '#ff6663' }}
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105"
+                    style={{ 
+                      backgroundColor: 'rgba(255, 102, 99, 0.1)', 
+                      color: '#ff6663',
+                      border: '1px solid rgba(255, 102, 99, 0.3)'
+                    }}
                   >
-                    Visit Live Project <ExternalLink size={16} />
+                    <ExternalLink size={16} />
+                    Visit Live Project
                   </a>
                 </div>
 
@@ -1939,14 +1997,16 @@ export default function Home() {
                     />
                   </div>
                   
-                  {/* Thumbnail Navigation */}
+                  {/* Enhanced Thumbnail Navigation - Phase 4.1 */}
                   <div className="flex gap-4 justify-center">
-                    <button 
+                    <motion.button 
                       onClick={() => setCurrentGalleryImage(0)}
-                      className={`aspect-[4/3] w-24 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
-                        currentGalleryImage === 0 ? 'border-2' : 'border-transparent'
+                      className={`aspect-[4/3] w-28 rounded-lg overflow-hidden border-2 transition-all duration-300 relative ${
+                        currentGalleryImage === 0 ? 'border-2' : 'border-transparent hover:border-gray-300'
                       }`}
                       style={{ borderColor: currentGalleryImage === 0 ? '#ff6663' : 'transparent' }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       <Image 
                         src={projects[selectedProject].image} 
@@ -1954,13 +2014,25 @@ export default function Home() {
                         fill 
                         className="object-cover" 
                       />
-                    </button>
-                    <button 
+                      {currentGalleryImage === 0 && (
+                        <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                          <div className="w-4 h-4 rounded-full bg-white flex items-center justify-center">
+                            <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#ff6663' }}></div>
+                          </div>
+                        </div>
+                      )}
+                      <div className="absolute bottom-1 left-1 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                        Primary
+                      </div>
+                    </motion.button>
+                    <motion.button 
                       onClick={() => setCurrentGalleryImage(1)}
-                      className={`aspect-[4/3] w-24 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
-                        currentGalleryImage === 1 ? 'border-2' : 'border-transparent'
+                      className={`aspect-[4/3] w-28 rounded-lg overflow-hidden border-2 transition-all duration-300 relative ${
+                        currentGalleryImage === 1 ? 'border-2' : 'border-transparent hover:border-gray-300'
                       }`}
                       style={{ borderColor: currentGalleryImage === 1 ? '#ff6663' : 'transparent' }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       <Image 
                         src={projects[selectedProject].secondaryImage} 
@@ -1968,13 +2040,23 @@ export default function Home() {
                         fill 
                         className="object-cover" 
                       />
-                    </button>
+                      {currentGalleryImage === 1 && (
+                        <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                          <div className="w-4 h-4 rounded-full bg-white flex items-center justify-center">
+                            <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#ff6663' }}></div>
+                          </div>
+                        </div>
+                      )}
+                      <div className="absolute bottom-1 left-1 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                        Secondary
+                      </div>
+                    </motion.button>
                   </div>
                 </div>
                 
                 {/* Structured Content Sections */}
                 <div className="space-y-12 max-w-4xl mx-auto">
-                  {/* Context Section */}
+                  {/* Context Section - Phase 4.1 Bullet Points */}
                   <div id="context" className="scroll-mt-24">
                     <div className="flex items-center gap-4 mb-6">
                       <span className="text-sm font-light text-gray-400">01</span>
@@ -1983,18 +2065,25 @@ export default function Home() {
                       </h4>
                     </div>
                     <div className="prose prose-lg">
-                      <p className="text-gray-700 font-normal leading-relaxed mb-6">
-                        {projects[selectedProject].context}
-                      </p>
+                      <div className="text-gray-700 font-normal leading-relaxed mb-6">
+                        {projects[selectedProject].context.split('. ').map((sentence, index) => (
+                          <div key={index} className="flex items-start gap-3 mb-3">
+                            <span className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#ff6663' }}></span>
+                            <p className="text-gray-700 font-normal leading-relaxed">
+                              {sentence}{index < projects[selectedProject].context.split('. ').length - 1 ? '.' : ''}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
-                  {/* Scope of Challenge Section */}
-                  <div id="challenge" className="scroll-mt-24">
+                  {/* Approach Section - Phase 4.1 Renamed */}
+                  <div id="approach" className="scroll-mt-24">
                     <div className="flex items-center gap-4 mb-6">
                       <span className="text-sm font-light text-gray-400">02</span>
                       <h4 className="text-2xl font-medium" style={{ color: '#ff6663' }}>
-                        Scope of the Challenge
+                        Approach
                       </h4>
                     </div>
                     <div className="prose prose-lg">
@@ -2002,7 +2091,7 @@ export default function Home() {
                         {projects[selectedProject].challenge}
                       </p>
                       <div className="flex flex-wrap gap-3">
-                        {projects[selectedProject].tech.map((tech, index) => (
+                        {projects[selectedProject].tech.slice(0, 3).map((tech, index) => (
                           <span 
                             key={index}
                             className="px-4 py-2 rounded-full text-sm font-medium"
@@ -2015,7 +2104,7 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  {/* Impact Section */}
+                  {/* Impact Section - Phase 4.1 Copy Compliant */}
                   <div id="impact" className="scroll-mt-24">
                     <div className="flex items-center gap-4 mb-6">
                       <span className="text-sm font-light text-gray-400">03</span>
@@ -2048,6 +2137,79 @@ export default function Home() {
                   >
                     {projects[selectedProject].testimonialAuthor}
                   </cite>
+                </div>
+
+                {/* Bottom Project Navigation - Phase 4.1 Mobile Optimized */}
+                <div className="max-w-4xl mx-auto mt-16 pt-8 border-t border-gray-100">
+                  <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
+                    {/* Previous Project */}
+                    <motion.button
+                      onClick={() => {
+                        const prevIndex = selectedProject === 0 ? filteredProjects.length - 1 : selectedProject - 1;
+                        setSelectedProject(prevIndex);
+                      }}
+                      className="flex items-center gap-4 p-4 rounded-xl transition-all duration-300 hover:bg-gray-50 touch-manipulation w-full md:w-auto justify-center md:justify-start"
+                      whileHover={{ scale: 1.02, x: -4 }}
+                      whileTap={{ scale: 0.98 }}
+                      style={{ minHeight: '44px' }}
+                    >
+                      <div className="w-12 h-12 rounded-lg overflow-hidden relative flex-shrink-0">
+                        <Image
+                          src={filteredProjects[selectedProject === 0 ? filteredProjects.length - 1 : selectedProject - 1].image}
+                          alt="Previous project"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="text-left">
+                        <p className="text-xs text-gray-500 uppercase tracking-wide">Previous Project</p>
+                        <p className="text-sm font-medium text-gray-800">
+                          {filteredProjects[selectedProject === 0 ? filteredProjects.length - 1 : selectedProject - 1].title}
+                        </p>
+                      </div>
+                    </motion.button>
+
+                    {/* Project Counter */}
+                    <div className="text-center order-first md:order-none">
+                      <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Project</p>
+                      <div className="flex items-center gap-2">
+                        <span className="text-lg font-medium" style={{ color: '#ff6663' }}>
+                          {selectedProject + 1}
+                        </span>
+                        <span className="text-gray-400">of</span>
+                        <span className="text-lg font-medium text-gray-600">
+                          {filteredProjects.length}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Next Project */}
+                    <motion.button
+                      onClick={() => {
+                        const nextIndex = (selectedProject + 1) % filteredProjects.length;
+                        setSelectedProject(nextIndex);
+                      }}
+                      className="flex items-center gap-4 p-4 rounded-xl transition-all duration-300 hover:bg-gray-50 touch-manipulation w-full md:w-auto justify-center md:justify-start"
+                      whileHover={{ scale: 1.02, x: 4 }}
+                      whileTap={{ scale: 0.98 }}
+                      style={{ minHeight: '44px' }}
+                    >
+                      <div className="text-right md:text-left order-2 md:order-1">
+                        <p className="text-xs text-gray-500 uppercase tracking-wide">Next Project</p>
+                        <p className="text-sm font-medium text-gray-800">
+                          {filteredProjects[(selectedProject + 1) % filteredProjects.length].title}
+                        </p>
+                      </div>
+                      <div className="w-12 h-12 rounded-lg overflow-hidden relative flex-shrink-0 order-1 md:order-2">
+                        <Image
+                          src={filteredProjects[(selectedProject + 1) % filteredProjects.length].image}
+                          alt="Next project"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    </motion.button>
+                  </div>
                 </div>
               </div>
             </div>
