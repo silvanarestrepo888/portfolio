@@ -6,7 +6,13 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "cache-clear": "rm -rf .next && echo 'Cache cleared'",
+    "deploy-prod": "npm run cache-clear && vercel --prod",
+    "deploy-force": "npm run cache-clear && vercel --prod --force",
+    "cache-verify": "curl -s https://experiencearchitect.design/api/cache-verify | jq '.'",
+    "cache-status": "curl -I https://experiencearchitect.design/ | grep -E '(cache-control|etag|age|x-deployment)'",
+    "deployment-info": "vercel inspect experiencearchitect.design"
   },
   "dependencies": {
     "framer-motion": "^12.23.24",
@@ -14,7 +20,8 @@
     "next": "15.5.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "swiper": "^12.0.2"
+    "swiper": "^12.0.2",
+    "vercel": "^48.2.9"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
