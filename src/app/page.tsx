@@ -1055,35 +1055,43 @@ export default function Home() {
           justifyContent: 'center'
         }}
       >
-        <div className="container mx-auto px-8 max-w-7xl">
+        <div className="container-desktop">
           <motion.div 
-            className="text-center mb-16"
+            className="heading-desktop"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
             <h2 
-              className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-800 mb-8"
-              style={{ 
+              style={{
+                fontSize: '4rem',
+                fontWeight: '300',
                 lineHeight: '1.1',
-                letterSpacing: '-0.02em'
+                letterSpacing: '-0.02em',
+                color: '#374151',
+                marginBottom: '2rem'
               }}
             >
-              <span 
-                className="text-lg font-light block mb-4"
-                style={{ 
-                  color: 'rgba(255, 102, 99, 0.6)',
-                  letterSpacing: '0.2em'
-                }}
-              >
+              <span style={{
+                display: 'block',
+                fontSize: '1rem',
+                color: 'rgba(255, 102, 99, 0.6)',
+                letterSpacing: '0.2em',
+                marginBottom: '1rem',
+                fontWeight: '300'
+              }}>
                 03
               </span>
               Experience
             </h2>
             <motion.p 
-              className="text-lg text-gray-600 font-normal text-center mx-auto max-w-4xl"
-              style={{ lineHeight: '1.7' }}
+              className="content-desktop"
+              style={{ 
+                fontSize: '1.125rem',
+                lineHeight: '1.7',
+                color: '#6B7280'
+              }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
@@ -1093,8 +1101,8 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          {/* Simplified Experience Timeline */}
-          <div className="max-w-4xl mx-auto space-y-16">
+          {/* DESKTOP CENTERED EXPERIENCE TIMELINE */}
+          <div className="desktop-centered" style={{display: 'flex', flexDirection: 'column', gap: '4rem'}}>
             {[
               {
                 year: "2020—2025",
@@ -1188,35 +1196,43 @@ export default function Home() {
           paddingBottom: '8rem'
         }}
       >
-        <div className="container mx-auto px-8">
+        <div className="container-desktop">
           <motion.div 
-            className="text-center mb-16"
+            className="heading-desktop"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
             <h2 
-              className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-800 mb-8"
-              style={{ 
+              style={{
+                fontSize: '4rem',
+                fontWeight: '300',
                 lineHeight: '1.1',
-                letterSpacing: '-0.02em'
+                letterSpacing: '-0.02em',
+                color: '#374151',
+                marginBottom: '2rem'
               }}
             >
-              <span 
-                className="text-lg font-light block mb-4"
-                style={{ 
-                  color: 'rgba(255, 102, 99, 0.6)',
-                  letterSpacing: '0.2em'
-                }}
-              >
+              <span style={{
+                display: 'block',
+                fontSize: '1rem',
+                color: 'rgba(255, 102, 99, 0.6)',
+                letterSpacing: '0.2em',
+                marginBottom: '1rem',
+                fontWeight: '300'
+              }}>
                 04
               </span>
               Services
             </h2>
             <motion.p 
-              className="text-lg text-gray-600 font-normal text-center mx-auto max-w-4xl"
-              style={{ lineHeight: '1.7' }}
+              className="content-desktop"
+              style={{ 
+                fontSize: '1.125rem',
+                lineHeight: '1.7',
+                color: '#6B7280'
+              }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
@@ -1226,7 +1242,7 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          <div className="max-w-5xl mx-auto">
+          <div className="desktop-centered" style={{maxWidth: '1000px'}}>
             {[
               {
                 title: "Accelerated Product Innovation",
@@ -1324,12 +1340,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* DESKTOP FOOTER - CONSISTENT LAYOUT */}
       <footer 
-        className="section-padding"
-        style={{backgroundColor: '#ff6663'}}
+        style={{
+          backgroundColor: '#ff6663',
+          paddingTop: '8rem',
+          paddingBottom: '8rem'
+        }}
       >
-        <div className="container mx-auto px-8">
+        <div className="container-desktop">
           <div 
             className="grid md:grid-cols-4 gap-16 mb-16"
           >
