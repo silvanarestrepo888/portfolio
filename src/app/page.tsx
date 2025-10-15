@@ -1755,10 +1755,9 @@ export default function Home() {
                       boxShadow: '0 8px 25px rgba(255, 102, 99, 0.3)'
                     }}
                     whileTap={{ scale: 0.9 }}
-                    transition={{ type: "spring", stiffness: 400 }}
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
+                    transition={{ type: "spring", stiffness: 400, duration: 0.6, delay: 0.2 }}
                   >
                     <motion.span 
                       className="text-xl font-bold text-gray-800"
