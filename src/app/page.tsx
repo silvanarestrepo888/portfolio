@@ -22,7 +22,8 @@ export default function Home() {
       title: "Kayanee",
       subtitle: "The First-of-Its-Kind Collective Saudi Wellness Experience Platform",
       description: "The first of its kind collective Saudi wellness experience platform. Beyond fitness or nutrition alone, Kayanee pioneers an ecosystem where women discover wellness as an holistic journey.",
-      tech: ["Experience Design", "Service Design", "Product Strategy"],
+      tech: ["Experience Design", "Service Design", "Product Strategy", "Cultural Intelligence", "Ecosystem Design"],
+      industryTags: ["Health & Wellness", "Saudi Market", "Women's Empowerment", "Phygital Experiences"],
       category: "Health & Wellness",
       year: "2022",
       client: "Kayanee, a PIF Company",
@@ -32,15 +33,16 @@ export default function Home() {
       secondaryImage: "/projects/kayanee/secundary-kayanee.jpeg",
       testimonial: "Amazing proposal and presentation for Kayanee and princess Reema @ KSA...you are already on the next level. Keep rocking!",
       testimonialAuthor: "Martin Migoya -CEO - Globant",
-      context: "For centuries, wellness has been a deeply personal journey—rooted in culture, tradition, and individual aspirations. In Saudi Arabia, a new chapter is being written, Kayanne is more than just a wellness brand; it's a movement, a vision, and a revolution in how women experience health, self-care, andempowerment. Kayanee is the first ecosystem integrating physical, digital, and social experiences for women'sholistic wellbeing.",
-      challenge: "Spaces were designed to intuitively recognise wellness needs, blending physical environmentswith AI-driven digital journeys. Crafted to be a phygital ecosystem merging behavioural science with technology to create deeply personalised transformative experiences. Seamless interactions across touch points—from retail environments to digital platforms—enhancing women's holistic wellbeing journey.",
-      impact: "Kayanee redefines possibility within Saudi Arabia's $19 billion wellness industry through cultural-technological fusion. The e-commerce platform launch initiates a vision extending beyond digital into integratedexperiences. The full vision is still unfolding, with new innovations, experiences, and services continuouslybeing developed to shape the future of women's wellness in Saudi Arabia."
+      context: "For centuries, wellness has been a deeply personal journey rooted in culture, tradition, and individual aspirations. In Saudi Arabia, Kayanee writes a new chapter as more than just a wellness brand—it's a movement revolutionizing how women experience health and empowerment. This pioneering ecosystem integrates physical, digital, and social experiences for women's holistic wellbeing.",
+      challenge: "Spaces were designed to intuitively recognise wellness needs, blending physical environments with AI-driven digital journeys. We crafted a phygital ecosystem merging behavioural science with technology to create deeply personalised transformative experiences. Seamless interactions across touchpoints—from retail environments to digital platforms—enhance women's holistic wellbeing journey.",
+      impact: "Kayanee redefines possibility within Saudi Arabia's wellness industry through cultural-technological fusion. The e-commerce platform launch initiates a vision extending beyond digital into integrated experiences. New innovations, experiences, and services continuously develop to shape the future of women's wellness in Saudi Arabia."
     },
     {
       title: "Augoor",
       subtitle: "Transforming static code into dynamic knowledge",
       description: "Transforming software development, Augoor reinvents how engineers navigate vast codebases,using AI-driven intelligence to convert static repositories into dynamic knowledge hubs, amplifying efficiency, collaboration, and human ingenuity in tech ecosystems.",
-      tech: ["Service Design", "User Research", "Product Strategy"],
+      tech: ["Service Design", "User Research", "Product Strategy", "AI Integration", "Developer Experience"],
+      industryTags: ["AI Software Development", "Enterprise Solutions", "Developer Tools", "Code Intelligence"],
       category: "AI Software Development",
       year: "2020",
       client: "Globant X",
@@ -50,15 +52,16 @@ export default function Home() {
       secondaryImage: "/projects/augoor/photo-main-carrusel.jpeg",
       testimonial: "Silvana has been a great team player who is proactive to help, listen the issues, put herself in other's shoes and think about the solutions. She is very thoughtful in providing the solution which will help keep satisfying the customers. I have always enjoyed my conversation with her as it has taught me so many things from customer experience perspective.",
       testimonialAuthor: "Deepika Wahi Lopez-Product Manager-Globant",
-      context: "In the ever-evolving landscape of software development, navigating and understanding vast,complex codebases is one of the most significant challenges developers face. Augoor was developed within Globant X—a pioneering incubator creating AI-driven products fordigital acceleration. It transforms static repositories into dynamic, navigable data warehouses enhancing developerefficiency and collaboration.",
-      challenge: "Back in 2020 we conducted global ethnographic research to uncover how developers search, document, and navigate complex code systems to transform writing code using plain English, a way of creating technology that today, in 2025 It's not only a reality, but a strong well stablished way of developing. Adaptive intelligence frameworks were architected with feedback loops that evolve through contextual developer interactions. We designed seamless UX patterns by integrating AI-assisted documentation, code dependencies and code search that feel natural within existing development workflows.",
-      impact: "Engineers now work with greater confidence, automating tedious tasks while focusing on creative development. Every feature is designed to feel like a natural extension of engineering workflows, not just another tool. Augoor amplifies human ingenuity rather than replacing it, unlocking collaborative innovationacross development teams."
+      context: "In the ever-evolving landscape of software development, navigating vast, complex codebases remains one of the most significant challenges developers face. Augoor was developed within Globant X—a pioneering incubator creating AI-driven products for digital acceleration. It transforms static repositories into dynamic, navigable data warehouses enhancing developer efficiency and collaboration.",
+      challenge: "In 2020 we conducted global ethnographic research to uncover how developers search, document, and navigate complex code systems. Our goal was transforming code writing using plain English—a approach that by 2025 became a well-established development methodology. We designed seamless UX patterns integrating AI-assisted documentation, code dependencies, and search that feel natural within existing development workflows.",
+      impact: "Engineers now work with greater confidence, automating tedious tasks while focusing on creative development. Every feature feels like a natural extension of engineering workflows, not just another tool. Augoor amplifies human ingenuity rather than replacing it, unlocking collaborative innovation across development teams."
     },
     {
       title: "Chime Care J&J",
       subtitle: "Elevating Ophthalmic Practices with Experience-Driven Innovation",
       description: "CHiME Care supports ophthalmic practices by uniting digital tools with clinical expertise. CHiME Care streamlines surgical patient management workflows, allowing practitioners to focus entirely on precision care while intelligent systems handle complexity behind the scenes.",
-      tech: ["Design Ops", "Design Systems", "Service Design"],
+      tech: ["Design Ops", "Design Systems", "Service Design", "Healthcare UX", "Clinical Workflow"],
+      industryTags: ["Healthcare Technology", "Surgical Systems", "Medical Devices", "Clinical Excellence"],
       category: "Health & Wellness",
       year: "2022",
       client: "Johnson & Johnson Surgical Vision",
@@ -68,15 +71,16 @@ export default function Home() {
       secondaryImage: "/projects/chime-care/secundary-jjpeg.jpeg",
       testimonial: "Silvana is an excellent professional that has been a great plus in the \"cosmic eyes\" POD. Her commitment and skills are outstanding",
       testimonialAuthor: "Karina Paola Bailetti-Project Manager-Globant",
-      context: "For optometrists and surgeons, precision is essential—every decision and data point affects patient vision outcomes. CHiME Care was envisioned as more than just a digital tool; it is an intelligent support system that guides practitioners through complex surgical workflows. In partnership with Johnson & Johnson's Experience Design leadership, we established thefoundations for this specialised platform.",
-      challenge: "We researched with practicing optometrists to reveal workflow patterns and decision pointscritical to surgical planning. Intuitive interfaces were designed for specialised tools, including toric calculators, case reviews, and performance metrics, to enhance clinical decisions. A comprehensive design system architecture was created to ensure consistent experiences while supporting rapid platform evolution.",
-      impact: "CHiME Care transforms fragmented ophthalmic practices into connected ecosystems where intelligence amplifies surgical precision. Optometrists now benefit from a digital assistant that enhances workflow, optimises surgical planning, and provides meaningful procedural insights. The platform drives widespread adoption throughout Johnson & Johnson Vision's ecosystem while laying the foundation for future innovations based on behavioural usage patterns."
+      context: "For optometrists and surgeons, precision is essential—every decision and data point affects patient vision outcomes. CHiME Care was envisioned as more than just a digital tool; it's an intelligent support system guiding practitioners through complex surgical workflows. In partnership with Johnson & Johnson's Experience Design leadership, we established the foundations for this specialised platform.",
+      challenge: "We researched with practicing optometrists to reveal workflow patterns and decision points critical to surgical planning. Intuitive interfaces were designed for specialised tools, including toric calculators, case reviews, and performance metrics to enhance clinical decisions. A comprehensive design system architecture ensures consistent experiences while supporting rapid platform evolution.",
+      impact: "CHiME Care transforms fragmented ophthalmic practices into connected ecosystems where intelligence amplifies surgical precision. Optometrists now benefit from a digital assistant that enhances workflow, optimises surgical planning, and provides meaningful procedural insights. The platform drives widespread adoption throughout Johnson & Johnson Vision's ecosystem while laying foundations for future innovations."
     },
     {
       title: "Nomade Tulum",
       subtitle: "Preserving deeply personal guest experiences while meeting digital expectations",
       description: "Nestled in Riviera Maya, Nomade faced a modern dilemma: preserving deeply personal guest experiences while meeting digital expectations. Their new operational ecosystem curatesmeaningful interactions without sacrificing the soul of spontaneous connection.",
-      tech: ["Experience Design", "Service Design", "Digital Transformation"],
+      tech: ["Experience Design", "Service Design", "Digital Transformation", "Hospitality Innovation", "Guest Journey"],
+      industryTags: ["Luxury Hospitality", "Guest Experience", "Tourism Technology", "Cultural Preservation"],
       category: "Hospitality",
       year: "2021",
       client: "Nomade Group",
@@ -86,15 +90,16 @@ export default function Home() {
       secondaryImage: "/projects/nomade/secundary-hero.jpeg",
       testimonial: "It was a pleasure to work with Sil, I found a great professional, very collaborative, open to challenge and to make her part. Both clients we work with were very happy with her, and excellent feedaback received",
       testimonialAuthor: "Gerardo Bava-VP Delivery-Globant",
-      context: "Riviera Maya's Nomade Hotels are sanctuaries that blend luxury with nature, evolving alongside guest expectations. The challenge was clear: how to preserve a deeply personal, ritualistic, and human-centredapproach while seamlessly integrating digital efficiencies. Nomade envisioned a transformation into a tech-enabled hospitality brand without losing its soul.",
-      challenge: "In collaboration with Nomade team, we envisioned a guest-centric digital ecosystem integrating CRM, personalisation engines, and an intuitive e-concierge system. Service blueprinting was build to reimagin every touchpoint—from booking to check-out—as opportunities for meaningful cultural connection. Backend systems integration unified operations were mapped out to preserve the spontaneous, authentic interactions defining Nomade's essence.",
-      impact: "Discovery research provided insights into transforming fragmented guest touchpoints into integrated digital and physical narratives. The integrated platform proposed truthfully taught to eliminate operational inefficiencies while enhancing real-time decision-making across all departments. This approach has delivered measurable operational efficiency and enriched the guest experience to be adopted as part of the opex and capex strategy, with the vision to expand from two assets to a vision of 10 more in a pipeline of eight years as presented by the client."
+      context: "Riviera Maya's Nomade Hotels are sanctuaries that blend luxury with nature, evolving alongside guest expectations. The challenge was clear: how to preserve a deeply personal, ritualistic, and human-centred approach while seamlessly integrating digital efficiencies. Nomade envisioned a transformation into a tech-enabled hospitality brand without losing its soul.",
+      challenge: "In collaboration with Nomade team, we envisioned a guest-centric digital ecosystem integrating CRM, personalisation engines, and an intuitive e-concierge system. Service blueprinting reimagined every touchpoint—from booking to check-out—as opportunities for meaningful cultural connection. Backend systems integration unified operations while preserving the spontaneous, authentic interactions defining Nomade's essence.",
+      impact: "Discovery research provided insights into transforming fragmented guest touchpoints into integrated digital and physical narratives. The integrated platform eliminates operational inefficiencies while enhancing real-time decision-making across all departments. This approach delivers measurable operational efficiency and enriches guest experience, supporting expansion from two assets to ten more in an eight-year pipeline."
     },
     {
       title: "Danone Digital Transformation",
       subtitle: "Driving Digital Transformation in Pricing Strategy",
       description: "In volatile markets, reactive pricing costs opportunities. Danone's Smart Pricing System represents a fundamental shift—data intelligence and predictive analytics now enable real-time market response, transforming pricing from operational necessity into competitive advantage.",
-      tech: ["Digital Transformation", "Service Design", "Product Strategy"],
+      tech: ["Digital Transformation", "Service Design", "Product Strategy", "Pricing Intelligence", "Market Analytics"],
+      industryTags: ["Food & Beverage", "Pricing Strategy", "Market Intelligence", "Operational Excellence"],
       category: "Food and Beverage",
       year: "2021",
       client: "Danone",
@@ -112,7 +117,8 @@ export default function Home() {
       title: "Parques Reunidos",
       subtitle: "Catalog Harmonisation",
       description: "Seventy diverse entertainment venues created stunning operational complexity. A unified product language now preserves venue-specific narratives while enabling enterprise-wide product strategies, turning fragmented systems into coordinated platform across three continents.",
-      tech: ["Experience Design", "Service Design", "Digital Transformation"],
+      tech: ["Experience Design", "Service Design", "Digital Transformation", "Content Strategy", "Portfolio Management"],
+      industryTags: ["Entertainment Industry", "Theme Parks", "Leisure Management", "Global Operations"],
       category: "Themed Parks",
       year: "2023",
       client: "Parques Reunidos",
@@ -124,13 +130,14 @@ export default function Home() {
       testimonialAuthor: "Diego Salcedo-Delivery Manager-Globant",
       context: "Parques Reunidos is a global leisure leader operating seventy diverse entertainment venues spanning three continents and multiple experience categories. Portfolio diversity created operational complexity—particularly across six sales channels and seven distinct product categories. Fragmented systems limited consistent guest experiences and prevented implementation of enterprise-wide product strategies.",
       challenge: "In collaboration with internal teams, we created a unified product taxonomy to enable operational efficiency while preserving the authenticity of local venue offerings. We designed governance frameworks that balance centralised intelligence with venue-specific innovation across diverse properties. Integration pathways were mapped to connect disparate systems into a coherent operational ecosystem, enhancing both efficiency and engagement.",
-      impact: "As Globant we established master catalog architecture, creating a unified product language while preserving unique venue-specific narratives. Designed a governance system, transforming fragmented decision processes into coordinatedstrategic actions across the portfolio. Envisioned an implementation roadmap elevating product ecosystems from operational necessities to strategic enablers of guest delight."
+      impact: "We established master catalog architecture, creating a unified product language while preserving unique venue-specific narratives. The governance system transforms fragmented decision processes into coordinated strategic actions across the portfolio. Our implementation roadmap elevates product ecosystems from operational necessities to strategic enablers of guest delight."
     },
     {
       title: "Flagship Entertainment Destination, KSA",
       subtitle: "PoC Guest Support Platform",
       description: "Saudi Arabia's flagship entertainment destination required comprehensive guest support systems navigating uncharted territory in a landmark entertainment project.",
-      tech: ["Product Strategy", "Service Design", "Prototyping"],
+      tech: ["Product Strategy", "Service Design", "Prototyping", "Guest Support Systems", "Cultural Adaptation"],
+      industryTags: ["Entertainment Destination", "Guest Services", "Cultural Intelligence", "Digital Infrastructure"],
       category: "Hospitality-Themed Parks-Retail",
       year: "2025",
       client: "Qiddiya",
@@ -140,9 +147,9 @@ export default function Home() {
       secondaryImage: "/projects/qiddiya/secondary-qiddiya.png",
       testimonial: "This foundational work provided our internal teams with the confidence and clarity needed to align internal visions and also determine what part of the experience wouldn't be considered if it weren't for this envisioning.",
       testimonialAuthor: "Project Stakeholder",
-      context: "Saudi Arabia's flagship entertainment destination required comprehensive guest support systems navigating uncharted territory in a landmark entertainment project. Theme parks, water attractions, sports facilities, and retail centers operated through a unified digital infrastructure where both guests and operational staff would encounter these systems for the first time. Cultural complexity demanded sophisticated solutions: Saudi families, GCC visitors, and international tourists each brought different service expectations, with every touchpoint depending entirely on digital systems without analog alternatives available.",
-      challenge: "This proof of concept established a validated product strategy for complex entertainment ecosystem requirements through stakeholder collaboration and technical feasibility. Provided development teams with validated integration requirements, with PRDs specifying exact connections with Digital ID and ticketing systems. Workflow validation created shared understanding through stakeholder alignment via tangible prototypes, while designing data collection specs for guest interaction patterns and defining KPI structures for digital adoption and cultural adaptation success.",
-      impact: "Technical Foundation Established: Development teams received validated integration requirements, enabling confident planning without major architectural uncertainty. Operational Readiness Framework: Workflow validation created a shared understanding with achievable roadmaps that reflect real operational constraints. Intelligence Framework Design: Blueprints outlined future experience preservation measurement, paving the way for a truly world-class digital guest experience."
+      context: "Saudi Arabia's flagship entertainment destination required comprehensive guest support systems navigating uncharted territory in a landmark entertainment project. Theme parks, water attractions, sports facilities, and retail centers operated through a unified digital infrastructure where both guests and operational staff would encounter these systems for the first time. Cultural complexity demanded sophisticated solutions: Saudi families, GCC visitors, and international tourists each brought different service expectations, with every touchpoint depending entirely on digital systems.",
+      challenge: "This proof of concept established a validated product strategy for complex entertainment ecosystem requirements through stakeholder collaboration and technical feasibility. We provided development teams with validated integration requirements, with PRDs specifying exact connections with Digital ID and ticketing systems. Workflow validation created shared understanding through stakeholder alignment via tangible prototypes, while designing data collection specs for guest interaction patterns.",
+      impact: "Development teams received validated integration requirements, enabling confident planning without major architectural uncertainty. Workflow validation created shared understanding with achievable roadmaps that reflect real operational constraints. Our blueprints outlined future experience preservation measurement, paving the way for a truly world-class digital guest experience."
     }
   ];
 
@@ -150,7 +157,10 @@ export default function Home() {
   
   const filteredProjects = selectedCategory === "ALL WORK" 
     ? projects 
-    : projects.filter(project => project.tech.some(t => t.includes(selectedCategory.replace(" DESIGN", "").replace(" STRATEGY", "").replace(" TRANSFORMATION", "").replace(" RESEARCH", "").replace(" OPS", ""))));
+    : projects.filter(project => 
+        project.tech.some(t => t.includes(selectedCategory.replace(" DESIGN", "").replace(" STRATEGY", "").replace(" TRANSFORMATION", "").replace(" RESEARCH", "").replace(" OPS", ""))) ||
+        (project.industryTags && project.industryTags.some(tag => tag.includes(selectedCategory)))
+      );
 
   return (
     <div className="min-h-screen" style={{backgroundColor: '#fffbee'}}>
@@ -236,48 +246,100 @@ export default function Home() {
       {/* IMPACTFUL HERO: Full-Screen Photo Background */}
       <section 
         id="hero"
-        className="min-h-screen flex items-center justify-center relative overflow-hidden" 
+        style={{
+          position: 'relative',
+          height: '100vh',
+          width: '100%',
+          overflow: 'hidden',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
       >
-        {/* Full-Screen Professional Photo Background */}
-        <motion.div 
-          className="absolute inset-0 z-0"
-          initial={{ scale: 0.95 }}
-          animate={{ 
-            scale: [0.95, 1, 0.95],
-            filter: ['brightness(0.7)', 'brightness(0.75)', 'brightness(0.7)']
-          }}
-          transition={{ 
-            duration: 12, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
-        >
-          <Image
-            src="/silvana-profile.jpg"
-            alt="Silvana Restrepo - Principal Experience Architect"
-            fill
-            quality={100}
-            priority
-            className="object-cover"
-            style={{ objectPosition: 'center top' }}
-          />
-        </motion.div>
+        {/* GUARANTEED VISIBLE PHOTO BACKGROUND */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 1
+        }}>
+          <motion.div
+            style={{
+              width: '100%', 
+              height: '110%',
+              position: 'relative'
+            }}
+            animate={{
+              scale: [1, 1.05, 1],
+              y: [0, -20, 0],
+              filter: ['brightness(0.7)', 'brightness(0.8)', 'brightness(0.7)']
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity, 
+              ease: "easeInOut"
+            }}
+          >
+            <Image
+              src="/silvana-profile.jpg"
+              alt="Silvana Restrepo - Principal Experience Architect in professional portrait showcasing strategic design leadership"
+              fill
+              quality={100}
+              priority
+              style={{
+                objectFit: 'cover',
+                objectPosition: 'center top'
+              }}
+            />
+          </motion.div>
+        </div>
         
-        {/* Professional Overlay for Text Readability */}
-        <div 
-          className="absolute inset-0 z-5"
-          style={{
-            background: 'linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(255,102,99,0.3) 100%)'
-          }}
-        />
+        {/* CSS BACKGROUND FALLBACK */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: `
+            linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(255,102,99,0.2) 100%),
+            url('/silvana-profile.jpg')
+          `,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center top',
+          backgroundAttachment: 'scroll',
+          zIndex: 0
+        }} />
         
-        {/* IMPACTFUL TYPOGRAPHY OVERLAY */}
-        <div className="container mx-auto px-8 text-center relative z-10">
+        {/* ENHANCED OVERLAY - GUARANTEED VISIBILITY */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background: 'linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(255,102,99,0.25) 100%)',
+          zIndex: 2
+        }} />
+        
+        {/* TEXT LAYER - MAXIMUM VISIBILITY */}
+        <div style={{
+          position: 'relative',
+          zIndex: 10,
+          width: '100%',
+          height: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          textAlign: 'center'
+        }}>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 2 }}
-            className="max-w-6xl mx-auto"
+            style={{
+              maxWidth: '1200px',
+              margin: '0 auto'
+            }}
           >
             {/* H1: EXPERIENCE ARCHITECT - Large Impactful Display */}
             <motion.h1 
@@ -595,7 +657,7 @@ export default function Home() {
                   {/* Professional Photo */}
                   <Image
                     src="/silvana-profile.jpg"
-                    alt="Silvana Restrepo - Principal Experience Architect"
+                    alt="Silvana Restrepo - Principal Experience Architect, WEF Alumni, demonstrating human-centered design expertise"
                     fill
                     className="object-cover"
                     quality={95}
@@ -817,7 +879,7 @@ export default function Home() {
                             <motion.div className="relative w-full h-full overflow-hidden">
                               <Image
                                 src={project.image}
-                                alt={`${project.title} - Hero Visual Showcase`}
+                                alt={`${project.title} - ${project.category} project showcasing ${project.tech[0]} and ${project.tech[1]} for ${project.client}`}
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-110" 
                                 priority={index < 2}
@@ -926,9 +988,9 @@ export default function Home() {
                             </div>
                           </motion.div>
                           
-                          {/* 2 Primary Tags */}
+                          {/* Primary Capability Tags */}
                           <motion.div 
-                            className="flex flex-wrap gap-2"
+                            className="flex flex-wrap gap-2 mb-3"
                             initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 1, delay: 0.6 }}
@@ -943,6 +1005,27 @@ export default function Home() {
                                 }}
                               >
                                 {tech}
+                              </span>
+                            ))}
+                          </motion.div>
+                          
+                          {/* Industry Tags */}
+                          <motion.div 
+                            className="flex flex-wrap gap-2"
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 1, delay: 0.7 }}
+                          >
+                            {project.industryTags && project.industryTags.slice(0, 2).map((tag, tagIndex) => (
+                              <span 
+                                key={tagIndex}
+                                className="px-3 py-1 rounded-full text-xs font-medium"
+                                style={{
+                                  backgroundColor: 'rgba(255, 102, 99, 0.1)',
+                                  color: '#ff6663'
+                                }}
+                              >
+                                {tag}
                               </span>
                             ))}
                           </motion.div>
@@ -1754,20 +1837,20 @@ export default function Home() {
               
               {/* Enhanced Content with Section Navigation */}
               <div style={{ padding: 'var(--space-8)' }}>
-                {/* Section Jump Navigation */}
+                {/* Enhanced Section Jump Navigation */}
                 <div className="sticky top-4 bg-white/95 backdrop-blur-sm p-4 rounded-xl mb-12 z-30">
                   <div className="flex justify-center gap-8">
                     <a href="#context" className="text-sm font-medium text-gray-600 hover:text-coral transition-colors">
-                      Context
+                      01. Context
                     </a>
                     <a href="#challenge" className="text-sm font-medium text-gray-600 hover:text-coral transition-colors">
-                      Challenge  
+                      02. Challenge  
                     </a>
                     <a href="#impact" className="text-sm font-medium text-gray-600 hover:text-coral transition-colors">
-                      Impact
+                      03. Impact
                     </a>
                     <a href="#gallery" className="text-sm font-medium text-gray-600 hover:text-coral transition-colors">
-                      Gallery
+                      04. Gallery
                     </a>
                   </div>
                 </div>
@@ -1781,16 +1864,40 @@ export default function Home() {
                     <span>Year: {projects[selectedProject].year}</span>
                     <span>Location: {projects[selectedProject].location}</span>
                   </div>
-                  <div className="flex justify-center gap-3 mb-6">
-                    {projects[selectedProject].tech.map((tech, index) => (
-                      <span 
-                        key={index}
-                        className="px-4 py-2 rounded-full text-sm font-medium"
-                        style={{ backgroundColor: 'rgba(255, 102, 99, 0.1)', color: '#ff6663' }}
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                  <div className="space-y-4 mb-6">
+                    {/* Capability Tags */}
+                    <div>
+                      <h6 className="text-sm font-medium text-gray-600 mb-2">Core Capabilities</h6>
+                      <div className="flex justify-center gap-2 flex-wrap">
+                        {projects[selectedProject].tech.map((tech, index) => (
+                          <span 
+                            key={index}
+                            className="px-4 py-2 rounded-full text-sm font-medium"
+                            style={{ backgroundColor: '#ff6663', color: 'white' }}
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Industry Tags */}
+                    {projects[selectedProject].industryTags && (
+                      <div>
+                        <h6 className="text-sm font-medium text-gray-600 mb-2">Industry Focus</h6>
+                        <div className="flex justify-center gap-2 flex-wrap">
+                          {projects[selectedProject].industryTags.map((tag, index) => (
+                            <span 
+                              key={index}
+                              className="px-4 py-2 rounded-full text-sm font-medium"
+                              style={{ backgroundColor: 'rgba(255, 102, 99, 0.1)', color: '#ff6663' }}
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                   <a 
                     href={projects[selectedProject].website} 
@@ -1806,9 +1913,12 @@ export default function Home() {
                 {/* Enhanced Project Gallery System */}
                 <div id="gallery" className="scroll-mt-24" style={{ marginBottom: 'var(--space-8)' }}>
                   <div className="flex justify-between items-center mb-6">
-                    <h5 className="text-2xl font-medium" style={{ color: '#ff6663' }}>
-                      Project Gallery
-                    </h5>
+                    <div className="flex items-center gap-4">
+                      <span className="text-sm font-light text-gray-400">04</span>
+                      <h5 className="text-2xl font-medium" style={{ color: '#ff6663' }}>
+                        Project Gallery
+                      </h5>
+                    </div>
                     <span className="text-sm text-gray-500">
                       Image {currentGalleryImage + 1} of 2
                     </span>
@@ -1821,7 +1931,7 @@ export default function Home() {
                   >
                     <Image 
                       src={currentGalleryImage === 0 ? projects[selectedProject].image : projects[selectedProject].secondaryImage} 
-                      alt={`${projects[selectedProject].title} - Gallery Image ${currentGalleryImage + 1}`}
+                      alt={`${projects[selectedProject].title} - Detailed ${currentGalleryImage === 0 ? 'primary interface' : 'secondary implementation'} view demonstrating ${projects[selectedProject].tech[0]} for ${projects[selectedProject].client}`}
                       fill 
                       className="object-cover"
                       quality={90}
@@ -1840,7 +1950,7 @@ export default function Home() {
                     >
                       <Image 
                         src={projects[selectedProject].image} 
-                        alt="Primary view" 
+                        alt={`${projects[selectedProject].title} - Primary interface design showcasing user experience`} 
                         fill 
                         className="object-cover" 
                       />
@@ -1854,7 +1964,7 @@ export default function Home() {
                     >
                       <Image 
                         src={projects[selectedProject].secondaryImage} 
-                        alt="Secondary view" 
+                        alt={`${projects[selectedProject].title} - Secondary implementation view demonstrating system architecture`} 
                         fill 
                         className="object-cover" 
                       />
@@ -1866,9 +1976,12 @@ export default function Home() {
                 <div className="space-y-12 max-w-4xl mx-auto">
                   {/* Context Section */}
                   <div id="context" className="scroll-mt-24">
-                    <h4 className="text-2xl font-medium mb-6" style={{ color: '#ff6663' }}>
-                      Context
-                    </h4>
+                    <div className="flex items-center gap-4 mb-6">
+                      <span className="text-sm font-light text-gray-400">01</span>
+                      <h4 className="text-2xl font-medium" style={{ color: '#ff6663' }}>
+                        Context & Background
+                      </h4>
+                    </div>
                     <div className="prose prose-lg">
                       <p className="text-gray-700 font-normal leading-relaxed mb-6">
                         {projects[selectedProject].context}
@@ -1878,9 +1991,12 @@ export default function Home() {
 
                   {/* Scope of Challenge Section */}
                   <div id="challenge" className="scroll-mt-24">
-                    <h4 className="text-2xl font-medium mb-6" style={{ color: '#ff6663' }}>
-                      Scope of the Challenge
-                    </h4>
+                    <div className="flex items-center gap-4 mb-6">
+                      <span className="text-sm font-light text-gray-400">02</span>
+                      <h4 className="text-2xl font-medium" style={{ color: '#ff6663' }}>
+                        Scope of the Challenge
+                      </h4>
+                    </div>
                     <div className="prose prose-lg">
                       <p className="text-gray-700 font-normal leading-relaxed mb-6">
                         {projects[selectedProject].challenge}
@@ -1901,9 +2017,12 @@ export default function Home() {
                   
                   {/* Impact Section */}
                   <div id="impact" className="scroll-mt-24">
-                    <h4 className="text-2xl font-medium mb-6" style={{ color: '#ff6663' }}>
-                      Impact
-                    </h4>
+                    <div className="flex items-center gap-4 mb-6">
+                      <span className="text-sm font-light text-gray-400">03</span>
+                      <h4 className="text-2xl font-medium" style={{ color: '#ff6663' }}>
+                        Impact & Results
+                      </h4>
+                    </div>
                     <div className="prose prose-lg">
                       <p className="text-gray-700 font-normal leading-relaxed">
                         {projects[selectedProject].impact}
