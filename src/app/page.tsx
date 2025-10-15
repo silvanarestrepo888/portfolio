@@ -239,44 +239,16 @@ export default function Home() {
         className="min-h-screen flex items-center justify-center relative overflow-hidden" 
         style={{backgroundColor: '#fffbee'}}
       >
-        {/* Luxury Animated Background */}
-        <div className="absolute inset-0 opacity-30">
-          {[...Array(6)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute rounded-full bg-gradient-to-r from-rose-200 to-amber-200"
-              style={{
-                width: `${100 + i * 50}px`,
-                height: `${100 + i * 50}px`,
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -30, 0],
-                x: [0, 20, 0],
-                scale: [1, 1.1, 1],
-                opacity: [0.1, 0.3, 0.1]
-              }}
-              transition={{
-                duration: 8 + i * 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: i * 0.5
-              }}
-            />
-          ))}
+        {/* LANDOR LUXURY: Clean, sophisticated background */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="w-full h-full bg-gradient-to-br from-rose-50 to-amber-50"></div>
         </div>
-        {/* PHASE 4: Enhanced Gradient Background */}
-        <motion.div 
-          className="absolute inset-0 opacity-10"
-          animate={{
-            background: [
-              'linear-gradient(45deg, rgba(255, 182, 193, 0.3) 0%, rgba(255, 218, 185, 0.3) 100%)',
-              'linear-gradient(135deg, rgba(255, 218, 185, 0.3) 0%, rgba(255, 182, 193, 0.3) 100%)',
-              'linear-gradient(45deg, rgba(255, 182, 193, 0.3) 0%, rgba(255, 218, 185, 0.3) 100%)'
-            ]
+        {/* LANDOR LUXURY: Sophisticated static gradient */}
+        <div 
+          className="absolute inset-0 opacity-8"
+          style={{
+            background: 'linear-gradient(135deg, rgba(255, 182, 193, 0.15) 0%, rgba(255, 218, 185, 0.15) 100%)'
           }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
         
         {/* Pure Elegant Content */}
@@ -411,25 +383,28 @@ export default function Home() {
           </motion.div>
         </div>
         
-        {/* PHASE 4: Enhanced Scroll Indicator */}
+        {/* LANDOR LUXURY: Simple, elegant scroll indicator */}
         <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer group"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          whileHover={{ scale: 1.2 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+          whileHover={{ scale: 1.1 }}
           onClick={() => {
             const aboutSection = document.getElementById('about');
             aboutSection?.scrollIntoView({ behavior: 'smooth' });
           }}
+          style={{
+            width: '48px',
+            height: '48px',
+            borderRadius: '50%',
+            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 4px 20px rgba(255, 102, 99, 0.15)'
+          }}
         >
-          <div className="relative">
-            <motion.div
-              className="absolute inset-0 rounded-full bg-coral/20"
-              animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
-              transition={{ repeat: Infinity, duration: 2, delay: 0.5 }}
-            />
-            <ArrowDown style={{color: '#ff6663'}} size={32} className="relative z-10" />
-          </div>
+          <ArrowDown style={{color: '#ff6663'}} size={20} />
         </motion.div>
       </section>
 
@@ -620,11 +595,9 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  {/* Subtle Floating Badge */}
-                  <motion.div 
+                  {/* LANDOR LUXURY: Professional credential badge */}
+                  <div 
                     className="absolute top-8 right-8"
-                    animate={{ rotate: [0, 5, -5, 0] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                   >
                     <div 
                       className="px-4 py-2 rounded-full text-xs font-medium"
@@ -636,7 +609,7 @@ export default function Home() {
                     >
                       WEF Alumni
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               </motion.div>
             </motion.div>
