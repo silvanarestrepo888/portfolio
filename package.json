@@ -10,6 +10,8 @@
     "cache-clear": "rm -rf .next && echo 'Cache cleared'",
     "deploy-prod": "npm run cache-clear && vercel --prod",
     "deploy-force": "npm run cache-clear && vercel --prod --force",
+    "deploy-netlify": "npm run build && npx netlify-cli@latest deploy --prod --dir=.next",
+    "deploy-netlify-draft": "npm run build && npx netlify-cli@latest deploy --dir=.next",
     "cache-verify": "curl -s https://experiencearchitect.design/api/cache-verify | jq '.'",
     "cache-status": "curl -I https://experiencearchitect.design/ | grep -E '(cache-control|etag|age|x-deployment)'",
     "deployment-info": "vercel inspect experiencearchitect.design"

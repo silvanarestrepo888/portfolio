@@ -352,9 +352,9 @@ export default function Home() {
             {/* Refined Text Column */}
             <motion.div
               className="space-y-12 text-center lg:text-left"
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 1, y: 0 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 0.1 }}
               viewport={{ once: true }}
             >
               <div className="text-center lg:text-left">
@@ -365,9 +365,9 @@ export default function Home() {
                     letterSpacing: '-0.02em',
                     marginBottom: 'var(--title-margin)'
                   }}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 1, y: 0 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.2 }}
+                  transition={{ duration: 0.1 }}
                 >
                   <span 
                     className="text-lg font-light block mb-4"
@@ -384,9 +384,9 @@ export default function Home() {
                 <motion.p 
                   className="text-lg text-gray-600 font-normal text-center lg:text-left mx-auto lg:mx-0 max-w-2xl mb-8"
                   style={{ lineHeight: '1.7' }}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 1, y: 0 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.3 }}
+                  transition={{ duration: 0.1 }}
                   viewport={{ once: true }}
                 >
                   Discover the journey of strategic design thinking, business transformation, and the human perspective that drives meaningful innovation across industries.
@@ -434,7 +434,7 @@ export default function Home() {
                   viewport={{ once: true }}
                 >
                   <p 
-                    className="text-2xl text-verbatim text-gray-800 font-normal"
+                    className="text-2xl text-gray-800 font-normal italic"
                     style={{ lineHeight: '1.5' }}
                   >
                     The art of{' '}
@@ -573,7 +573,7 @@ export default function Home() {
               Projects
             </h2>
             <motion.p 
-              className="text-lg text-gray-600 font-normal text-center mx-auto max-w-3xl mb-8"
+              className="text-lg text-gray-600 font-normal text-center mx-auto max-w-4xl mb-8"
               style={{ lineHeight: '1.7' }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -607,23 +607,23 @@ export default function Home() {
           <div className="relative max-w-6xl mx-auto">
             <Swiper
               modules={[Pagination, Autoplay, Keyboard, Navigation]}
-              spaceBetween={60}
+              spaceBetween={80}
               slidesPerView={1}
               centeredSlides={true}
-              speed={1200}
+              speed={1500}
               grabCursor={true}
-              touchRatio={1.2}
-              threshold={30}
-              resistanceRatio={0.85}
+              touchRatio={1.5}
+              threshold={20}
+              resistanceRatio={0.9}
               longSwipes={true}
-              longSwipesRatio={0.2}
-              longSwipesMs={300}
+              longSwipesRatio={0.15}
+              longSwipesMs={400}
               keyboard={{
                 enabled: true,
                 onlyInViewport: true,
               }}
               autoplay={{
-                delay: 7000,
+                delay: 8000,
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true,
                 waitForTransition: true,
@@ -639,6 +639,14 @@ export default function Home() {
               }}
               onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex)}
               className="elegant-carousel"
+              style={{
+                '--swiper-navigation-color': '#ff6663',
+                '--swiper-pagination-color': '#ff6663',
+                '--swiper-pagination-bullet-inactive-color': 'rgba(255, 102, 99, 0.3)',
+                '--swiper-pagination-bullet-inactive-opacity': '0.3',
+                '--swiper-pagination-bullet-size': '12px',
+                '--swiper-pagination-bullet-horizontal-gap': '8px'
+              } as React.CSSProperties}
             >
               {filteredProjects.map((project, index) => (
                 <SwiperSlide key={project.title}>
@@ -649,10 +657,10 @@ export default function Home() {
                     transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
                     viewport={{ once: true }}
                     whileHover={{ 
-                      scale: 1.05,
-                      y: -8,
+                      scale: 1.02,
+                      y: -12,
                       transition: { 
-                        duration: 0.4, 
+                        duration: 0.6, 
                         ease: [0.25, 0.46, 0.45, 0.94] 
                       }
                     }}
@@ -665,15 +673,15 @@ export default function Home() {
                         boxShadow: '0 40px 80px rgba(255, 102, 99, 0.12)'
                       }}
                     >
-                      <div className="grid md:grid-cols-5 items-stretch min-h-[420px]">
-                        {/* Image Section - 60% - Perfect Visual Balance */}
+                      <div className="grid md:grid-cols-5 items-stretch min-h-[500px]">
+                        {/* Image Section - 61.8% (Golden Ratio) - Perfect Visual Balance */}
                         <motion.div 
                           className="md:col-span-3 relative flex items-center"
                           animate={{ y: [0, -4, 0] }}
                           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                         >
                           <div 
-                            className="aspect-[4/3] md:aspect-[16/10] overflow-hidden relative"
+                            className="aspect-[4/3] md:aspect-[16/10] overflow-hidden relative w-full"
                           >
                             <Image
                               src={project.image}
@@ -707,7 +715,7 @@ export default function Home() {
                           </div>
                         </motion.div>
                         
-                        {/* Content Section - 40% - Perfect Symmetric Balance */}
+                        {/* Content Section - 38.2% (Golden Ratio) - Perfect Symmetric Balance */}
                         <div className="md:col-span-2 p-8 flex flex-col justify-center space-y-6 h-full">
                           <motion.div
                             initial={{ opacity: 0, x: 20 }}
@@ -1061,7 +1069,7 @@ export default function Home() {
               Services
             </h2>
             <motion.p 
-              className="text-lg text-gray-600 font-normal text-center mx-auto max-w-3xl"
+              className="text-lg text-gray-600 font-normal text-center mx-auto max-w-4xl"
               style={{ lineHeight: '1.7' }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1734,7 +1742,7 @@ export default function Home() {
                   style={{ borderLeftColor: '#ff6663', backgroundColor: 'rgba(255, 102, 99, 0.05)' }}
                 >
                   <blockquote 
-                    className="text-2xl text-verbatim text-gray-800 mb-6"
+                    className="text-2xl text-gray-800 mb-6 italic"
                     style={{ lineHeight: '1.5' }}
                   >
                     {projects[selectedProject].testimonial}

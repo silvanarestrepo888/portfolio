@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+export const dynamic = 'force-static';
+
 export async function GET(request: NextRequest) {
   const deploymentId = process.env.VERCEL_DEPLOYMENT_ID || `local-${Date.now()}`;
   const buildId = process.env.VERCEL_BUILD_ID || `build-${Date.now()}`;
