@@ -218,7 +218,6 @@ export default function Home() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                  whileHover={{ y: -2 }}
                 >
                   <span 
                     className="text-xs font-light"
@@ -765,14 +764,14 @@ export default function Home() {
                       }
                     }}
                     onMouseEnter={(e) => {
-                      const card = e.currentTarget.querySelector('.project-card-bg');
+                      const card = e.currentTarget.querySelector('.project-card-bg') as HTMLElement;
                       if (card) {
                         card.style.boxShadow = '0 60px 120px rgba(255, 102, 99, 0.25), 0 25px 50px rgba(255, 102, 99, 0.15)';
                         card.style.transform = 'perspective(1000px) rotateX(2deg)';
                       }
                     }}
                     onMouseLeave={(e) => {
-                      const card = e.currentTarget.querySelector('.project-card-bg');
+                      const card = e.currentTarget.querySelector('.project-card-bg') as HTMLElement;
                       if (card) {
                         card.style.boxShadow = '0 40px 80px rgba(255, 102, 99, 0.12)';
                         card.style.transform = 'perspective(1000px) rotateX(0deg)';
