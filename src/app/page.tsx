@@ -180,7 +180,7 @@ export default function Home() {
                 silvana.
               </motion.a>
               
-              {/* LANDOR NAVIGATION - Enhanced Visual Hierarchy */}
+              {/* PHASE 4: LANDOR LUXURY NAVIGATION - Sophisticated Interactions */}
               {[
                 { name: 'About', number: '01' },
                 { name: 'Projects', number: '02' },
@@ -190,13 +190,30 @@ export default function Home() {
                 <motion.a
                   key={item.name}
                   href={`#${item.name.toLowerCase()}`}
-                  className="flex items-center gap-3 text-sm font-medium text-gray-700 hover:text-gray-900 transition-all duration-500 px-4 py-2 rounded-lg hover:bg-gray-50"
+                  className="flex items-center gap-3 text-sm font-medium text-gray-700 transition-all duration-700 px-4 py-2 rounded-lg relative overflow-hidden group"
                   style={{ 
                     letterSpacing: '0.05em',
                     minWidth: '44px',
                     minHeight: '44px',
                     alignItems: 'center',
                     justifyContent: 'center'
+                  }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    y: -2,
+                    transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }
+                  }}
+                  onMouseEnter={(e) => {
+                    const target = e.currentTarget;
+                    target.style.color = '#ff6663';
+                    target.style.backgroundColor = 'rgba(255, 102, 99, 0.08)';
+                    target.style.boxShadow = '0 8px 25px rgba(255, 102, 99, 0.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    const target = e.currentTarget;
+                    target.style.color = '#374151';
+                    target.style.backgroundColor = 'transparent';
+                    target.style.boxShadow = 'none';
                   }}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -217,16 +234,51 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Ultra-Luxurious Hero Section */}
+      {/* PHASE 4: LUXURY HERO - Advanced Background Effects */}
       <section 
         id="hero"
-        className="min-h-screen flex items-center justify-center relative" 
+        className="min-h-screen flex items-center justify-center relative overflow-hidden" 
         style={{backgroundColor: '#fffbee'}}
       >
-        {/* Subtle Elegant Background */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="w-full h-full bg-gradient-to-br from-rose-50 to-amber-50"></div>
+        {/* Luxury Animated Background */}
+        <div className="absolute inset-0 opacity-30">
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute rounded-full bg-gradient-to-r from-rose-200 to-amber-200"
+              style={{
+                width: `${100 + i * 50}px`,
+                height: `${100 + i * 50}px`,
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -30, 0],
+                x: [0, 20, 0],
+                scale: [1, 1.1, 1],
+                opacity: [0.1, 0.3, 0.1]
+              }}
+              transition={{
+                duration: 8 + i * 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: i * 0.5
+              }}
+            />
+          ))}
         </div>
+        {/* PHASE 4: Enhanced Gradient Background */}
+        <motion.div 
+          className="absolute inset-0 opacity-10"
+          animate={{
+            background: [
+              'linear-gradient(45deg, rgba(255, 182, 193, 0.3) 0%, rgba(255, 218, 185, 0.3) 100%)',
+              'linear-gradient(135deg, rgba(255, 218, 185, 0.3) 0%, rgba(255, 182, 193, 0.3) 100%)',
+              'linear-gradient(45deg, rgba(255, 182, 193, 0.3) 0%, rgba(255, 218, 185, 0.3) 100%)'
+            ]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
         
         {/* Pure Elegant Content */}
         <div className="container mx-auto px-8 text-center relative z-10">
@@ -284,40 +336,71 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1.4 }}
             >
+              {/* PHASE 4: LUXURY PRIMARY CTA - Advanced Micro-Interactions */}
               <motion.a
                 href="/portfolio/Silvana-Restrepo-Portfolio.pdf"
                 download="Silvana-Restrepo-CV.pdf"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-lg font-medium transition-all duration-500"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-lg font-medium transition-all duration-700 relative overflow-hidden group"
                 style={{
                   backgroundColor: '#ff6663',
-                  color: 'white'
+                  color: 'white',
+                  boxShadow: '0 8px 25px rgba(255, 102, 99, 0.3)'
                 }}
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{ 
+                  scale: 1.08, 
+                  y: -4,
+                  transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }
+                }}
                 whileTap={{ scale: 0.95 }}
+                onMouseEnter={(e) => {
+                  const target = e.currentTarget;
+                  target.style.backgroundColor = '#e55555';
+                  target.style.boxShadow = '0 15px 35px rgba(255, 102, 99, 0.4), 0 5px 15px rgba(255, 102, 99, 0.3)';
+                  target.style.transform = 'translateY(-4px) scale(1.08)';
+                }}
+                onMouseLeave={(e) => {
+                  const target = e.currentTarget;
+                  target.style.backgroundColor = '#ff6663';
+                  target.style.boxShadow = '0 8px 25px rgba(255, 102, 99, 0.3)';
+                  target.style.transform = 'translateY(0px) scale(1)';
+                }}
               >
-                Download my CV
+                <span className="relative z-10">Download my CV</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
               </motion.a>
+              {/* PHASE 4: LUXURY SECONDARY CTA - Sophisticated Hover States */}
               <motion.button
                 onClick={() => {
                   const projectsSection = document.getElementById('projects');
                   projectsSection?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-lg font-medium transition-all duration-500"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-lg font-medium transition-all duration-700 relative overflow-hidden group"
                 style={{
-                  border: '1px solid rgba(255, 102, 99, 0.3)',
-                  color: '#ff6663'
+                  border: '2px solid rgba(255, 102, 99, 0.3)',
+                  color: '#ff6663',
+                  background: 'transparent'
                 }}
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{ 
+                  scale: 1.08, 
+                  y: -4,
+                  transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }
+                }}
                 whileTap={{ scale: 0.95 }}
                 onMouseEnter={(e) => {
-                  const target = e.target as HTMLButtonElement;
+                  const target = e.currentTarget;
                   target.style.backgroundColor = '#ff6663';
                   target.style.color = 'white';
+                  target.style.borderColor = '#ff6663';
+                  target.style.boxShadow = '0 15px 35px rgba(255, 102, 99, 0.3)';
+                  target.style.transform = 'translateY(-4px) scale(1.08)';
                 }}
                 onMouseLeave={(e) => {
-                  const target = e.target as HTMLButtonElement;
+                  const target = e.currentTarget;
                   target.style.backgroundColor = 'transparent';
                   target.style.color = '#ff6663';
+                  target.style.borderColor = 'rgba(255, 102, 99, 0.3)';
+                  target.style.boxShadow = 'none';
+                  target.style.transform = 'translateY(0px) scale(1)';
                 }}
               >
                 Explore My Projects
@@ -326,12 +409,25 @@ export default function Home() {
           </motion.div>
         </div>
         
+        {/* PHASE 4: Enhanced Scroll Indicator */}
         <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer group"
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
+          whileHover={{ scale: 1.2 }}
+          onClick={() => {
+            const aboutSection = document.getElementById('about');
+            aboutSection?.scrollIntoView({ behavior: 'smooth' });
+          }}
         >
-          <ArrowDown style={{color: '#ff6663'}} size={28} />
+          <div className="relative">
+            <motion.div
+              className="absolute inset-0 rounded-full bg-coral/20"
+              animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
+              transition={{ repeat: Infinity, duration: 2, delay: 0.5 }}
+            />
+            <ArrowDown style={{color: '#ff6663'}} size={32} className="relative z-10" />
+          </div>
         </motion.div>
       </section>
 
@@ -660,44 +756,78 @@ export default function Home() {
                     transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
                     viewport={{ once: true }}
                     whileHover={{ 
-                      scale: 1.02,
-                      y: -12,
+                      scale: 1.03,
+                      y: -16,
+                      rotateX: 2,
                       transition: { 
-                        duration: 0.6, 
+                        duration: 0.5, 
                         ease: [0.25, 0.46, 0.45, 0.94] 
+                      }
+                    }}
+                    onMouseEnter={(e) => {
+                      const card = e.currentTarget.querySelector('.project-card-bg');
+                      if (card) {
+                        card.style.boxShadow = '0 60px 120px rgba(255, 102, 99, 0.25), 0 25px 50px rgba(255, 102, 99, 0.15)';
+                        card.style.transform = 'perspective(1000px) rotateX(2deg)';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      const card = e.currentTarget.querySelector('.project-card-bg');
+                      if (card) {
+                        card.style.boxShadow = '0 40px 80px rgba(255, 102, 99, 0.12)';
+                        card.style.transform = 'perspective(1000px) rotateX(0deg)';
                       }
                     }}
                     onClick={() => setSelectedProject(index)}
                   >
-                    {/* LANDOR LUXURY PROJECT CARDS - Dramatic Breathing Room */}
+                    {/* PHASE 4: LANDOR LUXURY PROJECT CARDS - Advanced Interactions */}
                     <div 
-                      className="bg-white rounded-3xl overflow-hidden elevation-3 max-w-6xl mx-auto project-card-spacing"
+                      className="project-card-bg bg-white rounded-3xl overflow-hidden elevation-3 max-w-6xl mx-auto project-card-spacing"
                       style={{
                         boxShadow: '0 40px 80px rgba(255, 102, 99, 0.12)',
-                        margin: '4rem auto'
+                        margin: '4rem auto',
+                        transition: 'all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                        transformStyle: 'preserve-3d'
                       }}
                     >
                       <div className="grid md:grid-cols-5 items-stretch min-h-[500px]">
-                        {/* Image Section - 61.8% (Golden Ratio) - Perfect Visual Balance */}
+                        {/* PHASE 4: Image Section - Enhanced Parallax & Interactions */}
                         <motion.div 
-                          className="md:col-span-3 relative flex items-center"
+                          className="md:col-span-3 relative flex items-center overflow-hidden group"
                           animate={{ y: [0, -4, 0] }}
                           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                          whileHover={{ scale: 1.02 }}
                         >
                           <div 
                             className="aspect-[4/3] md:aspect-[16/10] overflow-hidden relative w-full"
                           >
-                            <Image
-                              src={project.image}
-                              alt={`${project.title} - Hero Visual Showcase`}
-                              fill
-                              className="object-cover" 
-                              priority={index < 2}
-                              quality={85}
-                              sizes="(max-width: 768px) 100vw, 60vw"
-                              style={{ objectPosition: 'center' }}
+                            {/* PHASE 4: Enhanced Image with Luxury Hover Effects */}
+                            <motion.div className="relative w-full h-full overflow-hidden">
+                              <Image
+                                src={project.image}
+                                alt={`${project.title} - Hero Visual Showcase`}
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                                priority={index < 2}
+                                quality={90}
+                                sizes="(max-width: 768px) 100vw, 60vw"
+                                style={{ objectPosition: 'center' }}
+                              />
+                              {/* Luxury Overlay Animation */}
+                              <motion.div 
+                                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full"
+                                whileHover={{
+                                  x: ['100%', '200%'],
+                                  transition: { duration: 0.8, ease: "easeInOut" }
+                                }}
+                              />
+                            </motion.div>
+                            {/* PHASE 4: Enhanced Gradient Overlay */}
+                            <motion.div 
+                              className="absolute inset-0 bg-gradient-to-r from-transparent to-black/10"
+                              whileHover={{ opacity: 0.5 }}
+                              transition={{ duration: 0.3 }}
                             />
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/10"></div>
                             
                             {/* Year Badge */}
                             <motion.div 
