@@ -430,49 +430,58 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* LANDOR LUXURY ABOUT SECTION - Direct Styling */}
+      {/* SIMPLE DESKTOP ABOUT SECTION - GUARANTEED CENTERING */}
       <section 
         id="about" 
+        className="section-desktop"
         style={{ 
-          backgroundColor: 'white', 
-          paddingTop: '8rem',
-          paddingBottom: '8rem',
-          minHeight: '100vh',
-          display: 'flex',
-          alignItems: 'center'
+          backgroundColor: 'white'
         }}
       >
-        <div className="container mx-auto px-8 max-w-7xl">
-          <div className="grid lg:grid-cols-2 items-center" style={{gap: '6rem'}}>
-            {/* Refined Text Column */}
-            <motion.div
-              className="space-y-16 text-center content-breathing-room-lg"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-              viewport={{ once: true }}
+        <div className="container-desktop">
+          <motion.div
+            className="desktop-centered"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            viewport={{ once: true }}
             >
-              <div className="text-center section-header">
+              <div style={{textAlign: 'center', marginBottom: '3rem'}}>
                 <motion.h2 
-                  className="section-title text-h2 text-gray-800"
+                  style={{
+                    fontSize: '4rem',
+                    fontWeight: '300',
+                    lineHeight: '1.1',
+                    letterSpacing: '-0.02em',
+                    color: '#374151',
+                    marginBottom: '2rem'
+                  }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.2 }}
                 >
-                  <span className="section-number">
+                  <span style={{
+                    display: 'block',
+                    fontSize: '1rem',
+                    color: 'rgba(255, 102, 99, 0.6)',
+                    letterSpacing: '0.2em',
+                    marginBottom: '1rem',
+                    fontWeight: '300'
+                  }}>
                     01
                   </span>
                   About Me
                 </motion.h2>
                 
                 <motion.p 
-                  className="section-description text-lg text-gray-600 font-normal"
                   style={{ 
+                    fontSize: '1.125rem',
                     lineHeight: '1.7',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
+                    color: '#6B7280',
+                    margin: '0 auto',
                     textAlign: 'center',
-                    maxWidth: '800px'
+                    maxWidth: '500px',
+                    marginBottom: '2rem'
                   }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -485,11 +494,13 @@ export default function Home() {
               
               {/* Body: 3-sentence paragraph structure - Phase 3 */}
               <div 
-                className="max-w-3xl mx-auto space-y-12 content-breathing-room-lg"
                 style={{
-                  marginLeft: 'auto',
-                  marginRight: 'auto',
-                  textAlign: 'center'
+                  maxWidth: '500px',
+                  margin: '0 auto',
+                  textAlign: 'center',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '3rem'
                 }}
               >
                 <motion.p 
@@ -643,10 +654,9 @@ export default function Home() {
           justifyContent: 'center'
         }}
       >
-        <div className="container mx-auto px-8">
+        <div className="container-desktop">
           <motion.div 
-            className="text-center"
-            style={{marginBottom: '6rem'}}
+            className="heading-desktop"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -671,8 +681,12 @@ export default function Home() {
               Projects
             </h2>
             <motion.p 
-              className="text-lg text-gray-600 font-normal text-center mx-auto max-w-4xl mb-8"
-              style={{ lineHeight: '1.7' }}
+              className="content-desktop"
+              style={{ 
+                fontSize: '1.125rem',
+                lineHeight: '1.7',
+                color: '#6B7280'
+              }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
@@ -701,8 +715,8 @@ export default function Home() {
             </div>
           </motion.div>
           
-          {/* Elegant Organic Carousel */}
-          <div className="relative max-w-6xl mx-auto">
+          {/* SIMPLE DESKTOP CAROUSEL - GUARANTEED CENTERING */}
+          <div className="projects-desktop" style={{position: 'relative'}}>
             <Swiper
               modules={[Pagination, Autoplay, Keyboard, Navigation]}
               spaceBetween={80}

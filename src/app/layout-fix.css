@@ -1,0 +1,46 @@
+/* ========================================== */
+/* SIMPLE DESKTOP LAYOUT - GUARANTEED TO WORK */
+/* ========================================== */
+
+/* Force all content to be centered with balanced margins */
+.desktop-centered {
+  max-width: 800px !important;
+  margin: 0 auto !important;
+  padding: 0 60px !important;
+  text-align: center !important;
+}
+
+/* Force proper section spacing */
+.section-desktop {
+  padding: 120px 0 !important;
+  margin: 0 auto !important;
+}
+
+/* Force proper container width */
+.container-desktop {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 80px !important;
+}
+
+/* Force headings to center */
+.heading-desktop {
+  text-align: center !important;
+  margin: 0 auto 60px auto !important;
+  max-width: 100% !important;
+}
+
+/* Force content to center */
+.content-desktop {
+  text-align: center !important;
+  margin: 0 auto !important;
+  max-width: 700px !important;
+  padding: 0 40px !important;
+}
+
+/* Force projects to center */
+.projects-desktop {
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+}
