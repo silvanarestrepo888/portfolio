@@ -335,20 +335,20 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Elegant About Me Section */}
+      {/* LANDOR LUXURY ABOUT SECTION - Direct Styling */}
       <section 
         id="about" 
         style={{ 
           backgroundColor: 'white', 
-          paddingTop: 'var(--section-padding)', 
-          paddingBottom: 'var(--section-padding)',
+          paddingTop: '8rem',
+          paddingBottom: '8rem',
           minHeight: '100vh',
           display: 'flex',
           alignItems: 'center'
         }}
       >
         <div className="container mx-auto px-8 max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 items-center" style={{gap: '6rem'}}>
             {/* Refined Text Column */}
             <motion.div
               className="space-y-16 text-center lg:text-left content-breathing-room-lg"
@@ -522,13 +522,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sophisticated Projects Section */}
+      {/* LANDOR LUXURY PROJECTS SECTION - Direct Styling */}
       <section 
         id="projects" 
         style={{
           background: 'linear-gradient(180deg, #fffbee 0%, #fefcf3 50%, #fffbee 100%)',
-          paddingTop: 'var(--section-padding)',
-          paddingBottom: 'var(--section-padding)',
+          paddingTop: '8rem',
+          paddingBottom: '8rem',
           minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
@@ -537,7 +537,8 @@ export default function Home() {
       >
         <div className="container mx-auto px-8">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center"
+            style={{marginBottom: '6rem'}}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -886,13 +887,13 @@ export default function Home() {
       </section>
 
 
-      {/* Experience Section */}
+      {/* LANDOR LUXURY EXPERIENCE SECTION - Direct Styling */}
       <section 
         id="experience"
         style={{ 
           background: 'linear-gradient(180deg, #fffbee 0%, #fdf9f0 50%, #fffbee 100%)',
-          paddingTop: 'var(--section-padding)',
-          paddingBottom: 'var(--section-padding)',
+          paddingTop: '8rem',
+          paddingBottom: '8rem',
           minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
@@ -1023,13 +1024,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Elegant Services Section */}
+      {/* LANDOR LUXURY SERVICES SECTION - Direct Styling */}
       <section 
         id="services"
         style={{ 
           background: 'linear-gradient(180deg, #ffffff 0%, #fefefe 50%, #ffffff 100%)',
-          paddingTop: 'var(--section-padding)',
-          paddingBottom: 'var(--section-padding)'
+          paddingTop: '8rem',
+          paddingBottom: '8rem'
         }}
       >
         <div className="container mx-auto px-8">
