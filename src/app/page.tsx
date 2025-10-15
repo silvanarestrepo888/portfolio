@@ -351,13 +351,13 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 items-center" style={{gap: '6rem'}}>
             {/* Refined Text Column */}
             <motion.div
-              className="space-y-16 text-center lg:text-left content-breathing-room-lg"
+              className="space-y-16 text-center content-breathing-room-lg"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
               viewport={{ once: true }}
             >
-              <div className="text-center lg:text-left section-header">
+              <div className="text-center section-header">
                 <motion.h2 
                   className="section-title text-h2 text-gray-800"
                   initial={{ opacity: 0, y: 20 }}
@@ -372,7 +372,13 @@ export default function Home() {
                 
                 <motion.p 
                   className="section-description text-lg text-gray-600 font-normal"
-                  style={{ lineHeight: '1.7' }}
+                  style={{ 
+                    lineHeight: '1.7',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                    textAlign: 'center',
+                    maxWidth: '800px'
+                  }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.3 }}
@@ -383,7 +389,14 @@ export default function Home() {
               </div>
               
               {/* Body: 3-sentence paragraph structure - Phase 3 */}
-              <div className="max-w-3xl space-y-12 content-breathing-room-lg">
+              <div 
+                className="max-w-3xl mx-auto space-y-12 content-breathing-room-lg"
+                style={{
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                  textAlign: 'center'
+                }}
+              >
                 <motion.p 
                   className="text-lg text-gray-700 font-normal"
                   style={{ lineHeight: '1.7' }}
