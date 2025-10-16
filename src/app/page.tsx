@@ -4,11 +4,6 @@ import { motion } from 'framer-motion';
 import { Linkedin, Mail, ExternalLink, ArrowDown } from 'lucide-react';
 import { useState } from 'react';
 import Image from 'next/image';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, Keyboard, Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -813,341 +808,145 @@ export default function Home() {
             </div>
           </motion.div>
           
-          {/* PROFESSIONAL PROJECT CAROUSEL - Complete UX Redesign */}
-          <div className="projects-desktop max-w-7xl mx-auto" style={{position: 'relative'}}>
-            <Swiper
-              modules={[Pagination, Autoplay, Keyboard, Navigation]}
-              spaceBetween={80}
-              slidesPerView={1}
-              centeredSlides={true}
-              speed={1500}
-              grabCursor={true}
-              touchRatio={1.5}
-              threshold={20}
-              resistanceRatio={0.9}
-              longSwipes={true}
-              longSwipesRatio={0.15}
-              longSwipesMs={400}
-              keyboard={{
-                enabled: true,
-                onlyInViewport: true,
-              }}
-              autoplay={{
-                delay: 8000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-                waitForTransition: true,
-              }}
-              pagination={{ 
-                clickable: true,
-                bulletClass: 'elegant-bullet',
-                bulletActiveClass: 'elegant-bullet-active'
-              }}
-              navigation={{
-                nextEl: '.swiper-button-next-custom',
-                prevEl: '.swiper-button-prev-custom',
-              }}
-              onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex)}
-              className="elegant-carousel"
-              style={{
-                '--swiper-navigation-color': '#ff6663',
-                '--swiper-pagination-color': '#ff6663',
-                '--swiper-pagination-bullet-inactive-color': 'rgba(255, 102, 99, 0.3)',
-                '--swiper-pagination-bullet-inactive-opacity': '0.3',
-                '--swiper-pagination-bullet-size': '12px',
-                '--swiper-pagination-bullet-horizontal-gap': '8px'
-              } as React.CSSProperties}
+          {/* LUXURY BRAND PROJECT SHOWCASE - Hermès/LV Inspired */}
+          <div className="max-w-[95vw] mx-auto">
+            {/* Project Navigation */}
+            <div className="flex justify-between items-center mb-16 px-8">
+              <motion.button
+                onClick={() => setCurrentSlide(currentSlide === 0 ? filteredProjects.length - 1 : currentSlide - 1)}
+                className="group flex items-center gap-4 px-8 py-4 bg-white rounded-full transition-all duration-500"
+                style={{ 
+                  border: '1px solid rgba(255, 102, 99, 0.2)',
+                  boxShadow: '0 8px 30px rgba(255, 102, 99, 0.08)'
+                }}
+                whileHover={{ scale: 1.05, x: -4 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <ArrowDown size={20} style={{ transform: 'rotate(90deg)', color: '#ff6663' }} />
+                <span className="text-gray-600 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Previous
+                </span>
+              </motion.button>
+              
+              <div className="flex gap-3">
+                {filteredProjects.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-500 ${
+                      currentSlide === index ? 'scale-150' : 'opacity-40 hover:opacity-70'
+                    }`}
+                    style={{ backgroundColor: '#ff6663' }}
+                  />
+                ))}
+              </div>
+              
+              <motion.button
+                onClick={() => setCurrentSlide((currentSlide + 1) % filteredProjects.length)}
+                className="group flex items-center gap-4 px-8 py-4 bg-white rounded-full transition-all duration-500"
+                style={{ 
+                  border: '1px solid rgba(255, 102, 99, 0.2)',
+                  boxShadow: '0 8px 30px rgba(255, 102, 99, 0.08)'
+                }}
+                whileHover={{ scale: 1.05, x: 4 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="text-gray-600 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Next
+                </span>
+                <ArrowDown size={20} style={{ transform: 'rotate(-90deg)', color: '#ff6663' }} />
+              </motion.button>
+            </div>
+
+            {/* Full-Screen Project Showcase */}
+            <motion.div
+              className="relative"
+              key={currentSlide}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              {filteredProjects.map((project, index) => (
-                <SwiperSlide key={project.title}>
-                  <motion.div 
-                    className="relative mx-auto cursor-pointer"
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    viewport={{ once: true }}
-                    whileHover={{ 
-                      scale: 1.03,
-                      y: -16,
-                      rotateX: 2,
-                      transition: { 
-                        duration: 0.5, 
-                        ease: [0.25, 0.46, 0.45, 0.94] 
-                      }
-                    }}
-                    onMouseEnter={(e) => {
-                      const card = e.currentTarget.querySelector('.project-card-bg') as HTMLElement;
-                      if (card) {
-                        card.style.boxShadow = '0 60px 120px rgba(255, 102, 99, 0.25), 0 25px 50px rgba(255, 102, 99, 0.15)';
-                        card.style.transform = 'perspective(1000px) rotateX(2deg)';
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      const card = e.currentTarget.querySelector('.project-card-bg') as HTMLElement;
-                      if (card) {
-                        card.style.boxShadow = '0 40px 80px rgba(255, 102, 99, 0.12)';
-                        card.style.transform = 'perspective(1000px) rotateX(0deg)';
-                      }
-                    }}
-                    onClick={() => {
-                      setSelectedProject(index);
-                      setCurrentGalleryImage(0);
-                    }}
-                  >
-                    {/* PHASE 4: LANDOR LUXURY PROJECT CARDS - Advanced Interactions */}
-                    <div 
-                      className="project-card-bg bg-white rounded-3xl overflow-hidden elevation-3 max-w-6xl mx-auto project-card-spacing"
-                      style={{
-                        boxShadow: '0 40px 80px rgba(255, 102, 99, 0.12)',
-                        margin: '4rem auto',
-                        transition: 'all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                        transformStyle: 'preserve-3d'
-                      }}
+              {/* Hero Image - Full Width */}
+              <div 
+                className="aspect-[21/9] rounded-3xl overflow-hidden relative group cursor-pointer"
+                style={{ boxShadow: '0 40px 100px rgba(0, 0, 0, 0.12)' }}
+                onClick={() => {
+                  setSelectedProject(currentSlide);
+                  setCurrentGalleryImage(0);
+                }}
+              >
+                <Image
+                  src={filteredProjects[currentSlide].image}
+                  alt={`${filteredProjects[currentSlide].title} - Luxury brand showcase`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                  quality={98}
+                  sizes="95vw"
+                  style={{ objectPosition: 'center center' }}
+                />
+                
+                {/* Elegant Content Overlay - Appears on Hover */}
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                />
+                
+                <motion.div 
+                  className="absolute bottom-0 left-0 right-0 p-16 text-white transform translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-700"
+                >
+                  <div className="max-w-4xl">
+                    <motion.h2 
+                      className="text-6xl font-light mb-6 leading-tight"
+                      style={{ letterSpacing: '-0.03em' }}
                     >
-                      <div className="grid md:grid-cols-5 items-stretch min-h-[600px]">
-                        {/* CLEAN IMAGE AREA - Balanced Proportions */}
-                        <motion.div 
-                          className="md:col-span-3 relative flex items-center overflow-hidden group"
-                          animate={{ y: [0, -4, 0] }}
-                          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                          whileHover={{ scale: 1.02 }}
-                        >
-                          <div 
-                            className="aspect-[4/3] md:aspect-[16/10] overflow-hidden relative w-full"
-                          >
-                            {/* PHASE 4: Enhanced Image with Luxury Hover Effects */}
-                            <motion.div className="relative w-full h-full overflow-hidden">
-                              <Image
-                                src={project.image}
-                                alt={`${project.title} - ${project.category} project showcasing ${project.tech[0]} and ${project.tech[1]} for ${project.client}`}
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-110" 
-                                priority={index < 2}
-                                quality={90}
-                                sizes="(max-width: 768px) 100vw, 60vw"
-                                style={{ objectPosition: 'center' }}
-                              />
-                              {/* Luxury Overlay Animation */}
-                              <motion.div 
-                                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full"
-                                whileHover={{
-                                  x: ['100%', '200%'],
-                                  transition: { duration: 0.8, ease: "easeInOut" }
-                                }}
-                              />
-                            </motion.div>
-                            {/* PHASE 4: Enhanced Gradient Overlay */}
-                            <motion.div 
-                              className="absolute inset-0 bg-gradient-to-r from-transparent to-black/10"
-                              whileHover={{ opacity: 0.5 }}
-                              transition={{ duration: 0.3 }}
-                            />
-                          </div>
-                        </motion.div>
-                        
-                        {/* CONTENT AREA: Generous Spacing & Professional Layout */}
-                        <div className="md:col-span-2 p-16 flex flex-col justify-center h-full bg-white" style={{gap: '3rem'}}>
-                          <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 1, delay: 0.3 }}
-                          >
-                            {/* Project Title - Professional Hierarchy */}
-                            <h3 className="text-4xl font-light text-gray-800 mb-6 leading-tight">
-                              {project.title}
-                            </h3>
-                          </motion.div>
-                          
-                          <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 1, delay: 0.4 }}
-                          >
-                            {/* Project Subtitle */}
-                            <h4 className="text-xl text-gray-600 leading-relaxed mb-6">
-                              {project.subtitle}
-                            </h4>
-                          </motion.div>
-                          
-                          <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 1, delay: 0.5 }}
-                          >
-                            {/* Client Name */}
-                            <p className="text-2xl font-medium mb-8" style={{ color: '#ff6663' }}>
-                              {project.client}
-                            </p>
-                            
-                            {/* Project Metadata - Clean Layout */}
-                            <div className="flex gap-8 text-lg text-gray-500 mb-10">
-                              <span className="font-medium">{project.year}</span>
-                              <span>•</span>
-                              <span className="font-medium">{project.location}</span>
-                            </div>
-                          </motion.div>
-                          
-                          {/* Capability Tags - Properly Sized */}
-                          <motion.div 
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 1, delay: 0.6 }}
-                          >
-                            <p className="text-base font-medium text-gray-600 mb-6">Core Capabilities</p>
-                            <div className="flex flex-wrap gap-4 mb-8">
-                              {project.tech.slice(0, 2).map((tech, techIndex) => (
-                                <span 
-                                  key={techIndex}
-                                  className="px-6 py-3 rounded-full text-base font-medium"
-                                  style={{
-                                    backgroundColor: '#ff6663',
-                                    color: 'white',
-                                    minWidth: '140px',
-                                    textAlign: 'center'
-                                  }}
-                                >
-                                  {tech}
-                                </span>
-                              ))}
-                            </div>
-                            
-                            {/* Industry Tag */}
-                            {project.industryTags && (
-                              <div>
-                                <p className="text-base font-medium text-gray-600 mb-6">Industry Focus</p>
-                                <span 
-                                  className="px-6 py-3 rounded-full text-base font-medium"
-                                  style={{
-                                    backgroundColor: 'rgba(255, 102, 99, 0.1)',
-                                    color: '#ff6663',
-                                    border: '1px solid rgba(255, 102, 99, 0.3)',
-                                    minWidth: '160px',
-                                    display: 'inline-block',
-                                    textAlign: 'center'
-                                  }}
-                                >
-                                  {project.industryTags[0]}
-                                </span>
-                              </div>
-                            )}
-                          </motion.div>
-                          
-                          {/* Action Buttons - Generous Spacing */}
-                          <motion.div 
-                            className="space-y-8 pt-12"
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 1, delay: 0.7 }}
-                          >
-                            <button 
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setSelectedProject(index);
-                                setCurrentGalleryImage(0);
-                              }}
-                              className="w-full flex items-center justify-center gap-4 px-12 py-6 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105"
-                              style={{
-                                backgroundColor: '#ff6663',
-                                color: 'white',
-                                minHeight: '72px',
-                                boxShadow: '0 8px 25px rgba(255, 102, 99, 0.3)'
-                              }}
-                            >
-                              View Project Details
-                            </button>
-                            <a 
-                              href={project.website}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={(e) => e.stopPropagation()}
-                              className="w-full flex items-center justify-center gap-4 px-12 py-6 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105"
-                              style={{
-                                border: '2px solid rgba(255, 102, 99, 0.4)',
-                                color: '#ff6663',
-                                backgroundColor: 'rgba(255, 102, 99, 0.08)',
-                                minHeight: '72px',
-                                boxShadow: '0 4px 15px rgba(255, 102, 99, 0.15)'
-                              }}
-                            >
-                              <ExternalLink size={20} />
-                              Visit Client Website
-                            </a>
-                          </motion.div>
+                      {filteredProjects[currentSlide].title}
+                    </motion.h2>
+                    
+                    <motion.div className="grid md:grid-cols-3 gap-16 items-end">
+                      <div>
+                        <p className="text-2xl font-medium mb-4" style={{ color: '#ff6663' }}>
+                          {filteredProjects[currentSlide].client}
+                        </p>
+                        <div className="flex gap-6 text-lg opacity-90">
+                          <span>{filteredProjects[currentSlide].year}</span>
+                          <span>•</span>
+                          <span>{filteredProjects[currentSlide].location}</span>
                         </div>
                       </div>
-                    </div>
-                  </motion.div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-            
-            {/* Elegant Navigation Arrows */}
-            <motion.button
-              className="swiper-button-prev-custom absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center z-10 elevation-2"
-              style={{ color: '#ff6663' }}
-              whileHover={{ 
-                scale: 1.1, 
-                x: -4,
-                backgroundColor: 'rgba(255, 255, 255, 0.95)'
-              }}
-              whileTap={{ scale: 0.9 }}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              <ArrowDown size={20} style={{ transform: 'rotate(90deg)' }} />
-            </motion.button>
-            
-            <motion.button
-              className="swiper-button-next-custom absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center z-10 elevation-2"
-              style={{ color: '#ff6663' }}
-              whileHover={{ 
-                scale: 1.1, 
-                x: 4,
-                backgroundColor: 'rgba(255, 255, 255, 0.95)'
-              }}
-              whileTap={{ scale: 0.9 }}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              <ArrowDown size={20} style={{ transform: 'rotate(-90deg)' }} />
-            </motion.button>
-            
-            {/* Enhanced Progress Counter with Luxury Spacing */}
-            <motion.div 
-              className="text-center"
-              style={{ marginTop: 'var(--margin-dramatic)' }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-            >
-              <div className="flex items-center justify-center gap-6">
-                <span className="text-sm font-light text-gray-500">Project</span>
-                <div 
-                  className="px-6 py-3 rounded-full text-sm font-medium"
-                  style={{
-                    backgroundColor: 'rgba(255, 102, 99, 0.1)',
-                    color: '#ff6663'
-                  }}
-                >
-                  {currentSlide + 1} of {filteredProjects.length}
-                </div>
-                <span className="text-sm font-light text-gray-500">Selected</span>
+                      
+                      <div>
+                        <p className="text-xl leading-relaxed opacity-90">
+                          {filteredProjects[currentSlide].subtitle}
+                        </p>
+                      </div>
+                      
+                      <div className="flex gap-4">
+                        <motion.button 
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedProject(currentSlide);
+                            setCurrentGalleryImage(0);
+                          }}
+                          className="px-8 py-4 bg-white text-gray-800 rounded-full font-medium transition-all duration-300 hover:scale-105"
+                          whileHover={{ backgroundColor: '#ff6663', color: 'white' }}
+                        >
+                          Explore Project
+                        </motion.button>
+                        <motion.a 
+                          href={filteredProjects[currentSlide].website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="px-8 py-4 border-2 border-white text-white rounded-full font-medium transition-all duration-300 hover:scale-105"
+                          whileHover={{ backgroundColor: 'white', color: '#ff6663' }}
+                        >
+                          Live Project
+                        </motion.a>
+                      </div>
+                    </motion.div>
+                  </div>
+                </motion.div>
               </div>
-            </motion.div>
-            
-            {/* Mobile Swipe Indicator with Luxury Spacing */}
-            <motion.div 
-              className="md:hidden text-center"
-              style={{ marginTop: 'var(--margin-normal)' }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1 }}
-            >
-              <p className="text-sm font-light text-gray-400">
-                ← Swipe to explore projects →
-              </p>
             </motion.div>
           </div>
         </div>
