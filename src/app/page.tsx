@@ -31,6 +31,11 @@ export default function Home() {
       website: "https://kayanee.com/",
       image: "/projects/kayanee/hero-kayanee.jpeg",
       secondaryImage: "/projects/kayanee/secundary-kayanee.jpeg",
+      galleryImages: [
+        "/projects/kayanee/hero-kayanee.jpeg",
+        "/projects/kayanee/secundary-kayanee.jpeg",
+        "/projects/kayanee/Screenshot 2024-11-15 at 10.42.42.png"
+      ],
       testimonial: "Amazing proposal and presentation for Kayanee and princess Reema @ KSA...you are already on the next level. Keep rocking!",
       testimonialAuthor: "Martin Migoya -CEO - Globant",
       context: "For centuries, wellness has been a deeply personal journey rooted in culture, tradition, and individual aspirations. In Saudi Arabia, Kayanee writes a new chapter as more than just a wellness brand—it's a movement revolutionizing how women experience health and empowerment. This pioneering ecosystem integrates physical, digital, and social experiences for women's holistic wellbeing.",
@@ -50,6 +55,13 @@ export default function Home() {
       website: "https://www.augoor.com/",
       image: "/projects/augoor/hero-2.png",
       secondaryImage: "/projects/augoor/photo-main-carrusel.jpeg",
+      galleryImages: [
+        "/projects/augoor/hero-2.png",
+        "/projects/augoor/photo-main-carrusel.jpeg",
+        "/projects/augoor/Screenshot 2025-04-15 at 13.33.51.png",
+        "/projects/augoor/Screenshot 2025-04-15 at 13.34.12.png",
+        "/projects/augoor/Screenshot 2025-04-15 at 13.34.27.png"
+      ],
       testimonial: "Silvana has been a great team player who is proactive to help, listen the issues, put herself in other's shoes and think about the solutions. She is very thoughtful in providing the solution which will help keep satisfying the customers. I have always enjoyed my conversation with her as it has taught me so many things from customer experience perspective.",
       testimonialAuthor: "Deepika Wahi Lopez-Product Manager-Globant",
       context: "In the ever-evolving landscape of software development, navigating vast, complex codebases remains one of the most significant challenges developers face. Augoor was developed within Globant X—a pioneering incubator creating AI-driven products for digital acceleration. It transforms static repositories into dynamic, navigable data warehouses enhancing developer efficiency and collaboration.",
@@ -69,6 +81,12 @@ export default function Home() {
       website: "https://us-vision.jjcustomerconnect.com",
       image: "/projects/chime-care/hero-j&j.jpeg",
       secondaryImage: "/projects/chime-care/secundary-jjpeg.jpeg",
+      galleryImages: [
+        "/projects/chime-care/hero-j&j.jpeg",
+        "/projects/chime-care/secundary-jjpeg.jpeg",
+        "/projects/chime-care/Screenshot 2025-03-06 at 171139-VSCO.jpeg",
+        "/projects/chime-care/Screenshot 2025-04-15 at 13.23.31.png"
+      ],
       testimonial: "Silvana is an excellent professional that has been a great plus in the \"cosmic eyes\" POD. Her commitment and skills are outstanding",
       testimonialAuthor: "Karina Paola Bailetti-Project Manager-Globant",
       context: "For optometrists and surgeons, precision is essential—every decision and data point affects patient vision outcomes. CHiME Care was envisioned as more than just a digital tool; it's an intelligent support system guiding practitioners through complex surgical workflows. In partnership with Johnson & Johnson's Experience Design leadership, we established the foundations for this specialised platform.",
@@ -88,6 +106,13 @@ export default function Home() {
       website: "https://nomadetulum.com/",
       image: "/projects/nomade/main-hero-carrusel.jpeg",
       secondaryImage: "/projects/nomade/secundary-hero.jpeg",
+      galleryImages: [
+        "/projects/nomade/main-hero-carrusel.jpeg",
+        "/projects/nomade/secundary-hero.jpeg",
+        "/projects/nomade/Screenshot 2024-11-15 at 15.21.56.png",
+        "/projects/nomade/Screenshot 2025-04-15 at 13.46.25.png",
+        "/projects/nomade/Screenshot 2025-04-15 at 13.57.49.png"
+      ],
       testimonial: "It was a pleasure to work with Sil, I found a great professional, very collaborative, open to challenge and to make her part. Both clients we work with were very happy with her, and excellent feedaback received",
       testimonialAuthor: "Gerardo Bava-VP Delivery-Globant",
       context: "Riviera Maya's Nomade Hotels are sanctuaries that blend luxury with nature, evolving alongside guest expectations. The challenge was clear: how to preserve a deeply personal, ritualistic, and human-centred approach while seamlessly integrating digital efficiencies. Nomade envisioned a transformation into a tech-enabled hospitality brand without losing its soul.",
@@ -107,6 +132,12 @@ export default function Home() {
       website: "https://www.danone.com/",
       image: "/projects/danone/main-hero-carrusel.jpeg",
       secondaryImage: "/projects/danone/secundary-hero.png",
+      galleryImages: [
+        "/projects/danone/main-hero-carrusel.jpeg",
+        "/projects/danone/secundary-hero.png",
+        "/projects/danone/Screenshot 2025-04-15 at 14.01.55.png",
+        "/projects/danone/Screenshot 2025-04-15 at 14.03.20.png"
+      ],
       testimonial: "Silvana is a person who shows permanent commitment to the project, always responsible and collaborating not only with regard to her tasks and objectives but also with those of the team and the project. On the other hand, she has proven to be innovative, proposing, challenging and always seeking to optimize work dynamics and tools to work with clients",
       testimonialAuthor: "Roberto Hernán Murdocca- Tech Director-Globant",
       context: "In food and beverage, pricing decisions must be intelligent and adaptive against rapidly shifting market dynamics. Danone needed to transition from a reactive, inflationary pricing approach to predictive models aligned with erratic market behaviour. A comprehensive Digital Maturity Assessment was undertaken to evaluate capabilities across technology, data, processes, and organisational culture.",
@@ -126,6 +157,12 @@ export default function Home() {
       website: "https://www.parquesreunidos.com/",
       image: "/projects/parques-reunidos/hero-parque-reunidos.png",
       secondaryImage: "/projects/parques-reunidos/secundary-image.jpeg",
+      galleryImages: [
+        "/projects/parques-reunidos/hero-parque-reunidos.png",
+        "/projects/parques-reunidos/secundary-image.jpeg",
+        "/projects/parques-reunidos/Envisioning for Digital Planning and Booking.png",
+        "/projects/parques-reunidos/Envisioning for Dynamic Booking.png"
+      ],
       testimonial: "We have completed the Catalog Harmonisation Project in the expected time and conditions, despite having a very complex scope, with changes along the way. We have simultaneously created spaces for new project opportunities and increase client satisfactions with a NPS of 9",
       testimonialAuthor: "Diego Salcedo-Delivery Manager-Globant",
       context: "Parques Reunidos is a global leisure leader operating seventy diverse entertainment venues spanning three continents and multiple experience categories. Portfolio diversity created operational complexity—particularly across six sales channels and seven distinct product categories. Fragmented systems limited consistent guest experiences and prevented implementation of enterprise-wide product strategies.",
@@ -145,6 +182,13 @@ export default function Home() {
       website: "https://qiddiya.com/",
       image: "/projects/qiddiya/hero-qiddiya.png",
       secondaryImage: "/projects/qiddiya/secondary-qiddiya.png",
+      galleryImages: [
+        "/projects/qiddiya/hero-qiddiya.png",
+        "/projects/qiddiya/secondary-qiddiya.png",
+        "/projects/qiddiya/emergency-management.png",
+        "/projects/qiddiya/guest-search-digital-id.png",
+        "/projects/qiddiya/unified-guest-interaction.png"
+      ],
       testimonial: "This foundational work provided our internal teams with the confidence and clarity needed to align internal visions and also determine what part of the experience wouldn't be considered if it weren't for this envisioning.",
       testimonialAuthor: "Project Stakeholder",
       context: "Saudi Arabia's flagship entertainment destination required comprehensive guest support systems navigating uncharted territory in a landmark entertainment project. Theme parks, water attractions, sports facilities, and retail centers operated through a unified digital infrastructure where both guests and operational staff would encounter these systems for the first time. Cultural complexity demanded sophisticated solutions: Saudi families, GCC visitors, and international tourists each brought different service expectations, with every touchpoint depending entirely on digital systems.",
@@ -852,7 +896,10 @@ export default function Home() {
                         card.style.transform = 'perspective(1000px) rotateX(0deg)';
                       }
                     }}
-                    onClick={() => setSelectedProject(index)}
+                    onClick={() => {
+                      setSelectedProject(index);
+                      setCurrentGalleryImage(0);
+                    }}
                   >
                     {/* PHASE 4: LANDOR LUXURY PROJECT CARDS - Advanced Interactions */}
                     <div 
@@ -1041,6 +1088,7 @@ export default function Home() {
                               onClick={(e) => {
                                 e.stopPropagation();
                                 setSelectedProject(index);
+                                setCurrentGalleryImage(0);
                               }}
                               className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300"
                               style={{
@@ -1668,12 +1716,13 @@ export default function Home() {
           transition={{ duration: 0.5 }}
         >
           <motion.div 
-            className="bg-white rounded-3xl elevation-4 max-w-7xl max-h-[95vh] overflow-hidden mx-4"
+            className="bg-white rounded-3xl elevation-4 w-[95vw] lg:w-[85vw] xl:w-[80vw] max-h-[90vh] overflow-hidden"
             style={{ 
               position: 'relative',
               isolation: 'isolate',
               backgroundColor: 'white',
-              zIndex: 1
+              zIndex: 1,
+              maxWidth: '1400px'
             }}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -1752,6 +1801,7 @@ export default function Home() {
                     onClick={() => {
                       const nextIndex = (selectedProject + 1) % projects.length;
                       setSelectedProject(nextIndex);
+                      setCurrentGalleryImage(0);
                     }}
                     className="flex items-center gap-2 px-6 py-3 bg-black/70 rounded-xl text-sm font-medium text-white backdrop-blur-sm"
                     whileHover={{ 
@@ -1769,7 +1819,7 @@ export default function Home() {
               </motion.div>
 
               {/* PROJECT IDENTITY SECTION - Premium Presentation */}
-              <div className="px-12 py-10" style={{ borderBottom: '1px solid #f3f4f6' }}>
+              <div className="px-16 py-16" style={{ borderBottom: '1px solid #f3f4f6' }}>
                 <motion.div
                   className="text-center max-w-4xl mx-auto"
                   initial={{ opacity: 0, y: 20 }}
@@ -1830,7 +1880,7 @@ export default function Home() {
               </div>
               
               {/* STRATEGIC CAPABILITY TAGS - Away from Visual Elements */}
-              <div className="px-12 py-8" style={{ backgroundColor: '#fafafa', borderBottom: '1px solid #f3f4f6' }}>
+              <div className="px-16 py-16" style={{ backgroundColor: '#fafafa', borderBottom: '1px solid #f3f4f6' }}>
                 <motion.div
                   className="max-w-4xl mx-auto"
                   initial={{ opacity: 0, y: 20 }}
@@ -1875,7 +1925,7 @@ export default function Home() {
               </div>
               
               {/* CONTENT NARRATIVE STRUCTURE - Golden Ratio Spacing */}
-              <div className="px-12 py-12 max-w-4xl mx-auto space-y-16">
+              <div className="px-16 py-16 max-w-6xl mx-auto" style={{ paddingTop: '6rem', paddingBottom: '6rem' }}>
                 {/* CONTEXT SECTION - Professional Narrative */}
                 <motion.div
                   id="context"
@@ -1910,6 +1960,7 @@ export default function Home() {
                 </motion.div>
 
                 {/* APPROACH SECTION - Methodology */}
+                <div style={{ marginTop: '6rem' }}>
                 <motion.div
                   id="approach"
                   className="scroll-mt-24"
@@ -1933,8 +1984,10 @@ export default function Home() {
                     </p>
                   </div>
                 </motion.div>
+                </div>
 
                 {/* PROFESSIONAL GALLERY CAROUSEL - Visual Exploration */}
+                <div style={{ marginTop: '6rem' }}>
                 <motion.div
                   id="gallery"
                   className="scroll-mt-24"
@@ -1960,8 +2013,8 @@ export default function Home() {
                         style={{ boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
                       >
                         <Image 
-                          src={currentGalleryImage === 0 ? projects[selectedProject].image : projects[selectedProject].secondaryImage} 
-                          alt={`${projects[selectedProject].title} - ${currentGalleryImage === 0 ? 'Primary' : 'Secondary'} project showcase`}
+                          src={projects[selectedProject].galleryImages ? projects[selectedProject].galleryImages[currentGalleryImage] : projects[selectedProject].image} 
+                          alt={`${projects[selectedProject].title} - Gallery image ${currentGalleryImage + 1} showcasing project details`}
                           fill 
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                           quality={95}
@@ -1972,50 +2025,63 @@ export default function Home() {
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
-                            setCurrentGalleryImage(currentGalleryImage === 0 ? 1 : 0);
+                            const maxImages = projects[selectedProject].galleryImages ? projects[selectedProject].galleryImages.length : 2;
+                            setCurrentGalleryImage(currentGalleryImage === 0 ? maxImages - 1 : currentGalleryImage - 1);
                           }}
-                          className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/70 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                          className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/70 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/90"
                         >
                           ←
                         </button>
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
-                            setCurrentGalleryImage(currentGalleryImage === 0 ? 1 : 0);
+                            const maxImages = projects[selectedProject].galleryImages ? projects[selectedProject].galleryImages.length : 2;
+                            setCurrentGalleryImage((currentGalleryImage + 1) % maxImages);
                           }}
-                          className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/70 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                          className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/70 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/90"
                         >
                           →
                         </button>
                         
                         {/* Image Counter */}
                         <div className="absolute bottom-4 right-4 bg-black/70 text-white text-sm px-3 py-1 rounded-full">
-                          {currentGalleryImage + 1} of 2
+                          {currentGalleryImage + 1} of {projects[selectedProject].galleryImages ? projects[selectedProject].galleryImages.length : 2}
                         </div>
                       </div>
                       
-                      {/* Gallery Navigation Dots */}
+                      {/* Gallery Navigation Dots - Dynamic */}
                       <div className="flex justify-center gap-3">
-                        <button 
-                          onClick={() => setCurrentGalleryImage(0)}
-                          className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                            currentGalleryImage === 0 ? '' : 'opacity-40'
-                          }`}
-                          style={{ backgroundColor: '#ff6663' }}
-                        />
-                        <button 
-                          onClick={() => setCurrentGalleryImage(1)}
-                          className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                            currentGalleryImage === 1 ? '' : 'opacity-40'
-                          }`}
-                          style={{ backgroundColor: '#ff6663' }}
-                        />
+                        {projects[selectedProject].galleryImages ? 
+                          projects[selectedProject].galleryImages.map((_, index) => (
+                            <button 
+                              key={index}
+                              onClick={() => setCurrentGalleryImage(index)}
+                              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                                currentGalleryImage === index ? '' : 'opacity-40'
+                              }`}
+                              style={{ backgroundColor: '#ff6663' }}
+                            />
+                          )) :
+                          // Fallback for projects without galleryImages
+                          [0, 1].map((index) => (
+                            <button 
+                              key={index}
+                              onClick={() => setCurrentGalleryImage(index)}
+                              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                                currentGalleryImage === index ? '' : 'opacity-40'
+                              }`}
+                              style={{ backgroundColor: '#ff6663' }}
+                            />
+                          ))
+                        }
                       </div>
                     </div>
                   </div>
                 </motion.div>
+                </div>
 
                 {/* IMPACT SECTION - Results */}
+                <div style={{ marginTop: '6rem' }}>
                 <motion.div
                   id="impact"
                   className="scroll-mt-24"
@@ -2039,9 +2105,11 @@ export default function Home() {
                     </p>
                   </div>
                 </motion.div>
+                </div>
               </div>
 
               {/* CLIENT TESTIMONIAL - Social Proof */}
+              <div style={{ marginTop: '6rem' }}>
               {projects[selectedProject].testimonial && projects[selectedProject].testimonialAuthor && (
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
@@ -2066,9 +2134,10 @@ export default function Home() {
                   </div>
                 </motion.div>
               )}
+              </div>
 
               {/* PROJECT NAVIGATION - Effortless Flow Control */}
-              <div className="bg-gray-50 px-12 py-10">
+              <div className="bg-gray-50 px-16 py-16" style={{ marginTop: '6rem' }}>
                 <motion.div
                   className="max-w-4xl mx-auto"
                   initial={{ opacity: 0, y: 30 }}
@@ -2081,6 +2150,7 @@ export default function Home() {
                       onClick={() => {
                         const prevIndex = selectedProject === 0 ? projects.length - 1 : selectedProject - 1;
                         setSelectedProject(prevIndex);
+                        setCurrentGalleryImage(0);
                       }}
                       className="flex items-center gap-6 p-6 rounded-2xl bg-white hover:bg-gray-50 transition-all duration-300 group flex-1 md:flex-initial"
                       whileHover={{ scale: 1.02, x: -4 }}
@@ -2119,6 +2189,7 @@ export default function Home() {
                       onClick={() => {
                         const nextIndex = (selectedProject + 1) % projects.length;
                         setSelectedProject(nextIndex);
+                        setCurrentGalleryImage(0);
                       }}
                       className="flex items-center gap-6 p-6 rounded-2xl bg-white hover:bg-gray-50 transition-all duration-300 group flex-1 md:flex-initial"
                       whileHover={{ scale: 1.02, x: 4 }}
@@ -2167,8 +2238,10 @@ export default function Home() {
             onClick={(e) => e.stopPropagation()}
           >
             <Image 
-              src={selectedProject !== null ? (currentGalleryImage === 0 ? projects[selectedProject].image : projects[selectedProject].secondaryImage) : ''} 
-              alt="Zoomed gallery view" 
+              src={selectedProject !== null && projects[selectedProject].galleryImages ? 
+                projects[selectedProject].galleryImages[currentGalleryImage] : 
+                (selectedProject !== null ? projects[selectedProject].image : '')} 
+              alt={`${selectedProject !== null ? projects[selectedProject].title : ''} - Gallery image ${currentGalleryImage + 1} zoomed view`} 
               width={1400}
               height={900}
               className="object-contain rounded-xl" 
@@ -2187,7 +2260,8 @@ export default function Home() {
             
             {/* Image Counter */}
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded-full text-sm font-medium">
-              Image {currentGalleryImage + 1} of 2
+              Image {currentGalleryImage + 1} of {selectedProject !== null && projects[selectedProject].galleryImages ? 
+                projects[selectedProject].galleryImages.length : 2}
             </div>
           </motion.div>
         </motion.div>
