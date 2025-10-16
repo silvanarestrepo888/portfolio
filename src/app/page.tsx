@@ -1699,49 +1699,31 @@ export default function Home() {
             />
             
             <div className="relative overflow-y-auto max-h-[95vh]" style={{ backgroundColor: 'white' }}>
-              {/* Immersive Header Experience */}
+              {/* CLEAN HERO IMAGE - Pure Visual Impact */}
               <motion.div 
-                className="h-80 relative overflow-hidden rounded-t-3xl"
-                initial={{ scale: 1.1, opacity: 0 }}
+                className="h-96 relative overflow-hidden rounded-t-3xl"
+                initial={{ scale: 1.02, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.8 }}
               >
                 <Image
                   src={projects[selectedProject].image}
-                  alt={`${projects[selectedProject].title} - Case Study Hero Banner`}
+                  alt={`${projects[selectedProject].title} - ${projects[selectedProject].category} project showcasing ${projects[selectedProject].tech[0]} and ${projects[selectedProject].tech[1]} for ${projects[selectedProject].client}`}
                   fill
                   className="object-cover"
-                  quality={85}
+                  quality={95}
                   sizes="(max-width: 768px) 100vw, 80vw"
-                  style={{ objectPosition: 'center top' }}
+                  style={{ objectPosition: 'center center' }}
                 />
                 
-                {/* Dynamic Gradient Overlay */}
-                <motion.div 
-                  className="absolute inset-0"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(0,0,0,0.6) 0%, transparent 50%, rgba(255,102,99,0.3) 100%)'
-                  }}
-                  animate={{
-                    background: [
-                      'linear-gradient(135deg, rgba(0,0,0,0.6) 0%, transparent 50%, rgba(255,102,99,0.3) 100%)',
-                      'linear-gradient(225deg, rgba(0,0,0,0.4) 0%, transparent 50%, rgba(255,102,99,0.5) 100%)',
-                      'linear-gradient(135deg, rgba(0,0,0,0.6) 0%, transparent 50%, rgba(255,102,99,0.3) 100%)'
-                    ]
-                  }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                />
-                
-                {/* Enhanced Navigation Buttons - Phase 4.1 */}
+                {/* MINIMAL NAVIGATION ONLY - No Visual Clutter */}
                 <div className="absolute top-6 left-6 right-6 flex justify-between items-center">
-                  {/* Back to Projects - Always Visible Top-Left */}
                   <motion.button
                     onClick={() => setSelectedProject(null)}
-                    className="flex items-center gap-2 px-6 py-3 bg-white/95 rounded-xl text-sm font-medium text-gray-700 shadow-lg backdrop-blur-sm"
+                    className="flex items-center gap-2 px-6 py-3 bg-black/70 rounded-xl text-sm font-medium text-white backdrop-blur-sm"
                     whileHover={{ 
                       scale: 1.05, 
-                      backgroundColor: 'rgba(255, 255, 255, 1)',
-                      boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+                      backgroundColor: 'rgba(0, 0, 0, 0.85)'
                     }}
                     whileTap={{ scale: 0.95 }}
                     initial={{ opacity: 0, x: -20 }}
@@ -1751,39 +1733,30 @@ export default function Home() {
                     ← Back to Projects
                   </motion.button>
                   
-                  {/* Close Button */}
                   <motion.button
                     onClick={() => setSelectedProject(null)}
-                    className="w-12 h-12 bg-white/95 rounded-xl flex items-center justify-center shadow-lg backdrop-blur-sm"
+                    className="w-12 h-12 bg-black/70 rounded-xl flex items-center justify-center backdrop-blur-sm"
                     whileHover={{ 
                       scale: 1.1, 
-                      backgroundColor: 'rgba(255, 102, 99, 0.9)',
-                      boxShadow: '0 8px 25px rgba(255, 102, 99, 0.3)'
+                      backgroundColor: 'rgba(255, 102, 99, 0.9)'
                     }}
                     whileTap={{ scale: 0.9 }}
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ type: "spring", stiffness: 400, duration: 0.6, delay: 0.2 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
                   >
-                    <motion.span 
-                      className="text-xl font-bold text-gray-800"
-                      whileHover={{ color: 'white' }}
-                    >
-                      ×
-                    </motion.span>
+                    <span className="text-xl font-bold text-white">×</span>
                   </motion.button>
                   
-                  {/* Next Project - Always Visible Top-Right */}
                   <motion.button
                     onClick={() => {
-                      const nextIndex = (selectedProject + 1) % filteredProjects.length;
+                      const nextIndex = (selectedProject + 1) % projects.length;
                       setSelectedProject(nextIndex);
                     }}
-                    className="flex items-center gap-2 px-6 py-3 bg-white/95 rounded-xl text-sm font-medium text-gray-700 shadow-lg backdrop-blur-sm"
+                    className="flex items-center gap-2 px-6 py-3 bg-black/70 rounded-xl text-sm font-medium text-white backdrop-blur-sm"
                     whileHover={{ 
                       scale: 1.05, 
-                      backgroundColor: 'rgba(255, 255, 255, 1)',
-                      boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+                      backgroundColor: 'rgba(0, 0, 0, 0.85)'
                     }}
                     whileTap={{ scale: 0.95 }}
                     initial={{ opacity: 0, x: 20 }}
@@ -1793,126 +1766,175 @@ export default function Home() {
                     Next Project →
                   </motion.button>
                 </div>
-                
-                {/* Animated Project Title */}
-                <motion.div 
-                  className="absolute bottom-6 left-6 text-white"
-                  initial={{ opacity: 0, y: 30 }}
+              </motion.div>
+
+              {/* PROJECT IDENTITY SECTION - Premium Presentation */}
+              <div className="px-12 py-10" style={{ borderBottom: '1px solid #f3f4f6' }}>
+                <motion.div
+                  className="text-center max-w-4xl mx-auto"
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
                 >
-                  <motion.p 
-                    className="text-sm font-bold opacity-90 mb-2"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 0.9, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                  >
-                    {projects[selectedProject].year} • {projects[selectedProject].location}
-                  </motion.p>
-                  <motion.h3 
-                    className="text-4xl font-bold"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
-                    whileHover={{ scale: 1.05, textShadow: '0 0 20px rgba(255, 255, 255, 0.5)' }}
+                  {/* Project Title - H1 Level */}
+                  <h1 
+                    className="text-5xl font-light text-gray-800 mb-4"
+                    style={{ 
+                      lineHeight: '1.1',
+                      letterSpacing: '-0.02em'
+                    }}
                   >
                     {projects[selectedProject].title}
-                  </motion.h3>
+                  </h1>
+                  
+                  {/* Client Name - H2 Level */}
+                  <h2 
+                    className="text-2xl font-medium mb-6" 
+                    style={{ color: '#ff6663' }}
+                  >
+                    {projects[selectedProject].client}
+                  </h2>
+                  
+                  {/* Project Metadata */}
+                  <div className="flex justify-center gap-8 text-lg text-gray-600 mb-8">
+                    <span className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#ff6663' }}></span>
+                      {projects[selectedProject].year}
+                    </span>
+                    <span className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#ff6663' }}></span>
+                      {projects[selectedProject].location}
+                    </span>
+                    <span className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#ff6663' }}></span>
+                      {projects[selectedProject].category}
+                    </span>
+                  </div>
+                  
+                  {/* Live Project Link */}
+                  <a 
+                    href={projects[selectedProject].website} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105"
+                    style={{ 
+                      backgroundColor: '#ff6663',
+                      color: 'white',
+                      boxShadow: '0 8px 25px rgba(255, 102, 99, 0.3)'
+                    }}
+                  >
+                    <ExternalLink size={18} />
+                    Visit Live Project
+                  </a>
                 </motion.div>
-                
-                {/* Floating Data Points */}
-                {[...Array(3)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute w-4 h-4 rounded-full bg-white/40"
-                    style={{
-                      top: `${30 + (i * 20)}%`,
-                      right: `${20 + (i * 15)}%`
-                    }}
-                    animate={{
-                      scale: [1, 1.5, 1],
-                      opacity: [0.4, 0.8, 0.4],
-                      y: [0, -10, 0]
-                    }}
-                    transition={{
-                      duration: 2 + i * 0.5,
-                      repeat: Infinity,
-                      delay: i * 0.3
-                    }}
-                  />
-                ))}
-              </motion.div>
-
-              {/* Enhanced Mobile Navigation Bar - Phase 4.1 */}
-              <div className="md:hidden flex justify-between items-center p-6 border-b border-gray-100 bg-white/95 backdrop-blur-sm sticky top-0 z-40">
-                <motion.button 
-                  onClick={() => setSelectedProject(null)}
-                  className="flex items-center gap-2 px-6 py-3 text-sm bg-gray-100 rounded-xl font-medium touch-manipulation"
-                  whileTap={{ scale: 0.95 }}
-                  style={{ minHeight: '44px', minWidth: '44px' }}
-                >
-                  ← Back
-                </motion.button>
-                <div className="text-center">
-                  <span className="text-xs text-gray-500 uppercase tracking-wide block">Project</span>
-                  <span className="text-sm font-medium text-gray-800">
-                    {selectedProject + 1} of {filteredProjects.length}
-                  </span>
-                </div>
-                <motion.button 
-                  onClick={() => {
-                    const nextIndex = (selectedProject + 1) % filteredProjects.length;
-                    setSelectedProject(nextIndex);
-                  }}
-                  className="flex items-center gap-2 px-6 py-3 text-sm bg-gray-100 rounded-xl font-medium touch-manipulation"
-                  whileTap={{ scale: 0.95 }}
-                  style={{ minHeight: '44px', minWidth: '44px' }}
-                >
-                  Next →
-                </motion.button>
               </div>
               
-              {/* Enhanced Content with Section Navigation */}
-              <div style={{ padding: 'var(--space-8)' }}>
-                {/* Enhanced Section Jump Navigation - Phase 4.1 Mobile Optimized */}
-                <div className="sticky top-4 bg-white/95 backdrop-blur-sm p-4 rounded-xl mb-12 z-30">
-                  <div className="flex justify-center gap-4 md:gap-8 flex-wrap">
-                    <a 
-                      href="#context" 
-                      className="text-sm font-medium text-gray-600 hover:text-coral transition-colors px-3 py-2 rounded-lg touch-manipulation"
-                      style={{ minHeight: '44px', display: 'flex', alignItems: 'center', minWidth: '44px', justifyContent: 'center' }}
-                    >
-                      <span className="hidden md:inline">01. Context</span>
-                      <span className="md:hidden">Context</span>
-                    </a>
-                    <a 
-                      href="#approach" 
-                      className="text-sm font-medium text-gray-600 hover:text-coral transition-colors px-3 py-2 rounded-lg touch-manipulation"
-                      style={{ minHeight: '44px', display: 'flex', alignItems: 'center', minWidth: '44px', justifyContent: 'center' }}
-                    >
-                      <span className="hidden md:inline">02. Approach</span>
-                      <span className="md:hidden">Approach</span>
-                    </a>
-                    <a 
-                      href="#impact" 
-                      className="text-sm font-medium text-gray-600 hover:text-coral transition-colors px-3 py-2 rounded-lg touch-manipulation"
-                      style={{ minHeight: '44px', display: 'flex', alignItems: 'center', minWidth: '44px', justifyContent: 'center' }}
-                    >
-                      <span className="hidden md:inline">03. Impact</span>
-                      <span className="md:hidden">Impact</span>
-                    </a>
-                    <a 
-                      href="#gallery" 
-                      className="text-sm font-medium text-gray-600 hover:text-coral transition-colors px-3 py-2 rounded-lg touch-manipulation"
-                      style={{ minHeight: '44px', display: 'flex', alignItems: 'center', minWidth: '44px', justifyContent: 'center' }}
-                    >
-                      <span className="hidden md:inline">04. Gallery</span>
-                      <span className="md:hidden">Gallery</span>
-                    </a>
+              {/* STRATEGIC CAPABILITY TAGS - Away from Visual Elements */}
+              <div className="px-12 py-8" style={{ backgroundColor: '#fafafa', borderBottom: '1px solid #f3f4f6' }}>
+                <motion.div
+                  className="max-w-4xl mx-auto"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                >
+                  <div className="grid md:grid-cols-2 gap-8">
+                    {/* Core Capabilities - 3 Maximum */}
+                    {projects[selectedProject].tech && projects[selectedProject].tech.length > 0 && (
+                      <div className="text-center">
+                        <h4 className="text-lg font-medium text-gray-700 mb-4">Core Capabilities</h4>
+                        <div className="flex flex-wrap justify-center gap-3">
+                          {projects[selectedProject].tech.slice(0, 3).map((tech, index) => (
+                            <span 
+                              key={index}
+                              className="px-6 py-3 rounded-full text-sm font-medium"
+                              style={{ backgroundColor: '#ff6663', color: 'white' }}
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    
+                    {/* Industry Focus - 1 Maximum */}
+                    {projects[selectedProject].industryTags && projects[selectedProject].industryTags.length > 0 && (
+                      <div className="text-center">
+                        <h4 className="text-lg font-medium text-gray-700 mb-4">Industry Focus</h4>
+                        <div className="flex justify-center">
+                          <span 
+                            className="px-6 py-3 rounded-full text-sm font-medium"
+                            style={{ backgroundColor: 'rgba(255, 102, 99, 0.1)', color: '#ff6663', border: '1px solid rgba(255, 102, 99, 0.3)' }}
+                          >
+                            {projects[selectedProject].industryTags[0]}
+                          </span>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </div>
+                </motion.div>
+              </div>
+              
+              {/* CONTENT NARRATIVE STRUCTURE - Golden Ratio Spacing */}
+              <div className="px-12 py-12 max-w-4xl mx-auto space-y-16">
+                {/* CONTEXT SECTION - Professional Narrative */}
+                <motion.div
+                  id="context"
+                  className="scroll-mt-24"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                >
+                  <div className="flex items-center gap-4 mb-8">
+                    <span 
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-white font-medium"
+                      style={{ backgroundColor: '#ff6663' }}
+                    >
+                      01
+                    </span>
+                    <h3 className="text-3xl font-light text-gray-800">Context & Background</h3>
+                  </div>
+                  
+                  <div className="pl-16">
+                    {(() => {
+                      const sentences = projects[selectedProject].context.split('. ');
+                      return sentences.map((sentence, index) => (
+                        <div key={index} className="flex items-start gap-4 mb-6">
+                          <span className="w-2 h-2 rounded-full mt-3 flex-shrink-0" style={{ backgroundColor: '#ff6663' }}></span>
+                          <p className="text-lg text-gray-700 leading-relaxed">
+                            {sentence}{index < sentences.length - 1 ? '.' : ''}
+                          </p>
+                        </div>
+                      ));
+                    })()}
+                  </div>
+                </motion.div>
 
-                {/* Enhanced Project Metadata with Tag Limits */}
+                {/* APPROACH SECTION - Methodology */}
+                <motion.div
+                  id="approach"
+                  className="scroll-mt-24"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                >
+                  <div className="flex items-center gap-4 mb-8">
+                    <span 
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-white font-medium"
+                      style={{ backgroundColor: '#ff6663' }}
+                    >
+                      02
+                    </span>
+                    <h3 className="text-3xl font-light text-gray-800">Our Approach</h3>
+                  </div>
+                  
+                  <div className="pl-16">
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      {projects[selectedProject].challenge}
+                    </p>
+                  </div>
+                </motion.div>
+
+                {/* REMOVE OLD CONTENT - REPLACED BY NEW STRUCTURE */}
                 <div className="text-center border-b border-gray-100 pb-8 mb-12">
                   <h3 className="text-4xl font-light text-gray-800 mb-4">{projects[selectedProject].title}</h3>
                   <p className="text-xl font-medium mb-4" style={{ color: '#ff6663' }}>{projects[selectedProject].client}</p>
