@@ -1668,7 +1668,13 @@ export default function Home() {
           transition={{ duration: 0.5 }}
         >
           <motion.div 
-            className="bg-white rounded-3xl elevation-4 max-w-7xl max-h-[95vh] overflow-y-auto mx-4"
+            className="bg-white rounded-3xl elevation-4 max-w-7xl max-h-[95vh] overflow-hidden mx-4"
+            style={{ 
+              position: 'relative',
+              isolation: 'isolate',
+              backgroundColor: 'white',
+              zIndex: 1
+            }}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
@@ -1677,7 +1683,7 @@ export default function Home() {
           >
             {/* Enhanced Scroll Progress Bar - Phase 4.1 */}
             <motion.div 
-              className="fixed top-0 left-0 right-0 h-1 z-50"
+              className="absolute top-0 left-0 right-0 h-1 z-10"
               style={{ 
                 backgroundColor: '#ff6663',
                 scaleX: 0.3,
@@ -1692,7 +1698,7 @@ export default function Home() {
               }}
             />
             
-            <div className="relative overflow-hidden">
+            <div className="relative overflow-y-auto max-h-[95vh]" style={{ backgroundColor: 'white' }}>
               {/* Immersive Header Experience */}
               <motion.div 
                 className="h-80 relative overflow-hidden rounded-t-3xl"
