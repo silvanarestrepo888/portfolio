@@ -1716,13 +1716,16 @@ export default function Home() {
           transition={{ duration: 0.5 }}
         >
           <motion.div 
-            className="bg-white rounded-3xl elevation-4 w-[95vw] lg:w-[85vw] xl:w-[80vw] max-h-[90vh] overflow-hidden"
+            className="bg-white rounded-3xl elevation-4 overflow-hidden"
             style={{ 
               position: 'relative',
               isolation: 'isolate',
               backgroundColor: 'white',
               zIndex: 1,
-              maxWidth: '1400px'
+              width: '98vw',
+              maxWidth: '1600px',
+              maxHeight: '95vh',
+              margin: '1vh auto'
             }}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -1747,7 +1750,7 @@ export default function Home() {
               }}
             />
             
-            <div className="relative overflow-y-auto max-h-[95vh]" style={{ backgroundColor: 'white' }}>
+            <div className="relative overflow-y-auto" style={{ backgroundColor: 'white', maxHeight: '95vh' }}>
               {/* CLEAN HERO IMAGE - Pure Visual Impact */}
               <motion.div 
                 className="h-96 relative overflow-hidden rounded-t-3xl"
@@ -1819,9 +1822,9 @@ export default function Home() {
               </motion.div>
 
               {/* PROJECT IDENTITY SECTION - Premium Presentation */}
-              <div className="px-16 py-16" style={{ borderBottom: '1px solid #f3f4f6' }}>
+              <div className="px-24 py-20" style={{ borderBottom: '1px solid #f3f4f6' }}>
                 <motion.div
-                  className="text-center max-w-4xl mx-auto"
+                  className="text-center max-w-5xl mx-auto"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
@@ -1845,59 +1848,68 @@ export default function Home() {
                     {projects[selectedProject].client}
                   </h2>
                   
-                  {/* Project Metadata */}
-                  <div className="flex justify-center gap-8 text-lg text-gray-600 mb-8">
-                    <span className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#ff6663' }}></span>
-                      {projects[selectedProject].year}
+                  {/* Project Metadata - Proper Spacing */}
+                  <div className="flex justify-center gap-12 text-lg text-gray-600 mb-16">
+                    <span className="flex items-center gap-3">
+                      <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#ff6663' }}></span>
+                      <span className="font-medium">{projects[selectedProject].year}</span>
                     </span>
-                    <span className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#ff6663' }}></span>
-                      {projects[selectedProject].location}
+                    <span className="flex items-center gap-3">
+                      <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#ff6663' }}></span>
+                      <span className="font-medium">{projects[selectedProject].location}</span>
                     </span>
-                    <span className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full" style={{ backgroundColor: '#ff6663' }}></span>
-                      {projects[selectedProject].category}
+                    <span className="flex items-center gap-3">
+                      <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#ff6663' }}></span>
+                      <span className="font-medium">{projects[selectedProject].category}</span>
                     </span>
                   </div>
                   
-                  {/* Live Project Link */}
-                  <a 
-                    href={projects[selectedProject].website} 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105"
-                    style={{ 
-                      backgroundColor: '#ff6663',
-                      color: 'white',
-                      boxShadow: '0 8px 25px rgba(255, 102, 99, 0.3)'
-                    }}
-                  >
-                    <ExternalLink size={18} />
-                    Visit Live Project
-                  </a>
+                  {/* Live Project Link - Better Spacing */}
+                  <div className="mt-12">
+                    <a 
+                      href={projects[selectedProject].website} 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-4 px-12 py-5 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105"
+                      style={{ 
+                        backgroundColor: '#ff6663',
+                        color: 'white',
+                        boxShadow: '0 12px 30px rgba(255, 102, 99, 0.4)',
+                        minWidth: '240px',
+                        justifyContent: 'center'
+                      }}
+                    >
+                      <ExternalLink size={20} />
+                      Visit Live Project
+                    </a>
+                  </div>
                 </motion.div>
               </div>
               
-              {/* STRATEGIC CAPABILITY TAGS - Away from Visual Elements */}
-              <div className="px-16 py-16" style={{ backgroundColor: '#fafafa', borderBottom: '1px solid #f3f4f6' }}>
+              {/* STRATEGIC CAPABILITY TAGS - Properly Sized */}
+              <div className="px-24 py-20" style={{ backgroundColor: '#fafafa', borderBottom: '1px solid #f3f4f6' }}>
                 <motion.div
-                  className="max-w-4xl mx-auto"
+                  className="max-w-6xl mx-auto"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.5 }}
                 >
-                  <div className="grid md:grid-cols-2 gap-8">
+                  <div className="grid md:grid-cols-2 gap-16">
                     {/* Core Capabilities - 3 Maximum */}
                     {projects[selectedProject].tech && projects[selectedProject].tech.length > 0 && (
                       <div className="text-center">
-                        <h4 className="text-lg font-medium text-gray-700 mb-4">Core Capabilities</h4>
-                        <div className="flex flex-wrap justify-center gap-3">
+                        <h4 className="text-xl font-medium text-gray-700 mb-8">Core Capabilities</h4>
+                        <div className="flex flex-wrap justify-center gap-4">
                           {projects[selectedProject].tech.slice(0, 3).map((tech, index) => (
                             <span 
                               key={index}
-                              className="px-6 py-3 rounded-full text-sm font-medium"
-                              style={{ backgroundColor: '#ff6663', color: 'white' }}
+                              className="px-8 py-4 rounded-full text-base font-medium"
+                              style={{ 
+                                backgroundColor: '#ff6663', 
+                                color: 'white',
+                                minWidth: '160px',
+                                display: 'inline-block'
+                              }}
                             >
                               {tech}
                             </span>
@@ -1909,11 +1921,17 @@ export default function Home() {
                     {/* Industry Focus - 1 Maximum */}
                     {projects[selectedProject].industryTags && projects[selectedProject].industryTags.length > 0 && (
                       <div className="text-center">
-                        <h4 className="text-lg font-medium text-gray-700 mb-4">Industry Focus</h4>
+                        <h4 className="text-xl font-medium text-gray-700 mb-8">Industry Focus</h4>
                         <div className="flex justify-center">
                           <span 
-                            className="px-6 py-3 rounded-full text-sm font-medium"
-                            style={{ backgroundColor: 'rgba(255, 102, 99, 0.1)', color: '#ff6663', border: '1px solid rgba(255, 102, 99, 0.3)' }}
+                            className="px-8 py-4 rounded-full text-base font-medium"
+                            style={{ 
+                              backgroundColor: 'rgba(255, 102, 99, 0.1)', 
+                              color: '#ff6663', 
+                              border: '2px solid rgba(255, 102, 99, 0.3)',
+                              minWidth: '180px',
+                              display: 'inline-block'
+                            }}
                           >
                             {projects[selectedProject].industryTags[0]}
                           </span>
@@ -1924,93 +1942,105 @@ export default function Home() {
                 </motion.div>
               </div>
               
-              {/* CONTENT NARRATIVE STRUCTURE - Golden Ratio Spacing */}
-              <div className="px-16 py-16 max-w-6xl mx-auto" style={{ paddingTop: '6rem', paddingBottom: '6rem' }}>
-                {/* CONTEXT SECTION - Professional Narrative */}
+              {/* CONTENT NARRATIVE STRUCTURE - Proper Spacing */}
+              <div className="px-24 py-20 max-w-7xl mx-auto">
+                {/* CONTEXT SECTION - Copy Compliant with Better Spacing */}
                 <motion.div
                   id="context"
-                  className="scroll-mt-24"
+                  className="scroll-mt-24 mb-20"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
                 >
-                  <div className="flex items-center gap-4 mb-8">
+                  <div className="flex items-center gap-6 mb-12">
                     <span 
-                      className="w-12 h-12 rounded-full flex items-center justify-center text-white font-medium"
+                      className="w-16 h-16 rounded-full flex items-center justify-center text-white font-medium text-xl"
                       style={{ backgroundColor: '#ff6663' }}
                     >
                       01
                     </span>
-                    <h3 className="text-3xl font-light text-gray-800">Context & Background</h3>
+                    <h3 className="text-4xl font-light text-gray-800">Context & Background</h3>
                   </div>
                   
-                  <div className="pl-16">
+                  <div className="pl-24">
                     {(() => {
                       const sentences = projects[selectedProject].context.split('. ');
                       return sentences.map((sentence, index) => (
-                        <div key={index} className="flex items-start gap-4 mb-6">
-                          <span className="w-2 h-2 rounded-full mt-3 flex-shrink-0" style={{ backgroundColor: '#ff6663' }}></span>
-                          <p className="text-lg text-gray-700 leading-relaxed">
-                            {sentence}{index < sentences.length - 1 ? '.' : ''}
-                          </p>
+                        <div key={index} className="mb-8">
+                          <div className="flex items-start gap-6">
+                            <span className="w-3 h-3 rounded-full mt-4 flex-shrink-0" style={{ backgroundColor: '#ff6663' }}></span>
+                            <p className="text-xl text-gray-700 leading-relaxed font-normal">
+                              {sentence}{index < sentences.length - 1 ? '.' : ''}
+                            </p>
+                          </div>
                         </div>
                       ));
                     })()}
                   </div>
                 </motion.div>
 
-                {/* APPROACH SECTION - Methodology */}
-                <div style={{ marginTop: '6rem' }}>
+                {/* APPROACH SECTION - Copy Compliant with Better Spacing */}
                 <motion.div
                   id="approach"
-                  className="scroll-mt-24"
+                  className="scroll-mt-24 mb-20"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
+                  style={{ marginTop: '8rem' }}
                 >
-                  <div className="flex items-center gap-4 mb-8">
+                  <div className="flex items-center gap-6 mb-12">
                     <span 
-                      className="w-12 h-12 rounded-full flex items-center justify-center text-white font-medium"
+                      className="w-16 h-16 rounded-full flex items-center justify-center text-white font-medium text-xl"
                       style={{ backgroundColor: '#ff6663' }}
                     >
                       02
                     </span>
-                    <h3 className="text-3xl font-light text-gray-800">Our Approach</h3>
+                    <h3 className="text-4xl font-light text-gray-800">Our Approach</h3>
                   </div>
                   
-                  <div className="pl-16">
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      {projects[selectedProject].challenge}
-                    </p>
+                  <div className="pl-24">
+                    {(() => {
+                      const sentences = projects[selectedProject].challenge.split('. ');
+                      return sentences.map((sentence, index) => (
+                        <div key={index} className="mb-8">
+                          <div className="flex items-start gap-6">
+                            <span className="w-3 h-3 rounded-full mt-4 flex-shrink-0" style={{ backgroundColor: '#ff6663' }}></span>
+                            <p className="text-xl text-gray-700 leading-relaxed font-normal">
+                              {sentence}{index < sentences.length - 1 ? '.' : ''}
+                            </p>
+                          </div>
+                        </div>
+                      ));
+                    })()}
                   </div>
                 </motion.div>
                 </div>
 
-                {/* PROFESSIONAL GALLERY CAROUSEL - Visual Exploration */}
-                <div style={{ marginTop: '6rem' }}>
+                {/* PROFESSIONAL GALLERY CAROUSEL - Clean Visual Exploration */}
                 <motion.div
                   id="gallery"
-                  className="scroll-mt-24"
+                  className="scroll-mt-24 mb-20"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.0 }}
+                  style={{ marginTop: '8rem' }}
                 >
-                  <div className="flex items-center gap-4 mb-8">
+                  <div className="flex items-center gap-6 mb-12">
                     <span 
-                      className="w-12 h-12 rounded-full flex items-center justify-center text-white font-medium"
+                      className="w-16 h-16 rounded-full flex items-center justify-center text-white font-medium text-xl"
                       style={{ backgroundColor: '#ff6663' }}
                     >
                       03
                     </span>
-                    <h3 className="text-3xl font-light text-gray-800">Project Gallery</h3>
+                    <h3 className="text-4xl font-light text-gray-800">Project Gallery</h3>
                   </div>
                   
-                  <div className="pl-16">
+                  <div className="pl-24">
                     <div className="relative">
                       <div 
-                        className="aspect-[16/9] rounded-2xl overflow-hidden mb-6 cursor-zoom-in relative group"
+                        className="aspect-[16/9] rounded-2xl overflow-hidden mb-8 cursor-zoom-in relative group"
                         onClick={() => setGalleryZoomOpen(true)}
-                        style={{ boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
+                        style={{ boxShadow: '0 25px 50px rgba(0,0,0,0.12)' }}
                       >
                         <Image 
                           src={projects[selectedProject].galleryImages ? projects[selectedProject].galleryImages[currentGalleryImage] : projects[selectedProject].image} 
@@ -2018,17 +2048,18 @@ export default function Home() {
                           fill 
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                           quality={95}
-                          sizes="(max-width: 768px) 100vw, 80vw"
+                          sizes="(max-width: 768px) 100vw, 90vw"
                         />
                         
-                        {/* Gallery Navigation Arrows */}
+                        {/* Gallery Navigation Arrows - Larger and More Accessible */}
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
                             const maxImages = projects[selectedProject].galleryImages ? projects[selectedProject].galleryImages.length : 2;
                             setCurrentGalleryImage(currentGalleryImage === 0 ? maxImages - 1 : currentGalleryImage - 1);
                           }}
-                          className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/70 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/90"
+                          className="absolute left-6 top-1/2 transform -translate-y-1/2 w-16 h-16 bg-black/80 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black/90 hover:scale-110"
+                          style={{ fontSize: '1.5rem' }}
                         >
                           ←
                         </button>
@@ -2038,36 +2069,38 @@ export default function Home() {
                             const maxImages = projects[selectedProject].galleryImages ? projects[selectedProject].galleryImages.length : 2;
                             setCurrentGalleryImage((currentGalleryImage + 1) % maxImages);
                           }}
-                          className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/70 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/90"
+                          className="absolute right-6 top-1/2 transform -translate-y-1/2 w-16 h-16 bg-black/80 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black/90 hover:scale-110"
+                          style={{ fontSize: '1.5rem' }}
                         >
                           →
                         </button>
-                        
-                        {/* Image Counter */}
-                        <div className="absolute bottom-4 right-4 bg-black/70 text-white text-sm px-3 py-1 rounded-full">
-                          {currentGalleryImage + 1} of {projects[selectedProject].galleryImages ? projects[selectedProject].galleryImages.length : 2}
-                        </div>
                       </div>
                       
-                      {/* Gallery Navigation Dots - Dynamic */}
-                      <div className="flex justify-center gap-3">
+                      {/* Gallery Counter - Below Image, Not Blocking */}
+                      <div className="text-center mb-6">
+                        <span className="text-lg font-medium text-gray-600">
+                          Image {currentGalleryImage + 1} of {projects[selectedProject].galleryImages ? projects[selectedProject].galleryImages.length : 2}
+                        </span>
+                      </div>
+                      
+                      {/* Gallery Navigation Dots - Larger and More Accessible */}
+                      <div className="flex justify-center gap-4">
                         {projects[selectedProject].galleryImages ? 
                           projects[selectedProject].galleryImages.map((_, index) => (
                             <button 
                               key={index}
                               onClick={() => setCurrentGalleryImage(index)}
-                              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                              className={`w-4 h-4 rounded-full transition-all duration-300 hover:scale-125 ${
                                 currentGalleryImage === index ? '' : 'opacity-40'
                               }`}
                               style={{ backgroundColor: '#ff6663' }}
                             />
                           )) :
-                          // Fallback for projects without galleryImages
                           [0, 1].map((index) => (
                             <button 
                               key={index}
                               onClick={() => setCurrentGalleryImage(index)}
-                              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                              className={`w-4 h-4 rounded-full transition-all duration-300 hover:scale-125 ${
                                 currentGalleryImage === index ? '' : 'opacity-40'
                               }`}
                               style={{ backgroundColor: '#ff6663' }}
@@ -2080,84 +2113,93 @@ export default function Home() {
                 </motion.div>
                 </div>
 
-                {/* IMPACT SECTION - Results */}
-                <div style={{ marginTop: '6rem' }}>
+                {/* IMPACT SECTION - Copy Compliant with Better Spacing */}
                 <motion.div
                   id="impact"
-                  className="scroll-mt-24"
+                  className="scroll-mt-24 mb-20"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.2 }}
+                  style={{ marginTop: '8rem' }}
                 >
-                  <div className="flex items-center gap-4 mb-8">
+                  <div className="flex items-center gap-6 mb-12">
                     <span 
-                      className="w-12 h-12 rounded-full flex items-center justify-center text-white font-medium"
+                      className="w-16 h-16 rounded-full flex items-center justify-center text-white font-medium text-xl"
                       style={{ backgroundColor: '#ff6663' }}
                     >
                       04
                     </span>
-                    <h3 className="text-3xl font-light text-gray-800">Impact & Results</h3>
+                    <h3 className="text-4xl font-light text-gray-800">Impact & Results</h3>
                   </div>
                   
-                  <div className="pl-16">
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      {projects[selectedProject].impact}
-                    </p>
+                  <div className="pl-24">
+                    {(() => {
+                      const sentences = projects[selectedProject].impact.split('. ');
+                      return sentences.map((sentence, index) => (
+                        <div key={index} className="mb-8">
+                          <div className="flex items-start gap-6">
+                            <span className="w-3 h-3 rounded-full mt-4 flex-shrink-0" style={{ backgroundColor: '#ff6663' }}></span>
+                            <p className="text-xl text-gray-700 leading-relaxed font-normal">
+                              {sentence}{index < sentences.length - 1 ? '.' : ''}
+                            </p>
+                          </div>
+                        </div>
+                      ));
+                    })()}
                   </div>
                 </motion.div>
-                </div>
-              </div>
 
-              {/* CLIENT TESTIMONIAL - Social Proof */}
-              <div style={{ marginTop: '6rem' }}>
+              {/* CLIENT TESTIMONIAL - Premium Social Proof */}
               {projects[selectedProject].testimonial && projects[selectedProject].testimonialAuthor && (
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.4 }}
-                  className="bg-gray-50 border-l-4 px-12 py-12 mx-12 mb-8 rounded-2xl"
-                  style={{ borderLeftColor: '#ff6663' }}
-                >
-                  <div className="max-w-3xl mx-auto text-center">
-                    <blockquote 
-                      className="text-2xl text-gray-800 mb-8 leading-relaxed"
-                      style={{ fontStyle: 'italic' }}
-                    >
-                      &ldquo;{projects[selectedProject].testimonial}&rdquo;
-                    </blockquote>
-                    <cite 
-                      className="text-lg font-medium"
-                      style={{ color: '#ff6663' }}
-                    >
-                      {projects[selectedProject].testimonialAuthor}
-                    </cite>
-                  </div>
-                </motion.div>
+                <div className="px-24 py-20" style={{ backgroundColor: '#fafafa', marginTop: '8rem' }}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 1.4 }}
+                    className="max-w-5xl mx-auto"
+                  >
+                    <div className="bg-white border-l-6 px-16 py-16 rounded-2xl" style={{ borderLeftColor: '#ff6663', boxShadow: '0 20px 40px rgba(0,0,0,0.08)' }}>
+                      <div className="text-center">
+                        <blockquote 
+                          className="text-3xl text-gray-800 mb-12 leading-relaxed"
+                          style={{ fontStyle: 'italic', lineHeight: '1.6' }}
+                        >
+                          &ldquo;{projects[selectedProject].testimonial}&rdquo;
+                        </blockquote>
+                        <cite 
+                          className="text-xl font-medium"
+                          style={{ color: '#ff6663' }}
+                        >
+                          {projects[selectedProject].testimonialAuthor}
+                        </cite>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
               )}
-              </div>
 
-              {/* PROJECT NAVIGATION - Effortless Flow Control */}
-              <div className="bg-gray-50 px-16 py-16" style={{ marginTop: '6rem' }}>
+              {/* PROJECT NAVIGATION - Professional & Accessible */}
+              <div className="bg-white px-24 py-20 border-t-2" style={{ borderTopColor: '#f3f4f6', marginTop: '8rem' }}>
                 <motion.div
-                  className="max-w-4xl mx-auto"
+                  className="max-w-6xl mx-auto"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.6 }}
                 >
-                  <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-                    {/* Previous Project */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+                    {/* Previous Project - Proper Button */}
                     <motion.button
                       onClick={() => {
                         const prevIndex = selectedProject === 0 ? projects.length - 1 : selectedProject - 1;
                         setSelectedProject(prevIndex);
                         setCurrentGalleryImage(0);
                       }}
-                      className="flex items-center gap-6 p-6 rounded-2xl bg-white hover:bg-gray-50 transition-all duration-300 group flex-1 md:flex-initial"
-                      whileHover={{ scale: 1.02, x: -4 }}
-                      whileTap={{ scale: 0.98 }}
-                      style={{ boxShadow: '0 8px 25px rgba(0,0,0,0.05)' }}
+                      className="flex items-center gap-6 p-8 rounded-2xl bg-gray-50 hover:bg-gray-100 transition-all duration-300 group justify-center md:justify-start"
+                      whileHover={{ scale: 1.03, x: -6 }}
+                      whileTap={{ scale: 0.97 }}
+                      style={{ boxShadow: '0 12px 30px rgba(0,0,0,0.08)', minHeight: '120px' }}
                     >
-                      <div className="w-16 h-16 rounded-xl overflow-hidden relative flex-shrink-0">
+                      <div className="w-20 h-20 rounded-xl overflow-hidden relative flex-shrink-0">
                         <Image
                           src={projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].image}
                           alt="Previous project"
@@ -2166,43 +2208,49 @@ export default function Home() {
                         />
                       </div>
                       <div className="text-left">
-                        <p className="text-sm text-gray-500 uppercase tracking-wide mb-1">← Previous</p>
-                        <p className="text-lg font-medium text-gray-800">
+                        <p className="text-base text-gray-500 uppercase tracking-wide mb-2 font-medium">← Previous Project</p>
+                        <p className="text-xl font-medium text-gray-800 leading-snug">
                           {projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].title}
+                        </p>
+                        <p className="text-base text-gray-600 mt-1">
+                          {projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].client}
                         </p>
                       </div>
                     </motion.button>
 
-                    {/* Project Counter */}
+                    {/* Project Counter - Clear and Prominent */}
                     <div className="text-center">
                       <div 
-                        className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-lg mb-2"
-                        style={{ backgroundColor: '#ff6663' }}
+                        className="w-24 h-24 rounded-full flex items-center justify-center text-white font-bold text-2xl mb-4 mx-auto"
+                        style={{ backgroundColor: '#ff6663', boxShadow: '0 12px 30px rgba(255, 102, 99, 0.3)' }}
                       >
                         {selectedProject + 1}
                       </div>
-                      <p className="text-sm text-gray-600">of {projects.length}</p>
+                      <p className="text-lg font-medium text-gray-700">of {projects.length} projects</p>
                     </div>
 
-                    {/* Next Project */}
+                    {/* Next Project - Proper Button */}
                     <motion.button
                       onClick={() => {
                         const nextIndex = (selectedProject + 1) % projects.length;
                         setSelectedProject(nextIndex);
                         setCurrentGalleryImage(0);
                       }}
-                      className="flex items-center gap-6 p-6 rounded-2xl bg-white hover:bg-gray-50 transition-all duration-300 group flex-1 md:flex-initial"
-                      whileHover={{ scale: 1.02, x: 4 }}
-                      whileTap={{ scale: 0.98 }}
-                      style={{ boxShadow: '0 8px 25px rgba(0,0,0,0.05)' }}
+                      className="flex items-center gap-6 p-8 rounded-2xl bg-gray-50 hover:bg-gray-100 transition-all duration-300 group justify-center md:justify-end"
+                      whileHover={{ scale: 1.03, x: 6 }}
+                      whileTap={{ scale: 0.97 }}
+                      style={{ boxShadow: '0 12px 30px rgba(0,0,0,0.08)', minHeight: '120px' }}
                     >
-                      <div className="text-right md:text-left">
-                        <p className="text-sm text-gray-500 uppercase tracking-wide mb-1">Next →</p>
-                        <p className="text-lg font-medium text-gray-800">
+                      <div className="text-right md:order-1">
+                        <p className="text-base text-gray-500 uppercase tracking-wide mb-2 font-medium">Next Project →</p>
+                        <p className="text-xl font-medium text-gray-800 leading-snug">
                           {projects[(selectedProject + 1) % projects.length].title}
                         </p>
+                        <p className="text-base text-gray-600 mt-1">
+                          {projects[(selectedProject + 1) % projects.length].client}
+                        </p>
                       </div>
-                      <div className="w-16 h-16 rounded-xl overflow-hidden relative flex-shrink-0">
+                      <div className="w-20 h-20 rounded-xl overflow-hidden relative flex-shrink-0 md:order-2">
                         <Image
                           src={projects[(selectedProject + 1) % projects.length].image}
                           alt="Next project"
@@ -2214,7 +2262,6 @@ export default function Home() {
                   </div>
                 </motion.div>
               </div>
-            </div>
           </motion.div>
         </motion.div>
       )}
