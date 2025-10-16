@@ -2127,23 +2127,25 @@ export default function Home() {
                 </div>
 
                 {/* Enhanced Client Testimonial */}
-                <div 
-                  className="bg-coral/5 border-l-4 border-coral p-8 rounded-xl max-w-4xl mx-auto"
-                  style={{ borderLeftColor: '#ff6663', backgroundColor: 'rgba(255, 102, 99, 0.05)' }}
-                >
-                  <blockquote 
-                    className="text-2xl text-gray-800 mb-6"
-                    style={{ lineHeight: '1.5', fontStyle: 'italic' }}
+                {projects[selectedProject].testimonial && projects[selectedProject].testimonialAuthor && (
+                  <div 
+                    className="bg-coral/5 border-l-4 border-coral p-8 rounded-xl max-w-4xl mx-auto"
+                    style={{ borderLeftColor: '#ff6663', backgroundColor: 'rgba(255, 102, 99, 0.05)' }}
                   >
-                    {projects[selectedProject].testimonial}
-                  </blockquote>
-                  <cite 
-                    className="font-medium text-lg"
-                    style={{ color: '#ff6663' }}
-                  >
-                    {projects[selectedProject].testimonialAuthor}
-                  </cite>
-                </div>
+                    <blockquote 
+                      className="text-2xl text-gray-800 mb-6"
+                      style={{ lineHeight: '1.5', fontStyle: 'italic' }}
+                    >
+                      {projects[selectedProject].testimonial}
+                    </blockquote>
+                    <cite 
+                      className="font-medium text-lg"
+                      style={{ color: '#ff6663' }}
+                    >
+                      {projects[selectedProject].testimonialAuthor}
+                    </cite>
+                  </div>
+                )}
 
                 {/* Bottom Project Navigation - Phase 4.1 Mobile Optimized */}
                 <div className="max-w-4xl mx-auto mt-16 pt-8 border-t border-gray-100">
