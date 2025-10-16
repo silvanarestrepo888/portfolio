@@ -32,7 +32,6 @@ export default function Home() {
       image: "/projects/kayanee/hero-kayanee.jpeg",
       secondaryImage: "/projects/kayanee/secundary-kayanee.jpeg",
       galleryImages: [
-        "/projects/kayanee/hero-kayanee.jpeg",
         "/projects/kayanee/secundary-kayanee.jpeg",
         "/projects/kayanee/Screenshot 2024-11-15 at 10.42.42.png"
       ],
@@ -56,7 +55,6 @@ export default function Home() {
       image: "/projects/augoor/hero-2.png",
       secondaryImage: "/projects/augoor/photo-main-carrusel.jpeg",
       galleryImages: [
-        "/projects/augoor/hero-2.png",
         "/projects/augoor/photo-main-carrusel.jpeg",
         "/projects/augoor/Screenshot 2025-04-15 at 13.33.51.png",
         "/projects/augoor/Screenshot 2025-04-15 at 13.34.12.png",
@@ -82,7 +80,6 @@ export default function Home() {
       image: "/projects/chime-care/hero-j&j.jpeg",
       secondaryImage: "/projects/chime-care/secundary-jjpeg.jpeg",
       galleryImages: [
-        "/projects/chime-care/hero-j&j.jpeg",
         "/projects/chime-care/secundary-jjpeg.jpeg",
         "/projects/chime-care/Screenshot 2025-03-06 at 171139-VSCO.jpeg",
         "/projects/chime-care/Screenshot 2025-04-15 at 13.23.31.png"
@@ -107,7 +104,6 @@ export default function Home() {
       image: "/projects/nomade/main-hero-carrusel.jpeg",
       secondaryImage: "/projects/nomade/secundary-hero.jpeg",
       galleryImages: [
-        "/projects/nomade/main-hero-carrusel.jpeg",
         "/projects/nomade/secundary-hero.jpeg",
         "/projects/nomade/Screenshot 2024-11-15 at 15.21.56.png",
         "/projects/nomade/Screenshot 2025-04-15 at 13.46.25.png",
@@ -133,7 +129,6 @@ export default function Home() {
       image: "/projects/danone/main-hero-carrusel.jpeg",
       secondaryImage: "/projects/danone/secundary-hero.png",
       galleryImages: [
-        "/projects/danone/main-hero-carrusel.jpeg",
         "/projects/danone/secundary-hero.png",
         "/projects/danone/Screenshot 2025-04-15 at 14.01.55.png",
         "/projects/danone/Screenshot 2025-04-15 at 14.03.20.png"
@@ -158,7 +153,6 @@ export default function Home() {
       image: "/projects/parques-reunidos/hero-parque-reunidos.png",
       secondaryImage: "/projects/parques-reunidos/secundary-image.jpeg",
       galleryImages: [
-        "/projects/parques-reunidos/hero-parque-reunidos.png",
         "/projects/parques-reunidos/secundary-image.jpeg",
         "/projects/parques-reunidos/Envisioning for Digital Planning and Booking.png",
         "/projects/parques-reunidos/Envisioning for Dynamic Booking.png"
@@ -183,7 +177,6 @@ export default function Home() {
       image: "/projects/qiddiya/hero-qiddiya.png",
       secondaryImage: "/projects/qiddiya/secondary-qiddiya.png",
       galleryImages: [
-        "/projects/qiddiya/hero-qiddiya.png",
         "/projects/qiddiya/secondary-qiddiya.png",
         "/projects/qiddiya/emergency-management.png",
         "/projects/qiddiya/guest-search-digital-id.png",
