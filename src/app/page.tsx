@@ -820,8 +820,8 @@ export default function Home() {
             </div>
           </motion.div>
           
-          {/* SIMPLE DESKTOP CAROUSEL - GUARANTEED CENTERING */}
-          <div className="projects-desktop" style={{position: 'relative'}}>
+          {/* PROFESSIONAL PROJECT CAROUSEL - Complete UX Redesign */}
+          <div className="projects-desktop max-w-7xl mx-auto" style={{position: 'relative'}}>
             <Swiper
               modules={[Pagination, Autoplay, Keyboard, Navigation]}
               spaceBetween={80}
@@ -911,10 +911,10 @@ export default function Home() {
                         transformStyle: 'preserve-3d'
                       }}
                     >
-                      <div className="grid md:grid-cols-3 items-stretch min-h-[520px]" style={{position: 'relative'}}>
-                        {/* LANDOR VISUAL EXPLORATION: Image consuming most of screen */}
+                      <div className="grid md:grid-cols-5 items-stretch min-h-[600px]">
+                        {/* CLEAN IMAGE AREA - Balanced Proportions */}
                         <motion.div 
-                          className="md:col-span-2 relative flex items-center overflow-hidden group"
+                          className="md:col-span-3 relative flex items-center overflow-hidden group"
                           animate={{ y: [0, -4, 0] }}
                           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                           whileHover={{ scale: 1.02 }}
@@ -952,24 +952,15 @@ export default function Home() {
                           </div>
                         </motion.div>
                         
-                        {/* CONTENT AREA: Proper Spacing and Visual Design */}
-                        <div className="md:col-span-1 p-12 flex flex-col justify-center h-full" style={{background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,102,99,0.02) 100%)', gap: '2.5rem'}}>
+                        {/* CONTENT AREA: Generous Spacing & Professional Layout */}
+                        <div className="md:col-span-2 p-16 flex flex-col justify-center h-full bg-white" style={{gap: '3rem'}}>
                           <motion.div
                             initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 1, delay: 0.3 }}
                           >
-                            {/* H3: Project titles - LANDOR PERFECTION */}
-                            <h3 
-                              style={{ 
-                                fontSize: '1.75rem',
-                                fontWeight: '400',
-                                lineHeight: '1.2',
-                                letterSpacing: '-0.02em',
-                                color: '#374151',
-                                marginBottom: '1rem'
-                              }}
-                            >
+                            {/* Project Title - Professional Hierarchy */}
+                            <h3 className="text-4xl font-light text-gray-800 mb-6 leading-tight">
                               {project.title}
                             </h3>
                           </motion.div>
@@ -979,17 +970,8 @@ export default function Home() {
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 1, delay: 0.4 }}
                           >
-                            {/* H4: Subheadings and descriptions - LANDOR CONSISTENCY */}
-                            <h4 
-                              style={{ 
-                                fontSize: '1.125rem',
-                                fontWeight: '400',
-                                lineHeight: '1.4',
-                                color: '#6B7280',
-                                marginBottom: '1rem',
-                                letterSpacing: '0'
-                              }}
-                            >
+                            {/* Project Subtitle */}
+                            <h4 className="text-xl text-gray-600 leading-relaxed mb-6">
                               {project.subtitle}
                             </h4>
                           </motion.div>
@@ -999,72 +981,70 @@ export default function Home() {
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 1, delay: 0.5 }}
                           >
-                            <p 
-                              className="text-lg font-medium"
-                              style={{ color: '#ff6663', marginBottom: '0.5rem' }}
-                            >
+                            {/* Client Name */}
+                            <p className="text-2xl font-medium mb-8" style={{ color: '#ff6663' }}>
                               {project.client}
                             </p>
-                            {/* LANDOR VISUAL EXPLORATION: Essential project details */}
-                            <div style={{display: 'flex', gap: '1rem', justifyContent: 'center', alignItems: 'center', marginBottom: '1rem'}}>
-                              <span style={{fontSize: '0.875rem', color: '#9CA3AF', fontWeight: '500'}}>
-                                {project.year}
-                              </span>
-                              <span style={{color: '#D1D5DB'}}>•</span>
-                              <span style={{fontSize: '0.875rem', color: '#9CA3AF', fontWeight: '500'}}>
-                                {project.location}
-                              </span>
+                            
+                            {/* Project Metadata - Clean Layout */}
+                            <div className="flex gap-8 text-lg text-gray-500 mb-10">
+                              <span className="font-medium">{project.year}</span>
+                              <span>•</span>
+                              <span className="font-medium">{project.location}</span>
                             </div>
                           </motion.div>
                           
-                          {/* Primary Capability Tags */}
+                          {/* Capability Tags - Properly Sized */}
                           <motion.div 
-                            className="flex flex-wrap gap-2 mb-3"
                             initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 1, delay: 0.6 }}
                           >
-                            {project.tech.slice(0, 2).map((tech, techIndex) => (
-                              <span 
-                                key={techIndex}
-                                className="px-3 py-1 rounded-full text-xs font-medium border"
-                                style={{
-                                  borderColor: '#ff6663',
-                                  color: '#ff6663'
-                                }}
-                              >
-                                {tech}
-                              </span>
-                            ))}
+                            <p className="text-base font-medium text-gray-600 mb-6">Core Capabilities</p>
+                            <div className="flex flex-wrap gap-4 mb-8">
+                              {project.tech.slice(0, 2).map((tech, techIndex) => (
+                                <span 
+                                  key={techIndex}
+                                  className="px-6 py-3 rounded-full text-base font-medium"
+                                  style={{
+                                    backgroundColor: '#ff6663',
+                                    color: 'white',
+                                    minWidth: '140px',
+                                    textAlign: 'center'
+                                  }}
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                            
+                            {/* Industry Tag */}
+                            {project.industryTags && (
+                              <div>
+                                <p className="text-base font-medium text-gray-600 mb-6">Industry Focus</p>
+                                <span 
+                                  className="px-6 py-3 rounded-full text-base font-medium"
+                                  style={{
+                                    backgroundColor: 'rgba(255, 102, 99, 0.1)',
+                                    color: '#ff6663',
+                                    border: '1px solid rgba(255, 102, 99, 0.3)',
+                                    minWidth: '160px',
+                                    display: 'inline-block',
+                                    textAlign: 'center'
+                                  }}
+                                >
+                                  {project.industryTags[0]}
+                                </span>
+                              </div>
+                            )}
                           </motion.div>
                           
-                          {/* Industry Tags */}
+                          {/* Action Buttons - Generous Spacing */}
                           <motion.div 
-                            className="flex flex-wrap gap-2"
+                            className="space-y-8 pt-12"
                             initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 1, delay: 0.7 }}
-                          >
-                            {project.industryTags && project.industryTags.slice(0, 2).map((tag, tagIndex) => (
-                              <span 
-                                key={tagIndex}
-                                className="px-3 py-1 rounded-full text-xs font-medium"
-                                style={{
-                                  backgroundColor: 'rgba(255, 102, 99, 0.1)',
-                                  color: '#ff6663'
-                                }}
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </motion.div>
-                          
-                          {/* Action Buttons - Professional Spacing */}
-                          <motion.div 
-                            className="space-y-6 pt-8"
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 1, delay: 0.8 }}
                           >
                             <button 
                               onClick={(e) => {
@@ -1072,11 +1052,12 @@ export default function Home() {
                                 setSelectedProject(index);
                                 setCurrentGalleryImage(0);
                               }}
-                              className="w-full flex items-center justify-center gap-3 px-8 py-4 rounded-full text-base font-medium transition-all duration-300"
+                              className="w-full flex items-center justify-center gap-4 px-12 py-6 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105"
                               style={{
                                 backgroundColor: '#ff6663',
                                 color: 'white',
-                                minHeight: '56px'
+                                minHeight: '72px',
+                                boxShadow: '0 8px 25px rgba(255, 102, 99, 0.3)'
                               }}
                             >
                               View Project Details
@@ -1086,16 +1067,17 @@ export default function Home() {
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={(e) => e.stopPropagation()}
-                              className="w-full flex items-center justify-center gap-3 px-8 py-4 rounded-full text-base font-medium transition-all duration-300"
+                              className="w-full flex items-center justify-center gap-4 px-12 py-6 rounded-full text-lg font-medium transition-all duration-300 hover:scale-105"
                               style={{
                                 border: '2px solid rgba(255, 102, 99, 0.4)',
                                 color: '#ff6663',
-                                backgroundColor: 'rgba(255, 102, 99, 0.05)',
-                                minHeight: '56px'
+                                backgroundColor: 'rgba(255, 102, 99, 0.08)',
+                                minHeight: '72px',
+                                boxShadow: '0 4px 15px rgba(255, 102, 99, 0.15)'
                               }}
                             >
-                              <ExternalLink size={16} />
-                              Client Website
+                              <ExternalLink size={20} />
+                              Visit Client Website
                             </a>
                           </motion.div>
                         </div>
@@ -1736,31 +1718,32 @@ export default function Home() {
             />
             
             <div className="relative overflow-y-auto" style={{ backgroundColor: 'white', maxHeight: '95vh' }}>
-              {/* CLEAN HERO IMAGE - Pure Visual Impact */}
+              {/* HERO IMAGE - Clean Visual Presentation */}
               <motion.div 
-                className="h-96 relative overflow-hidden rounded-t-3xl"
-                initial={{ scale: 1.02, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
+                className="h-80 relative overflow-hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
               >
                 <Image
                   src={projects[selectedProject].image}
-                  alt={`${projects[selectedProject].title} - ${projects[selectedProject].category} project showcasing ${projects[selectedProject].tech[0]} and ${projects[selectedProject].tech[1]} for ${projects[selectedProject].client}`}
+                  alt={`${projects[selectedProject].title} - ${projects[selectedProject].category} project hero showcase`}
                   fill
                   className="object-cover"
                   quality={95}
-                  sizes="(max-width: 768px) 100vw, 80vw"
+                  sizes="(max-width: 768px) 100vw, 90vw"
                   style={{ objectPosition: 'center center' }}
                 />
                 
-                {/* MINIMAL NAVIGATION ONLY - No Visual Clutter */}
-                <div className="absolute top-6 left-6 right-6 flex justify-between items-center">
+                {/* PROFESSIONAL NAVIGATION - Highly Visible */}
+                <div className="absolute top-8 left-8 right-8 flex justify-between items-center">
                   <motion.button
                     onClick={() => setSelectedProject(null)}
-                    className="flex items-center gap-2 px-6 py-3 bg-black/70 rounded-xl text-sm font-medium text-white backdrop-blur-sm"
+                    className="flex items-center gap-3 px-8 py-4 bg-white/95 rounded-2xl text-lg font-medium text-gray-800 backdrop-blur-sm shadow-lg"
                     whileHover={{ 
                       scale: 1.05, 
-                      backgroundColor: 'rgba(0, 0, 0, 0.85)'
+                      backgroundColor: 'rgba(255, 255, 255, 1)',
+                      boxShadow: '0 12px 30px rgba(0,0,0,0.15)'
                     }}
                     whileTap={{ scale: 0.95 }}
                     initial={{ opacity: 0, x: -20 }}
@@ -1772,7 +1755,7 @@ export default function Home() {
                   
                   <motion.button
                     onClick={() => setSelectedProject(null)}
-                    className="w-12 h-12 bg-black/70 rounded-xl flex items-center justify-center backdrop-blur-sm"
+                    className="w-16 h-16 bg-white/95 rounded-2xl flex items-center justify-center backdrop-blur-sm shadow-lg"
                     whileHover={{ 
                       scale: 1.1, 
                       backgroundColor: 'rgba(255, 102, 99, 0.9)'
@@ -1782,7 +1765,7 @@ export default function Home() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
                   >
-                    <span className="text-xl font-bold text-white">×</span>
+                    <span className="text-2xl font-bold text-gray-800">×</span>
                   </motion.button>
                   
                   <motion.button
@@ -1791,10 +1774,11 @@ export default function Home() {
                       setSelectedProject(nextIndex);
                       setCurrentGalleryImage(0);
                     }}
-                    className="flex items-center gap-2 px-6 py-3 bg-black/70 rounded-xl text-sm font-medium text-white backdrop-blur-sm"
+                    className="flex items-center gap-3 px-8 py-4 bg-white/95 rounded-2xl text-lg font-medium text-gray-800 backdrop-blur-sm shadow-lg"
                     whileHover={{ 
                       scale: 1.05, 
-                      backgroundColor: 'rgba(0, 0, 0, 0.85)'
+                      backgroundColor: 'rgba(255, 255, 255, 1)',
+                      boxShadow: '0 12px 30px rgba(0,0,0,0.15)'
                     }}
                     whileTap={{ scale: 0.95 }}
                     initial={{ opacity: 0, x: 20 }}
