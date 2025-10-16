@@ -1463,576 +1463,279 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* Immersive Project Case Study Experience */}
+      {/* LUXURY EDITORIAL PROJECT EXPERIENCE - Vogue/Wallpaper Inspired */}
       {selectedProject !== null && (
         <motion.div 
-          className="fixed inset-0 z-50 flex items-center justify-center"
-          style={{ backgroundColor: 'rgba(0, 0, 0, 0.9)', backdropFilter: 'blur(20px)' }}
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl"
           onClick={() => setSelectedProject(null)}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
         >
           <motion.div 
-            className="bg-white rounded-3xl elevation-4 overflow-hidden"
-            style={{ 
-              position: 'relative',
-              isolation: 'isolate',
-              backgroundColor: 'white',
-              zIndex: 1,
-              width: '98vw',
-              maxWidth: '1600px',
-              maxHeight: '95vh',
-              margin: '1vh auto'
-            }}
-            initial={{ opacity: 0, scale: 0.9 }}
+            className="h-full overflow-y-auto"
+            initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Enhanced Scroll Progress Bar - Phase 4.1 */}
-            <motion.div 
-              className="absolute top-0 left-0 right-0 h-1 z-10"
-              style={{ 
-                backgroundColor: '#ff6663',
-                scaleX: 0.3,
-                transformOrigin: "0%"
-              }}
-              animate={{
-                scaleX: [0.3, 0.7, 1]
-              }}
-              transition={{
-                duration: 2,
-                ease: "easeInOut"
-              }}
-            />
-            
-            <div className="relative overflow-y-auto" style={{ backgroundColor: 'white', maxHeight: '95vh' }}>
-              {/* HERO IMAGE - Clean Visual Presentation */}
+            {/* Minimalist Navigation - Luxury Brand Standard */}
+            <div className="fixed top-8 left-8 right-8 z-50 flex justify-between items-center">
+              <motion.button
+                onClick={() => setSelectedProject(null)}
+                className="flex items-center gap-3 px-6 py-3 bg-white/90 rounded-full backdrop-blur-sm text-gray-700 font-medium"
+                whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 1)' }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+              >
+                ← Projects
+              </motion.button>
+              
+              <div className="flex gap-4">
+                <motion.button
+                  onClick={() => {
+                    const prevIndex = selectedProject === 0 ? projects.length - 1 : selectedProject - 1;
+                    setSelectedProject(prevIndex);
+                    setCurrentGalleryImage(0);
+                  }}
+                  className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center backdrop-blur-sm"
+                  whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 255, 255, 1)' }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <ArrowDown size={18} style={{ transform: 'rotate(90deg)', color: '#ff6663' }} />
+                </motion.button>
+                
+                <motion.button
+                  onClick={() => setSelectedProject(null)}
+                  className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center backdrop-blur-sm"
+                  whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 102, 99, 0.9)' }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <span className="text-gray-700 text-xl">×</span>
+                </motion.button>
+                
+                <motion.button
+                  onClick={() => {
+                    const nextIndex = (selectedProject + 1) % projects.length;
+                    setSelectedProject(nextIndex);
+                    setCurrentGalleryImage(0);
+                  }}
+                  className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center backdrop-blur-sm"
+                  whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 255, 255, 1)' }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <ArrowDown size={18} style={{ transform: 'rotate(-90deg)', color: '#ff6663' }} />
+                </motion.button>
+              </div>
+            </div>
+
+            {/* MAGAZINE-STYLE LAYOUT - Editorial Excellence */}
+            <div className="pt-32 pb-16">
+              {/* Hero Section - Full Bleed */}
               <motion.div 
-                className="h-80 relative overflow-hidden"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
+                className="w-full h-[70vh] relative mb-24"
+                initial={{ opacity: 0, scale: 1.02 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.2 }}
               >
                 <Image
                   src={projects[selectedProject].image}
-                  alt={`${projects[selectedProject].title} - ${projects[selectedProject].category} project hero showcase`}
+                  alt={`${projects[selectedProject].title} editorial hero`}
                   fill
                   className="object-cover"
-                  quality={95}
-                  sizes="(max-width: 768px) 100vw, 90vw"
+                  quality={100}
+                  sizes="100vw"
                   style={{ objectPosition: 'center center' }}
                 />
                 
-                {/* PROFESSIONAL NAVIGATION - Highly Visible */}
-                <div className="absolute top-8 left-8 right-8 flex justify-between items-center">
-                  <motion.button
-                    onClick={() => setSelectedProject(null)}
-                    className="flex items-center gap-3 px-8 py-4 bg-white/95 rounded-2xl text-lg font-medium text-gray-800 backdrop-blur-sm shadow-lg"
-                    whileHover={{ 
-                      scale: 1.05, 
-                      backgroundColor: 'rgba(255, 255, 255, 1)',
-                      boxShadow: '0 12px 30px rgba(0,0,0,0.15)'
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    ← Back to Projects
-                  </motion.button>
-                  
-                  <motion.button
-                    onClick={() => setSelectedProject(null)}
-                    className="w-16 h-16 bg-white/95 rounded-2xl flex items-center justify-center backdrop-blur-sm shadow-lg"
-                    whileHover={{ 
-                      scale: 1.1, 
-                      backgroundColor: 'rgba(255, 102, 99, 0.9)'
-                    }}
-                    whileTap={{ scale: 0.9 }}
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                  >
-                    <span className="text-2xl font-bold text-gray-800">×</span>
-                  </motion.button>
-                  
-                  <motion.button
-                    onClick={() => {
-                      const nextIndex = (selectedProject + 1) % projects.length;
-                      setSelectedProject(nextIndex);
-                      setCurrentGalleryImage(0);
-                    }}
-                    className="flex items-center gap-3 px-8 py-4 bg-white/95 rounded-2xl text-lg font-medium text-gray-800 backdrop-blur-sm shadow-lg"
-                    whileHover={{ 
-                      scale: 1.05, 
-                      backgroundColor: 'rgba(255, 255, 255, 1)',
-                      boxShadow: '0 12px 30px rgba(0,0,0,0.15)'
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    Next Project →
-                  </motion.button>
-                </div>
-              </motion.div>
-
-              {/* PROJECT IDENTITY SECTION - Properly Centered */}
-              <div className="px-24 py-24" style={{ borderBottom: '1px solid #f3f4f6' }}>
-                <motion.div
-                  className="text-center max-w-6xl mx-auto"
-                  initial={{ opacity: 0, y: 20 }}
+                {/* Sophisticated Typography Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <motion.div 
+                  className="absolute bottom-16 left-16 right-16 text-white"
+                  initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
+                  transition={{ duration: 1, delay: 0.5 }}
                 >
-                  {/* Project Title - H1 Level - Perfectly Centered */}
-                  <h1 
-                    className="text-6xl font-light text-gray-800 mb-8"
-                    style={{ 
-                      lineHeight: '1.1',
-                      letterSpacing: '-0.02em'
-                    }}
-                  >
-                    {projects[selectedProject].title}
-                  </h1>
-                  
-                  {/* Client Name - H2 Level - Perfectly Centered */}
-                  <h2 
-                    className="text-3xl font-medium mb-12" 
-                    style={{ color: '#ff6663' }}
-                  >
-                    {projects[selectedProject].client}
-                  </h2>
-                  
-                  {/* Project Metadata - Generous Spacing */}
-                  <div className="flex justify-center gap-16 text-xl text-gray-600 mb-20">
-                    <span className="flex items-center gap-4">
-                      <span className="w-4 h-4 rounded-full" style={{ backgroundColor: '#ff6663' }}></span>
-                      <span className="font-medium">{projects[selectedProject].year}</span>
-                    </span>
-                    <span className="flex items-center gap-4">
-                      <span className="w-4 h-4 rounded-full" style={{ backgroundColor: '#ff6663' }}></span>
-                      <span className="font-medium">{projects[selectedProject].location}</span>
-                    </span>
-                    <span className="flex items-center gap-4">
-                      <span className="w-4 h-4 rounded-full" style={{ backgroundColor: '#ff6663' }}></span>
-                      <span className="font-medium">{projects[selectedProject].category}</span>
-                    </span>
-                  </div>
-                  
-                  {/* Live Project Link - Generous Spacing */}
-                  <div className="mt-16">
-                    <a 
-                      href={projects[selectedProject].website} 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-4 px-16 py-6 rounded-full text-xl font-medium transition-all duration-300 hover:scale-105"
-                      style={{ 
-                        backgroundColor: '#ff6663',
-                        color: 'white',
-                        boxShadow: '0 16px 40px rgba(255, 102, 99, 0.4)',
-                        minWidth: '280px',
-                        justifyContent: 'center'
-                      }}
-                    >
-                      <ExternalLink size={22} />
-                      Visit Live Project
-                    </a>
+                  <div className="max-w-6xl">
+                    <h1 className="text-8xl font-light leading-none mb-8" style={{ letterSpacing: '-0.04em' }}>
+                      {projects[selectedProject].title}
+                    </h1>
+                    <div className="grid md:grid-cols-2 gap-16">
+                      <div>
+                        <p className="text-3xl font-medium mb-6" style={{ color: '#ff6663' }}>
+                          {projects[selectedProject].client}
+                        </p>
+                        <p className="text-2xl leading-relaxed opacity-90">
+                          {projects[selectedProject].subtitle}
+                        </p>
+                      </div>
+                      <div className="flex items-end justify-end">
+                        <a 
+                          href={projects[selectedProject].website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-4 px-12 py-6 bg-white text-gray-800 rounded-full font-medium transition-all duration-500 hover:scale-105"
+                          style={{ fontSize: '1.125rem' }}
+                        >
+                          <ExternalLink size={20} />
+                          Visit Live Project
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
-              </div>
-              
-              {/* STRATEGIC CAPABILITY TAGS - Properly Sized */}
-              <div className="px-24 py-20" style={{ backgroundColor: '#fafafa', borderBottom: '1px solid #f3f4f6' }}>
-                <motion.div
-                  className="max-w-6xl mx-auto"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                >
-                  <div className="grid md:grid-cols-2 gap-16">
-                    {/* Core Capabilities - 3 Maximum */}
-                    {projects[selectedProject].tech && projects[selectedProject].tech.length > 0 && (
-                      <div className="text-center">
-                        <h4 className="text-xl font-medium text-gray-700 mb-8">Core Capabilities</h4>
-                        <div className="flex flex-wrap justify-center gap-4">
-                          {projects[selectedProject].tech.slice(0, 3).map((tech, index) => (
-                            <span 
+              </motion.div>
+
+              {/* Editorial Content Layout */}
+              <div className="max-w-7xl mx-auto px-16">
+                <div className="grid lg:grid-cols-12 gap-24">
+                  {/* Main Content Column */}
+                  <div className="lg:col-span-7 space-y-24">
+                    
+                    {/* Context - Editorial Style */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 40 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.8 }}
+                    >
+                      <h2 className="text-5xl font-light text-gray-800 mb-16 leading-tight">Context</h2>
+                      <div className="prose prose-2xl max-w-none">
+                        <p className="text-2xl leading-[1.7] text-gray-700 font-light">
+                          {projects[selectedProject].context}
+                        </p>
+                      </div>
+                    </motion.div>
+
+                    {/* Approach - Editorial Style */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 40 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 1.0 }}
+                    >
+                      <h2 className="text-5xl font-light text-gray-800 mb-16 leading-tight">Approach</h2>
+                      <div className="prose prose-2xl max-w-none">
+                        <p className="text-2xl leading-[1.7] text-gray-700 font-light">
+                          {projects[selectedProject].challenge}
+                        </p>
+                      </div>
+                    </motion.div>
+
+                    {/* Impact - Editorial Style */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 40 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 1.2 }}
+                    >
+                      <h2 className="text-5xl font-light text-gray-800 mb-16 leading-tight">Impact</h2>
+                      <div className="prose prose-2xl max-w-none">
+                        <p className="text-2xl leading-[1.7] text-gray-700 font-light">
+                          {projects[selectedProject].impact}
+                        </p>
+                      </div>
+                    </motion.div>
+
+                    {/* Testimonial - Luxury Presentation */}
+                    {projects[selectedProject].testimonial && (
+                      <motion.div
+                        className="border-l-8 pl-16 py-16 my-24"
+                        style={{ borderColor: '#ff6663', backgroundColor: 'rgba(255, 255, 255, 0.6)' }}
+                        initial={{ opacity: 0, x: -40 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, delay: 1.4 }}
+                      >
+                        <blockquote className="text-4xl leading-[1.6] text-gray-800 mb-12" style={{ fontStyle: 'italic' }}>
+                          &ldquo;{projects[selectedProject].testimonial}&rdquo;
+                        </blockquote>
+                        <cite className="text-2xl font-medium" style={{ color: '#ff6663' }}>
+                          {projects[selectedProject].testimonialAuthor}
+                        </cite>
+                      </motion.div>
+                    )}
+                  </div>
+
+                  {/* Gallery Sidebar - Art Collection Style */}
+                  <div className="lg:col-span-5">
+                    <motion.div
+                      className="sticky top-32"
+                      initial={{ opacity: 0, x: 40 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.8, delay: 1.0 }}
+                    >
+                      <h2 className="text-3xl font-light text-gray-800 mb-16">Project Gallery</h2>
+                      
+                      <div className="space-y-12">
+                        {projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.map((image, index) => (
+                          <motion.div
+                            key={index}
+                            className="aspect-[4/3] rounded-3xl overflow-hidden cursor-zoom-in group"
+                            onClick={() => {
+                              setCurrentGalleryImage(index);
+                              setGalleryZoomOpen(true);
+                            }}
+                            whileHover={{ scale: 1.03 }}
+                            style={{ 
+                              boxShadow: '0 25px 60px rgba(0, 0, 0, 0.12)',
+                              border: currentGalleryImage === index ? '4px solid #ff6663' : '4px solid transparent'
+                            }}
+                          >
+                            <Image
+                              src={image}
+                              alt={`${projects[selectedProject].title} - Gallery showcase ${index + 1}`}
+                              fill
+                              className="object-cover group-hover:scale-105 transition-transform duration-700"
+                              quality={98}
+                            />
+                            
+                            {/* Elegant Image Counter */}
+                            <div className="absolute top-6 right-6">
+                              <span 
+                                className="text-white font-medium px-4 py-2 rounded-full text-lg"
+                                style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)', backdropFilter: 'blur(10px)' }}
+                              >
+                                {index + 1}
+                              </span>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                      
+                      {/* Gallery Information */}
+                      <div className="text-center mt-16 p-8" style={{ backgroundColor: 'rgba(255, 102, 99, 0.05)', borderRadius: '1.5rem' }}>
+                        <p className="text-xl text-gray-700 mb-4">
+                          {projects[selectedProject].galleryImages?.length || 2} Images
+                        </p>
+                        <p className="text-lg text-gray-600">
+                          Click any image to explore in detail
+                        </p>
+                      </div>
+
+                      {/* Project Capabilities - Sidebar Style */}
+                      <div className="mt-16 p-8 bg-white rounded-3xl" style={{ boxShadow: '0 20px 40px rgba(255, 102, 99, 0.08)' }}>
+                        <h3 className="text-2xl font-light text-gray-800 mb-8">Capabilities</h3>
+                        <div className="space-y-4">
+                          {projects[selectedProject].tech && projects[selectedProject].tech.slice(0, 3).map((tech, index) => (
+                            <div 
                               key={index}
-                              className="px-8 py-4 rounded-full text-base font-medium"
-                              style={{ 
-                                backgroundColor: '#ff6663', 
-                                color: 'white',
-                                minWidth: '160px',
-                                display: 'inline-block'
+                              className="px-6 py-4 text-lg font-medium rounded-2xl"
+                              style={{
+                                backgroundColor: index === 0 ? '#ff6663' : 'rgba(255, 102, 99, 0.1)',
+                                color: index === 0 ? 'white' : '#ff6663',
+                                border: index === 0 ? 'none' : '1px solid rgba(255, 102, 99, 0.2)'
                               }}
                             >
                               {tech}
-                            </span>
+                            </div>
                           ))}
                         </div>
                       </div>
-                    )}
-                    
-                    {/* Industry Focus - 1 Maximum */}
-                    {projects[selectedProject].industryTags && projects[selectedProject].industryTags.length > 0 && (
-                      <div className="text-center">
-                        <h4 className="text-xl font-medium text-gray-700 mb-8">Industry Focus</h4>
-                        <div className="flex justify-center">
-                          <span 
-                            className="px-8 py-4 rounded-full text-base font-medium"
-                            style={{ 
-                              backgroundColor: 'rgba(255, 102, 99, 0.1)', 
-                              color: '#ff6663', 
-                              border: '2px solid rgba(255, 102, 99, 0.3)',
-                              minWidth: '180px',
-                              display: 'inline-block'
-                            }}
-                          >
-                            {projects[selectedProject].industryTags[0]}
-                          </span>
-                        </div>
-                      </div>
-                    )}
+                    </motion.div>
                   </div>
-                </motion.div>
+                </div>
               </div>
-              
-              {/* CONTENT NARRATIVE STRUCTURE - Properly Centered */}
-              <div className="px-24 py-20 max-w-6xl mx-auto">
-                {/* CONTEXT SECTION - Centered Layout */}
-                <motion.div
-                  id="context"
-                  className="scroll-mt-24 mb-20"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                >
-                  <div className="text-center mb-16">
-                    <div className="flex items-center justify-center gap-6 mb-12">
-                      <span 
-                        className="w-16 h-16 rounded-full flex items-center justify-center text-white font-medium text-xl"
-                        style={{ backgroundColor: '#ff6663' }}
-                      >
-                        01
-                      </span>
-                      <h3 className="text-4xl font-light text-gray-800">Context & Background</h3>
-                    </div>
-                    
-                    <div className="max-w-4xl mx-auto">
-                      {(() => {
-                        const sentences = projects[selectedProject].context.split('. ');
-                        return sentences.map((sentence, index) => (
-                          <div key={index} className="mb-8">
-                            <div className="flex items-start gap-6 justify-center">
-                              <span className="w-3 h-3 rounded-full mt-4 flex-shrink-0" style={{ backgroundColor: '#ff6663' }}></span>
-                              <p className="text-xl text-gray-700 leading-relaxed font-normal text-left max-w-4xl">
-                                {sentence}{index < sentences.length - 1 ? '.' : ''}
-                              </p>
-                            </div>
-                          </div>
-                        ));
-                      })()}
-                    </div>
-                  </div>
-                </motion.div>
-
-                {/* APPROACH SECTION - Properly Centered */}
-                <motion.div
-                  id="approach"
-                  className="scroll-mt-24 mb-20"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.8 }}
-                  style={{ marginTop: '8rem' }}
-                >
-                  <div className="text-center mb-16">
-                    <div className="flex items-center justify-center gap-6 mb-12">
-                      <span 
-                        className="w-16 h-16 rounded-full flex items-center justify-center text-white font-medium text-xl"
-                        style={{ backgroundColor: '#ff6663' }}
-                      >
-                        02
-                      </span>
-                      <h3 className="text-4xl font-light text-gray-800">Our Approach</h3>
-                    </div>
-                    
-                    <div className="max-w-4xl mx-auto">
-                      {(() => {
-                        const sentences = projects[selectedProject].challenge.split('. ');
-                        return sentences.map((sentence, index) => (
-                          <div key={index} className="mb-8">
-                            <div className="flex items-start gap-6 justify-center">
-                              <span className="w-3 h-3 rounded-full mt-4 flex-shrink-0" style={{ backgroundColor: '#ff6663' }}></span>
-                              <p className="text-xl text-gray-700 leading-relaxed font-normal text-left max-w-4xl">
-                                {sentence}{index < sentences.length - 1 ? '.' : ''}
-                              </p>
-                            </div>
-                          </div>
-                        ));
-                      })()}
-                    </div>
-                  </div>
-                </motion.div>
-                </div>
-
-                {/* PROFESSIONAL GALLERY CAROUSEL - Properly Centered */}
-                <motion.div
-                  id="gallery"
-                  className="scroll-mt-24 mb-20"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.0 }}
-                  style={{ marginTop: '8rem' }}
-                >
-                  <div className="text-center mb-16">
-                    <div className="flex items-center justify-center gap-6 mb-12">
-                      <span 
-                        className="w-16 h-16 rounded-full flex items-center justify-center text-white font-medium text-xl"
-                        style={{ backgroundColor: '#ff6663' }}
-                      >
-                        03
-                      </span>
-                      <h3 className="text-4xl font-light text-gray-800">Project Gallery</h3>
-                    </div>
-                    
-                    <div className="max-w-5xl mx-auto">
-                      <div className="relative">
-                        <div 
-                          className="aspect-[16/9] rounded-2xl overflow-hidden mb-8 cursor-zoom-in relative group"
-                          onClick={() => setGalleryZoomOpen(true)}
-                          style={{ boxShadow: '0 25px 50px rgba(0,0,0,0.12)' }}
-                        >
-                          <Image 
-                            src={projects[selectedProject].galleryImages ? projects[selectedProject].galleryImages[currentGalleryImage] : projects[selectedProject].image} 
-                            alt={`${projects[selectedProject].title} - Gallery image ${currentGalleryImage + 1} showcasing project details`}
-                            fill 
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
-                            quality={95}
-                            sizes="(max-width: 768px) 100vw, 90vw"
-                          />
-                          
-                          {/* Gallery Navigation Arrows - Professional Design */}
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              const maxImages = projects[selectedProject].galleryImages ? projects[selectedProject].galleryImages.length : 2;
-                              setCurrentGalleryImage(currentGalleryImage === 0 ? maxImages - 1 : currentGalleryImage - 1);
-                            }}
-                            className="absolute left-6 top-1/2 transform -translate-y-1/2 w-16 h-16 bg-black/80 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black/90 hover:scale-110"
-                            style={{ fontSize: '1.5rem' }}
-                          >
-                            ←
-                          </button>
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              const maxImages = projects[selectedProject].galleryImages ? projects[selectedProject].galleryImages.length : 2;
-                              setCurrentGalleryImage((currentGalleryImage + 1) % maxImages);
-                            }}
-                            className="absolute right-6 top-1/2 transform -translate-y-1/2 w-16 h-16 bg-black/80 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black/90 hover:scale-110"
-                            style={{ fontSize: '1.5rem' }}
-                          >
-                            →
-                          </button>
-                        </div>
-                        
-                        {/* Gallery Counter - Clean and Centered */}
-                        <div className="text-center mb-8">
-                          <span className="text-lg font-medium text-gray-600">
-                            Image {currentGalleryImage + 1} of {projects[selectedProject].galleryImages ? projects[selectedProject].galleryImages.length : 2}
-                          </span>
-                        </div>
-                        
-                        {/* Gallery Navigation Dots - Professional */}
-                        <div className="flex justify-center gap-4">
-                          {projects[selectedProject].galleryImages ? 
-                            projects[selectedProject].galleryImages.map((_, index) => (
-                              <button 
-                                key={index}
-                                onClick={() => setCurrentGalleryImage(index)}
-                                className={`w-4 h-4 rounded-full transition-all duration-300 hover:scale-125 ${
-                                  currentGalleryImage === index ? '' : 'opacity-40'
-                                }`}
-                                style={{ backgroundColor: '#ff6663' }}
-                              />
-                            )) :
-                            [0, 1].map((index) => (
-                              <button 
-                                key={index}
-                                onClick={() => setCurrentGalleryImage(index)}
-                                className={`w-4 h-4 rounded-full transition-all duration-300 hover:scale-125 ${
-                                  currentGalleryImage === index ? '' : 'opacity-40'
-                                }`}
-                                style={{ backgroundColor: '#ff6663' }}
-                              />
-                            ))
-                          }
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-                </div>
-
-                {/* IMPACT SECTION - Properly Centered */}
-                <motion.div
-                  id="impact"
-                  className="scroll-mt-24 mb-20"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.2 }}
-                  style={{ marginTop: '8rem' }}
-                >
-                  <div className="text-center mb-16">
-                    <div className="flex items-center justify-center gap-6 mb-12">
-                      <span 
-                        className="w-16 h-16 rounded-full flex items-center justify-center text-white font-medium text-xl"
-                        style={{ backgroundColor: '#ff6663' }}
-                      >
-                        04
-                      </span>
-                      <h3 className="text-4xl font-light text-gray-800">Impact & Results</h3>
-                    </div>
-                    
-                    <div className="max-w-4xl mx-auto">
-                      {(() => {
-                        const sentences = projects[selectedProject].impact.split('. ');
-                        return sentences.map((sentence, index) => (
-                          <div key={index} className="mb-8">
-                            <div className="flex items-start gap-6 justify-center">
-                              <span className="w-3 h-3 rounded-full mt-4 flex-shrink-0" style={{ backgroundColor: '#ff6663' }}></span>
-                              <p className="text-xl text-gray-700 leading-relaxed font-normal text-left max-w-4xl">
-                                {sentence}{index < sentences.length - 1 ? '.' : ''}
-                              </p>
-                            </div>
-                          </div>
-                        ));
-                      })()}
-                    </div>
-                  </div>
-                </motion.div>
-
-              {/* CLIENT TESTIMONIAL - Properly Centered */}
-              {projects[selectedProject].testimonial && projects[selectedProject].testimonialAuthor && (
-                <div className="px-24 py-24" style={{ backgroundColor: '#fafafa', marginTop: '8rem' }}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 1.4 }}
-                    className="max-w-6xl mx-auto"
-                  >
-                    <div className="bg-white border-l-8 px-20 py-20 rounded-3xl text-center" style={{ borderLeftColor: '#ff6663', boxShadow: '0 25px 50px rgba(0,0,0,0.1)' }}>
-                      <blockquote 
-                        className="text-3xl text-gray-800 mb-16 leading-relaxed max-w-4xl mx-auto"
-                        style={{ fontStyle: 'italic', lineHeight: '1.6' }}
-                      >
-                        &ldquo;{projects[selectedProject].testimonial}&rdquo;
-                      </blockquote>
-                      <cite 
-                        className="text-2xl font-medium"
-                        style={{ color: '#ff6663' }}
-                      >
-                        {projects[selectedProject].testimonialAuthor}
-                      </cite>
-                    </div>
-                  </motion.div>
-                </div>
-              )}
-
-              {/* PROJECT NAVIGATION - Highly Visible & Professional */}
-              <div className="bg-gradient-to-b from-gray-50 to-white px-24 py-24 border-t-4" style={{ borderTopColor: '#ff6663', marginTop: '8rem' }}>
-                <motion.div
-                  className="max-w-7xl mx-auto"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.6 }}
-                >
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-16 items-center">
-                    {/* Previous Project - Highly Visible Button */}
-                    <motion.button
-                      onClick={() => {
-                        const prevIndex = selectedProject === 0 ? projects.length - 1 : selectedProject - 1;
-                        setSelectedProject(prevIndex);
-                        setCurrentGalleryImage(0);
-                      }}
-                      className="flex flex-col md:flex-row items-center gap-8 p-10 rounded-3xl bg-white hover:bg-gray-50 transition-all duration-300 group"
-                      whileHover={{ scale: 1.05, x: -8 }}
-                      whileTap={{ scale: 0.95 }}
-                      style={{ boxShadow: '0 20px 50px rgba(0,0,0,0.12)', minHeight: '160px', border: '2px solid #f3f4f6' }}
-                    >
-                      <div className="w-24 h-24 rounded-2xl overflow-hidden relative flex-shrink-0">
-                        <Image
-                          src={projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].image}
-                          alt="Previous project"
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-                      <div className="text-center md:text-left">
-                        <p className="text-lg text-gray-500 uppercase tracking-wide mb-3 font-semibold">← Previous Project</p>
-                        <p className="text-2xl font-medium text-gray-800 leading-tight mb-2">
-                          {projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].title}
-                        </p>
-                        <p className="text-lg text-gray-600">
-                          {projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].client}
-                        </p>
-                      </div>
-                    </motion.button>
-
-                    {/* Project Counter - Prominent and Clear */}
-                    <div className="text-center">
-                      <div 
-                        className="w-32 h-32 rounded-full flex items-center justify-center text-white font-bold text-3xl mb-6 mx-auto"
-                        style={{ 
-                          backgroundColor: '#ff6663', 
-                          boxShadow: '0 20px 50px rgba(255, 102, 99, 0.4)',
-                          border: '4px solid white'
-                        }}
-                      >
-                        {selectedProject + 1}
-                      </div>
-                      <p className="text-xl font-medium text-gray-700">of {projects.length} projects</p>
-                    </div>
-
-                    {/* Next Project - Highly Visible Button */}
-                    <motion.button
-                      onClick={() => {
-                        const nextIndex = (selectedProject + 1) % projects.length;
-                        setSelectedProject(nextIndex);
-                        setCurrentGalleryImage(0);
-                      }}
-                      className="flex flex-col md:flex-row items-center gap-8 p-10 rounded-3xl bg-white hover:bg-gray-50 transition-all duration-300 group"
-                      whileHover={{ scale: 1.05, x: 8 }}
-                      whileTap={{ scale: 0.95 }}
-                      style={{ boxShadow: '0 20px 50px rgba(0,0,0,0.12)', minHeight: '160px', border: '2px solid #f3f4f6' }}
-                    >
-                      <div className="w-24 h-24 rounded-2xl overflow-hidden relative flex-shrink-0 order-2 md:order-1">
-                        <Image
-                          src={projects[(selectedProject + 1) % projects.length].image}
-                          alt="Next project"
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-                      <div className="text-center md:text-right order-1 md:order-2">
-                        <p className="text-lg text-gray-500 uppercase tracking-wide mb-3 font-semibold">Next Project →</p>
-                        <p className="text-2xl font-medium text-gray-800 leading-tight mb-2">
-                          {projects[(selectedProject + 1) % projects.length].title}
-                        </p>
-                        <p className="text-lg text-gray-600">
-                          {projects[(selectedProject + 1) % projects.length].client}
-                        </p>
-                      </div>
-                    </motion.button>
-                  </div>
-                </motion.div>
-              </div>
+            </div>
           </motion.div>
         </motion.div>
       )}
