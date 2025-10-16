@@ -7,22 +7,36 @@
   --cream: #fffbee;
   --coral: #ff6663;
   
-  /* GOLDEN RATIO SPACING SYSTEM - Phase 3 Enhancement */
+  /* LUXURY GOLDEN RATIO SYSTEM - Phase 5 Perfection */
   --golden-ratio: 1.618;
-  --space-base: 1rem;         /* 16px - Base unit */
-  --space-xs: 1rem;           /* 16px */
-  --space-sm: 1.618rem;       /* 25.9px - Golden ratio */
-  --space-md: 2.618rem;       /* 41.9px - φ² */
-  --space-lg: 4.236rem;       /* 67.8px - φ³ */
-  --space-xl: 6.854rem;       /* 109.7px - φ⁴ */
-  --space-2xl: 11.090rem;     /* 177.4px - φ⁵ */
   
-  /* LANDOR STANDARD SECTION SPACING - ULTRA DRAMATIC */
-  --section-padding: 8rem;      /* Dramatic section separation */
-  --section-gap: 6rem;          /* Clear visual breaks */
-  --content-gap: 4rem;          /* Breathing room for content */
-  --element-gap: 2.5rem;        /* Generous element spacing */
-  --micro-spacing: 1.5rem;      /* Fine detail spacing */
+  /* Fundamental spacing units */
+  --space-base: 1rem;         /* 16px - Base unit */
+  --space-xs: 1rem;           /* 16px - Micro details */
+  --space-sm: 1.618rem;       /* 25.9px - φ¹ Small elements */
+  --space-md: 2.618rem;       /* 41.9px - φ² Medium elements */
+  --space-lg: 4.236rem;       /* 67.8px - φ³ Large elements */
+  --space-xl: 6.854rem;       /* 109.7px - φ⁴ Section spacing */
+  --space-2xl: 11.090rem;     /* 177.4px - φ⁵ Major sections */
+  --space-3xl: 17.944rem;     /* 287.1px - φ⁶ Hero spacing */
+  
+  /* Luxury typography spacing */
+  --text-spacing-tight: 1.2;
+  --text-spacing-normal: 1.5;
+  --text-spacing-relaxed: 1.7;
+  --text-spacing-luxury: 1.8;
+  
+  /* Professional element spacing */
+  --button-spacing: var(--space-md);
+  --card-spacing: var(--space-lg);
+  --section-spacing: var(--space-xl);
+  
+  /* LUXURY SECTION SPACING - Golden Ratio Aligned */
+  --section-padding: var(--space-2xl);     /* φ⁵ - Major section separation */
+  --section-gap: var(--space-xl);          /* φ⁴ - Clear visual breaks */
+  --content-gap: var(--space-lg);          /* φ³ - Content breathing room */
+  --element-gap: var(--space-md);          /* φ² - Element spacing */
+  --micro-spacing: var(--space-sm);        /* φ¹ - Fine detail spacing */
   
   /* Professional grid system */
   --container-xs: 20rem;   /* 320px */
@@ -257,6 +271,29 @@ body {
 /* Award-winning animation easing */
 .premium-ease {
   transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* LUXURY RESPONSIVE SPACING - Phase 5 Mobile Adaptation */
+@media (max-width: 768px) {
+  :root {
+    /* Mobile: 60% of desktop spacing for refined mobile experience */
+    --section-padding: calc(var(--space-2xl) * 0.6);     /* φ⁵ * 0.6 */
+    --section-gap: calc(var(--space-xl) * 0.6);          /* φ⁴ * 0.6 */
+    --content-gap: calc(var(--space-lg) * 0.6);          /* φ³ * 0.6 */
+    --element-gap: calc(var(--space-md) * 0.6);          /* φ² * 0.6 */
+    --micro-spacing: calc(var(--space-sm) * 0.6);        /* φ¹ * 0.6 */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  :root {
+    /* Tablet: 75% of desktop spacing for balanced tablet experience */
+    --section-padding: calc(var(--space-2xl) * 0.75);    /* φ⁵ * 0.75 */
+    --section-gap: calc(var(--space-xl) * 0.75);         /* φ⁴ * 0.75 */
+    --content-gap: calc(var(--space-lg) * 0.75);         /* φ³ * 0.75 */
+    --element-gap: calc(var(--space-md) * 0.75);         /* φ² * 0.75 */
+    --micro-spacing: calc(var(--space-sm) * 0.75);       /* φ¹ * 0.75 */
+  }
 }
 
 /* Professional focus states */
@@ -511,6 +548,27 @@ body {
     --coral: #cc0000;
     --foreground: #000000;
   }
+}
+
+/* LUXURY BREATHING ROOM - Phase 5 Enhancement */
+.luxury-section {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  margin-top: var(--section-gap);
+  margin-bottom: var(--section-gap);
+}
+
+.luxury-content {
+  margin-bottom: var(--content-gap);
+  line-height: var(--text-spacing-luxury);
+}
+
+.luxury-element {
+  margin-bottom: var(--element-gap);
+}
+
+.luxury-micro {
+  margin-bottom: var(--micro-spacing);
 }
 
 /* Enhanced focus indicators for accessibility */

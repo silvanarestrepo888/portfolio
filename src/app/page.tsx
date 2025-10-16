@@ -547,15 +547,15 @@ export default function Home() {
             transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
             >
-              <div style={{textAlign: 'center', marginBottom: '3rem'}}>
+              <div style={{textAlign: 'center', marginBottom: 'var(--content-gap)'}}>
                 <motion.h2 
                   style={{
                     fontSize: '4rem',
                     fontWeight: '300',
-                    lineHeight: '1.1',
+                    lineHeight: 'var(--text-spacing-tight)',
                     letterSpacing: '-0.02em',
                     color: '#374151',
-                    marginBottom: '2rem'
+                    marginBottom: 'var(--element-gap)'
                   }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -577,12 +577,12 @@ export default function Home() {
                 <motion.p 
                   style={{ 
                     fontSize: '1.125rem',
-                    lineHeight: '1.7',
+                    lineHeight: 'var(--text-spacing-relaxed)',
                     color: '#6B7280',
                     margin: '0 auto',
                     textAlign: 'center',
                     maxWidth: '500px',
-                    marginBottom: '2rem'
+                    marginBottom: 'var(--element-gap)'
                   }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -601,12 +601,12 @@ export default function Home() {
                   textAlign: 'center',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '3rem'
+                  gap: 'var(--content-gap)'
                 }}
               >
                 <motion.p 
                   className="text-lg text-gray-700 font-normal"
-                  style={{ lineHeight: '1.7' }}
+                  style={{ lineHeight: 'var(--text-spacing-relaxed)' }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.4 }}
@@ -620,7 +620,7 @@ export default function Home() {
                 
                 <motion.p 
                   className="text-lg text-gray-700 font-normal"
-                  style={{ lineHeight: '1.7' }}
+                  style={{ lineHeight: 'var(--text-spacing-relaxed)' }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.6 }}
@@ -632,10 +632,15 @@ export default function Home() {
                 </motion.p>
                 
                 <motion.div 
-                  className="border-l-4 pl-8 py-6 my-12"
+                  className="border-l-4"
                   style={{ 
                     borderLeftColor: '#ff6663',
-                    backgroundColor: 'rgba(255, 102, 99, 0.05)'
+                    backgroundColor: 'rgba(255, 102, 99, 0.05)',
+                    paddingLeft: 'var(--element-gap)',
+                    paddingTop: 'var(--space-md)',
+                    paddingBottom: 'var(--space-md)',
+                    marginTop: 'var(--content-gap)',
+                    marginBottom: 'var(--content-gap)'
                   }}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -644,7 +649,7 @@ export default function Home() {
                 >
                   <p 
                     className="text-2xl text-gray-800 font-normal"
-                    style={{ lineHeight: '1.5', fontStyle: 'italic' }}
+                    style={{ lineHeight: 'var(--text-spacing-normal)', fontStyle: 'italic' }}
                   >
                     The art of{' '}
                     <span style={{color: '#ff6663', fontWeight: '500'}}>MY CRAFT</span>
@@ -655,7 +660,7 @@ export default function Home() {
                 
                 <motion.p 
                   className="text-lg text-gray-700 font-normal"
-                  style={{ lineHeight: '1.7' }}
+                  style={{ lineHeight: 'var(--text-spacing-relaxed)' }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 1 }}
@@ -744,8 +749,8 @@ export default function Home() {
         id="projects" 
         style={{
           background: 'linear-gradient(180deg, #fffbee 0%, #fefcf3 50%, #fffbee 100%)',
-          paddingTop: '8rem',
-          paddingBottom: '8rem',
+          paddingTop: 'var(--section-padding)',
+          paddingBottom: 'var(--section-padding)',
           minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
@@ -761,10 +766,11 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <h2 
-              className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-800 mb-8"
+              className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-800"
               style={{ 
-                lineHeight: '1.1',
-                letterSpacing: '-0.02em'
+                lineHeight: 'var(--text-spacing-tight)',
+                letterSpacing: '-0.02em',
+                marginBottom: 'var(--element-gap)'
               }}
             >
               <span 
@@ -811,7 +817,7 @@ export default function Home() {
           {/* LUXURY BRAND PROJECT SHOWCASE - Hermès/LV Inspired */}
           <div className="max-w-[95vw] mx-auto">
             {/* Project Navigation */}
-            <div className="flex justify-between items-center mb-16 px-8">
+            <div className="flex justify-between items-center px-8" style={{ marginBottom: 'var(--content-gap)' }}>
               <motion.button
                 onClick={() => setCurrentSlide(currentSlide === 0 ? filteredProjects.length - 1 : currentSlide - 1)}
                 className="group flex items-center gap-4 px-8 py-4 bg-white rounded-full transition-all duration-500"
@@ -958,8 +964,8 @@ export default function Home() {
         id="experience"
         style={{ 
           background: 'linear-gradient(180deg, #fffbee 0%, #fdf9f0 50%, #fffbee 100%)',
-          paddingTop: '8rem',
-          paddingBottom: '8rem',
+          paddingTop: 'var(--section-padding)',
+          paddingBottom: 'var(--section-padding)',
           minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
@@ -978,10 +984,10 @@ export default function Home() {
               style={{
                 fontSize: '4rem',
                 fontWeight: '300',
-                lineHeight: '1.1',
+                lineHeight: 'var(--text-spacing-tight)',
                 letterSpacing: '-0.02em',
                 color: '#374151',
-                marginBottom: '2rem'
+                marginBottom: 'var(--element-gap)'
               }}
             >
               <span style={{
@@ -989,7 +995,7 @@ export default function Home() {
                 fontSize: '1rem',
                 color: 'rgba(255, 102, 99, 0.6)',
                 letterSpacing: '0.2em',
-                marginBottom: '1rem',
+                marginBottom: 'var(--space-base)',
                 fontWeight: '300'
               }}>
                 03
@@ -1098,8 +1104,8 @@ export default function Home() {
         id="services"
         style={{ 
           background: 'linear-gradient(180deg, #ffffff 0%, #fefefe 50%, #ffffff 100%)',
-          paddingTop: '8rem',
-          paddingBottom: '8rem'
+          paddingTop: 'var(--section-padding)',
+          paddingBottom: 'var(--section-padding)'
         }}
       >
         <div className="container-desktop">
@@ -1114,10 +1120,10 @@ export default function Home() {
               style={{
                 fontSize: '4rem',
                 fontWeight: '300',
-                lineHeight: '1.1',
+                lineHeight: 'var(--text-spacing-tight)',
                 letterSpacing: '-0.02em',
                 color: '#374151',
-                marginBottom: '2rem'
+                marginBottom: 'var(--element-gap)'
               }}
             >
               <span style={{
@@ -1125,7 +1131,7 @@ export default function Home() {
                 fontSize: '1rem',
                 color: 'rgba(255, 102, 99, 0.6)',
                 letterSpacing: '0.2em',
-                marginBottom: '1rem',
+                marginBottom: 'var(--space-base)',
                 fontWeight: '300'
               }}>
                 04
@@ -1245,13 +1251,17 @@ export default function Home() {
       <footer 
         style={{
           backgroundColor: '#ff6663',
-          paddingTop: '8rem',
-          paddingBottom: '8rem'
+          paddingTop: 'var(--section-padding)',
+          paddingBottom: 'var(--section-padding)'
         }}
       >
         <div className="container-desktop">
           <div 
-            className="grid md:grid-cols-4 gap-16 mb-16"
+            className="grid md:grid-cols-4 mb-16"
+            style={{
+              gap: 'var(--content-gap)',
+              marginBottom: 'var(--content-gap)'
+            }}
           >
             {/* Brand */}
             <div className="md:col-span-2">
@@ -1533,10 +1543,14 @@ export default function Home() {
             </div>
 
             {/* MAGAZINE-STYLE LAYOUT - Editorial Excellence */}
-            <div className="pt-32 pb-16">
+            <div style={{ 
+              paddingTop: 'var(--space-3xl)', 
+              paddingBottom: 'var(--content-gap)' 
+            }}>
               {/* Hero Section - Full Bleed */}
               <motion.div 
-                className="w-full h-[70vh] relative mb-24"
+                className="w-full h-[70vh] relative"
+                style={{ marginBottom: 'var(--section-gap)' }}
                 initial={{ opacity: 0, scale: 1.02 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2 }}
@@ -1590,20 +1604,21 @@ export default function Home() {
               </motion.div>
 
               {/* Editorial Content Layout */}
-              <div className="max-w-7xl mx-auto px-16">
-                <div className="grid lg:grid-cols-12 gap-24">
+              <div className="max-w-7xl mx-auto" style={{ paddingLeft: 'var(--content-gap)', paddingRight: 'var(--content-gap)' }}>
+                <div className="grid lg:grid-cols-12" style={{ gap: 'var(--section-gap)' }}>
                   {/* Main Content Column */}
-                  <div className="lg:col-span-7 space-y-24">
+                  <div className="lg:col-span-7">
                     
                     {/* Context - Editorial Style */}
                     <motion.div
                       initial={{ opacity: 0, y: 40 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, delay: 0.8 }}
+                      style={{ marginBottom: 'var(--section-gap)' }}
                     >
-                      <h2 className="text-5xl font-light text-gray-800 mb-16 leading-tight">Context</h2>
+                      <h2 className="text-5xl font-light text-gray-800 leading-tight" style={{ marginBottom: 'var(--content-gap)' }}>Context</h2>
                       <div className="prose prose-2xl max-w-none">
-                        <p className="text-2xl leading-[1.7] text-gray-700 font-light">
+                        <p className="text-2xl text-gray-700 font-light" style={{ lineHeight: 'var(--text-spacing-relaxed)' }}>
                           {projects[selectedProject].context}
                         </p>
                       </div>
@@ -1614,10 +1629,11 @@ export default function Home() {
                       initial={{ opacity: 0, y: 40 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, delay: 1.0 }}
+                      style={{ marginBottom: 'var(--section-gap)' }}
                     >
-                      <h2 className="text-5xl font-light text-gray-800 mb-16 leading-tight">Approach</h2>
+                      <h2 className="text-5xl font-light text-gray-800 leading-tight" style={{ marginBottom: 'var(--content-gap)' }}>Approach</h2>
                       <div className="prose prose-2xl max-w-none">
-                        <p className="text-2xl leading-[1.7] text-gray-700 font-light">
+                        <p className="text-2xl text-gray-700 font-light" style={{ lineHeight: 'var(--text-spacing-relaxed)' }}>
                           {projects[selectedProject].challenge}
                         </p>
                       </div>
@@ -1628,10 +1644,11 @@ export default function Home() {
                       initial={{ opacity: 0, y: 40 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, delay: 1.2 }}
+                      style={{ marginBottom: 'var(--section-gap)' }}
                     >
-                      <h2 className="text-5xl font-light text-gray-800 mb-16 leading-tight">Impact</h2>
+                      <h2 className="text-5xl font-light text-gray-800 leading-tight" style={{ marginBottom: 'var(--content-gap)' }}>Impact</h2>
                       <div className="prose prose-2xl max-w-none">
-                        <p className="text-2xl leading-[1.7] text-gray-700 font-light">
+                        <p className="text-2xl text-gray-700 font-light" style={{ lineHeight: 'var(--text-spacing-relaxed)' }}>
                           {projects[selectedProject].impact}
                         </p>
                       </div>
@@ -1640,13 +1657,25 @@ export default function Home() {
                     {/* Testimonial - Luxury Presentation */}
                     {projects[selectedProject].testimonial && (
                       <motion.div
-                        className="border-l-8 pl-16 py-16 my-24"
-                        style={{ borderColor: '#ff6663', backgroundColor: 'rgba(255, 255, 255, 0.6)' }}
+                        className="border-l-8"
+                        style={{ 
+                          borderColor: '#ff6663', 
+                          backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                          paddingLeft: 'var(--content-gap)',
+                          paddingTop: 'var(--content-gap)',
+                          paddingBottom: 'var(--content-gap)',
+                          marginTop: 'var(--section-gap)',
+                          marginBottom: 'var(--section-gap)'
+                        }}
                         initial={{ opacity: 0, x: -40 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 1.4 }}
                       >
-                        <blockquote className="text-4xl leading-[1.6] text-gray-800 mb-12" style={{ fontStyle: 'italic' }}>
+                        <blockquote className="text-4xl text-gray-800" style={{ 
+                          fontStyle: 'italic',
+                          lineHeight: 'var(--text-spacing-luxury)',
+                          marginBottom: 'var(--content-gap)'
+                        }}>
                           &ldquo;{projects[selectedProject].testimonial}&rdquo;
                         </blockquote>
                         <cite className="text-2xl font-medium" style={{ color: '#ff6663' }}>
@@ -1664,9 +1693,9 @@ export default function Home() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.8, delay: 1.0 }}
                     >
-                      <h2 className="text-3xl font-light text-gray-800 mb-16">Project Gallery</h2>
+                      <h2 className="text-3xl font-light text-gray-800" style={{ marginBottom: 'var(--content-gap)' }}>Project Gallery</h2>
                       
-                      <div className="space-y-12">
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--content-gap)' }}>
                         {projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.map((image, index) => (
                           <motion.div
                             key={index}
@@ -1703,7 +1732,12 @@ export default function Home() {
                       </div>
                       
                       {/* Gallery Information */}
-                      <div className="text-center mt-16 p-8" style={{ backgroundColor: 'rgba(255, 102, 99, 0.05)', borderRadius: '1.5rem' }}>
+                      <div className="text-center" style={{ 
+                        marginTop: 'var(--content-gap)',
+                        padding: 'var(--element-gap)', 
+                        backgroundColor: 'rgba(255, 102, 99, 0.05)', 
+                        borderRadius: '1.5rem' 
+                      }}>
                         <p className="text-xl text-gray-700 mb-4">
                           {projects[selectedProject].galleryImages?.length || 2} Images
                         </p>
@@ -1713,9 +1747,13 @@ export default function Home() {
                       </div>
 
                       {/* Project Capabilities - Sidebar Style */}
-                      <div className="mt-16 p-8 bg-white rounded-3xl" style={{ boxShadow: '0 20px 40px rgba(255, 102, 99, 0.08)' }}>
-                        <h3 className="text-2xl font-light text-gray-800 mb-8">Capabilities</h3>
-                        <div className="space-y-4">
+                      <div className="bg-white rounded-3xl" style={{ 
+                        marginTop: 'var(--content-gap)',
+                        padding: 'var(--element-gap)', 
+                        boxShadow: '0 20px 40px rgba(255, 102, 99, 0.08)' 
+                      }}>
+                        <h3 className="text-2xl font-light text-gray-800" style={{ marginBottom: 'var(--element-gap)' }}>Capabilities</h3>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
                           {projects[selectedProject].tech && projects[selectedProject].tech.slice(0, 3).map((tech, index) => (
                             <div 
                               key={index}
