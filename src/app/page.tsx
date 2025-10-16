@@ -1934,289 +1934,184 @@ export default function Home() {
                   </div>
                 </motion.div>
 
-                {/* REMOVE OLD CONTENT - REPLACED BY NEW STRUCTURE */}
-                <div className="text-center border-b border-gray-100 pb-8 mb-12">
-                  <h3 className="text-4xl font-light text-gray-800 mb-4">{projects[selectedProject].title}</h3>
-                  <p className="text-xl font-medium mb-4" style={{ color: '#ff6663' }}>{projects[selectedProject].client}</p>
-                  <div className="flex justify-center gap-6 text-sm text-gray-500 mb-6">
-                    <span>Industry: {projects[selectedProject].category}</span>
-                    <span>Year: {projects[selectedProject].year}</span>
-                    <span>Location: {projects[selectedProject].location}</span>
-                  </div>
-                  
-                  {/* Enhanced Tag Display - Phase 4.1 Compliance */}
-                  <div className="space-y-4 mb-6">
-                    {/* 3 Capacity Tags Maximum */}
-                    {projects[selectedProject].tech && projects[selectedProject].tech.length > 0 && (
-                      <div>
-                        <h6 className="text-sm font-medium text-gray-600 mb-2">Core Capabilities</h6>
-                        <div className="flex justify-center gap-2 flex-wrap">
-                          {projects[selectedProject].tech.slice(0, 3).map((tech, index) => (
-                            <span 
-                              key={index}
-                              className="px-4 py-2 rounded-full text-sm font-medium"
-                              style={{ backgroundColor: '#ff6663', color: 'white' }}
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                    
-                    {/* 1 Industry Tag Only */}
-                    {projects[selectedProject].industryTags && projects[selectedProject].industryTags.length > 0 && (
-                      <div>
-                        <h6 className="text-sm font-medium text-gray-600 mb-2">Industry Focus</h6>
-                        <div className="flex justify-center gap-2 flex-wrap">
-                          <span 
-                            className="px-4 py-2 rounded-full text-sm font-medium"
-                            style={{ backgroundColor: 'rgba(255, 102, 99, 0.1)', color: '#ff6663' }}
-                          >
-                            {projects[selectedProject].industryTags[0]}
-                          </span>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                  
-                  {/* Integrated Client Website Button */}
-                  <a 
-                    href={projects[selectedProject].website} 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105"
-                    style={{ 
-                      backgroundColor: 'rgba(255, 102, 99, 0.1)', 
-                      color: '#ff6663',
-                      border: '1px solid rgba(255, 102, 99, 0.3)'
-                    }}
-                  >
-                    <ExternalLink size={16} />
-                    Visit Live Project
-                  </a>
-                </div>
-
-                {/* Enhanced Project Gallery System */}
-                <div id="gallery" className="scroll-mt-24" style={{ marginBottom: 'var(--space-8)' }}>
-                  <div className="flex justify-between items-center mb-6">
-                    <div className="flex items-center gap-4">
-                      <span className="text-sm font-light text-gray-400">04</span>
-                      <h5 className="text-2xl font-medium" style={{ color: '#ff6663' }}>
-                        Project Gallery
-                      </h5>
-                    </div>
-                    <span className="text-sm text-gray-500">
-                      Image {currentGalleryImage + 1} of 2
+                {/* PROFESSIONAL GALLERY CAROUSEL - Visual Exploration */}
+                <motion.div
+                  id="gallery"
+                  className="scroll-mt-24"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.0 }}
+                >
+                  <div className="flex items-center gap-4 mb-8">
+                    <span 
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-white font-medium"
+                      style={{ backgroundColor: '#ff6663' }}
+                    >
+                      03
                     </span>
+                    <h3 className="text-3xl font-light text-gray-800">Project Gallery</h3>
                   </div>
                   
-                  {/* Main Gallery Display */}
-                  <div 
-                    className="aspect-[16/10] rounded-xl overflow-hidden mb-6 cursor-zoom-in"
-                    onClick={() => setGalleryZoomOpen(true)}
-                  >
-                    <Image 
-                      src={currentGalleryImage === 0 ? projects[selectedProject].image : projects[selectedProject].secondaryImage} 
-                      alt={`${projects[selectedProject].title} - Detailed ${currentGalleryImage === 0 ? 'primary interface' : 'secondary implementation'} view demonstrating ${projects[selectedProject].tech[0]} for ${projects[selectedProject].client}`}
-                      fill 
-                      className="object-cover"
-                      quality={90}
-                      sizes="(max-width: 768px) 100vw, 80vw"
-                    />
-                  </div>
-                  
-                  {/* Enhanced Thumbnail Navigation - Phase 4.1 */}
-                  <div className="flex gap-4 justify-center">
-                    <motion.button 
-                      onClick={() => setCurrentGalleryImage(0)}
-                      className={`aspect-[4/3] w-28 rounded-lg overflow-hidden border-2 transition-all duration-300 relative ${
-                        currentGalleryImage === 0 ? 'border-2' : 'border-transparent hover:border-gray-300'
-                      }`}
-                      style={{ borderColor: currentGalleryImage === 0 ? '#ff6663' : 'transparent' }}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Image 
-                        src={projects[selectedProject].image} 
-                        alt={`${projects[selectedProject].title} - Primary interface design showcasing user experience`} 
-                        fill 
-                        className="object-cover" 
-                      />
-                      {currentGalleryImage === 0 && (
-                        <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                          <div className="w-4 h-4 rounded-full bg-white flex items-center justify-center">
-                            <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#ff6663' }}></div>
-                          </div>
+                  <div className="pl-16">
+                    <div className="relative">
+                      <div 
+                        className="aspect-[16/9] rounded-2xl overflow-hidden mb-6 cursor-zoom-in relative group"
+                        onClick={() => setGalleryZoomOpen(true)}
+                        style={{ boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
+                      >
+                        <Image 
+                          src={currentGalleryImage === 0 ? projects[selectedProject].image : projects[selectedProject].secondaryImage} 
+                          alt={`${projects[selectedProject].title} - ${currentGalleryImage === 0 ? 'Primary' : 'Secondary'} project showcase`}
+                          fill 
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          quality={95}
+                          sizes="(max-width: 768px) 100vw, 80vw"
+                        />
+                        
+                        {/* Gallery Navigation Arrows */}
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setCurrentGalleryImage(currentGalleryImage === 0 ? 1 : 0);
+                          }}
+                          className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/70 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        >
+                          ←
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setCurrentGalleryImage(currentGalleryImage === 0 ? 1 : 0);
+                          }}
+                          className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-black/70 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        >
+                          →
+                        </button>
+                        
+                        {/* Image Counter */}
+                        <div className="absolute bottom-4 right-4 bg-black/70 text-white text-sm px-3 py-1 rounded-full">
+                          {currentGalleryImage + 1} of 2
                         </div>
-                      )}
-                      <div className="absolute bottom-1 left-1 bg-black/70 text-white text-xs px-2 py-1 rounded">
-                        Primary
                       </div>
-                    </motion.button>
-                    <motion.button 
-                      onClick={() => setCurrentGalleryImage(1)}
-                      className={`aspect-[4/3] w-28 rounded-lg overflow-hidden border-2 transition-all duration-300 relative ${
-                        currentGalleryImage === 1 ? 'border-2' : 'border-transparent hover:border-gray-300'
-                      }`}
-                      style={{ borderColor: currentGalleryImage === 1 ? '#ff6663' : 'transparent' }}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Image 
-                        src={projects[selectedProject].secondaryImage} 
-                        alt={`${projects[selectedProject].title} - Secondary implementation view demonstrating system architecture`} 
-                        fill 
-                        className="object-cover" 
-                      />
-                      {currentGalleryImage === 1 && (
-                        <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                          <div className="w-4 h-4 rounded-full bg-white flex items-center justify-center">
-                            <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#ff6663' }}></div>
-                          </div>
-                        </div>
-                      )}
-                      <div className="absolute bottom-1 left-1 bg-black/70 text-white text-xs px-2 py-1 rounded">
-                        Secondary
-                      </div>
-                    </motion.button>
-                  </div>
-                </div>
-                
-                {/* Structured Content Sections */}
-                <div className="space-y-12 max-w-4xl mx-auto">
-                  {/* Context Section - Phase 4.1 Bullet Points */}
-                  <div id="context" className="scroll-mt-24">
-                    <div className="flex items-center gap-4 mb-6">
-                      <span className="text-sm font-light text-gray-400">01</span>
-                      <h4 className="text-2xl font-medium" style={{ color: '#ff6663' }}>
-                        Context & Background
-                      </h4>
-                    </div>
-                    <div className="prose prose-lg">
-                      <div className="text-gray-700 font-normal leading-relaxed mb-6">
-                        {(() => {
-                          const sentences = projects[selectedProject].context.split('. ');
-                          return sentences.map((sentence, index) => (
-                            <div key={index} className="flex items-start gap-3 mb-3">
-                              <span className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#ff6663' }}></span>
-                              <p className="text-gray-700 font-normal leading-relaxed">
-                                {sentence}{index < sentences.length - 1 ? '.' : ''}
-                              </p>
-                            </div>
-                          ));
-                        })()}
+                      
+                      {/* Gallery Navigation Dots */}
+                      <div className="flex justify-center gap-3">
+                        <button 
+                          onClick={() => setCurrentGalleryImage(0)}
+                          className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                            currentGalleryImage === 0 ? '' : 'opacity-40'
+                          }`}
+                          style={{ backgroundColor: '#ff6663' }}
+                        />
+                        <button 
+                          onClick={() => setCurrentGalleryImage(1)}
+                          className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                            currentGalleryImage === 1 ? '' : 'opacity-40'
+                          }`}
+                          style={{ backgroundColor: '#ff6663' }}
+                        />
                       </div>
                     </div>
                   </div>
+                </motion.div>
 
-                  {/* Approach Section - Phase 4.1 Renamed */}
-                  <div id="approach" className="scroll-mt-24">
-                    <div className="flex items-center gap-4 mb-6">
-                      <span className="text-sm font-light text-gray-400">02</span>
-                      <h4 className="text-2xl font-medium" style={{ color: '#ff6663' }}>
-                        Approach
-                      </h4>
-                    </div>
-                    <div className="prose prose-lg">
-                      <p className="text-gray-700 font-normal leading-relaxed mb-6">
-                        {projects[selectedProject].challenge}
-                      </p>
-                      {projects[selectedProject].tech && projects[selectedProject].tech.length > 0 && (
-                        <div className="flex flex-wrap gap-3">
-                          {projects[selectedProject].tech.slice(0, 3).map((tech, index) => (
-                            <span 
-                              key={index}
-                              className="px-4 py-2 rounded-full text-sm font-medium"
-                              style={{ backgroundColor: '#ff6663', color: 'white' }}
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
+                {/* IMPACT SECTION - Results */}
+                <motion.div
+                  id="impact"
+                  className="scroll-mt-24"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.2 }}
+                >
+                  <div className="flex items-center gap-4 mb-8">
+                    <span 
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-white font-medium"
+                      style={{ backgroundColor: '#ff6663' }}
+                    >
+                      04
+                    </span>
+                    <h3 className="text-3xl font-light text-gray-800">Impact & Results</h3>
                   </div>
                   
-                  {/* Impact Section - Phase 4.1 Copy Compliant */}
-                  <div id="impact" className="scroll-mt-24">
-                    <div className="flex items-center gap-4 mb-6">
-                      <span className="text-sm font-light text-gray-400">03</span>
-                      <h4 className="text-2xl font-medium" style={{ color: '#ff6663' }}>
-                        Impact & Results
-                      </h4>
-                    </div>
-                    <div className="prose prose-lg">
-                      <p className="text-gray-700 font-normal leading-relaxed">
-                        {projects[selectedProject].impact}
-                      </p>
-                    </div>
+                  <div className="pl-16">
+                    <p className="text-lg text-gray-700 leading-relaxed">
+                      {projects[selectedProject].impact}
+                    </p>
                   </div>
-                </div>
+                </motion.div>
+              </div>
 
-                {/* Enhanced Client Testimonial */}
-                {projects[selectedProject].testimonial && projects[selectedProject].testimonialAuthor && (
-                  <div 
-                    className="bg-coral/5 border-l-4 border-coral p-8 rounded-xl max-w-4xl mx-auto"
-                    style={{ borderLeftColor: '#ff6663', backgroundColor: 'rgba(255, 102, 99, 0.05)' }}
-                  >
+              {/* CLIENT TESTIMONIAL - Social Proof */}
+              {projects[selectedProject].testimonial && projects[selectedProject].testimonialAuthor && (
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.4 }}
+                  className="bg-gray-50 border-l-4 px-12 py-12 mx-12 mb-8 rounded-2xl"
+                  style={{ borderLeftColor: '#ff6663' }}
+                >
+                  <div className="max-w-3xl mx-auto text-center">
                     <blockquote 
-                      className="text-2xl text-gray-800 mb-6"
-                      style={{ lineHeight: '1.5', fontStyle: 'italic' }}
+                      className="text-2xl text-gray-800 mb-8 leading-relaxed"
+                      style={{ fontStyle: 'italic' }}
                     >
-                      {projects[selectedProject].testimonial}
+                      &ldquo;{projects[selectedProject].testimonial}&rdquo;
                     </blockquote>
                     <cite 
-                      className="font-medium text-lg"
+                      className="text-lg font-medium"
                       style={{ color: '#ff6663' }}
                     >
                       {projects[selectedProject].testimonialAuthor}
                     </cite>
                   </div>
-                )}
+                </motion.div>
+              )}
 
-                {/* Bottom Project Navigation - Phase 4.1 Mobile Optimized */}
-                <div className="max-w-4xl mx-auto mt-16 pt-8 border-t border-gray-100">
-                  <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
+              {/* PROJECT NAVIGATION - Effortless Flow Control */}
+              <div className="bg-gray-50 px-12 py-10">
+                <motion.div
+                  className="max-w-4xl mx-auto"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.6 }}
+                >
+                  <div className="flex flex-col md:flex-row justify-between items-center gap-8">
                     {/* Previous Project */}
                     <motion.button
                       onClick={() => {
                         const prevIndex = selectedProject === 0 ? projects.length - 1 : selectedProject - 1;
                         setSelectedProject(prevIndex);
                       }}
-                      className="flex items-center gap-4 p-4 rounded-xl transition-all duration-300 hover:bg-gray-50 touch-manipulation w-full md:w-auto justify-center md:justify-start"
+                      className="flex items-center gap-6 p-6 rounded-2xl bg-white hover:bg-gray-50 transition-all duration-300 group flex-1 md:flex-initial"
                       whileHover={{ scale: 1.02, x: -4 }}
                       whileTap={{ scale: 0.98 }}
-                      style={{ minHeight: '44px' }}
+                      style={{ boxShadow: '0 8px 25px rgba(0,0,0,0.05)' }}
                     >
-                      <div className="w-12 h-12 rounded-lg overflow-hidden relative flex-shrink-0">
+                      <div className="w-16 h-16 rounded-xl overflow-hidden relative flex-shrink-0">
                         <Image
                           src={projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].image}
                           alt="Previous project"
                           fill
-                          className="object-cover"
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>
                       <div className="text-left">
-                        <p className="text-xs text-gray-500 uppercase tracking-wide">Previous Project</p>
-                        <p className="text-sm font-medium text-gray-800">
+                        <p className="text-sm text-gray-500 uppercase tracking-wide mb-1">← Previous</p>
+                        <p className="text-lg font-medium text-gray-800">
                           {projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].title}
                         </p>
                       </div>
                     </motion.button>
 
                     {/* Project Counter */}
-                    <div className="text-center order-first md:order-none">
-                      <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Project</p>
-                      <div className="flex items-center gap-2">
-                        <span className="text-lg font-medium" style={{ color: '#ff6663' }}>
-                          {selectedProject + 1}
-                        </span>
-                        <span className="text-gray-400">of</span>
-                        <span className="text-lg font-medium text-gray-600">
-                          {projects.length}
-                        </span>
+                    <div className="text-center">
+                      <div 
+                        className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-lg mb-2"
+                        style={{ backgroundColor: '#ff6663' }}
+                      >
+                        {selectedProject + 1}
                       </div>
+                      <p className="text-sm text-gray-600">of {projects.length}</p>
                     </div>
 
                     {/* Next Project */}
@@ -2225,28 +2120,28 @@ export default function Home() {
                         const nextIndex = (selectedProject + 1) % projects.length;
                         setSelectedProject(nextIndex);
                       }}
-                      className="flex items-center gap-4 p-4 rounded-xl transition-all duration-300 hover:bg-gray-50 touch-manipulation w-full md:w-auto justify-center md:justify-start"
+                      className="flex items-center gap-6 p-6 rounded-2xl bg-white hover:bg-gray-50 transition-all duration-300 group flex-1 md:flex-initial"
                       whileHover={{ scale: 1.02, x: 4 }}
                       whileTap={{ scale: 0.98 }}
-                      style={{ minHeight: '44px' }}
+                      style={{ boxShadow: '0 8px 25px rgba(0,0,0,0.05)' }}
                     >
-                      <div className="text-right md:text-left order-2 md:order-1">
-                        <p className="text-xs text-gray-500 uppercase tracking-wide">Next Project</p>
-                        <p className="text-sm font-medium text-gray-800">
+                      <div className="text-right md:text-left">
+                        <p className="text-sm text-gray-500 uppercase tracking-wide mb-1">Next →</p>
+                        <p className="text-lg font-medium text-gray-800">
                           {projects[(selectedProject + 1) % projects.length].title}
                         </p>
                       </div>
-                      <div className="w-12 h-12 rounded-lg overflow-hidden relative flex-shrink-0 order-1 md:order-2">
+                      <div className="w-16 h-16 rounded-xl overflow-hidden relative flex-shrink-0">
                         <Image
                           src={projects[(selectedProject + 1) % projects.length].image}
                           alt="Next project"
                           fill
-                          className="object-cover"
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>
                     </motion.button>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </motion.div>
