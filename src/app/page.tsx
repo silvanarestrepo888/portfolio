@@ -1919,23 +1919,25 @@ export default function Home() {
                   {/* Enhanced Tag Display - Phase 4.1 Compliance */}
                   <div className="space-y-4 mb-6">
                     {/* 3 Capacity Tags Maximum */}
-                    <div>
-                      <h6 className="text-sm font-medium text-gray-600 mb-2">Core Capabilities</h6>
-                      <div className="flex justify-center gap-2 flex-wrap">
-                        {projects[selectedProject].tech.slice(0, 3).map((tech, index) => (
-                          <span 
-                            key={index}
-                            className="px-4 py-2 rounded-full text-sm font-medium"
-                            style={{ backgroundColor: '#ff6663', color: 'white' }}
-                          >
-                            {tech}
-                          </span>
-                        ))}
+                    {projects[selectedProject].tech && projects[selectedProject].tech.length > 0 && (
+                      <div>
+                        <h6 className="text-sm font-medium text-gray-600 mb-2">Core Capabilities</h6>
+                        <div className="flex justify-center gap-2 flex-wrap">
+                          {projects[selectedProject].tech.slice(0, 3).map((tech, index) => (
+                            <span 
+                              key={index}
+                              className="px-4 py-2 rounded-full text-sm font-medium"
+                              style={{ backgroundColor: '#ff6663', color: 'white' }}
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
                       </div>
-                    </div>
+                    )}
                     
                     {/* 1 Industry Tag Only */}
-                    {projects[selectedProject].industryTags && (
+                    {projects[selectedProject].industryTags && projects[selectedProject].industryTags.length > 0 && (
                       <div>
                         <h6 className="text-sm font-medium text-gray-600 mb-2">Industry Focus</h6>
                         <div className="flex justify-center gap-2 flex-wrap">
@@ -2065,14 +2067,17 @@ export default function Home() {
                     </div>
                     <div className="prose prose-lg">
                       <div className="text-gray-700 font-normal leading-relaxed mb-6">
-                        {projects[selectedProject].context.split('. ').map((sentence, index) => (
-                          <div key={index} className="flex items-start gap-3 mb-3">
-                            <span className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#ff6663' }}></span>
-                            <p className="text-gray-700 font-normal leading-relaxed">
-                              {sentence}{index < projects[selectedProject].context.split('. ').length - 1 ? '.' : ''}
-                            </p>
-                          </div>
-                        ))}
+                        {(() => {
+                          const sentences = projects[selectedProject].context.split('. ');
+                          return sentences.map((sentence, index) => (
+                            <div key={index} className="flex items-start gap-3 mb-3">
+                              <span className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#ff6663' }}></span>
+                              <p className="text-gray-700 font-normal leading-relaxed">
+                                {sentence}{index < sentences.length - 1 ? '.' : ''}
+                              </p>
+                            </div>
+                          ));
+                        })()}
                       </div>
                     </div>
                   </div>
@@ -2089,17 +2094,19 @@ export default function Home() {
                       <p className="text-gray-700 font-normal leading-relaxed mb-6">
                         {projects[selectedProject].challenge}
                       </p>
-                      <div className="flex flex-wrap gap-3">
-                        {projects[selectedProject].tech.slice(0, 3).map((tech, index) => (
-                          <span 
-                            key={index}
-                            className="px-4 py-2 rounded-full text-sm font-medium"
-                            style={{ backgroundColor: '#ff6663', color: 'white' }}
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
+                      {projects[selectedProject].tech && projects[selectedProject].tech.length > 0 && (
+                        <div className="flex flex-wrap gap-3">
+                          {projects[selectedProject].tech.slice(0, 3).map((tech, index) => (
+                            <span 
+                              key={index}
+                              className="px-4 py-2 rounded-full text-sm font-medium"
+                              style={{ backgroundColor: '#ff6663', color: 'white' }}
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
                   
