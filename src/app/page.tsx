@@ -705,27 +705,23 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
               >
-                <h2 
-                  className="text-6xl font-light text-gray-800 mb-6"
-                  style={{ 
-                    lineHeight: 'var(--text-spacing-tight)',
-                    letterSpacing: '-0.03em'
-                  }}
-                >
+                <div className="mb-6">
                   <span 
-                    className="text-lg block mb-4"
+                    className="body-text-humanist text-lg block mb-4"
                     style={{ 
                       color: 'rgba(255, 102, 99, 0.6)',
                       letterSpacing: '0.2em',
-                      fontWeight: '300'
+                      fontWeight: '500'
                     }}
                   >
                     01
                   </span>
-                  About Me
-                </h2>
+                  <h2 className="section-heading-script text-gray-800">
+                    About Me
+                  </h2>
+                </div>
                 
-                <p className="text-xl text-gray-600 leading-relaxed mb-8 max-w-xl">
+                <p className="body-text-humanist text-xl text-gray-600 mb-8 max-w-xl">
                   Discover the journey of strategic design thinking, business transformation, and the human perspective that drives meaningful innovation across industries.
                 </p>
               </motion.div>
@@ -737,9 +733,9 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.4 }}
               >
-                <p className="text-lg text-gray-700 leading-relaxed max-w-xl">
+                <p className="body-text-humanist text-lg text-gray-700 max-w-xl">
                   I believe the most compelling stories begin with{' '}
-                  <span style={{color: '#ff6663', fontWeight: '500'}}>curiosity</span>
+                  <span style={{color: '#ff6663', fontWeight: '600'}}>curiosity</span>
                   —a spark that has carried me across continents, blending diverse perspectives 
                   from anthropology to business, innovation to experience design.
                 </p>
@@ -761,8 +757,8 @@ export default function Home() {
                   </p>
                 </div>
                 
-                <p className="text-lg text-gray-700 leading-relaxed max-w-xl">
-                  <span className="font-medium" style={{color: '#ff6663'}}>Welcome to my world</span>
+                <p className="body-text-humanist text-lg text-gray-700 max-w-xl">
+                  <span className="body-text-medium" style={{color: '#ff6663'}}>Welcome to my world</span>
                   —where strategy meets soul, and design becomes the universal language of possibility.
                 </p>
               </motion.div>
@@ -858,29 +854,23 @@ export default function Home() {
             transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
-            <h2 
-              className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-800"
-              style={{ 
-                lineHeight: 'var(--text-spacing-tight)',
-                letterSpacing: '-0.02em',
-                marginBottom: 'var(--element-gap)'
-              }}
-            >
+            <div style={{ marginBottom: 'var(--element-gap)' }}>
               <span 
-                className="text-lg font-light block mb-4"
+                className="body-text-humanist text-lg block mb-4"
                 style={{ 
                   color: 'rgba(255, 102, 99, 0.6)',
                   letterSpacing: '0.2em',
-                  marginBottom: 'var(--space-base)',
-                  fontWeight: '300'
+                  fontWeight: '500'
                 }}
               >
                 02
               </span>
-              Projects
-            </h2>
+              <h2 className="section-heading-script text-gray-800">
+                Projects
+              </h2>
+            </div>
             <motion.p 
-              className="description-landor"
+              className="body-text-humanist text-xl text-gray-600 text-center max-w-4xl mx-auto mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
@@ -1232,30 +1222,23 @@ export default function Home() {
             transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
-            <h2 
-              style={{
-                fontSize: '4rem',
-                fontWeight: '300',
-                lineHeight: 'var(--text-spacing-tight)',
-                letterSpacing: '-0.02em',
-                color: '#374151',
-                marginBottom: 'var(--element-gap)'
-              }}
-            >
-              <span style={{
-                display: 'block',
-                fontSize: '1rem',
-                color: 'rgba(255, 102, 99, 0.6)',
-                letterSpacing: '0.2em',
-                marginBottom: 'var(--space-base)',
-                fontWeight: '300'
-              }}>
+            <div style={{ marginBottom: 'var(--element-gap)' }}>
+              <span 
+                className="body-text-humanist text-lg block mb-4"
+                style={{
+                  color: 'rgba(255, 102, 99, 0.6)',
+                  letterSpacing: '0.2em',
+                  fontWeight: '500'
+                }}
+              >
                 03
               </span>
-              Experience
-            </h2>
+              <h2 className="section-heading-script text-gray-800">
+                Experience
+              </h2>
+            </div>
             <motion.p 
-              className="description-landor"
+              className="body-text-humanist text-xl text-gray-600 text-center max-w-4xl mx-auto mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
@@ -1423,30 +1406,23 @@ export default function Home() {
             transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
-            <h2 
-              style={{
-                fontSize: '4rem',
-                fontWeight: '300',
-                lineHeight: 'var(--text-spacing-tight)',
-                letterSpacing: '-0.02em',
-                color: '#374151',
-                marginBottom: 'var(--element-gap)'
-              }}
-            >
-              <span style={{
-                display: 'block',
-                fontSize: '1rem',
-                color: 'rgba(255, 102, 99, 0.6)',
-                letterSpacing: '0.2em',
-                marginBottom: 'var(--space-base)',
-                fontWeight: '300'
-              }}>
+            <div style={{ marginBottom: 'var(--element-gap)' }}>
+              <span 
+                className="body-text-humanist text-lg block mb-4"
+                style={{
+                  color: 'rgba(255, 102, 99, 0.6)',
+                  letterSpacing: '0.2em',
+                  fontWeight: '500'
+                }}
+              >
                 04
               </span>
-              Services
-            </h2>
+              <h2 className="section-heading-script text-gray-800">
+                Services
+              </h2>
+            </div>
             <motion.p 
-              className="description-landor"
+              className="body-text-humanist text-xl text-gray-600 text-center max-w-4xl mx-auto mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}

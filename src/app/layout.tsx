@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
+import { Plus_Jakarta_Sans, Playfair_Display, Open_Sans, Great_Vibes } from "next/font/google";
 import "./globals.css";
 import "./layout-fix.css";
 
@@ -16,6 +16,21 @@ const playfairDisplay = Playfair_Display({
   style: ["normal", "italic"],
   display: "swap",
   preload: true,
+});
+
+const openSans = Open_Sans({
+  variable: "--font-open-sans",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const greatVibes = Great_Vibes({
+  variable: "--font-great-vibes",
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -59,7 +74,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${plusJakartaSans.variable} ${playfairDisplay.variable} antialiased`}
+        className={`${plusJakartaSans.variable} ${playfairDisplay.variable} ${openSans.variable} ${greatVibes.variable} antialiased`}
       >
         {children}
       </body>

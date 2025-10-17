@@ -77,6 +77,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-plus-jakarta-sans);
   --font-serif: var(--font-playfair-display);
+  --font-humanist: var(--font-open-sans);
+  --font-script: var(--font-great-vibes);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -100,9 +102,9 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-plus-jakarta-sans), Arial, Helvetica, sans-serif;
-  font-weight: 300;
-  line-height: 1.8;
+  font-family: var(--font-open-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -161,6 +163,51 @@ body {
   font-style: italic;
   letter-spacing: -0.03em;
   line-height: 1.1;
+}
+
+/* THREE-TIER TYPOGRAPHY SYSTEM - Complete Hierarchy */
+
+/* TIER 1: Luxury Serif (Playfair Display) - Hero & Key Branding */
+.font-luxury-serif {
+  font-family: var(--font-playfair-display), 'Times New Roman', Georgia, serif;
+}
+
+/* TIER 2: Elegant Script (Great Vibes) - Section Headings */
+.font-elegant-script {
+  font-family: var(--font-great-vibes), 'Dancing Script', cursive;
+}
+
+.section-heading-script {
+  font-family: var(--font-great-vibes), 'Dancing Script', cursive;
+  font-weight: 400;
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-shadow: 0 4px 12px rgba(255, 102, 99, 0.1);
+}
+
+/* TIER 3: Humanist Sans (Open Sans) - Body Text */
+.font-humanist-body {
+  font-family: var(--font-open-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.body-text-humanist {
+  font-family: var(--font-open-sans), -apple-system, sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+.body-text-medium {
+  font-family: var(--font-open-sans), sans-serif;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.body-text-light {
+  font-family: var(--font-open-sans), sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
 }
 
 @keyframes float {
@@ -359,12 +406,18 @@ body {
     min-width: 44px;
   }
   
-  /* Luxury Typography Mobile Optimization */
+  /* THREE-TIER TYPOGRAPHY MOBILE OPTIMIZATION */
   .hero-typography {
     font-size: clamp(3rem, 8vw, 6rem) !important;
     line-height: 1.0 !important;
     letter-spacing: -0.01em !important;
     font-weight: 600 !important; /* Lighter weight for mobile readability */
+  }
+  
+  .section-heading-script {
+    font-size: clamp(2.5rem, 6vw, 4rem) !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.01em !important;
   }
   
   .quote-typography {
@@ -374,6 +427,12 @@ body {
   
   .brand-typography {
     font-size: clamp(2rem, 6vw, 4rem) !important;
+  }
+  
+  .body-text-humanist {
+    font-size: clamp(1rem, 3vw, 1.125rem) !important;
+    line-height: 1.6 !important;
+    font-weight: 400 !important;
   }
 }
 
