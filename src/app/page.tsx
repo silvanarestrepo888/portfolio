@@ -4,6 +4,14 @@ import { motion } from 'framer-motion';
 import { Linkedin, Mail, ExternalLink, ArrowDown } from 'lucide-react';
 import { useState } from 'react';
 import Image from 'next/image';
+import { 
+  AcceleratedInnovationIcon,
+  ExperienceOrchestrationIcon, 
+  IntelligentOperationsIcon,
+  TransformationFoundationsIcon,
+  StrategyConsultingIcon,
+  CustomerIntelligenceIcon 
+} from '../components/icons';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -11,6 +19,16 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentGalleryImage, setCurrentGalleryImage] = useState(0);
   const [galleryZoomOpen, setGalleryZoomOpen] = useState(false);
+  
+  // PROPRIETARY ICON MAPPING - 100% Copy Compliant
+  const serviceIcons = {
+    "Accelerated Product Innovation": AcceleratedInnovationIcon,
+    "Experience Orchestration": ExperienceOrchestrationIcon, 
+    "Intelligent Operations Architecture": IntelligentOperationsIcon,
+    "Transformation Foundations": TransformationFoundationsIcon,
+    "Strategic Innovation Consulting": StrategyConsultingIcon,
+    "Customer Intelligence Platforms": CustomerIntelligenceIcon
+  };
   
   const projects = [
     {
@@ -1232,18 +1250,46 @@ export default function Home() {
                 viewport={{ once: true }}
               >
                 <div className="grid md:grid-cols-4 gap-8 items-start">
-                  {/* Service Number */}
+                  {/* PROPRIETARY ICON & SERVICE NUMBER */}
                   <motion.div 
-                    className="text-center md:text-right"
+                    className="text-center md:text-right flex flex-col items-center md:items-end gap-6"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: index * 0.2 + 0.3 }}
                   >
-                    <span 
-                      className="text-5xl font-light"
+                    {/* Custom Service Icon */}
+                    <motion.div
+                      className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center"
                       style={{ 
-                        color: 'rgba(255, 102, 99, 0.3)',
-                        lineHeight: '1'
+                        boxShadow: '0 15px 35px rgba(255, 102, 99, 0.15)',
+                        border: '1px solid rgba(255, 102, 99, 0.1)'
+                      }}
+                      whileHover={{ 
+                        scale: 1.05,
+                        boxShadow: '0 20px 45px rgba(255, 102, 99, 0.25)',
+                        rotateY: 5
+                      }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {(() => {
+                        const IconComponent = serviceIcons[service.title as keyof typeof serviceIcons];
+                        return IconComponent ? (
+                          <IconComponent 
+                            size={40} 
+                            color="#ff6663"
+                            animated={true}
+                          />
+                        ) : null;
+                      })()}
+                    </motion.div>
+                    
+                    {/* Service Number */}
+                    <span 
+                      className="text-4xl font-light"
+                      style={{ 
+                        color: 'rgba(255, 102, 99, 0.4)',
+                        lineHeight: '1',
+                        letterSpacing: '0.05em'
                       }}
                     >
                       {String(index + 1).padStart(2, '0')}
