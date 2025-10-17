@@ -214,6 +214,64 @@ export default function Home() {
 
   return (
     <div className="min-h-screen" style={{backgroundColor: '#fffbee'}}>
+      {/* FLOATING NAVIGATION - Award-Winning UX */}
+      <motion.div
+        className="fixed right-8 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block"
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 2 }}
+      >
+        <div 
+          className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg"
+          style={{ border: '1px solid rgba(255, 102, 99, 0.1)' }}
+        >
+          {/* Section Navigation */}
+          <div className="space-y-4">
+            {['Hero', 'About', 'Projects', 'Experience', 'Services'].map((section, index) => (
+              <motion.a
+                key={section}
+                href={`#${section.toLowerCase()}`}
+                className="flex items-center gap-3 p-3 rounded-xl transition-all duration-300 group"
+                whileHover={{ 
+                  scale: 1.05,
+                  backgroundColor: 'rgba(255, 102, 99, 0.08)'
+                }}
+              >
+                <div 
+                  className="w-3 h-3 rounded-full transition-all duration-300"
+                  style={{
+                    backgroundColor: index === 0 ? '#ff6663' : 'rgba(255, 102, 99, 0.3)',
+                    transform: index === 0 ? 'scale(1.2)' : 'scale(1)'
+                  }}
+                />
+                <span 
+                  className="text-sm font-medium text-gray-600 group-hover:text-gray-800"
+                  style={{ fontSize: '0.875rem' }}
+                >
+                  {section}
+                </span>
+              </motion.a>
+            ))}
+          </div>
+          
+          {/* Progress Indicator */}
+          <div className="mt-6 pt-4 border-t border-gray-200">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-xs font-medium text-gray-500">Progress</span>
+              <div className="flex-1 h-1 bg-gray-200 rounded-full">
+                <motion.div 
+                  className="h-full rounded-full"
+                  style={{ backgroundColor: '#ff6663' }}
+                  initial={{ width: '0%' }}
+                  animate={{ width: '20%' }}
+                  transition={{ duration: 2, delay: 3 }}
+                />
+              </div>
+            </div>
+            <span className="text-xs text-gray-500">20% Complete</span>
+          </div>
+        </div>
+      </motion.div>
       {/* LANDOR LUXURY NAVIGATION - Enhanced Visual Clarity */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 navigation-breathing">
         <div className="container mx-auto px-8 py-8">
@@ -543,9 +601,9 @@ export default function Home() {
           </motion.div>
         </div>
         
-        {/* LANDOR LUXURY: Simple, elegant scroll indicator */}
+        {/* ENHANCED SCROLL INDICATOR - User Guidance */}
         <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer group"
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
           whileHover={{ scale: 1.1 }}
@@ -554,121 +612,209 @@ export default function Home() {
             aboutSection?.scrollIntoView({ behavior: 'smooth' });
           }}
           style={{
-            width: '48px',
-            height: '48px',
+            width: '56px',
+            height: '56px',
             borderRadius: '50%',
-            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            backgroundColor: 'rgba(255, 255, 255, 0.95)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 4px 20px rgba(255, 102, 99, 0.15)'
+            boxShadow: '0 8px 30px rgba(255, 102, 99, 0.2)',
+            border: '1px solid rgba(255, 102, 99, 0.1)'
           }}
+          aria-label="Scroll to About section"
+          role="button"
         >
-          <ArrowDown style={{color: '#ff6663'}} size={20} />
+          <ArrowDown style={{color: '#ff6663'}} size={22} className="group-hover:scale-110 transition-transform duration-300" />
+          
+          {/* Tooltip */}
+          <motion.div
+            className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-2 rounded-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+            style={{ whiteSpace: 'nowrap' }}
+          >
+            Explore My Journey
+          </motion.div>
         </motion.div>
       </section>
 
-      {/* SIMPLE DESKTOP ABOUT SECTION - GUARANTEED CENTERING */}
+      {/* VIEWPORT-OPTIMIZED ABOUT SECTION - Single Screen Excellence */}
       <section 
         id="about" 
-        className="section-desktop"
         style={{ 
-          backgroundColor: 'white'
+          backgroundColor: 'white',
+          minHeight: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          paddingTop: 'var(--section-gap)',
+          paddingBottom: 'var(--section-gap)'
         }}
       >
         <div className="container-desktop">
           <motion.div
-            className="desktop-centered"
+            className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
-            >
-              <div style={{textAlign: 'center', marginBottom: 'var(--content-gap)'}}>
-                <motion.h2 
-                  style={{
-                    fontSize: '4rem',
-                    fontWeight: '300',
+          >
+            {/* CONTENT COLUMN - Condensed for Viewport */}
+            <div className="space-y-8">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, delay: 0.2 }}
+              >
+                <h2 
+                  className="text-6xl font-light text-gray-800 mb-6"
+                  style={{ 
                     lineHeight: 'var(--text-spacing-tight)',
-                    letterSpacing: '-0.02em',
-                    color: '#374151',
-                    marginBottom: 'var(--element-gap)'
+                    letterSpacing: '-0.03em'
                   }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.2 }}
                 >
-                  <span style={{
-                    display: 'block',
-                    fontSize: '1rem',
-                    color: 'rgba(255, 102, 99, 0.6)',
-                    letterSpacing: '0.2em',
-                    marginBottom: '1rem',
-                    fontWeight: '300'
-                  }}>
+                  <span 
+                    className="text-lg block mb-4"
+                    style={{ 
+                      color: 'rgba(255, 102, 99, 0.6)',
+                      letterSpacing: '0.2em',
+                      fontWeight: '300'
+                    }}
+                  >
                     01
                   </span>
                   About Me
-                </motion.h2>
+                </h2>
                 
-                <motion.p 
-                  style={{ 
-                    fontSize: '1.125rem',
-                    lineHeight: 'var(--text-spacing-relaxed)',
-                    color: '#6B7280',
-                    margin: '0 auto',
-                    textAlign: 'center',
-                    maxWidth: '500px',
-                    marginBottom: 'var(--element-gap)'
-                  }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.3 }}
-                  viewport={{ once: true }}
-                >
+                <p className="text-xl text-gray-600 leading-relaxed mb-8 max-w-xl">
                   Discover the journey of strategic design thinking, business transformation, and the human perspective that drives meaningful innovation across industries.
-                </motion.p>
-              </div>
-              
-              {/* Body: 3-sentence paragraph structure - Phase 3 */}
-              <div 
-                style={{
-                  maxWidth: '500px',
-                  margin: '0 auto',
-                  textAlign: 'center',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 'var(--content-gap)'
-                }}
+                </p>
+              </motion.div>
+
+              {/* CONDENSED NARRATIVE - Single Viewport */}
+              <motion.div
+                className="space-y-6"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, delay: 0.4 }}
               >
-                <motion.p 
-                  className="text-lg text-gray-700 font-normal"
-                  style={{ lineHeight: 'var(--text-spacing-relaxed)' }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.4 }}
-                  viewport={{ once: true }}
-                >
+                <p className="text-lg text-gray-700 leading-relaxed max-w-xl">
                   I believe the most compelling stories begin with{' '}
                   <span style={{color: '#ff6663', fontWeight: '500'}}>curiosity</span>
                   —a spark that has carried me across continents, blending diverse perspectives 
-                  from anthropology to business, from innovation to experience design, and from emerging technologies to business transformation.
-                </motion.p>
+                  from anthropology to business, innovation to experience design.
+                </p>
                 
-                <motion.p 
-                  className="text-lg text-gray-700 font-normal"
-                  style={{ lineHeight: 'var(--text-spacing-relaxed)' }}
+                <div 
+                  className="border-l-4 pl-8 py-6 my-8 max-w-xl"
+                  style={{ 
+                    borderLeftColor: '#ff6663',
+                    backgroundColor: 'rgba(255, 102, 99, 0.03)'
+                  }}
+                >
+                  <p 
+                    className="text-xl text-gray-800 italic leading-relaxed"
+                  >
+                    "The art of{' '}
+                    <span style={{color: '#ff6663', fontWeight: '500'}}>MY CRAFT</span>
+                    {' '}lies in connecting strategic business goals with the essence of human desire."
+                  </p>
+                </div>
+                
+                <p className="text-lg text-gray-700 leading-relaxed max-w-xl">
+                  <span className="font-medium" style={{color: '#ff6663'}}>Welcome to my world</span>
+                  —where strategy meets soul, and design becomes the universal language of possibility.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* PHOTO COLUMN - Optimized for Viewport */}
+            <motion.div
+              className="flex justify-center lg:justify-end"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.2, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <motion.div 
+                className="relative"
+                animate={{ 
+                  y: [0, -12, 0],
+                  rotateY: [0, 1, 0]
+                }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                whileHover={{
+                  scale: 1.03,
+                  rotateY: 2,
+                  transition: { duration: 0.8 }
+                }}
+                style={{
+                  borderRadius: '3rem',
+                  overflow: 'hidden',
+                  boxShadow: '0 50px 100px rgba(255, 102, 99, 0.2), 0 20px 40px rgba(0, 0, 0, 0.1)',
+                  background: 'white',
+                  padding: '1.5rem'
+                }}
+              >
+                <Image
+                  src="/silvana-profile.jpg"
+                  alt="Silvana Restrepo - Principal Experience Architect, WEF Alumni"
+                  width={500}
+                  height={650}
+                  quality={100}
+                  priority
+                  style={{
+                    objectFit: 'contain',
+                    borderRadius: '2rem',
+                    maxHeight: '60vh',
+                    height: 'auto',
+                    width: 'auto'
+                  }}
+                />
+                
+                {/* FLOATING WEF BADGE */}
+                <motion.div 
+                  className="absolute -top-4 -right-4"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 1, delay: 1.5 }}
+                  whileHover={{ scale: 1.1, rotate: 3 }}
+                >
+                  <div 
+                    className="px-6 py-3 rounded-full text-sm font-medium"
+                    style={{
+                      background: 'linear-gradient(135deg, #ff6663 0%, #ff8a80 100%)',
+                      color: 'white',
+                      boxShadow: '0 8px 25px rgba(255, 102, 99, 0.3)'
+                    }}
+                  >
+                    WEF Alumni
+                  </div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* LANDOR LUXURY PROJECTS SECTION - Direct Styling */}
+      <section 
+        id="projects" 
+        style={{
+          background: 'linear-gradient(180deg, #fffbee 0%, #fefcf3 50%, #fffbee 100%)',
+          paddingTop: 'var(--section-padding)',
+          paddingBottom: 'var(--section-padding)',
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center'
+        }}
+      >
+        <div className="container-desktop">
+          <motion.div 
+            className="heading-desktop"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.6 }}
                   viewport={{ once: true }}
-                >
-                  Each endeavour brings me closer to my mission: connecting strategic business goals 
-                  with the essence of the{' '}
-                  <span style={{color: '#ff6663', fontWeight: '500'}}>#human perspective</span>.
-                </motion.p>
-                
-                <motion.div 
                   className="border-l-4"
                   style={{ 
                     borderLeftColor: '#ff6663',
@@ -1066,88 +1212,143 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          {/* DESKTOP CENTERED EXPERIENCE TIMELINE */}
-          <div className="desktop-centered" style={{display: 'flex', flexDirection: 'column', gap: '4rem'}}>
-            {[
-              {
-                year: "2020—2025",
-                role: "Business Partner & Experience Architect",
-                company: "Globant",
-                description: "I orchestrate enterprise-scale digital initiatives for global brands, translating their vision intopractical roadmaps that support business goals. Contributed to architect physical-digital systems for healthcare, entertainment, hospitality, retail, Finance, and wellness teams, supporting faster value delivery."
-              },
-              {
-                year: "2019—2020",
-                role: "Senior Researcher",
-                company: "Centre for Fourth Industrial Revolution-WEF",
-                description: "I helped develop frameworks connecting technologies with governance approaches, supporting sustainable bridges between public policy and industry innovation."
-              },
-              {
-                year: "2018—2019",
-                role: "Strategic Design Director",
-                company: "Designit a WIPRO Company",
-                description: "I led regional operations to scale market presence and transform business complexity into actionable design solutions."
-              },
-              {
-                year: "2016—2018",
-                role: "Marketing Director",
-                company: "Grupo Éxito",
-                description: "I transformed retail destinations into experiential ecosystems, orchestrating over 1,000 brand partnerships while driving entertainment-centric commerce innovation."
-              },
-              {
-                year: "2013—2016",
-                role: "Business Intelligence Manager",
-                company: "Industrias HACEB",
-                description: "I reengineered market segmentation frameworks from production-centric to consumer-centric models, driving sales growth and operational efficiencies."
-              },
-              {
-                year: "2012—2016",
-                role: "Independent Advisor",
-                company: "Independent",
-                description: "I decoded emerging consumer behaviours for global enterprises, transforming abstract trend signals into implementable product innovation roadmaps."
-              },
-              {
-                year: "2002—2011",
-                role: "Senior Marketing Analyst",
-                company: "TIGO- Millicom",
-                description: "I supported corporate expansion through mergers and acquisitions, enhancing national competitive positioning while integrating diverse teams into the main brand."
-              }
-            ].map((experience, index) => (
-              <motion.div 
-                key={index}
-                className="flex gap-8 items-start"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                {/* Clean Timeline Dot */}
-                <div className="w-4 h-4 rounded-full mt-2" style={{backgroundColor: '#ff6663'}}></div>
-                
-                {/* Simplified Content */}
-                <div className="flex-1 space-y-4">
-                  <div className="flex items-center gap-4">
-                    <span 
-                      className="px-3 py-1 text-white text-sm rounded-full"
-                      style={{backgroundColor: '#ff6663'}}
-                    >
-                      {experience.year}
-                    </span>
-                    <h3 className="text-xl font-medium text-gray-800">
-                      {experience.role}
-                    </h3>
+          {/* VIEWPORT-OPTIMIZED EXPERIENCE - Horizontal Timeline */}
+          <div className="max-w-7xl mx-auto">
+            {/* Experience Navigation */}
+            <motion.div 
+              className="flex justify-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              <div className="flex gap-4">
+                {['Recent', 'Earlier', 'Foundation'].map((period, index) => (
+                  <button
+                    key={period}
+                    className="px-6 py-3 rounded-full text-lg font-medium transition-all duration-300"
+                    style={{
+                      backgroundColor: index === 0 ? '#ff6663' : 'rgba(255, 102, 99, 0.1)',
+                      color: index === 0 ? 'white' : '#ff6663',
+                      border: '1px solid rgba(255, 102, 99, 0.3)'
+                    }}
+                  >
+                    {period} Experience
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* EXPERIENCE GRID - 2 Viewports Maximum */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+              {[
+                {
+                  year: "2020—2025",
+                  role: "Business Partner & Experience Architect", 
+                  company: "Globant",
+                  description: "Orchestrating enterprise-scale digital initiatives for global brands, translating vision into practical roadmaps.",
+                  featured: true
+                },
+                {
+                  year: "2019—2020",
+                  role: "Senior Researcher",
+                  company: "Centre for Fourth Industrial Revolution-WEF",
+                  description: "Developing frameworks connecting technologies with governance approaches for sustainable innovation.",
+                  featured: true
+                },
+                {
+                  year: "2018—2019", 
+                  role: "Strategic Design Director",
+                  company: "Designit a WIPRO Company",
+                  description: "Leading regional operations to scale market presence and transform complexity into actionable solutions.",
+                  featured: true
+                }
+              ].map((experience, index) => (
+                <motion.div 
+                  key={index}
+                  className="bg-white rounded-3xl p-8 relative group cursor-pointer"
+                  style={{
+                    boxShadow: '0 15px 35px rgba(255, 102, 99, 0.08)',
+                    border: '1px solid rgba(255, 102, 99, 0.1)',
+                    minHeight: '320px'
+                  }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  whileHover={{
+                    scale: 1.03,
+                    boxShadow: '0 25px 50px rgba(255, 102, 99, 0.15)',
+                    transition: { duration: 0.3 }
+                  }}
+                  viewport={{ once: true }}
+                >
+                  {/* Experience Badge */}
+                  <div 
+                    className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-6"
+                    style={{
+                      backgroundColor: experience.featured ? '#ff6663' : 'rgba(255, 102, 99, 0.1)',
+                      color: experience.featured ? 'white' : '#ff6663'
+                    }}
+                  >
+                    {experience.year}
                   </div>
-                  <p className="text-lg font-medium" style={{color: '#ff6663'}}>
+                  
+                  {/* Role Title */}
+                  <h3 className="text-2xl font-medium text-gray-800 mb-4 leading-tight">
+                    {experience.role}
+                  </h3>
+                  
+                  {/* Company */}
+                  <p className="text-xl font-medium mb-6" style={{color: '#ff6663'}}>
                     {experience.company}
                   </p>
-                  <p 
-                    className="text-gray-700 font-normal"
-                    style={{ lineHeight: '1.7' }}
-                  >
+                  
+                  {/* Description */}
+                  <p className="text-lg text-gray-700 leading-relaxed">
                     {experience.description}
                   </p>
-                </div>
-              </motion.div>
-            ))}
+                  
+                  {/* Hover Effect Line */}
+                  <motion.div
+                    className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-transparent via-[#ff6663] to-transparent"
+                    initial={{ scaleX: 0 }}
+                    whileHover={{ scaleX: 1 }}
+                    transition={{ duration: 0.3 }}
+                    style={{ width: '100%' }}
+                  />
+                </motion.div>
+              ))}
+            </div>
+
+            {/* ADDITIONAL EXPERIENCE - Second Viewport */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { year: "2016—2018", role: "Marketing Director", company: "Grupo Éxito" },
+                { year: "2013—2016", role: "Business Intelligence Manager", company: "Industrias HACEB" },
+                { year: "2012—2016", role: "Independent Advisor", company: "Independent" },
+                { year: "2002—2011", role: "Senior Marketing Analyst", company: "TIGO- Millicom" }
+              ].map((experience, index) => (
+                <motion.div 
+                  key={index}
+                  className="bg-gray-50 rounded-2xl p-6 group hover:bg-white transition-all duration-300"
+                  style={{ boxShadow: '0 8px 20px rgba(255, 102, 99, 0.04)' }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.02 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="text-sm font-medium mb-3" style={{color: '#ff6663'}}>
+                    {experience.year}
+                  </div>
+                  <h4 className="text-lg font-medium text-gray-800 mb-2 leading-tight">
+                    {experience.role}
+                  </h4>
+                  <p className="text-base text-gray-600">
+                    {experience.company}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -1202,142 +1403,194 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          <div className="desktop-centered" style={{maxWidth: '1000px'}}>
-            {[
-              {
-                title: "Accelerated Product Innovation",
-                subtitle: "From concept to market reach in half the time",
-                capability: "Transform product visions into market reality through AI-powered rapid prototyping and validation. Implementing innovation sprints where data accelerates ideation, AI accelerates testing, and go-to-market strategies—turning months of development into weeks of strategic clarity.",
-                demand: "Speed to market without sacrificing strategic depth."
-              },
-              {
-                title: "Experience Orchestration",
-                subtitle: "Harmonizing thousands of touchpoints across locations/channels/vendors into one resonant brand voice",
-                capability: "Systems thinking applied to create unified experience architectures where daily interactions feel like one seamless conversation—whether digital, physical, or hybrid.",
-                demand: "Coherent brand experiences that scale without losing soul. Global reach with local resonance."
-              },
-              {
-                title: "Intelligent Operations Architecture",
-                subtitle: "Building AI-augmented teams that outperform traditional structures",
-                capability: "Design agentic systems where AI specialists and human experts collaborate as unified intelligence. I help to architect operational ecosystems with embedded market monitoring, competitive intelligence, and automated research capabilities—creating self-optimizing organizations.",
-                demand: "Operations that think, adapt, and evolve. Intelligence is embedded in every process."
-              },
-              {
-                title: "Transformation Foundations",
-                subtitle: "Engineering organizational evolution through scalable design foundations",
-                capability: "Design systems become organizational DNA. Every component strengthens the whole. Every decision accelerates the next. I collaborate to create modular, scalable frameworks —turning organizational complexity into competitive advantage.",
-                demand: "Transformation that compounds. Every change strengthens the foundation for the next leap."
-              },
-              {
-                title: "Strategic Innovation Consulting",
-                subtitle: "Converting market disruption into systematic advantage",
-                capability: "Navigate complexity with frameworks that transform uncertainty into opportunity. I blend behavioral economics, emerging technology foresight, and cultural intelligence to create innovation strategies that don't just respond to change—they create it.",
-                demand: "Innovation with precision. Strategies that move from boardroom to market with velocity."
-              },
-              {
-                title: "Customer Intelligence Platforms",
-                subtitle: "Turning customer behavior into a competitive advantage",
-                capability: "Architecting intelligence systems that don't just track customer behavior—they anticipate it, I design platforms where every interaction feeds learning algorithms, creating self-improving experiences that evolve faster than market demands.",
-                demand: "Customer relationships that deepen with every interaction. Intelligence that scales intimacy."
-              }
-            ].map((service, index) => (
-              <motion.div 
-                key={index}
-                className="border-b border-gray-100 last:border-b-0 pb-12 mb-12"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, delay: index * 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-                viewport={{ once: true }}
-              >
-                <div className="grid md:grid-cols-4 gap-8 items-start">
-                  {/* PROPRIETARY ICON & SERVICE NUMBER */}
-                  <motion.div 
-                    className="text-center md:text-right flex flex-col items-center md:items-end"
-                    style={{ gap: 'var(--icon-text-gap-xl)' }}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: index * 0.2 + 0.3 }}
-                  >
-                    {/* LUXURY SERVICE ICON - Enhanced Presentation */}
+          {/* VIEWPORT-OPTIMIZED SERVICES - Grid Layout */}
+          <div className="max-w-7xl mx-auto">
+            {/* SERVICES GRID - 2 Viewports Maximum */}
+            <div className="grid lg:grid-cols-2 gap-16 mb-20">
+              {[
+                {
+                  title: "Accelerated Product Innovation",
+                  subtitle: "From concept to market reach in half the time",
+                  capability: "Transform product visions into market reality through AI-powered rapid prototyping and validation.",
+                  index: 0
+                },
+                {
+                  title: "Experience Orchestration", 
+                  subtitle: "Harmonizing thousands of touchpoints into one resonant brand voice",
+                  capability: "Systems thinking applied to create unified experience architectures where daily interactions feel seamless.",
+                  index: 1
+                },
+                {
+                  title: "Intelligent Operations Architecture",
+                  subtitle: "Building AI-augmented teams that outperform traditional structures", 
+                  capability: "Design agentic systems where AI specialists and human experts collaborate as unified intelligence.",
+                  index: 2
+                }
+              ].map((service, index) => (
+                <motion.div 
+                  key={index}
+                  className="bg-white rounded-3xl p-12 group relative overflow-hidden"
+                  style={{
+                    boxShadow: '0 20px 40px rgba(255, 102, 99, 0.08)',
+                    border: '1px solid rgba(255, 102, 99, 0.1)',
+                    minHeight: '400px'
+                  }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: index * 0.2 }}
+                  whileHover={{
+                    scale: 1.02,
+                    boxShadow: '0 30px 60px rgba(255, 102, 99, 0.15)',
+                    transition: { duration: 0.4 }
+                  }}
+                  viewport={{ once: true }}
+                >
+                  {/* Service Header with Live Icon */}
+                  <div className="flex items-start gap-8 mb-8">
                     <motion.div
-                      className="icon-container-luxury"
+                      className="icon-container-luxury flex-shrink-0"
                       style={{ 
-                        width: 'var(--icon-container-xl)',
-                        height: 'var(--icon-container-xl)',
+                        width: 'var(--icon-container-lg)',
+                        height: 'var(--icon-container-lg)',
                         borderRadius: '1.5rem'
                       }}
                       whileHover={{ 
-                        scale: 1.06,
-                        rotateY: 4,
-                        rotateX: 2,
-                        boxShadow: '0 25px 60px rgba(255, 102, 99, 0.22), 0 10px 30px rgba(0, 0, 0, 0.08)'
-                      }}
-                      transition={{ 
-                        duration: 0.4, 
-                        ease: [0.25, 0.46, 0.45, 0.94] 
+                        scale: 1.05,
+                        rotateY: 3,
+                        transition: { duration: 0.3 }
                       }}
                     >
-                      <motion.div
-                        whileHover={{ 
-                          scale: 1.1,
-                          rotate: 2
-                        }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        {(() => {
-                          const IconComponent = serviceIcons[service.title as keyof typeof serviceIcons];
-                          return IconComponent ? (
-                            <IconComponent 
-                              size={48} 
-                              color="#ff6663"
-                              animated={true}
-                            />
-                          ) : null;
-                        })()}
-                      </motion.div>
+                      {(() => {
+                        const IconComponent = serviceIcons[service.title as keyof typeof serviceIcons];
+                        return IconComponent ? (
+                          <IconComponent 
+                            size={40} 
+                            color="#ff6663"
+                            animated={true}
+                          />
+                        ) : null;
+                      })()}
                     </motion.div>
                     
-                    {/* Service Number */}
-                    <span 
-                      className="text-4xl font-light"
-                      style={{ 
-                        color: 'rgba(255, 102, 99, 0.4)',
-                        lineHeight: '1',
-                        letterSpacing: '0.05em'
-                      }}
-                    >
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                  </motion.div>
-                  
-                  {/* Service Content */}
-                  <div className="md:col-span-3 space-y-6">
-                    <motion.h3 
-                      className="text-3xl font-light text-gray-800"
-                      style={{ 
-                        lineHeight: '1.3',
-                        letterSpacing: '-0.01em'
-                      }}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 1, delay: index * 0.2 + 0.4 }}
-                    >
-                      {service.title}
-                    </motion.h3>
-                    
-                    <motion.p 
-                      className="text-lg text-gray-600 font-normal"
-                      style={{ lineHeight: '1.7' }}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 1, delay: index * 0.2 + 0.6 }}
-                    >
-                      {service.subtitle}
-                    </motion.p>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-4 mb-4">
+                        <span 
+                          className="text-3xl font-light"
+                          style={{ 
+                            color: 'rgba(255, 102, 99, 0.4)',
+                            lineHeight: '1'
+                          }}
+                        >
+                          {String(service.index + 1).padStart(2, '0')}
+                        </span>
+                        <div className="h-px flex-1" style={{ backgroundColor: 'rgba(255, 102, 99, 0.2)' }} />
+                      </div>
+                      
+                      <h3 className="text-3xl font-light text-gray-800 mb-4 leading-tight">
+                        {service.title}
+                      </h3>
+                      
+                      <p className="text-xl text-gray-600 leading-relaxed mb-6">
+                        {service.subtitle}
+                      </p>
+                      
+                      <p className="text-lg text-gray-700 leading-relaxed">
+                        {service.capability}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                  
+                  {/* Elegant Bottom Line */}
+                  <motion.div
+                    className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-transparent via-[#ff6663] to-transparent"
+                    initial={{ scaleX: 0 }}
+                    whileHover={{ scaleX: 1 }}
+                    transition={{ duration: 0.4 }}
+                    style={{ width: '100%' }}
+                  />
+                </motion.div>
+              ))}
+            </div>
+
+            {/* SECOND VIEWPORT - Additional Services */}
+            <div className="grid lg:grid-cols-3 gap-12">
+              {[
+                {
+                  title: "Transformation Foundations",
+                  subtitle: "Engineering organizational evolution through scalable design foundations",
+                  index: 3
+                },
+                {
+                  title: "Strategic Innovation Consulting", 
+                  subtitle: "Converting market disruption into systematic advantage",
+                  index: 4
+                },
+                {
+                  title: "Customer Intelligence Platforms",
+                  subtitle: "Turning customer behavior into a competitive advantage", 
+                  index: 5
+                }
+              ].map((service, index) => (
+                <motion.div 
+                  key={index}
+                  className="bg-gray-50 rounded-2xl p-8 group hover:bg-white transition-all duration-400"
+                  style={{
+                    boxShadow: '0 12px 30px rgba(255, 102, 99, 0.06)',
+                    minHeight: '300px'
+                  }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  whileHover={{ 
+                    scale: 1.03,
+                    boxShadow: '0 20px 45px rgba(255, 102, 99, 0.12)',
+                    transition: { duration: 0.3 }
+                  }}
+                  viewport={{ once: true }}
+                >
+                  {/* Compact Service Header */}
+                  <div className="flex items-center gap-6 mb-6">
+                    <motion.div
+                      className="w-16 h-16 bg-white rounded-xl flex items-center justify-center"
+                      style={{ 
+                        boxShadow: '0 8px 20px rgba(255, 102, 99, 0.1)',
+                        border: '1px solid rgba(255, 102, 99, 0.15)'
+                      }}
+                      whileHover={{ scale: 1.05, rotateY: 2 }}
+                    >
+                      {(() => {
+                        const IconComponent = serviceIcons[service.title as keyof typeof serviceIcons];
+                        return IconComponent ? (
+                          <IconComponent 
+                            size={32} 
+                            color="#ff6663"
+                            animated={true}
+                          />
+                        ) : null;
+                      })()}
+                    </motion.div>
+                    
+                    <span 
+                      className="text-2xl font-light"
+                      style={{ 
+                        color: 'rgba(255, 102, 99, 0.5)',
+                        lineHeight: '1'
+                      }}
+                    >
+                      {String(service.index + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-2xl font-light text-gray-800 mb-4 leading-tight">
+                    {service.title}
+                  </h3>
+                  
+                  <p className="text-lg text-gray-600 leading-relaxed">
+                    {service.subtitle}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
