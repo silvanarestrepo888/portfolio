@@ -326,8 +326,11 @@ export default function Home() {
                 href="https://silvana.mmm.page/human-perspective"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-2xl font-bold mr-8"
-                style={{ color: '#ff6663' }}
+                className="brand-typography text-3xl mr-8"
+                style={{ 
+                  color: '#ff6663',
+                  textShadow: '0 2px 8px rgba(255, 102, 99, 0.2)'
+                }}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
@@ -508,18 +511,16 @@ export default function Home() {
               margin: '0 auto'
             }}
           >
-            {/* H1: EXPERIENCE ARCHITECT - Large Impactful Display */}
+            {/* H1: EXPERIENCE ARCHITECT - Luxury Serif Display */}
             <motion.h1 
+              className="hero-typography"
               style={{
-                fontSize: 'clamp(5rem, 12vw, 12rem)',
-                letterSpacing: '-0.04em',
-                fontWeight: 300,
-                lineHeight: '0.9',
+                fontSize: 'clamp(4.5rem, 11vw, 11rem)',
                 textAlign: 'center',
                 color: 'white',
-                textShadow: '0 8px 32px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.3)',
                 margin: '0 auto 4rem auto',
-                maxWidth: '1200px'
+                maxWidth: '1200px',
+                textShadow: '0 16px 50px rgba(0,0,0,0.4), 0 8px 25px rgba(0,0,0,0.3), 0 4px 12px rgba(255,102,99,0.2)'
               }}
             >
               <motion.span 
@@ -751,10 +752,11 @@ export default function Home() {
                   }}
                 >
                   <p 
-                    className="text-xl text-gray-800 italic leading-relaxed"
+                    className="quote-typography text-3xl text-gray-800"
+                    style={{ marginBottom: '0' }}
                   >
                     &ldquo;The art of{' '}
-                    <span style={{color: '#ff6663', fontWeight: '500'}}>MY CRAFT</span>
+                    <span style={{color: '#ff6663', fontWeight: '600'}}>MY CRAFT</span>
                     {' '}lies in connecting strategic business goals with the essence of human desire.&rdquo;
                   </p>
                 </div>
@@ -1725,10 +1727,10 @@ export default function Home() {
               transition={{ duration: 0.5 }}
             >
               <h2 
-                className="text-8xl font-light text-white mb-8 group-hover:tracking-wider transition-all duration-500"
+                className="brand-typography text-8xl text-white mb-8 group-hover:tracking-wider transition-all duration-500"
                 style={{
-                  letterSpacing: '-0.03em',
-                  lineHeight: '1'
+                  lineHeight: '1',
+                  textShadow: '0 8px 32px rgba(0,0,0,0.3)'
                 }}
               >
                 silvana.
@@ -1736,10 +1738,9 @@ export default function Home() {
             </motion.a>
             
             <motion.p 
-              className="text-3xl font-light text-white/90 max-w-4xl mx-auto leading-relaxed"
+              className="quote-typography text-4xl text-white/95 max-w-5xl mx-auto"
               style={{
-                fontStyle: 'italic',
-                lineHeight: 'var(--text-spacing-luxury)'
+                textShadow: '0 8px 32px rgba(0,0,0,0.4)'
               }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -2183,7 +2184,9 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.5 }}
               >
-                <h1 className="text-8xl font-light leading-none mb-8 text-gray-800" style={{ letterSpacing: '-0.04em' }}>
+                <h1 className="luxury-title text-8xl text-gray-800 mb-8" style={{ 
+                  textShadow: '0 8px 32px rgba(0,0,0,0.08)'
+                }}>
                   {projects[selectedProject].title}
                 </h1>
                 <div className="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
@@ -2286,10 +2289,9 @@ export default function Home() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 1.4 }}
                       >
-                        <blockquote className="text-4xl text-gray-800" style={{ 
-                          fontStyle: 'italic',
-                          lineHeight: 'var(--text-spacing-luxury)',
-                          marginBottom: 'var(--content-gap)'
+                        <blockquote className="quote-typography text-5xl text-gray-800" style={{ 
+                          marginBottom: 'var(--content-gap)',
+                          textShadow: '0 4px 12px rgba(0,0,0,0.05)'
                         }}>
                           &ldquo;{projects[selectedProject].testimonial}&rdquo;
                         </blockquote>

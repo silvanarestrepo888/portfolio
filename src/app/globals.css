@@ -76,6 +76,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-plus-jakarta-sans);
+  --font-serif: var(--font-playfair-display);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -124,6 +125,42 @@ body {
 
 .coral-bg {
   background-color: #ff6663;
+}
+
+/* LUXURY TYPOGRAPHY SYSTEM - Harmond-Inspired Playfair Display */
+.font-luxury-serif {
+  font-family: var(--font-playfair-display), 'Times New Roman', Georgia, serif;
+}
+
+.hero-typography {
+  font-family: var(--font-playfair-display), 'Times New Roman', serif;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  text-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.quote-typography {
+  font-family: var(--font-playfair-display), Georgia, serif;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+.brand-typography {
+  font-family: var(--font-playfair-display), 'Times New Roman', serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.luxury-title {
+  font-family: var(--font-playfair-display), serif;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
 @keyframes float {
@@ -320,6 +357,23 @@ body {
   .button-magnetic {
     min-height: 44px;
     min-width: 44px;
+  }
+  
+  /* Luxury Typography Mobile Optimization */
+  .hero-typography {
+    font-size: clamp(3rem, 8vw, 6rem) !important;
+    line-height: 1.0 !important;
+    letter-spacing: -0.01em !important;
+    font-weight: 600 !important; /* Lighter weight for mobile readability */
+  }
+  
+  .quote-typography {
+    font-size: clamp(1.5rem, 4vw, 2rem) !important;
+    line-height: 1.4 !important;
+  }
+  
+  .brand-typography {
+    font-size: clamp(2rem, 6vw, 4rem) !important;
   }
 }
 
