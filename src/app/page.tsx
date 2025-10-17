@@ -288,41 +288,60 @@ export default function Home() {
           justifyContent: 'center'
         }}
       >
-        {/* GUARANTEED VISIBLE PHOTO BACKGROUND */}
+        {/* FLOATING IMAGE SYSTEM - Zero Cropping */}
         <div style={{
           position: 'absolute',
           top: 0,
           left: 0,
           width: '100%',
           height: '100%',
-          zIndex: 1
+          zIndex: 1,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: 'var(--space-lg)'
         }}>
           <motion.div
             style={{
-              width: '100%', 
-              height: '110%',
-              position: 'relative'
+              position: 'relative',
+              maxWidth: '100%',
+              maxHeight: '100%',
+              borderRadius: '2rem',
+              overflow: 'hidden'
             }}
             animate={{
-              scale: [1, 1.05, 1],
-              y: [0, -20, 0],
-              filter: ['brightness(0.7)', 'brightness(0.8)', 'brightness(0.7)']
+              y: [0, -8, 0],
+              rotateY: [0, 2, 0],
+              boxShadow: [
+                '0 40px 80px rgba(0, 0, 0, 0.15)',
+                '0 60px 120px rgba(0, 0, 0, 0.25)',
+                '0 40px 80px rgba(0, 0, 0, 0.15)'
+              ]
             }}
             transition={{
-              duration: 15,
+              duration: 12,
               repeat: Infinity, 
               ease: "easeInOut"
+            }}
+            whileHover={{
+              scale: 1.02,
+              rotateY: 3,
+              transition: { duration: 0.6 }
             }}
           >
             <Image
               src="/silvana-profile.jpg"
               alt="Silvana Restrepo - Principal Experience Architect in professional portrait showcasing strategic design leadership"
-              fill
+              width={800}
+              height={1000}
               quality={100}
               priority
               style={{
-                objectFit: 'cover',
-                objectPosition: 'center top'
+                objectFit: 'contain',
+                borderRadius: '2rem',
+                filter: 'brightness(0.75) contrast(1.1)',
+                maxWidth: '70vh',
+                height: 'auto'
               }}
             />
           </motion.div>
@@ -672,9 +691,9 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Floating Elegant Photo */}
+            {/* FLOATING PHOTO - Zero Cropping Museum Quality */}
             <motion.div
-              className="relative"
+              className="relative flex justify-center"
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -682,63 +701,60 @@ export default function Home() {
             >
               <motion.div 
                 className="relative"
-                animate={{ y: [0, -12, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                animate={{ 
+                  y: [0, -12, 0],
+                  rotateY: [0, 1, 0]
+                }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                whileHover={{
+                  scale: 1.03,
+                  rotateY: 2,
+                  transition: { duration: 0.8 }
+                }}
+                style={{
+                  borderRadius: '3rem',
+                  overflow: 'hidden',
+                  boxShadow: '0 50px 100px rgba(255, 102, 99, 0.2), 0 20px 40px rgba(0, 0, 0, 0.1)',
+                  background: 'white',
+                  padding: '1.5rem'
+                }}
               >
-                <div 
-                  className="w-full aspect-[3/4] rounded-3xl overflow-hidden relative"
+                {/* Professional Photo - Complete Visibility */}
+                <Image
+                  src="/silvana-profile.jpg"
+                  alt="Silvana Restrepo - Principal Experience Architect, WEF Alumni, demonstrating human-centered design expertise"
+                  width={600}
+                  height={800}
+                  quality={100}
+                  priority
                   style={{
-                    boxShadow: '0 40px 80px rgba(255, 102, 99, 0.15)'
+                    objectFit: 'contain',
+                    borderRadius: '2rem',
+                    maxHeight: '70vh',
+                    height: 'auto',
+                    width: 'auto'
                   }}
+                />
+                
+                {/* LUXURY CREDENTIAL BADGE - Floating */}
+                <motion.div 
+                  className="absolute -top-4 -right-4"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 1, delay: 1 }}
+                  whileHover={{ scale: 1.05, rotate: 2 }}
                 >
-                  {/* Professional Photo */}
-                  <Image
-                    src="/silvana-profile.jpg"
-                    alt="Silvana Restrepo - Principal Experience Architect, WEF Alumni, demonstrating human-centered design expertise"
-                    fill
-                    className="object-cover"
-                    quality={95}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
-                    priority
-                    style={{ objectPosition: 'center top' }}
-                  />
-                  
-                  {/* Elegant Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-                  
-                  {/* Professional Info Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 p-8">
-                    <div className="text-center text-white">
-                      <div 
-                        className="inline-block px-4 py-2 rounded-full mb-4"
-                        style={{
-                          background: 'rgba(255, 255, 255, 0.15)',
-                          backdropFilter: 'blur(20px)',
-                          border: '1px solid rgba(255, 255, 255, 0.3)'
-                        }}
-                      >
-                        <p className="text-sm font-light">Principal</p>
-                      </div>
-                      <p className="text-lg font-light">Experience Architect</p>
-                    </div>
-                  </div>
-                  
-                  {/* LANDOR LUXURY: Professional credential badge */}
                   <div 
-                    className="absolute top-8 right-8"
+                    className="px-6 py-3 rounded-full text-sm font-medium"
+                    style={{
+                      background: 'linear-gradient(135deg, #ff6663 0%, #ff8a80 100%)',
+                      color: 'white',
+                      boxShadow: '0 8px 25px rgba(255, 102, 99, 0.3)'
+                    }}
                   >
-                    <div 
-                      className="px-4 py-2 rounded-full text-xs font-medium"
-                      style={{
-                        background: 'rgba(255, 255, 255, 0.9)',
-                        color: '#ff6663',
-                        backdropFilter: 'blur(10px)'
-                      }}
-                    >
-                      WEF Alumni
-                    </div>
+                    WEF Alumni
                   </div>
-                </div>
+                </motion.div>
               </motion.div>
             </motion.div>
         </div>
@@ -873,23 +889,42 @@ export default function Home() {
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              {/* Hero Image - Full Width */}
-              <div 
-                className="aspect-[21/9] rounded-3xl overflow-hidden relative group cursor-pointer"
-                style={{ boxShadow: '0 40px 100px rgba(0, 0, 0, 0.12)' }}
+              {/* FLOATING PROJECT IMAGE - Perfect Fit */}
+              <motion.div 
+                className="rounded-3xl overflow-hidden relative group cursor-pointer flex items-center justify-center bg-white"
+                style={{ 
+                  boxShadow: '0 50px 120px rgba(0, 0, 0, 0.15), 0 20px 40px rgba(255, 102, 99, 0.1)',
+                  minHeight: '60vh',
+                  maxHeight: '80vh',
+                  padding: '2rem'
+                }}
                 onClick={() => {
                   setSelectedProject(currentSlide);
                   setCurrentGalleryImage(0);
                 }}
+                whileHover={{ 
+                  scale: 1.02,
+                  rotateX: 1,
+                  boxShadow: '0 60px 140px rgba(0, 0, 0, 0.2), 0 25px 50px rgba(255, 102, 99, 0.15)'
+                }}
+                transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
                 <Image
                   src={filteredProjects[currentSlide].image}
-                  alt={`${filteredProjects[currentSlide].title} - Luxury brand showcase`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-1000"
-                  quality={98}
-                  sizes="95vw"
-                  style={{ objectPosition: 'center center' }}
+                  alt={`${filteredProjects[currentSlide].title} - Luxury brand showcase with complete visibility`}
+                  width={1200}
+                  height={800}
+                  quality={100}
+                  sizes="90vw"
+                  style={{ 
+                    objectFit: 'contain',
+                    borderRadius: '1.5rem',
+                    maxWidth: '100%',
+                    maxHeight: '100%',
+                    height: 'auto',
+                    width: 'auto'
+                  }}
+                  className="group-hover:scale-105 transition-transform duration-1000"
                 />
                 
                 {/* Elegant Content Overlay - Appears on Hover */}
@@ -952,7 +987,7 @@ export default function Home() {
                     </motion.div>
                   </div>
                 </motion.div>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -1247,229 +1282,230 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DESKTOP FOOTER - CONSISTENT LAYOUT */}
-      <footer 
-        style={{
-          backgroundColor: '#ff6663',
-          paddingTop: 'var(--section-padding)',
-          paddingBottom: 'var(--section-padding)'
-        }}
-      >
-        <div className="container-desktop">
-          <div 
-            className="grid md:grid-cols-4 mb-16"
-            style={{
-              gap: 'var(--content-gap)',
-              marginBottom: 'var(--content-gap)'
-            }}
+      {/* LUXURY FOOTER - Sophisticated Brand Presentation */}
+      <footer style={{
+        background: 'linear-gradient(135deg, #ff6663 0%, #e55555 100%)',
+        paddingTop: 'var(--section-padding)',
+        paddingBottom: 'var(--section-padding)',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        {/* Elegant Background Pattern */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%)',
+          zIndex: 1
+        }} />
+        
+        <div className="container-desktop relative z-10">
+          {/* BRAND SECTION - Elegant Typography */}
+          <motion.div 
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2 }}
+            viewport={{ once: true }}
           >
-            {/* Brand */}
-            <div className="md:col-span-2">
-              <a
+            <motion.a
+              href="https://silvana.mmm.page/human-perspective"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block group"
+              whileHover={{ scale: 1.02, y: -4 }}
+              transition={{ duration: 0.5 }}
+            >
+              <h2 
+                className="text-8xl font-light text-white mb-8 group-hover:tracking-wider transition-all duration-500"
+                style={{
+                  letterSpacing: '-0.03em',
+                  lineHeight: '1'
+                }}
+              >
+                silvana.
+              </h2>
+            </motion.a>
+            
+            <motion.p 
+              className="text-3xl font-light text-white/90 max-w-4xl mx-auto leading-relaxed"
+              style={{
+                fontStyle: 'italic',
+                lineHeight: 'var(--text-spacing-luxury)'
+              }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3 }}
+            >
+              &ldquo;Transforming business vision into human experiences—where strategic design meets 
+              operational excellence and technological possibility.&rdquo;
+            </motion.p>
+          </motion.div>
+
+          {/* SOPHISTICATED NAVIGATION GRID */}
+          <div 
+            className="grid md:grid-cols-3 lg:grid-cols-4 mb-20"
+            style={{ gap: 'var(--content-gap)' }}
+          >
+            {/* Navigation Links */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <h3 
+                className="text-2xl font-light text-white mb-8"
+                style={{ letterSpacing: '0.02em' }}
+              >
+                Navigate
+              </h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
+                {['About', 'Projects', 'Experience', 'Services'].map((link) => (
+                  <motion.a 
+                    key={link}
+                    href={`#${link.toLowerCase()}`}
+                    className="text-lg font-medium text-white/80 transition-all duration-300"
+                    whileHover={{ 
+                      color: '#fffbee', 
+                      x: 8,
+                      scale: 1.05 
+                    }}
+                    style={{ letterSpacing: '0.02em' }}
+                  >
+                    {link}
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* MyVoice Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              <h3 
+                className="text-2xl font-light text-white mb-8"
+                style={{ letterSpacing: '0.02em' }}
+              >
+                My Voice
+              </h3>
+              <motion.a 
                 href="https://silvana.mmm.page/human-perspective"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block"
-              >
-                <h3 
-                  className="text-5xl font-bold transition-all duration-300 hover:scale-105"
-                  style={{
-                    color: '#fffbee',
-                    letterSpacing: '-0.02em',
-                    marginBottom: 'var(--margin-normal)'
-                  }}
-                >
-                  <span 
-                    className="text-lg font-light block"
-                    style={{ 
-                      color: 'rgba(255, 251, 238, 0.6)',
-                      letterSpacing: '0.2em',
-                      marginBottom: 'var(--margin-tight)'
-                    }}
-                  >
-                    05
-                  </span>
-                  silvana.
-                </h3>
-              </a>
-              
-              <p 
-                className="text-sm font-semibold"
-                style={{
-                  color: '#fffbee',
-                  opacity: '0.9',
-                  marginBottom: 'var(--margin-luxury)',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em'
+                className="inline-flex items-center gap-4 px-8 py-4 bg-white/10 backdrop-blur-sm rounded-2xl text-white transition-all duration-500 group"
+                whileHover={{ 
+                  scale: 1.05,
+                  backgroundColor: 'rgba(255, 255, 255, 0.2)' 
                 }}
+                style={{ border: '1px solid rgba(255, 255, 255, 0.3)' }}
               >
-                Principal Experience Architect
-              </p>
-              
-              <p 
-                className="text-xl font-medium text-verbatim"
-                style={{
-                  color: '#fffbee',
-                  lineHeight: '1.8',
-                  marginBottom: 'var(--margin-luxury)'
-                }}
-              >
-                Transforming business vision into human experiences—where strategic design meets 
-                operational excellence and technological possibility.
-              </p>
-              
-              <div className="flex space-x-8">
-                <a 
-                  href="https://linkedin.com/in/silvanarestrepo" 
-                  className="w-14 h-14 rounded-xl elevation-2 flex items-center justify-center premium-ease hover:elevation-3 transform hover:scale-110" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{ backgroundColor: 'rgba(255, 251, 238, 0.15)' }}
-                >
-                  <Linkedin size={26} style={{color: '#fffbee'}} />
-                </a>
-                <a 
-                  href="mailto:silvanarestrepo888@gmail.com" 
-                  className="w-14 h-14 rounded-xl elevation-2 flex items-center justify-center premium-ease hover:elevation-3 transform hover:scale-110"
-                  style={{ backgroundColor: 'rgba(255, 251, 238, 0.15)' }}
-                >
-                  <Mail size={26} style={{color: '#fffbee'}} />
-                </a>
-                <a 
-                  href="https://silvana.mmm.page/human-perspective" 
-                  className="w-14 h-14 rounded-xl elevation-2 flex items-center justify-center premium-ease hover:elevation-3 transform hover:scale-110" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  style={{ backgroundColor: 'rgba(255, 251, 238, 0.15)' }}
-                >
-                  <ExternalLink size={26} style={{color: '#fffbee'}} />
-                </a>
-              </div>
-            </div>
-            
-            {/* Quick Links with Luxury Spacing */}
-            <div>
-              <h4 
-                className="text-xl font-semibold"
-                style={{
-                  color: '#fffbee',
-                  marginBottom: 'var(--margin-normal)'
-                }}
-              >
-                Quick Links
-              </h4>
-              <ul className="space-y-5">
-                {['About', 'Projects', 'Experience', 'Services'].map((link) => (
-                  <li key={link}>
-                    <a 
-                      href={`#${link.toLowerCase()}`}
-                      className="font-medium transition-opacity duration-300 hover:opacity-80"
-                      style={{color: '#fffbee'}}
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-                <li>
-                  <a 
-                    href="https://silvana.mmm.page/human-perspective"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium transition-opacity duration-300 hover:opacity-80"
-                    style={{color: '#fffbee'}}
-                  >
-                    MyVoice
-                  </a>
-                </li>
-              </ul>
-            </div>
-            
-            {/* Contact with Luxury Spacing */}
-            <div>
-              <h4 
-                className="text-xl font-semibold"
-                style={{
-                  color: '#fffbee',
-                  marginBottom: 'var(--margin-normal)'
-                }}
+                <ExternalLink size={20} />
+                <span className="text-lg font-medium">Human Perspective</span>
+              </motion.a>
+            </motion.div>
+
+            {/* Contact Section - "Let's Talk" */}
+            <motion.div
+              className="md:col-span-2 lg:col-span-2"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <h3 
+                className="text-3xl font-light text-white mb-8"
+                style={{ letterSpacing: '0.02em' }}
               >
                 Let&apos;s Talk
-              </h4>
-              <div className="space-y-8">
+              </h3>
+              
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--element-gap)' }}>
                 <div>
-                  <p 
-                    className="text-sm font-medium"
-                    style={{
-                      color: '#fffbee',
-                      marginBottom: 'var(--margin-tight)'
-                    }}
-                  >
+                  <p className="text-lg font-medium text-white/90 mb-4">
                     Want to explore more about my experience
                   </p>
-                  <a 
+                  <motion.a 
                     href="https://linkedin.com/in/silvanarestrepo"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-medium hover:underline flex items-center gap-3"
-                    style={{color: '#fffbee'}}
-                  >
-                    <Linkedin size={18} />
-                    linkedin.com/in/silvanarestrepo
-                  </a>
-                </div>
-                <div>
-                  <p 
-                    className="text-sm font-medium"
-                    style={{
-                      color: '#fffbee',
-                      marginBottom: 'var(--margin-tight)'
+                    className="flex items-center gap-4 p-6 bg-white/10 backdrop-blur-sm rounded-2xl transition-all duration-500 group"
+                    whileHover={{ 
+                      scale: 1.02,
+                      backgroundColor: 'rgba(255, 255, 255, 0.15)' 
                     }}
+                    style={{ border: '1px solid rgba(255, 255, 255, 0.2)' }}
                   >
-                    Email
-                  </p>
-                  <a 
+                    <Linkedin size={24} className="text-white" />
+                    <div>
+                      <p className="text-white font-medium group-hover:tracking-wider transition-all duration-300">
+                        LinkedIn Profile
+                      </p>
+                      <p className="text-white/70 text-sm">
+                        linkedin.com/in/silvanarestrepo
+                      </p>
+                    </div>
+                  </motion.a>
+                </div>
+                
+                <div>
+                  <motion.a 
                     href="mailto:silvanarestrepo888@gmail.com"
-                    className="font-medium hover:underline flex items-center gap-3"
-                    style={{color: '#fffbee'}}
+                    className="flex items-center gap-4 p-6 bg-white/10 backdrop-blur-sm rounded-2xl transition-all duration-500 group"
+                    whileHover={{ 
+                      scale: 1.02,
+                      backgroundColor: 'rgba(255, 255, 255, 0.15)' 
+                    }}
+                    style={{ border: '1px solid rgba(255, 255, 255, 0.2)' }}
                   >
-                    <Mail size={18} />
-                    silvanarestrepo888@gmail.com
-                  </a>
+                    <Mail size={24} className="text-white" />
+                    <div>
+                      <p className="text-white font-medium group-hover:tracking-wider transition-all duration-300">
+                        Email Contact
+                      </p>
+                      <p className="text-white/70 text-sm">
+                        silvanarestrepo888@gmail.com
+                      </p>
+                    </div>
+                  </motion.a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
           
-          {/* Bottom Bar */}
-          <div 
-            className="border-t pt-8"
-            style={{borderColor: '#fffbee'}}
+          {/* ELEGANT BOTTOM SECTION */}
+          <motion.div 
+            className="border-t pt-12 text-center"
+            style={{
+              borderColor: 'rgba(255, 251, 238, 0.3)',
+              paddingTop: 'var(--content-gap)'
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.8 }}
           >
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p 
-                className="font-medium mb-4 md:mb-0"
-                style={{color: '#fffbee'}}
+            <p 
+              className="text-lg font-medium text-white/80 mb-6"
+              style={{ letterSpacing: '0.02em' }}
+            >
+              © 2025 Silvana Restrepo - Principal Experience Architect. All rights reserved.
+            </p>
+            <div className="flex justify-center gap-12">
+              <a 
+                href="#"
+                className="text-white/70 font-medium transition-all duration-300 hover:text-white hover:tracking-wider"
+                style={{ fontSize: '0.95rem' }}
               >
-                © 2024 Experience Architect. All rights reserved.
-              </p>
-              <div className="flex space-x-6">
-                <a 
-                  href="#"
-                  className="font-medium transition-opacity duration-300 hover:opacity-80"
-                  style={{color: '#fffbee'}}
-                >
-                  Privacy Policy
-                </a>
-                <a 
-                  href="#"
-                  className="font-medium transition-opacity duration-300 hover:opacity-80"
-                  style={{color: '#fffbee'}}
-                >
-                  Terms of Service
-                </a>
-              </div>
+                Privacy Policy
+              </a>
+              <a 
+                href="#"
+                className="text-white/70 font-medium transition-all duration-300 hover:text-white hover:tracking-wider"
+                style={{ fontSize: '0.95rem' }}
+              >
+                Terms of Service
+              </a>
             </div>
-          </div>
+          </motion.div>
         </div>
       </footer>
 
@@ -1547,60 +1583,100 @@ export default function Home() {
               paddingTop: 'var(--space-3xl)', 
               paddingBottom: 'var(--content-gap)' 
             }}>
-              {/* Hero Section - Full Bleed */}
+              {/* FLOATING EDITORIAL HERO - Zero Cropping */}
               <motion.div 
-                className="w-full h-[70vh] relative"
-                style={{ marginBottom: 'var(--section-gap)' }}
+                className="w-full flex items-center justify-center bg-gradient-to-br from-gray-50 to-white"
+                style={{ 
+                  marginBottom: 'var(--section-gap)',
+                  minHeight: '60vh',
+                  maxHeight: '80vh',
+                  padding: 'var(--content-gap)',
+                  borderRadius: '3rem'
+                }}
                 initial={{ opacity: 0, scale: 1.02 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2 }}
               >
-                <Image
-                  src={projects[selectedProject].image}
-                  alt={`${projects[selectedProject].title} editorial hero`}
-                  fill
-                  className="object-cover"
-                  quality={100}
-                  sizes="100vw"
-                  style={{ objectPosition: 'center center' }}
-                />
-                
-                {/* Sophisticated Typography Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                <motion.div 
-                  className="absolute bottom-16 left-16 right-16 text-white"
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.5 }}
+                <motion.div
+                  className="relative"
+                  whileHover={{ 
+                    scale: 1.02,
+                    rotateY: 1,
+                    boxShadow: '0 60px 140px rgba(0, 0, 0, 0.2)'
+                  }}
+                  style={{
+                    borderRadius: '2rem',
+                    overflow: 'hidden',
+                    boxShadow: '0 40px 100px rgba(0, 0, 0, 0.12)'
+                  }}
                 >
-                  <div className="max-w-6xl">
-                    <h1 className="text-8xl font-light leading-none mb-8" style={{ letterSpacing: '-0.04em' }}>
-                      {projects[selectedProject].title}
-                    </h1>
-                    <div className="grid md:grid-cols-2 gap-16">
-                      <div>
-                        <p className="text-3xl font-medium mb-6" style={{ color: '#ff6663' }}>
-                          {projects[selectedProject].client}
-                        </p>
-                        <p className="text-2xl leading-relaxed opacity-90">
-                          {projects[selectedProject].subtitle}
-                        </p>
-                      </div>
-                      <div className="flex items-end justify-end">
-                        <a 
-                          href={projects[selectedProject].website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-4 px-12 py-6 bg-white text-gray-800 rounded-full font-medium transition-all duration-500 hover:scale-105"
-                          style={{ fontSize: '1.125rem' }}
-                        >
-                          <ExternalLink size={20} />
-                          Visit Live Project
-                        </a>
-                      </div>
+                  <Image
+                    src={projects[selectedProject].image}
+                    alt={`${projects[selectedProject].title} editorial hero with complete visibility`}
+                    width={1400}
+                    height={900}
+                    quality={100}
+                    sizes="95vw"
+                    style={{ 
+                      objectFit: 'contain',
+                      borderRadius: '2rem',
+                      maxHeight: '70vh',
+                      height: 'auto',
+                      width: 'auto'
+                    }}
+                  />
+                  
+                  {/* Elegant Info Badge - Not Blocking Image */}
+                  <motion.div
+                    className="absolute -bottom-6 left-1/2 transform -translate-x-1/2"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0.8 }}
+                  >
+                    <div 
+                      className="px-8 py-4 bg-white rounded-full shadow-lg"
+                      style={{ border: '1px solid rgba(255, 102, 99, 0.2)' }}
+                    >
+                      <span className="text-lg font-medium text-gray-700">
+                        {projects[selectedProject].year} • {projects[selectedProject].location}
+                      </span>
                     </div>
-                  </div>
+                  </motion.div>
                 </motion.div>
+              </motion.div>
+
+              {/* FLOATING PROJECT TITLE - Below Image */}
+              <motion.div
+                className="text-center mb-16"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.5 }}
+              >
+                <h1 className="text-8xl font-light leading-none mb-8 text-gray-800" style={{ letterSpacing: '-0.04em' }}>
+                  {projects[selectedProject].title}
+                </h1>
+                <div className="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
+                  <div className="text-left">
+                    <p className="text-3xl font-medium mb-6" style={{ color: '#ff6663' }}>
+                      {projects[selectedProject].client}
+                    </p>
+                    <p className="text-2xl leading-relaxed text-gray-600">
+                      {projects[selectedProject].subtitle}
+                    </p>
+                  </div>
+                  <div className="flex items-end justify-center md:justify-end">
+                    <a 
+                      href={projects[selectedProject].website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-4 px-12 py-6 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-full font-medium transition-all duration-500 hover:scale-105"
+                      style={{ fontSize: '1.125rem' }}
+                    >
+                      <ExternalLink size={20} />
+                      Visit Live Project
+                    </a>
+                  </div>
+                </div>
               </motion.div>
 
               {/* Editorial Content Layout */}
@@ -1699,34 +1775,60 @@ export default function Home() {
                         {projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.map((image, index) => (
                           <motion.div
                             key={index}
-                            className="aspect-[4/3] rounded-3xl overflow-hidden cursor-zoom-in group"
+                            className="rounded-3xl overflow-hidden cursor-zoom-in group flex items-center justify-center bg-white p-6"
                             onClick={() => {
                               setCurrentGalleryImage(index);
                               setGalleryZoomOpen(true);
                             }}
-                            whileHover={{ scale: 1.03 }}
+                            whileHover={{ 
+                              scale: 1.04,
+                              rotateY: 2,
+                              boxShadow: '0 35px 80px rgba(0, 0, 0, 0.18)'
+                            }}
                             style={{ 
                               boxShadow: '0 25px 60px rgba(0, 0, 0, 0.12)',
-                              border: currentGalleryImage === index ? '4px solid #ff6663' : '4px solid transparent'
+                              border: currentGalleryImage === index ? '4px solid #ff6663' : '4px solid rgba(255, 102, 99, 0.1)',
+                              minHeight: '300px',
+                              maxHeight: '400px'
                             }}
                           >
                             <Image
                               src={image}
-                              alt={`${projects[selectedProject].title} - Gallery showcase ${index + 1}`}
-                              fill
-                              className="object-cover group-hover:scale-105 transition-transform duration-700"
-                              quality={98}
+                              alt={`${projects[selectedProject].title} - Gallery showcase ${index + 1} with zero cropping`}
+                              width={600}
+                              height={450}
+                              quality={100}
+                              style={{
+                                objectFit: 'contain',
+                                borderRadius: '1rem',
+                                maxWidth: '100%',
+                                maxHeight: '100%',
+                                height: 'auto',
+                                width: 'auto'
+                              }}
+                              className="group-hover:scale-105 transition-transform duration-700"
                             />
                             
-                            {/* Elegant Image Counter */}
-                            <div className="absolute top-6 right-6">
+                            {/* Floating Counter Badge */}
+                            <motion.div 
+                              className="absolute -top-3 -left-3"
+                              whileHover={{ scale: 1.15, rotate: 5 }}
+                              animate={{ 
+                                y: [0, -2, 0],
+                                rotate: [0, 1, 0]
+                              }}
+                              transition={{ duration: 3, repeat: Infinity }}
+                            >
                               <span 
-                                className="text-white font-medium px-4 py-2 rounded-full text-lg"
-                                style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)', backdropFilter: 'blur(10px)' }}
+                                className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-base"
+                                style={{ 
+                                  background: 'linear-gradient(135deg, #ff6663 0%, #ff8a80 100%)',
+                                  boxShadow: '0 8px 25px rgba(255, 102, 99, 0.4)'
+                                }}
                               >
                                 {index + 1}
                               </span>
-                            </div>
+                            </motion.div>
                           </motion.div>
                         ))}
                       </div>
