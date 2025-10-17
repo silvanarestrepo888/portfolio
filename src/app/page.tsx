@@ -12,6 +12,7 @@ import {
   StrategyConsultingIcon,
   CustomerIntelligenceIcon 
 } from '../components/icons';
+import { CustomCursor } from '../components/motion/CustomCursor';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -214,6 +215,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen" style={{backgroundColor: '#fffbee'}}>
+      {/* CUSTOM CURSOR - Digital Architect Theme */}
+      <CustomCursor />
+      
       {/* FLOATING NAVIGATION - Award-Winning UX */}
       <motion.div
         className="fixed right-8 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block"
@@ -925,25 +929,58 @@ export default function Home() {
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              {/* FLOATING PROJECT IMAGE - Perfect Fit */}
+              {/* MAGNETIC PROJECT IMAGE - Award-Winning Interaction */}
               <motion.div 
                 className="rounded-3xl overflow-hidden relative group cursor-pointer flex items-center justify-center bg-white"
+                data-cursor="project"
                 style={{ 
                   boxShadow: '0 50px 120px rgba(0, 0, 0, 0.15), 0 20px 40px rgba(255, 102, 99, 0.1)',
                   minHeight: '60vh',
                   maxHeight: '80vh',
-                  padding: '2rem'
+                  padding: '2rem',
+                  transformStyle: 'preserve-3d',
+                  willChange: 'transform'
                 }}
                 onClick={() => {
                   setSelectedProject(currentSlide);
                   setCurrentGalleryImage(0);
                 }}
                 whileHover={{ 
-                  scale: 1.02,
-                  rotateX: 1,
-                  boxShadow: '0 60px 140px rgba(0, 0, 0, 0.2), 0 25px 50px rgba(255, 102, 99, 0.15)'
+                  scale: 1.03,
+                  rotateX: 2,
+                  rotateY: 1,
+                  boxShadow: '0 70px 160px rgba(0, 0, 0, 0.25), 0 30px 60px rgba(255, 102, 99, 0.2)',
+                  z: 50
                 }}
-                transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+                transition={{ 
+                  duration: 0.6, 
+                  ease: [0.23, 1, 0.32, 1],
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 30
+                }}
+                onMouseMove={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  const centerX = rect.left + rect.width / 2;
+                  const centerY = rect.top + rect.height / 2;
+                  const deltaX = (e.clientX - centerX) / (rect.width / 2);
+                  const deltaY = (e.clientY - centerY) / (rect.height / 2);
+                  
+                  e.currentTarget.style.transform = `
+                    perspective(1000px) 
+                    rotateY(${deltaX * 5}deg) 
+                    rotateX(${-deltaY * 5}deg)
+                    translateZ(20px)
+                  `;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = `
+                    perspective(1000px) 
+                    rotateY(0deg) 
+                    rotateX(0deg)
+                    translateZ(0px)
+                  `;
+                }}
               >
                 <Image
                   src={filteredProjects[currentSlide].image}
@@ -997,27 +1034,133 @@ export default function Home() {
                         </p>
                       </div>
                       
-                      <div className="flex gap-4">
+                      {/* MAGNETIC BUTTON GROUP - Award-Winning Micro-interactions */}
+                      <div className="flex gap-6">
                         <motion.button 
                           onClick={(e) => {
                             e.stopPropagation();
                             setSelectedProject(currentSlide);
                             setCurrentGalleryImage(0);
                           }}
-                          className="px-8 py-4 bg-white text-gray-800 rounded-full font-medium transition-all duration-300 hover:scale-105"
-                          whileHover={{ backgroundColor: '#ff6663', color: 'white' }}
+                          data-cursor="button"
+                          className="relative px-10 py-5 bg-white text-gray-800 rounded-full font-medium overflow-hidden"
+                          style={{
+                            transformStyle: 'preserve-3d',
+                            willChange: 'transform',
+                            border: '1px solid rgba(255, 102, 99, 0.2)'
+                          }}
+                          whileHover={{ 
+                            scale: 1.05,
+                            backgroundColor: '#ff6663', 
+                            color: 'white',
+                            boxShadow: '0 15px 35px rgba(255, 102, 99, 0.3)',
+                            transition: { duration: 0.4, ease: [0.23, 1, 0.32, 1] }
+                          }}
+                          whileTap={{
+                            scale: 0.98,
+                            transition: { duration: 0.1 }
+                          }}
+                          onMouseMove={(e) => {
+                            const rect = e.currentTarget.getBoundingClientRect();
+                            const centerX = rect.left + rect.width / 2;
+                            const centerY = rect.top + rect.height / 2;
+                            const deltaX = (e.clientX - centerX) / (rect.width / 2);
+                            const deltaY = (e.clientY - centerY) / (rect.height / 2);
+                            
+                            e.currentTarget.style.transform = `
+                              perspective(600px) 
+                              rotateY(${deltaX * 3}deg) 
+                              rotateX(${-deltaY * 3}deg)
+                              translateZ(5px)
+                            `;
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = `
+                              perspective(600px) 
+                              rotateY(0deg) 
+                              rotateX(0deg)
+                              translateZ(0px)
+                            `;
+                          }}
                         >
+                          {/* Ripple Effect */}
+                          <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                            initial={{ x: '-100%', opacity: 0 }}
+                            whileHover={{ 
+                              x: '100%', 
+                              opacity: 1,
+                              transition: { duration: 0.6, ease: "easeInOut" }
+                            }}
+                            style={{ 
+                              transformOrigin: 'center',
+                              borderRadius: 'inherit'
+                            }}
+                          />
                           Explore Project
                         </motion.button>
+                        
                         <motion.a 
                           href={filteredProjects[currentSlide].website}
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="px-8 py-4 border-2 border-white text-white rounded-full font-medium transition-all duration-300 hover:scale-105"
-                          whileHover={{ backgroundColor: 'white', color: '#ff6663' }}
+                          data-cursor="button"
+                          className="relative px-10 py-5 border-2 border-white text-white rounded-full font-medium overflow-hidden"
+                          style={{
+                            transformStyle: 'preserve-3d',
+                            willChange: 'transform',
+                            background: 'rgba(255, 255, 255, 0.1)'
+                          }}
+                          whileHover={{ 
+                            scale: 1.05,
+                            backgroundColor: 'white', 
+                            color: '#ff6663',
+                            borderColor: '#ff6663',
+                            boxShadow: '0 15px 35px rgba(255, 255, 255, 0.2)',
+                            transition: { duration: 0.4, ease: [0.23, 1, 0.32, 1] }
+                          }}
+                          whileTap={{
+                            scale: 0.98,
+                            transition: { duration: 0.1 }
+                          }}
+                          onMouseMove={(e) => {
+                            const rect = e.currentTarget.getBoundingClientRect();
+                            const centerX = rect.left + rect.width / 2;
+                            const centerY = rect.top + rect.height / 2;
+                            const deltaX = (e.clientX - centerX) / (rect.width / 2);
+                            const deltaY = (e.clientY - centerY) / (rect.height / 2);
+                            
+                            e.currentTarget.style.transform = `
+                              perspective(600px) 
+                              rotateY(${deltaX * 3}deg) 
+                              rotateX(${-deltaY * 3}deg)
+                              translateZ(5px)
+                            `;
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = `
+                              perspective(600px) 
+                              rotateY(0deg) 
+                              rotateX(0deg)
+                              translateZ(0px)
+                            `;
+                          }}
                         >
-                          Live Project
+                          {/* Border Liquid Fill Effect */}
+                          <motion.div
+                            className="absolute inset-0 bg-white rounded-full"
+                            initial={{ scale: 0, opacity: 0 }}
+                            whileHover={{ 
+                              scale: 1, 
+                              opacity: 0.1,
+                              transition: { duration: 0.4, ease: "easeOut" }
+                            }}
+                          />
+                          <div className="relative flex items-center gap-3">
+                            <ExternalLink size={18} />
+                            Live Project
+                          </div>
                         </motion.a>
                       </div>
                     </motion.div>
@@ -1317,19 +1460,55 @@ export default function Home() {
                   }}
                   viewport={{ once: true }}
                 >
-                  {/* Service Header with Live Icon */}
+                  {/* MAGNETIC SERVICE HEADER - Award-Winning Interaction */}
                   <div className="flex items-start gap-8 mb-8">
                     <motion.div
                       className="icon-container-luxury flex-shrink-0"
+                      data-cursor="service"
                       style={{ 
                         width: 'var(--icon-container-lg)',
                         height: 'var(--icon-container-lg)',
-                        borderRadius: '1.5rem'
+                        borderRadius: '1.5rem',
+                        transformStyle: 'preserve-3d',
+                        willChange: 'transform'
                       }}
                       whileHover={{ 
-                        scale: 1.05,
-                        rotateY: 3,
-                        transition: { duration: 0.3 }
+                        scale: 1.08,
+                        rotateY: 6,
+                        rotateX: 3,
+                        z: 30,
+                        boxShadow: '0 25px 60px rgba(255, 102, 99, 0.25), 0 10px 30px rgba(0, 0, 0, 0.1)'
+                      }}
+                      transition={{ 
+                        duration: 0.5,
+                        ease: [0.23, 1, 0.32, 1],
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 25
+                      }}
+                      onMouseMove={(e) => {
+                        const rect = e.currentTarget.getBoundingClientRect();
+                        const centerX = rect.left + rect.width / 2;
+                        const centerY = rect.top + rect.height / 2;
+                        const deltaX = (e.clientX - centerX) / (rect.width / 2);
+                        const deltaY = (e.clientY - centerY) / (rect.height / 2);
+                        
+                        e.currentTarget.style.transform = `
+                          perspective(800px) 
+                          rotateY(${deltaX * 8}deg) 
+                          rotateX(${-deltaY * 8}deg)
+                          translateZ(15px)
+                          scale(1.02)
+                        `;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = `
+                          perspective(800px) 
+                          rotateY(0deg) 
+                          rotateX(0deg)
+                          translateZ(0px)
+                          scale(1)
+                        `;
                       }}
                     >
                       {(() => {
@@ -1622,28 +1801,75 @@ export default function Home() {
                     href="https://linkedin.com/in/silvanarestrepo"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="icon-with-text-lg p-6 bg-white/10 backdrop-blur-sm rounded-2xl transition-all duration-500 group"
-                    whileHover={{ 
-                      scale: 1.03,
-                      backgroundColor: 'rgba(255, 255, 255, 0.18)',
-                      boxShadow: '0 12px 30px rgba(255, 255, 255, 0.1)'
-                    }}
+                    data-cursor="button"
+                    className="icon-with-text-lg p-8 bg-white/10 backdrop-blur-sm rounded-2xl transition-all duration-500 group relative overflow-hidden"
                     style={{ 
                       border: '1px solid rgba(255, 255, 255, 0.2)',
-                      gap: 'var(--icon-text-gap-lg)'
+                      gap: 'var(--icon-text-gap-lg)',
+                      transformStyle: 'preserve-3d',
+                      willChange: 'transform'
+                    }}
+                    whileHover={{ 
+                      scale: 1.04,
+                      backgroundColor: 'rgba(255, 255, 255, 0.22)',
+                      boxShadow: '0 20px 50px rgba(255, 255, 255, 0.15)',
+                      borderColor: 'rgba(255, 255, 255, 0.4)'
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      ease: [0.23, 1, 0.32, 1],
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 25
+                    }}
+                    onMouseMove={(e) => {
+                      const rect = e.currentTarget.getBoundingClientRect();
+                      const centerX = rect.left + rect.width / 2;
+                      const centerY = rect.top + rect.height / 2;
+                      const deltaX = (e.clientX - centerX) / (rect.width / 2);
+                      const deltaY = (e.clientY - centerY) / (rect.height / 2);
+                      
+                      e.currentTarget.style.transform = `
+                        perspective(800px) 
+                        rotateY(${deltaX * 4}deg) 
+                        rotateX(${-deltaY * 4}deg)
+                        translateZ(10px)
+                      `;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = `
+                        perspective(800px) 
+                        rotateY(0deg) 
+                        rotateX(0deg)
+                        translateZ(0px)
+                      `;
                     }}
                   >
+                    {/* Professional Network Glow */}
                     <motion.div
-                      whileHover={{ scale: 1.1, rotate: 2 }}
-                      transition={{ duration: 0.3 }}
+                      className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent rounded-2xl"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ 
+                        opacity: 1,
+                        transition: { duration: 0.4 }
+                      }}
+                    />
+                    
+                    <motion.div
+                      whileHover={{ 
+                        scale: 1.15, 
+                        rotate: 5,
+                        color: '#0077b5'
+                      }}
+                      transition={{ duration: 0.4, ease: "backOut" }}
                     >
-                      <Linkedin size={28} className="text-white" />
+                      <Linkedin size={32} className="text-white" />
                     </motion.div>
-                    <div>
-                      <p className="text-white font-medium group-hover:tracking-wider transition-all duration-300">
+                    <div className="relative">
+                      <p className="text-white font-medium group-hover:tracking-wider transition-all duration-400">
                         LinkedIn Profile
                       </p>
-                      <p className="text-white/70 text-sm">
+                      <p className="text-white/70 text-sm group-hover:text-white/90 transition-colors duration-300">
                         linkedin.com/in/silvanarestrepo
                       </p>
                     </div>
@@ -1653,28 +1879,75 @@ export default function Home() {
                 <div>
                   <motion.a 
                     href="mailto:silvanarestrepo888@gmail.com"
-                    className="icon-with-text-lg p-6 bg-white/10 backdrop-blur-sm rounded-2xl transition-all duration-500 group"
-                    whileHover={{ 
-                      scale: 1.03,
-                      backgroundColor: 'rgba(255, 255, 255, 0.18)',
-                      boxShadow: '0 12px 30px rgba(255, 255, 255, 0.1)'
-                    }}
+                    data-cursor="button"
+                    className="icon-with-text-lg p-8 bg-white/10 backdrop-blur-sm rounded-2xl transition-all duration-500 group relative overflow-hidden"
                     style={{ 
                       border: '1px solid rgba(255, 255, 255, 0.2)',
-                      gap: 'var(--icon-text-gap-lg)'
+                      gap: 'var(--icon-text-gap-lg)',
+                      transformStyle: 'preserve-3d',
+                      willChange: 'transform'
+                    }}
+                    whileHover={{ 
+                      scale: 1.04,
+                      backgroundColor: 'rgba(255, 255, 255, 0.22)',
+                      boxShadow: '0 20px 50px rgba(255, 255, 255, 0.15)',
+                      borderColor: 'rgba(255, 255, 255, 0.4)'
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      ease: [0.23, 1, 0.32, 1],
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 25
+                    }}
+                    onMouseMove={(e) => {
+                      const rect = e.currentTarget.getBoundingClientRect();
+                      const centerX = rect.left + rect.width / 2;
+                      const centerY = rect.top + rect.height / 2;
+                      const deltaX = (e.clientX - centerX) / (rect.width / 2);
+                      const deltaY = (e.clientY - centerY) / (rect.height / 2);
+                      
+                      e.currentTarget.style.transform = `
+                        perspective(800px) 
+                        rotateY(${deltaX * 4}deg) 
+                        rotateX(${-deltaY * 4}deg)
+                        translateZ(10px)
+                      `;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = `
+                        perspective(800px) 
+                        rotateY(0deg) 
+                        rotateX(0deg)
+                        translateZ(0px)
+                      `;
                     }}
                   >
+                    {/* Email Glow Effect */}
                     <motion.div
-                      whileHover={{ scale: 1.1, rotate: -2 }}
-                      transition={{ duration: 0.3 }}
+                      className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent rounded-2xl"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ 
+                        opacity: 1,
+                        transition: { duration: 0.4 }
+                      }}
+                    />
+                    
+                    <motion.div
+                      whileHover={{ 
+                        scale: 1.15, 
+                        rotate: -3,
+                        y: -2
+                      }}
+                      transition={{ duration: 0.4, ease: "backOut" }}
                     >
-                      <Mail size={28} className="text-white" />
+                      <Mail size={32} className="text-white" />
                     </motion.div>
-                    <div>
-                      <p className="text-white font-medium group-hover:tracking-wider transition-all duration-300">
+                    <div className="relative">
+                      <p className="text-white font-medium group-hover:tracking-wider transition-all duration-400">
                         Email Contact
                       </p>
-                      <p className="text-white/70 text-sm">
+                      <p className="text-white/70 text-sm group-hover:text-white/90 transition-colors duration-300">
                         silvanarestrepo888@gmail.com
                       </p>
                     </div>

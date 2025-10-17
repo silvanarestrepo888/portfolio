@@ -553,12 +553,42 @@ body {
 
 
 
-/* Accessibility enhancements */
+/* REDUCED MOTION ACCESSIBILITY - Award-Winning Compliance */
 @media (prefers-reduced-motion: reduce) {
+  /* Sophisticated reduced motion that maintains visual appeal */
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 0.2s !important; /* Still elegant, just faster */
+  }
+  
+  /* Custom Cursor - Simplified but elegant */
+  .custom-cursor {
+    animation: none !important;
+    transition: opacity 0.2s ease !important;
+  }
+  
+  /* Live Formation Icons - Static but beautiful */
+  .live-formation-icon {
+    animation: none !important;
+  }
+  
+  /* Magnetic Effects - Hover only, no continuous animation */
+  .magnetic-element {
+    transition: transform 0.2s ease !important;
+  }
+  
+  /* Project Carousel - Elegant but stable */
+  .project-carousel {
+    animation: none !important;
+    transition: transform 0.2s ease !important;
+  }
+  
+  /* Maintain hover effects for interaction feedback */
+  .icon-container-luxury:hover,
+  .button-magnetic:hover {
+    transform: scale(1.02) !important;
+    transition: all 0.2s ease !important;
   }
 }
 
@@ -601,10 +631,15 @@ body {
   box-shadow: 0 8px 25px rgba(255, 102, 99, 0.08);
   border: 1px solid rgba(255, 102, 99, 0.1);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* GPU ACCELERATION - 60FPS Performance */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform, box-shadow;
 }
 
 .icon-container-luxury:hover {
-  transform: scale(1.05) rotateY(3deg);
+  transform: scale(1.05) rotateY(3deg) translateZ(10px);
   box-shadow: 0 15px 35px rgba(255, 102, 99, 0.18);
   border-color: rgba(255, 102, 99, 0.2);
 }
@@ -642,6 +677,45 @@ body {
 
 .icon-button:hover svg {
   transform: scale(1.1);
+}
+
+/* AWARD-WINNING MOTION DESIGN - Phase 8 GPU Acceleration */
+.magnetic-element {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.performance-optimized {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* CUSTOM CURSOR PERFORMANCE - Digital Architect Theme */
+.cursor-optimized {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  pointer-events: none;
+}
+
+/* 3D INTERACTION PERFORMANCE */
+.transform-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* BUTTON MICRO-INTERACTION PERFORMANCE */
+.button-magnetic {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, background-color, box-shadow;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 /* Enhanced focus indicators for accessibility */
