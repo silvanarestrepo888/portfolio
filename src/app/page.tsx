@@ -713,9 +713,9 @@ export default function Home() {
                   <p 
                     className="text-xl text-gray-800 italic leading-relaxed"
                   >
-                    "The art of{' '}
+                    &ldquo;The art of{' '}
                     <span style={{color: '#ff6663', fontWeight: '500'}}>MY CRAFT</span>
-                    {' '}lies in connecting strategic business goals with the essence of human desire."
+                    {' '}lies in connecting strategic business goals with the essence of human desire.&rdquo;
                   </p>
                 </div>
                 
@@ -869,141 +869,6 @@ export default function Home() {
           
           {/* LUXURY BRAND PROJECT SHOWCASE - Hermès/LV Inspired */}
           <div className="max-w-[95vw] mx-auto">
-            >
-              <motion.div 
-                className="relative"
-                animate={{ 
-                  y: [0, -12, 0],
-                  rotateY: [0, 1, 0]
-                }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                whileHover={{
-                  scale: 1.03,
-                  rotateY: 2,
-                  transition: { duration: 0.8 }
-                }}
-                style={{
-                  borderRadius: '3rem',
-                  overflow: 'hidden',
-                  boxShadow: '0 50px 100px rgba(255, 102, 99, 0.2), 0 20px 40px rgba(0, 0, 0, 0.1)',
-                  background: 'white',
-                  padding: '1.5rem'
-                }}
-              >
-                {/* Professional Photo - Complete Visibility */}
-                <Image
-                  src="/silvana-profile.jpg"
-                  alt="Silvana Restrepo - Principal Experience Architect, WEF Alumni, demonstrating human-centered design expertise"
-                  width={600}
-                  height={800}
-                  quality={100}
-                  priority
-                  style={{
-                    objectFit: 'contain',
-                    borderRadius: '2rem',
-                    maxHeight: '70vh',
-                    height: 'auto',
-                    width: 'auto'
-                  }}
-                />
-                
-                {/* LUXURY CREDENTIAL BADGE - Floating */}
-                <motion.div 
-                  className="absolute -top-4 -right-4"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1, delay: 1 }}
-                  whileHover={{ scale: 1.05, rotate: 2 }}
-                >
-                  <div 
-                    className="px-6 py-3 rounded-full text-sm font-medium"
-                    style={{
-                      background: 'linear-gradient(135deg, #ff6663 0%, #ff8a80 100%)',
-                      color: 'white',
-                      boxShadow: '0 8px 25px rgba(255, 102, 99, 0.3)'
-                    }}
-                  >
-                    WEF Alumni
-                  </div>
-                </motion.div>
-              </motion.div>
-            </motion.div>
-        </div>
-      </section>
-
-      {/* LANDOR LUXURY PROJECTS SECTION - Direct Styling */}
-      <section 
-        id="projects" 
-        style={{
-          background: 'linear-gradient(180deg, #fffbee 0%, #fefcf3 50%, #fffbee 100%)',
-          paddingTop: 'var(--section-padding)',
-          paddingBottom: 'var(--section-padding)',
-          minHeight: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center'
-        }}
-      >
-        <div className="container-desktop">
-          <motion.div 
-            className="heading-desktop"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-            viewport={{ once: true }}
-          >
-            <h2 
-              className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-800"
-              style={{ 
-                lineHeight: 'var(--text-spacing-tight)',
-                letterSpacing: '-0.02em',
-                marginBottom: 'var(--element-gap)'
-              }}
-            >
-              <span 
-                className="text-lg font-light block mb-4"
-                style={{ 
-                  color: 'rgba(255, 102, 99, 0.6)',
-                  letterSpacing: '0.2em'
-                }}
-              >
-                02
-              </span>
-              Projects
-            </h2>
-            <motion.p 
-              className="description-landor"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              A curated selection of strategic consulting projects that demonstrate experience-driven innovation, digital transformation, and business acceleration across diverse industries and global markets.
-            </motion.p>
-            
-            {/* Project Filter Tags */}
-            <div className="flex flex-wrap justify-center gap-4">
-              {projectCategories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className="px-6 py-3 rounded-full text-sm font-medium transition-all duration-300"
-                  style={{
-                    backgroundColor: selectedCategory === category ? '#ff6663' : 'transparent',
-                    color: selectedCategory === category ? 'white' : '#ff6663',
-                    border: `1px solid ${selectedCategory === category ? '#ff6663' : 'rgba(255, 102, 99, 0.3)'}`,
-                    letterSpacing: '0.05em'
-                  }}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </motion.div>
-          
-          {/* LUXURY BRAND PROJECT SHOWCASE - Hermès/LV Inspired */}
-          <div className="max-w-[95vw] mx-auto">
-            {/* Project Navigation */}
             <div className="flex justify-between items-center px-8" style={{ marginBottom: 'var(--content-gap)' }}>
               <motion.button
                 onClick={() => setCurrentSlide(currentSlide === 0 ? filteredProjects.length - 1 : currentSlide - 1)}
