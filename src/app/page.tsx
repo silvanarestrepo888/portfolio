@@ -811,57 +811,64 @@ export default function Home() {
         <div className="container-desktop">
           <motion.div 
             className="heading-desktop"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.6 }}
-                  viewport={{ once: true }}
-                  className="border-l-4"
-                  style={{ 
-                    borderLeftColor: '#ff6663',
-                    backgroundColor: 'rgba(255, 102, 99, 0.05)',
-                    paddingLeft: 'var(--element-gap)',
-                    paddingTop: 'var(--space-md)',
-                    paddingBottom: 'var(--space-md)',
-                    marginTop: 'var(--content-gap)',
-                    marginBottom: 'var(--content-gap)'
-                  }}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 1, delay: 0.8 }}
-                  viewport={{ once: true }}
-                >
-                  <p 
-                    className="text-2xl text-gray-800 font-normal"
-                    style={{ lineHeight: 'var(--text-spacing-normal)', fontStyle: 'italic' }}
-                  >
-                    The art of{' '}
-                    <span style={{color: '#ff6663', fontWeight: '500'}}>MY CRAFT</span>
-                    {' '}lies in listening to the unspoken, seeing the invisible, and touching the
-                    intangible essence of human desire.
-                  </p>
-                </motion.div>
-                
-                <motion.p 
-                  className="text-lg text-gray-700 font-normal"
-                  style={{ lineHeight: 'var(--text-spacing-relaxed)' }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 1 }}
-                  viewport={{ once: true }}
-                >
-                  <span className="font-medium" style={{color: '#ff6663'}}>Welcome to my world</span>
-                  —where strategy meets soul, and design becomes the universal language of possibility.
-                </motion.p>
-              </div>
-            </motion.div>
-
-            {/* FLOATING PHOTO - Zero Cropping Museum Quality */}
-            <motion.div
-              className="relative flex justify-center"
-              initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            viewport={{ once: true }}
+          >
+            <h2 
+              className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-800"
+              style={{ 
+                lineHeight: 'var(--text-spacing-tight)',
+                letterSpacing: '-0.02em',
+                marginBottom: 'var(--element-gap)'
+              }}
+            >
+              <span 
+                className="text-lg font-light block mb-4"
+                style={{ 
+                  color: 'rgba(255, 102, 99, 0.6)',
+                  letterSpacing: '0.2em',
+                  marginBottom: 'var(--space-base)',
+                  fontWeight: '300'
+                }}
+              >
+                02
+              </span>
+              Projects
+            </h2>
+            <motion.p 
+              className="description-landor"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 1, delay: 0.3 }}
               viewport={{ once: true }}
+            >
+              A curated selection of strategic consulting projects that demonstrate experience-driven innovation, digital transformation, and business acceleration across diverse industries and global markets.
+            </motion.p>
+            
+            {/* Project Filter Tags */}
+            <div className="flex flex-wrap justify-center gap-4">
+              {projectCategories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className="px-6 py-3 rounded-full text-sm font-medium transition-all duration-300"
+                  style={{
+                    backgroundColor: selectedCategory === category ? '#ff6663' : 'transparent',
+                    color: selectedCategory === category ? 'white' : '#ff6663',
+                    border: `1px solid ${selectedCategory === category ? '#ff6663' : 'rgba(255, 102, 99, 0.3)'}`,
+                    letterSpacing: '0.05em'
+                  }}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </motion.div>
+          
+          {/* LUXURY BRAND PROJECT SHOWCASE - Hermès/LV Inspired */}
+          <div className="max-w-[95vw] mx-auto">
             >
               <motion.div 
                 className="relative"
