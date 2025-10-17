@@ -17,6 +17,17 @@ export const CustomCursor = () => {
   const springY = useSpring(cursorY, { damping: 20, stiffness: 300, mass: 0.5 });
 
   useEffect(() => {
+    // MOBILE DETECTION - Custom cursor only for desktop devices
+    const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const isSmallScreen = window.innerWidth < 1024;
+    
+    // Disable custom cursor on mobile/touch devices for optimal UX
+    if (isMobile || hasTouchScreen || isSmallScreen) {
+      setIsVisible(false);
+      return;
+    }
+
     const updateCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
@@ -59,10 +70,18 @@ export const CustomCursor = () => {
 
   return (
     <>
-      {/* HIDE DEFAULT CURSOR */}
+      {/* RESPONSIVE CURSOR HIDING - Desktop Only */}
       <style jsx global>{`
-        * {
-          cursor: none !important;
+        @media (hover: hover) and (pointer: fine) {
+          * {
+            cursor: none !important;
+          }
+        }
+        
+        @media (hover: none) or (pointer: coarse) {
+          * {
+            cursor: auto !important;
+          }
         }
       `}</style>
 

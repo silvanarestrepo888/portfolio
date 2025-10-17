@@ -302,6 +302,24 @@ body {
     --content-gap: calc(var(--space-lg) * 0.6);          /* φ³ * 0.6 */
     --element-gap: calc(var(--space-md) * 0.6);          /* φ² * 0.6 */
     --micro-spacing: calc(var(--space-sm) * 0.6);        /* φ¹ * 0.6 */
+    
+    /* Icon container optimization for mobile */
+    --icon-container-sm: 40px;
+    --icon-container-md: 56px;
+    --icon-container-lg: 64px;
+    --icon-container-xl: 72px;
+  }
+  
+  /* Mobile UX Optimizations */
+  .magnetic-element {
+    transform: none !important; /* Disable 3D effects on mobile for performance */
+  }
+  
+  /* Touch-friendly interactions */
+  .icon-container-luxury,
+  .button-magnetic {
+    min-height: 44px;
+    min-width: 44px;
   }
 }
 
@@ -718,10 +736,49 @@ body {
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* Enhanced focus indicators for accessibility */
-.focus-ring:focus {
+/* AWARD-WINNING ACCESSIBILITY - Enhanced Focus Indicators */
+.focus-ring:focus,
+*:focus-visible {
   outline: 3px solid var(--coral);
-  outline-offset: 2px;
+  outline-offset: 3px;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0 6px rgba(255, 102, 99, 0.15);
+  transition: all 0.2s ease;
+}
+
+/* Luxury Focus States for Interactive Elements */
+.icon-container-luxury:focus,
+.magnetic-element:focus {
+  outline: 3px solid var(--coral);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(255, 102, 99, 0.2), 0 8px 25px rgba(255, 102, 99, 0.15);
+  transform: scale(1.02) translateZ(5px);
+}
+
+/* Button Focus Excellence */
+.button-magnetic:focus,
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(255, 102, 99, 0.15);
+  transform: scale(1.01);
+  transition: all 0.2s ease;
+}
+
+/* High Contrast Mode - Professional Support */
+@media (prefers-contrast: high) {
+  :root {
+    --coral: #cc0000;
+    --foreground: #000000;
+  }
+  
+  .focus-ring:focus,
+  *:focus-visible {
+    outline: 4px solid #cc0000;
+    outline-offset: 4px;
+    box-shadow: 0 0 0 8px rgba(204, 0, 0, 0.3);
+  }
 }
 
 /* Print styles for portfolio documentation */

@@ -215,30 +215,58 @@ export default function Home() {
 
   return (
     <div className="min-h-screen" style={{backgroundColor: '#fffbee'}}>
+      {/* ACCESSIBILITY - Skip Navigation Links */}
+      <a 
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-coral text-white px-6 py-3 rounded-lg z-50 font-medium"
+        style={{ backgroundColor: '#ff6663' }}
+      >
+        Skip to main content
+      </a>
+      <a 
+        href="#about"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-40 bg-coral text-white px-6 py-3 rounded-lg z-50 font-medium"
+        style={{ backgroundColor: '#ff6663' }}
+      >
+        Skip to about section
+      </a>
+      
       {/* CUSTOM CURSOR - Digital Architect Theme */}
       <CustomCursor />
       
-      {/* FLOATING NAVIGATION - Award-Winning UX */}
-      <motion.div
+      {/* FLOATING NAVIGATION - Award-Winning UX with Accessibility */}
+      <motion.nav
         className="fixed right-8 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block"
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, delay: 2 }}
+        aria-label="Portfolio section navigation"
+        role="navigation"
       >
         <div 
-          className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg"
+          className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg focus-within:ring-2 focus-within:ring-coral focus-within:ring-offset-2"
           style={{ border: '1px solid rgba(255, 102, 99, 0.1)' }}
         >
           {/* Section Navigation */}
-          <div className="space-y-4">
+          <div className="space-y-4" role="list">
             {['Hero', 'About', 'Projects', 'Experience', 'Services'].map((section, index) => (
               <motion.a
                 key={section}
                 href={`#${section.toLowerCase()}`}
-                className="flex items-center gap-3 p-3 rounded-xl transition-all duration-300 group"
+                className="flex items-center gap-3 p-3 rounded-xl transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-coral focus:ring-offset-2"
                 whileHover={{ 
                   scale: 1.05,
                   backgroundColor: 'rgba(255, 102, 99, 0.08)'
+                }}
+                aria-label={`Navigate to ${section} section`}
+                role="listitem"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    const element = document.getElementById(section.toLowerCase());
+                    element?.scrollIntoView({ behavior: 'smooth' });
+                  }
                 }}
               >
                 <div 
@@ -247,9 +275,10 @@ export default function Home() {
                     backgroundColor: index === 0 ? '#ff6663' : 'rgba(255, 102, 99, 0.3)',
                     transform: index === 0 ? 'scale(1.2)' : 'scale(1)'
                   }}
+                  aria-hidden="true"
                 />
                 <span 
-                  className="text-sm font-medium text-gray-600 group-hover:text-gray-800"
+                  className="text-sm font-medium text-gray-600 group-hover:text-gray-800 group-focus:text-gray-800"
                   style={{ fontSize: '0.875rem' }}
                 >
                   {section}
@@ -275,9 +304,14 @@ export default function Home() {
             <span className="text-xs text-gray-500">20% Complete</span>
           </div>
         </div>
-      </motion.div>
+      </motion.nav>
+      
       {/* LANDOR LUXURY NAVIGATION - Enhanced Visual Clarity */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 navigation-breathing">
+      <nav 
+        className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 navigation-breathing"
+        aria-label="Main site navigation"
+        role="banner"
+      >
         <div className="container mx-auto px-8 py-8">
           <div className="flex justify-center items-center">
             {/* Centered Navigation with Section Numbers */}
@@ -356,8 +390,10 @@ export default function Home() {
       </nav>
 
       {/* IMPACTFUL HERO: Full-Screen Photo Background */}
+      <main id="main-content">
       <section 
         id="hero"
+        aria-label="Hero introduction - Silvana Restrepo, Principal Experience Architect"
         style={{
           position: 'relative',
           height: '100vh',
@@ -1465,12 +1501,21 @@ export default function Home() {
                     <motion.div
                       className="icon-container-luxury flex-shrink-0"
                       data-cursor="service"
+                      role="img"
+                      aria-label={`${service.title} service icon with live formation animation`}
+                      tabIndex={0}
                       style={{ 
                         width: 'var(--icon-container-lg)',
                         height: 'var(--icon-container-lg)',
                         borderRadius: '1.5rem',
                         transformStyle: 'preserve-3d',
                         willChange: 'transform'
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          // Focus interaction for keyboard users
+                        }
                       }}
                       whileHover={{ 
                         scale: 1.08,
@@ -1993,6 +2038,7 @@ export default function Home() {
           </motion.div>
         </div>
       </footer>
+      </main>
 
       {/* LUXURY EDITORIAL PROJECT EXPERIENCE - Vogue/Wallpaper Inspired */}
       {selectedProject !== null && (
