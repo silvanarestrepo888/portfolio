@@ -1290,6 +1290,7 @@ export default function Home() {
                             <IconComponent 
                               size={48} 
                               color="#ff6663"
+                              animated={true}
                             />
                           ) : null;
                         })()}
