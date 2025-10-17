@@ -13,13 +13,14 @@ import {
   CustomerIntelligenceIcon 
 } from '../components/icons';
 import { CustomCursor } from '../components/motion/CustomCursor';
+import { MagneticCursor } from '../components/ui/MagneticCursor';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [selectedCategory, setSelectedCategory] = useState("ALL WORK");
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [currentGalleryImage, setCurrentGalleryImage] = useState(0);
   const [galleryZoomOpen, setGalleryZoomOpen] = useState(false);
+  const [hoveredService, setHoveredService] = useState<number | null>(null);
   
   // PROPRIETARY ICON MAPPING - 100% Copy Compliant
   const serviceIcons = {
@@ -29,6 +30,87 @@ export default function Home() {
     "Transformation Foundations": TransformationFoundationsIcon,
     "Strategic Innovation Consulting": StrategyConsultingIcon,
     "Customer Intelligence Platforms": CustomerIntelligenceIcon
+  };
+
+  // AWARD-WINNING SERVICES DATA - Vertical Expansion System
+  const awardWinningServices = [
+    {
+      title: "Accelerated Product Innovation",
+      capabilities: [
+        "AI-POWERED PROTOTYPING",
+        "RAPID VALIDATION", 
+        "INNOVATION SPRINTS",
+        "DATA ACCELERATION"
+      ],
+      shortDescription: "Transform product visions into market reality through rapid prototyping and validation.",
+      icon: AcceleratedInnovationIcon
+    },
+    {
+      title: "Experience Orchestration", 
+      capabilities: [
+        "TOUCHPOINT HARMONIZATION",
+        "UNIFIED ARCHITECTURES",
+        "SEAMLESS CONVERSATIONS",
+        "BRAND VOICE CONSISTENCY"
+      ],
+      shortDescription: "Systems thinking creating unified experience architectures where interactions feel seamless.",
+      icon: ExperienceOrchestrationIcon
+    },
+    {
+      title: "Intelligent Operations Architecture",
+      capabilities: [
+        "AI-AUGMENTED TEAMS",
+        "UNIFIED INTELLIGENCE", 
+        "MARKET MONITORING",
+        "COMPETITIVE INTELLIGENCE"
+      ],
+      shortDescription: "Design agentic systems where AI specialists and human experts collaborate intelligently.",
+      icon: IntelligentOperationsIcon
+    },
+    {
+      title: "Transformation Foundations",
+      capabilities: [
+        "SCALABLE FRAMEWORKS",
+        "ORGANIZATIONAL DNA",
+        "MODULAR SYSTEMS", 
+        "COMPETITIVE ADVANTAGE"
+      ],
+      shortDescription: "Create modular, scalable frameworks turning organizational complexity into advantage.",
+      icon: TransformationFoundationsIcon
+    },
+    {
+      title: "Strategic Innovation Consulting",
+      capabilities: [
+        "COMPLEXITY NAVIGATION",
+        "MARKET DISRUPTION",
+        "SYSTEMATIC ADVANTAGE",
+        "INNOVATION STRATEGIES"
+      ],
+      shortDescription: "Navigate complexity with frameworks that transform uncertainty into systematic opportunity.",
+      icon: StrategyConsultingIcon
+    },
+    {
+      title: "Customer Intelligence Platforms", 
+      capabilities: [
+        "BEHAVIORAL TRACKING",
+        "PREDICTIVE ANALYTICS",
+        "LEARNING ALGORITHMS",
+        "SELF-IMPROVING SYSTEMS"
+      ],
+      shortDescription: "Architect intelligence systems that anticipate customer behavior and evolve continuously.",
+      icon: CustomerIntelligenceIcon
+    }
+  ];
+
+  // COLUMN DIMENSION CALCULATOR - Award-Winning Animation
+  const getColumnDimensions = (index: number) => {
+    if (hoveredService === null) {
+      return { width: '16.66%', opacity: 0.8 }; // Equal distribution
+    }
+    if (hoveredService === index) {
+      return { width: '45%', opacity: 1 };      // Expanded with content
+    }
+    return { width: '11%', opacity: 0.6 };       // Compressed minimal
   };
   
   const projects = [
@@ -231,7 +313,8 @@ export default function Home() {
         Skip to about section
       </a>
       
-      {/* CUSTOM CURSOR - Digital Architect Theme */}
+      {/* AWWWARDS MAGNETIC CURSOR SYSTEM */}
+      <MagneticCursor />
       <CustomCursor />
       
       {/* FLOATING NAVIGATION - Award-Winning UX with Accessibility */}
@@ -249,10 +332,10 @@ export default function Home() {
         >
           {/* Section Navigation */}
           <div className="space-y-4" role="list">
-            {['Hero', 'About', 'Projects', 'Experience', 'Services'].map((section, index) => (
+            {['Hero', 'About', 'Projects', 'Experience', 'Services', 'Contact'].map((section, index) => (
               <motion.a
                 key={section}
-                href={`#${section.toLowerCase()}`}
+                href={section === 'Contact' ? '#footer' : `#${section.toLowerCase()}`}
                 className="flex items-center gap-3 p-3 rounded-xl transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-coral focus:ring-offset-2"
                 whileHover={{ 
                   scale: 1.05,
@@ -344,11 +427,12 @@ export default function Home() {
                 { name: 'About', number: '01' },
                 { name: 'Projects', number: '02' },
                 { name: 'Experience', number: '03' },
-                { name: 'Services', number: '04' }
+                { name: 'Services', number: '04' },
+                { name: 'Contact', number: '05' }
               ].map((item, index) => (
                 <motion.a
                   key={item.name}
-                  href={`#${item.name.toLowerCase()}`}
+                  href={item.name === 'Contact' ? '#footer' : `#${item.name.toLowerCase()}`}
                   className="flex items-center gap-3 text-sm font-medium text-gray-700 transition-all duration-700 px-4 py-2 rounded-lg relative overflow-hidden group"
                   style={{ 
                     letterSpacing: '0.05em',
@@ -511,54 +595,62 @@ export default function Home() {
               margin: '0 auto'
             }}
           >
-            {/* H1: EXPERIENCE ARCHITECT - Luxury Serif Display */}
-            <motion.h1 
-              className="hero-typography"
-              style={{
-                fontSize: 'clamp(4.5rem, 11vw, 11rem)',
-                textAlign: 'center',
-                color: 'white',
-                margin: '0 auto 4rem auto',
-                maxWidth: '1200px',
-                textShadow: '0 16px 50px rgba(0,0,0,0.4), 0 8px 25px rgba(0,0,0,0.3), 0 4px 12px rgba(255,102,99,0.2)'
-              }}
-            >
-              <motion.span 
-                className="block"
-                initial={{ opacity: 0, y: 100, scale: 0.9 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 2, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-                style={{ 
-                  color: 'white',
-                  display: 'block',
-                  marginBottom: '-0.1em'
+            {/* AWWWARDS MAGNETIC HERO TYPOGRAPHY */}
+            <div className="magnetic-field" style={{ perspective: '1000px' }}>
+              <motion.h1 
+                className="hero-typography-awwwards magnetic-element"
+                style={{
+                  fontSize: 'clamp(6rem, 15vw, 20rem)',
+                  textAlign: 'center',
+                  color: 'transparent',
+                  margin: '0 auto 4rem auto',
+                  maxWidth: '1400px',
+                  position: 'relative',
+                  zIndex: 10
                 }}
-                whileHover={{ 
-                  textShadow: '0 8px 32px rgba(255,102,99,0.5), 0 4px 16px rgba(0,0,0,0.3)',
-                  transition: { duration: 0.4 }
+                onMouseMove={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  const centerX = rect.left + rect.width / 2;
+                  const centerY = rect.top + rect.height / 2;
+                  const deltaX = (e.clientX - centerX) / (rect.width / 2);
+                  const deltaY = (e.clientY - centerY) / (rect.height / 2);
+                  
+                  e.currentTarget.style.transform = `
+                    perspective(1000px) 
+                    rotateY(${deltaX * 5}deg) 
+                    rotateX(${-deltaY * 5}deg)
+                    translateZ(30px)
+                  `;
                 }}
-              >
-                Experience
-              </motion.span>
-              
-              <motion.span 
-                className="block"
-                initial={{ opacity: 0, y: 100, scale: 0.9 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 2, delay: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-                style={{ 
-                  color: '#ff6663',
-                  fontWeight: 400,
-                  textShadow: '0 8px 32px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.3)'
-                }}
-                whileHover={{ 
-                  color: '#ffffff',
-                  transition: { duration: 0.4 }
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
                 }}
               >
-                Architect
-              </motion.span>
-            </motion.h1>
+                <motion.span 
+                  className="block"
+                  initial={{ opacity: 0, y: 100, rotateX: -90 }}
+                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                  transition={{ duration: 1.2, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
+                >
+                  Experience
+                </motion.span>
+                
+                <motion.span 
+                  className="block"
+                  initial={{ opacity: 0, y: 100, rotateX: -90 }}
+                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                  transition={{ duration: 1.2, delay: 0.6, ease: [0.23, 1, 0.32, 1] }}
+                  style={{ 
+                    background: 'linear-gradient(135deg, #ff6663 0%, #ff8a80 100%)',
+                    backgroundClip: 'text',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent'
+                  }}
+                >
+                  Architect
+                </motion.span>
+              </motion.h1>
+            </div>
             
             {/* Hero Buttons */}
             <motion.div 
@@ -899,307 +991,194 @@ export default function Home() {
             </div>
           </motion.div>
           
-          {/* LUXURY BRAND PROJECT SHOWCASE - Hermès/LV Inspired */}
-          <div className="max-w-[95vw] mx-auto">
-            <div className="flex justify-between items-center px-8" style={{ marginBottom: 'var(--content-gap)' }}>
-              <motion.button
-                onClick={() => setCurrentSlide(currentSlide === 0 ? filteredProjects.length - 1 : currentSlide - 1)}
-                className="group flex items-center gap-4 px-8 py-4 bg-white rounded-full transition-all duration-500"
-                style={{ 
-                  border: '1px solid rgba(255, 102, 99, 0.2)',
-                  boxShadow: '0 8px 30px rgba(255, 102, 99, 0.08)'
-                }}
-                whileHover={{ scale: 1.05, x: -4 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <ArrowDown size={20} style={{ transform: 'rotate(90deg)', color: '#ff6663' }} />
-                <span className="text-gray-600 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Previous
-                </span>
-              </motion.button>
-              
-              <div className="flex gap-3">
-                {filteredProjects.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-500 ${
-                      currentSlide === index ? 'scale-150' : 'opacity-40 hover:opacity-70'
-                    }`}
-                    style={{ backgroundColor: '#ff6663' }}
-                  />
-                ))}
-              </div>
-              
-              <motion.button
-                onClick={() => setCurrentSlide((currentSlide + 1) % filteredProjects.length)}
-                className="group flex items-center gap-4 px-8 py-4 bg-white rounded-full transition-all duration-500"
-                style={{ 
-                  border: '1px solid rgba(255, 102, 99, 0.2)',
-                  boxShadow: '0 8px 30px rgba(255, 102, 99, 0.08)'
-                }}
-                whileHover={{ scale: 1.05, x: 4 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span className="text-gray-600 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Next
-                </span>
-                <ArrowDown size={20} style={{ transform: 'rotate(-90deg)', color: '#ff6663' }} />
-              </motion.button>
-            </div>
-
-            {/* Full-Screen Project Showcase */}
-            <motion.div
-              className="relative"
-              key={currentSlide}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          {/* AUTO-MOVING PROJECT CAROUSEL - Ideas Image Inspired */}
+          <div className="w-full overflow-hidden px-8">
+            {/* Moving Carousel Container - Right to Left Auto-Movement */}
+            <motion.div 
+              className="flex gap-12"
+              animate={{ 
+                x: [`0%`, `-${filteredProjects.length * 100}%`]
+              }}
+              transition={{
+                duration: filteredProjects.length * 10, // 10 seconds per project
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              whileHover={{ 
+                animationPlayState: 'paused',
+                transition: { duration: 0.1 }
+              }}
+              style={{ width: `${filteredProjects.length * 200}%` }}
             >
-              {/* MAGNETIC PROJECT IMAGE - Award-Winning Interaction */}
-              <motion.div 
-                className="rounded-3xl overflow-hidden relative group cursor-pointer flex items-center justify-center bg-white"
-                data-cursor="project"
-                style={{ 
-                  boxShadow: '0 50px 120px rgba(0, 0, 0, 0.15), 0 20px 40px rgba(255, 102, 99, 0.1)',
-                  minHeight: '60vh',
-                  maxHeight: '80vh',
-                  padding: '2rem',
-                  transformStyle: 'preserve-3d',
-                  willChange: 'transform'
-                }}
-                onClick={() => {
-                  setSelectedProject(currentSlide);
-                  setCurrentGalleryImage(0);
-                }}
-                whileHover={{ 
-                  scale: 1.03,
-                  rotateX: 2,
-                  rotateY: 1,
-                  boxShadow: '0 70px 160px rgba(0, 0, 0, 0.25), 0 30px 60px rgba(255, 102, 99, 0.2)',
-                  z: 50
-                }}
-                transition={{ 
-                  duration: 0.6, 
-                  ease: [0.23, 1, 0.32, 1],
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 30
-                }}
-                onMouseMove={(e) => {
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  const centerX = rect.left + rect.width / 2;
-                  const centerY = rect.top + rect.height / 2;
-                  const deltaX = (e.clientX - centerX) / (rect.width / 2);
-                  const deltaY = (e.clientY - centerY) / (rect.height / 2);
-                  
-                  e.currentTarget.style.transform = `
-                    perspective(1000px) 
-                    rotateY(${deltaX * 5}deg) 
-                    rotateX(${-deltaY * 5}deg)
-                    translateZ(20px)
-                  `;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = `
-                    perspective(1000px) 
-                    rotateY(0deg) 
-                    rotateX(0deg)
-                    translateZ(0px)
-                  `;
-                }}
-              >
-                <Image
-                  src={filteredProjects[currentSlide].image}
-                  alt={`${filteredProjects[currentSlide].title} - Luxury brand showcase with complete visibility`}
-                  width={1200}
-                  height={800}
-                  quality={100}
-                  sizes="90vw"
-                  style={{ 
-                    objectFit: 'contain',
-                    borderRadius: '1.5rem',
-                    maxWidth: '100%',
-                    maxHeight: '100%',
-                    height: 'auto',
-                    width: 'auto'
+              {/* Duplicate projects for seamless infinite loop */}
+              {[...filteredProjects, ...filteredProjects].map((project, index) => (
+                <motion.div
+                  key={`${project.title}-${index}`}
+                  className="min-w-[85vw] h-[70vh] relative rounded-3xl overflow-hidden cursor-pointer group"
+                  data-cursor="project"
+                  style={{
+                    flexShrink: 0,
+                    boxShadow: '0 25px 60px rgba(0, 0, 0, 0.15), 0 10px 30px rgba(255, 102, 99, 0.1)'
                   }}
-                  className="group-hover:scale-105 transition-transform duration-1000"
-                />
-                
-                {/* Elegant Content Overlay - Appears on Hover */}
-                <motion.div 
-                  className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                />
-                
-                <motion.div 
-                  className="absolute bottom-0 left-0 right-0 p-16 text-white transform translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-700"
+                  onClick={() => {
+                    setSelectedProject(index % filteredProjects.length);
+                    setCurrentGalleryImage(0);
+                  }}
+                  whileHover={{ 
+                    scale: 1.02,
+                    boxShadow: '0 35px 80px rgba(0, 0, 0, 0.2), 0 15px 40px rgba(255, 102, 99, 0.15)',
+                    transition: { duration: 0.4 }
+                  }}
                 >
-                  <div className="max-w-4xl">
+                  {/* Project Background Image */}
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} - Auto-moving carousel showcase`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                    quality={95}
+                    sizes="85vw"
+                    priority={index < 2}
+                  />
+                  
+                  {/* Visual Accessibility Overlay - Left Side (Following Ideas Image) */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent" />
+                  
+                  {/* Content Overlay - Following Ideas Image Layout Structure */}
+                  <div className="absolute left-12 top-1/2 transform -translate-y-1/2 max-w-2xl text-white z-10">
+                    {/* Project Title - Luxury Serif */}
                     <motion.h2 
-                      className="text-6xl font-light mb-6 leading-tight"
-                      style={{ letterSpacing: '-0.03em' }}
+                      className="luxury-title text-5xl mb-4 leading-tight"
+                      style={{ 
+                        textShadow: '0 8px 32px rgba(0,0,0,0.8)',
+                        color: 'white'
+                      }}
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: index * 0.1 }}
                     >
-                      {filteredProjects[currentSlide].title}
+                      {project.title}
                     </motion.h2>
                     
-                    <motion.div className="grid md:grid-cols-3 gap-16 items-end">
-                      <div>
-                        <p className="text-2xl font-medium mb-4" style={{ color: '#ff6663' }}>
-                          {filteredProjects[currentSlide].client}
-                        </p>
-                        <div className="flex gap-6 text-lg opacity-90">
-                          <span>{filteredProjects[currentSlide].year}</span>
-                          <span>•</span>
-                          <span>{filteredProjects[currentSlide].location}</span>
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <p className="text-xl leading-relaxed opacity-90">
-                          {filteredProjects[currentSlide].subtitle}
-                        </p>
-                      </div>
-                      
-                      {/* MAGNETIC BUTTON GROUP - Award-Winning Micro-interactions */}
-                      <div className="flex gap-6">
-                        <motion.button 
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setSelectedProject(currentSlide);
-                            setCurrentGalleryImage(0);
-                          }}
-                          data-cursor="button"
-                          className="relative px-10 py-5 bg-white text-gray-800 rounded-full font-medium overflow-hidden"
-                          style={{
-                            transformStyle: 'preserve-3d',
-                            willChange: 'transform',
-                            border: '1px solid rgba(255, 102, 99, 0.2)'
-                          }}
-                          whileHover={{ 
-                            scale: 1.05,
-                            backgroundColor: '#ff6663', 
-                            color: 'white',
-                            boxShadow: '0 15px 35px rgba(255, 102, 99, 0.3)',
-                            transition: { duration: 0.4, ease: [0.23, 1, 0.32, 1] }
-                          }}
-                          whileTap={{
-                            scale: 0.98,
-                            transition: { duration: 0.1 }
-                          }}
-                          onMouseMove={(e) => {
-                            const rect = e.currentTarget.getBoundingClientRect();
-                            const centerX = rect.left + rect.width / 2;
-                            const centerY = rect.top + rect.height / 2;
-                            const deltaX = (e.clientX - centerX) / (rect.width / 2);
-                            const deltaY = (e.clientY - centerY) / (rect.height / 2);
-                            
-                            e.currentTarget.style.transform = `
-                              perspective(600px) 
-                              rotateY(${deltaX * 3}deg) 
-                              rotateX(${-deltaY * 3}deg)
-                              translateZ(5px)
-                            `;
-                          }}
-                          onMouseLeave={(e) => {
-                            e.currentTarget.style.transform = `
-                              perspective(600px) 
-                              rotateY(0deg) 
-                              rotateX(0deg)
-                              translateZ(0px)
-                            `;
-                          }}
-                        >
-                          {/* Ripple Effect */}
-                          <motion.div
-                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                            initial={{ x: '-100%', opacity: 0 }}
-                            whileHover={{ 
-                              x: '100%', 
-                              opacity: 1,
-                              transition: { duration: 0.6, ease: "easeInOut" }
-                            }}
-                            style={{ 
-                              transformOrigin: 'center',
-                              borderRadius: 'inherit'
-                            }}
-                          />
-                          Explore Project
-                        </motion.button>
-                        
-                        <motion.a 
-                          href={filteredProjects[currentSlide].website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
-                          data-cursor="button"
-                          className="relative px-10 py-5 border-2 border-white text-white rounded-full font-medium overflow-hidden"
-                          style={{
-                            transformStyle: 'preserve-3d',
-                            willChange: 'transform',
-                            background: 'rgba(255, 255, 255, 0.1)'
-                          }}
-                          whileHover={{ 
-                            scale: 1.05,
-                            backgroundColor: 'white', 
-                            color: '#ff6663',
-                            borderColor: '#ff6663',
-                            boxShadow: '0 15px 35px rgba(255, 255, 255, 0.2)',
-                            transition: { duration: 0.4, ease: [0.23, 1, 0.32, 1] }
-                          }}
-                          whileTap={{
-                            scale: 0.98,
-                            transition: { duration: 0.1 }
-                          }}
-                          onMouseMove={(e) => {
-                            const rect = e.currentTarget.getBoundingClientRect();
-                            const centerX = rect.left + rect.width / 2;
-                            const centerY = rect.top + rect.height / 2;
-                            const deltaX = (e.clientX - centerX) / (rect.width / 2);
-                            const deltaY = (e.clientY - centerY) / (rect.height / 2);
-                            
-                            e.currentTarget.style.transform = `
-                              perspective(600px) 
-                              rotateY(${deltaX * 3}deg) 
-                              rotateX(${-deltaY * 3}deg)
-                              translateZ(5px)
-                            `;
-                          }}
-                          onMouseLeave={(e) => {
-                            e.currentTarget.style.transform = `
-                              perspective(600px) 
-                              rotateY(0deg) 
-                              rotateX(0deg)
-                              translateZ(0px)
-                            `;
-                          }}
-                        >
-                          {/* Border Liquid Fill Effect */}
-                          <motion.div
-                            className="absolute inset-0 bg-white rounded-full"
-                            initial={{ scale: 0, opacity: 0 }}
-                            whileHover={{ 
-                              scale: 1, 
-                              opacity: 0.1,
-                              transition: { duration: 0.4, ease: "easeOut" }
-                            }}
-                          />
-                          <div className="relative flex items-center gap-3">
-                            <ExternalLink size={18} />
-                            Live Project
-                          </div>
-                        </motion.a>
+                    {/* Project Subtitle - Humanist Body */}
+                    <motion.p 
+                      className="body-text-humanist text-xl text-white/90 mb-6"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: index * 0.1 + 0.2 }}
+                    >
+                      {project.subtitle}
+                    </motion.p>
+                    
+                    {/* Client & Meta Info */}
+                    <motion.div
+                      className="mb-6"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: index * 0.1 + 0.4 }}
+                    >
+                      <p className="body-text-medium text-lg mb-2" style={{ color: '#ff6663' }}>
+                        {project.client}
+                      </p>
+                      <div className="flex gap-4 text-base text-white/80">
+                        <span>{project.year}</span>
+                        <span>•</span>
+                        <span>{project.location}</span>
                       </div>
                     </motion.div>
+                    
+                    {/* Capability Tags - Clean Badges (Following Ideas Image) */}
+                    <motion.div 
+                      className="flex flex-wrap gap-2 mb-8"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: index * 0.1 + 0.6 }}
+                    >
+                      {project.tech && project.tech.slice(0, 4).map((tag, tagIndex) => (
+                        <span 
+                          key={tagIndex}
+                          className="body-text-humanist px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-medium rounded-full"
+                          style={{ border: '1px solid rgba(255, 255, 255, 0.4)' }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </motion.div>
+                    
+                    {/* View Project Button - Professional CTA (Following Ideas Image) */}
+                    <motion.button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedProject(index % filteredProjects.length);
+                        setCurrentGalleryImage(0);
+                      }}
+                      data-cursor="button"
+                      className="px-8 py-3 bg-white text-gray-800 rounded-full font-medium transition-all duration-300"
+                      style={{
+                        boxShadow: '0 8px 25px rgba(255, 255, 255, 0.4)'
+                      }}
+                      whileHover={{ 
+                        scale: 1.05,
+                        backgroundColor: '#ff6663',
+                        color: 'white',
+                        transition: { duration: 0.3 }
+                      }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: index * 0.1 + 0.8 }}
+                    >
+                      View Project
+                    </motion.button>
                   </div>
+                  
+                  {/* Project Number Indicator */}
+                  <motion.div
+                    className="absolute top-8 right-8 z-10"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 + 1.0 }}
+                  >
+                    <div 
+                      className="w-12 h-12 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white font-bold"
+                      style={{ border: '1px solid rgba(255, 255, 255, 0.3)' }}
+                    >
+                      {String((index % filteredProjects.length) + 1).padStart(2, '0')}
+                    </div>
+                  </motion.div>
                 </motion.div>
-              </motion.div>
+              ))}
+            </motion.div>
+            
+            {/* Carousel Status Indicator */}
+            <motion.div 
+              className="text-center mt-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              <div className="inline-flex items-center gap-6 px-8 py-4 bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-coral animate-pulse" />
+                  <span className="body-text-humanist text-sm font-medium text-gray-700">
+                    Auto-Moving Projects
+                  </span>
+                </div>
+                <div className="flex gap-2">
+                  {filteredProjects.map((_, index) => (
+                    <div 
+                      key={index}
+                      className="w-2 h-2 rounded-full bg-coral/30"
+                    />
+                  ))}
+                </div>
+                <span className="body-text-humanist text-xs text-gray-500">
+                  Hover to pause • Click to explore
+                </span>
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
-
 
       {/* LANDOR LUXURY EXPERIENCE SECTION - Direct Styling */}
       <section 
@@ -1432,32 +1411,202 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          {/* VIEWPORT-OPTIMIZED SERVICES - Grid Layout */}
-          <div className="max-w-7xl mx-auto">
-            {/* SERVICES GRID - 2 Viewports Maximum */}
-            <div className="grid lg:grid-cols-2 gap-16 mb-20">
-              {[
-                {
-                  title: "Accelerated Product Innovation",
-                  subtitle: "From concept to market reach in half the time",
-                  capability: "Transform product visions into market reality through AI-powered rapid prototyping and validation.",
-                  index: 0
-                },
-                {
-                  title: "Experience Orchestration", 
-                  subtitle: "Harmonizing thousands of touchpoints into one resonant brand voice",
-                  capability: "Systems thinking applied to create unified experience architectures where daily interactions feel seamless.",
-                  index: 1
-                },
-                {
-                  title: "Intelligent Operations Architecture",
-                  subtitle: "Building AI-augmented teams that outperform traditional structures", 
-                  capability: "Design agentic systems where AI specialists and human experts collaborate as unified intelligence.",
-                  index: 2
-                }
-              ].map((service, index) => (
-                <motion.div 
-                  key={index}
+          {/* AWARD-WINNING SERVICES - Vertical Expansion System */}
+          <div className="max-w-[95vw] mx-auto">
+            {/* SINGLE VIEWPORT SERVICES - Hover Exploration */}
+            <div className="flex h-[75vh] border border-gray-200 rounded-3xl overflow-hidden bg-white shadow-2xl">
+              {awardWinningServices.map((service, index) => {
+                const IconComponent = service.icon;
+                return (
+                  <motion.div
+                    key={service.title}
+                    className="relative cursor-pointer group border-r border-gray-200 last:border-r-0"
+                    style={{
+                      backgroundColor: hoveredService === index ? 'rgba(255, 102, 99, 0.02)' : 'white'
+                    }}
+                    onMouseEnter={() => setHoveredService(index)}
+                    onMouseLeave={() => setHoveredService(null)}
+                    animate={{
+                      width: getColumnDimensions(index).width,
+                      opacity: getColumnDimensions(index).opacity
+                    }}
+                    transition={{
+                      duration: 0.6,
+                      ease: [0.25, 0.46, 0.45, 0.94],
+                      type: "tween"
+                    }}
+                    whileHover={{
+                      boxShadow: hoveredService === index ? '0 25px 60px rgba(255, 102, 99, 0.15)' : '0 0 0 rgba(0,0,0,0)',
+                      zIndex: hoveredService === index ? 10 : 1
+                    }}
+                  >
+                    {/* Service Number - Always Visible */}
+                    <motion.div 
+                      className="absolute top-8 left-6"
+                      animate={{
+                        opacity: hoveredService === null || hoveredService === index ? 1 : 0.3
+                      }}
+                    >
+                      <span className="body-text-humanist text-lg font-semibold text-gray-400">
+                        {String(index + 1).padStart(2, '0')}-{index + 1}
+                      </span>
+                    </motion.div>
+                    
+                    {/* Service Title - Vertical Typography (Collapsed State) */}
+                    <motion.div
+                      className="absolute top-24 left-6 origin-top-left"
+                      style={{
+                        transform: hoveredService === index ? 'rotate(0deg)' : 'rotate(-90deg)',
+                        transformOrigin: 'top left',
+                        width: hoveredService === index ? 'auto' : '300px'
+                      }}
+                      animate={{
+                        rotate: hoveredService === index ? 0 : -90,
+                        x: hoveredService === index ? 0 : 40
+                      }}
+                      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    >
+                      <h3 
+                        className="section-heading-script text-gray-800 whitespace-nowrap"
+                        style={{ 
+                          fontSize: hoveredService === index ? '2rem' : '1.5rem',
+                          transition: 'font-size 0.6s ease'
+                        }}
+                      >
+                        {service.title}
+                      </h3>
+                    </motion.div>
+                    
+                    {/* Expanded Content - Hover Only */}
+                    <motion.div
+                      className="absolute inset-0 p-8 pt-32"
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: hoveredService === index ? 1 : 0,
+                        pointerEvents: hoveredService === index ? 'auto' : 'none'
+                      }}
+                      transition={{ duration: 0.4, delay: 0.2 }}
+                    >
+                      {/* Capability List */}
+                      <div className="mb-8">
+                        {service.capabilities.map((capability, capIndex) => (
+                          <motion.div
+                            key={capIndex}
+                            className="body-text-humanist text-sm font-medium text-gray-600 mb-3"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{
+                              opacity: hoveredService === index ? 1 : 0,
+                              x: hoveredService === index ? 0 : -20
+                            }}
+                            transition={{ 
+                              duration: 0.3, 
+                              delay: hoveredService === index ? 0.3 + capIndex * 0.1 : 0 
+                            }}
+                          >
+                            / {capability}
+                          </motion.div>
+                        ))}
+                      </div>
+                      
+                      {/* LIVE FORMATION ICON - Signature Placement */}
+                      <motion.div
+                        className="flex justify-center mb-8"
+                        initial={{ opacity: 0, scale: 0.8, rotateY: 180 }}
+                        animate={{
+                          opacity: hoveredService === index ? 1 : 0,
+                          scale: hoveredService === index ? 1 : 0.8,
+                          rotateY: hoveredService === index ? 0 : 180
+                        }}
+                        transition={{ 
+                          duration: 0.6, 
+                          delay: hoveredService === index ? 0.8 : 0,
+                          ease: "backOut"
+                        }}
+                      >
+                        <div 
+                          className="w-24 h-24 bg-white rounded-2xl flex items-center justify-center"
+                          style={{
+                            boxShadow: '0 15px 35px rgba(255, 102, 99, 0.15)',
+                            border: '2px solid rgba(255, 102, 99, 0.1)'
+                          }}
+                        >
+                          <IconComponent 
+                            size={48} 
+                            color="#ff6663" 
+                            animated={hoveredService === index}
+                          />
+                        </div>
+                      </motion.div>
+                      
+                      {/* Short Description - Non-Complicated */}
+                      <motion.p
+                        className="body-text-humanist text-base text-gray-700 leading-relaxed text-center px-4"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{
+                          opacity: hoveredService === index ? 1 : 0,
+                          y: hoveredService === index ? 0 : 10
+                        }}
+                        transition={{ 
+                          duration: 0.4, 
+                          delay: hoveredService === index ? 1.2 : 0
+                        }}
+                      >
+                        {service.shortDescription}
+                      </motion.p>
+                    </motion.div>
+                    
+                    {/* Column Background Enhancement on Hover */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-b from-transparent via-coral/5 to-coral/10"
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: hoveredService === index ? 1 : 0
+                      }}
+                      transition={{ duration: 0.4 }}
+                    />
+                  </motion.div>
+                );
+              })}
+            </div>
+            
+            {/* Exploration Guidance */}
+            <motion.div
+              className="text-center mt-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              <div className="inline-flex items-center gap-4 px-6 py-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg">
+                <span className="body-text-humanist text-sm font-medium text-gray-600">
+                  Hover over each service to explore
+                </span>
+                <div className="w-2 h-2 rounded-full bg-coral animate-pulse" />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* LUXURY FOOTER - Sophisticated Brand Presentation */}
+      <footer id="footer" style={{
+        background: 'linear-gradient(135deg, #ff6663 0%, #e55555 100%)',
+        paddingTop: 'var(--section-padding)',
+        paddingBottom: 'var(--section-padding)',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        {/* Elegant Background Pattern */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%)',
+          zIndex: 1
+        }} />
+        
+        <div className="container-desktop relative z-10">
+          {/* BRAND SECTION - Elegant Typography */}
+          <motion.div 
+            className="text-center mb-20"
                   className="bg-white rounded-3xl p-12 group relative overflow-hidden"
                   style={{
                     boxShadow: '0 20px 40px rgba(255, 102, 99, 0.08)',
@@ -1583,94 +1732,27 @@ export default function Home() {
                     style={{ width: '100%' }}
                   />
                 </motion.div>
-              ))}
-            </div>
-
-            {/* SECOND VIEWPORT - Additional Services */}
-            <div className="grid lg:grid-cols-3 gap-12">
-              {[
-                {
-                  title: "Transformation Foundations",
-                  subtitle: "Engineering organizational evolution through scalable design foundations",
-                  index: 3
-                },
-                {
-                  title: "Strategic Innovation Consulting", 
-                  subtitle: "Converting market disruption into systematic advantage",
-                  index: 4
-                },
-                {
-                  title: "Customer Intelligence Platforms",
-                  subtitle: "Turning customer behavior into a competitive advantage", 
-                  index: 5
-                }
-              ].map((service, index) => (
-                <motion.div 
-                  key={index}
-                  className="bg-gray-50 rounded-2xl p-8 group hover:bg-white transition-all duration-400"
-                  style={{
-                    boxShadow: '0 12px 30px rgba(255, 102, 99, 0.06)',
-                    minHeight: '300px'
-                  }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  whileHover={{ 
-                    scale: 1.03,
-                    boxShadow: '0 20px 45px rgba(255, 102, 99, 0.12)',
-                    transition: { duration: 0.3 }
-                  }}
-                  viewport={{ once: true }}
-                >
-                  {/* Compact Service Header */}
-                  <div className="flex items-center gap-6 mb-6">
-                    <motion.div
-                      className="w-16 h-16 bg-white rounded-xl flex items-center justify-center"
-                      style={{ 
-                        boxShadow: '0 8px 20px rgba(255, 102, 99, 0.1)',
-                        border: '1px solid rgba(255, 102, 99, 0.15)'
-                      }}
-                      whileHover={{ scale: 1.05, rotateY: 2 }}
-                    >
-                      {(() => {
-                        const IconComponent = serviceIcons[service.title as keyof typeof serviceIcons];
-                        return IconComponent ? (
-                          <IconComponent 
-                            size={32} 
-                            color="#ff6663"
-                            animated={true}
-                          />
-                        ) : null;
-                      })()}
-                    </motion.div>
-                    
-                    <span 
-                      className="text-2xl font-light"
-                      style={{ 
-                        color: 'rgba(255, 102, 99, 0.5)',
-                        lineHeight: '1'
-                      }}
-                    >
-                      {String(service.index + 1).padStart(2, '0')}
-                    </span>
-                  </div>
-                  
-                  <h3 className="text-2xl font-light text-gray-800 mb-4 leading-tight">
-                    {service.title}
-                  </h3>
-                  
-                  <p className="text-lg text-gray-600 leading-relaxed">
-                    {service.subtitle}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
+            
+            {/* Exploration Guidance */}
+            <motion.div
+              className="text-center mt-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              <div className="inline-flex items-center gap-4 px-6 py-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg">
+                <span className="body-text-humanist text-sm font-medium text-gray-600">
+                  Hover over each service to explore
+                </span>
+                <div className="w-2 h-2 rounded-full bg-coral animate-pulse" />
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* LUXURY FOOTER - Sophisticated Brand Presentation */}
-      <footer style={{
+      <footer id="footer" style={{
         background: 'linear-gradient(135deg, #ff6663 0%, #e55555 100%)',
         paddingTop: 'var(--section-padding)',
         paddingBottom: 'var(--section-padding)',

@@ -70,6 +70,30 @@
   --container-5xl: 64rem;  /* 1024px */
   --container-6xl: 72rem;  /* 1152px */
   --container-7xl: 80rem;  /* 1280px */
+  
+  /* AWWWARDS TYPOGRAPHY SYSTEM */
+  --font-display: 'Playfair Display', 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Menlo', monospace;
+  
+  /* MATHEMATICAL TYPOGRAPHY SCALE */
+  --type-ratio: 1.618; /* Golden Ratio */
+  --type-base: 1rem;
+  --type-xs: calc(var(--type-base) / var(--type-ratio) / var(--type-ratio));
+  --type-sm: calc(var(--type-base) / var(--type-ratio));
+  --type-md: var(--type-base);
+  --type-lg: calc(var(--type-base) * var(--type-ratio));
+  --type-xl: calc(var(--type-lg) * var(--type-ratio));
+  --type-2xl: calc(var(--type-xl) * var(--type-ratio));
+  --type-3xl: calc(var(--type-2xl) * var(--type-ratio));
+  --type-hero: calc(var(--type-3xl) * var(--type-ratio));
+  
+  /* AWWWARDS MOTION SYSTEM */
+  --ease-premium: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-magnetic: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --duration-quick: 0.2s;
+  --duration-smooth: 0.4s;
+  --duration-cinematic: 0.8s;
 }
 
 @theme inline {
@@ -141,6 +165,38 @@ body {
   letter-spacing: -0.02em;
   line-height: 0.95;
   text-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 4px 20px rgba(0,0,0,0.2);
+}
+
+/* AWWWARDS ENHANCED HERO TYPOGRAPHY */
+.hero-typography-awwwards {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 12vw, var(--type-hero));
+  font-weight: 800;
+  font-style: normal;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #ffffff 0%, #ff6663 30%, #ffffff 70%, #ff6663 100%);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-flow 8s ease-in-out infinite;
+  cursor: none;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, filter;
+  transition: all var(--duration-cinematic) var(--ease-premium);
+}
+
+@keyframes gradient-flow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero-typography-awwwards:hover {
+  transform: perspective(1000px) rotateX(2deg) translateY(-8px) translateZ(20px);
+  filter: drop-shadow(0 25px 50px rgba(255, 102, 99, 0.4));
+  text-shadow: 0 0 40px rgba(255, 102, 99, 0.3);
 }
 
 .quote-typography {
@@ -1086,4 +1142,57 @@ h4, .text-h4 {
   100% { background-position: 200% 0; }
 }
 
+/* AWWWARDS MAGNETIC INTERACTION SYSTEM */
+.magnetic-field {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  cursor: none;
+}
+
+.magnetic-element {
+  transition: transform var(--duration-smooth) var(--ease-magnetic);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #ff6663 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all var(--duration-quick) var(--ease-premium);
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.active {
+  transform: scale(3);
+  background: radial-gradient(circle, #ff6663 0%, rgba(255, 102, 99, 0.3) 50%, transparent 70%);
+}
+
+/* AWWWARDS REDUCED MOTION SUPPORT */
+@media (prefers-reduced-motion: reduce) {
+  .hero-typography-awwwards {
+    animation: none !important;
+    background: linear-gradient(135deg, #ffffff 0%, #ff6663 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .magnetic-element {
+    transition: none !important;
+  }
+  
+  .custom-cursor {
+    display: none !important;
+  }
+}
+
 /* Phase 4 Complete: LANDOR Luxury Interactions Implemented */
+/* Phase 5 Complete: AWWWARDS Magnetic System Implemented */
