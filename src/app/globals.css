@@ -31,6 +31,26 @@
   --card-spacing: var(--space-lg);
   --section-spacing: var(--space-xl);
   
+  /* LUXURY ICON SYSTEM - Phase 12 Standards */
+  --icon-xs: 16px;
+  --icon-sm: 20px;
+  --icon-md: 24px;
+  --icon-lg: 32px;
+  --icon-xl: 40px;
+  --icon-2xl: 48px;
+  
+  /* Icon spacing relationships */
+  --icon-text-gap-sm: 8px;
+  --icon-text-gap-md: 12px;
+  --icon-text-gap-lg: 16px;
+  --icon-text-gap-xl: 20px;
+  
+  /* Icon container standards */
+  --icon-container-sm: 48px;
+  --icon-container-md: 64px;
+  --icon-container-lg: 80px;
+  --icon-container-xl: 96px;
+  
   /* LUXURY SECTION SPACING - Golden Ratio Aligned */
   --section-padding: var(--space-2xl);     /* φ⁵ - Major section separation */
   --section-gap: var(--space-xl);          /* φ⁴ - Clear visual breaks */
@@ -569,6 +589,59 @@ body {
 
 .luxury-micro {
   margin-bottom: var(--micro-spacing);
+}
+
+/* LUXURY ICON SYSTEM - Phase 12 Implementation Guidelines */
+.icon-container-luxury {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  background: white;
+  box-shadow: 0 8px 25px rgba(255, 102, 99, 0.08);
+  border: 1px solid rgba(255, 102, 99, 0.1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.icon-container-luxury:hover {
+  transform: scale(1.05) rotateY(3deg);
+  box-shadow: 0 15px 35px rgba(255, 102, 99, 0.18);
+  border-color: rgba(255, 102, 99, 0.2);
+}
+
+.icon-with-text {
+  display: flex;
+  align-items: center;
+  gap: var(--icon-text-gap-md);
+}
+
+.icon-with-text-lg {
+  display: flex;
+  align-items: center;
+  gap: var(--icon-text-gap-lg);
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--icon-text-gap-md);
+  padding: 12px 24px;
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+  min-height: 48px;
+}
+
+.icon-button:hover {
+  transform: scale(1.02);
+}
+
+.icon-button svg {
+  transition: transform 0.3s ease;
+}
+
+.icon-button:hover svg {
+  transform: scale(1.1);
 }
 
 /* Enhanced focus indicators for accessibility */

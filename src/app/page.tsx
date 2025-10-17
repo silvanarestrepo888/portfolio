@@ -1252,35 +1252,48 @@ export default function Home() {
                 <div className="grid md:grid-cols-4 gap-8 items-start">
                   {/* PROPRIETARY ICON & SERVICE NUMBER */}
                   <motion.div 
-                    className="text-center md:text-right flex flex-col items-center md:items-end gap-6"
+                    className="text-center md:text-right flex flex-col items-center md:items-end"
+                    style={{ gap: 'var(--icon-text-gap-xl)' }}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: index * 0.2 + 0.3 }}
                   >
-                    {/* Custom Service Icon */}
+                    {/* LUXURY SERVICE ICON - Enhanced Presentation */}
                     <motion.div
-                      className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center"
+                      className="icon-container-luxury"
                       style={{ 
-                        boxShadow: '0 15px 35px rgba(255, 102, 99, 0.15)',
-                        border: '1px solid rgba(255, 102, 99, 0.1)'
+                        width: 'var(--icon-container-xl)',
+                        height: 'var(--icon-container-xl)',
+                        borderRadius: '1.5rem'
                       }}
                       whileHover={{ 
-                        scale: 1.05,
-                        boxShadow: '0 20px 45px rgba(255, 102, 99, 0.25)',
-                        rotateY: 5
+                        scale: 1.06,
+                        rotateY: 4,
+                        rotateX: 2,
+                        boxShadow: '0 25px 60px rgba(255, 102, 99, 0.22), 0 10px 30px rgba(0, 0, 0, 0.08)'
                       }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ 
+                        duration: 0.4, 
+                        ease: [0.25, 0.46, 0.45, 0.94] 
+                      }}
                     >
-                      {(() => {
-                        const IconComponent = serviceIcons[service.title as keyof typeof serviceIcons];
-                        return IconComponent ? (
-                          <IconComponent 
-                            size={40} 
-                            color="#ff6663"
-                            animated={true}
-                          />
-                        ) : null;
-                      })()}
+                      <motion.div
+                        whileHover={{ 
+                          scale: 1.1,
+                          rotate: 2
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {(() => {
+                          const IconComponent = serviceIcons[service.title as keyof typeof serviceIcons];
+                          return IconComponent ? (
+                            <IconComponent 
+                              size={48} 
+                              color="#ff6663"
+                            />
+                          ) : null;
+                        })()}
+                      </motion.div>
                     </motion.div>
                     
                     {/* Service Number */}
@@ -1439,14 +1452,23 @@ export default function Home() {
                 href="https://silvana.mmm.page/human-perspective"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-4 px-8 py-4 bg-white/10 backdrop-blur-sm rounded-2xl text-white transition-all duration-500 group"
+                className="icon-with-text-lg px-8 py-4 bg-white/10 backdrop-blur-sm rounded-2xl text-white transition-all duration-500 group"
                 whileHover={{ 
                   scale: 1.05,
-                  backgroundColor: 'rgba(255, 255, 255, 0.2)' 
+                  backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                  boxShadow: '0 8px 25px rgba(255, 255, 255, 0.08)'
                 }}
-                style={{ border: '1px solid rgba(255, 255, 255, 0.3)' }}
+                style={{ 
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  gap: 'var(--icon-text-gap-lg)'
+                }}
               >
-                <ExternalLink size={20} />
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 3 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ExternalLink size={22} />
+                </motion.div>
                 <span className="text-lg font-medium">Human Perspective</span>
               </motion.a>
             </motion.div>
@@ -1474,14 +1496,23 @@ export default function Home() {
                     href="https://linkedin.com/in/silvanarestrepo"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 p-6 bg-white/10 backdrop-blur-sm rounded-2xl transition-all duration-500 group"
+                    className="icon-with-text-lg p-6 bg-white/10 backdrop-blur-sm rounded-2xl transition-all duration-500 group"
                     whileHover={{ 
-                      scale: 1.02,
-                      backgroundColor: 'rgba(255, 255, 255, 0.15)' 
+                      scale: 1.03,
+                      backgroundColor: 'rgba(255, 255, 255, 0.18)',
+                      boxShadow: '0 12px 30px rgba(255, 255, 255, 0.1)'
                     }}
-                    style={{ border: '1px solid rgba(255, 255, 255, 0.2)' }}
+                    style={{ 
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      gap: 'var(--icon-text-gap-lg)'
+                    }}
                   >
-                    <Linkedin size={24} className="text-white" />
+                    <motion.div
+                      whileHover={{ scale: 1.1, rotate: 2 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Linkedin size={28} className="text-white" />
+                    </motion.div>
                     <div>
                       <p className="text-white font-medium group-hover:tracking-wider transition-all duration-300">
                         LinkedIn Profile
@@ -1496,14 +1527,23 @@ export default function Home() {
                 <div>
                   <motion.a 
                     href="mailto:silvanarestrepo888@gmail.com"
-                    className="flex items-center gap-4 p-6 bg-white/10 backdrop-blur-sm rounded-2xl transition-all duration-500 group"
+                    className="icon-with-text-lg p-6 bg-white/10 backdrop-blur-sm rounded-2xl transition-all duration-500 group"
                     whileHover={{ 
-                      scale: 1.02,
-                      backgroundColor: 'rgba(255, 255, 255, 0.15)' 
+                      scale: 1.03,
+                      backgroundColor: 'rgba(255, 255, 255, 0.18)',
+                      boxShadow: '0 12px 30px rgba(255, 255, 255, 0.1)'
                     }}
-                    style={{ border: '1px solid rgba(255, 255, 255, 0.2)' }}
+                    style={{ 
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      gap: 'var(--icon-text-gap-lg)'
+                    }}
                   >
-                    <Mail size={24} className="text-white" />
+                    <motion.div
+                      whileHover={{ scale: 1.1, rotate: -2 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Mail size={28} className="text-white" />
+                    </motion.div>
                     <div>
                       <p className="text-white font-medium group-hover:tracking-wider transition-all duration-300">
                         Email Contact
@@ -1715,10 +1755,18 @@ export default function Home() {
                       href={projects[selectedProject].website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-4 px-12 py-6 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-full font-medium transition-all duration-500 hover:scale-105"
-                      style={{ fontSize: '1.125rem' }}
+                      className="icon-button inline-flex items-center bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-full font-medium transition-all duration-500 hover:scale-105"
+                      style={{ 
+                        fontSize: '1.125rem',
+                        gap: 'var(--icon-text-gap-lg)',
+                        paddingLeft: 'var(--space-lg)',
+                        paddingRight: 'var(--space-lg)',
+                        paddingTop: 'var(--space-md)',
+                        paddingBottom: 'var(--space-md)',
+                        minHeight: '56px'
+                      }}
                     >
-                      <ExternalLink size={20} />
+                      <ExternalLink size={22} />
                       Visit Live Project
                     </a>
                   </div>
