@@ -22,15 +22,15 @@ export default function Home() {
   const [galleryZoomOpen, setGalleryZoomOpen] = useState(false);
   const [hoveredService, setHoveredService] = useState<number | null>(null);
   
-  // PROPRIETARY ICON MAPPING - 100% Copy Compliant
-  const serviceIcons = {
-    "Accelerated Product Innovation": AcceleratedInnovationIcon,
-    "Experience Orchestration": ExperienceOrchestrationIcon, 
-    "Intelligent Operations Architecture": IntelligentOperationsIcon,
-    "Transformation Foundations": TransformationFoundationsIcon,
-    "Strategic Innovation Consulting": StrategyConsultingIcon,
-    "Customer Intelligence Platforms": CustomerIntelligenceIcon
-  };
+  // PROPRIETARY ICON MAPPING - 100% Copy Compliant (Available for future use)
+  // const serviceIcons = {
+  //   "Accelerated Product Innovation": AcceleratedInnovationIcon,
+  //   "Experience Orchestration": ExperienceOrchestrationIcon, 
+  //   "Intelligent Operations Architecture": IntelligentOperationsIcon,
+  //   "Transformation Foundations": TransformationFoundationsIcon,
+  //   "Strategic Innovation Consulting": StrategyConsultingIcon,
+  //   "Customer Intelligence Platforms": CustomerIntelligenceIcon
+  // };
 
   // AWARD-WINNING SERVICES DATA - Vertical Expansion System
   const awardWinningServices = [
@@ -1587,178 +1587,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LUXURY FOOTER - Sophisticated Brand Presentation */}
-      <footer id="footer" style={{
-        background: 'linear-gradient(135deg, #ff6663 0%, #e55555 100%)',
-        paddingTop: 'var(--section-padding)',
-        paddingBottom: 'var(--section-padding)',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        {/* Elegant Background Pattern */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%)',
-          zIndex: 1
-        }} />
-        
-        <div className="container-desktop relative z-10">
-          {/* BRAND SECTION - Elegant Typography */}
-          <motion.div 
-            className="text-center mb-20"
-                  className="bg-white rounded-3xl p-12 group relative overflow-hidden"
-                  style={{
-                    boxShadow: '0 20px 40px rgba(255, 102, 99, 0.08)',
-                    border: '1px solid rgba(255, 102, 99, 0.1)',
-                    minHeight: '400px'
-                  }}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: index * 0.2 }}
-                  whileHover={{
-                    scale: 1.02,
-                    boxShadow: '0 30px 60px rgba(255, 102, 99, 0.15)',
-                    transition: { duration: 0.4 }
-                  }}
-                  viewport={{ once: true }}
-                >
-                  {/* MAGNETIC SERVICE HEADER - Award-Winning Interaction */}
-                  <div className="flex items-start gap-8 mb-8">
-                    <motion.div
-                      className="icon-container-luxury flex-shrink-0"
-                      data-cursor="service"
-                      role="img"
-                      aria-label={`${service.title} service icon with live formation animation`}
-                      tabIndex={0}
-                      style={{ 
-                        width: 'var(--icon-container-lg)',
-                        height: 'var(--icon-container-lg)',
-                        borderRadius: '1.5rem',
-                        transformStyle: 'preserve-3d',
-                        willChange: 'transform'
-                      }}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                          e.preventDefault();
-                          // Focus interaction for keyboard users
-                        }
-                      }}
-                      whileHover={{ 
-                        scale: 1.08,
-                        rotateY: 6,
-                        rotateX: 3,
-                        z: 30,
-                        boxShadow: '0 25px 60px rgba(255, 102, 99, 0.25), 0 10px 30px rgba(0, 0, 0, 0.1)'
-                      }}
-                      transition={{ 
-                        duration: 0.5,
-                        ease: [0.23, 1, 0.32, 1],
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 25
-                      }}
-                      onMouseMove={(e) => {
-                        const rect = e.currentTarget.getBoundingClientRect();
-                        const centerX = rect.left + rect.width / 2;
-                        const centerY = rect.top + rect.height / 2;
-                        const deltaX = (e.clientX - centerX) / (rect.width / 2);
-                        const deltaY = (e.clientY - centerY) / (rect.height / 2);
-                        
-                        e.currentTarget.style.transform = `
-                          perspective(800px) 
-                          rotateY(${deltaX * 8}deg) 
-                          rotateX(${-deltaY * 8}deg)
-                          translateZ(15px)
-                          scale(1.02)
-                        `;
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = `
-                          perspective(800px) 
-                          rotateY(0deg) 
-                          rotateX(0deg)
-                          translateZ(0px)
-                          scale(1)
-                        `;
-                      }}
-                    >
-                      {(() => {
-                        const IconComponent = serviceIcons[service.title as keyof typeof serviceIcons];
-                        return IconComponent ? (
-                          <IconComponent 
-                            size={40} 
-                            color="#ff6663"
-                            animated={true}
-                          />
-                        ) : null;
-                      })()}
-                    </motion.div>
-                    
-                    <div className="flex-1">
-                      <div className="flex items-center gap-4 mb-4">
-                        <span 
-                          className="text-3xl font-light"
-                          style={{ 
-                            color: 'rgba(255, 102, 99, 0.4)',
-                            lineHeight: '1'
-                          }}
-                        >
-                          {String(service.index + 1).padStart(2, '0')}
-                        </span>
-                        <div className="h-px flex-1" style={{ backgroundColor: 'rgba(255, 102, 99, 0.2)' }} />
-                      </div>
-                      
-                      <h3 className="text-3xl font-light text-gray-800 mb-4 leading-tight">
-                        {service.title}
-                      </h3>
-                      
-                      <p className="text-xl text-gray-600 leading-relaxed mb-6">
-                        {service.subtitle}
-                      </p>
-                      
-                      <p className="text-lg text-gray-700 leading-relaxed">
-                        {service.capability}
-                      </p>
-                    </div>
-                  </div>
-                  
-                  {/* Elegant Bottom Line */}
-                  <motion.div
-                    className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-transparent via-[#ff6663] to-transparent"
-                    initial={{ scaleX: 0 }}
-                    whileHover={{ scaleX: 1 }}
-                    transition={{ duration: 0.4 }}
-                    style={{ width: '100%' }}
-                  />
-                </motion.div>
-            
-            {/* Exploration Guidance */}
-            <motion.div
-              className="text-center mt-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              <div className="inline-flex items-center gap-4 px-6 py-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg">
-                <span className="body-text-humanist text-sm font-medium text-gray-600">
-                  Hover over each service to explore
-                </span>
-                <div className="w-2 h-2 rounded-full bg-coral animate-pulse" />
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* LUXURY FOOTER - Sophisticated Brand Presentation */}
-      <footer id="footer" style={{
-        background: 'linear-gradient(135deg, #ff6663 0%, #e55555 100%)',
-        paddingTop: 'var(--section-padding)',
-        paddingBottom: 'var(--section-padding)',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
+      <footer className="relative py-20 overflow-hidden bg-gradient-to-br from-[#1a1a1a] via-[#0d1117] to-[#000000]">
         {/* Elegant Background Pattern */}
         <div style={{
           position: 'absolute',
