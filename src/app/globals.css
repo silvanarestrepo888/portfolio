@@ -7,6 +7,22 @@
   --cream: #fffbee;
   --coral: #ff6663;
   
+  /* OFFICIAL BRAND COLORS - Phase 3 Background System */
+  --pannocotta-primary: #fffbee;     /* Primary vanilla/cream */
+  --pannocotta-warm: #fef9f0;        /* Warmer vanilla tone */
+  --pannocotta-soft: #fdf7eb;        /* Softer vanilla */
+  --pannocotta-rich: #fcf4e6;        /* Richer vanilla depth */
+  --grapefruit-primary: #ff6663;     /* Primary grapefruit */
+  --grapefruit-warm: #ff7a77;        /* Warmer grapefruit */
+  --grapefruit-soft: #ff8e8b;        /* Softer grapefruit */
+  --grapefruit-muted: #ffa29f;       /* Muted grapefruit */
+  
+  /* COLOR TEMPERATURE SYSTEM */
+  --temperature-warm: hue-rotate(8deg) saturate(1.1) brightness(1.02);
+  --temperature-neutral: hue-rotate(0deg) saturate(1) brightness(1);
+  --temperature-cool: hue-rotate(-6deg) saturate(0.95) brightness(0.98);
+  --temperature-evening: hue-rotate(12deg) saturate(1.05) brightness(0.96);
+  
   /* LUXURY GOLDEN RATIO SYSTEM - Phase 5 Perfection */
   --golden-ratio: 1.618;
   
@@ -749,6 +765,371 @@ body {
   .luxury-content-block {
     padding-block: var(--space-2xl);
     margin-block: var(--space-xl);
+  }
+}
+
+/* ========================================== */
+/* PHASE 3: SOPHISTICATED BACKGROUND SYSTEM */
+/* ========================================== */
+
+/* DYNAMIC BACKGROUND CLASSES - Brand Aligned */
+.bg-dynamic-hero {
+  background: 
+    linear-gradient(45deg, var(--pannocotta-primary) 0%, var(--pannocotta-warm) 100%),
+    radial-gradient(circle at 30% 20%, rgba(255,102,99,0.08) 0%, transparent 60%),
+    radial-gradient(circle at 70% 80%, rgba(255,122,119,0.05) 0%, transparent 60%);
+  background-size: 200% 200%, 150% 150%, 120% 120%;
+  animation: hero-breathe 20s ease-in-out infinite;
+  filter: var(--temperature-neutral);
+  transition: filter 2s ease-in-out;
+}
+
+.bg-dynamic-about {
+  background: 
+    linear-gradient(135deg, var(--pannocotta-primary) 0%, var(--pannocotta-soft) 50%, var(--pannocotta-primary) 100%),
+    radial-gradient(ellipse at 80% 20%, rgba(255,102,99,0.04) 0%, transparent 70%);
+  background-size: 300% 300%, 100% 100%;
+  animation: about-flow 25s ease-in-out infinite;
+  filter: var(--temperature-warm);
+  transition: filter 2s ease-in-out;
+}
+
+.bg-dynamic-projects {
+  background: 
+    linear-gradient(180deg, var(--pannocotta-warm) 0%, var(--pannocotta-primary) 50%, var(--pannocotta-soft) 100%),
+    radial-gradient(circle at 25% 75%, rgba(255,142,139,0.06) 0%, transparent 50%);
+  background-size: 100% 400%, 200% 200%;
+  animation: projects-shift 30s ease-in-out infinite;
+  filter: var(--temperature-neutral);
+  transition: filter 2s ease-in-out;
+}
+
+.bg-dynamic-experience {
+  background: 
+    linear-gradient(225deg, var(--pannocotta-soft) 0%, var(--pannocotta-primary) 100%),
+    radial-gradient(circle at 60% 40%, rgba(255,174,159,0.05) 0%, transparent 65%);
+  background-size: 250% 250%, 160% 160%;
+  animation: experience-wave 28s ease-in-out infinite;
+  filter: var(--temperature-cool);
+  transition: filter 2s ease-in-out;
+}
+
+.bg-dynamic-services {
+  background: 
+    linear-gradient(-45deg, var(--pannocotta-primary) 0%, var(--pannocotta-warm) 100%),
+    radial-gradient(circle at 50% 50%, rgba(255,102,99,0.03) 0%, transparent 80%);
+  background-size: 250% 250%, 180% 180%;
+  animation: services-wave 35s ease-in-out infinite;
+  filter: var(--temperature-cool);
+  transition: filter 2s ease-in-out;
+}
+
+/* SOPHISTICATED ANIMATION KEYFRAMES */
+@keyframes hero-breathe {
+  0%, 100% { 
+    background-position: 0% 0%, 30% 20%, 70% 80%;
+    filter: var(--temperature-neutral);
+  }
+  33% { 
+    background-position: 50% 25%, 40% 30%, 60% 70%;
+    filter: var(--temperature-warm);
+  }
+  66% { 
+    background-position: 100% 50%, 50% 40%, 50% 60%;
+    filter: var(--temperature-cool);
+  }
+}
+
+@keyframes about-flow {
+  0%, 100% { 
+    background-position: 0% 50%, 80% 20%;
+    filter: var(--temperature-warm);
+  }
+  50% { 
+    background-position: 100% 50%, 20% 80%;
+    filter: var(--temperature-neutral);
+  }
+}
+
+@keyframes projects-shift {
+  0%, 100% { 
+    background-position: 0% 0%, 25% 75%;
+    filter: var(--temperature-neutral);
+  }
+  25% { 
+    background-position: 0% 33%, 75% 25%;
+    filter: var(--temperature-warm);
+  }
+  50% { 
+    background-position: 0% 66%, 50% 50%;
+    filter: var(--temperature-cool);
+  }
+  75% { 
+    background-position: 0% 100%, 75% 75%;
+    filter: var(--temperature-evening);
+  }
+}
+
+@keyframes experience-wave {
+  0%, 100% { 
+    background-position: 0% 0%, 60% 40%;
+    filter: var(--temperature-cool);
+  }
+  50% { 
+    background-position: 100% 100%, 40% 60%;
+    filter: var(--temperature-neutral);
+  }
+}
+
+@keyframes services-wave {
+  0%, 100% { 
+    background-position: 0% 0%, 50% 50%;
+    filter: var(--temperature-cool);
+  }
+  25% { 
+    background-position: 50% 25%, 30% 70%;
+    filter: var(--temperature-neutral);
+  }
+  50% { 
+    background-position: 100% 50%, 70% 30%;
+    filter: var(--temperature-warm);
+  }
+  75% { 
+    background-position: 75% 75%, 40% 60%;
+    filter: var(--temperature-evening);
+  }
+}
+
+/* PARALLAX DEPTH LAYER SYSTEM */
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.parallax-layer-1 {
+  position: absolute;
+  inset: 0;
+  background: var(--pannocotta-primary);
+  z-index: 1;
+  will-change: transform;
+}
+
+.parallax-layer-2 {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 40% 60%, rgba(255,102,99,0.04) 0%, transparent 70%);
+  z-index: 2;
+  opacity: 0.8;
+  animation: layer-float 20s ease-in-out infinite;
+  will-change: transform;
+}
+
+.parallax-layer-3 {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 20% 80%, rgba(255,142,139,0.03) 0%, transparent 60%);
+  z-index: 3;
+  opacity: 0.6;
+  animation: layer-breathe 15s ease-in-out infinite reverse;
+  will-change: transform;
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 10;
+  transform: translateZ(0);
+}
+
+/* PARALLAX ANIMATIONS */
+@keyframes layer-float {
+  0%, 100% { 
+    transform: translateY(0px) scale(1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: translateY(-20px) scale(1.02);
+    opacity: 1;
+  }
+}
+
+@keyframes layer-breathe {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg);
+    opacity: 0.6;
+  }
+  50% { 
+    transform: scale(1.05) rotate(1deg);
+    opacity: 0.8;
+  }
+}
+
+/* INTERACTIVE BACKGROUND OVERLAY SYSTEM */
+.interactive-bg-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  mix-blend-mode: soft-light;
+}
+
+.interactive-bg-overlay.active {
+  opacity: 1;
+}
+
+/* VIDEO BACKGROUND OPTIMIZATION */
+.video-bg-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.video-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  object-fit: cover;
+  filter: brightness(1.1) contrast(0.9) saturate(1.05);
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.85;
+  z-index: 2;
+  background: linear-gradient(135deg, var(--pannocotta-primary) 0%, var(--pannocotta-warm) 100%);
+  mix-blend-mode: multiply;
+}
+
+/* RESPONSIVE BACKGROUND OPTIMIZATION */
+@media (max-width: 768px) {
+  /* MOBILE PERFORMANCE OPTIMIZATION */
+  .bg-dynamic-hero,
+  .bg-dynamic-about,
+  .bg-dynamic-projects,
+  .bg-dynamic-experience,
+  .bg-dynamic-services {
+    animation-duration: 15s; /* Faster animations for mobile */
+    background-size: 150% 150%, 100% 100%; /* Simpler backgrounds */
+    filter: var(--temperature-neutral); /* Static temperature */
+  }
+  
+  .parallax-layer-1,
+  .parallax-layer-2,
+  .parallax-layer-3 {
+    transform: none; /* Disable parallax on mobile for performance */
+    animation: none; /* Reduce animations */
+  }
+  
+  .interactive-bg-overlay {
+    display: none; /* Remove interactive cursor layer on mobile */
+  }
+  
+  .video-bg-container {
+    display: none; /* Hide video backgrounds on mobile */
+  }
+  
+  /* Use gradient fallbacks on mobile */
+  .bg-dynamic-hero {
+    background: linear-gradient(45deg, var(--pannocotta-primary) 0%, var(--pannocotta-warm) 100%);
+  }
+  
+  .bg-dynamic-about {
+    background: linear-gradient(135deg, var(--pannocotta-primary) 0%, var(--pannocotta-soft) 100%);
+  }
+  
+  .bg-dynamic-projects {
+    background: linear-gradient(180deg, var(--pannocotta-warm) 0%, var(--pannocotta-primary) 100%);
+  }
+  
+  .bg-dynamic-services {
+    background: linear-gradient(-45deg, var(--pannocotta-primary) 0%, var(--pannocotta-warm) 100%);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* TABLET BALANCED OPTIMIZATION */
+  .bg-dynamic-hero,
+  .bg-dynamic-about,
+  .bg-dynamic-projects,
+  .bg-dynamic-experience,
+  .bg-dynamic-services {
+    animation-duration: 20s; /* Medium speed for tablets */
+    background-size: 200% 200%, 120% 120%; /* Balanced complexity */
+  }
+  
+  .parallax-layer-2,
+  .parallax-layer-3 {
+    opacity: 0.5; /* Reduced parallax intensity */
+  }
+  
+  .interactive-bg-overlay {
+    opacity: 0.5; /* Reduced interactivity */
+  }
+}
+
+@media (min-width: 1024px) {
+  /* DESKTOP LUXURY ENHANCEMENT */
+  .bg-dynamic-hero {
+    animation-duration: 25s; /* Slower, more luxurious */
+    background-size: 300% 300%, 200% 200%, 150% 150%;
+  }
+  
+  .bg-dynamic-about {
+    animation-duration: 30s;
+    background-size: 400% 400%, 120% 120%;
+  }
+  
+  .bg-dynamic-projects {
+    animation-duration: 35s;
+    background-size: 150% 500%, 250% 250%;
+  }
+  
+  .bg-dynamic-services {
+    animation-duration: 40s;
+    background-size: 350% 350%, 200% 200%;
+  }
+  
+  .parallax-layer-2,
+  .parallax-layer-3 {
+    opacity: 1; /* Full parallax on desktop */
+  }
+  
+  .interactive-bg-overlay {
+    opacity: 1; /* Full interactivity on desktop */
+  }
+  
+  .video-bg {
+    filter: brightness(1.2) contrast(0.85) saturate(1.1);
+  }
+}
+
+@media (min-width: 1600px) {
+  /* ULTRA-WIDE LUXURY */
+  .bg-dynamic-hero,
+  .bg-dynamic-about,
+  .bg-dynamic-projects,
+  .bg-dynamic-experience,
+  .bg-dynamic-services {
+    background-size: 500% 500%, 300% 300%;
+  }
+  
+  .parallax-layer-2 {
+    animation-duration: 25s;
+  }
+  
+  .parallax-layer-3 {
+    animation-duration: 18s;
   }
 }
 

@@ -15,6 +15,8 @@ import {
 import { CustomCursor } from '../components/motion/CustomCursor';
 import { MagneticCursor } from '../components/ui/MagneticCursor';
 import { FloatingNavigation } from '../components/navigation/FloatingNavigation';
+import { InteractiveBackground } from '../components/backgrounds/InteractiveBackground';
+import { VideoBackground } from '../components/backgrounds/VideoBackground';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -393,11 +395,11 @@ export default function Home() {
         </div>
       </motion.nav>
 
-      {/* LUXURY HERO: Mathematical Proportions & Golden Ratio Spacing */}
+      {/* LUXURY HERO: Sophisticated Background System & Mathematical Proportions */}
       <main id="main-content">
       <section 
         id="hero"
-        className="section-luxury-hero container-awwwards"
+        className="section-luxury-hero container-awwwards parallax-container bg-dynamic-hero"
         aria-label="Hero introduction - Silvana Restrepo, Principal Experience Architect"
         style={{
           position: 'relative',
@@ -406,6 +408,14 @@ export default function Home() {
           overflow: 'hidden'
         }}
       >
+        {/* Background Layer System */}
+        <div className="parallax-layer-1" />
+        <div className="parallax-layer-2" />
+        <div className="parallax-layer-3" />
+        <InteractiveBackground section="hero" intensity={1.2} />
+        
+        {/* Hero Content with Parallax */}
+        <div className="parallax-content">
         {/* FLOATING IMAGE SYSTEM - Zero Cropping */}
         <div style={{
           position: 'absolute',
@@ -675,21 +685,27 @@ export default function Home() {
           >
             Explore My Journey
           </motion.div>
-        </motion.div>
+        </div> {/* Close parallax-content */}
+        </div>
       </section>
 
-      {/* LUXURY ABOUT SECTION - Golden Ratio Proportions */}
+      {/* LUXURY ABOUT SECTION - Sophisticated Background & Golden Ratio Proportions */}
       <section 
         id="about" 
-        className="section-luxury container-awwwards"
+        className="section-luxury container-awwwards parallax-container bg-dynamic-about"
         style={{ 
-          backgroundColor: 'white',
           minHeight: '100vh',
           display: 'flex',
           alignItems: 'center'
         }}
       >
-        <div className="container-luxury-content">
+        {/* Background Layer System */}
+        <div className="parallax-layer-1" />
+        <div className="parallax-layer-2" />
+        <div className="parallax-layer-3" />
+        <InteractiveBackground section="about" intensity={0.8} />
+        
+        <div className="container-luxury-content parallax-content">
           <motion.div
             className="grid-desktop-2 gap-phi-xl optical-center"
             initial={{ opacity: 0, y: 40 }}
@@ -832,19 +848,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LUXURY PROJECTS SECTION - Golden Ratio Spacing */}
+      {/* LUXURY PROJECTS SECTION - Dynamic Background & Golden Ratio Spacing */}
       <section 
         id="projects" 
-        className="section-luxury"
+        className="section-luxury parallax-container bg-dynamic-projects"
         style={{
-          background: 'linear-gradient(180deg, #fffbee 0%, #fefcf3 50%, #fffbee 100%)',
           minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center'
         }}
       >
-        <div className="container-awwwards">
+        {/* Advanced Background System */}
+        <div className="parallax-layer-1" />
+        <div className="parallax-layer-2" />
+        <VideoBackground 
+          section="projects" 
+          fallbackGradient="linear-gradient(180deg, var(--pannocotta-warm) 0%, var(--pannocotta-primary) 50%, var(--pannocotta-soft) 100%)"
+          intensity={0.9}
+        />
+        <InteractiveBackground section="projects" intensity={0.7} />
+        
+        <div className="container-awwwards parallax-content">
           <motion.div 
             className="heading-desktop"
             initial={{ opacity: 0, y: 30 }}
@@ -1086,19 +1111,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LUXURY EXPERIENCE SECTION - Mathematical Spacing */}
+      {/* LUXURY EXPERIENCE SECTION - Advanced Background & Mathematical Spacing */}
       <section 
         id="experience"
-        className="section-luxury"
+        className="section-luxury parallax-container bg-dynamic-experience"
         style={{ 
-          background: 'linear-gradient(180deg, #fffbee 0%, #fdf9f0 50%, #fffbee 100%)',
           minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center'
         }}
       >
-        <div className="container-awwwards">
+        {/* Sophisticated Background Layers */}
+        <div className="parallax-layer-1" />
+        <div className="parallax-layer-2" />
+        <div className="parallax-layer-3" />
+        <InteractiveBackground section="experience" intensity={0.6} />
+        
+        <div className="container-awwwards parallax-content">
           <motion.div 
             className="heading-desktop"
             initial={{ opacity: 0, y: 30 }}
@@ -1273,15 +1303,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LUXURY SERVICES SECTION - Golden Ratio Excellence */}
+      {/* LUXURY SERVICES SECTION - Interactive Background & Golden Ratio Excellence */}
       <section 
         id="services"
-        className="section-luxury"
-        style={{ 
-          background: 'linear-gradient(180deg, #ffffff 0%, #fefefe 50%, #ffffff 100%)'
-        }}
+        className="section-luxury parallax-container bg-dynamic-services"
       >
-        <div className="container-awwwards">
+        {/* Elite Background System */}
+        <div className="parallax-layer-1" />
+        <div className="parallax-layer-2" />
+        <div className="parallax-layer-3" />
+        <VideoBackground 
+          section="services" 
+          fallbackGradient="linear-gradient(-45deg, var(--pannocotta-primary) 0%, var(--pannocotta-warm) 100%)"
+          intensity={0.8}
+        />
+        <InteractiveBackground section="services" intensity={1.0} />
+        
+        <div className="container-awwwards parallax-content">
           <motion.div 
             className="heading-desktop"
             initial={{ opacity: 0, y: 30 }}
