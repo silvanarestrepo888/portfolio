@@ -71,22 +71,36 @@
   --container-6xl: 72rem;  /* 1152px */
   --container-7xl: 80rem;  /* 1280px */
   
-  /* AWWWARDS TYPOGRAPHY SYSTEM */
-  --font-display: 'Playfair Display', 'Times New Roman', serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* NEO-CLASSICAL LUXURY TYPOGRAPHY SYSTEM */
+  --font-display: var(--font-display-luxury), 'Crimson Pro', 'Times New Roman', Georgia, serif;
+  --font-accent: var(--font-accent-luxury), 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: var(--font-body-luxury), 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', 'Menlo', monospace;
   
-  /* MATHEMATICAL TYPOGRAPHY SCALE */
-  --type-ratio: 1.618; /* Golden Ratio */
-  --type-base: 1rem;
-  --type-xs: calc(var(--type-base) / var(--type-ratio) / var(--type-ratio));
-  --type-sm: calc(var(--type-base) / var(--type-ratio));
-  --type-md: var(--type-base);
-  --type-lg: calc(var(--type-base) * var(--type-ratio));
-  --type-xl: calc(var(--type-lg) * var(--type-ratio));
-  --type-2xl: calc(var(--type-xl) * var(--type-ratio));
-  --type-3xl: calc(var(--type-2xl) * var(--type-ratio));
-  --type-hero: calc(var(--type-3xl) * var(--type-ratio));
+  /* PRECISION TYPOGRAPHY SCALE - Golden Ratio */
+  --text-scale-ratio: 1.618; /* Golden Ratio */
+  --text-base: 1rem;
+  --text-xs: calc(var(--text-base) / var(--text-scale-ratio) / var(--text-scale-ratio));
+  --text-sm: calc(var(--text-base) / var(--text-scale-ratio));
+  --text-md: var(--text-base);
+  --text-lg: calc(var(--text-base) * var(--text-scale-ratio));
+  --text-xl: calc(var(--text-lg) * var(--text-scale-ratio));
+  --text-2xl: calc(var(--text-xl) * var(--text-scale-ratio));
+  --text-3xl: calc(var(--text-2xl) * var(--text-scale-ratio));
+  --text-hero: calc(var(--text-3xl) * var(--text-scale-ratio));
+  
+  /* LUXURY LETTER SPACING */
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-luxury: 0.05em;
+  
+  /* PREMIUM LINE HEIGHTS */
+  --line-height-tight: 1.1;
+  --line-height-snug: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+  --line-height-loose: 1.9;
   
   /* AWWWARDS MOTION SYSTEM */
   --ease-premium: cubic-bezier(0.23, 1, 0.32, 1);
@@ -264,6 +278,70 @@ body {
   font-family: var(--font-open-sans), sans-serif;
   font-weight: 300;
   line-height: 1.8;
+}
+
+/* NEO-CLASSICAL LUXURY TYPOGRAPHY CLASSES */
+
+/* HERO TYPOGRAPHY - Ultra Luxury */
+.typography-hero {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 12vw, 12rem);
+  font-weight: 300;
+  letter-spacing: var(--letter-spacing-tight);
+  line-height: var(--line-height-tight);
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* DISPLAY TYPOGRAPHY - Section Headlines */
+.typography-display {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 400;
+  letter-spacing: var(--letter-spacing-tight);
+  line-height: var(--line-height-snug);
+  font-style: italic;
+}
+
+/* ACCENT TYPOGRAPHY - Navigation & Labels */
+.typography-accent {
+  font-family: var(--font-accent);
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing-wide);
+  line-height: var(--line-height-normal);
+  text-transform: uppercase;
+}
+
+/* BODY TYPOGRAPHY - Content Text */
+.typography-body {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 400;
+  letter-spacing: var(--letter-spacing-normal);
+  line-height: var(--line-height-relaxed);
+}
+
+/* LUXURY SUBTITLE */
+.typography-subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-weight: 300;
+  letter-spacing: var(--letter-spacing-normal);
+  line-height: var(--line-height-snug);
+  font-style: italic;
+}
+
+/* SOPHISTICATED QUOTE */
+.typography-quote {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 4vw, 2.5rem);
+  font-weight: 400;
+  letter-spacing: var(--letter-spacing-normal);
+  line-height: var(--line-height-relaxed);
+  font-style: italic;
 }
 
 @keyframes float {
@@ -1196,3 +1274,104 @@ h4, .text-h4 {
 
 /* Phase 4 Complete: LANDOR Luxury Interactions Implemented */
 /* Phase 5 Complete: AWWWARDS Magnetic System Implemented */
+
+/* AWWWARDS FLOATING NAVIGATION SYSTEM */
+.navigation-floating {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(30px);
+  border-radius: 3rem;
+  padding: 1rem 2rem;
+  transition: all 0.6s var(--ease-premium);
+  border: 1px solid rgba(255, 102, 99, 0.08);
+  z-index: 100;
+  will-change: transform, background-color, box-shadow;
+}
+
+.navigation-floating.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 20px 60px rgba(255, 102, 99, 0.15);
+  transform: translateX(-50%) translateY(-5px);
+  border-color: rgba(255, 102, 99, 0.2);
+}
+
+.navigation-floating.hidden {
+  transform: translateX(-50%) translateY(-150%);
+  opacity: 0;
+}
+
+/* PREMIUM NAV ITEMS */
+.nav-item-premium {
+  position: relative;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  transition: all 0.6s var(--ease-premium);
+  cursor: pointer;
+  overflow: hidden;
+  background: transparent;
+  border: 1px solid transparent;
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.nav-item-premium::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 102, 99, 0.1), rgba(255, 102, 99, 0.2));
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity var(--duration-smooth) var(--ease-premium);
+  z-index: -1;
+}
+
+.nav-item-premium:hover::before {
+  opacity: 1;
+}
+
+.nav-item-premium:hover {
+  transform: perspective(500px) rotateY(5deg) translateZ(10px) translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 102, 99, 0.2);
+  border-color: rgba(255, 102, 99, 0.3);
+}
+
+/* NAV SECTION NUMBERS */
+.nav-section-number {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: rgba(255, 102, 99, 0.6);
+  transition: all var(--duration-smooth) var(--ease-premium);
+}
+
+.nav-item-premium:hover .nav-section-number {
+  color: rgba(255, 102, 99, 1);
+  transform: scale(1.1);
+}
+
+/* RESPONSIVE NAVIGATION */
+@media (max-width: 768px) {
+  .navigation-floating {
+    top: 1rem;
+    padding: 0.75rem 1rem;
+    gap: 0.5rem;
+  }
+  
+  .nav-item-premium {
+    padding: 0.5rem 1rem;
+    min-height: 40px;
+  }
+  
+  .nav-item-premium:hover {
+    transform: translateY(-1px) scale(1.02);
+  }
+}

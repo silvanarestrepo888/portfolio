@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Playfair_Display, Open_Sans, Great_Vibes, Inter, JetBrains_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Playfair_Display, Open_Sans, Great_Vibes, Inter, JetBrains_Mono, Crimson_Pro, Work_Sans, DM_Sans } from "next/font/google";
 import "./globals.css";
 import "./layout-fix.css";
 
@@ -47,6 +47,32 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+// Neo-Classical Luxury Typography System
+const crimsonPro = Crimson_Pro({
+  variable: "--font-display-luxury",
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+  preload: true,
+});
+
+const workSans = Work_Sans({
+  variable: "--font-accent-luxury", 
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  variable: "--font-body-luxury",
+  subsets: ["latin"], 
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Silvana Restrepo | Principal Experience Architect",
   description: "Award-winning Experience Architect with 20+ years transforming Fortune 500 digital experiences. Specializing in AI-driven platforms, wellness ecosystems, and enterprise design systems for global impact.",
@@ -80,6 +106,15 @@ export const viewport = {
   initialScale: 1,
 };
 
+// Performance optimization for font loading
+export function generateViewport() {
+  return {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  }
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -87,8 +122,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body
-        className={`${plusJakartaSans.variable} ${playfairDisplay.variable} ${openSans.variable} ${greatVibes.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${plusJakartaSans.variable} ${playfairDisplay.variable} ${openSans.variable} ${greatVibes.variable} ${inter.variable} ${jetbrainsMono.variable} ${crimsonPro.variable} ${workSans.variable} ${dmSans.variable} antialiased`}
+        style={{
+          fontDisplay: 'swap',
+          textRendering: 'optimizeLegibility',
+          WebkitFontSmoothing: 'antialiased',
+          MozOsxFontSmoothing: 'grayscale'
+        }}
       >
         {children}
       </body>

@@ -14,6 +14,7 @@ import {
 } from '../components/icons';
 import { CustomCursor } from '../components/motion/CustomCursor';
 import { MagneticCursor } from '../components/ui/MagneticCursor';
+import { FloatingNavigation } from '../components/navigation/FloatingNavigation';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -317,7 +318,10 @@ export default function Home() {
       <MagneticCursor />
       <CustomCursor />
       
-      {/* FLOATING NAVIGATION - Award-Winning UX with Accessibility */}
+      {/* AWWWARDS FLOATING NAVIGATION SYSTEM */}
+      <FloatingNavigation />
+      
+      {/* SIDEBAR NAVIGATION - Desktop Enhancement */}
       <motion.nav
         className="fixed right-8 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block"
         initial={{ opacity: 0, x: 50 }}
@@ -379,102 +383,15 @@ export default function Home() {
                   className="h-full rounded-full"
                   style={{ backgroundColor: '#ff6663' }}
                   initial={{ width: '0%' }}
-                  animate={{ width: '20%' }}
+                  animate={{ width: '40%' }}
                   transition={{ duration: 2, delay: 3 }}
                 />
               </div>
             </div>
-            <span className="text-xs text-gray-500">20% Complete</span>
+            <span className="text-xs text-gray-500">40% Complete</span>
           </div>
         </div>
       </motion.nav>
-      
-      {/* LANDOR LUXURY NAVIGATION - Enhanced Visual Clarity */}
-      <nav 
-        className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 navigation-breathing"
-        aria-label="Main site navigation"
-        role="banner"
-      >
-        <div className="container mx-auto px-8 py-8">
-          <div className="flex justify-center items-center">
-            {/* Centered Navigation with Section Numbers */}
-            <motion.div 
-              className="flex items-center gap-16"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              {/* Logo */}
-              <motion.a
-                href="https://silvana.mmm.page/human-perspective"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="brand-typography text-3xl mr-8"
-                style={{ 
-                  color: '#ff6663',
-                  textShadow: '0 2px 8px rgba(255, 102, 99, 0.2)'
-                }}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                silvana.
-              </motion.a>
-              
-              {/* PHASE 4: LANDOR LUXURY NAVIGATION - Sophisticated Interactions */}
-              {[
-                { name: 'About', number: '01' },
-                { name: 'Projects', number: '02' },
-                { name: 'Experience', number: '03' },
-                { name: 'Services', number: '04' },
-                { name: 'Contact', number: '05' }
-              ].map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  href={item.name === 'Contact' ? '#footer' : `#${item.name.toLowerCase()}`}
-                  className="flex items-center gap-3 text-sm font-medium text-gray-700 transition-all duration-700 px-4 py-2 rounded-lg relative overflow-hidden group"
-                  style={{ 
-                    letterSpacing: '0.05em',
-                    minWidth: '44px',
-                    minHeight: '44px',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}
-                  whileHover={{ 
-                    scale: 1.05,
-                    y: -2,
-                    transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }
-                  }}
-                  onMouseEnter={(e) => {
-                    const target = e.currentTarget;
-                    target.style.color = '#ff6663';
-                    target.style.backgroundColor = 'rgba(255, 102, 99, 0.08)';
-                    target.style.boxShadow = '0 8px 25px rgba(255, 102, 99, 0.15)';
-                  }}
-                  onMouseLeave={(e) => {
-                    const target = e.currentTarget;
-                    target.style.color = '#374151';
-                    target.style.backgroundColor = 'transparent';
-                    target.style.boxShadow = 'none';
-                  }}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                >
-                  <span 
-                    className="text-xs font-light"
-                    style={{ color: 'rgba(255, 102, 99, 0.6)' }}
-                  >
-                    {item.number}
-                  </span>
-                  <span>{item.name.toUpperCase()}</span>
-                </motion.a>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </nav>
 
       {/* IMPACTFUL HERO: Full-Screen Photo Background */}
       <main id="main-content">
@@ -598,7 +515,7 @@ export default function Home() {
             {/* AWWWARDS MAGNETIC HERO TYPOGRAPHY */}
             <div className="magnetic-field" style={{ perspective: '1000px' }}>
               <motion.h1 
-                className="hero-typography-awwwards magnetic-element"
+                className="typography-hero magnetic-element"
                 style={{
                   fontSize: 'clamp(6rem, 15vw, 20rem)',
                   textAlign: 'center',
@@ -808,12 +725,12 @@ export default function Home() {
                   >
                     01
                   </span>
-                  <h2 className="section-heading-script text-gray-800">
+                  <h2 className="typography-display text-gray-800">
                     About Me
                   </h2>
                 </div>
                 
-                <p className="body-text-humanist text-xl text-gray-600 mb-8 max-w-xl">
+                <p className="typography-body text-xl text-gray-600 mb-8 max-w-xl">
                   Discover the journey of strategic design thinking, business transformation, and the human perspective that drives meaningful innovation across industries.
                 </p>
               </motion.div>
@@ -825,7 +742,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.4 }}
               >
-                <p className="body-text-humanist text-lg text-gray-700 max-w-xl">
+                <p className="typography-body text-lg text-gray-700 max-w-xl">
                   I believe the most compelling stories begin with{' '}
                   <span style={{color: '#ff6663', fontWeight: '600'}}>curiosity</span>
                   —a spark that has carried me across continents, blending diverse perspectives 
@@ -840,7 +757,7 @@ export default function Home() {
                   }}
                 >
                   <p 
-                    className="quote-typography text-3xl text-gray-800"
+                    className="typography-quote text-3xl text-gray-800"
                     style={{ marginBottom: '0' }}
                   >
                     &ldquo;The art of{' '}
@@ -849,7 +766,7 @@ export default function Home() {
                   </p>
                 </div>
                 
-                <p className="body-text-humanist text-lg text-gray-700 max-w-xl">
+                <p className="typography-body text-lg text-gray-700 max-w-xl">
                   <span className="body-text-medium" style={{color: '#ff6663'}}>Welcome to my world</span>
                   —where strategy meets soul, and design becomes the universal language of possibility.
                 </p>
@@ -957,12 +874,12 @@ export default function Home() {
               >
                 02
               </span>
-              <h2 className="section-heading-script text-gray-800">
+              <h2 className="typography-display text-gray-800">
                 Projects
               </h2>
             </div>
             <motion.p 
-              className="body-text-humanist text-xl text-gray-600 text-center max-w-4xl mx-auto mb-12"
+              className="typography-body text-xl text-gray-600 text-center max-w-4xl mx-auto mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
@@ -1212,12 +1129,12 @@ export default function Home() {
               >
                 03
               </span>
-              <h2 className="section-heading-script text-gray-800">
+              <h2 className="typography-display text-gray-800">
                 Experience
               </h2>
             </div>
             <motion.p 
-              className="body-text-humanist text-xl text-gray-600 text-center max-w-4xl mx-auto mb-12"
+              className="typography-body text-xl text-gray-600 text-center max-w-4xl mx-auto mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
@@ -1396,12 +1313,12 @@ export default function Home() {
               >
                 04
               </span>
-              <h2 className="section-heading-script text-gray-800">
+              <h2 className="typography-display text-gray-800">
                 Services
               </h2>
             </div>
             <motion.p 
-              className="body-text-humanist text-xl text-gray-600 text-center max-w-4xl mx-auto mb-12"
+              className="typography-body text-xl text-gray-600 text-center max-w-4xl mx-auto mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
@@ -1447,7 +1364,7 @@ export default function Home() {
                         opacity: hoveredService === null || hoveredService === index ? 1 : 0.3
                       }}
                     >
-                      <span className="body-text-humanist text-lg font-semibold text-gray-400">
+                      <span className="typography-accent text-lg font-semibold text-gray-400">
                         {String(index + 1).padStart(2, '0')}-{index + 1}
                       </span>
                     </motion.div>
@@ -1467,7 +1384,7 @@ export default function Home() {
                       transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
                     >
                       <h3 
-                        className="section-heading-script text-gray-800 whitespace-nowrap"
+                        className="typography-display text-gray-800 whitespace-nowrap"
                         style={{ 
                           fontSize: hoveredService === index ? '2rem' : '1.5rem',
                           transition: 'font-size 0.6s ease'
@@ -1492,7 +1409,7 @@ export default function Home() {
                         {service.capabilities.map((capability, capIndex) => (
                           <motion.div
                             key={capIndex}
-                            className="body-text-humanist text-sm font-medium text-gray-600 mb-3"
+                            className="typography-accent text-sm font-medium text-gray-600 mb-3"
                             initial={{ opacity: 0, x: -20 }}
                             animate={{
                               opacity: hoveredService === index ? 1 : 0,
@@ -1540,7 +1457,7 @@ export default function Home() {
                       
                       {/* Short Description - Non-Complicated */}
                       <motion.p
-                        className="body-text-humanist text-base text-gray-700 leading-relaxed text-center px-4"
+                        className="typography-body text-base text-gray-700 leading-relaxed text-center px-4"
                         initial={{ opacity: 0, y: 10 }}
                         animate={{
                           opacity: hoveredService === index ? 1 : 0,
@@ -1577,7 +1494,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.5 }}
             >
               <div className="inline-flex items-center gap-4 px-6 py-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg">
-                <span className="body-text-humanist text-sm font-medium text-gray-600">
+                <span className="typography-accent text-sm font-medium text-gray-600">
                   Hover over each service to explore
                 </span>
                 <div className="w-2 h-2 rounded-full bg-coral animate-pulse" />
