@@ -1909,77 +1909,73 @@ body {
 }
 
 /* ========================================== */
-/* ELITE HERO SECTION - CREATIVE DIRECTOR LEVEL */
+/* HERO FOUNDATION - CLEAR VALUE COMMUNICATION */
 /* ========================================== */
 
-.hero-sophisticated {
+.hero-foundation {
   height: 100vh;
   position: relative;
   overflow: hidden;
-  background: #000;
+  display: flex;
+  align-items: center;
 }
 
-.hero-photo-container {
+.hero-container-foundation {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.hero-background-professional {
   position: absolute;
   inset: 0;
   z-index: 1;
 }
 
-.hero-image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.hero-image {
+.hero-image-foundation {
   object-fit: cover;
   object-position: center top;
-  filter: contrast(1.15) saturate(1.1) brightness(0.85);
-  animation: photo-breathe 18s ease-in-out infinite;
-  transition: filter 0.8s ease;
+  filter: contrast(1.1) saturate(1.05) brightness(0.8);
 }
 
-.hero-overlay-distortion {
+.hero-overlay-foundation {
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(ellipse at 25% 75%, rgba(255,102,99,0.2) 0%, transparent 50%),
-    radial-gradient(circle at 75% 25%, rgba(0,0,0,0.3) 0%, transparent 60%),
-    linear-gradient(135deg, transparent 0%, rgba(255,102,99,0.1) 100%);
-  mix-blend-mode: overlay;
-  animation: distortion-flow 20s ease-in-out infinite;
+    linear-gradient(135deg, rgba(0,0,0,0.6) 0%, transparent 50%, rgba(255,102,99,0.2) 100%),
+    linear-gradient(45deg, rgba(0,0,0,0.3) 0%, transparent 40%);
   z-index: 2;
 }
 
-.hero-overlay-gradient {
-  position: absolute;
-  inset: 0;
-  background: 
-    linear-gradient(135deg, rgba(0,0,0,0.4) 0%, transparent 40%, transparent 60%, rgba(255,102,99,0.15) 100%),
-    linear-gradient(45deg, rgba(0,0,0,0.2) 0%, transparent 30%);
-  z-index: 3;
-}
-
-.hero-content-minimal {
-  position: absolute;
-  top: 50%;
-  left: clamp(2rem, 8vw, 6rem);
-  transform: translateY(-50%);
+.hero-content-foundation {
+  position: relative;
   z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(2rem, 6vw, 4rem);
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.hero-words {
+.hero-branding {
+  max-width: 600px;
+}
+
+.hero-title-foundation {
   font-family: var(--font-display);
-  font-size: clamp(4rem, 8vw, 8rem);
+  font-size: clamp(3.5rem, 7vw, 6rem);
   font-weight: 300;
-  line-height: 0.85;
-  letter-spacing: -0.025em;
-  margin: 0;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
 }
 
 .word-experience {
   display: block;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
   text-shadow: 0 4px 20px rgba(0,0,0,0.8);
   margin-bottom: 0.1em;
   font-style: italic;
@@ -1989,8 +1985,65 @@ body {
   display: block;
   color: #ff6663;
   font-weight: 400;
-  text-shadow: 0 4px 20px rgba(255,102,99,0.5);
-  letter-spacing: -0.02em;
+  text-shadow: 0 4px 20px rgba(255,102,99,0.6);
+}
+
+.hero-value-proposition {
+  font-family: var(--font-body);
+  font-size: var(--text-xl); /* 1.375rem / 22px */
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  margin-bottom: 2.5rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+  max-width: 500px;
+}
+
+.hero-credentials-foundation {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.credential {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.credential-number {
+  font-family: var(--font-display);
+  font-size: var(--text-lg); /* 1.125rem / 18px */
+  font-weight: 600;
+  color: #ff6663;
+  text-shadow: 0 2px 10px rgba(255,102,99,0.5);
+}
+
+.credential-badge {
+  font-family: var(--font-accent);
+  font-size: var(--text-sm); /* 0.875rem / 14px */
+  font-weight: 700;
+  color: #ff6663;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: 0 2px 10px rgba(255,102,99,0.5);
+}
+
+.credential-label {
+  font-family: var(--font-accent);
+  font-size: var(--text-xs); /* 0.75rem / 12px */
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.6);
+}
+
+.hero-actions-foundation {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 /* HERO ANIMATIONS */
