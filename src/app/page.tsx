@@ -117,8 +117,19 @@ export default function Home() {
     }
   ];
 
-  // Services state management for reference design
-  const [selectedService, setSelectedService] = useState<number | null>(null);
+  // Services hover expansion state - Sophisticated Interaction
+  const [expandedService, setExpandedService] = useState<number | null>(null);
+  
+  // Column width calculator for sophisticated expansion
+  const getServiceColumnWidth = (index: number) => {
+    if (expandedService === null) {
+      return '20%'; // Equal distribution when no hover
+    }
+    if (expandedService === index) {
+      return '40%'; // Expanded service takes more space
+    }
+    return '15%'; // Compressed services
+  };
   
   const projects = [
     {
@@ -327,371 +338,55 @@ export default function Home() {
       {/* AWWWARDS FLOATING NAVIGATION SYSTEM */}
       <FloatingNavigation />
       
-      {/* SIDEBAR NAVIGATION - Desktop Enhancement */}
-      <motion.nav
-        className="fixed right-8 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block"
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1, delay: 2 }}
-        aria-label="Portfolio section navigation"
-        role="navigation"
-      >
-        <div 
-          className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg focus-within:ring-2 focus-within:ring-coral focus-within:ring-offset-2"
-          style={{ border: '1px solid rgba(255, 102, 99, 0.1)' }}
-        >
-          {/* Section Navigation */}
-          <div className="space-y-4" role="list">
-            {['Hero', 'About', 'Projects', 'Experience', 'Services', 'Contact'].map((section, index) => (
-              <motion.a
-                key={section}
-                href={section === 'Contact' ? '#footer' : `#${section.toLowerCase()}`}
-                className="flex items-center gap-3 p-3 rounded-xl transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-coral focus:ring-offset-2"
-                whileHover={{ 
-                  scale: 1.05,
-                  backgroundColor: 'rgba(255, 102, 99, 0.08)'
-                }}
-                aria-label={`Navigate to ${section} section`}
-                role="listitem"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    const element = document.getElementById(section.toLowerCase());
-                    element?.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-              >
-                <div 
-                  className="w-3 h-3 rounded-full transition-all duration-300"
-                  style={{
-                    backgroundColor: index === 0 ? '#ff6663' : 'rgba(255, 102, 99, 0.3)',
-                    transform: index === 0 ? 'scale(1.2)' : 'scale(1)'
-                  }}
-                  aria-hidden="true"
-                />
-                <span 
-                  className="text-sm font-medium text-gray-600 group-hover:text-gray-800 group-focus:text-gray-800"
-                  style={{ fontSize: '0.875rem' }}
-                >
-                  {section}
-                </span>
-              </motion.a>
-            ))}
-          </div>
-          
-          {/* Progress Indicator */}
-          <div className="mt-6 pt-4 border-t border-gray-200">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-xs font-medium text-gray-500">Progress</span>
-              <div className="flex-1 h-1 bg-gray-200 rounded-full">
-                <motion.div 
-                  className="h-full rounded-full"
-                  style={{ backgroundColor: '#ff6663' }}
-                  initial={{ width: '0%' }}
-                  animate={{ width: '40%' }}
-                  transition={{ duration: 2, delay: 3 }}
-                />
-              </div>
-            </div>
-            <span className="text-xs text-gray-500">40% Complete</span>
-          </div>
-        </div>
-      </motion.nav>
 
-      {/* LUXURY HERO: Sophisticated Background System & Mathematical Proportions */}
+      {/* ELITE HERO SECTION - Creative Director Level Sophistication */}
       <main id="main-content">
-      <section 
-        id="hero"
-        className="section-luxury-hero container-awwwards parallax-container bg-dynamic-hero"
-        aria-label="Hero introduction - Silvana Restrepo, Principal Experience Architect"
-        style={{
-          position: 'relative',
-          height: '100vh',
-          width: '100%',
-          overflow: 'hidden'
-        }}
-      >
-        {/* Background Layer System */}
-        <div className="parallax-layer-1" />
-        <div className="parallax-layer-2" />
-        <div className="parallax-layer-3" />
-        <InteractiveBackground section="hero" intensity={1.2} />
-        
-        {/* Hero Content with Parallax */}
-        <div className="parallax-content">
-          {/* FLOATING IMAGE SYSTEM - Zero Cropping */}
-          <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          zIndex: 1,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: 'var(--space-lg)'
-        }}>
-          <motion.div
-            style={{
-              position: 'relative',
-              maxWidth: '100%',
-              maxHeight: '100%',
-              borderRadius: '2rem',
-              overflow: 'hidden'
-            }}
-            animate={{
-              y: [0, -8, 0],
-              rotateY: [0, 2, 0],
-              boxShadow: [
-                '0 40px 80px rgba(0, 0, 0, 0.15)',
-                '0 60px 120px rgba(0, 0, 0, 0.25)',
-                '0 40px 80px rgba(0, 0, 0, 0.15)'
-              ]
-            }}
-            transition={{
-              duration: 12,
-              repeat: Infinity, 
-              ease: "easeInOut"
-            }}
-            whileHover={{
-              scale: 1.02,
-              rotateY: 3,
-              transition: { duration: 0.6 }
-            }}
-          >
-            <Image
+      <section id="hero" className="hero-sophisticated">
+        {/* Sophisticated Photo Treatment */}
+        <div className="hero-photo-container">
+          <div className="hero-image-wrapper">
+            <Image 
               src="/silvana-profile.jpg"
-              alt="Silvana Restrepo - Principal Experience Architect in professional portrait showcasing strategic design leadership"
-              width={800}
-              height={1000}
-              quality={85}
+              alt="Silvana Restrepo - Principal Experience Architect"
+              fill
+              className="hero-image"
+              quality={95}
               priority
-              placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdwAB/9k="
-              style={{
-                objectFit: 'contain',
-                borderRadius: '2rem',
-                filter: 'brightness(0.75) contrast(1.1)',
-                maxWidth: '70vh',
-                height: 'auto'
-              }}
+              sizes="100vw"
             />
-          </motion.div>
+            
+            {/* Advanced Overlay Effects */}
+            <div className="hero-overlay-distortion"></div>
+            <div className="hero-overlay-gradient"></div>
+          </div>
         </div>
         
-        {/* CSS BACKGROUND FALLBACK */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: `
-            linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(255,102,99,0.2) 100%),
-            url('/silvana-profile.jpg')
-          `,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center top',
-          backgroundAttachment: 'scroll',
-          zIndex: 0
-        }} />
-        
-        {/* ENHANCED OVERLAY - GUARANTEED VISIBILITY */}
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          background: 'linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(255,102,99,0.25) 100%)',
-          zIndex: 2
-        }} />
-        
-        {/* TEXT LAYER - LUXURY SPACING & OPTICAL ALIGNMENT */}
-        <div className="optical-center luxury-content-block" style={{
-          position: 'relative',
-          zIndex: 10,
-          width: '100%',
-          height: '100vh'
-        }}>
-          <motion.div
-            className="container-luxury-content optical-center-luxury"
+        {/* Minimal Typography - Only Essential Words */}
+        <div className="hero-content-minimal">
+          <motion.h1 
+            className="hero-words"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 2 }}
+            transition={{ duration: 2, delay: 0.5 }}
           >
-            {/* AWWWARDS MAGNETIC HERO TYPOGRAPHY */}
-            <div className="magnetic-field" style={{ perspective: '1000px' }}>
-              <motion.h1 
-                className="typography-hero magnetic-element"
-                style={{
-                  fontSize: 'clamp(6rem, 15vw, 20rem)',
-                  textAlign: 'center',
-                  margin: '0 auto 4rem auto',
-                  maxWidth: '1400px',
-                  position: 'relative',
-                  zIndex: 10
-                }}
-                onMouseMove={(e) => {
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  const centerX = rect.left + rect.width / 2;
-                  const centerY = rect.top + rect.height / 2;
-                  const deltaX = (e.clientX - centerX) / (rect.width / 2);
-                  const deltaY = (e.clientY - centerY) / (rect.height / 2);
-                  
-                  e.currentTarget.style.transform = `
-                    perspective(1000px) 
-                    rotateY(${deltaX * 5}deg) 
-                    rotateX(${-deltaY * 5}deg)
-                    translateZ(30px)
-                  `;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
-                }}
-              >
-                <motion.span 
-                  className="block"
-                  initial={{ opacity: 0, y: 100, rotateX: -90 }}
-                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                  transition={{ duration: 1.2, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
-                >
-                  Experience
-                </motion.span>
-                
-                <motion.span 
-                  className="block"
-                  initial={{ opacity: 0, y: 100, rotateX: -90 }}
-                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                  transition={{ duration: 1.2, delay: 0.6, ease: [0.23, 1, 0.32, 1] }}
-                  style={{ 
-                    background: 'linear-gradient(135deg, #ff6663 0%, #ff8a80 100%)',
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent'
-                  }}
-                >
-                  Architect
-                </motion.span>
-              </motion.h1>
-            </div>
-            
-            {/* Hero Buttons - Luxury Spacing */}
-            <motion.div 
-              className="flex-luxury-wrap optical-center-horizontal mt-phi-xl"
-              initial={{ opacity: 0, y: 30 }}
+            <motion.span 
+              className="word-experience"
+              initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1.4 }}
+              transition={{ duration: 1.2, delay: 0.8 }}
             >
-              {/* PHASE 4: LUXURY PRIMARY CTA - Advanced Micro-Interactions */}
-              <motion.a
-                href="/portfolio/Silvana-Restrepo-Portfolio.pdf"
-                download="Silvana-Restrepo-CV.pdf"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-lg font-medium transition-all duration-700 relative overflow-hidden group"
-                style={{
-                  backgroundColor: '#ff6663',
-                  color: 'white',
-                  boxShadow: '0 12px 40px rgba(255, 102, 99, 0.4), 0 4px 20px rgba(0,0,0,0.2)',
-                  border: 'none'
-                }}
-                whileHover={{ 
-                  scale: 1.08, 
-                  y: -4,
-                  transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }
-                }}
-                whileTap={{ scale: 0.95 }}
-                onMouseEnter={(e) => {
-                  const target = e.currentTarget;
-                  target.style.backgroundColor = '#e55555';
-                  target.style.boxShadow = '0 15px 35px rgba(255, 102, 99, 0.4), 0 5px 15px rgba(255, 102, 99, 0.3)';
-                  target.style.transform = 'translateY(-4px) scale(1.08)';
-                }}
-                onMouseLeave={(e) => {
-                  const target = e.currentTarget;
-                  target.style.backgroundColor = '#ff6663';
-                  target.style.boxShadow = '0 8px 25px rgba(255, 102, 99, 0.3)';
-                  target.style.transform = 'translateY(0px) scale(1)';
-                }}
-              >
-                <span className="relative z-10">Download my CV</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-              </motion.a>
-              {/* PHASE 4: LUXURY SECONDARY CTA - Sophisticated Hover States */}
-              <motion.button
-                onClick={() => {
-                  const projectsSection = document.getElementById('projects');
-                  projectsSection?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-lg font-medium transition-all duration-700 relative overflow-hidden group"
-                style={{
-                  border: '2px solid rgba(255, 255, 255, 0.6)',
-                  color: 'white',
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  backdropFilter: 'blur(10px)'
-                }}
-                whileHover={{ 
-                  scale: 1.08, 
-                  y: -4,
-                  transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }
-                }}
-                whileTap={{ scale: 0.95 }}
-                onMouseEnter={(e) => {
-                  const target = e.currentTarget;
-                  target.style.backgroundColor = 'rgba(255, 255, 255, 0.25)';
-                  target.style.color = 'white';
-                  target.style.borderColor = 'rgba(255, 255, 255, 0.9)';
-                  target.style.boxShadow = '0 15px 40px rgba(255, 255, 255, 0.2), 0 8px 20px rgba(0,0,0,0.3)';
-                  target.style.transform = 'translateY(-4px) scale(1.08)';
-                }}
-                onMouseLeave={(e) => {
-                  const target = e.currentTarget;
-                  target.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-                  target.style.color = 'white';
-                  target.style.borderColor = 'rgba(255, 255, 255, 0.6)';
-                  target.style.boxShadow = 'none';
-                  target.style.transform = 'translateY(0px) scale(1)';
-                }}
-              >
-                Explore My Projects
-              </motion.button>
-            </motion.div>
-          </motion.div>
+              Experience
+            </motion.span>
+            <motion.span 
+              className="word-architect"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, delay: 1.1 }}
+            >
+              Architect
+            </motion.span>
+          </motion.h1>
         </div>
-        
-        {/* ENHANCED SCROLL INDICATOR - User Guidance */}
-        <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer group"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-          whileHover={{ scale: 1.1 }}
-          onClick={() => {
-            const aboutSection = document.getElementById('about');
-            aboutSection?.scrollIntoView({ behavior: 'smooth' });
-          }}
-          style={{
-            width: '56px',
-            height: '56px',
-            borderRadius: '50%',
-            backgroundColor: 'rgba(255, 255, 255, 0.95)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 8px 30px rgba(255, 102, 99, 0.2)',
-            border: '1px solid rgba(255, 102, 99, 0.1)'
-          }}
-          aria-label="Scroll to About section"
-          role="button"
-        >
-          <ArrowDown style={{color: '#ff6663'}} size={22} className="group-hover:scale-110 transition-transform duration-300" />
-          
-          {/* Tooltip */}
-          <motion.div
-            className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-2 rounded-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-            style={{ whiteSpace: 'nowrap' }}
-          >
-            Explore My Journey
-          </motion.div>
-        </motion.div>
-        </div> {/* Close parallax-content */}
       </section>
 
       {/* LUXURY ABOUT SECTION - Sophisticated Background & Golden Ratio Proportions */}
@@ -1101,7 +796,7 @@ export default function Home() {
                           ))}
                         </div>
                         
-                        {/* View Project Button */}
+                        {/* Explore Project CTA - Refined */}
                         <motion.button
                           onClick={(e) => {
                             e.stopPropagation();
@@ -1109,27 +804,14 @@ export default function Home() {
                             setCurrentGalleryImage(0);
                           }}
                           data-cursor="button"
-                          className="w-full px-8 py-3 bg-white border-2 border-gray-200 text-gray-800 rounded-full font-medium transition-all duration-300"
-                          style={{
-                            boxShadow: '0 4px 15px rgba(255, 102, 99, 0.1)'
-                          }}
-                          onMouseEnter={(e) => {
-                            e.currentTarget.style.borderColor = '#ff6663';
-                            e.currentTarget.style.backgroundColor = '#ff6663';
-                            e.currentTarget.style.color = 'white';
-                          }}
-                          onMouseLeave={(e) => {
-                            e.currentTarget.style.borderColor = '#e5e7eb';
-                            e.currentTarget.style.backgroundColor = 'white';
-                            e.currentTarget.style.color = '#374151';
-                          }}
+                          className="btn-explore-clean w-full"
                           whileHover={{ 
-                            scale: 1.02,
+                            scale: 1.01,
                             transition: { duration: 0.2 }
                           }}
                           whileTap={{ scale: 0.98 }}
                         >
-                          View Project Details
+                          Explore Project
                         </motion.button>
                       </div>
                     </motion.div>
@@ -1411,59 +1093,129 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          {/* SERVICES SECTION - REFERENCE DESIGN IMPLEMENTATION */}
+          {/* ELITE SERVICES SECTION - Sophisticated Hover Expansion */}
           <div className="max-w-[95vw] mx-auto">
-            {/* Services Grid Matching Reference Design */}
-            <div className="services-grid-reference">
+            {/* Interactive Services System */}
+            <div className="services-hover-system flex h-[75vh] border border-gray-200 rounded-3xl overflow-hidden bg-white shadow-2xl">
               {referenceServices.map((service, index) => (
                 <motion.div
                   key={service.number}
-                  className="service-column-reference"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  whileHover={{ 
-                    y: -8,
-                    transition: { duration: 0.3 }
+                  className="service-column-interactive relative cursor-pointer border-r border-gray-200 last:border-r-0"
+                  style={{
+                    backgroundColor: expandedService === index ? 'rgba(255, 102, 99, 0.03)' : 'white'
                   }}
-                  viewport={{ once: true }}
+                  onMouseEnter={() => setExpandedService(index)}
+                  onMouseLeave={() => setExpandedService(null)}
+                  animate={{
+                    width: getServiceColumnWidth(index),
+                    opacity: expandedService === null ? 1 : (expandedService === index ? 1 : 0.7)
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                    type: "tween"
+                  }}
+                  whileHover={{
+                    boxShadow: expandedService === index ? '0 25px 60px rgba(255, 102, 99, 0.15)' : '0 0 0 rgba(0,0,0,0)',
+                    zIndex: expandedService === index ? 10 : 1
+                  }}
                 >
-                  {/* Service Number */}
-                  <div className="service-number">
-                    {service.number}
-                  </div>
-                  
-                  {/* Service Title */}
-                  <h3 className="service-title-reference">
-                    {service.title}
-                  </h3>
-                  
-                  {/* Capabilities List */}
-                  <div className="capabilities-list-reference">
-                    {service.capabilities.map((capability, capIndex) => (
-                      <motion.div
-                        key={capIndex}
-                        className="capability-item"
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.4, delay: index * 0.1 + capIndex * 0.05 }}
-                        viewport={{ once: true }}
-                      >
-                        {capability}
-                      </motion.div>
-                    ))}
-                  </div>
-                  
-                  {/* Service Description */}
-                  <motion.p
-                    className="service-description-reference"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
-                    viewport={{ once: true }}
+                  {/* Service Number - Always Visible */}
+                  <motion.div 
+                    className="absolute top-8 left-6"
+                    animate={{
+                      opacity: expandedService === null || expandedService === index ? 1 : 0.4
+                    }}
                   >
-                    {service.description}
-                  </motion.p>
+                    <span className="typography-accent font-semibold text-gray-500">
+                      {service.number}
+                    </span>
+                  </motion.div>
+                  
+                  {/* Service Title - Vertical when collapsed */}
+                  <motion.div
+                    className="absolute top-24 left-6 origin-top-left"
+                    style={{
+                      transformOrigin: 'top left',
+                      width: expandedService === index ? 'auto' : '200px'
+                    }}
+                    animate={{
+                      rotate: expandedService === index ? 0 : -90,
+                      x: expandedService === index ? 0 : 30
+                    }}
+                    transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  >
+                    <h3 
+                      className="service-title-interactive text-gray-800 whitespace-nowrap"
+                      style={{ 
+                        fontSize: expandedService === index ? '1.5rem' : '1.25rem',
+                        transition: 'font-size 0.6s ease',
+                        fontWeight: '700',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.02em'
+                      }}
+                    >
+                      {service.title}
+                    </h3>
+                  </motion.div>
+                  
+                  {/* Expanded Content - Only on Hover */}
+                  <motion.div
+                    className="absolute inset-0 p-8 pt-32"
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: expandedService === index ? 1 : 0,
+                      pointerEvents: expandedService === index ? 'auto' : 'none'
+                    }}
+                    transition={{ duration: 0.4, delay: 0.2 }}
+                  >
+                    {/* Capabilities List */}
+                    <div className="mb-8">
+                      {service.capabilities.map((capability, capIndex) => (
+                        <motion.div
+                          key={capIndex}
+                          className="capability-item mb-3"
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{
+                            opacity: expandedService === index ? 1 : 0,
+                            x: expandedService === index ? 0 : -20
+                          }}
+                          transition={{ 
+                            duration: 0.3, 
+                            delay: expandedService === index ? 0.3 + capIndex * 0.1 : 0 
+                          }}
+                        >
+                          {capability}
+                        </motion.div>
+                      ))}
+                    </div>
+                    
+                    {/* Service Description */}
+                    <motion.p
+                      className="service-description-reference"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{
+                        opacity: expandedService === index ? 1 : 0,
+                        y: expandedService === index ? 0 : 10
+                      }}
+                      transition={{ 
+                        duration: 0.4, 
+                        delay: expandedService === index ? 0.8 : 0
+                      }}
+                    >
+                      {service.description}
+                    </motion.p>
+                  </motion.div>
+                  
+                  {/* Column Background Enhancement on Hover */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-b from-transparent via-coral/5 to-coral/10"
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: expandedService === index ? 1 : 0
+                    }}
+                    transition={{ duration: 0.4 }}
+                  />
                 </motion.div>
               ))}
             </div>
@@ -1486,343 +1238,52 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="relative py-20 overflow-hidden bg-gradient-to-br from-[#1a1a1a] via-[#0d1117] to-[#000000]">
-        {/* Elegant Background Pattern */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%)',
-          zIndex: 1
-        }} />
-        
-        <div className="container-desktop relative z-10">
-          {/* BRAND SECTION - Elegant Typography */}
-          <motion.div 
-            className="text-center mb-20"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2 }}
-            viewport={{ once: true }}
-          >
-            <motion.a
-              href="https://silvana.mmm.page/human-perspective"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block group"
-              whileHover={{ scale: 1.02, y: -4 }}
-              transition={{ duration: 0.5 }}
-            >
-              <h2 
-                className="brand-typography text-8xl text-white mb-8 group-hover:tracking-wider transition-all duration-500"
-                style={{
-                  lineHeight: '1',
-                  textShadow: '0 8px 32px rgba(0,0,0,0.3)'
-                }}
-              >
-                silvana.
-              </h2>
-            </motion.a>
+      {/* COMPACT PROFESSIONAL FOOTER */}
+      <footer className="footer-compact">
+        <div className="footer-content-efficient">
+          <div className="footer-grid">
+            {/* Brand Section */}
+            <div className="footer-brand">
+              <h3 className="footer-brand-name">silvana.</h3>
+              <p className="footer-brand-title">Principal Experience Architect</p>
+            </div>
             
-            <motion.p 
-              className="quote-typography text-4xl text-white/95 max-w-5xl mx-auto"
-              style={{
-                textShadow: '0 8px 32px rgba(0,0,0,0.4)'
-              }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
-            >
-              &ldquo;Transforming business vision into human experiences—where strategic design meets 
-              operational excellence and technological possibility.&rdquo;
-            </motion.p>
-          </motion.div>
-
-          {/* SOPHISTICATED NAVIGATION GRID */}
-          <div 
-            className="grid md:grid-cols-3 lg:grid-cols-4 mb-20"
-            style={{ gap: 'var(--content-gap)' }}
-          >
-            {/* Navigation Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <h3 
-                className="text-2xl font-light text-white mb-8"
-                style={{ letterSpacing: '0.02em' }}
+            {/* Contact Links */}
+            <div className="footer-contact">
+              <a 
+                href="mailto:silvanarestrepo888@gmail.com"
+                className="footer-contact-link"
               >
-                Navigate
-              </h3>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
-                {['About', 'Projects', 'Experience', 'Services'].map((link) => (
-                  <motion.a 
-                    key={link}
-                    href={`#${link.toLowerCase()}`}
-                    className="text-lg font-medium text-white/80 transition-all duration-300"
-                    whileHover={{ 
-                      color: '#fffbee', 
-                      x: 8,
-                      scale: 1.05 
-                    }}
-                    style={{ letterSpacing: '0.02em' }}
-                  >
-                    {link}
-                  </motion.a>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* MyVoice Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              <h3 
-                className="text-2xl font-light text-white mb-8"
-                style={{ letterSpacing: '0.02em' }}
+                <Mail size={18} />
+                Contact
+              </a>
+              <a 
+                href="https://linkedin.com/in/silvanarestrepo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-contact-link"
               >
-                My Voice
-              </h3>
-              <motion.a 
+                <Linkedin size={18} />
+                LinkedIn
+              </a>
+              <a 
                 href="https://silvana.mmm.page/human-perspective"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="icon-with-text-lg px-8 py-4 bg-white/10 backdrop-blur-sm rounded-2xl text-white transition-all duration-500 group"
-                whileHover={{ 
-                  scale: 1.05,
-                  backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                  boxShadow: '0 8px 25px rgba(255, 255, 255, 0.08)'
-                }}
-                style={{ 
-                  border: '1px solid rgba(255, 255, 255, 0.3)',
-                  gap: 'var(--icon-text-gap-lg)'
-                }}
+                className="footer-contact-link"
               >
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 3 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <ExternalLink size={22} />
-                </motion.div>
-                <span className="text-lg font-medium">Human Perspective</span>
-              </motion.a>
-            </motion.div>
-
-            {/* Contact Section - "Let's Talk" */}
-            <motion.div
-              className="md:col-span-2 lg:col-span-2"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <h3 
-                className="text-3xl font-light text-white mb-8"
-                style={{ letterSpacing: '0.02em' }}
-              >
-                Let&apos;s Talk
-              </h3>
-              
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--element-gap)' }}>
-                <div>
-                  <p className="text-lg font-medium text-white/90 mb-4">
-                    Want to explore more about my experience
-                  </p>
-                  <motion.a 
-                    href="https://linkedin.com/in/silvanarestrepo"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-cursor="button"
-                    className="icon-with-text-lg p-8 bg-white/10 backdrop-blur-sm rounded-2xl transition-all duration-500 group relative overflow-hidden"
-                    style={{ 
-                      border: '1px solid rgba(255, 255, 255, 0.2)',
-                      gap: 'var(--icon-text-gap-lg)',
-                      transformStyle: 'preserve-3d',
-                      willChange: 'transform'
-                    }}
-                    whileHover={{ 
-                      scale: 1.04,
-                      backgroundColor: 'rgba(255, 255, 255, 0.22)',
-                      boxShadow: '0 20px 50px rgba(255, 255, 255, 0.15)',
-                      borderColor: 'rgba(255, 255, 255, 0.4)'
-                    }}
-                    transition={{
-                      duration: 0.5,
-                      ease: [0.23, 1, 0.32, 1],
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 25
-                    }}
-                    onMouseMove={(e) => {
-                      const rect = e.currentTarget.getBoundingClientRect();
-                      const centerX = rect.left + rect.width / 2;
-                      const centerY = rect.top + rect.height / 2;
-                      const deltaX = (e.clientX - centerX) / (rect.width / 2);
-                      const deltaY = (e.clientY - centerY) / (rect.height / 2);
-                      
-                      e.currentTarget.style.transform = `
-                        perspective(800px) 
-                        rotateY(${deltaX * 4}deg) 
-                        rotateX(${-deltaY * 4}deg)
-                        translateZ(10px)
-                      `;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = `
-                        perspective(800px) 
-                        rotateY(0deg) 
-                        rotateX(0deg)
-                        translateZ(0px)
-                      `;
-                    }}
-                  >
-                    {/* Professional Network Glow */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent rounded-2xl"
-                      initial={{ opacity: 0 }}
-                      whileHover={{ 
-                        opacity: 1,
-                        transition: { duration: 0.4 }
-                      }}
-                    />
-                    
-                    <motion.div
-                      whileHover={{ 
-                        scale: 1.15, 
-                        rotate: 5,
-                        color: '#0077b5'
-                      }}
-                      transition={{ duration: 0.4, ease: "backOut" }}
-                    >
-                      <Linkedin size={32} className="text-white" />
-                    </motion.div>
-                    <div className="relative">
-                      <p className="text-white font-medium group-hover:tracking-wider transition-all duration-400">
-                        LinkedIn Profile
-                      </p>
-                      <p className="text-white/70 text-sm group-hover:text-white/90 transition-colors duration-300">
-                        linkedin.com/in/silvanarestrepo
-                      </p>
-                    </div>
-                  </motion.a>
-                </div>
-                
-                <div>
-                  <motion.a 
-                    href="mailto:silvanarestrepo888@gmail.com"
-                    data-cursor="button"
-                    className="icon-with-text-lg p-8 bg-white/10 backdrop-blur-sm rounded-2xl transition-all duration-500 group relative overflow-hidden"
-                    style={{ 
-                      border: '1px solid rgba(255, 255, 255, 0.2)',
-                      gap: 'var(--icon-text-gap-lg)',
-                      transformStyle: 'preserve-3d',
-                      willChange: 'transform'
-                    }}
-                    whileHover={{ 
-                      scale: 1.04,
-                      backgroundColor: 'rgba(255, 255, 255, 0.22)',
-                      boxShadow: '0 20px 50px rgba(255, 255, 255, 0.15)',
-                      borderColor: 'rgba(255, 255, 255, 0.4)'
-                    }}
-                    transition={{
-                      duration: 0.5,
-                      ease: [0.23, 1, 0.32, 1],
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 25
-                    }}
-                    onMouseMove={(e) => {
-                      const rect = e.currentTarget.getBoundingClientRect();
-                      const centerX = rect.left + rect.width / 2;
-                      const centerY = rect.top + rect.height / 2;
-                      const deltaX = (e.clientX - centerX) / (rect.width / 2);
-                      const deltaY = (e.clientY - centerY) / (rect.height / 2);
-                      
-                      e.currentTarget.style.transform = `
-                        perspective(800px) 
-                        rotateY(${deltaX * 4}deg) 
-                        rotateX(${-deltaY * 4}deg)
-                        translateZ(10px)
-                      `;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = `
-                        perspective(800px) 
-                        rotateY(0deg) 
-                        rotateX(0deg)
-                        translateZ(0px)
-                      `;
-                    }}
-                  >
-                    {/* Email Glow Effect */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent rounded-2xl"
-                      initial={{ opacity: 0 }}
-                      whileHover={{ 
-                        opacity: 1,
-                        transition: { duration: 0.4 }
-                      }}
-                    />
-                    
-                    <motion.div
-                      whileHover={{ 
-                        scale: 1.15, 
-                        rotate: -3,
-                        y: -2
-                      }}
-                      transition={{ duration: 0.4, ease: "backOut" }}
-                    >
-                      <Mail size={32} className="text-white" />
-                    </motion.div>
-                    <div className="relative">
-                      <p className="text-white font-medium group-hover:tracking-wider transition-all duration-400">
-                        Email Contact
-                      </p>
-                      <p className="text-white/70 text-sm group-hover:text-white/90 transition-colors duration-300">
-                        silvanarestrepo888@gmail.com
-                      </p>
-                    </div>
-                  </motion.a>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-          
-          {/* ELEGANT BOTTOM SECTION */}
-          <motion.div 
-            className="border-t pt-12 text-center"
-            style={{
-              borderColor: 'rgba(255, 251, 238, 0.3)',
-              paddingTop: 'var(--content-gap)'
-            }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8 }}
-          >
-            <p 
-              className="text-lg font-medium text-white/80 mb-6"
-              style={{ letterSpacing: '0.02em' }}
-            >
-              © 2025 Silvana Restrepo - Principal Experience Architect. All rights reserved.
-            </p>
-            <div className="flex justify-center gap-12">
-              <a 
-                href="#"
-                className="text-white/70 font-medium transition-all duration-300 hover:text-white hover:tracking-wider"
-                style={{ fontSize: '0.95rem' }}
-              >
-                Privacy Policy
-              </a>
-              <a 
-                href="#"
-                className="text-white/70 font-medium transition-all duration-300 hover:text-white hover:tracking-wider"
-                style={{ fontSize: '0.95rem' }}
-              >
-                Terms of Service
+                <ExternalLink size={18} />
+                Portfolio
               </a>
             </div>
-          </motion.div>
+            
+            {/* Copyright */}
+            <div className="footer-legal">
+              <span className="footer-copyright">
+                © 2025 Silvana Restrepo. All rights reserved.
+              </span>
+            </div>
+          </div>
         </div>
       </footer>
       </main>

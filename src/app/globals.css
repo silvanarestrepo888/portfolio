@@ -318,30 +318,30 @@ body {
   animation: gradient-flow 8s ease-in-out infinite;
 }
 
-/* DISPLAY TYPOGRAPHY - Section Headlines */
+/* DISPLAY TYPOGRAPHY - Refined & Professional */
 .typography-display {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-size: clamp(2rem, 4vw, 3.5rem); /* Reduced from oversized */
   font-weight: 400;
   letter-spacing: var(--letter-spacing-tight);
   line-height: var(--line-height-snug);
   font-style: italic;
 }
 
-/* ACCENT TYPOGRAPHY - Navigation & Labels */
+/* ACCENT TYPOGRAPHY - Professional Scale */
 .typography-accent {
   font-family: var(--font-accent);
-  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem); /* Much more refined */
   font-weight: 500;
   letter-spacing: var(--letter-spacing-wide);
   line-height: var(--line-height-normal);
   text-transform: uppercase;
 }
 
-/* BODY TYPOGRAPHY - Content Text */
+/* BODY TYPOGRAPHY - Optimal Readability */
 .typography-body {
   font-family: var(--font-body);
-  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-size: clamp(0.9rem, 1.2vw, 1rem); /* Refined sizing */
   font-weight: 400;
   letter-spacing: var(--letter-spacing-normal);
   line-height: var(--line-height-relaxed);
@@ -1567,6 +1567,108 @@ body {
 }
 
 /* ========================================== */
+/* MOBILE OPTIMIZATION - TEXT-ONLY SINGLE VIEW */
+/* ========================================== */
+
+@media (max-width: 768px) {
+  /* HERO - TEXT ONLY ON MOBILE */
+  .hero-sophisticated {
+    height: 60vh; /* Reduced height for single view */
+    background: var(--pannocotta-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero-photo-container {
+    display: none; /* Remove image on mobile */
+  }
+  
+  .hero-content-minimal {
+    position: static;
+    transform: none;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  
+  .hero-words {
+    font-size: clamp(2.5rem, 8vw, 3.5rem); /* Smaller for mobile */
+  }
+  
+  .word-experience,
+  .word-architect {
+    color: #ff6663;
+    text-shadow: none;
+  }
+  
+  /* SECTION HEIGHT OPTIMIZATION */
+  section {
+    min-height: auto !important; /* Remove forced 100vh */
+    padding: 2rem 0 !important; /* Compact spacing */
+  }
+  
+  .section-luxury {
+    padding-block: 3rem !important; /* Much more compact */
+  }
+  
+  /* REMOVE UNNECESSARY ELEMENTS */
+  .parallax-layer-1,
+  .parallax-layer-2,  
+  .parallax-layer-3,
+  .interactive-bg-overlay,
+  .video-bg-container {
+    display: none !important;
+  }
+  
+  /* PROJECT CARDS - COMPACT */
+  .project-card-enhanced {
+    min-width: 95vw !important;
+    height: 50vh !important; /* Much smaller */
+    grid-template-columns: 1fr !important;
+  }
+  
+  .project-image-section {
+    aspect-ratio: 16/10;
+    max-height: 25vh; /* Limit image height */
+  }
+  
+  .project-content-section {
+    padding: 1rem !important; /* Compact padding */
+  }
+  
+  /* ABOUT SECTION - COMPACT */
+  .about-content-structured {
+    max-width: 100%;
+    gap: 1.5rem; /* Reduced spacing */
+  }
+  
+  .grid-desktop-2 {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  /* SERVICES - STACK ON MOBILE */
+  .services-hover-system {
+    flex-direction: column !important;
+    height: auto !important;
+  }
+  
+  .service-column-interactive {
+    border-right: none !important;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 1.5rem 1rem !important;
+    min-height: 200px !important;
+  }
+  
+  /* HIDE IMAGE-HEAVY ELEMENTS ON MOBILE */
+  .hero-image-wrapper,
+  .parallax-container .hero-image,
+  .about-visual {
+    display: none;
+  }
+}
+
+/* ========================================== */
 /* ENHANCED ABOUT SECTION STRUCTURE */
 /* ========================================== */
 
@@ -1632,10 +1734,202 @@ body {
   overflow: hidden;
 }
 
+/* ========================================== */
+/* ELITE HERO SECTION - CREATIVE DIRECTOR LEVEL */
+/* ========================================== */
+
+.hero-sophisticated {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+.hero-photo-container {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-image {
+  object-fit: cover;
+  object-position: center top;
+  filter: contrast(1.15) saturate(1.1) brightness(0.85);
+  animation: photo-breathe 18s ease-in-out infinite;
+  transition: filter 0.8s ease;
+}
+
+.hero-overlay-distortion {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 25% 75%, rgba(255,102,99,0.2) 0%, transparent 50%),
+    radial-gradient(circle at 75% 25%, rgba(0,0,0,0.3) 0%, transparent 60%),
+    linear-gradient(135deg, transparent 0%, rgba(255,102,99,0.1) 100%);
+  mix-blend-mode: overlay;
+  animation: distortion-flow 20s ease-in-out infinite;
+  z-index: 2;
+}
+
+.hero-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(135deg, rgba(0,0,0,0.4) 0%, transparent 40%, transparent 60%, rgba(255,102,99,0.15) 100%),
+    linear-gradient(45deg, rgba(0,0,0,0.2) 0%, transparent 30%);
+  z-index: 3;
+}
+
+.hero-content-minimal {
+  position: absolute;
+  top: 50%;
+  left: clamp(2rem, 8vw, 6rem);
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.hero-words {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 300;
+  line-height: 0.85;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.word-experience {
+  display: block;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+  margin-bottom: 0.1em;
+  font-style: italic;
+}
+
+.word-architect {
+  display: block;
+  color: #ff6663;
+  font-weight: 400;
+  text-shadow: 0 4px 20px rgba(255,102,99,0.5);
+  letter-spacing: -0.02em;
+}
+
+/* HERO ANIMATIONS */
+@keyframes photo-breathe {
+  0%, 100% { 
+    transform: scale(1);
+    filter: contrast(1.15) saturate(1.1) brightness(0.85);
+  }
+  50% { 
+    transform: scale(1.02);
+    filter: contrast(1.2) saturate(1.15) brightness(0.8);
+  }
+}
+
+@keyframes distortion-flow {
+  0%, 100% { 
+    background-position: 0% 0%, 0% 0%, 0% 0%;
+    opacity: 1;
+  }
+  50% { 
+    background-position: 100% 100%, 50% 50%, 100% 0%;
+    opacity: 0.8;
+  }
+}
+
+/* ========================================== */
+/* REFINED BUTTON SYSTEM - CREATIVE DIRECTOR STANDARDS */
+/* ========================================== */
+
+.btn-primary-refined {
+  padding: 0.75rem 2rem; /* Professional proportions */
+  font-size: 0.875rem; /* Elegant, not oversized */
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  border-radius: 2rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: #ff6663;
+  color: white;
+  border: none;
+  box-shadow: 0 4px 12px rgba(255, 102, 99, 0.3);
+}
+
+.btn-primary-refined:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 102, 99, 0.4);
+  background: #e55555;
+}
+
+.btn-secondary-refined {
+  padding: 0.5rem 1.5rem; /* Compact professional sizing */
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border-radius: 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(255, 102, 99, 0.4);
+  color: #ff6663;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary-refined:hover {
+  background: rgba(255, 102, 99, 0.08);
+  border-color: #ff6663;
+  transform: translateY(-1px);
+}
+
+.btn-explore-clean {
+  padding: 0.625rem 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: white;
+  border: 1px solid #e5e7eb;
+  color: #374151;
+  border-radius: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-explore-clean:hover {
+  background: #ff6663;
+  border-color: #ff6663;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 102, 99, 0.3);
+}
+
+/* CAROUSEL CONTROLS - REFINED */
+.control-btn {
+  padding: 0.4rem 0.875rem; /* Reduced padding */
+  font-size: 0.75rem; /* Smaller, cleaner */
+  font-weight: 500;
+  border-radius: 1rem; /* More refined radius */
+  background: transparent;
+  border: 1px solid rgba(255, 102, 99, 0.3);
+  color: #ff6663;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.control-btn.active {
+  background: #ff6663;
+  color: white;
+  border-color: #ff6663;
+  box-shadow: 0 2px 8px rgba(255, 102, 99, 0.3);
+}
+
+.control-btn:hover {
+  background: rgba(255, 102, 99, 0.1);
+  border-color: #ff6663;
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
-}
 
 .float-animation {
   animation: float 3s ease-in-out infinite;
