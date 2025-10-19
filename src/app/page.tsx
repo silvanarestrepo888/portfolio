@@ -436,8 +436,8 @@ export default function Home() {
         
         {/* Hero Content with Parallax */}
         <div className="parallax-content">
-        {/* FLOATING IMAGE SYSTEM - Zero Cropping */}
-        <div style={{
+          {/* FLOATING IMAGE SYSTEM - Zero Cropping */}
+          <div style={{
           position: 'absolute',
           top: 0,
           left: 0,
@@ -705,8 +705,8 @@ export default function Home() {
           >
             Explore My Journey
           </motion.div>
+        </motion.div>
         </div> {/* Close parallax-content */}
-        </div>
       </section>
 
       {/* LUXURY ABOUT SECTION - Sophisticated Background & Golden Ratio Proportions */}
@@ -1111,9 +1111,19 @@ export default function Home() {
                             setCurrentGalleryImage(0);
                           }}
                           data-cursor="button"
-                          className="w-full px-8 py-3 bg-white border-2 border-gray-200 text-gray-800 rounded-full font-medium transition-all duration-300 hover:border-grapefruit-primary hover:bg-grapefruit-primary hover:text-white"
+                          className="w-full px-8 py-3 bg-white border-2 border-gray-200 text-gray-800 rounded-full font-medium transition-all duration-300"
                           style={{
                             boxShadow: '0 4px 15px rgba(255, 102, 99, 0.1)'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.borderColor = '#ff6663';
+                            e.currentTarget.style.backgroundColor = '#ff6663';
+                            e.currentTarget.style.color = 'white';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.borderColor = '#e5e7eb';
+                            e.currentTarget.style.backgroundColor = 'white';
+                            e.currentTarget.style.color = '#374151';
                           }}
                           whileHover={{ 
                             scale: 1.02,
@@ -2013,7 +2023,7 @@ export default function Home() {
                   
                   {/* Project Meta */}
                   <div className="flex flex-wrap gap-6 mb-phi-lg">
-                    <span className="typography-accent text-grapefruit-primary font-semibold">
+                    <span className="typography-accent font-semibold" style={{ color: 'var(--grapefruit-primary)' }}>
                       {projects[selectedProject].client}
                     </span>
                     <span className="typography-accent text-gray-600">
@@ -2026,7 +2036,8 @@ export default function Home() {
                       href={projects[selectedProject].website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="typography-accent text-grapefruit-primary hover:underline"
+                      className="typography-accent hover:underline"
+                      style={{ color: 'var(--grapefruit-primary)' }}
                     >
                       Visit Live Project →
                     </a>
@@ -2092,7 +2103,7 @@ export default function Home() {
                         <blockquote className="typography-quote text-gray-800 mb-phi-md">
                           "{projects[selectedProject].testimonial}"
                         </blockquote>
-                        <cite className="typography-accent text-grapefruit-primary font-semibold">
+                        <cite className="typography-accent font-semibold" style={{ color: 'var(--grapefruit-primary)' }}>
                           {projects[selectedProject].testimonialAuthor}
                         </cite>
                       </div>
