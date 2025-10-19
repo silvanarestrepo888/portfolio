@@ -869,117 +869,192 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* EXPERIENCE GRID - Luxury Spacing */}
-            <div className="grid-desktop-3 gap-phi-lg mb-phi-2xl">
-              {[
-                {
-                  year: "2020—2025",
-                  role: "Business Partner & Experience Architect", 
-                  company: "Globant",
-                  description: "Orchestrating enterprise-scale digital initiatives for global brands, translating vision into practical roadmaps.",
-                  featured: true
-                },
-                {
-                  year: "2019—2020",
-                  role: "Senior Researcher",
-                  company: "Centre for Fourth Industrial Revolution-WEF",
-                  description: "Developing frameworks connecting technologies with governance approaches for sustainable innovation.",
-                  featured: true
-                },
-                {
-                  year: "2018—2019", 
-                  role: "Strategic Design Director",
-                  company: "Designit a WIPRO Company",
-                  description: "Leading regional operations to scale market presence and transform complexity into actionable solutions.",
-                  featured: true
-                }
-              ].map((experience, index) => (
-                <motion.div 
-                  key={index}
-                  className="bg-white rounded-3xl p-8 relative group cursor-pointer"
-                  style={{
-                    boxShadow: '0 15px 35px rgba(255, 102, 99, 0.08)',
-                    border: '1px solid rgba(255, 102, 99, 0.1)',
-                    minHeight: '320px'
-                  }}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  whileHover={{
-                    scale: 1.03,
-                    boxShadow: '0 25px 50px rgba(255, 102, 99, 0.15)',
-                    transition: { duration: 0.3 }
-                  }}
-                  viewport={{ once: true }}
-                >
-                  {/* Experience Badge */}
-                  <div 
-                    className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-6"
-                    style={{
-                      backgroundColor: experience.featured ? '#ff6663' : 'rgba(255, 102, 99, 0.1)',
-                      color: experience.featured ? 'white' : '#ff6663'
-                    }}
-                  >
-                    {experience.year}
+            {/* ROADMAP EXPERIENCE TIMELINE */}
+            <div className="relative">
+              {/* Timeline Container */}
+              <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 mb-phi-2xl overflow-hidden"
+                   style={{
+                     boxShadow: '0 25px 50px rgba(0, 0, 0, 0.1)',
+                     border: '1px solid rgba(255, 102, 99, 0.1)'
+                   }}>
+                
+                {/* Timeline Header */}
+                <div className="flex justify-between items-center mb-8">
+                  <h3 className="text-3xl font-bold text-gray-800">PROFESSIONAL JOURNEY</h3>
+                  <div className="flex gap-4">
+                    <button className="px-6 py-3 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-all duration-300">
+                      ABOUT
+                    </button>
+                    <button className="px-6 py-3 rounded-full bg-[#ff6663] text-white hover:bg-[#e55a57] transition-all duration-300">
+                      SUPPORT PROJECT
+                    </button>
                   </div>
-                  
-                  {/* Role Title */}
-                  <h3 className="text-2xl font-medium text-gray-800 mb-4 leading-tight">
-                    {experience.role}
-                  </h3>
-                  
-                  {/* Company */}
-                  <p className="text-xl font-medium mb-6" style={{color: '#ff6663'}}>
-                    {experience.company}
-                  </p>
-                  
-                  {/* Description */}
-                  <p className="text-lg text-gray-700 leading-relaxed">
-                    {experience.description}
-                  </p>
-                  
-                  {/* Hover Effect Line */}
-                  <motion.div
-                    className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-transparent via-[#ff6663] to-transparent"
-                    initial={{ scaleX: 0 }}
-                    whileHover={{ scaleX: 1 }}
-                    transition={{ duration: 0.3 }}
-                    style={{ width: '100%' }}
-                  />
-                </motion.div>
-              ))}
+                </div>
+
+                {/* Timeline Years */}
+                <div className="relative mb-12">
+                  <div className="flex justify-between items-center relative">
+                    {[2002, 2006, 2010, 2014, 2018, 2022, 2025].map((year, index) => (
+                      <div key={year} className="flex flex-col items-center">
+                        <div className="text-sm font-medium text-gray-600 mb-2">{year}</div>
+                        <div className="w-px h-8 bg-gray-300"></div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Experience Roadmap Items */}
+                <div className="space-y-6">
+                  {[
+                    {
+                      year: "2020—2025",
+                      role: "Business Partner & Experience Architect", 
+                      company: "Globant",
+                      description: "Orchestrating enterprise-scale digital initiatives for global brands, translating vision into practical roadmaps.",
+                      startYear: 2020,
+                      endYear: 2025,
+                      featured: true
+                    },
+                    {
+                      year: "2019—2020",
+                      role: "Senior Researcher",
+                      company: "Centre for Fourth Industrial Revolution-WEF",
+                      description: "Developing frameworks connecting technologies with governance approaches for sustainable innovation.",
+                      startYear: 2019,
+                      endYear: 2020,
+                      featured: true
+                    },
+                    {
+                      year: "2018—2019", 
+                      role: "Strategic Design Director",
+                      company: "Designit a WIPRO Company",
+                      description: "Leading regional operations to scale market presence and transform complexity into actionable solutions.",
+                      startYear: 2018,
+                      endYear: 2019,
+                      featured: true
+                    },
+                    {
+                      year: "2016—2018",
+                      role: "Marketing Director",
+                      company: "Grupo Éxito",
+                      description: "Leading strategic marketing initiatives and brand positioning across retail operations.",
+                      startYear: 2016,
+                      endYear: 2018,
+                      featured: false
+                    },
+                    {
+                      year: "2013—2016",
+                      role: "Business Intelligence Manager",
+                      company: "Industrias HACEB",
+                      description: "Transforming data into strategic insights for business growth and operational excellence.",
+                      startYear: 2013,
+                      endYear: 2016,
+                      featured: false
+                    },
+                    {
+                      year: "2002—2011",
+                      role: "Senior Marketing Analyst",
+                      company: "TIGO- Millicom",
+                      description: "Pioneering digital marketing strategies in emerging telecommunications markets.",
+                      startYear: 2002,
+                      endYear: 2011,
+                      featured: false
+                    }
+                  ].map((experience, index) => (
+                    <motion.div
+                      key={index}
+                      className="relative group cursor-pointer"
+                      initial={{ opacity: 0, x: -50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.8, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                    >
+                      {/* Timeline Bar */}
+                      <div className="relative h-16 flex items-center">
+                        {/* Background Bar */}
+                        <div 
+                          className="absolute left-0 right-0 h-12 rounded-full transition-all duration-500 group-hover:h-14"
+                          style={{
+                            backgroundColor: 'rgba(255, 102, 99, 0.1)',
+                            left: `${((experience.startYear - 2002) / (2025 - 2002)) * 100}%`,
+                            width: `${((experience.endYear - experience.startYear) / (2025 - 2002)) * 100}%`,
+                            minWidth: '120px'
+                          }}
+                        />
+                        
+                        {/* Hover Bar - Grapefruit Color */}
+                        <motion.div 
+                          className="absolute h-12 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500"
+                          style={{
+                            backgroundColor: '#ff6663',
+                            left: `${((experience.startYear - 2002) / (2025 - 2002)) * 100}%`,
+                            width: `${((experience.endYear - experience.startYear) / (2025 - 2002)) * 100}%`,
+                            minWidth: '120px'
+                          }}
+                          whileHover={{ height: '56px' }}
+                        />
+                        
+                        {/* Role Text */}
+                        <div className="relative z-10 px-6 py-3">
+                          <h4 className="text-lg font-semibold text-gray-800 group-hover:text-white transition-colors duration-300">
+                            {experience.role}
+                          </h4>
+                          <p className="text-sm text-gray-600 group-hover:text-white/90 transition-colors duration-300">
+                            {experience.company}
+                          </p>
+                        </div>
+                      </div>
+                      
+                      {/* Role Position Reveal */}
+                      <motion.div
+                        className="absolute top-full left-0 right-0 mt-4 p-6 bg-white rounded-2xl shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-500 z-20"
+                        style={{
+                          boxShadow: '0 20px 40px rgba(255, 102, 99, 0.15)',
+                          border: '1px solid rgba(255, 102, 99, 0.2)'
+                        }}
+                        initial={{ y: -20, opacity: 0 }}
+                        whileHover={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <div className="flex items-center gap-4 mb-3">
+                          <div 
+                            className="px-3 py-1 rounded-full text-sm font-medium"
+                            style={{
+                              backgroundColor: '#ff6663',
+                              color: 'white'
+                            }}
+                          >
+                            {experience.year}
+                          </div>
+                          <h5 className="text-xl font-semibold text-gray-800">{experience.role}</h5>
+                        </div>
+                        <p className="text-lg font-medium mb-3" style={{color: '#ff6663'}}>
+                          {experience.company}
+                        </p>
+                        <p className="text-gray-700 leading-relaxed">
+                          {experience.description}
+                        </p>
+                      </motion.div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Navigation Arrows */}
+                <div className="flex justify-between items-center mt-8">
+                  <button className="p-3 rounded-full bg-white/80 hover:bg-white transition-all duration-300 shadow-lg">
+                    <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button className="p-3 rounded-full bg-white/80 hover:bg-white transition-all duration-300 shadow-lg">
+                    <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
             </div>
 
-            {/* ADDITIONAL EXPERIENCE - Second Viewport */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { year: "2016—2018", role: "Marketing Director", company: "Grupo Éxito" },
-                { year: "2013—2016", role: "Business Intelligence Manager", company: "Industrias HACEB" },
-                { year: "2012—2016", role: "Independent Advisor", company: "Independent" },
-                { year: "2002—2011", role: "Senior Marketing Analyst", company: "TIGO- Millicom" }
-              ].map((experience, index) => (
-                <motion.div 
-                  key={index}
-                  className="bg-gray-50 rounded-2xl p-6 group hover:bg-white transition-all duration-300"
-                  style={{ boxShadow: '0 8px 20px rgba(255, 102, 99, 0.04)' }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.02 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="text-sm font-medium mb-3" style={{color: '#ff6663'}}>
-                    {experience.year}
-                  </div>
-                  <h4 className="text-lg font-medium text-gray-800 mb-2 leading-tight">
-                    {experience.role}
-                  </h4>
-                  <p className="text-base text-gray-600">
-                    {experience.company}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
