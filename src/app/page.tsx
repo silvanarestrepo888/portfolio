@@ -389,23 +389,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LUXURY ABOUT SECTION - Sophisticated Background & Golden Ratio Proportions */}
+      {/* FOUNDATION ABOUT SECTION - Clean Structure */}
       <section 
         id="about" 
-        className="section-luxury container-awwwards parallax-container bg-dynamic-about"
+        className="section-luxury bg-dynamic-about"
         style={{ 
           minHeight: '100vh',
           display: 'flex',
           alignItems: 'center'
         }}
       >
-        {/* Background Layer System */}
-        <div className="parallax-layer-1" />
-        <div className="parallax-layer-2" />
-        <div className="parallax-layer-3" />
-        <InteractiveBackground section="about" intensity={0.8} />
-        
-        <div className="container-luxury-content parallax-content">
+        <div className="container-foundation">
           <motion.div
             className="grid-desktop-2 gap-phi-xl optical-center"
             initial={{ opacity: 0, y: 40 }}
@@ -433,12 +427,12 @@ export default function Home() {
                   >
                     01
                   </span>
-                  <h2 className="typography-display text-gray-800">
+                  <h2 className="text-foundation-3xl font-foundation-display text-gray-800">
                     About Me
                   </h2>
                 </div>
                 
-                <p className="typography-body text-xl text-gray-600 mb-phi-lg max-w-xl leading-relaxed">
+                <p className="text-foundation-lg font-foundation-body text-gray-600 mb-phi-lg max-w-xl">
                   Discover the journey of strategic design thinking, business transformation, and the human perspective that drives meaningful innovation across industries.
                 </p>
               </motion.header>
@@ -577,7 +571,7 @@ export default function Home() {
         />
         <InteractiveBackground section="projects" intensity={0.7} />
         
-        <div className="container-awwwards parallax-content">
+        <div className="container-foundation">
           <motion.div 
             className="heading-desktop"
             initial={{ opacity: 0, y: 30 }}
@@ -596,7 +590,7 @@ export default function Home() {
               >
                 02
               </span>
-              <h2 className="typography-display text-gray-800">
+              <h2 className="text-foundation-3xl font-foundation-display text-gray-800">
                 Projects
               </h2>
             </div>
@@ -633,43 +627,37 @@ export default function Home() {
           {/* ENHANCED PROJECT SHOWCASE - User Controlled & Readable */}
           <div className="w-full overflow-hidden px-8">
             
-            {/* Carousel Control System - User Experience Enhancement */}
+            {/* FOUNDATION CAROUSEL CONTROLS - Clean & Intuitive */}
             <motion.div 
-              className="flex justify-center items-center gap-8 mb-12"
+              className="carousel-controls-foundation"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="carousel-controls-luxury flex items-center gap-4">
+              <div className="carousel-control-group">
                 <button
                   onClick={() => setCarouselMode('manual')}
-                  className={`control-btn ${carouselMode === 'manual' ? 'active' : ''}`}
+                  className={`button-foundation ${carouselMode === 'manual' ? 'primary' : ''}`}
                 >
-                  Manual
+                  Browse Manually
                 </button>
                 <button
                   onClick={() => setCarouselMode('slow')}
-                  className={`control-btn ${carouselMode === 'slow' ? 'active' : ''}`}
+                  className={`button-foundation ${carouselMode === 'slow' ? 'primary' : ''}`}
                 >
-                  Slow Auto
-                </button>
-                <button
-                  onClick={() => setCarouselMode('medium')}
-                  className={`control-btn ${carouselMode === 'medium' ? 'active' : ''}`}
-                >
-                  Medium Auto
+                  Auto Browse
                 </button>
                 <button
                   onClick={() => setIsCarouselPaused(!isCarouselPaused)}
-                  className={`control-btn pause-btn ${isCarouselPaused ? 'paused' : ''}`}
+                  className="button-foundation"
                 >
-                  {isCarouselPaused ? 'Resume' : 'Pause'}
+                  {isCarouselPaused ? '▶ Resume' : '⏸ Pause'}
                 </button>
               </div>
               
-              <div className="carousel-info">
-                <span className="typography-accent text-sm text-gray-600">
-                  {carouselMode === 'manual' ? 'Manual Control' : `${carouselMode} Auto-Play`}
+              <div className="carousel-status">
+                <span className="text-foundation-sm font-foundation-accent text-gray-600">
+                  {carouselMode === 'manual' ? 'Manual browsing active' : 'Auto-browsing active'}
                 </span>
               </div>
             </motion.div>
@@ -692,128 +680,100 @@ export default function Home() {
               {[...filteredProjects, ...filteredProjects].map((project, index) => (
                 <motion.div
                   key={`${project.title}-${index}`}
-                  className="min-w-[85vw] h-[70vh] relative rounded-3xl overflow-hidden cursor-pointer group project-card-enhanced"
+                  className="min-w-[85vw] h-[65vh] project-card-foundation cursor-pointer"
                   data-cursor="project"
                   style={{
-                    flexShrink: 0,
-                    boxShadow: '0 25px 60px rgba(0, 0, 0, 0.15), 0 10px 30px rgba(255, 102, 99, 0.1)',
-                    display: 'grid',
-                    gridTemplateColumns: '1.618fr 1fr', // Golden ratio split
-                    background: 'var(--pannocotta-primary)'
+                    flexShrink: 0
                   }}
                   onClick={() => {
                     setSelectedProject(index % filteredProjects.length);
                     setCurrentGalleryImage(0);
                   }}
                   whileHover={{ 
-                    scale: 1.02,
-                    boxShadow: '0 35px 80px rgba(0, 0, 0, 0.2), 0 15px 40px rgba(255, 102, 99, 0.15)',
-                    transition: { duration: 0.4 }
+                    scale: 1.01,
+                    transition: { duration: 0.3 }
                   }}
                 >
-                  {/* Image Section - Pure Visual, No Text Overlay */}
-                  <div className="project-image-section relative overflow-hidden">
+                  {/* Image Section - Foundation Design */}
+                  <div className="project-image-foundation">
                     <Image
                       src={project.image}
-                      alt={`${project.title} - Enhanced carousel showcase`}
+                      alt={`${project.title} - Project showcase`}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-1000"
-                      quality={95}
+                      className="object-cover transition-transform duration-500 hover:scale-105"
+                      quality={85}
                       sizes="50vw"
                       priority={index < 2}
                     />
                     
-                    {/* Subtle Overlay - No Text */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/20" />
-                    
-                    {/* Project Number Indicator - Moved to Image */}
-                    <motion.div
-                      className="absolute top-6 right-6 z-10"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 + 1.0 }}
-                    >
+                    {/* Subtle Project Number */}
+                    <div className="absolute top-4 right-4 z-10">
                       <div 
-                        className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-800 font-bold"
-                        style={{ border: '1px solid rgba(255, 102, 99, 0.3)' }}
+                        className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-xs font-bold text-gray-700"
+                        style={{ border: '1px solid rgba(255, 102, 99, 0.2)' }}
                       >
                         {String((index % filteredProjects.length) + 1).padStart(2, '0')}
                       </div>
-                    </motion.div>
+                    </div>
                   </div>
                   
-                  {/* Content Section - Perfect Readability */}
-                  <div className="project-content-section p-8 flex flex-col justify-between bg-white">
-                    {/* Enhanced Content Section - Perfect Readability */}
+                  {/* Content Section - Foundation Structure */}
+                  <div className="project-content-foundation">
+                    {/* Foundation Project Content Structure */}
                     <motion.div
-                      className="flex flex-col justify-between h-full"
+                      className="h-full"
                       initial={{ opacity: 0, x: 30 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.8, delay: index * 0.1 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
                     >
-                      {/* Top Content */}
-                      <div>
-                        {/* Project Title */}
-                        <h2 className="typography-display text-gray-800 mb-4 leading-tight">
+                      {/* Project Header */}
+                      <div className="project-header-foundation">
+                        <h2 className="project-title-foundation">
                           {project.title}
                         </h2>
-                        
-                        {/* Project Subtitle */}
-                        <p className="typography-subtitle text-gray-700 mb-4 leading-relaxed">
+                        <p className="project-subtitle-foundation">
                           {project.subtitle}
                         </p>
-                        
-                        {/* Project Description - Previously Missing */}
-                        <p className="typography-body text-sm text-gray-600 mb-6 leading-relaxed line-clamp-3">
+                        <p className="project-description-foundation line-clamp-3">
                           {project.description}
                         </p>
-                        
-                        {/* Client & Meta Info */}
-                        <div className="mb-6">
-                          <p className="typography-accent text-lg mb-2 font-semibold" style={{ color: '#ff6663' }}>
-                            {project.client}
-                          </p>
-                          <div className="flex gap-4 text-base text-gray-600">
-                            <span>{project.year}</span>
-                            <span>•</span>
-                            <span>{project.location}</span>
-                          </div>
+                      </div>
+                      
+                      {/* Project Meta */}
+                      <div className="project-meta-foundation">
+                        <div className="project-client-foundation">
+                          {project.client}
+                        </div>
+                        <div className="project-details-foundation">
+                          <span>{project.year}</span>
+                          <span>•</span>
+                          <span>{project.location}</span>
                         </div>
                       </div>
                       
-                      {/* Bottom Content */}
-                      <div>
-                        {/* Capability Tags - All Tags Displayed */}
-                        <div className="flex flex-wrap gap-2 mb-6">
-                          {project.tech && project.tech.map((tag, tagIndex) => (
-                            <span 
-                              key={tagIndex}
-                              className="typography-accent px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full"
-                              style={{ border: '1px solid rgba(255, 102, 99, 0.2)' }}
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                        
-                        {/* Explore Project CTA - Refined */}
-                        <motion.button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setSelectedProject(index % filteredProjects.length);
-                            setCurrentGalleryImage(0);
-                          }}
-                          data-cursor="button"
-                          className="btn-explore-clean w-full"
-                          whileHover={{ 
-                            scale: 1.01,
-                            transition: { duration: 0.2 }
-                          }}
-                          whileTap={{ scale: 0.98 }}
-                        >
-                          Explore Project
-                        </motion.button>
+                      {/* Project Tags */}
+                      <div className="project-tags-foundation">
+                        {project.tech && project.tech.slice(0, 6).map((tag, tagIndex) => (
+                          <span 
+                            key={tagIndex}
+                            className="project-tag-foundation"
+                          >
+                            {tag}
+                          </span>
+                        ))}
                       </div>
+                      
+                      {/* Foundation CTA */}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedProject(index % filteredProjects.length);
+                          setCurrentGalleryImage(0);
+                        }}
+                        className="button-foundation primary w-full"
+                      >
+                        Explore Project
+                      </button>
                     </motion.div>
                   </div>
                 </motion.div>
@@ -868,7 +828,7 @@ export default function Home() {
         <div className="parallax-layer-3" />
         <InteractiveBackground section="experience" intensity={0.6} />
         
-        <div className="container-awwwards parallax-content">
+        <div className="container-foundation">
           <motion.div 
             className="heading-desktop"
             initial={{ opacity: 0, y: 30 }}
@@ -887,7 +847,7 @@ export default function Home() {
               >
                 03
               </span>
-              <h2 className="typography-display text-gray-800">
+              <h2 className="text-foundation-3xl font-foundation-display text-gray-800">
                 Experience
               </h2>
             </div>
@@ -1059,7 +1019,7 @@ export default function Home() {
         />
         <InteractiveBackground section="services" intensity={1.0} />
         
-        <div className="container-awwwards parallax-content">
+        <div className="container-foundation">
           <motion.div 
             className="heading-desktop"
             initial={{ opacity: 0, y: 30 }}
@@ -1078,7 +1038,7 @@ export default function Home() {
               >
                 04
               </span>
-              <h2 className="typography-display text-gray-800">
+              <h2 className="text-foundation-3xl font-foundation-display text-gray-800">
                 Services
               </h2>
             </div>
