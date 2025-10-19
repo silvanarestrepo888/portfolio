@@ -15,8 +15,6 @@ import {
 import { CustomCursor } from '../components/motion/CustomCursor';
 import { MagneticCursor } from '../components/ui/MagneticCursor';
 import { FloatingNavigation } from '../components/navigation/FloatingNavigation';
-import { InteractiveBackground } from '../components/backgrounds/InteractiveBackground';
-import { VideoBackground } from '../components/backgrounds/VideoBackground';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
