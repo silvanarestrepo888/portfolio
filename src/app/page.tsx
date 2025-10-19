@@ -336,53 +336,88 @@ export default function Home() {
       <FloatingNavigation />
       
 
-      {/* ELITE HERO SECTION - Creative Director Level Sophistication */}
+      {/* HERO FOUNDATION - Clear Value Communication */}
       <main id="main-content">
-      <section id="hero" className="hero-sophisticated">
-        {/* Sophisticated Photo Treatment */}
-        <div className="hero-photo-container">
-          <div className="hero-image-wrapper">
+      <section id="hero" className="hero-foundation">
+        <div className="hero-container-foundation">
+          {/* Professional Photo Background */}
+          <div className="hero-background-professional">
             <Image 
               src="/silvana-profile.jpg"
               alt="Silvana Restrepo - Principal Experience Architect"
               fill
-              className="hero-image"
+              className="hero-image-foundation"
               quality={95}
               priority
               sizes="100vw"
             />
-            
-            {/* Advanced Overlay Effects */}
-            <div className="hero-overlay-distortion"></div>
-            <div className="hero-overlay-gradient"></div>
+            <div className="hero-overlay-foundation"></div>
           </div>
-        </div>
-        
-        {/* Minimal Typography - Only Essential Words */}
-        <div className="hero-content-minimal">
-          <motion.h1 
-            className="hero-words"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 2, delay: 0.5 }}
-          >
-            <motion.span 
-              className="word-experience"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.8 }}
-            >
-              Experience
-            </motion.span>
-            <motion.span 
-              className="word-architect"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 1.1 }}
-            >
-              Architect
-            </motion.span>
-          </motion.h1>
+          
+          {/* Clear Value Proposition */}
+          <div className="hero-content-foundation">
+            <div className="hero-branding">
+              <motion.h1 
+                className="hero-title-foundation"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, delay: 0.3 }}
+              >
+                <span className="word-experience">Experience</span>
+                <span className="word-architect">Architect</span>
+              </motion.h1>
+              
+              <motion.p 
+                className="hero-value-proposition"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.6 }}
+              >
+                Transforming Fortune 500 digital experiences through strategic design thinking and human-centered innovation
+              </motion.p>
+              
+              <motion.div 
+                className="hero-credentials-foundation"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.9 }}
+              >
+                <div className="credential">
+                  <span className="credential-number">20+</span>
+                  <span className="credential-label">Years Experience</span>
+                </div>
+                <div className="credential">
+                  <span className="credential-badge">WEF</span>
+                  <span className="credential-label">Alumni</span>
+                </div>
+                <div className="credential">
+                  <span className="credential-number">Fortune 500</span>
+                  <span className="credential-label">Clients</span>
+                </div>
+              </motion.div>
+              
+              <motion.div 
+                className="hero-actions-foundation"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 1.2 }}
+              >
+                <a 
+                  href="/portfolio/Silvana-Restrepo-Portfolio.pdf"
+                  download
+                  className="button-foundation primary"
+                >
+                  Download Portfolio
+                </a>
+                <button 
+                  onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="button-foundation"
+                >
+                  View Projects
+                </button>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -398,151 +433,68 @@ export default function Home() {
         }}
       >
         <div className="container-foundation">
-          <motion.div
-            className="grid-desktop-2 gap-phi-xl optical-center"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-            viewport={{ once: true }}
-          >
-            {/* STRUCTURED CONTENT COLUMN */}
-            <div className="about-content-structured">
-              {/* Header Section */}
-              <motion.header
-                className="about-header mb-phi-xl"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 0.2 }}
-              >
-                <div className="section-number-container mb-phi-lg">
-                  <span 
-                    className="text-foundation-sm font-foundation-accent block mb-phi-sm"
-                    style={{ 
-                      color: 'rgba(255, 102, 99, 0.6)'
-                    }}
-                  >
-                    01
-                  </span>
-                  <h2 className="text-foundation-3xl font-foundation-display text-gray-800">
-                    About Me
-                  </h2>
-                </div>
-                
-                <p className="text-foundation-lg font-foundation-body text-gray-600 mb-phi-lg max-w-xl">
-                  Discover the journey of strategic design thinking, business transformation, and the human perspective that drives meaningful innovation across industries.
-                </p>
-              </motion.header>
-
-              {/* NARRATIVE CONTENT BLOCKS */}
-              <motion.div
-                className="about-narrative-blocks space-y-phi-lg"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 0.4 }}
-              >
-                <p className="text-foundation-lg font-foundation-body text-gray-700 max-w-xl">
-                  I believe the most compelling stories begin with{' '}
-                  <span style={{color: '#ff6663', fontWeight: '600'}}>curiosity</span>
-                  —a spark that has carried me across continents, blending diverse perspectives 
-                  from anthropology to business, innovation to experience design.
-                </p>
-                
-                {/* Philosophy Quote Block */}
-                <div 
-                  className="philosophy-quote-block border-l-4 px-phi-lg py-phi-lg my-phi-xl max-w-xl"
-                  style={{ 
-                    borderLeftColor: '#ff6663',
-                    backgroundColor: 'rgba(255, 102, 99, 0.03)',
-                    borderRadius: '0 1rem 1rem 0'
-                  }}
-                >
-                  <p 
-                    className="text-foundation-2xl font-foundation-display text-gray-800"
-                    style={{ marginBottom: '0', fontStyle: 'italic' }}
-                  >
-                    &ldquo;The art of{' '}
-                    <span style={{color: '#ff6663', fontWeight: '600'}}>MY CRAFT</span>
-                    {' '}lies in connecting strategic business goals with the essence of human desire.&rdquo;
-                  </p>
-                </div>
-                
-                {/* Closing Statement */}
-                <div className="about-closing max-w-xl">
-                  <p className="text-foundation-lg font-foundation-body text-gray-700">
-                    <span style={{color: '#ff6663', fontWeight: '600'}}>Welcome to my world</span>
-                    —where strategy meets soul, and design becomes the universal language of possibility.
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* PHOTO COLUMN - Optimized for Viewport */}
-            <motion.div
-              className="flex justify-center lg:justify-end"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.2, delay: 0.5 }}
-              viewport={{ once: true }}
+          <div className="about-story-structure">
+            {/* Story Opening */}
+            <motion.header 
+              className="about-header-foundation"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.2 }}
             >
-              <motion.div 
-                className="relative"
-                animate={{ 
-                  y: [0, -12, 0],
-                  rotateY: [0, 1, 0]
-                }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                whileHover={{
-                  scale: 1.03,
-                  rotateY: 2,
-                  transition: { duration: 0.8 }
-                }}
-                style={{
-                  borderRadius: '3rem',
-                  overflow: 'hidden',
-                  boxShadow: '0 50px 100px rgba(255, 102, 99, 0.2), 0 20px 40px rgba(0, 0, 0, 0.1)',
-                  background: 'white',
-                  padding: '1.5rem'
-                }}
-              >
-                <Image
-                  src="/silvana-profile.jpg"
-                  alt="Silvana Restrepo - Principal Experience Architect, WEF Alumni"
-                  width={500}
-                  height={650}
-                  quality={85}
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdwAB/9k="
-                  style={{
-                    objectFit: 'contain',
-                    borderRadius: '2rem',
-                    maxHeight: '60vh',
-                    height: 'auto',
-                    width: 'auto'
-                  }}
-                />
-                
-                {/* FLOATING WEF BADGE */}
-                <motion.div 
-                  className="absolute -top-4 -right-4"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1, delay: 1.5 }}
-                  whileHover={{ scale: 1.1, rotate: 3 }}
-                >
-                  <div 
-                    className="px-6 py-3 rounded-full text-sm font-medium"
-                    style={{
-                      background: 'linear-gradient(135deg, #ff6663 0%, #ff8a80 100%)',
-                      color: 'white',
-                      boxShadow: '0 8px 25px rgba(255, 102, 99, 0.3)'
-                    }}
-                  >
-                    WEF Alumni
-                  </div>
-                </motion.div>
-              </motion.div>
+              <span className="section-number-foundation">01</span>
+              <h2 className="section-title-foundation">The Journey</h2>
+              <p className="section-intro-foundation">
+                Two decades of transforming how global brands connect with human experiences
+              </p>
+            </motion.header>
+            
+            {/* Expertise Pillars */}
+            <motion.div 
+              className="expertise-pillars-foundation"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4 }}
+            >
+              <div className="pillar-foundation">
+                <div className="pillar-icon">🎯</div>
+                <h3 className="pillar-title">Strategic Design</h3>
+                <p className="pillar-description">
+                  Business transformation through human-centered design thinking that connects strategic goals with authentic human experiences.
+                </p>
+              </div>
+              
+              <div className="pillar-foundation">
+                <div className="pillar-icon">🌍</div>
+                <h3 className="pillar-title">Global Experience</h3>
+                <p className="pillar-description">
+                  25+ international markets, cultural intelligence, and local adaptation expertise creating universally resonant solutions.
+                </p>
+              </div>
+              
+              <div className="pillar-foundation">
+                <div className="pillar-icon">🏢</div>
+                <h3 className="pillar-title">Fortune 500 Scale</h3>
+                <p className="pillar-description">
+                  Enterprise-level digital transformation, systems thinking, and organizational change management at global scale.
+                </p>
+              </div>
             </motion.div>
-          </motion.div>
+            
+            {/* Professional Philosophy */}
+            <motion.div 
+              className="philosophy-foundation"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.6 }}
+            >
+              <blockquote className="philosophy-quote-foundation">
+                "The art of my craft lies in connecting strategic business goals with the essence of human desire"
+              </blockquote>
+              <div className="philosophy-context">
+                <p>This philosophy drives every project, every strategy, and every solution I create for global brands seeking meaningful transformation.</p>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
