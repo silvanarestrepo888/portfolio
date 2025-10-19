@@ -4,14 +4,6 @@ import { motion } from 'framer-motion';
 import { Linkedin, Mail, ExternalLink, ArrowDown } from 'lucide-react';
 import { useState } from 'react';
 import Image from 'next/image';
-import { 
-  AcceleratedInnovationIcon,
-  ExperienceOrchestrationIcon, 
-  IntelligentOperationsIcon,
-  TransformationFoundationsIcon,
-  StrategyConsultingIcon,
-  CustomerIntelligenceIcon 
-} from '../components/icons';
 import { CustomCursor } from '../components/motion/CustomCursor';
 import { MagneticCursor } from '../components/ui/MagneticCursor';
 import { FloatingNavigation } from '../components/navigation/FloatingNavigation';
@@ -37,16 +29,6 @@ export default function Home() {
   const goToProject = (index: number) => {
     setFeaturedProjectIndex(index);
   };
-  
-  // PROPRIETARY ICON MAPPING - 100% Copy Compliant (Available for future use)
-  // const serviceIcons = {
-  //   "Accelerated Product Innovation": AcceleratedInnovationIcon,
-  //   "Experience Orchestration": ExperienceOrchestrationIcon, 
-  //   "Intelligent Operations Architecture": IntelligentOperationsIcon,
-  //   "Transformation Foundations": TransformationFoundationsIcon,
-  //   "Strategic Innovation Consulting": StrategyConsultingIcon,
-  //   "Customer Intelligence Platforms": CustomerIntelligenceIcon
-  // };
 
   // SERVICES DATA - Matching Reference Design Exactly
   const referenceServices = [
