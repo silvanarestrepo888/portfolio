@@ -41,7 +41,6 @@ export const InteractiveBackground = ({
   }, []);
   
   const getInteractiveGradient = () => {
-    const baseIntensity = intensity * 0.1;
     const x = mousePosition.x;
     const y = mousePosition.y;
     

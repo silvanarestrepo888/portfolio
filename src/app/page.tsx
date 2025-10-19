@@ -2103,7 +2103,7 @@ export default function Home() {
                         }}
                       >
                         <blockquote className="typography-quote text-gray-800 mb-phi-md">
-                          "{projects[selectedProject].testimonial}"
+                          &ldquo;{projects[selectedProject].testimonial}&rdquo;
                         </blockquote>
                         <cite className="typography-accent font-semibold" style={{ color: 'var(--grapefruit-primary)' }}>
                           {projects[selectedProject].testimonialAuthor}
