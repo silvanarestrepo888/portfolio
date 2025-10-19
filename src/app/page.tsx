@@ -25,6 +25,26 @@ export default function Home() {
   const [galleryZoomOpen, setGalleryZoomOpen] = useState(false);
   const [hoveredService, setHoveredService] = useState<number | null>(null);
   
+  // Enhanced Project Carousel Control
+  const [carouselMode, setCarouselMode] = useState<'manual' | 'slow' | 'medium' | 'fast'>('slow');
+  const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
+  const [isCarouselPaused, setIsCarouselPaused] = useState(false);
+  
+  // Carousel timing system - much more readable
+  const getCarouselDuration = () => {
+    if (carouselMode === 'manual' || isCarouselPaused) return 0;
+    const speeds = {
+      slow: 20,    // 20 seconds per project (readable)
+      medium: 15,  // 15 seconds per project 
+      fast: 12     // 12 seconds per project
+    };
+    return filteredProjects.length * speeds[carouselMode];
+  };
+  
+  const shouldCarouselAutoMove = () => {
+    return carouselMode !== 'manual' && !isCarouselPaused;
+  };
+  
   // PROPRIETARY ICON MAPPING - 100% Copy Compliant (Available for future use)
   // const serviceIcons = {
   //   "Accelerated Product Innovation": AcceleratedInnovationIcon,
@@ -922,34 +942,76 @@ export default function Home() {
             </div>
           </motion.div>
           
-          {/* AUTO-MOVING PROJECT CAROUSEL - Ideas Image Inspired */}
+          {/* ENHANCED PROJECT SHOWCASE - User Controlled & Readable */}
           <div className="w-full overflow-hidden px-8">
-            {/* Moving Carousel Container - Right to Left Auto-Movement */}
+            
+            {/* Carousel Control System - User Experience Enhancement */}
+            <motion.div 
+              className="flex justify-center items-center gap-8 mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="carousel-controls-luxury flex items-center gap-4">
+                <button
+                  onClick={() => setCarouselMode('manual')}
+                  className={`control-btn ${carouselMode === 'manual' ? 'active' : ''}`}
+                >
+                  Manual
+                </button>
+                <button
+                  onClick={() => setCarouselMode('slow')}
+                  className={`control-btn ${carouselMode === 'slow' ? 'active' : ''}`}
+                >
+                  Slow Auto
+                </button>
+                <button
+                  onClick={() => setCarouselMode('medium')}
+                  className={`control-btn ${carouselMode === 'medium' ? 'active' : ''}`}
+                >
+                  Medium Auto
+                </button>
+                <button
+                  onClick={() => setIsCarouselPaused(!isCarouselPaused)}
+                  className={`control-btn pause-btn ${isCarouselPaused ? 'paused' : ''}`}
+                >
+                  {isCarouselPaused ? 'Resume' : 'Pause'}
+                </button>
+              </div>
+              
+              <div className="carousel-info">
+                <span className="typography-accent text-sm text-gray-600">
+                  {carouselMode === 'manual' ? 'Manual Control' : `${carouselMode} Auto-Play`}
+                </span>
+              </div>
+            </motion.div>
+            {/* Enhanced Project Carousel - User Controlled & Readable */}
             <motion.div 
               className="flex gap-12"
               animate={{ 
-                x: [`0%`, `-${filteredProjects.length * 100}%`]
+                x: shouldCarouselAutoMove() ? [`0%`, `-${filteredProjects.length * 100}%`] : '0%'
               }}
               transition={{
-                duration: filteredProjects.length * 10, // 10 seconds per project
-                repeat: Infinity,
-                ease: "linear"
+                duration: getCarouselDuration(),
+                repeat: shouldCarouselAutoMove() ? Infinity : 0,
+                ease: "easeInOut" // Smoother, more sophisticated easing
               }}
-              whileHover={{ 
-                animationPlayState: 'paused',
-                transition: { duration: 0.1 }
-              }}
+              onHoverStart={() => setIsCarouselPaused(true)}
+              onHoverEnd={() => setIsCarouselPaused(false)}
               style={{ width: `${filteredProjects.length * 200}%` }}
             >
               {/* Duplicate projects for seamless infinite loop */}
               {[...filteredProjects, ...filteredProjects].map((project, index) => (
                 <motion.div
                   key={`${project.title}-${index}`}
-                  className="min-w-[85vw] h-[70vh] relative rounded-3xl overflow-hidden cursor-pointer group"
+                  className="min-w-[85vw] h-[70vh] relative rounded-3xl overflow-hidden cursor-pointer group project-card-enhanced"
                   data-cursor="project"
                   style={{
                     flexShrink: 0,
-                    boxShadow: '0 25px 60px rgba(0, 0, 0, 0.15), 0 10px 30px rgba(255, 102, 99, 0.1)'
+                    boxShadow: '0 25px 60px rgba(0, 0, 0, 0.15), 0 10px 30px rgba(255, 102, 99, 0.1)',
+                    display: 'grid',
+                    gridTemplateColumns: '1.618fr 1fr', // Golden ratio split
+                    background: 'var(--pannocotta-primary)'
                   }}
                   onClick={() => {
                     setSelectedProject(index % filteredProjects.length);
@@ -961,121 +1023,109 @@ export default function Home() {
                     transition: { duration: 0.4 }
                   }}
                 >
-                  {/* Project Background Image */}
-                  <Image
-                    src={project.image}
-                    alt={`${project.title} - Auto-moving carousel showcase`}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-1000"
-                    quality={95}
-                    sizes="85vw"
-                    priority={index < 2}
-                  />
-                  
-                  {/* Visual Accessibility Overlay - Left Side (Following Ideas Image) */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent" />
-                  
-                  {/* Content Overlay - Following Ideas Image Layout Structure */}
-                  <div className="absolute left-12 top-1/2 transform -translate-y-1/2 max-w-2xl text-white z-10">
-                    {/* Project Title - Luxury Serif */}
-                    <motion.h2 
-                      className="luxury-title text-5xl mb-4 leading-tight"
-                      style={{ 
-                        textShadow: '0 8px 32px rgba(0,0,0,0.8)',
-                        color: 'white'
-                      }}
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: index * 0.1 }}
-                    >
-                      {project.title}
-                    </motion.h2>
+                  {/* Image Section - Pure Visual, No Text Overlay */}
+                  <div className="project-image-section relative overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} - Enhanced carousel showcase`}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                      quality={95}
+                      sizes="50vw"
+                      priority={index < 2}
+                    />
                     
-                    {/* Project Subtitle - Humanist Body */}
-                    <motion.p 
-                      className="body-text-humanist text-xl text-white/90 mb-6"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: index * 0.1 + 0.2 }}
-                    >
-                      {project.subtitle}
-                    </motion.p>
+                    {/* Subtle Overlay - No Text */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/20" />
                     
-                    {/* Client & Meta Info */}
+                    {/* Project Number Indicator - Moved to Image */}
                     <motion.div
-                      className="mb-6"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: index * 0.1 + 0.4 }}
+                      className="absolute top-6 right-6 z-10"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 + 1.0 }}
                     >
-                      <p className="body-text-medium text-lg mb-2" style={{ color: '#ff6663' }}>
-                        {project.client}
-                      </p>
-                      <div className="flex gap-4 text-base text-white/80">
-                        <span>{project.year}</span>
-                        <span>•</span>
-                        <span>{project.location}</span>
+                      <div 
+                        className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-800 font-bold"
+                        style={{ border: '1px solid rgba(255, 102, 99, 0.3)' }}
+                      >
+                        {String((index % filteredProjects.length) + 1).padStart(2, '0')}
                       </div>
                     </motion.div>
-                    
-                    {/* Capability Tags - Clean Badges (Following Ideas Image) */}
-                    <motion.div 
-                      className="flex flex-wrap gap-2 mb-8"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: index * 0.1 + 0.6 }}
-                    >
-                      {project.tech && project.tech.slice(0, 4).map((tag, tagIndex) => (
-                        <span 
-                          key={tagIndex}
-                          className="body-text-humanist px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-medium rounded-full"
-                          style={{ border: '1px solid rgba(255, 255, 255, 0.4)' }}
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </motion.div>
-                    
-                    {/* View Project Button - Professional CTA (Following Ideas Image) */}
-                    <motion.button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelectedProject(index % filteredProjects.length);
-                        setCurrentGalleryImage(0);
-                      }}
-                      data-cursor="button"
-                      className="px-8 py-3 bg-white text-gray-800 rounded-full font-medium transition-all duration-300"
-                      style={{
-                        boxShadow: '0 8px 25px rgba(255, 255, 255, 0.4)'
-                      }}
-                      whileHover={{ 
-                        scale: 1.05,
-                        backgroundColor: '#ff6663',
-                        color: 'white',
-                        transition: { duration: 0.3 }
-                      }}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: index * 0.1 + 0.8 }}
-                    >
-                      View Project
-                    </motion.button>
                   </div>
                   
-                  {/* Project Number Indicator */}
-                  <motion.div
-                    className="absolute top-8 right-8 z-10"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 + 1.0 }}
-                  >
-                    <div 
-                      className="w-12 h-12 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white font-bold"
-                      style={{ border: '1px solid rgba(255, 255, 255, 0.3)' }}
+                  {/* Content Section - Perfect Readability */}
+                  <div className="project-content-section p-8 flex flex-col justify-between bg-white">
+                    {/* Enhanced Content Section - Perfect Readability */}
+                    <motion.div
+                      className="flex flex-col justify-between h-full"
+                      initial={{ opacity: 0, x: 30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.8, delay: index * 0.1 }}
                     >
-                      {String((index % filteredProjects.length) + 1).padStart(2, '0')}
-                    </div>
-                  </motion.div>
+                      {/* Top Content */}
+                      <div>
+                        {/* Project Title */}
+                        <h2 className="typography-display text-gray-800 mb-4 leading-tight">
+                          {project.title}
+                        </h2>
+                        
+                        {/* Project Subtitle */}
+                        <p className="typography-subtitle text-gray-700 mb-6 leading-relaxed">
+                          {project.subtitle}
+                        </p>
+                        
+                        {/* Client & Meta Info */}
+                        <div className="mb-6">
+                          <p className="typography-accent text-lg mb-2 font-semibold" style={{ color: '#ff6663' }}>
+                            {project.client}
+                          </p>
+                          <div className="flex gap-4 text-base text-gray-600">
+                            <span>{project.year}</span>
+                            <span>•</span>
+                            <span>{project.location}</span>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Bottom Content */}
+                      <div>
+                        {/* Capability Tags */}
+                        <div className="flex flex-wrap gap-2 mb-6">
+                          {project.tech && project.tech.slice(0, 4).map((tag, tagIndex) => (
+                            <span 
+                              key={tagIndex}
+                              className="typography-accent px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full"
+                              style={{ border: '1px solid rgba(255, 102, 99, 0.2)' }}
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        
+                        {/* View Project Button */}
+                        <motion.button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedProject(index % filteredProjects.length);
+                            setCurrentGalleryImage(0);
+                          }}
+                          data-cursor="button"
+                          className="w-full px-8 py-3 bg-white border-2 border-gray-200 text-gray-800 rounded-full font-medium transition-all duration-300 hover:border-grapefruit-primary hover:bg-grapefruit-primary hover:text-white"
+                          style={{
+                            boxShadow: '0 4px 15px rgba(255, 102, 99, 0.1)'
+                          }}
+                          whileHover={{ 
+                            scale: 1.02,
+                            transition: { duration: 0.2 }
+                          }}
+                          whileTap={{ scale: 0.98 }}
+                        >
+                          View Project Details
+                        </motion.button>
+                      </div>
+                    </motion.div>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
@@ -1870,10 +1920,10 @@ export default function Home() {
       </footer>
       </main>
 
-      {/* LUXURY EDITORIAL PROJECT EXPERIENCE - Vogue/Wallpaper Inspired */}
+      {/* ENHANCED PROJECT DETAILS - Editorial Quality Using Existing Content */}
       {selectedProject !== null && (
         <motion.div 
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl"
+          className="project-modal-enhanced"
           onClick={() => setSelectedProject(null)}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -1939,312 +1989,213 @@ export default function Home() {
               </div>
             </div>
 
-            {/* MAGAZINE-STYLE LAYOUT - Editorial Excellence */}
-            <div style={{ 
+            {/* ENHANCED EDITORIAL LAYOUT - Using Existing Content Structure */}
+            <div className="project-modal-grid" style={{ 
               paddingTop: 'var(--space-3xl)', 
               paddingBottom: 'var(--content-gap)' 
             }}>
-              {/* FLOATING EDITORIAL HERO - Zero Cropping */}
-              <motion.div 
-                className="w-full flex items-center justify-center bg-gradient-to-br from-gray-50 to-white"
-                style={{ 
-                  marginBottom: 'var(--section-gap)',
-                  minHeight: '60vh',
-                  maxHeight: '80vh',
-                  padding: 'var(--content-gap)',
-                  borderRadius: '3rem'
-                }}
-                initial={{ opacity: 0, scale: 1.02 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1.2 }}
-              >
-                <motion.div
-                  className="relative"
-                  whileHover={{ 
-                    scale: 1.02,
-                    rotateY: 1,
-                    boxShadow: '0 60px 140px rgba(0, 0, 0, 0.2)'
-                  }}
-                  style={{
-                    borderRadius: '2rem',
-                    overflow: 'hidden',
-                    boxShadow: '0 40px 100px rgba(0, 0, 0, 0.12)'
-                  }}
+              
+              {/* Main Content Section - Using Existing Content */}
+              <main className="project-story-section">
+                {/* Project Header - Using Existing Meta */}
+                <motion.header
+                  className="mb-phi-2xl"
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
                 >
-                  <Image
-                    src={projects[selectedProject].image}
-                    alt={`${projects[selectedProject].title} editorial hero with complete visibility`}
-                    width={1400}
-                    height={900}
-                    quality={100}
-                    sizes="95vw"
-                    style={{ 
-                      objectFit: 'contain',
-                      borderRadius: '2rem',
-                      maxHeight: '70vh',
-                      height: 'auto',
-                      width: 'auto'
-                    }}
-                  />
+                  <h1 className="typography-hero text-gray-800 mb-phi-lg">
+                    {projects[selectedProject].title}
+                  </h1>
+                  <p className="typography-subtitle text-gray-700 mb-phi-md">
+                    {projects[selectedProject].subtitle}
+                  </p>
                   
-                  {/* Elegant Info Badge - Not Blocking Image */}
-                  <motion.div
-                    className="absolute -bottom-6 left-1/2 transform -translate-x-1/2"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.8 }}
-                  >
-                    <div 
-                      className="px-8 py-4 bg-white rounded-full shadow-lg"
-                      style={{ border: '1px solid rgba(255, 102, 99, 0.2)' }}
-                    >
-                      <span className="text-lg font-medium text-gray-700">
-                        {projects[selectedProject].year} • {projects[selectedProject].location}
-                      </span>
-                    </div>
-                  </motion.div>
-                </motion.div>
-              </motion.div>
-
-              {/* FLOATING PROJECT TITLE - Below Image */}
-              <motion.div
-                className="text-center mb-16"
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.5 }}
-              >
-                <h1 className="luxury-title text-8xl text-gray-800 mb-8" style={{ 
-                  textShadow: '0 8px 32px rgba(0,0,0,0.08)'
-                }}>
-                  {projects[selectedProject].title}
-                </h1>
-                <div className="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
-                  <div className="text-left">
-                    <p className="text-3xl font-medium mb-6" style={{ color: '#ff6663' }}>
+                  {/* Project Meta */}
+                  <div className="flex flex-wrap gap-6 mb-phi-lg">
+                    <span className="typography-accent text-grapefruit-primary font-semibold">
                       {projects[selectedProject].client}
-                    </p>
-                    <p className="text-2xl leading-relaxed text-gray-600">
-                      {projects[selectedProject].subtitle}
-                    </p>
-                  </div>
-                  <div className="flex items-end justify-center md:justify-end">
+                    </span>
+                    <span className="typography-accent text-gray-600">
+                      {projects[selectedProject].year}
+                    </span>
+                    <span className="typography-accent text-gray-600">
+                      {projects[selectedProject].location}
+                    </span>
                     <a 
                       href={projects[selectedProject].website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="icon-button inline-flex items-center bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-full font-medium transition-all duration-500 hover:scale-105"
-                      style={{ 
-                        fontSize: '1.125rem',
-                        gap: 'var(--icon-text-gap-lg)',
-                        paddingLeft: 'var(--space-lg)',
-                        paddingRight: 'var(--space-lg)',
-                        paddingTop: 'var(--space-md)',
-                        paddingBottom: 'var(--space-md)',
-                        minHeight: '56px'
-                      }}
+                      className="typography-accent text-grapefruit-primary hover:underline"
                     >
-                      <ExternalLink size={22} />
-                      Visit Live Project
+                      Visit Live Project →
                     </a>
                   </div>
-                </div>
-              </motion.div>
-
-              {/* Editorial Content Layout */}
-              <div className="max-w-7xl mx-auto" style={{ paddingLeft: 'var(--content-gap)', paddingRight: 'var(--content-gap)' }}>
-                <div className="grid lg:grid-cols-12" style={{ gap: 'var(--section-gap)' }}>
-                  {/* Main Content Column */}
-                  <div className="lg:col-span-7">
-                    
-                    {/* Context - Editorial Style */}
-                    <motion.div
+                </motion.header>
+                
+                {/* Content Sections - Using Existing Content Structure */}
+                <article className="space-y-16">
+                  {/* Context Section */}
+                  <motion.section
+                    className="content-section"
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                  >
+                    <h2 className="typography-display text-gray-800 mb-phi-lg">Context</h2>
+                    <p className="typography-body text-xl text-gray-700 leading-relaxed">
+                      {projects[selectedProject].context}
+                    </p>
+                  </motion.section>
+                  
+                  {/* Challenge/Approach Section */}
+                  <motion.section
+                    className="content-section"
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                  >
+                    <h2 className="typography-display text-gray-800 mb-phi-lg">Approach</h2>
+                    <p className="typography-body text-xl text-gray-700 leading-relaxed">
+                      {projects[selectedProject].challenge}
+                    </p>
+                  </motion.section>
+                  
+                  {/* Impact Section */}
+                  <motion.section
+                    className="content-section"
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.7 }}
+                  >
+                    <h2 className="typography-display text-gray-800 mb-phi-lg">Impact</h2>
+                    <p className="typography-body text-xl text-gray-700 leading-relaxed">
+                      {projects[selectedProject].impact}
+                    </p>
+                  </motion.section>
+                  
+                  {/* Testimonial Section - Using Existing Testimonial */}
+                  {projects[selectedProject].testimonial && (
+                    <motion.section
+                      className="testimonial-enhanced"
                       initial={{ opacity: 0, y: 40 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.8 }}
-                      style={{ marginBottom: 'var(--section-gap)' }}
+                      transition={{ duration: 0.8, delay: 0.9 }}
                     >
-                      <h2 className="text-5xl font-light text-gray-800 leading-tight" style={{ marginBottom: 'var(--content-gap)' }}>Context</h2>
-                      <div className="prose prose-2xl max-w-none">
-                        <p className="text-2xl text-gray-700 font-light" style={{ lineHeight: 'var(--text-spacing-relaxed)' }}>
-                          {projects[selectedProject].context}
-                        </p>
-                      </div>
-                    </motion.div>
-
-                    {/* Approach - Editorial Style */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 40 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 1.0 }}
-                      style={{ marginBottom: 'var(--section-gap)' }}
-                    >
-                      <h2 className="text-5xl font-light text-gray-800 leading-tight" style={{ marginBottom: 'var(--content-gap)' }}>Approach</h2>
-                      <div className="prose prose-2xl max-w-none">
-                        <p className="text-2xl text-gray-700 font-light" style={{ lineHeight: 'var(--text-spacing-relaxed)' }}>
-                          {projects[selectedProject].challenge}
-                        </p>
-                      </div>
-                    </motion.div>
-
-                    {/* Impact - Editorial Style */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 40 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 1.2 }}
-                      style={{ marginBottom: 'var(--section-gap)' }}
-                    >
-                      <h2 className="text-5xl font-light text-gray-800 leading-tight" style={{ marginBottom: 'var(--content-gap)' }}>Impact</h2>
-                      <div className="prose prose-2xl max-w-none">
-                        <p className="text-2xl text-gray-700 font-light" style={{ lineHeight: 'var(--text-spacing-relaxed)' }}>
-                          {projects[selectedProject].impact}
-                        </p>
-                      </div>
-                    </motion.div>
-
-                    {/* Testimonial - Luxury Presentation */}
-                    {projects[selectedProject].testimonial && (
-                      <motion.div
-                        className="border-l-8"
+                      <div 
+                        className="border-l-4 px-phi-xl py-phi-lg bg-white rounded-2xl"
                         style={{ 
-                          borderColor: '#ff6663', 
-                          backgroundColor: 'rgba(255, 255, 255, 0.6)',
-                          paddingLeft: 'var(--content-gap)',
-                          paddingTop: 'var(--content-gap)',
-                          paddingBottom: 'var(--content-gap)',
-                          marginTop: 'var(--section-gap)',
-                          marginBottom: 'var(--section-gap)'
+                          borderColor: '#ff6663',
+                          boxShadow: '0 15px 35px rgba(255, 102, 99, 0.08)'
                         }}
-                        initial={{ opacity: 0, x: -40 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 1.4 }}
                       >
-                        <blockquote className="quote-typography text-5xl text-gray-800" style={{ 
-                          marginBottom: 'var(--content-gap)',
-                          textShadow: '0 4px 12px rgba(0,0,0,0.05)'
-                        }}>
-                          &ldquo;{projects[selectedProject].testimonial}&rdquo;
+                        <blockquote className="typography-quote text-gray-800 mb-phi-md">
+                          "{projects[selectedProject].testimonial}"
                         </blockquote>
-                        <cite className="text-2xl font-medium" style={{ color: '#ff6663' }}>
+                        <cite className="typography-accent text-grapefruit-primary font-semibold">
                           {projects[selectedProject].testimonialAuthor}
                         </cite>
-                      </motion.div>
-                    )}
+                      </div>
+                    </motion.section>
+                  )}
+                </article>
+              </main>
+              
+              {/* Sidebar - Enhanced Gallery & Project Info Using Existing Content */}
+              <aside className="project-sidebar-enhanced">
+                {/* Hero Image Display */}
+                <motion.div 
+                  className="gallery-main-image mb-phi-lg"
+                  initial={{ opacity: 0, scale: 1.02 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 1.2 }}
+                >
+                  <Image
+                    src={projects[selectedProject].image}
+                    alt={`${projects[selectedProject].title} - Main showcase`}
+                    fill
+                    className="object-cover rounded-xl"
+                    quality={100}
+                  />
+                </motion.div>
+                
+                {/* Enhanced Gallery - Using Existing galleryImages */}
+                <div className="gallery-luxury">
+                  <h3 className="typography-display text-gray-800 mb-phi-md">Gallery</h3>
+                  
+                  {/* Gallery Thumbnails */}
+                  <div className="gallery-thumbnails">
+                    {projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.map((image, index) => (
+                      <button
+                        key={index}
+                        onClick={() => {
+                          setCurrentGalleryImage(index);
+                          setGalleryZoomOpen(true);
+                        }}
+                        className={`gallery-thumbnail ${currentGalleryImage === index ? 'active' : ''}`}
+                      >
+                        <Image
+                          src={image}
+                          alt={`${projects[selectedProject].title} - Gallery ${index + 1}`}
+                          fill
+                          className="object-cover"
+                          quality={85}
+                        />
+                      </button>
+                    ))}
                   </div>
-
-                  {/* Gallery Sidebar - Art Collection Style */}
-                  <div className="lg:col-span-5">
-                    <motion.div
-                      className="sticky top-32"
-                      initial={{ opacity: 0, x: 40 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.8, delay: 1.0 }}
+                  
+                  {/* Gallery Navigation */}
+                  <div className="gallery-navigation">
+                    <button 
+                      className="gallery-nav-btn"
+                      onClick={() => {
+                        const newIndex = currentGalleryImage === 0 ? 
+                          (projects[selectedProject].galleryImages?.length || 1) - 1 : 
+                          currentGalleryImage - 1;
+                        setCurrentGalleryImage(newIndex);
+                      }}
                     >
-                      <h2 className="text-3xl font-light text-gray-800" style={{ marginBottom: 'var(--content-gap)' }}>Project Gallery</h2>
-                      
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--content-gap)' }}>
-                        {projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.map((image, index) => (
-                          <motion.div
-                            key={index}
-                            className="rounded-3xl overflow-hidden cursor-zoom-in group flex items-center justify-center bg-white p-6"
-                            onClick={() => {
-                              setCurrentGalleryImage(index);
-                              setGalleryZoomOpen(true);
-                            }}
-                            whileHover={{ 
-                              scale: 1.04,
-                              rotateY: 2,
-                              boxShadow: '0 35px 80px rgba(0, 0, 0, 0.18)'
-                            }}
-                            style={{ 
-                              boxShadow: '0 25px 60px rgba(0, 0, 0, 0.12)',
-                              border: currentGalleryImage === index ? '4px solid #ff6663' : '4px solid rgba(255, 102, 99, 0.1)',
-                              minHeight: '300px',
-                              maxHeight: '400px'
-                            }}
-                          >
-                            <Image
-                              src={image}
-                              alt={`${projects[selectedProject].title} - Gallery showcase ${index + 1} with zero cropping`}
-                              width={600}
-                              height={450}
-                              quality={100}
-                              style={{
-                                objectFit: 'contain',
-                                borderRadius: '1rem',
-                                maxWidth: '100%',
-                                maxHeight: '100%',
-                                height: 'auto',
-                                width: 'auto'
-                              }}
-                              className="group-hover:scale-105 transition-transform duration-700"
-                            />
-                            
-                            {/* Floating Counter Badge */}
-                            <motion.div 
-                              className="absolute -top-3 -left-3"
-                              whileHover={{ scale: 1.15, rotate: 5 }}
-                              animate={{ 
-                                y: [0, -2, 0],
-                                rotate: [0, 1, 0]
-                              }}
-                              transition={{ duration: 3, repeat: Infinity }}
-                            >
-                              <span 
-                                className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-base"
-                                style={{ 
-                                  background: 'linear-gradient(135deg, #ff6663 0%, #ff8a80 100%)',
-                                  boxShadow: '0 8px 25px rgba(255, 102, 99, 0.4)'
-                                }}
-                              >
-                                {index + 1}
-                              </span>
-                            </motion.div>
-                          </motion.div>
-                        ))}
-                      </div>
-                      
-                      {/* Gallery Information */}
-                      <div className="text-center" style={{ 
-                        marginTop: 'var(--content-gap)',
-                        padding: 'var(--element-gap)', 
-                        backgroundColor: 'rgba(255, 102, 99, 0.05)', 
-                        borderRadius: '1.5rem' 
-                      }}>
-                        <p className="text-xl text-gray-700 mb-4">
-                          {projects[selectedProject].galleryImages?.length || 2} Images
-                        </p>
-                        <p className="text-lg text-gray-600">
-                          Click any image to explore in detail
-                        </p>
-                      </div>
-
-                      {/* Project Capabilities - Sidebar Style */}
-                      <div className="bg-white rounded-3xl" style={{ 
-                        marginTop: 'var(--content-gap)',
-                        padding: 'var(--element-gap)', 
-                        boxShadow: '0 20px 40px rgba(255, 102, 99, 0.08)' 
-                      }}>
-                        <h3 className="text-2xl font-light text-gray-800" style={{ marginBottom: 'var(--element-gap)' }}>Capabilities</h3>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-md)' }}>
-                          {projects[selectedProject].tech && projects[selectedProject].tech.slice(0, 3).map((tech, index) => (
-                            <div 
-                              key={index}
-                              className="px-6 py-4 text-lg font-medium rounded-2xl"
-                              style={{
-                                backgroundColor: index === 0 ? '#ff6663' : 'rgba(255, 102, 99, 0.1)',
-                                color: index === 0 ? 'white' : '#ff6663',
-                                border: index === 0 ? 'none' : '1px solid rgba(255, 102, 99, 0.2)'
-                              }}
-                            >
-                              {tech}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </motion.div>
+                      Previous
+                    </button>
+                    <span className="gallery-counter">
+                      {currentGalleryImage + 1} of {projects[selectedProject].galleryImages?.length || 2}
+                    </span>
+                    <button 
+                      className="gallery-nav-btn"
+                      onClick={() => {
+                        const newIndex = currentGalleryImage === (projects[selectedProject].galleryImages?.length || 1) - 1 ? 
+                          0 : currentGalleryImage + 1;
+                        setCurrentGalleryImage(newIndex);
+                      }}
+                    >
+                      Next
+                    </button>
                   </div>
                 </div>
-              </div>
+                
+                {/* Project Capabilities - Using Existing Tech */}
+                <div className="capabilities-section bg-white rounded-2xl p-phi-lg mb-phi-lg" style={{
+                  boxShadow: '0 15px 35px rgba(255, 102, 99, 0.08)'
+                }}>
+                  <h3 className="typography-display text-gray-800 mb-phi-md">Capabilities</h3>
+                  <div className="flex flex-col gap-3">
+                    {projects[selectedProject].tech && projects[selectedProject].tech.map((capability, index) => (
+                      <div 
+                        key={index}
+                        className="px-4 py-3 bg-gray-50 rounded-xl border-l-4"
+                        style={{
+                          borderColor: index === 0 ? '#ff6663' : 'rgba(255, 102, 99, 0.3)'
+                        }}
+                      >
+                        <span className="typography-accent text-sm font-medium text-gray-700">
+                          {capability}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </aside>
             </div>
           </motion.div>
         </motion.div>
