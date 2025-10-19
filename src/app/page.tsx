@@ -24,23 +24,20 @@ export default function Home() {
   const [currentGalleryImage, setCurrentGalleryImage] = useState(0);
   const [galleryZoomOpen, setGalleryZoomOpen] = useState(false);
   
-  // Enhanced Project Carousel Control
-  const [carouselMode, setCarouselMode] = useState<'manual' | 'slow' | 'medium' | 'fast'>('slow');
-  const [isCarouselPaused, setIsCarouselPaused] = useState(false);
+  // Foundation Project Exploration System
+  const [featuredProjectIndex, setFeaturedProjectIndex] = useState(0);
   
-  // Carousel timing system - much more readable
-  const getCarouselDuration = () => {
-    if (carouselMode === 'manual' || isCarouselPaused) return 0;
-    const speeds = {
-      slow: 20,    // 20 seconds per project (readable)
-      medium: 15,  // 15 seconds per project 
-      fast: 12     // 12 seconds per project
-    };
-    return filteredProjects.length * speeds[carouselMode];
+  // Project navigation functions
+  const goToPreviousProject = () => {
+    setFeaturedProjectIndex(prev => prev === 0 ? filteredProjects.length - 1 : prev - 1);
   };
   
-  const shouldCarouselAutoMove = () => {
-    return carouselMode !== 'manual' && !isCarouselPaused;
+  const goToNextProject = () => {
+    setFeaturedProjectIndex(prev => (prev + 1) % filteredProjects.length);
+  };
+  
+  const goToProject = (index: number) => {
+    setFeaturedProjectIndex(index);
   };
   
   // PROPRIETARY ICON MAPPING - 100% Copy Compliant (Available for future use)
@@ -612,159 +609,150 @@ export default function Home() {
             </div>
           </motion.div>
           
-          {/* ENHANCED PROJECT SHOWCASE - User Controlled & Readable */}
-          <div className="w-full overflow-hidden px-8">
+          {/* PROJECT SHOWCASE FOUNDATION - User Controlled Excellence */}
+          <div className="project-showcase-foundation">
             
-            {/* FOUNDATION CAROUSEL CONTROLS - Clean & Intuitive */}
+            {/* Project Navigation Controls */}
             <motion.div 
-              className="carousel-controls-foundation"
+              className="project-navigation-clean"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="carousel-control-group">
-                <button
-                  onClick={() => setCarouselMode('manual')}
-                  className={`button-foundation ${carouselMode === 'manual' ? 'primary' : ''}`}
-                >
-                  Browse Manually
-                </button>
-                <button
-                  onClick={() => setCarouselMode('slow')}
-                  className={`button-foundation ${carouselMode === 'slow' ? 'primary' : ''}`}
-                >
-                  Auto Browse
-                </button>
-                <button
-                  onClick={() => setIsCarouselPaused(!isCarouselPaused)}
-                  className="button-foundation"
-                >
-                  {isCarouselPaused ? '▶ Resume' : '⏸ Pause'}
-                </button>
+              <button 
+                onClick={goToPreviousProject}
+                className="nav-btn-foundation"
+              >
+                ← Previous Project
+              </button>
+              
+              <div className="project-counter-foundation">
+                <span className="current-project">{featuredProjectIndex + 1}</span>
+                <span className="divider">/</span>
+                <span className="total-projects">{filteredProjects.length}</span>
               </div>
               
-              <div className="carousel-status">
-                <span className="text-foundation-xs font-foundation-accent text-gray-500">
-                  {carouselMode === 'manual' ? 'Manual browsing active' : 'Auto-browsing active'}
-                </span>
-              </div>
+              <button 
+                onClick={goToNextProject}
+                className="nav-btn-foundation"
+              >
+                Next Project →
+              </button>
             </motion.div>
-            {/* Enhanced Project Carousel - User Controlled & Readable */}
+            
+            {/* Featured Project Display */}
             <motion.div 
-              className="flex gap-12"
-              animate={{ 
-                x: shouldCarouselAutoMove() ? [`0%`, `-${filteredProjects.length * 100}%`] : '0%'
-              }}
-              transition={{
-                duration: getCarouselDuration(),
-                repeat: shouldCarouselAutoMove() ? Infinity : 0,
-                ease: "easeInOut" // Smoother, more sophisticated easing
-              }}
-              onHoverStart={() => setIsCarouselPaused(true)}
-              onHoverEnd={() => setIsCarouselPaused(false)}
-              style={{ width: `${filteredProjects.length * 200}%` }}
+              className="featured-project-display"
+              key={featuredProjectIndex}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
             >
-              {/* Duplicate projects for seamless infinite loop */}
-              {[...filteredProjects, ...filteredProjects].map((project, index) => (
-                <motion.div
-                  key={`${project.title}-${index}`}
-                  className="min-w-[85vw] h-[65vh] project-card-foundation cursor-pointer"
-                  data-cursor="project"
-                  style={{
-                    flexShrink: 0
-                  }}
-                  onClick={() => {
-                    setSelectedProject(index % filteredProjects.length);
-                    setCurrentGalleryImage(0);
-                  }}
-                  whileHover={{ 
-                    scale: 1.01,
-                    transition: { duration: 0.3 }
-                  }}
-                >
-                  {/* Image Section - Foundation Design */}
-                  <div className="project-image-foundation">
+              <div className="project-card-foundation featured">
+                {/* Perfect Image Presentation */}
+                <div className="project-image-container-perfect">
+                  <div className="image-aspect-wrapper">
                     <Image
-                      src={project.image}
-                      alt={`${project.title} - Project showcase`}
+                      src={filteredProjects[featuredProjectIndex].image}
+                      alt={`${filteredProjects[featuredProjectIndex].title} - ${filteredProjects[featuredProjectIndex].client}`}
                       fill
-                      className="object-cover transition-transform duration-500 hover:scale-105"
-                      quality={85}
-                      sizes="50vw"
-                      priority={index < 2}
+                      className="project-image-perfect"
+                      quality={95}
+                      sizes="60vw"
+                      priority
+                      style={{
+                        objectFit: 'cover',
+                        objectPosition: 'center'
+                      }}
                     />
-                    
-                    {/* Subtle Project Number */}
-                    <div className="absolute top-4 right-4 z-10">
-                      <div 
-                        className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-xs font-bold text-gray-700"
-                        style={{ border: '1px solid rgba(255, 102, 99, 0.2)' }}
-                      >
-                        {String((index % filteredProjects.length) + 1).padStart(2, '0')}
-                      </div>
+                  </div>
+                  
+                  {/* Image Overlay Info */}
+                  <div className="image-overlay-info">
+                    <span className="project-year-overlay">{filteredProjects[featuredProjectIndex].year}</span>
+                    <span className="project-category-overlay">{filteredProjects[featuredProjectIndex].category}</span>
+                  </div>
+                </div>
+                
+                {/* Systematic Content Hierarchy */}
+                <div className="project-content-systematic">
+                  <header className="project-header-foundation">
+                    <h3 className="project-title-foundation">{filteredProjects[featuredProjectIndex].title}</h3>
+                    <p className="project-client-foundation">{filteredProjects[featuredProjectIndex].client}</p>
+                    <div className="project-meta-foundation">
+                      <span>{filteredProjects[featuredProjectIndex].year}</span>
+                      <span>•</span>
+                      <span>{filteredProjects[featuredProjectIndex].location}</span>
+                    </div>
+                  </header>
+                  
+                  <div className="project-description-section">
+                    <p className="project-subtitle-foundation">{filteredProjects[featuredProjectIndex].subtitle}</p>
+                    <p className="project-description-foundation">{filteredProjects[featuredProjectIndex].description}</p>
+                  </div>
+                  
+                  <div className="project-capabilities-section">
+                    <div className="capabilities-grid">
+                      {filteredProjects[featuredProjectIndex].tech.map(capability => (
+                        <span key={capability} className="capability-tag-foundation">
+                          {capability}
+                        </span>
+                      ))}
                     </div>
                   </div>
                   
-                  {/* Content Section - Foundation Structure */}
-                  <div className="project-content-foundation">
-                    {/* Foundation Project Content Structure */}
-                    <motion.div
-                      className="h-full"
-                      initial={{ opacity: 0, x: 30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                  <div className="project-actions-section">
+                    <button 
+                      onClick={() => setSelectedProject(featuredProjectIndex)}
+                      className="button-foundation primary"
                     >
-                      {/* Project Header */}
-                      <div className="project-header-foundation">
-                        <h2 className="project-title-foundation">
-                          {project.title}
-                        </h2>
-                        <p className="project-subtitle-foundation">
-                          {project.subtitle}
-                        </p>
-                        <p className="project-description-foundation line-clamp-3">
-                          {project.description}
-                        </p>
-                      </div>
-                      
-                      {/* Project Meta */}
-                      <div className="project-meta-foundation">
-                        <div className="project-client-foundation">
-                          {project.client}
-                        </div>
-                        <div className="project-details-foundation">
-                          <span>{project.year}</span>
-                          <span>•</span>
-                          <span>{project.location}</span>
-                        </div>
-                      </div>
-                      
-                      {/* Project Tags */}
-                      <div className="project-tags-foundation">
-                        {project.tech && project.tech.slice(0, 6).map((tag, tagIndex) => (
-                          <span 
-                            key={tagIndex}
-                            className="project-tag-foundation"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                      
-                      {/* Foundation CTA */}
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setSelectedProject(index % filteredProjects.length);
-                          setCurrentGalleryImage(0);
-                        }}
-                        className="button-foundation primary w-full"
+                      View Full Case Study
+                    </button>
+                    {filteredProjects[featuredProjectIndex].website && (
+                      <a 
+                        href={filteredProjects[featuredProjectIndex].website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="button-foundation"
                       >
-                        Explore Project
-                      </button>
-                    </motion.div>
+                        Visit Live Site
+                      </a>
+                    )}
                   </div>
-                </motion.div>
+                </div>
+              </div>
+            </motion.div>
+            
+            {/* Project Grid Navigation */}
+            <motion.div 
+              className="project-grid-navigation"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              {filteredProjects.map((project, index) => (
+                <motion.button 
+                  key={project.title}
+                  className={`project-thumbnail-nav ${index === featuredProjectIndex ? 'active' : ''}`}
+                  onClick={() => goToProject(index)}
+                  whileHover={{ y: -4 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="thumbnail-image">
+                    <Image 
+                      src={project.image} 
+                      alt={project.title}
+                      fill
+                      className="object-cover"
+                      quality={75}
+                      sizes="200px"
+                    />
+                  </div>
+                  <div className="thumbnail-info">
+                    <span className="thumbnail-title">{project.title}</span>
+                    <span className="thumbnail-client">{project.client}</span>
+                  </div>
+                </motion.button>
               ))}
             </motion.div>
             
