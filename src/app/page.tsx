@@ -857,42 +857,40 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* ROADMAP EXPERIENCE TIMELINE */}
+            {/* SOPHISTICATED ROADMAP EXPERIENCE */}
             <div className="relative">
-              {/* Timeline Container */}
-              <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 mb-phi-2xl overflow-hidden"
+              {/* Elegant Timeline Container */}
+              <div className="relative bg-gradient-to-br from-white/95 to-white/90 backdrop-blur-xl rounded-[2rem] p-12 mb-phi-2xl overflow-hidden"
                    style={{
-                     boxShadow: '0 25px 50px rgba(0, 0, 0, 0.1)',
-                     border: '1px solid rgba(255, 102, 99, 0.1)'
+                     boxShadow: '0 32px 64px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 102, 99, 0.05)'
                    }}>
                 
-                {/* Timeline Header */}
-                <div className="flex justify-between items-center mb-8">
-                  <h3 className="text-3xl font-bold text-gray-800">PROFESSIONAL JOURNEY</h3>
-                  <div className="flex gap-4">
-                    <button className="px-6 py-3 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-all duration-300">
-                      ABOUT
-                    </button>
-                    <button className="px-6 py-3 rounded-full bg-[#ff6663] text-white hover:bg-[#e55a57] transition-all duration-300">
-                      SUPPORT PROJECT
-                    </button>
+                {/* Refined Header */}
+                <div className="flex justify-between items-start mb-16">
+                  <div>
+                    <h3 className="text-4xl font-light text-gray-900 mb-4 tracking-tight">Professional Journey</h3>
+                    <p className="text-lg text-gray-600 font-light max-w-2xl leading-relaxed">
+                      A curated timeline of strategic design leadership and transformative innovation across global enterprises.
+                    </p>
                   </div>
                 </div>
 
-                {/* Timeline Years */}
-                <div className="relative mb-12">
+                {/* Sophisticated Timeline Years */}
+                <div className="relative mb-16">
                   <div className="flex justify-between items-center relative">
                     {[2002, 2006, 2010, 2014, 2018, 2022, 2025].map((year, index) => (
-                      <div key={year} className="flex flex-col items-center">
-                        <div className="text-sm font-medium text-gray-600 mb-2">{year}</div>
-                        <div className="w-px h-8 bg-gray-300"></div>
+                      <div key={year} className="flex flex-col items-center group">
+                        <div className="text-sm font-medium text-gray-500 mb-3 group-hover:text-gray-700 transition-colors duration-300">
+                          {year}
+                        </div>
+                        <div className="w-px h-12 bg-gradient-to-b from-gray-200 to-transparent"></div>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Experience Roadmap Items */}
-                <div className="space-y-6">
+                {/* Refined Experience Timeline */}
+                <div className="space-y-8">
                   {[
                     {
                       year: "2020—2025",
@@ -952,74 +950,80 @@ export default function Home() {
                     <motion.div
                       key={index}
                       className="relative group cursor-pointer"
-                      initial={{ opacity: 0, x: -50 }}
+                      initial={{ opacity: 0, x: -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.8, delay: index * 0.1 }}
+                      transition={{ duration: 0.6, delay: index * 0.08 }}
                       viewport={{ once: true }}
                     >
-                      {/* Timeline Bar */}
-                      <div className="relative h-16 flex items-center">
-                        {/* Background Bar */}
+                      {/* Elegant Timeline Bar */}
+                      <div className="relative h-20 flex items-center">
+                        {/* Subtle Background Bar */}
                         <div 
-                          className="absolute left-0 right-0 h-12 rounded-full transition-all duration-500 group-hover:h-14"
+                          className="absolute left-0 right-0 h-16 rounded-full transition-all duration-700 group-hover:h-18"
                           style={{
-                            backgroundColor: 'rgba(255, 102, 99, 0.1)',
+                            backgroundColor: 'rgba(255, 102, 99, 0.06)',
                             left: `${((experience.startYear - 2002) / (2025 - 2002)) * 100}%`,
                             width: `${((experience.endYear - experience.startYear) / (2025 - 2002)) * 100}%`,
-                            minWidth: '120px'
+                            minWidth: '140px'
                           }}
                         />
                         
-                        {/* Hover Bar - Grapefruit Color */}
+                        {/* Sophisticated Hover Bar */}
                         <motion.div 
-                          className="absolute h-12 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500"
+                          className="absolute h-16 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700"
                           style={{
-                            backgroundColor: '#ff6663',
+                            background: 'linear-gradient(135deg, #ff6663 0%, #e55a57 100%)',
                             left: `${((experience.startYear - 2002) / (2025 - 2002)) * 100}%`,
                             width: `${((experience.endYear - experience.startYear) / (2025 - 2002)) * 100}%`,
-                            minWidth: '120px'
+                            minWidth: '140px',
+                            boxShadow: '0 8px 32px rgba(255, 102, 99, 0.3)'
                           }}
-                          whileHover={{ height: '56px' }}
+                          whileHover={{ height: '72px' }}
                         />
                         
-                        {/* Role Text */}
-                        <div className="relative z-10 px-6 py-3">
-                          <h4 className="text-lg font-semibold text-gray-800 group-hover:text-white transition-colors duration-300">
+                        {/* Refined Role Text */}
+                        <div className="relative z-10 px-8 py-4">
+                          <h4 className="text-xl font-medium text-gray-800 group-hover:text-white transition-colors duration-500 mb-1">
                             {experience.role}
                           </h4>
-                          <p className="text-sm text-gray-600 group-hover:text-white/90 transition-colors duration-300">
+                          <p className="text-sm text-gray-500 group-hover:text-white/80 transition-colors duration-500 font-light">
                             {experience.company}
                           </p>
                         </div>
                       </div>
                       
-                      {/* Role Position Reveal */}
+                      {/* Sophisticated Role Reveal */}
                       <motion.div
-                        className="absolute top-full left-0 right-0 mt-4 p-6 bg-white rounded-2xl shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-500 z-20"
+                        className="absolute top-full left-0 right-0 mt-6 p-8 bg-white rounded-3xl shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 z-30"
                         style={{
-                          boxShadow: '0 20px 40px rgba(255, 102, 99, 0.15)',
-                          border: '1px solid rgba(255, 102, 99, 0.2)'
+                          boxShadow: '0 32px 64px rgba(255, 102, 99, 0.12), 0 0 0 1px rgba(255, 102, 99, 0.08)',
+                          backdropFilter: 'blur(20px)'
                         }}
-                        initial={{ y: -20, opacity: 0 }}
-                        whileHover={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.3 }}
+                        initial={{ y: -30, opacity: 0, scale: 0.95 }}
+                        whileHover={{ y: 0, opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.4, ease: "easeOut" }}
                       >
-                        <div className="flex items-center gap-4 mb-3">
-                          <div 
-                            className="px-3 py-1 rounded-full text-sm font-medium"
-                            style={{
-                              backgroundColor: '#ff6663',
-                              color: 'white'
-                            }}
-                          >
-                            {experience.year}
+                        <div className="flex items-start justify-between mb-6">
+                          <div className="flex items-center gap-4">
+                            <div 
+                              className="px-4 py-2 rounded-full text-sm font-medium"
+                              style={{
+                                background: 'linear-gradient(135deg, #ff6663 0%, #e55a57 100%)',
+                                color: 'white',
+                                boxShadow: '0 4px 16px rgba(255, 102, 99, 0.3)'
+                              }}
+                            >
+                              {experience.year}
+                            </div>
+                            <div>
+                              <h5 className="text-2xl font-medium text-gray-800 mb-1">{experience.role}</h5>
+                              <p className="text-lg font-medium" style={{color: '#ff6663'}}>
+                                {experience.company}
+                              </p>
+                            </div>
                           </div>
-                          <h5 className="text-xl font-semibold text-gray-800">{experience.role}</h5>
                         </div>
-                        <p className="text-lg font-medium mb-3" style={{color: '#ff6663'}}>
-                          {experience.company}
-                        </p>
-                        <p className="text-gray-700 leading-relaxed">
+                        <p className="text-gray-700 leading-relaxed text-lg font-light">
                           {experience.description}
                         </p>
                       </motion.div>
@@ -1027,18 +1031,23 @@ export default function Home() {
                   ))}
                 </div>
 
-                {/* Navigation Arrows */}
-                <div className="flex justify-between items-center mt-8">
-                  <button className="p-3 rounded-full bg-white/80 hover:bg-white transition-all duration-300 shadow-lg">
-                    <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                  </button>
-                  <button className="p-3 rounded-full bg-white/80 hover:bg-white transition-all duration-300 shadow-lg">
-                    <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
+                {/* Elegant Navigation */}
+                <div className="flex justify-center items-center mt-16 pt-8 border-t border-gray-100">
+                  <div className="flex items-center gap-8">
+                    <button className="group p-4 rounded-full bg-white/60 hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl">
+                      <svg className="w-5 h-5 text-gray-600 group-hover:text-gray-800 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                      </svg>
+                    </button>
+                    <div className="text-sm text-gray-500 font-light">
+                      Explore Timeline
+                    </div>
+                    <button className="group p-4 rounded-full bg-white/60 hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl">
+                      <svg className="w-5 h-5 text-gray-600 group-hover:text-gray-800 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
