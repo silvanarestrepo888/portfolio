@@ -298,7 +298,7 @@ body {
 
 /* NEO-CLASSICAL LUXURY TYPOGRAPHY CLASSES */
 
-/* HERO TYPOGRAPHY - Ultra Luxury */
+/* HERO TYPOGRAPHY - Ultra Luxury with Visible Gradient */
 .typography-hero {
   font-family: var(--font-display);
   font-size: clamp(4rem, 12vw, 12rem);
@@ -309,6 +309,13 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* ENSURE VISIBLE GRADIENT EFFECT */
+  background: linear-gradient(135deg, #ffffff 0%, #ff6663 30%, #ffffff 70%, #ff6663 100%);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-flow 8s ease-in-out infinite;
 }
 
 /* DISPLAY TYPOGRAPHY - Section Headlines */
@@ -772,34 +779,33 @@ body {
 /* PHASE 3: SOPHISTICATED BACKGROUND SYSTEM */
 /* ========================================== */
 
-/* DYNAMIC BACKGROUND CLASSES - Brand Aligned & Performance Optimized */
+/* SIMPLIFIED DYNAMIC BACKGROUNDS - Content-First Design */
 .bg-dynamic-hero {
   background: 
     linear-gradient(45deg, var(--pannocotta-primary) 0%, var(--pannocotta-warm) 100%),
-    radial-gradient(circle at 30% 20%, rgba(255,102,99,0.08) 0%, transparent 60%),
-    radial-gradient(circle at 70% 80%, rgba(255,122,119,0.05) 0%, transparent 60%);
-  background-size: 200% 200%, 150% 150%, 120% 120%;
-  animation: hero-breathe 20s ease-in-out infinite;
+    radial-gradient(circle at 50% 50%, rgba(255,102,99,0.04) 0%, transparent 80%);
+  background-size: 150% 150%, 200% 200%;
+  animation: hero-breathe 25s ease-in-out infinite;
   filter: var(--temperature-neutral);
   transition: filter 2s ease-in-out;
   /* GPU ACCELERATION & PERFORMANCE */
   transform: translateZ(0);
-  will-change: background-position, filter;
+  will-change: background-position;
   backface-visibility: hidden;
   contain: layout style paint;
 }
 
 .bg-dynamic-about {
   background: 
-    linear-gradient(135deg, var(--pannocotta-primary) 0%, var(--pannocotta-soft) 50%, var(--pannocotta-primary) 100%),
-    radial-gradient(ellipse at 80% 20%, rgba(255,102,99,0.04) 0%, transparent 70%);
-  background-size: 300% 300%, 100% 100%;
-  animation: about-flow 25s ease-in-out infinite;
+    linear-gradient(135deg, var(--pannocotta-primary) 0%, var(--pannocotta-soft) 100%),
+    radial-gradient(circle at 80% 20%, rgba(255,102,99,0.02) 0%, transparent 80%);
+  background-size: 200% 200%, 150% 150%;
+  animation: about-flow 30s ease-in-out infinite;
   filter: var(--temperature-warm);
   transition: filter 2s ease-in-out;
   /* GPU ACCELERATION & PERFORMANCE */
   transform: translateZ(0);
-  will-change: background-position, filter;
+  will-change: background-position;
   backface-visibility: hidden;
   contain: layout style paint;
 }
@@ -1420,6 +1426,141 @@ body {
   
   .project-modal-grid {
     grid-template-columns: 1.618fr 1fr;
+  }
+}
+
+/* ========================================== */
+/* SERVICES SECTION - REFERENCE DESIGN IMPLEMENTATION */
+/* ========================================== */
+
+.services-grid-reference {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  height: 75vh;
+  border: 1px solid #e5e5e5;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 25px 60px rgba(255, 102, 99, 0.08);
+}
+
+.service-column-reference {
+  padding: 2rem 1.5rem;
+  border-right: 1px solid #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: white;
+}
+
+.service-column-reference:last-child {
+  border-right: none;
+}
+
+.service-column-reference:hover {
+  background: rgba(255, 102, 99, 0.03);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(255, 102, 99, 0.1);
+  z-index: 10;
+}
+
+.service-number {
+  font-family: var(--font-accent);
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 102, 99, 0.7);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.service-title-reference {
+  font-family: var(--font-accent);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.capabilities-list-reference {
+  flex: 1;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.capability-item {
+  font-family: var(--font-accent);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+.capability-item::before {
+  content: '/';
+  position: absolute;
+  left: 0;
+  color: rgba(255, 102, 99, 0.6);
+  font-weight: 600;
+}
+
+.service-description-reference {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #555;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 102, 99, 0.1);
+}
+
+/* RESPONSIVE SERVICES DESIGN */
+@media (max-width: 1024px) {
+  .services-grid-reference {
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+    gap: 1px;
+  }
+  
+  .service-column-reference {
+    border-right: none;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 2rem 1.5rem;
+    min-height: 300px;
+  }
+  
+  .service-column-reference:nth-child(even) {
+    border-right: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid-reference {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  
+  .service-column-reference {
+    border-right: none;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 1.5rem 1rem;
+    min-height: 250px;
+  }
+  
+  .service-column-reference:last-child {
+    border-bottom: none;
   }
 }
 

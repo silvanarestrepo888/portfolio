@@ -23,7 +23,6 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("ALL WORK");
   const [currentGalleryImage, setCurrentGalleryImage] = useState(0);
   const [galleryZoomOpen, setGalleryZoomOpen] = useState(false);
-  const [hoveredService, setHoveredService] = useState<number | null>(null);
   
   // Enhanced Project Carousel Control
   const [carouselMode, setCarouselMode] = useState<'manual' | 'slow' | 'medium' | 'fast'>('slow');
@@ -54,86 +53,72 @@ export default function Home() {
   //   "Customer Intelligence Platforms": CustomerIntelligenceIcon
   // };
 
-  // AWARD-WINNING SERVICES DATA - Vertical Expansion System
-  const awardWinningServices = [
+  // SERVICES DATA - Matching Reference Design Exactly
+  const referenceServices = [
     {
-      title: "Accelerated Product Innovation",
+      number: "00-1",
+      title: "WEB DESIGN",
       capabilities: [
-        "AI-POWERED PROTOTYPING",
-        "RAPID VALIDATION", 
-        "INNOVATION SPRINTS",
-        "DATA ACCELERATION"
+        "MODERN LAYOUTS",
+        "RESPONSIVE DESIGN", 
+        "SEO-FRIENDLY STRUCTURE",
+        "CLEAR NAVIGATION",
+        "VISUAL STORYTELLING"
       ],
-      shortDescription: "Transform product visions into market reality through rapid prototyping and validation.",
-      icon: AcceleratedInnovationIcon
+      description: "I create websites that stand out from the competition and bring real value to businesses. Each project combines creativity and functionality to deliver the best digital solutions."
     },
     {
-      title: "Experience Orchestration", 
+      number: "00-2", 
+      title: "UX/UI DESIGN",
       capabilities: [
-        "TOUCHPOINT HARMONIZATION",
-        "UNIFIED ARCHITECTURES",
-        "SEAMLESS CONVERSATIONS",
-        "BRAND VOICE CONSISTENCY"
+        "USER RESEARCH",
+        "INTERACTION DESIGN",
+        "PROTOTYPING",
+        "USABILITY TESTING",
+        "DESIGN SYSTEMS"
       ],
-      shortDescription: "Systems thinking creating unified experience architectures where interactions feel seamless.",
-      icon: ExperienceOrchestrationIcon
+      description: "User-centered design approach creating intuitive digital experiences that connect with human behavior and business objectives."
     },
     {
-      title: "Intelligent Operations Architecture",
+      number: "00-3",
+      title: "CREATIVE DESIGN", 
       capabilities: [
-        "AI-AUGMENTED TEAMS",
-        "UNIFIED INTELLIGENCE", 
-        "MARKET MONITORING",
-        "COMPETITIVE INTELLIGENCE"
+        "BRAND IDENTITY",
+        "VISUAL CONCEPTS",
+        "CREATIVE DIRECTION",
+        "DESIGN STRATEGY",
+        "INNOVATIVE SOLUTIONS"
       ],
-      shortDescription: "Design agentic systems where AI specialists and human experts collaborate intelligently.",
-      icon: IntelligentOperationsIcon
+      description: "Creative solutions establishing strong brand presence through strategic visual communication and innovative design thinking."
     },
     {
-      title: "Transformation Foundations",
+      number: "00-4",
+      title: "PRODUCT AND APP DESIGN",
       capabilities: [
-        "SCALABLE FRAMEWORKS",
-        "ORGANIZATIONAL DNA",
-        "MODULAR SYSTEMS", 
-        "COMPETITIVE ADVANTAGE"
+        "MOBILE INTERFACES",
+        "USER FLOWS",
+        "INTERACTION PATTERNS",
+        "PRODUCT STRATEGY",
+        "APP OPTIMIZATION"
       ],
-      shortDescription: "Create modular, scalable frameworks turning organizational complexity into advantage.",
-      icon: TransformationFoundationsIcon
+      description: "End-to-end product design from concept to launch, focusing on user needs and business success through strategic design."
     },
     {
-      title: "Strategic Innovation Consulting",
+      number: "00-5",
+      title: "DEVELOPMENT",
       capabilities: [
-        "COMPLEXITY NAVIGATION",
-        "MARKET DISRUPTION",
-        "SYSTEMATIC ADVANTAGE",
-        "INNOVATION STRATEGIES"
+        "FRONT-END DEVELOPMENT",
+        "RESPONSIVE CODING",
+        "PERFORMANCE OPTIMIZATION",
+        "TECHNICAL IMPLEMENTATION",
+        "QUALITY ASSURANCE"
       ],
-      shortDescription: "Navigate complexity with frameworks that transform uncertainty into systematic opportunity.",
-      icon: StrategyConsultingIcon
-    },
-    {
-      title: "Customer Intelligence Platforms", 
-      capabilities: [
-        "BEHAVIORAL TRACKING",
-        "PREDICTIVE ANALYTICS",
-        "LEARNING ALGORITHMS",
-        "SELF-IMPROVING SYSTEMS"
-      ],
-      shortDescription: "Architect intelligence systems that anticipate customer behavior and evolve continuously.",
-      icon: CustomerIntelligenceIcon
+      description: "Technical implementation bringing designs to life with clean, optimized code that performs excellently across all devices."
     }
   ];
 
-  // COLUMN DIMENSION CALCULATOR - Award-Winning Animation
-  const getColumnDimensions = (index: number) => {
-    if (hoveredService === null) {
-      return { width: '16.66%', opacity: 0.8 }; // Equal distribution
-    }
-    if (hoveredService === index) {
-      return { width: '45%', opacity: 1 };      // Expanded with content
-    }
-    return { width: '11%', opacity: 0.6 };       // Compressed minimal
-  };
+  // Services state management for reference design
+  const [selectedService, setSelectedService] = useState<number | null>(null);
   
   const projects = [
     {
@@ -541,7 +526,6 @@ export default function Home() {
                 style={{
                   fontSize: 'clamp(6rem, 15vw, 20rem)',
                   textAlign: 'center',
-                  color: 'transparent',
                   margin: '0 auto 4rem auto',
                   maxWidth: '1400px',
                   position: 'relative',
@@ -734,14 +718,16 @@ export default function Home() {
             transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
-            {/* CONTENT COLUMN - Luxury Spacing */}
-            <div className="flex-luxury-column gap-phi-lg">
-              <motion.div
+            {/* STRUCTURED CONTENT COLUMN */}
+            <div className="about-content-structured">
+              {/* Header Section */}
+              <motion.header
+                className="about-header mb-phi-xl"
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
               >
-                <div className="mb-phi-lg">
+                <div className="section-number-container mb-phi-lg">
                   <span 
                     className="typography-accent text-lg block mb-phi-sm"
                     style={{ 
@@ -757,14 +743,14 @@ export default function Home() {
                   </h2>
                 </div>
                 
-                <p className="typography-body text-xl text-gray-600 mb-8 max-w-xl">
+                <p className="typography-body text-xl text-gray-600 mb-phi-lg max-w-xl leading-relaxed">
                   Discover the journey of strategic design thinking, business transformation, and the human perspective that drives meaningful innovation across industries.
                 </p>
-              </motion.div>
+              </motion.header>
 
-              {/* CONDENSED NARRATIVE - Single Viewport */}
+              {/* NARRATIVE CONTENT BLOCKS */}
               <motion.div
-                className="space-y-6"
+                className="about-narrative-blocks space-y-phi-lg"
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.4 }}
@@ -776,11 +762,13 @@ export default function Home() {
                   from anthropology to business, innovation to experience design.
                 </p>
                 
+                {/* Philosophy Quote Block */}
                 <div 
-                  className="border-l-4 px-phi-lg py-phi-md my-phi-lg max-w-xl"
+                  className="philosophy-quote-block border-l-4 px-phi-lg py-phi-lg my-phi-xl max-w-xl"
                   style={{ 
                     borderLeftColor: '#ff6663',
-                    backgroundColor: 'rgba(255, 102, 99, 0.03)'
+                    backgroundColor: 'rgba(255, 102, 99, 0.03)',
+                    borderRadius: '0 1rem 1rem 0'
                   }}
                 >
                   <p 
@@ -793,10 +781,13 @@ export default function Home() {
                   </p>
                 </div>
                 
-                <p className="typography-body text-lg text-gray-700 max-w-xl">
-                  <span className="body-text-medium" style={{color: '#ff6663'}}>Welcome to my world</span>
-                  —where strategy meets soul, and design becomes the universal language of possibility.
-                </p>
+                {/* Closing Statement */}
+                <div className="about-closing max-w-xl">
+                  <p className="typography-body text-lg text-gray-700 leading-relaxed">
+                    <span className="body-text-medium" style={{color: '#ff6663', fontWeight: '600'}}>Welcome to my world</span>
+                    —where strategy meets soul, and design becomes the universal language of possibility.
+                  </p>
+                </div>
               </motion.div>
             </div>
 
@@ -1073,8 +1064,13 @@ export default function Home() {
                         </h2>
                         
                         {/* Project Subtitle */}
-                        <p className="typography-subtitle text-gray-700 mb-6 leading-relaxed">
+                        <p className="typography-subtitle text-gray-700 mb-4 leading-relaxed">
                           {project.subtitle}
+                        </p>
+                        
+                        {/* Project Description - Previously Missing */}
+                        <p className="typography-body text-sm text-gray-600 mb-6 leading-relaxed line-clamp-3">
+                          {project.description}
                         </p>
                         
                         {/* Client & Meta Info */}
@@ -1092,9 +1088,9 @@ export default function Home() {
                       
                       {/* Bottom Content */}
                       <div>
-                        {/* Capability Tags */}
+                        {/* Capability Tags - All Tags Displayed */}
                         <div className="flex flex-wrap gap-2 mb-6">
-                          {project.tech && project.tech.slice(0, 4).map((tag, tagIndex) => (
+                          {project.tech && project.tech.map((tag, tagIndex) => (
                             <span 
                               key={tagIndex}
                               className="typography-accent px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full"
@@ -1415,165 +1411,64 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          {/* AWARD-WINNING SERVICES - Vertical Expansion System */}
+          {/* SERVICES SECTION - REFERENCE DESIGN IMPLEMENTATION */}
           <div className="max-w-[95vw] mx-auto">
-            {/* SINGLE VIEWPORT SERVICES - Hover Exploration */}
-            <div className="flex h-[75vh] border border-gray-200 rounded-3xl overflow-hidden bg-white shadow-2xl">
-              {awardWinningServices.map((service, index) => {
-                const IconComponent = service.icon;
-                return (
-                  <motion.div
-                    key={service.title}
-                    className="relative cursor-pointer group border-r border-gray-200 last:border-r-0"
-                    style={{
-                      backgroundColor: hoveredService === index ? 'rgba(255, 102, 99, 0.02)' : 'white'
-                    }}
-                    onMouseEnter={() => setHoveredService(index)}
-                    onMouseLeave={() => setHoveredService(null)}
-                    animate={{
-                      width: getColumnDimensions(index).width,
-                      opacity: getColumnDimensions(index).opacity
-                    }}
-                    transition={{
-                      duration: 0.6,
-                      ease: [0.25, 0.46, 0.45, 0.94],
-                      type: "tween"
-                    }}
-                    whileHover={{
-                      boxShadow: hoveredService === index ? '0 25px 60px rgba(255, 102, 99, 0.15)' : '0 0 0 rgba(0,0,0,0)',
-                      zIndex: hoveredService === index ? 10 : 1
-                    }}
-                  >
-                    {/* Service Number - Always Visible */}
-                    <motion.div 
-                      className="absolute top-8 left-6"
-                      animate={{
-                        opacity: hoveredService === null || hoveredService === index ? 1 : 0.3
-                      }}
-                    >
-                      <span className="typography-accent text-lg font-semibold text-gray-400">
-                        {String(index + 1).padStart(2, '0')}-{index + 1}
-                      </span>
-                    </motion.div>
-                    
-                    {/* Service Title - Vertical Typography (Collapsed State) */}
-                    <motion.div
-                      className="absolute top-24 left-6 origin-top-left"
-                      style={{
-                        transform: hoveredService === index ? 'rotate(0deg)' : 'rotate(-90deg)',
-                        transformOrigin: 'top left',
-                        width: hoveredService === index ? 'auto' : '300px'
-                      }}
-                      animate={{
-                        rotate: hoveredService === index ? 0 : -90,
-                        x: hoveredService === index ? 0 : 40
-                      }}
-                      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    >
-                      <h3 
-                        className="typography-display text-gray-800 whitespace-nowrap"
-                        style={{ 
-                          fontSize: hoveredService === index ? '2rem' : '1.5rem',
-                          transition: 'font-size 0.6s ease'
-                        }}
-                      >
-                        {service.title}
-                      </h3>
-                    </motion.div>
-                    
-                    {/* Expanded Content - Hover Only */}
-                    <motion.div
-                      className="absolute inset-0 p-8 pt-32"
-                      initial={{ opacity: 0 }}
-                      animate={{
-                        opacity: hoveredService === index ? 1 : 0,
-                        pointerEvents: hoveredService === index ? 'auto' : 'none'
-                      }}
-                      transition={{ duration: 0.4, delay: 0.2 }}
-                    >
-                      {/* Capability List */}
-                      <div className="mb-8">
-                        {service.capabilities.map((capability, capIndex) => (
-                          <motion.div
-                            key={capIndex}
-                            className="typography-accent text-sm font-medium text-gray-600 mb-3"
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{
-                              opacity: hoveredService === index ? 1 : 0,
-                              x: hoveredService === index ? 0 : -20
-                            }}
-                            transition={{ 
-                              duration: 0.3, 
-                              delay: hoveredService === index ? 0.3 + capIndex * 0.1 : 0 
-                            }}
-                          >
-                            / {capability}
-                          </motion.div>
-                        ))}
-                      </div>
-                      
-                      {/* LIVE FORMATION ICON - Signature Placement */}
+            {/* Services Grid Matching Reference Design */}
+            <div className="services-grid-reference">
+              {referenceServices.map((service, index) => (
+                <motion.div
+                  key={service.number}
+                  className="service-column-reference"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ 
+                    y: -8,
+                    transition: { duration: 0.3 }
+                  }}
+                  viewport={{ once: true }}
+                >
+                  {/* Service Number */}
+                  <div className="service-number">
+                    {service.number}
+                  </div>
+                  
+                  {/* Service Title */}
+                  <h3 className="service-title-reference">
+                    {service.title}
+                  </h3>
+                  
+                  {/* Capabilities List */}
+                  <div className="capabilities-list-reference">
+                    {service.capabilities.map((capability, capIndex) => (
                       <motion.div
-                        className="flex justify-center mb-8"
-                        initial={{ opacity: 0, scale: 0.8, rotateY: 180 }}
-                        animate={{
-                          opacity: hoveredService === index ? 1 : 0,
-                          scale: hoveredService === index ? 1 : 0.8,
-                          rotateY: hoveredService === index ? 0 : 180
-                        }}
-                        transition={{ 
-                          duration: 0.6, 
-                          delay: hoveredService === index ? 0.8 : 0,
-                          ease: "backOut"
-                        }}
+                        key={capIndex}
+                        className="capability-item"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4, delay: index * 0.1 + capIndex * 0.05 }}
+                        viewport={{ once: true }}
                       >
-                        <div 
-                          className="w-24 h-24 bg-white rounded-2xl flex items-center justify-center"
-                          style={{
-                            boxShadow: '0 15px 35px rgba(255, 102, 99, 0.15)',
-                            border: '2px solid rgba(255, 102, 99, 0.1)'
-                          }}
-                        >
-                          <IconComponent 
-                            size={48} 
-                            color="#ff6663" 
-                            animated={hoveredService === index}
-                          />
-                        </div>
+                        {capability}
                       </motion.div>
-                      
-                      {/* Short Description - Non-Complicated */}
-                      <motion.p
-                        className="typography-body text-base text-gray-700 leading-relaxed text-center px-4"
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{
-                          opacity: hoveredService === index ? 1 : 0,
-                          y: hoveredService === index ? 0 : 10
-                        }}
-                        transition={{ 
-                          duration: 0.4, 
-                          delay: hoveredService === index ? 1.2 : 0
-                        }}
-                      >
-                        {service.shortDescription}
-                      </motion.p>
-                    </motion.div>
-                    
-                    {/* Column Background Enhancement on Hover */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-b from-transparent via-coral/5 to-coral/10"
-                      initial={{ opacity: 0 }}
-                      animate={{
-                        opacity: hoveredService === index ? 1 : 0
-                      }}
-                      transition={{ duration: 0.4 }}
-                    />
-                  </motion.div>
-                );
-              })}
+                    ))}
+                  </div>
+                  
+                  {/* Service Description */}
+                  <motion.p
+                    className="service-description-reference"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
+                    viewport={{ once: true }}
+                  >
+                    {service.description}
+                  </motion.p>
+                </motion.div>
+              ))}
             </div>
             
-            {/* Exploration Guidance */}
+            {/* Services Navigation Guidance */}
             <motion.div
               className="text-center mt-12"
               initial={{ opacity: 0, y: 20 }}
@@ -1582,7 +1477,7 @@ export default function Home() {
             >
               <div className="inline-flex items-center gap-4 px-6 py-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg">
                 <span className="typography-accent text-sm font-medium text-gray-600">
-                  Hover over each service to explore
+                  Explore each service column
                 </span>
                 <div className="w-2 h-2 rounded-full bg-coral animate-pulse" />
               </div>
