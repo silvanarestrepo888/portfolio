@@ -129,11 +129,10 @@ export default function RootLayout({
       <body
         className={`${plusJakartaSans.variable} ${playfairDisplay.variable} ${openSans.variable} ${greatVibes.variable} ${inter.variable} ${jetbrainsMono.variable} ${crimsonPro.variable} ${workSans.variable} ${dmSans.variable} antialiased`}
         style={{
-          fontDisplay: 'swap',
           textRendering: 'optimizeLegibility',
           WebkitFontSmoothing: 'antialiased',
           MozOsxFontSmoothing: 'grayscale'
-        }}
+        } as React.CSSProperties}
       >
         {children}
       </body>
