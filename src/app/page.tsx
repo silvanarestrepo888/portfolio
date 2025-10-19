@@ -1480,7 +1480,7 @@ export default function Home() {
                 <div className="capabilities-section bg-white rounded-2xl p-phi-lg mb-phi-lg" style={{
                   boxShadow: '0 15px 35px rgba(255, 102, 99, 0.08)'
                 }}>
-                  <h3 className="typography-display text-gray-800 mb-phi-md">Capabilities</h3>
+                  <h3 className="text-foundation-xl font-foundation-display text-gray-800 mb-phi-md">Capabilities</h3>
                   <div className="flex flex-col gap-3">
                     {projects[selectedProject].tech && projects[selectedProject].tech.map((capability, index) => (
                       <div 
@@ -1490,7 +1490,7 @@ export default function Home() {
                           borderColor: index === 0 ? '#ff6663' : 'rgba(255, 102, 99, 0.3)'
                         }}
                       >
-                        <span className="typography-accent text-sm font-medium text-gray-700">
+                        <span className="text-foundation-sm font-foundation-accent text-gray-700">
                           {capability}
                         </span>
                       </div>
