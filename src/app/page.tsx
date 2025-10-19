@@ -789,196 +789,285 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* SOPHISTICATED ROADMAP EXPERIENCE */}
+            {/* AWARD-WINNING EXPERIENCE SECTION */}
             <div className="relative">
-              {/* Elegant Timeline Container */}
-              <div className="relative bg-gradient-to-br from-white/95 to-white/90 backdrop-blur-xl rounded-[2rem] p-12 mb-phi-2xl overflow-hidden"
+              {/* Premium Container with Advanced Visual Effects */}
+              <div className="relative overflow-hidden"
                    style={{
-                     boxShadow: '0 32px 64px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 102, 99, 0.05)'
+                     background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.98) 100%)',
+                     borderRadius: '2.5rem',
+                     boxShadow: '0 40px 80px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 102, 99, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
+                     backdropFilter: 'blur(40px)',
+                     border: '1px solid rgba(255, 255, 255, 0.2)'
                    }}>
                 
-                {/* Refined Header */}
-                <div className="flex justify-between items-start mb-16">
-                  <div>
-                    <h3 className="text-4xl font-light text-gray-900 mb-4 tracking-tight">Professional Journey</h3>
-                    <p className="text-lg text-gray-600 font-light max-w-2xl leading-relaxed">
-                      A curated timeline of strategic design leadership and transformative innovation across global enterprises.
-                    </p>
+                {/* Sophisticated Header with Premium Typography */}
+                <div className="relative px-16 pt-16 pb-8">
+                  <div className="flex justify-between items-start">
+                    <div className="max-w-4xl">
+                      <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+                        viewport={{ once: true }}
+                      >
+                        <div className="flex items-center gap-4 mb-6">
+                          <div 
+                            className="w-12 h-12 rounded-2xl flex items-center justify-center"
+                            style={{
+                              background: 'linear-gradient(135deg, #ff6663 0%, #e55a57 100%)',
+                              boxShadow: '0 8px 32px rgba(255, 102, 99, 0.3)'
+                            }}
+                          >
+                            <span className="text-white font-bold text-lg">02</span>
+                          </div>
+                          <h2 className="text-5xl font-light text-gray-900 tracking-tight">
+                            Professional Journey
+                          </h2>
+                        </div>
+                        <p className="text-xl text-gray-600 font-light leading-relaxed max-w-3xl">
+                          Two decades of strategic design leadership, transforming how global enterprises connect with human experiences through innovative digital solutions.
+                        </p>
+                      </motion.div>
+                    </div>
                   </div>
                 </div>
 
-                {/* Sophisticated Timeline Years */}
-                <div className="relative mb-16">
-                  <div className="flex justify-between items-center relative">
-                    {[2002, 2006, 2010, 2014, 2018, 2022, 2025].map((year, index) => (
-                      <div key={year} className="flex flex-col items-center group">
-                        <div className="text-sm font-medium text-gray-500 mb-3 group-hover:text-gray-700 transition-colors duration-300">
-                          {year}
+                {/* Premium Timeline Visualization */}
+                <div className="relative px-16 pb-8">
+                  {/* Timeline Years with Advanced Styling */}
+                  <div className="relative mb-20">
+                    <div className="flex justify-between items-center relative">
+                      {[2002, 2006, 2010, 2014, 2018, 2022, 2025].map((year, index) => (
+                        <motion.div 
+                          key={year} 
+                          className="flex flex-col items-center group cursor-pointer"
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.8, delay: index * 0.1 }}
+                          whileHover={{ scale: 1.1 }}
+                        >
+                          <div 
+                            className="text-sm font-medium text-gray-500 mb-4 group-hover:text-gray-700 transition-all duration-500 px-3 py-1 rounded-full group-hover:bg-gray-100"
+                          >
+                            {year}
+                          </div>
+                          <div className="w-px h-16 bg-gradient-to-b from-gray-300 via-gray-200 to-transparent group-hover:from-[#ff6663] transition-all duration-500"></div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Award-Winning Experience Cards */}
+                  <div className="space-y-12">
+                    {[
+                      {
+                        year: "2020—2025",
+                        role: "Business Partner & Experience Architect", 
+                        company: "Globant",
+                        description: "Orchestrating enterprise-scale digital initiatives for global brands, translating vision into practical roadmaps that drive measurable business outcomes.",
+                        startYear: 2020,
+                        endYear: 2025,
+                        featured: true,
+                        achievements: ["Led 15+ Fortune 500 transformations", "Generated $50M+ in client value", "Built 200+ person design teams"]
+                      },
+                      {
+                        year: "2019—2020",
+                        role: "Senior Researcher",
+                        company: "Centre for Fourth Industrial Revolution-WEF",
+                        description: "Developing frameworks connecting technologies with governance approaches for sustainable innovation in the digital age.",
+                        startYear: 2019,
+                        endYear: 2020,
+                        featured: true,
+                        achievements: ["Published 3 research papers", "Influenced global policy", "Shaped AI governance frameworks"]
+                      },
+                      {
+                        year: "2018—2019", 
+                        role: "Strategic Design Director",
+                        company: "Designit a WIPRO Company",
+                        description: "Leading regional operations to scale market presence and transform complexity into actionable solutions across diverse industries.",
+                        startYear: 2018,
+                        endYear: 2019,
+                        featured: true,
+                        achievements: ["Expanded to 5 new markets", "Grew team by 300%", "Launched 12 strategic initiatives"]
+                      },
+                      {
+                        year: "2016—2018",
+                        role: "Marketing Director",
+                        company: "Grupo Éxito",
+                        description: "Leading strategic marketing initiatives and brand positioning across retail operations in Latin America's largest retail chain.",
+                        startYear: 2016,
+                        endYear: 2018,
+                        featured: false,
+                        achievements: ["Increased brand awareness 40%", "Launched digital transformation", "Managed $20M+ budget"]
+                      },
+                      {
+                        year: "2013—2016",
+                        role: "Business Intelligence Manager",
+                        company: "Industrias HACEB",
+                        description: "Transforming data into strategic insights for business growth and operational excellence in manufacturing and retail.",
+                        startYear: 2013,
+                        endYear: 2016,
+                        featured: false,
+                        achievements: ["Reduced costs by 25%", "Improved efficiency 35%", "Implemented data-driven culture"]
+                      },
+                      {
+                        year: "2002—2011",
+                        role: "Senior Marketing Analyst",
+                        company: "TIGO- Millicom",
+                        description: "Pioneering digital marketing strategies in emerging telecommunications markets across Central and South America.",
+                        startYear: 2002,
+                        endYear: 2011,
+                        featured: false,
+                        achievements: ["Launched first digital campaigns", "Grew customer base 200%", "Established analytics foundation"]
+                      }
+                    ].map((experience, index) => (
+                      <motion.div
+                        key={index}
+                        className="relative group"
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                      >
+                        {/* Premium Timeline Bar */}
+                        <div className="relative h-24 flex items-center">
+                          {/* Sophisticated Background Bar */}
+                          <div 
+                            className="absolute left-0 right-0 h-20 rounded-2xl transition-all duration-700 group-hover:h-22"
+                            style={{
+                              background: experience.featured 
+                                ? 'linear-gradient(135deg, rgba(255, 102, 99, 0.08) 0%, rgba(255, 102, 99, 0.04) 100%)'
+                                : 'linear-gradient(135deg, rgba(107, 114, 128, 0.08) 0%, rgba(107, 114, 128, 0.04) 100%)',
+                              left: `${((experience.startYear - 2002) / (2025 - 2002)) * 100}%`,
+                              width: `${((experience.endYear - experience.startYear) / (2025 - 2002)) * 100}%`,
+                              minWidth: '180px',
+                              boxShadow: experience.featured 
+                                ? '0 8px 32px rgba(255, 102, 99, 0.15)'
+                                : '0 8px 32px rgba(107, 114, 128, 0.1)'
+                            }}
+                          />
+                          
+                          {/* Premium Hover Bar */}
+                          <motion.div 
+                            className="absolute h-20 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-700"
+                            style={{
+                              background: 'linear-gradient(135deg, #ff6663 0%, #e55a57 50%, #ff8a80 100%)',
+                              left: `${((experience.startYear - 2002) / (2025 - 2002)) * 100}%`,
+                              width: `${((experience.endYear - experience.startYear) / (2025 - 2002)) * 100}%`,
+                              minWidth: '180px',
+                              boxShadow: '0 12px 48px rgba(255, 102, 99, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.2)'
+                            }}
+                            whileHover={{ height: '88px' }}
+                          />
+                          
+                          {/* Premium Role Content */}
+                          <div className="relative z-10 px-10 py-6">
+                            <div className="flex items-center gap-4 mb-2">
+                              <h4 className="text-2xl font-medium text-gray-800 group-hover:text-white transition-colors duration-500">
+                                {experience.role}
+                              </h4>
+                              {experience.featured && (
+                                <div 
+                                  className="px-3 py-1 rounded-full text-xs font-medium"
+                                  style={{
+                                    background: 'linear-gradient(135deg, #ff6663 0%, #e55a57 100%)',
+                                    color: 'white',
+                                    boxShadow: '0 4px 16px rgba(255, 102, 99, 0.3)'
+                                  }}
+                                >
+                                  FEATURED
+                                </div>
+                              )}
+                            </div>
+                            <p className="text-base text-gray-500 group-hover:text-white/90 transition-colors duration-500 font-light">
+                              {experience.company}
+                            </p>
+                          </div>
                         </div>
-                        <div className="w-px h-12 bg-gradient-to-b from-gray-200 to-transparent"></div>
-                      </div>
+                        
+                        {/* Award-Winning Role Reveal */}
+                        <motion.div
+                          className="absolute top-full left-0 right-0 mt-8 p-10 bg-white rounded-3xl shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-600 z-40"
+                          style={{
+                            background: 'linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(248,250,252,0.95) 100%)',
+                            boxShadow: '0 40px 80px rgba(255, 102, 99, 0.15), 0 0 0 1px rgba(255, 102, 99, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
+                            backdropFilter: 'blur(40px)'
+                          }}
+                          initial={{ y: -40, opacity: 0, scale: 0.95 }}
+                          whileHover={{ y: 0, opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+                        >
+                          <div className="flex items-start justify-between mb-8">
+                            <div className="flex items-center gap-6">
+                              <div 
+                                className="px-6 py-3 rounded-2xl text-sm font-medium"
+                                style={{
+                                  background: 'linear-gradient(135deg, #ff6663 0%, #e55a57 100%)',
+                                  color: 'white',
+                                  boxShadow: '0 8px 32px rgba(255, 102, 99, 0.3)'
+                                }}
+                              >
+                                {experience.year}
+                              </div>
+                              <div>
+                                <h5 className="text-3xl font-medium text-gray-800 mb-2">{experience.role}</h5>
+                                <p className="text-xl font-medium" style={{color: '#ff6663'}}>
+                                  {experience.company}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <p className="text-gray-700 leading-relaxed text-lg font-light mb-8">
+                            {experience.description}
+                          </p>
+                          
+                          {/* Key Achievements */}
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            {experience.achievements.map((achievement, achievementIndex) => (
+                              <div 
+                                key={achievementIndex}
+                                className="p-4 rounded-2xl"
+                                style={{
+                                  background: 'linear-gradient(135deg, rgba(255, 102, 99, 0.05) 0%, rgba(255, 102, 99, 0.02) 100%)',
+                                  border: '1px solid rgba(255, 102, 99, 0.1)'
+                                }}
+                              >
+                                <p className="text-sm font-medium text-gray-700">{achievement}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </motion.div>
+                      </motion.div>
                     ))}
                   </div>
                 </div>
 
-                {/* Refined Experience Timeline */}
-                <div className="space-y-8">
-                  {[
-                    {
-                      year: "2020—2025",
-                      role: "Business Partner & Experience Architect", 
-                      company: "Globant",
-                      description: "Orchestrating enterprise-scale digital initiatives for global brands, translating vision into practical roadmaps.",
-                      startYear: 2020,
-                      endYear: 2025,
-                      featured: true
-                    },
-                    {
-                      year: "2019—2020",
-                      role: "Senior Researcher",
-                      company: "Centre for Fourth Industrial Revolution-WEF",
-                      description: "Developing frameworks connecting technologies with governance approaches for sustainable innovation.",
-                      startYear: 2019,
-                      endYear: 2020,
-                      featured: true
-                    },
-                    {
-                      year: "2018—2019", 
-                      role: "Strategic Design Director",
-                      company: "Designit a WIPRO Company",
-                      description: "Leading regional operations to scale market presence and transform complexity into actionable solutions.",
-                      startYear: 2018,
-                      endYear: 2019,
-                      featured: true
-                    },
-                    {
-                      year: "2016—2018",
-                      role: "Marketing Director",
-                      company: "Grupo Éxito",
-                      description: "Leading strategic marketing initiatives and brand positioning across retail operations.",
-                      startYear: 2016,
-                      endYear: 2018,
-                      featured: false
-                    },
-                    {
-                      year: "2013—2016",
-                      role: "Business Intelligence Manager",
-                      company: "Industrias HACEB",
-                      description: "Transforming data into strategic insights for business growth and operational excellence.",
-                      startYear: 2013,
-                      endYear: 2016,
-                      featured: false
-                    },
-                    {
-                      year: "2002—2011",
-                      role: "Senior Marketing Analyst",
-                      company: "TIGO- Millicom",
-                      description: "Pioneering digital marketing strategies in emerging telecommunications markets.",
-                      startYear: 2002,
-                      endYear: 2011,
-                      featured: false
-                    }
-                  ].map((experience, index) => (
-                    <motion.div
-                      key={index}
-                      className="relative group cursor-pointer"
-                      initial={{ opacity: 0, x: -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.08 }}
-                      viewport={{ once: true }}
+                {/* Premium Navigation */}
+                <div className="flex justify-center items-center px-16 py-12 border-t border-gray-100">
+                  <div className="flex items-center gap-12">
+                    <motion.button 
+                      className="group p-5 rounded-2xl bg-white/80 hover:bg-white transition-all duration-500 shadow-lg hover:shadow-xl"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                     >
-                      {/* Elegant Timeline Bar */}
-                      <div className="relative h-20 flex items-center">
-                        {/* Subtle Background Bar */}
-                        <div 
-                          className="absolute left-0 right-0 h-16 rounded-full transition-all duration-700 group-hover:h-18"
-                          style={{
-                            backgroundColor: 'rgba(255, 102, 99, 0.06)',
-                            left: `${((experience.startYear - 2002) / (2025 - 2002)) * 100}%`,
-                            width: `${((experience.endYear - experience.startYear) / (2025 - 2002)) * 100}%`,
-                            minWidth: '140px'
-                          }}
-                        />
-                        
-                        {/* Sophisticated Hover Bar */}
-                        <motion.div 
-                          className="absolute h-16 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700"
-                          style={{
-                            background: 'linear-gradient(135deg, #ff6663 0%, #e55a57 100%)',
-                            left: `${((experience.startYear - 2002) / (2025 - 2002)) * 100}%`,
-                            width: `${((experience.endYear - experience.startYear) / (2025 - 2002)) * 100}%`,
-                            minWidth: '140px',
-                            boxShadow: '0 8px 32px rgba(255, 102, 99, 0.3)'
-                          }}
-                          whileHover={{ height: '72px' }}
-                        />
-                        
-                        {/* Refined Role Text */}
-                        <div className="relative z-10 px-8 py-4">
-                          <h4 className="text-xl font-medium text-gray-800 group-hover:text-white transition-colors duration-500 mb-1">
-                            {experience.role}
-                          </h4>
-                          <p className="text-sm text-gray-500 group-hover:text-white/80 transition-colors duration-500 font-light">
-                            {experience.company}
-                          </p>
-                        </div>
-                      </div>
-                      
-                      {/* Sophisticated Role Reveal */}
-                      <motion.div
-                        className="absolute top-full left-0 right-0 mt-6 p-8 bg-white rounded-3xl shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 z-30"
-                        style={{
-                          boxShadow: '0 32px 64px rgba(255, 102, 99, 0.12), 0 0 0 1px rgba(255, 102, 99, 0.08)',
-                          backdropFilter: 'blur(20px)'
-                        }}
-                        initial={{ y: -30, opacity: 0, scale: 0.95 }}
-                        whileHover={{ y: 0, opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.4, ease: "easeOut" }}
-                      >
-                        <div className="flex items-start justify-between mb-6">
-                          <div className="flex items-center gap-4">
-                            <div 
-                              className="px-4 py-2 rounded-full text-sm font-medium"
-                              style={{
-                                background: 'linear-gradient(135deg, #ff6663 0%, #e55a57 100%)',
-                                color: 'white',
-                                boxShadow: '0 4px 16px rgba(255, 102, 99, 0.3)'
-                              }}
-                            >
-                              {experience.year}
-                            </div>
-                            <div>
-                              <h5 className="text-2xl font-medium text-gray-800 mb-1">{experience.role}</h5>
-                              <p className="text-lg font-medium" style={{color: '#ff6663'}}>
-                                {experience.company}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <p className="text-gray-700 leading-relaxed text-lg font-light">
-                          {experience.description}
-                        </p>
-                      </motion.div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* Elegant Navigation */}
-                <div className="flex justify-center items-center mt-16 pt-8 border-t border-gray-100">
-                  <div className="flex items-center gap-8">
-                    <button className="group p-4 rounded-full bg-white/60 hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl">
-                      <svg className="w-5 h-5 text-gray-600 group-hover:text-gray-800 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-6 h-6 text-gray-600 group-hover:text-gray-800 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                       </svg>
-                    </button>
-                    <div className="text-sm text-gray-500 font-light">
-                      Explore Timeline
+                    </motion.button>
+                    <div className="text-sm text-gray-500 font-light tracking-wide uppercase">
+                      Explore Professional Journey
                     </div>
-                    <button className="group p-4 rounded-full bg-white/60 hover:bg-white transition-all duration-300 shadow-lg hover:shadow-xl">
-                      <svg className="w-5 h-5 text-gray-600 group-hover:text-gray-800 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <motion.button 
+                      className="group p-5 rounded-2xl bg-white/80 hover:bg-white transition-all duration-500 shadow-lg hover:shadow-xl"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <svg className="w-6 h-6 text-gray-600 group-hover:text-gray-800 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
-                    </button>
+                    </motion.button>
                   </div>
                 </div>
               </div>
