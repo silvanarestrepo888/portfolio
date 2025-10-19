@@ -644,7 +644,7 @@ export default function Home() {
               </div>
               
               <div className="carousel-status">
-                <span className="text-foundation-sm font-foundation-accent text-gray-600">
+                <span className="text-foundation-xs font-foundation-accent text-gray-500">
                   {carouselMode === 'manual' ? 'Manual browsing active' : 'Auto-browsing active'}
                 </span>
               </div>
@@ -1159,7 +1159,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.5 }}
             >
               <div className="inline-flex items-center gap-4 px-6 py-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg">
-                <span className="typography-accent text-sm font-medium text-gray-600">
+                <span className="text-foundation-xs font-foundation-accent text-gray-600">
                   Explore each service column
                 </span>
                 <div className="w-2 h-2 rounded-full bg-coral animate-pulse" />
