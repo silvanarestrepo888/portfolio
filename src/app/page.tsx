@@ -389,11 +389,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOUNDATION ABOUT SECTION - Clean Structure */}
+      {/* ABOUT SECTION - Foundation Excellence */}
       <section 
         id="about" 
-        className="section-luxury bg-dynamic-about"
+        className="section-luxury"
         style={{ 
+          background: 'linear-gradient(135deg, var(--pannocotta-primary) 0%, var(--pannocotta-soft) 100%)',
           minHeight: '100vh',
           display: 'flex',
           alignItems: 'center'
@@ -418,11 +419,9 @@ export default function Home() {
               >
                 <div className="section-number-container mb-phi-lg">
                   <span 
-                    className="typography-accent text-lg block mb-phi-sm"
+                    className="text-foundation-sm font-foundation-accent block mb-phi-sm"
                     style={{ 
-                      color: 'rgba(255, 102, 99, 0.6)',
-                      letterSpacing: '0.2em',
-                      fontWeight: '500'
+                      color: 'rgba(255, 102, 99, 0.6)'
                     }}
                   >
                     01
@@ -444,7 +443,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.4 }}
               >
-                <p className="typography-body text-lg text-gray-700 max-w-xl">
+                <p className="text-foundation-lg font-foundation-body text-gray-700 max-w-xl">
                   I believe the most compelling stories begin with{' '}
                   <span style={{color: '#ff6663', fontWeight: '600'}}>curiosity</span>
                   —a spark that has carried me across continents, blending diverse perspectives 
@@ -461,8 +460,8 @@ export default function Home() {
                   }}
                 >
                   <p 
-                    className="typography-quote text-3xl text-gray-800"
-                    style={{ marginBottom: '0' }}
+                    className="text-foundation-2xl font-foundation-display text-gray-800"
+                    style={{ marginBottom: '0', fontStyle: 'italic' }}
                   >
                     &ldquo;The art of{' '}
                     <span style={{color: '#ff6663', fontWeight: '600'}}>MY CRAFT</span>
@@ -472,8 +471,8 @@ export default function Home() {
                 
                 {/* Closing Statement */}
                 <div className="about-closing max-w-xl">
-                  <p className="typography-body text-lg text-gray-700 leading-relaxed">
-                    <span className="body-text-medium" style={{color: '#ff6663', fontWeight: '600'}}>Welcome to my world</span>
+                  <p className="text-foundation-lg font-foundation-body text-gray-700">
+                    <span style={{color: '#ff6663', fontWeight: '600'}}>Welcome to my world</span>
                     —where strategy meets soul, and design becomes the universal language of possibility.
                   </p>
                 </div>
@@ -572,11 +571,9 @@ export default function Home() {
           >
             <div className="mb-phi-xl">
               <span 
-                className="typography-accent text-lg block mb-phi-sm"
+                className="text-foundation-sm font-foundation-accent block mb-phi-sm"
                 style={{ 
-                  color: 'rgba(255, 102, 99, 0.6)',
-                  letterSpacing: '0.2em',
-                  fontWeight: '500'
+                  color: 'rgba(255, 102, 99, 0.6)'
                 }}
               >
                 02
@@ -586,7 +583,7 @@ export default function Home() {
               </h2>
             </div>
             <motion.p 
-              className="typography-body text-xl text-gray-600 text-center max-w-4xl mx-auto mb-12"
+              className="text-foundation-lg font-foundation-body text-gray-600 text-center max-w-4xl mx-auto mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
@@ -824,11 +821,9 @@ export default function Home() {
           >
             <div className="mb-phi-xl">
               <span 
-                className="typography-accent text-lg block mb-phi-sm"
+                className="text-foundation-sm font-foundation-accent block mb-phi-sm"
                 style={{
-                  color: 'rgba(255, 102, 99, 0.6)',
-                  letterSpacing: '0.2em',
-                  fontWeight: '500'
+                  color: 'rgba(255, 102, 99, 0.6)'
                 }}
               >
                 03
@@ -838,7 +833,7 @@ export default function Home() {
               </h2>
             </div>
             <motion.p 
-              className="typography-body text-xl text-gray-600 text-center max-w-4xl mx-auto mb-12"
+              className="text-foundation-lg font-foundation-body text-gray-600 text-center max-w-4xl mx-auto mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
@@ -1007,11 +1002,9 @@ export default function Home() {
           >
             <div className="mb-phi-xl">
               <span 
-                className="typography-accent text-lg block mb-phi-sm"
+                className="text-foundation-sm font-foundation-accent block mb-phi-sm"
                 style={{
-                  color: 'rgba(255, 102, 99, 0.6)',
-                  letterSpacing: '0.2em',
-                  fontWeight: '500'
+                  color: 'rgba(255, 102, 99, 0.6)'
                 }}
               >
                 04
@@ -1021,7 +1014,7 @@ export default function Home() {
               </h2>
             </div>
             <motion.p 
-              className="typography-body text-xl text-gray-600 text-center max-w-4xl mx-auto mb-12"
+              className="text-foundation-lg font-foundation-body text-gray-600 text-center max-w-4xl mx-auto mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
