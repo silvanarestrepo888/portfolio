@@ -1303,29 +1303,29 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
                 >
-                  <h1 className="typography-hero text-gray-800 mb-phi-lg">
+                  <h1 className="text-foundation-4xl font-foundation-display text-gray-800 mb-phi-lg">
                     {projects[selectedProject].title}
                   </h1>
-                  <p className="typography-subtitle text-gray-700 mb-phi-md">
+                  <p className="text-foundation-xl font-foundation-display text-gray-700 mb-phi-md" style={{ fontStyle: 'italic' }}>
                     {projects[selectedProject].subtitle}
                   </p>
                   
                   {/* Project Meta */}
                   <div className="flex flex-wrap gap-6 mb-phi-lg">
-                    <span className="typography-accent font-semibold" style={{ color: 'var(--grapefruit-primary)' }}>
+                    <span className="text-foundation-lg font-foundation-accent font-semibold" style={{ color: 'var(--grapefruit-primary)' }}>
                       {projects[selectedProject].client}
                     </span>
-                    <span className="typography-accent text-gray-600">
+                    <span className="text-foundation-sm font-foundation-accent text-gray-600">
                       {projects[selectedProject].year}
                     </span>
-                    <span className="typography-accent text-gray-600">
+                    <span className="text-foundation-sm font-foundation-accent text-gray-600">
                       {projects[selectedProject].location}
                     </span>
                     <a 
                       href={projects[selectedProject].website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="typography-accent hover:underline"
+                      className="text-foundation-sm font-foundation-accent hover:underline"
                       style={{ color: 'var(--grapefruit-primary)' }}
                     >
                       Visit Live Project →
@@ -1342,8 +1342,8 @@ export default function Home() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                   >
-                    <h2 className="typography-display text-gray-800 mb-phi-lg">Context</h2>
-                    <p className="typography-body text-xl text-gray-700 leading-relaxed">
+                    <h2 className="text-foundation-2xl font-foundation-display text-gray-800 mb-phi-lg">Context</h2>
+                    <p className="text-foundation-base font-foundation-body text-gray-700">
                       {projects[selectedProject].context}
                     </p>
                   </motion.section>
@@ -1355,8 +1355,8 @@ export default function Home() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
                   >
-                    <h2 className="typography-display text-gray-800 mb-phi-lg">Approach</h2>
-                    <p className="typography-body text-xl text-gray-700 leading-relaxed">
+                    <h2 className="text-foundation-2xl font-foundation-display text-gray-800 mb-phi-lg">Approach</h2>
+                    <p className="text-foundation-base font-foundation-body text-gray-700">
                       {projects[selectedProject].challenge}
                     </p>
                   </motion.section>
@@ -1368,8 +1368,8 @@ export default function Home() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.7 }}
                   >
-                    <h2 className="typography-display text-gray-800 mb-phi-lg">Impact</h2>
-                    <p className="typography-body text-xl text-gray-700 leading-relaxed">
+                    <h2 className="text-foundation-2xl font-foundation-display text-gray-800 mb-phi-lg">Impact</h2>
+                    <p className="text-foundation-base font-foundation-body text-gray-700">
                       {projects[selectedProject].impact}
                     </p>
                   </motion.section>
@@ -1389,10 +1389,10 @@ export default function Home() {
                           boxShadow: '0 15px 35px rgba(255, 102, 99, 0.08)'
                         }}
                       >
-                        <blockquote className="typography-quote text-gray-800 mb-phi-md">
+                        <blockquote className="text-foundation-xl font-foundation-display text-gray-800 mb-phi-md" style={{ fontStyle: 'italic' }}>
                           &ldquo;{projects[selectedProject].testimonial}&rdquo;
                         </blockquote>
-                        <cite className="typography-accent font-semibold" style={{ color: 'var(--grapefruit-primary)' }}>
+                        <cite className="text-foundation-sm font-foundation-accent font-semibold" style={{ color: 'var(--grapefruit-primary)' }}>
                           {projects[selectedProject].testimonialAuthor}
                         </cite>
                       </div>
@@ -1423,7 +1423,7 @@ export default function Home() {
                 
                 {/* Enhanced Gallery - Using Existing galleryImages */}
                 <div className="gallery-luxury">
-                  <h3 className="typography-display text-gray-800 mb-phi-md">Gallery</h3>
+                  <h3 className="text-foundation-xl font-foundation-display text-gray-800 mb-phi-md">Gallery</h3>
                   
                   {/* Gallery Thumbnails */}
                   <div className="gallery-thumbnails">
