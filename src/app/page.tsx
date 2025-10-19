@@ -393,19 +393,17 @@ export default function Home() {
         </div>
       </motion.nav>
 
-      {/* IMPACTFUL HERO: Full-Screen Photo Background */}
+      {/* LUXURY HERO: Mathematical Proportions & Golden Ratio Spacing */}
       <main id="main-content">
       <section 
         id="hero"
+        className="section-luxury-hero container-awwwards"
         aria-label="Hero introduction - Silvana Restrepo, Principal Experience Architect"
         style={{
           position: 'relative',
           height: '100vh',
           width: '100%',
-          overflow: 'hidden',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
+          overflow: 'hidden'
         }}
       >
         {/* FLOATING IMAGE SYSTEM - Zero Cropping */}
@@ -492,25 +490,18 @@ export default function Home() {
           zIndex: 2
         }} />
         
-        {/* TEXT LAYER - MAXIMUM VISIBILITY */}
-        <div style={{
+        {/* TEXT LAYER - LUXURY SPACING & OPTICAL ALIGNMENT */}
+        <div className="optical-center luxury-content-block" style={{
           position: 'relative',
           zIndex: 10,
           width: '100%',
-          height: '100vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          textAlign: 'center'
+          height: '100vh'
         }}>
           <motion.div
+            className="container-luxury-content optical-center-luxury"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 2 }}
-            style={{
-              maxWidth: '1200px',
-              margin: '0 auto'
-            }}
           >
             {/* AWWWARDS MAGNETIC HERO TYPOGRAPHY */}
             <div className="magnetic-field" style={{ perspective: '1000px' }}>
@@ -569,9 +560,9 @@ export default function Home() {
               </motion.h1>
             </div>
             
-            {/* Hero Buttons */}
+            {/* Hero Buttons - Luxury Spacing */}
             <motion.div 
-              className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-16"
+              className="flex-luxury-wrap optical-center-horizontal mt-phi-xl"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1.4 }}
@@ -687,36 +678,35 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* VIEWPORT-OPTIMIZED ABOUT SECTION - Single Screen Excellence */}
+      {/* LUXURY ABOUT SECTION - Golden Ratio Proportions */}
       <section 
         id="about" 
+        className="section-luxury container-awwwards"
         style={{ 
           backgroundColor: 'white',
           minHeight: '100vh',
           display: 'flex',
-          alignItems: 'center',
-          paddingTop: 'var(--section-gap)',
-          paddingBottom: 'var(--section-gap)'
+          alignItems: 'center'
         }}
       >
-        <div className="container-desktop">
+        <div className="container-luxury-content">
           <motion.div
-            className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto"
+            className="grid-desktop-2 gap-phi-xl optical-center"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
-            {/* CONTENT COLUMN - Condensed for Viewport */}
-            <div className="space-y-8">
+            {/* CONTENT COLUMN - Luxury Spacing */}
+            <div className="flex-luxury-column gap-phi-lg">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
               >
-                <div className="mb-6">
+                <div className="mb-phi-lg">
                   <span 
-                    className="body-text-humanist text-lg block mb-4"
+                    className="typography-accent text-lg block mb-phi-sm"
                     style={{ 
                       color: 'rgba(255, 102, 99, 0.6)',
                       letterSpacing: '0.2em',
@@ -750,7 +740,7 @@ export default function Home() {
                 </p>
                 
                 <div 
-                  className="border-l-4 pl-8 py-6 my-8 max-w-xl"
+                  className="border-l-4 px-phi-lg py-phi-md my-phi-lg max-w-xl"
                   style={{ 
                     borderLeftColor: '#ff6663',
                     backgroundColor: 'rgba(255, 102, 99, 0.03)'
@@ -842,20 +832,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LANDOR LUXURY PROJECTS SECTION - Direct Styling */}
+      {/* LUXURY PROJECTS SECTION - Golden Ratio Spacing */}
       <section 
         id="projects" 
+        className="section-luxury"
         style={{
           background: 'linear-gradient(180deg, #fffbee 0%, #fefcf3 50%, #fffbee 100%)',
-          paddingTop: 'var(--section-padding)',
-          paddingBottom: 'var(--section-padding)',
           minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center'
         }}
       >
-        <div className="container-desktop">
+        <div className="container-awwwards">
           <motion.div 
             className="heading-desktop"
             initial={{ opacity: 0, y: 30 }}
@@ -863,9 +852,9 @@ export default function Home() {
             transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
-            <div style={{ marginBottom: 'var(--element-gap)' }}>
+            <div className="mb-phi-xl">
               <span 
-                className="body-text-humanist text-lg block mb-4"
+                className="typography-accent text-lg block mb-phi-sm"
                 style={{ 
                   color: 'rgba(255, 102, 99, 0.6)',
                   letterSpacing: '0.2em',
@@ -888,8 +877,8 @@ export default function Home() {
               A curated selection of strategic consulting projects that demonstrate experience-driven innovation, digital transformation, and business acceleration across diverse industries and global markets.
             </motion.p>
             
-            {/* Project Filter Tags */}
-            <div className="flex flex-wrap justify-center gap-4">
+            {/* Project Filter Tags - Luxury Spacing */}
+            <div className="flex-luxury-wrap optical-center-horizontal gap-phi-sm">
               {projectCategories.map((category) => (
                 <button
                   key={category}
@@ -1097,20 +1086,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LANDOR LUXURY EXPERIENCE SECTION - Direct Styling */}
+      {/* LUXURY EXPERIENCE SECTION - Mathematical Spacing */}
       <section 
         id="experience"
+        className="section-luxury"
         style={{ 
           background: 'linear-gradient(180deg, #fffbee 0%, #fdf9f0 50%, #fffbee 100%)',
-          paddingTop: 'var(--section-padding)',
-          paddingBottom: 'var(--section-padding)',
           minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center'
         }}
       >
-        <div className="container-desktop">
+        <div className="container-awwwards">
           <motion.div 
             className="heading-desktop"
             initial={{ opacity: 0, y: 30 }}
@@ -1118,9 +1106,9 @@ export default function Home() {
             transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
-            <div style={{ marginBottom: 'var(--element-gap)' }}>
+            <div className="mb-phi-xl">
               <span 
-                className="body-text-humanist text-lg block mb-4"
+                className="typography-accent text-lg block mb-phi-sm"
                 style={{
                   color: 'rgba(255, 102, 99, 0.6)',
                   letterSpacing: '0.2em',
@@ -1170,8 +1158,8 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* EXPERIENCE GRID - 2 Viewports Maximum */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {/* EXPERIENCE GRID - Luxury Spacing */}
+            <div className="grid-desktop-3 gap-phi-lg mb-phi-2xl">
               {[
                 {
                   year: "2020—2025",
@@ -1285,16 +1273,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LANDOR LUXURY SERVICES SECTION - Direct Styling */}
+      {/* LUXURY SERVICES SECTION - Golden Ratio Excellence */}
       <section 
         id="services"
+        className="section-luxury"
         style={{ 
-          background: 'linear-gradient(180deg, #ffffff 0%, #fefefe 50%, #ffffff 100%)',
-          paddingTop: 'var(--section-padding)',
-          paddingBottom: 'var(--section-padding)'
+          background: 'linear-gradient(180deg, #ffffff 0%, #fefefe 50%, #ffffff 100%)'
         }}
       >
-        <div className="container-desktop">
+        <div className="container-awwwards">
           <motion.div 
             className="heading-desktop"
             initial={{ opacity: 0, y: 30 }}
@@ -1302,9 +1289,9 @@ export default function Home() {
             transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
-            <div style={{ marginBottom: 'var(--element-gap)' }}>
+            <div className="mb-phi-xl">
               <span 
-                className="body-text-humanist text-lg block mb-4"
+                className="typography-accent text-lg block mb-phi-sm"
                 style={{
                   color: 'rgba(255, 102, 99, 0.6)',
                   letterSpacing: '0.2em',

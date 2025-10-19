@@ -344,6 +344,414 @@ body {
   font-style: italic;
 }
 
+/* ========================================== */
+/* PHASE 2: LUXURY SPACING UTILITY SYSTEM */
+/* ========================================== */
+
+/* GOLDEN RATIO SPACING UTILITIES - Directional */
+/* Margin utilities */
+.m-phi-xs { margin: var(--space-xs); }
+.m-phi-sm { margin: var(--space-sm); }
+.m-phi-md { margin: var(--space-md); }
+.m-phi-lg { margin: var(--space-lg); }
+.m-phi-xl { margin: var(--space-xl); }
+.m-phi-2xl { margin: var(--space-2xl); }
+.m-phi-3xl { margin: var(--space-3xl); }
+
+/* Margin Top */
+.mt-phi-xs { margin-top: var(--space-xs); }
+.mt-phi-sm { margin-top: var(--space-sm); }
+.mt-phi-md { margin-top: var(--space-md); }
+.mt-phi-lg { margin-top: var(--space-lg); }
+.mt-phi-xl { margin-top: var(--space-xl); }
+.mt-phi-2xl { margin-top: var(--space-2xl); }
+.mt-phi-3xl { margin-top: var(--space-3xl); }
+
+/* Margin Bottom */
+.mb-phi-xs { margin-bottom: var(--space-xs); }
+.mb-phi-sm { margin-bottom: var(--space-sm); }
+.mb-phi-md { margin-bottom: var(--space-md); }
+.mb-phi-lg { margin-bottom: var(--space-lg); }
+.mb-phi-xl { margin-bottom: var(--space-xl); }
+.mb-phi-2xl { margin-bottom: var(--space-2xl); }
+.mb-phi-3xl { margin-bottom: var(--space-3xl); }
+
+/* Margin Horizontal (Left + Right) */
+.mx-phi-xs { margin-left: var(--space-xs); margin-right: var(--space-xs); }
+.mx-phi-sm { margin-left: var(--space-sm); margin-right: var(--space-sm); }
+.mx-phi-md { margin-left: var(--space-md); margin-right: var(--space-md); }
+.mx-phi-lg { margin-left: var(--space-lg); margin-right: var(--space-lg); }
+.mx-phi-xl { margin-left: var(--space-xl); margin-right: var(--space-xl); }
+
+/* Margin Vertical (Top + Bottom) */
+.my-phi-xs { margin-top: var(--space-xs); margin-bottom: var(--space-xs); }
+.my-phi-sm { margin-top: var(--space-sm); margin-bottom: var(--space-sm); }
+.my-phi-md { margin-top: var(--space-md); margin-bottom: var(--space-md); }
+.my-phi-lg { margin-top: var(--space-lg); margin-bottom: var(--space-lg); }
+.my-phi-xl { margin-top: var(--space-xl); margin-bottom: var(--space-xl); }
+
+/* Padding utilities */
+.p-phi-xs { padding: var(--space-xs); }
+.p-phi-sm { padding: var(--space-sm); }
+.p-phi-md { padding: var(--space-md); }
+.p-phi-lg { padding: var(--space-lg); }
+.p-phi-xl { padding: var(--space-xl); }
+.p-phi-2xl { padding: var(--space-2xl); }
+.p-phi-3xl { padding: var(--space-3xl); }
+
+/* Padding Top */
+.pt-phi-xs { padding-top: var(--space-xs); }
+.pt-phi-sm { padding-top: var(--space-sm); }
+.pt-phi-md { padding-top: var(--space-md); }
+.pt-phi-lg { padding-top: var(--space-lg); }
+.pt-phi-xl { padding-top: var(--space-xl); }
+
+/* Padding Bottom */
+.pb-phi-xs { padding-bottom: var(--space-xs); }
+.pb-phi-sm { padding-bottom: var(--space-sm); }
+.pb-phi-md { padding-bottom: var(--space-md); }
+.pb-phi-lg { padding-bottom: var(--space-lg); }
+.pb-phi-xl { padding-bottom: var(--space-xl); }
+
+/* Padding Horizontal */
+.px-phi-xs { padding-left: var(--space-xs); padding-right: var(--space-xs); }
+.px-phi-sm { padding-left: var(--space-sm); padding-right: var(--space-sm); }
+.px-phi-md { padding-left: var(--space-md); padding-right: var(--space-md); }
+.px-phi-lg { padding-left: var(--space-lg); padding-right: var(--space-lg); }
+.px-phi-xl { padding-left: var(--space-xl); padding-right: var(--space-xl); }
+
+/* Padding Vertical */
+.py-phi-xs { padding-top: var(--space-xs); padding-bottom: var(--space-xs); }
+.py-phi-sm { padding-top: var(--space-sm); padding-bottom: var(--space-sm); }
+.py-phi-md { padding-top: var(--space-md); padding-bottom: var(--space-md); }
+.py-phi-lg { padding-top: var(--space-lg); padding-bottom: var(--space-lg); }
+.py-phi-xl { padding-top: var(--space-xl); padding-bottom: var(--space-xl); }
+
+/* SOPHISTICATED GRID SYSTEMS */
+/* 12-Column Luxury Grid */
+.grid-luxury-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(var(--space-md), 3vw, var(--space-lg));
+  align-items: start;
+}
+
+/* 16-Column Advanced Grid */
+.grid-luxury-16 {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  gap: clamp(var(--space-sm), 2vw, var(--space-md));
+  align-items: start;
+}
+
+/* Grid Column Spans */
+.col-span-1 { grid-column: span 1; }
+.col-span-2 { grid-column: span 2; }
+.col-span-3 { grid-column: span 3; }
+.col-span-4 { grid-column: span 4; }
+.col-span-5 { grid-column: span 5; }
+.col-span-6 { grid-column: span 6; }
+.col-span-7 { grid-column: span 7; }
+.col-span-8 { grid-column: span 8; }
+.col-span-9 { grid-column: span 9; }
+.col-span-10 { grid-column: span 10; }
+.col-span-11 { grid-column: span 11; }
+.col-span-12 { grid-column: span 12; }
+
+/* Responsive Grid Gaps */
+.gap-phi-xs { gap: var(--space-xs); }
+.gap-phi-sm { gap: var(--space-sm); }
+.gap-phi-md { gap: var(--space-md); }
+.gap-phi-lg { gap: var(--space-lg); }
+.gap-phi-xl { gap: var(--space-xl); }
+
+/* OPTICAL ALIGNMENT SYSTEM */
+.optical-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.optical-center-vertical {
+  display: flex;
+  align-items: center;
+}
+
+.optical-center-horizontal {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Advanced Alignment */
+.optical-baseline {
+  display: flex;
+  align-items: baseline;
+}
+
+.optical-start {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.optical-end {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+/* LUXURY FLEX UTILITIES */
+.flex-luxury {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.flex-luxury-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.flex-luxury-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+/* GOLDEN RATIO RESPONSIVE UTILITIES */
+.flex-phi {
+  flex: 1.618;
+}
+
+.flex-phi-inverse {
+  flex: 0.618;
+}
+
+.aspect-phi {
+  aspect-ratio: 1.618;
+}
+
+.aspect-phi-inverse {
+  aspect-ratio: 0.618;
+}
+
+/* BREATHING ROOM UTILITIES - Luxury Presentation */
+.breathing-room-micro {
+  padding: var(--micro-spacing);
+  margin: calc(var(--micro-spacing) * 0.5);
+}
+
+.breathing-room-element {
+  padding: var(--element-gap);
+  margin: calc(var(--element-gap) * 0.618);
+}
+
+.breathing-room-content {
+  padding: var(--content-gap);
+  margin: calc(var(--content-gap) * 0.618);
+}
+
+.breathing-room-section {
+  padding: var(--section-gap);
+  margin: calc(var(--section-gap) * 0.618);
+}
+
+/* LUXURY CONTAINER SYSTEM */
+.container-awwwards {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: clamp(1.5rem, 5vw, 6rem);
+  padding-right: clamp(1.5rem, 5vw, 6rem);
+}
+
+.container-luxury-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: clamp(2rem, 6vw, 5rem);
+  padding-right: clamp(2rem, 6vw, 5rem);
+}
+
+.container-luxury-text {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: clamp(1.5rem, 4vw, 3rem);
+  padding-right: clamp(1.5rem, 4vw, 3rem);
+}
+
+.container-luxury-narrow {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-left: clamp(1rem, 3vw, 2rem);
+  padding-right: clamp(1rem, 3vw, 2rem);
+}
+
+/* SECTION LUXURY UTILITIES */
+.section-luxury {
+  padding-block: clamp(var(--space-xl), 12vw, var(--space-3xl));
+}
+
+.section-luxury-minimal {
+  padding-block: clamp(var(--space-lg), 8vw, var(--space-2xl));
+}
+
+.section-luxury-hero {
+  padding-block: clamp(var(--space-2xl), 20vw, calc(var(--space-3xl) * 1.618));
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* LUXURY SPACING COMBINATIONS */
+.luxury-card {
+  padding: clamp(var(--space-lg), 4vw, var(--space-xl));
+  margin: clamp(var(--space-md), 3vw, var(--space-lg));
+  border-radius: clamp(1rem, 2vw, 2rem);
+}
+
+.luxury-content-block {
+  padding-block: clamp(var(--space-lg), 6vw, var(--space-xl));
+  margin-block: clamp(var(--space-md), 3vw, var(--space-lg));
+}
+
+/* GOLDEN RATIO NEGATIVE SPACING */
+.negative-mt-phi { margin-top: calc(var(--space-lg) * -1); }
+.negative-mb-phi { margin-bottom: calc(var(--space-lg) * -1); }
+.negative-ml-phi { margin-left: calc(var(--space-md) * -1); }
+.negative-mr-phi { margin-right: calc(var(--space-md) * -1); }
+
+/* ========================================== */
+/* RESPONSIVE LUXURY SPACING STRATEGY */
+/* ========================================== */
+
+/* MOBILE FIRST - REFINED LUXURY (320-768px) */
+@media (max-width: 768px) {
+  /* Scale spacing by golden ratio inverse for mobile refinement */
+  .section-luxury {
+    padding-block: clamp(4rem, 15vw, 8rem);
+  }
+  
+  .section-luxury-hero {
+    padding-block: clamp(6rem, 25vw, 12rem);
+    min-height: 100vh;
+  }
+  
+  .container-awwwards {
+    padding-left: clamp(1rem, 4vw, 2rem);
+    padding-right: clamp(1rem, 4vw, 2rem);
+  }
+  
+  .container-luxury-content {
+    padding-left: clamp(1.5rem, 5vw, 2.5rem);
+    padding-right: clamp(1.5rem, 5vw, 2.5rem);
+  }
+  
+  /* Mobile luxury spacing adjustments */
+  .mt-phi-xl { margin-top: calc(var(--space-lg) * 0.618); }
+  .mb-phi-xl { margin-bottom: calc(var(--space-lg) * 0.618); }
+  .pt-phi-xl { padding-top: calc(var(--space-lg) * 0.618); }
+  .pb-phi-xl { padding-bottom: calc(var(--space-lg) * 0.618); }
+  
+  /* Mobile grid adjustments */
+  .grid-desktop-2 {
+    grid-template-columns: 1fr;
+    gap: clamp(1.5rem, 5vw, 2.5rem);
+  }
+  
+  .grid-desktop-3 {
+    grid-template-columns: 1fr;
+    gap: clamp(1rem, 4vw, 2rem);
+  }
+  
+  /* Touch-friendly luxury spacing */
+  .luxury-card {
+    padding: clamp(var(--space-md), 5vw, var(--space-lg));
+    margin: clamp(var(--space-sm), 3vw, var(--space-md));
+  }
+}
+
+/* TABLET ELEGANCE (768-1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Scale spacing by 0.85 for balanced tablet experience */
+  .section-luxury {
+    padding-block: clamp(6rem, 12vw, 10rem);
+  }
+  
+  .section-luxury-hero {
+    padding-block: clamp(8rem, 18vw, 14rem);
+  }
+  
+  .container-awwwards {
+    padding-left: clamp(2rem, 5vw, 4rem);
+    padding-right: clamp(2rem, 5vw, 4rem);
+  }
+  
+  /* Tablet luxury grid optimization */
+  .grid-desktop-2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(2rem, 4vw, 3rem);
+  }
+  
+  .grid-desktop-3 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+}
+
+/* DESKTOP LUXURY (1024px+) */
+@media (min-width: 1024px) {
+  /* Full luxury spacing implementation */
+  .section-luxury {
+    padding-block: clamp(8rem, 12vw, 16rem);
+  }
+  
+  .section-luxury-hero {
+    padding-block: clamp(10rem, 20vw, 20rem);
+  }
+  
+  .container-awwwards {
+    padding-left: clamp(3rem, 6vw, 8rem);
+    padding-right: clamp(3rem, 6vw, 8rem);
+  }
+  
+  /* Desktop luxury grid perfection */
+  .grid-desktop-2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(3rem, 5vw, 5rem);
+  }
+  
+  .grid-desktop-3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+}
+
+/* ULTRA-WIDE LUXURY (1600px+) */
+@media (min-width: 1600px) {
+  .section-luxury {
+    padding-block: 20rem;
+  }
+  
+  .section-luxury-hero {
+    padding-block: 24rem;
+  }
+  
+  .container-awwwards {
+    max-width: 1800px;
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+  
+  /* Ultra-wide luxury breathing room */
+  .luxury-content-block {
+    padding-block: var(--space-2xl);
+    margin-block: var(--space-xl);
+  }
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
