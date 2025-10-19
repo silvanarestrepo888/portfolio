@@ -772,7 +772,7 @@ body {
 /* PHASE 3: SOPHISTICATED BACKGROUND SYSTEM */
 /* ========================================== */
 
-/* DYNAMIC BACKGROUND CLASSES - Brand Aligned */
+/* DYNAMIC BACKGROUND CLASSES - Brand Aligned & Performance Optimized */
 .bg-dynamic-hero {
   background: 
     linear-gradient(45deg, var(--pannocotta-primary) 0%, var(--pannocotta-warm) 100%),
@@ -782,6 +782,11 @@ body {
   animation: hero-breathe 20s ease-in-out infinite;
   filter: var(--temperature-neutral);
   transition: filter 2s ease-in-out;
+  /* GPU ACCELERATION & PERFORMANCE */
+  transform: translateZ(0);
+  will-change: background-position, filter;
+  backface-visibility: hidden;
+  contain: layout style paint;
 }
 
 .bg-dynamic-about {
@@ -792,6 +797,11 @@ body {
   animation: about-flow 25s ease-in-out infinite;
   filter: var(--temperature-warm);
   transition: filter 2s ease-in-out;
+  /* GPU ACCELERATION & PERFORMANCE */
+  transform: translateZ(0);
+  will-change: background-position, filter;
+  backface-visibility: hidden;
+  contain: layout style paint;
 }
 
 .bg-dynamic-projects {
@@ -802,6 +812,11 @@ body {
   animation: projects-shift 30s ease-in-out infinite;
   filter: var(--temperature-neutral);
   transition: filter 2s ease-in-out;
+  /* GPU ACCELERATION & PERFORMANCE */
+  transform: translateZ(0);
+  will-change: background-position, filter;
+  backface-visibility: hidden;
+  contain: layout style paint;
 }
 
 .bg-dynamic-experience {
@@ -812,6 +827,11 @@ body {
   animation: experience-wave 28s ease-in-out infinite;
   filter: var(--temperature-cool);
   transition: filter 2s ease-in-out;
+  /* GPU ACCELERATION & PERFORMANCE */
+  transform: translateZ(0);
+  will-change: background-position, filter;
+  backface-visibility: hidden;
+  contain: layout style paint;
 }
 
 .bg-dynamic-services {
@@ -822,6 +842,11 @@ body {
   animation: services-wave 35s ease-in-out infinite;
   filter: var(--temperature-cool);
   transition: filter 2s ease-in-out;
+  /* GPU ACCELERATION & PERFORMANCE */
+  transform: translateZ(0);
+  will-change: background-position, filter;
+  backface-visibility: hidden;
+  contain: layout style paint;
 }
 
 /* SOPHISTICATED ANIMATION KEYFRAMES */
@@ -1009,6 +1034,50 @@ body {
   z-index: 2;
   background: linear-gradient(135deg, var(--pannocotta-primary) 0%, var(--pannocotta-warm) 100%);
   mix-blend-mode: multiply;
+}
+
+/* ACCESSIBILITY & REDUCED MOTION SUPPORT */
+@media (prefers-reduced-motion: reduce) {
+  .bg-dynamic-hero,
+  .bg-dynamic-about,
+  .bg-dynamic-projects,
+  .bg-dynamic-experience,
+  .bg-dynamic-services {
+    animation: none !important;
+    background-size: 100% 100% !important;
+    filter: var(--temperature-neutral) !important;
+    transition: none !important;
+  }
+  
+  .parallax-layer-1,
+  .parallax-layer-2,
+  .parallax-layer-3 {
+    animation: none !important;
+    transform: none !important;
+  }
+  
+  .typography-hero {
+    animation: none !important;
+  }
+}
+
+/* HIGH CONTRAST MODE SUPPORT */
+@media (prefers-contrast: high) {
+  :root {
+    --grapefruit-primary: #cc0000;
+    --pannocotta-primary: #ffffff;
+  }
+  
+  .typography-hero,
+  .typography-display {
+    text-shadow: none;
+    font-weight: 600;
+  }
+  
+  .control-btn {
+    border-width: 2px;
+    font-weight: 600;
+  }
 }
 
 /* RESPONSIVE BACKGROUND OPTIMIZATION */

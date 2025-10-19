@@ -47,30 +47,35 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-// Neo-Classical Luxury Typography System
+// Neo-Classical Luxury Typography System - Performance Optimized
 const crimsonPro = Crimson_Pro({
   variable: "--font-display-luxury",
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700"],
+  weight: ["300", "400", "600"], // Reduced unused weights for performance
   style: ["normal", "italic"],
   display: "swap",
   preload: true,
+  adjustFontFallback: false, // Prevent layout shift
 });
 
 const workSans = Work_Sans({
   variable: "--font-accent-luxury", 
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  weight: ["400", "500"], // Only essential weights
+  style: ["normal"],
   display: "swap",
+  preload: true,
+  fallback: ['system-ui', 'arial'], // Better fallback matching
 });
 
 const dmSans = DM_Sans({
   variable: "--font-body-luxury",
   subsets: ["latin"], 
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  weight: ["400", "500"], // Core weights only
+  style: ["normal"],
   display: "swap",
+  preload: true,
+  fallback: ['system-ui', '-apple-system'], // System font fallbacks
 });
 
 export const metadata: Metadata = {
@@ -93,11 +98,21 @@ export const metadata: Metadata = {
     title: "Silvana Restrepo | Principal Experience Architect",
     description: "Award-winning Experience Architect transforming Fortune 500 digital experiences",
     type: "website",
+    siteName: "Silvana Restrepo Portfolio",
+    locale: "en_US",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary_large_image", 
     title: "Silvana Restrepo | Principal Experience Architect",
     description: "Award-winning Experience Architect transforming Fortune 500 digital experiences",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
   }
 };
 

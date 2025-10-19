@@ -27,7 +27,6 @@ export default function Home() {
   
   // Enhanced Project Carousel Control
   const [carouselMode, setCarouselMode] = useState<'manual' | 'slow' | 'medium' | 'fast'>('slow');
-  const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
   const [isCarouselPaused, setIsCarouselPaused] = useState(false);
   
   // Carousel timing system - much more readable
@@ -482,8 +481,10 @@ export default function Home() {
               alt="Silvana Restrepo - Principal Experience Architect in professional portrait showcasing strategic design leadership"
               width={800}
               height={1000}
-              quality={100}
+              quality={85}
               priority
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdwAB/9k="
               style={{
                 objectFit: 'contain',
                 borderRadius: '2rem',
@@ -832,8 +833,9 @@ export default function Home() {
                   alt="Silvana Restrepo - Principal Experience Architect, WEF Alumni"
                   width={500}
                   height={650}
-                  quality={100}
-                  priority
+                  quality={85}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdwAB/9k="
                   style={{
                     objectFit: 'contain',
                     borderRadius: '2rem',
@@ -2126,7 +2128,9 @@ export default function Home() {
                     alt={`${projects[selectedProject].title} - Main showcase`}
                     fill
                     className="object-cover rounded-xl"
-                    quality={100}
+                    quality={85}
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdwAB/9k="
                   />
                 </motion.div>
                 
