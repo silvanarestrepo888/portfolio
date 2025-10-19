@@ -1728,11 +1728,94 @@ body {
     min-height: 200px !important;
   }
   
-  /* HIDE IMAGE-HEAVY ELEMENTS ON MOBILE */
-  .hero-image-wrapper,
-  .parallax-container .hero-image,
-  .about-visual {
-    display: none;
+  /* FOUNDATION MOBILE OPTIMIZATION */
+  .hero-foundation {
+    height: auto;
+    padding: 4rem 1rem;
+    background: var(--pannocotta-primary);
+  }
+  
+  .hero-background-professional {
+    display: none; /* Text-only hero on mobile */
+  }
+  
+  .hero-content-foundation {
+    position: static;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .hero-title-foundation {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+  }
+  
+  .word-experience,
+  .word-architect {
+    color: #ff6663;
+    text-shadow: none;
+  }
+  
+  .hero-value-proposition {
+    color: #666;
+    text-shadow: none;
+  }
+  
+  .hero-credentials-foundation {
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  /* PROJECT SHOWCASE MOBILE */
+  .project-showcase-foundation {
+    padding: 1rem;
+  }
+  
+  .project-navigation-clean {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .project-card-foundation.featured {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  
+  .project-content-systematic {
+    padding: 1.5rem;
+  }
+  
+  .project-grid-navigation {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  /* ABOUT SECTION MOBILE */
+  .expertise-pillars-foundation {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .pillar-foundation {
+    padding: 2rem 1.5rem;
+  }
+  
+  .philosophy-foundation {
+    padding: 2rem 1.5rem;
+  }
+  
+  /* SERVICES MOBILE */
+  .services-hover-system {
+    flex-direction: column !important;
+    height: auto !important;
+  }
+  
+  .service-column-interactive {
+    border-right: none !important;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 2rem 1.5rem !important;
+    min-height: auto !important;
   }
 }
 
@@ -2044,6 +2127,231 @@ body {
   gap: 1.5rem;
   align-items: center;
   flex-wrap: wrap;
+}
+
+/* ========================================== */
+/* ABOUT SECTION FOUNDATION - NARRATIVE EXCELLENCE */
+/* ========================================== */
+
+.about-foundation {
+  background: linear-gradient(135deg, var(--pannocotta-primary) 0%, var(--pannocotta-soft) 100%);
+}
+
+.about-story-structure {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-header-foundation {
+  margin-bottom: 4rem;
+}
+
+.section-number-foundation {
+  font-size: var(--text-sm);
+  font-family: var(--font-accent);
+  color: rgba(255, 102, 99, 0.6);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.section-title-foundation {
+  font-size: var(--text-3xl);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.section-intro-foundation {
+  font-size: var(--text-lg);
+  font-family: var(--font-body);
+  color: #666;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* EXPERTISE PILLARS */
+.expertise-pillars-foundation {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.pillar-foundation {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(255, 102, 99, 0.08);
+  border: 1px solid rgba(255, 102, 99, 0.05);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.pillar-foundation:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(255, 102, 99, 0.15);
+  border-color: rgba(255, 102, 99, 0.1);
+}
+
+.pillar-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.pillar-title {
+  font-size: var(--text-xl);
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.pillar-description {
+  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  color: #666;
+  line-height: 1.6;
+}
+
+/* PHILOSOPHY SECTION */
+.philosophy-foundation {
+  background: white;
+  padding: 3rem 2.5rem;
+  border-radius: 2rem;
+  box-shadow: 0 12px 40px rgba(255, 102, 99, 0.1);
+  border: 1px solid rgba(255, 102, 99, 0.05);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.philosophy-quote-foundation {
+  font-size: var(--text-2xl);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: #1a1a1a;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.philosophy-quote-foundation::before {
+  content: '"';
+  color: #ff6663;
+  font-size: 1.2em;
+}
+
+.philosophy-quote-foundation::after {
+  content: '"';
+  color: #ff6663;
+  font-size: 1.2em;
+}
+
+.philosophy-context {
+  text-align: center;
+}
+
+.philosophy-context p {
+  font-size: var(--text-base);
+  font-family: var(--font-body);
+  color: #666;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ========================================== */
+/* SECTION FOUNDATION UTILITIES */
+/* ========================================== */
+
+.section-foundation {
+  padding: clamp(4rem, 10vw, 8rem) 0;
+  margin: 0;
+}
+
+.section-header-foundation {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content-foundation {
+  margin-bottom: 3rem;
+}
+
+.element-foundation {
+  margin-bottom: 1.5rem;
+}
+
+.micro-foundation {
+  margin-bottom: 0.75rem;
+}
+
+/* PROFESSIONAL SPACING UTILITIES */
+.spacing-section { margin-bottom: 4rem; }
+.spacing-content { margin-bottom: 3rem; }
+.spacing-element { margin-bottom: 1.5rem; }
+.spacing-micro { margin-bottom: 0.75rem; }
+
+/* BUTTON SYSTEM ENHANCEMENTS */
+.button-foundation.small {
+  padding: 0.5rem 1.25rem;
+  font-size: var(--text-xs);
+  border-radius: 1rem;
+}
+
+.button-foundation.large {
+  padding: 1rem 2.5rem;
+  font-size: var(--text-lg);
+  border-radius: 2rem;
+}
+
+/* RESPONSIVE FOUNDATION ENHANCEMENTS */
+@media (max-width: 1024px) {
+  .section-foundation {
+    padding: clamp(3rem, 8vw, 6rem) 0;
+  }
+  
+  .expertise-pillars-foundation {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .project-grid-navigation {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-actions-foundation {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .button-foundation {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .project-navigation-clean {
+    gap: 0.75rem;
+  }
+  
+  .nav-btn-foundation {
+    padding: 0.75rem 1rem;
+    font-size: 0.8125rem;
+  }
 }
 
 /* HERO ANIMATIONS */
