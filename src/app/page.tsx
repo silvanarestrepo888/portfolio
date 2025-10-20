@@ -323,31 +323,38 @@ export default function Home() {
       <main id="main-content">
       <section 
         id="hero" 
-        className="hero-section-new"
+        className="hero-section-luxury"
       >
-        {/* Simple Background Image */}
-        <div className="hero-bg-container">
+        {/* Sophisticated Background System */}
+        <div className="hero-bg-luxury">
           <Image 
             src="/silvana-profile.jpg"
             alt="Silvana Restrepo - Principal Experience Architect"
             fill
-            className="hero-bg-image"
+            className="hero-bg-image-luxury"
             quality={100}
             priority
             sizes="100vw"
           />
+          
+          {/* Elegant Gradient Overlays */}
+          <div className="hero-gradient-overlay-1"></div>
+          <div className="hero-gradient-overlay-2"></div>
+          
+          {/* Sophisticated Vignette */}
+          <div className="hero-vignette-luxury"></div>
         </div>
         
         {/* Content Over Photo */}
-        <div className="hero-content-new">
+        <div className="hero-content-luxury">
           <motion.h1 
-            className="hero-title-new"
+            className="hero-title-luxury"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3 }}
           >
-            <span className="word-experience">Experience</span>
-            <span className="word-architect">Architect</span>
+            <span className="word-experience-luxury">Experience</span>
+            <span className="word-architect-luxury">Architect</span>
           </motion.h1>
         </div>
       </section>
