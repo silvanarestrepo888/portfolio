@@ -2159,19 +2159,18 @@ body {
   will-change: transform;
 }
 
-/* Optimized Photo Treatment - Build-Safe */
+/* Enhanced Photo Animation - Clearly Visible */
 .hero-image-breathing {
   object-fit: cover;
   object-position: center top;
   filter: contrast(1.15) saturate(1.1) brightness(0.85);
-  /* Simplified breathing animation for build stability */
-  animation: hero-photo-breathe 8s ease-in-out infinite;
-  /* Optimized GPU acceleration */
+  /* Enhanced breathing animation - MORE VISIBLE */
+  animation: hero-photo-breathe 6s ease-in-out infinite;
+  /* GPU acceleration without containment blocking */
   transform: translateZ(0);
   backface-visibility: hidden;
   will-change: transform;
-  /* CSS containment for performance */
-  contain: layout style paint;
+  /* Remove containment that may block animation visibility */
 }
 
 /* Optimized Overlay System - Build-Safe */
@@ -2189,12 +2188,12 @@ body {
   position: absolute;
   inset: 0;
   background: 
-    linear-gradient(135deg, rgba(0,0,0,0.7) 0%, transparent 45%, rgba(255,102,99,0.15) 100%),
-    linear-gradient(45deg, rgba(0,0,0,0.4) 0%, transparent 35%);
+    linear-gradient(135deg, rgba(0,0,0,0.4) 0%, transparent 50%, rgba(255,102,99,0.1) 100%),
+    linear-gradient(45deg, rgba(0,0,0,0.2) 0%, transparent 40%);
   z-index: 1;
   /* Simplified animation for build stability */
   animation: overlay-breathe 12s ease-in-out infinite;
-  opacity: 0.9;
+  opacity: 0.7; /* Reduced to show photo better */
   contain: layout style;
 }
 
@@ -2202,40 +2201,37 @@ body {
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(ellipse at 30% 70%, rgba(255,102,99,0.08) 0%, transparent 60%);
+    radial-gradient(ellipse at 30% 70%, rgba(255,102,99,0.05) 0%, transparent 70%);
   z-index: 2;
   /* Simplified for performance */
   animation: overlay-float 10s ease-in-out infinite;
-  opacity: 0.8;
+  opacity: 0.6; /* Reduced to show photo better */
   contain: layout style;
 }
 
-/* Simplified particle system - conditional loading */
+/* Minimal particle system - Photo visibility priority */
 .hero-overlay-particle-system {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(255,102,99,0.02) 0%, transparent 40%);
+  background: radial-gradient(circle at 50% 50%, rgba(255,102,99,0.01) 0%, transparent 60%);
   z-index: 3;
-  opacity: 0.4;
+  opacity: 0.3; /* Very subtle to not interfere with photo */
   contain: layout style;
-  /* Only animate on larger screens */
+  /* Disable on all screens to prioritize photo visibility */
   animation: none;
 }
 
-@media (min-width: 1024px) {
-  .hero-overlay-particle-system {
-    animation: particle-drift 15s linear infinite;
-    opacity: 0.6;
-  }
-}
+/* Particle animation disabled to prioritize photo visibility */
 
-/* Optimized Animation Keyframes - Build-Safe */
+/* Enhanced Animation Keyframes - Clearly Visible Breathing */
 @keyframes hero-photo-breathe {
   0%, 100% { 
     transform: scale(1) translateZ(0);
+    filter: contrast(1.15) saturate(1.1) brightness(0.85);
   }
   50% { 
-    transform: scale(1.02) translateZ(0);
+    transform: scale(1.08) translateZ(0);
+    filter: contrast(1.25) saturate(1.2) brightness(0.9);
   }
 }
 

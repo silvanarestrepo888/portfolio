@@ -346,7 +346,7 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Clear Value Proposition */}
+          {/* COPY COMPLIANT - Only Specified Content */}
           <div className="hero-content-foundation">
             <div className="hero-branding">
               <motion.h1 
@@ -358,56 +358,6 @@ export default function Home() {
                 <span className="word-experience">Experience</span>
                 <span className="word-architect">Architect</span>
               </motion.h1>
-              
-              <motion.p 
-                className="hero-value-proposition"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.6 }}
-              >
-                Transforming Fortune 500 digital experiences through strategic design thinking and human-centered innovation
-              </motion.p>
-              
-              <motion.div 
-                className="hero-credentials-foundation"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.9 }}
-              >
-                <div className="credential">
-                  <span className="credential-number">20+</span>
-                  <span className="credential-label">Years Experience</span>
-                </div>
-                <div className="credential">
-                  <span className="credential-badge">WEF</span>
-                  <span className="credential-label">Alumni</span>
-                </div>
-                <div className="credential">
-                  <span className="credential-number">Fortune 500</span>
-                  <span className="credential-label">Clients</span>
-                </div>
-              </motion.div>
-              
-              <motion.div 
-                className="hero-actions-foundation"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 1.2 }}
-              >
-                <a 
-                  href="/portfolio/Silvana-Restrepo-Portfolio.pdf"
-                  download
-                  className="button-foundation primary"
-                >
-                  Download Portfolio
-                </a>
-                <button 
-                  onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="button-foundation"
-                >
-                  View Projects
-                </button>
-              </motion.div>
             </div>
           </div>
         </div>
