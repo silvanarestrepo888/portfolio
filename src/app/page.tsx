@@ -30,75 +30,67 @@ export default function Home() {
     setFeaturedProjectIndex(index);
   };
 
-  // LUXURY VALUE PROPOSITIONS - Landor Strategic Positioning
+  // SERVICES DATA - ORIGINAL COPY COMPLIANT - Enhanced Visual Treatment Only
   const referenceServices = [
     {
-      number: "01",
-      title: "STRATEGIC CONSULTING",
-      subtitle: "Vision Translation & Market Differentiation",
-      valueProposition: "Transform abstract business vision into measurable competitive advantages through strategic experience architecture.",
-      outcomes: [
-        "MARKET DIFFERENTIATION",
-        "COMPETITIVE POSITIONING", 
-        "STRATEGIC ROADMAPPING",
-        "STAKEHOLDER ALIGNMENT",
-        "ROI OPTIMIZATION"
+      number: "00-1",
+      title: "WEB DESIGN",
+      capabilities: [
+        "MODERN LAYOUTS",
+        "RESPONSIVE DESIGN", 
+        "SEO-FRIENDLY STRUCTURE",
+        "CLEAR NAVIGATION",
+        "VISUAL STORYTELLING"
       ],
-      methodology: "I translate C-suite vision into tactical implementation roadmaps that generate measurable business outcomes. Through systematic analysis of market dynamics, customer behavior, and organizational capability, I design transformation strategies that create sustainable competitive advantages.",
-      investment: "$50K - $200K",
-      duration: "3-6 months",
-      roi: "300-800% ROI typical"
+      description: "I create websites that stand out from the competition and bring real value to businesses. Each project combines creativity and functionality to deliver the best digital solutions."
     },
     {
-      number: "02", 
-      title: "EXPERIENCE DESIGN",
-      subtitle: "Human-Centered Business Transformation",
-      valueProposition: "Convert customer interactions into strategic business assets that drive loyalty, advocacy, and market expansion.",
-      outcomes: [
-        "CUSTOMER LOYALTY",
-        "MARKET EXPANSION",
-        "BRAND ADVOCACY",
-        "OPERATIONAL EXCELLENCE",
-        "CULTURAL TRANSFORMATION"
+      number: "00-2", 
+      title: "UX/UI DESIGN",
+      capabilities: [
+        "USER RESEARCH",
+        "INTERACTION DESIGN",
+        "PROTOTYPING",
+        "USABILITY TESTING",
+        "DESIGN SYSTEMS"
       ],
-      methodology: "Beyond traditional UX lies business experience design—where every customer touchpoint becomes a strategic advantage. I architect comprehensive experience ecosystems that transform passive users into active brand advocates.",
-      investment: "$75K - $300K",
-      duration: "4-8 months",
-      roi: "400-1200% ROI typical"
+      description: "User-centered design approach creating intuitive digital experiences that connect with human behavior and business objectives."
     },
     {
-      number: "03",
-      title: "TRANSFORMATION FACILITATION", 
-      subtitle: "Enterprise Evolution & Change Leadership",
-      valueProposition: "Orchestrate organization-wide transformation through human-centered change management that preserves culture while enabling exponential growth.",
-      outcomes: [
-        "ORGANIZATIONAL AGILITY",
-        "CULTURAL PRESERVATION",
-        "CAPABILITY ACCELERATION",
-        "CHANGE ADOPTION",
-        "PERFORMANCE OPTIMIZATION"
+      number: "00-3",
+      title: "CREATIVE DESIGN", 
+      capabilities: [
+        "BRAND IDENTITY",
+        "VISUAL CONCEPTS",
+        "CREATIVE DIRECTION",
+        "DESIGN STRATEGY",
+        "INNOVATIVE SOLUTIONS"
       ],
-      methodology: "I guide enterprises through complex transformation while preserving organizational DNA. Through systematic change architecture, I enable exponential capability advancement without cultural disruption.",
-      investment: "$100K - $500K",
-      duration: "6-12 months",
-      roi: "500-1500% ROI typical"
+      description: "Creative solutions establishing strong brand presence through strategic visual communication and innovative design thinking."
     },
     {
-      number: "04",
-      title: "INNOVATION ACCELERATION",
-      subtitle: "Future-State Capability Development",
-      valueProposition: "Build innovation ecosystems that continuously generate breakthrough solutions and sustainable competitive differentiation.",
-      outcomes: [
-        "INNOVATION VELOCITY",
-        "BREAKTHROUGH SOLUTIONS",
-        "COMPETITIVE MOATS",
-        "MARKET LEADERSHIP",
-        "EXPONENTIAL GROWTH"
+      number: "00-4",
+      title: "PRODUCT AND APP DESIGN",
+      capabilities: [
+        "MOBILE INTERFACES",
+        "USER FLOWS",
+        "INTERACTION PATTERNS",
+        "PRODUCT STRATEGY",
+        "APP OPTIMIZATION"
       ],
-      methodology: "Innovation isn't random—it's architectural. I design systematic innovation frameworks that generate continuous breakthrough solutions while building sustainable competitive moats through strategic capability development.",
-      investment: "$150K - $750K",
-      duration: "8-18 months", 
-      roi: "600-2000% ROI typical"
+      description: "End-to-end product design from concept to launch, focusing on user needs and business success through strategic design."
+    },
+    {
+      number: "00-5",
+      title: "DEVELOPMENT",
+      capabilities: [
+        "FRONT-END DEVELOPMENT",
+        "RESPONSIVE CODING",
+        "PERFORMANCE OPTIMIZATION",
+        "TECHNICAL IMPLEMENTATION",
+        "QUALITY ASSURANCE"
+      ],
+      description: "Technical implementation bringing designs to life with clean, optimized code that performs excellently across all devices."
     }
   ];
 
@@ -1094,94 +1086,147 @@ export default function Home() {
               >
                 04
               </span>
-              <h2 className="section-title-landor">
-                Strategic Value Propositions
+              <h2 className="text-foundation-3xl font-foundation-display text-gray-800 section-title-landor">
+                Services
               </h2>
             </div>
             <motion.p 
-              className="philosophical-statement-primary text-center max-w-4xl mx-auto mb-12"
+              className="text-foundation-lg font-foundation-body text-gray-600 text-center max-w-4xl mx-auto mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              Systematic approaches to enterprise transformation that convert complexity into competitive advantage through strategic experience architecture
+              Meticulously architected solutions that transform complex business challenges into strategic advantages, addressing demanding market realities while anticipating future possibilities.
             </motion.p>
           </motion.div>
           
-          {/* LUXURY VALUE PROPOSITIONS - Strategic Portfolio Presentation */}
-          <div className="value-propositions-landor">
-            {referenceServices.map((service, index) => (
-              <motion.div
-                key={service.number}
-                className="value-proposition-card-luxury"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                whileHover={{ y: -12, scale: 1.02 }}
-              >
-                {/* Service Number & Title */}
-                <div className="service-header-luxury">
-                  <span className="service-number-luxury">{service.number}</span>
-                  <h3 className="service-title-luxury">{service.title}</h3>
-                  <p className="service-subtitle-luxury">{service.subtitle}</p>
-                </div>
-
-                {/* Value Proposition */}
-                <div className="value-proposition-content">
-                  <p className="value-proposition-statement">{service.valueProposition}</p>
-                </div>
-
-                {/* Strategic Outcomes */}
-                <div className="strategic-outcomes">
-                  <h4 className="outcomes-title">Strategic Outcomes</h4>
-                  <div className="outcomes-grid">
-                    {service.outcomes.map((outcome, outcomeIndex) => (
-                      <span key={outcomeIndex} className="outcome-tag">
-                        {outcome}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Methodology */}
-                <div className="methodology-preview">
-                  <h4 className="methodology-title">Methodology</h4>
-                  <p className="methodology-text">{service.methodology}</p>
-                </div>
-
-                {/* Investment & ROI */}
-                <div className="investment-roi-luxury">
-                  <div className="investment-details">
-                    <div className="investment-metric">
-                      <span className="metric-label">Investment</span>
-                      <span className="metric-value">{service.investment}</span>
-                    </div>
-                    <div className="investment-metric">
-                      <span className="metric-label">Duration</span>
-                      <span className="metric-value">{service.duration}</span>
-                    </div>
-                    <div className="investment-metric">
-                      <span className="metric-label">ROI</span>
-                      <span className="metric-value roi-highlight">{service.roi}</span>
-                    </div>
-                  </div>
+          {/* ELITE SERVICES SECTION - ORIGINAL COPY COMPLIANT - Enhanced Visual Treatment */}
+          <div className="max-w-[95vw] mx-auto">
+            {/* Interactive Services System */}
+            <div className="services-hover-system flex h-[75vh] border border-gray-200 rounded-3xl overflow-hidden bg-white shadow-2xl services-luxury-enhanced">
+              {referenceServices.map((service, index) => (
+                <motion.div
+                  key={service.number}
+                  className="service-column-interactive relative cursor-pointer border-r border-gray-200 last:border-r-0 service-column-landor"
+                  style={{
+                    backgroundColor: expandedService === index ? 'rgba(255, 102, 99, 0.03)' : 'white'
+                  }}
+                  onMouseEnter={() => setExpandedService(index)}
+                  onMouseLeave={() => setExpandedService(null)}
+                  animate={{
+                    width: getServiceColumnWidth(index),
+                    opacity: expandedService === null ? 1 : (expandedService === index ? 1 : 0.7)
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                    type: "tween"
+                  }}
+                  whileHover={{
+                    boxShadow: expandedService === index ? '0 25px 60px rgba(255, 102, 99, 0.15)' : '0 0 0 rgba(0,0,0,0)',
+                    zIndex: expandedService === index ? 10 : 1
+                  }}
+                >
+                  {/* Service Number - Always Visible */}
+                  <motion.div 
+                    className="absolute top-8 left-6"
+                    animate={{
+                      opacity: expandedService === null || expandedService === index ? 1 : 0.4
+                    }}
+                  >
+                    <span className="typography-accent font-semibold text-gray-500 service-number-landor">
+                      {service.number}
+                    </span>
+                  </motion.div>
                   
-                  {/* Strategic Consultation CTA */}
-                  <button className="consultation-cta-luxury">
-                    <span>Strategic Consultation</span>
-                    <motion.div 
-                      className="cta-arrow"
-                      animate={{ x: [0, 4, 0] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  {/* Service Title - Vertical when collapsed */}
+                  <motion.div
+                    className="absolute top-24 left-6 origin-top-left"
+                    style={{
+                      transformOrigin: 'top left',
+                      width: expandedService === index ? 'auto' : '200px'
+                    }}
+                    animate={{
+                      rotate: expandedService === index ? 0 : -90,
+                      x: expandedService === index ? 0 : 30
+                    }}
+                    transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  >
+                    <h3 
+                      className="service-title-interactive text-gray-800 whitespace-nowrap service-title-landor"
+                      style={{ 
+                        fontSize: expandedService === index ? '1.5rem' : '1.25rem',
+                        transition: 'font-size 0.6s ease',
+                        fontWeight: '700',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.02em'
+                      }}
                     >
-                      →
-                    </motion.div>
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                      {service.title}
+                    </h3>
+                  </motion.div>
+                  
+                  {/* Expanded Content - Only on Hover */}
+                  <motion.div
+                    className="absolute inset-0 p-8 pt-32"
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: expandedService === index ? 1 : 0,
+                      pointerEvents: expandedService === index ? 'auto' : 'none'
+                    }}
+                    transition={{ duration: 0.4, delay: 0.2 }}
+                  >
+                    {/* Capabilities List - ORIGINAL COPY */}
+                    <div className="mb-8">
+                      {service.capabilities.map((capability, capIndex) => (
+                        <motion.div
+                          key={capIndex}
+                          className="capability-item mb-3 capability-item-landor"
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{
+                            opacity: expandedService === index ? 1 : 0,
+                            x: expandedService === index ? 0 : -20
+                          }}
+                          transition={{ 
+                            duration: 0.3, 
+                            delay: expandedService === index ? 0.3 + capIndex * 0.1 : 0 
+                          }}
+                        >
+                          {capability}
+                        </motion.div>
+                      ))}
+                    </div>
+                    
+                    {/* Service Description - ORIGINAL COPY */}
+                    <motion.p
+                      className="service-description-reference service-description-landor"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{
+                        opacity: expandedService === index ? 1 : 0,
+                        y: expandedService === index ? 0 : 10
+                      }}
+                      transition={{ 
+                        duration: 0.4, 
+                        delay: expandedService === index ? 0.8 : 0
+                      }}
+                    >
+                      {service.description}
+                    </motion.p>
+                  </motion.div>
+                  
+                  {/* Column Background Enhancement on Hover */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-b from-transparent via-coral/5 to-coral/10"
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: expandedService === index ? 1 : 0
+                    }}
+                    transition={{ duration: 0.4 }}
+                  />
+                </motion.div>
+              ))}
+            </div>
             
             {/* Services Navigation Guidance */}
             <motion.div
