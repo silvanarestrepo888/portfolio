@@ -11,10 +11,12 @@ export const CustomCursor = () => {
 
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
+  const magneticX = useMotionValue(0);
+  const magneticY = useMotionValue(0);
   
-  // Smooth spring animations for luxury feel
-  const springX = useSpring(cursorX, { damping: 20, stiffness: 300, mass: 0.5 });
-  const springY = useSpring(cursorY, { damping: 20, stiffness: 300, mass: 0.5 });
+  // Enhanced spring animations with magnetic attraction
+  const springX = useSpring(magneticX, { damping: 25, stiffness: 400, mass: 0.3 });
+  const springY = useSpring(magneticY, { damping: 25, stiffness: 400, mass: 0.3 });
 
   useEffect(() => {
     // MOBILE DETECTION - Custom cursor only for desktop devices
@@ -31,6 +33,46 @@ export const CustomCursor = () => {
     const updateCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
+      
+      // Magnetic interaction functionality
+      const magneticElements = document.querySelectorAll('[data-magnetic="true"], .nav-item-enhanced, .button-foundation, .nav-btn-foundation');
+      let closestElement: HTMLElement | null = null;
+      let shortestDistance = Infinity;
+      const magneticRadius = 80; // Magnetic field radius
+      
+      magneticElements.forEach((element) => {
+        if (element instanceof HTMLElement) {
+          const rect = element.getBoundingClientRect();
+          const elementCenterX = rect.left + rect.width / 2;
+          const elementCenterY = rect.top + rect.height / 2;
+          const distance = Math.sqrt(
+            Math.pow(e.clientX - elementCenterX, 2) + Math.pow(e.clientY - elementCenterY, 2)
+          );
+          
+          if (distance < magneticRadius && distance < shortestDistance) {
+            shortestDistance = distance;
+            closestElement = element;
+          }
+        }
+      });
+      
+      if (closestElement) {
+        const rect = (closestElement as HTMLElement).getBoundingClientRect();
+        const elementCenterX = rect.left + rect.width / 2;
+        const elementCenterY = rect.top + rect.height / 2;
+        const magneticStrength = 0.3; // Attraction strength
+        
+        // Apply magnetic attraction
+        const attractionX = (elementCenterX - e.clientX) * magneticStrength;
+        const attractionY = (elementCenterY - e.clientY) * magneticStrength;
+        
+        magneticX.set(e.clientX + attractionX);
+        magneticY.set(e.clientY + attractionY);
+      } else {
+        magneticX.set(e.clientX);
+        magneticY.set(e.clientY);
+      }
+      
       setIsVisible(true);
     };
 
@@ -64,7 +106,7 @@ export const CustomCursor = () => {
       window.removeEventListener('mousemove', handleCursorState);
       window.removeEventListener('mouseleave', hideCursor);
     };
-  }, [cursorX, cursorY]);
+  }, [cursorX, cursorY, magneticX, magneticY]);
 
   if (!isVisible) return null;
 

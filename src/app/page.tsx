@@ -340,6 +340,7 @@ export default function Home() {
             
             {/* Sophisticated Multi-Layer Overlay System */}
             <div className="hero-overlay-foundation hero-overlay-luxury">
+              <div className="hero-background-breathing"></div>
               <div className="hero-overlay-gradient-primary"></div>
               <div className="hero-overlay-gradient-secondary"></div>
               <div className="hero-overlay-particle-system"></div>
@@ -369,8 +370,8 @@ export default function Home() {
         className="about-section-enhanced"
         style={{ 
           background: 'linear-gradient(135deg, var(--pannocotta-primary) 0%, var(--pannocotta-soft) 100%)',
-          paddingTop: 'var(--space-xl)',
-          paddingBottom: 'var(--space-xl)'
+          paddingTop: 'var(--space-lg)',
+          paddingBottom: 'var(--space-lg)'
         }}
       >
         <div className="container-about-enhanced">
@@ -421,19 +422,35 @@ export default function Home() {
               </div>
             </motion.div>
             
-            {/* Enhanced Philosophy Section */}
+            {/* Enhanced Philosophy Section - Craft Highlighted */}
             <motion.div 
               className="philosophy-enhanced"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
+              whileHover={{ scale: 1.02 }}
             >
-              <blockquote className="philosophy-quote-elegant">
-                &ldquo;The art of my craft lies in connecting strategic business goals with the essence of human desire&rdquo;
-              </blockquote>
-              <div className="philosophy-attribution">
+              <motion.blockquote 
+                className="philosophy-quote-elegant philosophy-quote-craft"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1.5, delay: 0.8 }}
+              >
+                &ldquo;The art of my <motion.span 
+                  className="craft-highlight"
+                  initial={{ backgroundSize: "0% 100%" }}
+                  whileInView={{ backgroundSize: "100% 100%" }}
+                  transition={{ duration: 1.2, delay: 1.2, ease: "easeInOut" }}
+                >craft</motion.span> lies in connecting strategic business goals with the essence of human desire&rdquo;
+              </motion.blockquote>
+              <motion.div 
+                className="philosophy-attribution"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1.4 }}
+              >
                 <p className="philosophy-context">This philosophy drives every project, every strategy, and every solution I create for global brands seeking meaningful transformation.</p>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
