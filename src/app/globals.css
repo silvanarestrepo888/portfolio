@@ -2221,12 +2221,11 @@ body {
   position: absolute;
   inset: 0;
   background: 
-    linear-gradient(135deg, rgba(0,0,0,0.2) 0%, transparent 70%, rgba(255,102,99,0.02) 100%),
-    linear-gradient(45deg, rgba(0,0,0,0.1) 0%, transparent 60%);
+    linear-gradient(135deg, rgba(0,0,0,0.05) 0%, transparent 80%, rgba(255,102,99,0.01) 100%);
   z-index: 2;
   /* Simplified animation for build stability */
   animation: overlay-breathe 12s ease-in-out infinite;
-  opacity: 0.6; /* Much lighter to show photo */
+  opacity: 0.3; /* Much lighter to show photo */
   /* contain: layout style; REMOVED - blocking photo */
 }
 
@@ -2234,12 +2233,12 @@ body {
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(ellipse at 30% 70%, rgba(255,102,99,0.03) 0%, transparent 70%);
+    radial-gradient(ellipse at 30% 70%, rgba(255,102,99,0.01) 0%, transparent 80%);
   z-index: 3;
   /* Simplified for performance */
   animation: overlay-float 10s ease-in-out infinite;
-  opacity: 0.4; /* Much lighter to show photo */
-  contain: layout style;
+  opacity: 0.2; /* Much lighter to show photo */
+  /* contain: layout style; REMOVED - blocking photo */
 }
 
 /* Enhanced Particle System - 85 Lines of Sophisticated Animation */
