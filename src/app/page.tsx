@@ -715,8 +715,7 @@ export default function Home() {
               Experience
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              More than two decades of continuous evolution, upscaling global enterprises, 
-              reinventing business models, and reimagining how brands connect with human experiences.
+              Some of the hats I have worn over more than 20 years of non-stop, continuous upscaling, reinventing, evolving, and reimagining business, brands, and teams.
             </p>
           </motion.div>
 
@@ -824,51 +823,52 @@ export default function Home() {
               {[
                 {
                   year: "2020—2025",
-                  role: "Business Partner & Experience Architect",
+                  role: "Business Partner & Experience Architect", 
                   company: "Globant",
-                  description: "Orchestrating enterprise-scale digital initiatives for global brands, translating vision into practical roadmaps that drive measurable business outcomes.",
-                  highlights: ["Led 15+ Fortune 500 transformations", "Generated $50M+ in client value", "Built 200+ person design teams"],
+                  description: "I orchestrate enterprise-scale digital initiatives for global brands, translating their vision into practical roadmaps that support business goals. Contributed to architect physical-digital systems for healthcare, entertainment, hospitality, retail, Finance, and wellness teams, supporting faster value delivery.",
                   side: "left"
                 },
                 {
                   year: "2019—2020",
                   role: "Senior Researcher",
                   company: "Centre for Fourth Industrial Revolution-WEF",
-                  description: "Developing frameworks connecting technologies with governance approaches for sustainable innovation in the digital age.",
-                  highlights: ["Published 3 research papers", "Influenced global policy", "Shaped AI governance frameworks"],
+                  description: "I helped develop frameworks connecting technologies with governance approaches, supporting sustainable bridges between public policy and industry innovation.",
                   side: "right"
                 },
                 {
-                  year: "2018—2019",
+                  year: "2018—2019", 
                   role: "Strategic Design Director",
                   company: "Designit a WIPRO Company",
-                  description: "Leading regional operations to scale market presence and transform complexity into actionable solutions across diverse industries.",
-                  highlights: ["Expanded to 5 new markets", "Grew team by 300%", "Launched 12 strategic initiatives"],
+                  description: "I led regional operations to scale market presence and transform business complexity into actionable design solutions.",
                   side: "left"
                 },
                 {
                   year: "2016—2018",
                   role: "Marketing Director",
                   company: "Grupo Éxito",
-                  description: "Leading strategic marketing initiatives and brand positioning across retail operations in Latin America's largest retail chain.",
-                  highlights: ["Increased brand awareness 40%", "Launched digital transformation", "Managed $20M+ budget"],
+                  description: "I transformed retail destinations into experiential ecosystems, orchestrating over 1,000 brand partnerships while driving entertainment-centric commerce innovation.",
                   side: "right"
                 },
                 {
                   year: "2013—2016",
                   role: "Business Intelligence Manager",
-                  company: "Industrias HACEB",
-                  description: "Transforming data into strategic insights for business growth and operational excellence in manufacturing and retail.",
-                  highlights: ["Reduced costs by 25%", "Improved efficiency 35%", "Implemented data-driven culture"],
+                  company: "Industrias HACEB", 
+                  description: "I reengineered market segmentation frameworks from production-centric to consumer-centric models, driving sales growth and operational efficiencies.",
                   side: "left"
+                },
+                {
+                  year: "2012—2016",
+                  role: "Independent Advisor",
+                  company: "Independent",
+                  description: "I decoded emerging consumer behaviours for global enterprises, transforming abstract trend signals into implementable product innovation roadmaps.",
+                  side: "right"
                 },
                 {
                   year: "2002—2011",
                   role: "Senior Marketing Analyst",
-                  company: "TIGO- Millicom",
-                  description: "Pioneering digital marketing strategies in emerging telecommunications markets across Central and South America.",
-                  highlights: ["Launched first digital campaigns", "Grew customer base 200%", "Established analytics foundation"],
-                  side: "right"
+                  company: "TIGO-Millicom",
+                  description: "I supported corporate expansion through mergers and acquisitions, enhancing national competitive positioning while integrating diverse teams into the main brand.",
+                  side: "left"
                 }
               ].map((experience, index) => (
                 <motion.div 
@@ -910,23 +910,10 @@ export default function Home() {
                         {experience.company}
                       </p>
                       
-                      {/* Description */}
-                      <p className="text-gray-600 leading-relaxed mb-6">
+                      {/* Description - ORIGINAL APPROVED COPY ONLY */}
+                      <p className="text-gray-600 leading-relaxed">
                         {experience.description}
                       </p>
-                      
-                      {/* Highlights */}
-                      <div className="space-y-2">
-                        {experience.highlights.map((highlight, hIndex) => (
-                          <div key={hIndex} className="flex items-center text-sm text-gray-700">
-                            <div 
-                              className="w-2 h-2 rounded-full mr-3"
-                              style={{ backgroundColor: '#ff6663' }}
-                            ></div>
-                            {highlight}
-                          </div>
-                        ))}
-                      </div>
                     </motion.div>
                   </div>
                 </motion.div>
