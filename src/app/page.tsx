@@ -1296,7 +1296,7 @@ export default function Home() {
                   
                   {/* Gallery Thumbnails */}
                   <div className="gallery-thumbnails">
-                    {projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.map((image, index) => (
+                    {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.map((image, index) => (
                       <button
                         key={index}
                         onClick={() => {
@@ -1350,7 +1350,7 @@ export default function Home() {
                 <div className="capabilities-section capabilities-section-sophisticated p-phi-lg mb-phi-lg">
                   <h3 className="text-foundation-xl font-foundation-display text-gray-800 mb-phi-md">Capabilities</h3>
                   <div className="flex flex-col gap-3">
-                    {projects[selectedProject].tech && projects[selectedProject].tech.map((capability, index) => (
+                    {selectedProject !== null && projects[selectedProject].tech && projects[selectedProject].tech.map((capability, index) => (
                       <div 
                         key={index}
                         className="px-4 py-3 bg-gray-50 rounded-xl border-l-4"
