@@ -2409,46 +2409,65 @@ body {
 }
 
 /* ========================================== */
-/* ABOUT SECTION FOUNDATION - NARRATIVE EXCELLENCE */
+/* ABOUT SECTION ENHANCED - AWARD-WINNING SOPHISTICATION */
 /* ========================================== */
 
-.about-foundation {
-  background: linear-gradient(135deg, var(--pannocotta-primary) 0%, var(--pannocotta-soft) 100%);
+/* Enhanced Section Container - Natural Content Flow */
+.about-section-enhanced {
+  /* Natural content-driven height instead of forced 100vh */
+  min-height: auto;
+  /* Remove centering that creates excessive gaps */
+  display: block;
+  /* GPU optimization */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  contain: layout style paint;
 }
 
-.about-story-structure {
-  max-width: 1000px;
+.container-about-enhanced {
+  max-width: 1200px; /* Optimized for readability */
   margin: 0 auto;
+  padding: 0 var(--space-lg); /* φ³ horizontal padding - 67.8px */
+}
+
+.about-content-flow-optimized {
+  max-width: 800px; /* Perfect reading width */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg); /* φ³ content gaps - 67.8px - FIXES EXCESSIVE SPACING */
   text-align: center;
 }
 
-.about-header-foundation {
-  margin-bottom: 4rem;
+/* Enhanced About Header - Sophisticated Typography */
+.about-header-enhanced {
+  margin-bottom: var(--space-lg); /* φ³ spacing - natural rhythm */
 }
 
-.section-number-foundation {
-  font-size: var(--text-sm);
+.section-number-elegant {
+  font-size: var(--text-sm); /* 0.875rem - refined size */
   font-family: var(--font-accent);
   color: rgba(255, 102, 99, 0.6);
-  font-weight: 600;
+  font-weight: 500; /* Refined weight */
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em; /* Elegant spacing */
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-sm); /* φ¹ spacing */
 }
 
-.section-title-foundation {
-  font-size: var(--text-3xl);
+.section-title-elegant {
+  font-size: var(--text-3xl); /* 2.5rem - proper scale */
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 400; /* Refined weight */
   font-style: italic;
   color: #1a1a1a;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-md); /* φ² spacing */
   line-height: 1.2;
+  /* Clean presentation - no shadows */
 }
 
-.section-intro-foundation {
-  font-size: var(--text-lg);
+.section-intro-elegant {
+  font-size: var(--text-lg); /* 1.125rem */
   font-family: var(--font-body);
   color: #666;
   line-height: 1.6;
@@ -2456,97 +2475,181 @@ body {
   margin: 0 auto;
 }
 
-/* EXPERTISE PILLARS */
-.expertise-pillars-foundation {
+/* Enhanced Expertise Pillars - Sophisticated Cards */
+.expertise-pillars-enhanced {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-bottom: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg); /* φ³ spacing between pillars */
+  margin-bottom: var(--space-xl); /* φ⁴ section spacing */
+  padding: 0 var(--space-md); /* φ² container padding */
 }
 
-.pillar-foundation {
-  background: white;
-  padding: 2.5rem 2rem;
+.pillar-enhanced {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  padding: var(--space-lg); /* φ³ internal padding */
   border-radius: 1.5rem;
   text-align: center;
-  box-shadow: 0 8px 32px rgba(255, 102, 99, 0.08);
-  border: 1px solid rgba(255, 102, 99, 0.05);
+  box-shadow: 0 12px 40px rgba(255, 102, 99, 0.08);
+  border: 1px solid rgba(255, 102, 99, 0.1);
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateZ(0); /* GPU acceleration */
 }
 
-.pillar-foundation:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 48px rgba(255, 102, 99, 0.15);
-  border-color: rgba(255, 102, 99, 0.1);
+.pillar-enhanced:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(255, 102, 99, 0.15);
+  border-color: rgba(255, 102, 99, 0.2);
 }
 
-.pillar-icon {
+.pillar-icon-elegant {
   font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-md); /* φ² spacing */
   display: block;
+  opacity: 0.8;
+  transition: all 0.3s ease;
 }
 
-.pillar-title {
-  font-size: var(--text-xl);
+.pillar-enhanced:hover .pillar-icon-elegant {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.pillar-title-elegant {
+  font-size: var(--text-xl); /* 1.375rem */
   font-family: var(--font-display);
   font-weight: 600;
   color: #1a1a1a;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-sm); /* φ¹ spacing */
   line-height: 1.3;
 }
 
-.pillar-description {
-  font-size: var(--text-sm);
+.pillar-description-elegant {
+  font-size: var(--text-sm); /* 0.875rem */
   font-family: var(--font-body);
   color: #666;
   line-height: 1.6;
 }
 
-/* PHILOSOPHY SECTION */
-.philosophy-foundation {
-  background: white;
-  padding: 3rem 2.5rem;
+/* PHILOSOPHY SECTION ENHANCED - REMOVES UGLY SHADOWS */
+.philosophy-enhanced {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  padding: var(--space-xl) var(--space-lg); /* φ⁴ x φ³ luxury padding */
   border-radius: 2rem;
-  box-shadow: 0 12px 40px rgba(255, 102, 99, 0.1);
-  border: 1px solid rgba(255, 102, 99, 0.05);
-  max-width: 800px;
+  border: 1px solid rgba(255, 102, 99, 0.1);
+  box-shadow: 0 20px 60px rgba(255, 102, 99, 0.08);
+  max-width: 700px; /* Perfect quote width */
   margin: 0 auto;
+  /* GPU optimization */
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
-.philosophy-quote-foundation {
-  font-size: var(--text-2xl);
+.philosophy-quote-elegant {
+  font-size: var(--text-xl); /* 1.375rem - PROPER SCALE, NOT OVERSIZED */
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 400;
-  color: #1a1a1a;
-  line-height: 1.4;
-  margin-bottom: 1.5rem;
+  color: #2d3748; /* Sophisticated dark gray */
+  line-height: 1.5; /* Optimal readability */
+  margin-bottom: var(--space-md);
   text-align: center;
+  /* CLEAN PRESENTATION - NO UGLY SHADOWS */
 }
 
-.philosophy-quote-foundation::before {
+.philosophy-quote-elegant::before {
   content: '"';
   color: #ff6663;
-  font-size: 1.2em;
+  font-size: 1.1em;
+  font-weight: 400;
 }
 
-.philosophy-quote-foundation::after {
+.philosophy-quote-elegant::after {
   content: '"';
   color: #ff6663;
-  font-size: 1.2em;
+  font-size: 1.1em;
+  font-weight: 400;
+}
+
+.philosophy-attribution {
+  border-top: 1px solid rgba(255, 102, 99, 0.1);
+  padding-top: var(--space-md);
+  text-align: center;
 }
 
 .philosophy-context {
-  text-align: center;
-}
-
-.philosophy-context p {
-  font-size: var(--text-base);
+  font-size: var(--text-base); /* 1rem - readable size */
   font-family: var(--font-body);
   color: #666;
   line-height: 1.6;
-  max-width: 500px;
-  margin: 0 auto;
+  font-style: normal; /* Clean, non-italic for clarity */
+  margin: 0;
+}
+
+/* ========================================== */
+/* ABOUT SECTION RESPONSIVE OPTIMIZATION */
+/* ========================================== */
+
+/* Mobile Enhancement (max-width: 768px) */
+@media (max-width: 768px) {
+  .about-section-enhanced {
+    padding: var(--space-lg) 0; /* φ³ on mobile - 67.8px */
+  }
+  
+  .container-about-enhanced {
+    padding: 0 var(--space-md); /* φ² mobile padding */
+  }
+  
+  .about-content-flow-optimized {
+    gap: var(--space-md); /* φ² mobile gaps */
+    max-width: 100%;
+  }
+  
+  .section-title-elegant {
+    font-size: var(--text-2xl); /* Mobile-optimized title */
+  }
+  
+  .section-intro-elegant {
+    font-size: var(--text-base); /* Mobile-optimized intro */
+    max-width: 100%;
+  }
+  
+  .expertise-pillars-enhanced {
+    grid-template-columns: 1fr; /* Stack on mobile */
+    gap: var(--space-md); /* φ² mobile spacing */
+    padding: 0; /* Remove side padding on mobile */
+  }
+  
+  .pillar-enhanced {
+    padding: var(--space-md); /* φ² mobile padding */
+  }
+  
+  .philosophy-enhanced {
+    padding: var(--space-lg) var(--space-md); /* Optimized mobile padding */
+    max-width: 100%;
+  }
+  
+  .philosophy-quote-elegant {
+    font-size: var(--text-lg); /* Mobile-optimized quote size */
+    line-height: 1.4;
+  }
+}
+
+/* Tablet Optimization (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container-about-enhanced {
+    padding: 0 var(--space-lg);
+  }
+  
+  .expertise-pillars-enhanced {
+    grid-template-columns: repeat(2, 1fr); /* Two columns on tablet */
+    gap: var(--space-lg);
+  }
+  
+  .philosophy-enhanced {
+    max-width: 600px;
+  }
 }
 
 /* ========================================== */

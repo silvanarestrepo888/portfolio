@@ -413,77 +413,76 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ABOUT SECTION - Foundation Excellence */}
+      {/* ABOUT SECTION - Award-Winning Sophistication */}
       <section 
         id="about" 
-        className="section-luxury"
+        className="about-section-enhanced"
         style={{ 
           background: 'linear-gradient(135deg, var(--pannocotta-primary) 0%, var(--pannocotta-soft) 100%)',
-          minHeight: '100vh',
-          display: 'flex',
-          alignItems: 'center'
+          paddingTop: 'var(--space-xl)',
+          paddingBottom: 'var(--space-xl)'
         }}
       >
-        <div className="container-foundation">
-          <div className="about-story-structure">
-            {/* Story Opening */}
+        <div className="container-about-enhanced">
+          <div className="about-content-flow-optimized">
+            {/* Enhanced About Header */}
             <motion.header 
-              className="about-header-foundation"
+              className="about-header-enhanced"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              <span className="section-number-foundation">01</span>
-              <h2 className="section-title-foundation">The Journey</h2>
-              <p className="section-intro-foundation">
+              <span className="section-number-elegant">01</span>
+              <h2 className="section-title-elegant">The Journey</h2>
+              <p className="section-intro-elegant">
                 Two decades of transforming how global brands connect with human experiences
               </p>
             </motion.header>
             
-            {/* Expertise Pillars */}
+            {/* Enhanced Expertise Pillars */}
             <motion.div 
-              className="expertise-pillars-foundation"
+              className="expertise-pillars-enhanced"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
             >
-              <div className="pillar-foundation">
-                <div className="pillar-icon">🎯</div>
-                <h3 className="pillar-title">Strategic Design</h3>
-                <p className="pillar-description">
+              <div className="pillar-enhanced">
+                <div className="pillar-icon-elegant">🎯</div>
+                <h3 className="pillar-title-elegant">Strategic Design</h3>
+                <p className="pillar-description-elegant">
                   Business transformation through human-centered design thinking that connects strategic goals with authentic human experiences.
                 </p>
               </div>
               
-              <div className="pillar-foundation">
-                <div className="pillar-icon">🌍</div>
-                <h3 className="pillar-title">Global Experience</h3>
-                <p className="pillar-description">
+              <div className="pillar-enhanced">
+                <div className="pillar-icon-elegant">🌍</div>
+                <h3 className="pillar-title-elegant">Global Experience</h3>
+                <p className="pillar-description-elegant">
                   25+ international markets, cultural intelligence, and local adaptation expertise creating universally resonant solutions.
                 </p>
               </div>
               
-              <div className="pillar-foundation">
-                <div className="pillar-icon">🏢</div>
-                <h3 className="pillar-title">Fortune 500 Scale</h3>
-                <p className="pillar-description">
+              <div className="pillar-enhanced">
+                <div className="pillar-icon-elegant">🏢</div>
+                <h3 className="pillar-title-elegant">Fortune 500 Scale</h3>
+                <p className="pillar-description-elegant">
                   Enterprise-level digital transformation, systems thinking, and organizational change management at global scale.
                 </p>
               </div>
             </motion.div>
             
-            {/* Professional Philosophy */}
+            {/* Enhanced Philosophy Section */}
             <motion.div 
-              className="philosophy-foundation"
+              className="philosophy-enhanced"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
             >
-              <blockquote className="philosophy-quote-foundation">
+              <blockquote className="philosophy-quote-elegant">
                 &ldquo;The art of my craft lies in connecting strategic business goals with the essence of human desire&rdquo;
               </blockquote>
-              <div className="philosophy-context">
-                <p>This philosophy drives every project, every strategy, and every solution I create for global brands seeking meaningful transformation.</p>
+              <div className="philosophy-attribution">
+                <p className="philosophy-context">This philosophy drives every project, every strategy, and every solution I create for global brands seeking meaningful transformation.</p>
               </div>
             </motion.div>
           </div>
