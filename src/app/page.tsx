@@ -355,79 +355,18 @@ export default function Home() {
             </div>
           </div>
           
-          {/* LANDOR-CALIBER BRAND NARRATIVE */}
-          <div className="hero-content-landor">
-            <div className="hero-philosophy-statement">
-              {/* Primary Brand Philosophy - Luxury Positioning */}
-              <motion.div
-                className="philosophy-primary"
-                initial={{ opacity: 0, y: 40 }}
+          {/* COPY COMPLIANT - Enhanced Visual Treatment of Original Content */}
+          <div className="hero-content-foundation">
+            <div className="hero-branding">
+              <motion.h1 
+                className="hero-title-foundation hero-title-landor"
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.4, delay: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                transition={{ duration: 1.2, delay: 0.3 }}
               >
-                <h1 className="hero-philosophy-text">
-                  I architect experiences that <motion.span 
-                    className="philosophy-highlight"
-                    initial={{ backgroundSize: "0% 100%" }}
-                    animate={{ backgroundSize: "100% 100%" }}
-                    transition={{ duration: 1.8, delay: 1.2, ease: "easeInOut" }}
-                  >transform</motion.span> how global brands connect with human desire
-                </h1>
-              </motion.div>
-
-              {/* Strategic Value Proposition */}
-              <motion.div
-                className="value-proposition-luxury"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, delay: 1.0 }}
-              >
-                <p className="value-proposition-text">
-                  Converting enterprise complexity into human-centered business advantages that generate measurable competitive differentiation
-                </p>
-              </motion.div>
-
-              {/* Luxury Credentials */}
-              <motion.div
-                className="credentials-luxury"
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.0, delay: 1.4 }}
-              >
-                <div className="credential-grid">
-                  <div className="credential-item">
-                    <span className="credential-number">25+</span>
-                    <span className="credential-label">Global Markets</span>
-                  </div>
-                  <div className="credential-item">
-                    <span className="credential-number">$50M+</span>
-                    <span className="credential-label">Value Generated</span>
-                  </div>
-                  <div className="credential-item">
-                    <span className="credential-number">Fortune 500</span>
-                    <span className="credential-label">Enterprise Scale</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Luxury Engagement CTA */}
-              <motion.div
-                className="engagement-cta-luxury"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.0, delay: 1.8 }}
-              >
-                <button className="cta-discovery-conversation">
-                  <span className="cta-text">Explore the Philosophy</span>
-                  <motion.div 
-                    className="cta-arrow"
-                    animate={{ x: [0, 4, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    →
-                  </motion.div>
-                </button>
-              </motion.div>
+                <span className="word-experience word-experience-enhanced">Experience</span>
+                <span className="word-architect word-architect-enhanced">Architect</span>
+              </motion.h1>
             </div>
           </div>
         </div>
@@ -445,74 +384,55 @@ export default function Home() {
       >
         <div className="container-about-enhanced">
           <div className="about-content-flow-optimized">
-            {/* Philosophical Positioning - Landor Standard */}
+            {/* Enhanced About Header - ORIGINAL COPY */}
             <motion.header 
-              className="philosophy-positioning-landor"
-              initial={{ opacity: 0, y: 40 }}
+              className="about-header-enhanced"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.3 }}
+              transition={{ duration: 1, delay: 0.2 }}
             >
-              <span className="section-number-luxury">01</span>
-              <h2 className="section-title-landor">Philosophy</h2>
-              <p className="philosophical-statement-primary">
-                Where enterprise complexity meets human desire, transformation becomes inevitable
+              <span className="section-number-elegant section-number-luxury">01</span>
+              <h2 className="section-title-elegant section-title-landor">The Journey</h2>
+              <p className="section-intro-elegant">
+                Two decades of transforming how global brands connect with human experiences
               </p>
             </motion.header>
             
-            {/* Strategic Thinking Frameworks - Not Capabilities */}
+            {/* Enhanced Expertise Pillars - ORIGINAL COPY */}
             <motion.div 
-              className="thinking-frameworks-landor"
+              className="expertise-pillars-enhanced thinking-frameworks-landor"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.6 }}
+              transition={{ duration: 1, delay: 0.4 }}
             >
-              <div className="framework-luxury">
-                <div className="framework-icon-landor">
-                  <div className="icon-strategic-vision"></div>
+              <div className="pillar-enhanced framework-luxury">
+                <div className="pillar-icon-elegant framework-icon-landor">
+                  <div className="icon-strategic-vision">🎯</div>
                 </div>
-                <h3 className="framework-title-luxury">Strategic Vision Translation</h3>
-                <p className="framework-philosophy-text">
-                  I transform abstract business aspirations into tangible human experiences that create competitive differentiation through authentic connection.
+                <h3 className="pillar-title-elegant framework-title-luxury">Strategic Design</h3>
+                <p className="pillar-description-elegant framework-philosophy-text">
+                  Business transformation through human-centered design thinking that connects strategic goals with authentic human experiences.
                 </p>
               </div>
               
-              <div className="framework-luxury">
-                <div className="framework-icon-landor">
-                  <div className="icon-human-centered"></div>
+              <div className="pillar-enhanced framework-luxury">
+                <div className="pillar-icon-elegant framework-icon-landor">
+                  <div className="icon-human-centered">🌍</div>
                 </div>
-                <h3 className="framework-title-luxury">Human-Centered Business Design</h3>
-                <p className="framework-philosophy-text">
-                  Beyond user experience lies business experience—where human behavior becomes strategic advantage and customer loyalty transforms into market dominance.
+                <h3 className="pillar-title-elegant framework-title-luxury">Global Experience</h3>
+                <p className="pillar-description-elegant framework-philosophy-text">
+                  25+ international markets, cultural intelligence, and local adaptation expertise creating universally resonant solutions.
                 </p>
               </div>
               
-              <div className="framework-luxury">
-                <div className="framework-icon-landor">
-                  <div className="icon-transformation"></div>
+              <div className="pillar-enhanced framework-luxury">
+                <div className="pillar-icon-elegant framework-icon-landor">
+                  <div className="icon-transformation">🏢</div>
                 </div>
-                <h3 className="framework-title-luxury">Transformation Implementation Excellence</h3>
-                <p className="framework-philosophy-text">
-                  I orchestrate enterprise evolution through systematic change that preserves organizational DNA while enabling exponential capability advancement.
+                <h3 className="pillar-title-elegant framework-title-luxury">Fortune 500 Scale</h3>
+                <p className="pillar-description-elegant framework-philosophy-text">
+                  Enterprise-level digital transformation, systems thinking, and organizational change management at global scale.
                 </p>
-              </div>
-            </motion.div>
-
-            {/* Methodology Manifesto - Senior Authority */}
-            <motion.div
-              className="methodology-manifesto-landor"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.9 }}
-            >
-              <div className="manifesto-container-luxury">
-                <h3 className="manifesto-title-landor">The Architecture of Desire</h3>
-                <p className="manifesto-body-luxury">
-                  Every human interaction contains latent business potential. I design systems that unlock this potential through strategic experience architecture—transforming passive engagement into active advocacy, converting customer satisfaction into competitive moats, and evolving brand relationships into cultural movements.
-                </p>
-                <div className="manifesto-signature">
-                  <span className="signature-line"></span>
-                  <span className="signature-text">Experience Architecture Manifesto</span>
-                </div>
               </div>
             </motion.div>
             
