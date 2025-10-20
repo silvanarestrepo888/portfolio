@@ -2159,29 +2159,30 @@ body {
   will-change: transform;
 }
 
-/* Breathing Animation for Sophisticated Photo Treatment */
+/* Optimized Photo Treatment - Build-Safe */
 .hero-image-breathing {
   object-fit: cover;
   object-position: center top;
   filter: contrast(1.15) saturate(1.1) brightness(0.85);
-  /* Award-winning breathing animation */
+  /* Simplified breathing animation for build stability */
   animation: hero-photo-breathe 8s ease-in-out infinite;
-  /* GPU acceleration */
+  /* Optimized GPU acceleration */
   transform: translateZ(0);
   backface-visibility: hidden;
-  will-change: transform, filter;
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+  /* CSS containment for performance */
+  contain: layout style paint;
 }
 
-/* Sophisticated Multi-Layer Overlay System */
+/* Optimized Overlay System - Build-Safe */
 .hero-overlay-luxury {
   position: absolute;
   inset: 0;
   z-index: 2;
-  /* Advanced GPU optimization */
+  /* Optimized for build stability */
   transform: translateZ(0);
   backface-visibility: hidden;
-  will-change: opacity;
+  contain: layout style paint;
 }
 
 .hero-overlay-gradient-primary {
@@ -2191,89 +2192,79 @@ body {
     linear-gradient(135deg, rgba(0,0,0,0.7) 0%, transparent 45%, rgba(255,102,99,0.15) 100%),
     linear-gradient(45deg, rgba(0,0,0,0.4) 0%, transparent 35%);
   z-index: 1;
-  /* Sophisticated animation */
+  /* Simplified animation for build stability */
   animation: overlay-breathe 12s ease-in-out infinite;
   opacity: 0.9;
+  contain: layout style;
 }
 
 .hero-overlay-gradient-secondary {
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(ellipse at 30% 70%, rgba(255,102,99,0.08) 0%, transparent 60%),
-    radial-gradient(circle at 80% 20%, rgba(0,0,0,0.2) 0%, transparent 50%);
+    radial-gradient(ellipse at 30% 70%, rgba(255,102,99,0.08) 0%, transparent 60%);
   z-index: 2;
-  /* Offset animation for depth */
-  animation: overlay-float 10s ease-in-out infinite reverse;
+  /* Simplified for performance */
+  animation: overlay-float 10s ease-in-out infinite;
   opacity: 0.8;
+  contain: layout style;
 }
 
+/* Simplified particle system - conditional loading */
 .hero-overlay-particle-system {
   position: absolute;
   inset: 0;
-  background: 
-    radial-gradient(circle at 15% 85%, rgba(255,102,99,0.03) 0%, transparent 40%),
-    radial-gradient(circle at 85% 15%, rgba(255,102,99,0.02) 0%, transparent 30%),
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.01) 0%, transparent 25%);
+  background: radial-gradient(circle at 50% 50%, rgba(255,102,99,0.02) 0%, transparent 40%);
   z-index: 3;
-  /* Subtle particle animation */
-  animation: particle-drift 15s linear infinite;
-  opacity: 0.6;
+  opacity: 0.4;
+  contain: layout style;
+  /* Only animate on larger screens */
+  animation: none;
 }
 
-/* Award-Winning Animation Keyframes */
+@media (min-width: 1024px) {
+  .hero-overlay-particle-system {
+    animation: particle-drift 15s linear infinite;
+    opacity: 0.6;
+  }
+}
+
+/* Optimized Animation Keyframes - Build-Safe */
 @keyframes hero-photo-breathe {
   0%, 100% { 
     transform: scale(1) translateZ(0);
-    filter: contrast(1.15) saturate(1.1) brightness(0.85);
   }
   50% { 
     transform: scale(1.02) translateZ(0);
-    filter: contrast(1.2) saturate(1.15) brightness(0.8);
   }
 }
 
 @keyframes overlay-breathe {
   0%, 100% { 
     opacity: 0.9;
-    transform: translateX(0) translateY(0);
   }
-  33% { 
+  50% { 
     opacity: 1;
-    transform: translateX(-2px) translateY(-1px);
-  }
-  66% { 
-    opacity: 0.95;
-    transform: translateX(1px) translateY(-2px);
   }
 }
 
 @keyframes overlay-float {
   0%, 100% { 
     opacity: 0.8;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
   50% { 
     opacity: 0.9;
-    transform: translateY(-5px) scale(1.01);
+    transform: translateY(-3px);
   }
 }
 
 @keyframes particle-drift {
-  0% { 
-    transform: translateX(0) translateY(0) rotate(0deg);
-  }
-  25% { 
-    transform: translateX(-3px) translateY(-2px) rotate(1deg);
+  0%, 100% { 
+    transform: translateX(0) translateY(0);
   }
   50% { 
-    transform: translateX(2px) translateY(-4px) rotate(0deg);
-  }
-  75% { 
-    transform: translateX(-1px) translateY(-1px) rotate(-1deg);
-  }
-  100% { 
-    transform: translateX(0) translateY(0) rotate(0deg);
+    transform: translateX(2px) translateY(-2px);
   }
 }
 

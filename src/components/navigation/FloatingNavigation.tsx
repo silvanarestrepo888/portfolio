@@ -25,8 +25,11 @@ export function FloatingNavigation() {
   const [isMobile, setIsMobile] = useState(false);
   const { scrollY } = useScroll();
 
-  // Mobile detection
+  // Mobile detection with SSR guard
   useEffect(() => {
+    // SSR guard - only run on client side
+    if (typeof window === 'undefined') return;
+    
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
@@ -57,6 +60,9 @@ export function FloatingNavigation() {
   });
 
   const handleNavClick = (href: string) => {
+    // SSR guard - only run on client side
+    if (typeof window === 'undefined') return;
+    
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -73,8 +79,11 @@ export function FloatingNavigation() {
     }
   };
 
-  // Close mobile menu on escape key
+  // Close mobile menu on escape key with SSR guard
   useEffect(() => {
+    // SSR guard - only run on client side
+    if (typeof window === 'undefined') return;
+    
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setIsMobileMenuOpen(false);
@@ -101,7 +110,10 @@ export function FloatingNavigation() {
         href="#hero"
         onClick={(e) => {
           e.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          // SSR guard - only run on client side
+          if (typeof window !== 'undefined') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
         }}
         className="nav-brand-enhanced"
         whileHover={{ scale: 1.05 }}

@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
       static: 300,
     },
   },
+  serverExternalPackages: ['sharp'],
   compress: true,
   poweredByHeader: false,
   generateBuildId: async () => {
@@ -24,6 +25,34 @@ const nextConfig: NextConfig = {
   onDemandEntries: {
     maxInactiveAge: 25 * 1000,
     pagesBufferLength: 2,
+  },
+  webpack: (config, { dev, isServer }) => {
+    // Optimize bundle size and build stability
+    if (!dev && !isServer) {
+      config.optimization.splitChunks.cacheGroups = {
+        ...config.optimization.splitChunks.cacheGroups,
+        animations: {
+          name: 'animations',
+          test: /[\\/]node_modules[\\/](framer-motion)[\\/]/,
+          chunks: 'all',
+          priority: 30,
+        },
+        vendor: {
+          name: 'vendor',
+          test: /[\\/]node_modules[\\/]/,
+          chunks: 'all',
+          priority: 20,
+        },
+      };
+    }
+    
+    // Reduce bundle size
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': './src',
+    };
+    
+    return config;
   },
   async headers() {
     return [
