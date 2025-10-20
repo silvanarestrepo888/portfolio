@@ -5893,14 +5893,18 @@ h4, .text-h4 {
 
 .service-title-expanded-clean {
   font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   font-weight: 600;
   color: #1a1a1a;
   line-height: 1.2;
   margin: 0;
-  text-transform: none; /* Clean, not shouty */
-  letter-spacing: -0.01em;
+  text-transform: none;
+  letter-spacing: -0.02em;
   font-style: italic;
+  margin-bottom: 1rem;
+  /* Official brand color accent */
+  border-bottom: 2px solid var(--grapefruit-soft);
+  padding-bottom: 1rem;
 }
 
 /* Clean Capabilities Section - SENIOR IMPLEMENTATION */
@@ -5937,21 +5941,29 @@ h4, .text-h4 {
   background: linear-gradient(90deg, rgba(255, 102, 99, 0.05) 0%, rgba(255, 102, 99, 0.08) 100%);
 }
 
-/* Clean Description Section */
+/* Clean Description Section - SENIOR IMPLEMENTATION */
 .service-description-clean {
   margin-top: auto;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 102, 99, 0.1);
+  padding: 1.5rem;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.9) 0%, 
+    rgba(255, 255, 255, 0.7) 100%);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 102, 99, 0.1);
+  box-shadow: 0 8px 25px rgba(255, 102, 99, 0.08);
+  backdrop-filter: blur(20px);
 }
 
 .service-description-text {
   font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 400;
-  color: #444;
-  line-height: 1.6;
-  letter-spacing: 0.01em;
+  color: #333;
+  line-height: 1.7;
+  letter-spacing: 0.015em;
   margin: 0;
+  /* Enhanced readability with official color accents */
+  text-shadow: 0 1px 2px rgba(255, 102, 99, 0.05);
 }
 
 /* Mobile Clean Services */
