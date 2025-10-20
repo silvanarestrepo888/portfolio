@@ -2262,96 +2262,9 @@ body {
   /* Just enough contrast for text readability, minimal photo interference */
 }
 
-/* REMOVED PARTICLE SYSTEM - TEMPORARY FOR PHOTO VISIBILITY DEBUG */
-/* Multi-layer particle animation system
-    /* Secondary floating particles */
-    radial-gradient(circle at 70% 60%, rgba(255,142,139,0.015) 0%, transparent 35%),
-    /* Tertiary micro particles */
-    radial-gradient(circle at 45% 80%, rgba(255,174,159,0.01) 0%, transparent 25%),
-    /* Quaternary accent particles */
-    radial-gradient(circle at 85% 20%, rgba(255,102,99,0.008) 0%, transparent 30%);
-  background-size: 
-    800px 600px,
-    600px 800px, 
-    400px 500px,
-    700px 400px;
-  animation: 
-    particle-drift-primary 25s ease-in-out infinite,
-    particle-float-secondary 30s ease-in-out infinite reverse,
-    particle-breathe-micro 20s ease-in-out infinite,
-    particle-accent-flow 35s ease-in-out infinite;
-  /* GPU acceleration for 60fps */
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  will-change: background-position;
-}
+/* PARTICLE SYSTEM TEMPORARILY REMOVED FOR PHOTO VISIBILITY */
 
-/* Advanced Particle Animation Keyframes - Mathematical Precision */
-@keyframes particle-drift-primary {
-  0%, 100% { 
-    background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-    opacity: 0.4;
-  }
-  25% { 
-    background-position: 20% 15%, 10% 25%, 5% 30%, 15% 10%;
-    opacity: 0.5;
-  }
-  50% { 
-    background-position: 40% 30%, 30% 50%, 20% 60%, 35% 25%;
-    opacity: 0.45;
-  }
-  75% { 
-    background-position: 25% 45%, 50% 35%, 40% 40%, 50% 40%;
-    opacity: 0.55;
-  }
-}
-
-@keyframes particle-float-secondary {
-  0%, 100% { 
-    background-position: 100% 100%, 80% 90%, 60% 70%, 90% 80%;
-    transform: translateZ(0) scale(1);
-  }
-  33% { 
-    background-position: 70% 80%, 60% 70%, 40% 50%, 70% 60%;
-    transform: translateZ(0) scale(1.02);
-  }
-  66% { 
-    background-position: 40% 60%, 40% 50%, 20% 30%, 50% 40%;
-    transform: translateZ(0) scale(0.98);
-  }
-}
-
-@keyframes particle-breathe-micro {
-  0%, 100% { 
-    background-position: 0% 50%, 50% 0%, 100% 50%, 50% 100%;
-    opacity: 0.4;
-    filter: blur(0px);
-  }
-  50% { 
-    background-position: 50% 50%, 50% 50%, 50% 50%, 50% 50%;
-    opacity: 0.6;
-    filter: blur(0.5px);
-  }
-}
-
-@keyframes particle-accent-flow {
-  0%, 100% { 
-    background-position: 0% 0%, 100% 100%, 50% 0%, 0% 100%;
-    transform: translateZ(0) rotate(0deg);
-  }
-  25% { 
-    background-position: 25% 25%, 75% 75%, 75% 25%, 25% 75%;
-    transform: translateZ(0) rotate(0.5deg);
-  }
-  50% { 
-    background-position: 50% 50%, 50% 50%, 100% 50%, 50% 50%;
-    transform: translateZ(0) rotate(0deg);
-  }
-  75% { 
-    background-position: 75% 75%, 25% 25%, 25% 75%, 75% 25%;
-    transform: translateZ(0) rotate(-0.5deg);
-  }
-}
+/* ORPHANED KEYFRAMES REMOVED - CLEANED FOR DEPLOYMENT */
 
 /* Sophisticated Breathing Background Enhancement */
 .hero-background-breathing {
@@ -3374,6 +3287,10 @@ body {
 }
 
 .project-image-perfect {
+  object-fit: cover !important;
+  object-position: center !important;
+  width: 100% !important;
+  height: 100% !important;
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: transform;
 }
