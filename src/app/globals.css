@@ -2250,16 +2250,42 @@ body {
   /* contain: layout style; REMOVED - was blocking photo visibility */
 }
 
-/* MINIMAL TEXT CONTRAST OVERLAY - PHOTO VISIBILITY PRIORITY */
-.hero-text-contrast-only {
+/* CLEAN HERO PHOTO BACKGROUND - FOLLOWING INSPIRATION */
+.hero-photo-background {
   position: absolute;
   inset: 0;
-  background: 
-    linear-gradient(135deg, rgba(0,0,0,0.1) 0%, transparent 60%),
-    linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.05) 100%);
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-photo-distorted {
+  object-fit: cover;
+  object-position: center;
+  /* Distorted breathing animation */
+  animation: photo-distort-breathe 8s ease-in-out infinite;
+  /* GPU optimization */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, filter;
+}
+
+@keyframes photo-distort-breathe {
+  0%, 100% { 
+    transform: scale(1) perspective(1000px) rotateX(0deg);
+    filter: blur(0px) contrast(1) brightness(1);
+  }
+  50% { 
+    transform: scale(1.05) perspective(1000px) rotateX(1deg);
+    filter: blur(0.5px) contrast(1.1) brightness(1.05);
+  }
+}
+
+/* Simple Text Overlay - Following Inspiration */
+.hero-text-overlay-simple {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, transparent 60%);
   z-index: 2;
-  opacity: 0.6;
-  /* Just enough contrast for text readability, minimal photo interference */
 }
 
 /* PARTICLE SYSTEM TEMPORARILY REMOVED FOR PHOTO VISIBILITY */

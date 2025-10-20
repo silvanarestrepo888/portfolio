@@ -320,28 +320,21 @@ export default function Home() {
       <main id="main-content">
       <section id="hero" className="hero-foundation hero-award-winning">
         <div className="hero-container-foundation">
-          {/* Sophisticated Animated Photo Background System */}
-          <div className="hero-background-professional hero-background-enhanced">
-            {/* Optimized Photo Layer - Build-Safe */}
-            <div className="hero-photo-layer">
-              <Image 
-                src="/silvana-profile.jpg"
-                alt="Silvana Restrepo - Principal Experience Architect"
-                fill
-                className="hero-image-foundation hero-image-breathing"
-                quality={85}
-                priority
-                sizes="100vw"
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdwAB/9k="
-                onError={() => console.warn('Hero image failed to load')}
-              />
-            </div>
+          {/* CLEAN PHOTO BACKGROUND - FOLLOWING INSPIRATION */}
+          <div className="hero-photo-background">
+            <Image 
+              src="/silvana-profile.jpg"
+              alt="Silvana Restrepo - Principal Experience Architect"
+              fill
+              className="hero-photo-distorted"
+              quality={90}
+              priority
+              sizes="100vw"
+              onError={() => console.warn('Hero image failed to load')}
+            />
             
-            {/* Minimal Overlay System - PHOTO VISIBILITY PRIORITY */}
-            <div className="hero-overlay-foundation hero-overlay-luxury">
-              <div className="hero-text-contrast-only"></div>
-            </div>
+            {/* Simple Text Contrast - Following Inspiration */}
+            <div className="hero-text-overlay-simple"></div>
           </div>
           
           {/* COPY COMPLIANT - Enhanced Visual Treatment of Original Content */}
