@@ -705,115 +705,133 @@ export default function Home() {
           </motion.div>
 
 
-          {/* Timeline */}
+          {/* Architectural Layers System */}
           <motion.div 
-            className="relative"
+            className="experience-layers-container"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
           >
-            {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-px w-0.5 h-full bg-gradient-to-b from-transparent via-gray-300 to-transparent"></div>
-            
-            {/* Timeline Items */}
-            <div className="space-y-16">
+            {/* Particle System Background */}
+            <div className="experience-particles">
+              {[...Array(20)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="particle"
+                  style={{
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                  }}
+                  animate={{
+                    y: [0, -20, 0],
+                    opacity: [0.3, 0.8, 0.3],
+                  }}
+                  transition={{
+                    duration: 3 + Math.random() * 2,
+                    repeat: Infinity,
+                    delay: Math.random() * 2,
+                  }}
+                />
+              ))}
+            </div>
+
+            {/* Architectural Layers */}
+            <div className="experience-layers-grid">
               {[
                 {
                   year: "2020—2025",
                   role: "Business Partner & Experience Architect", 
                   company: "Globant",
                   description: "I orchestrate enterprise-scale digital initiatives for global brands, translating their vision into practical roadmaps that support business goals. Contributed to architect physical-digital systems for healthcare, entertainment, hospitality, retail, Finance, and wellness teams, supporting faster value delivery.",
-                  side: "left"
+                  layer: "top",
+                  level: 7
                 },
                 {
                   year: "2019—2020",
                   role: "Senior Researcher",
                   company: "Centre for Fourth Industrial Revolution-WEF",
                   description: "I helped develop frameworks connecting technologies with governance approaches, supporting sustainable bridges between public policy and industry innovation.",
-                  side: "right"
+                  layer: "strategic",
+                  level: 6
                 },
                 {
                   year: "2018—2019", 
                   role: "Strategic Design Director",
                   company: "Designit a WIPRO Company",
                   description: "I led regional operations to scale market presence and transform business complexity into actionable design solutions.",
-                  side: "left"
+                  layer: "leadership",
+                  level: 5
                 },
                 {
                   year: "2016—2018",
                   role: "Marketing Director",
                   company: "Grupo Éxito",
                   description: "I transformed retail destinations into experiential ecosystems, orchestrating over 1,000 brand partnerships while driving entertainment-centric commerce innovation.",
-                  side: "right"
+                  layer: "business",
+                  level: 4
                 },
                 {
                   year: "2013—2016",
                   role: "Business Intelligence Manager",
                   company: "Industrias HACEB", 
                   description: "I reengineered market segmentation frameworks from production-centric to consumer-centric models, driving sales growth and operational efficiencies.",
-                  side: "left"
+                  layer: "analytics",
+                  level: 3
                 },
                 {
                   year: "2012—2016",
                   role: "Independent Advisor",
                   company: "Independent",
                   description: "I decoded emerging consumer behaviours for global enterprises, transforming abstract trend signals into implementable product innovation roadmaps.",
-                  side: "right"
+                  layer: "innovation",
+                  level: 2
                 },
                 {
                   year: "2002—2011",
                   role: "Senior Marketing Analyst",
                   company: "TIGO-Millicom",
                   description: "I supported corporate expansion through mergers and acquisitions, enhancing national competitive positioning while integrating diverse teams into the main brand.",
-                  side: "left"
+                  layer: "foundation",
+                  level: 1
                 }
               ].map((experience, index) => (
                 <motion.div 
                   key={index}
-                  className={`relative flex items-center ${experience.side === 'left' ? 'flex-row' : 'flex-row-reverse'}`}
-                  initial={{ opacity: 0, x: experience.side === 'left' ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  className={`experience-layer-card layer-${experience.layer}`}
+                  data-layer={experience.level}
+                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  whileHover={{ 
+                    y: -10, 
+                    scale: 1.05,
+                    transition: { duration: 0.3 }
+                  }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: index * 0.15,
+                    type: "spring",
+                    stiffness: 100
+                  }}
                   viewport={{ once: true }}
                 >
-                  {/* Timeline Dot */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-white border-4 border-orange-400 z-10"></div>
+                  {/* Connection Lines */}
+                  {index < 6 && (
+                    <div className="connection-line" />
+                  )}
                   
-                  {/* Content Card */}
-                  <div className={`w-5/12 ${experience.side === 'left' ? 'pr-8' : 'pl-8'}`}>
-                    <motion.div 
-                      className="experience-card-sophisticated"
-                      whileHover={{ 
-                        y: -8,
-                        boxShadow: '0 40px 80px rgba(255, 102, 99, 0.12)'
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {/* Year Badge */}
-                      <div 
-                        className="inline-block px-4 py-2 rounded-full text-sm font-semibold text-white mb-4"
-                        style={{ 
-                          background: 'linear-gradient(135deg, #ff6663 0%, #ff8a80 100%)'
-                        }}
-                      >
-                        {experience.year}
-                      </div>
-                      
-                      {/* Role and Company */}
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                        {experience.role}
-                      </h3>
-                      <p className="text-lg font-medium text-orange-500 mb-4">
-                        {experience.company}
-                      </p>
-                      
-                      {/* Description - ORIGINAL APPROVED COPY ONLY */}
-                      <p className="text-gray-600 leading-relaxed">
-                        {experience.description}
-                      </p>
-                    </motion.div>
+                  {/* Layer Content */}
+                  <div className="layer-content">
+                    <div className="layer-header">
+                      <span className="layer-year">{experience.year}</span>
+                      <span className="layer-company">{experience.company}</span>
+                    </div>
+                    <h3 className="layer-role">{experience.role}</h3>
+                    <p className="layer-description">{experience.description}</p>
                   </div>
+                  
+                  {/* Layer Visual Indicator */}
+                  <div className="layer-indicator" />
                 </motion.div>
               ))}
             </div>
