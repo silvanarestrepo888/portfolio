@@ -19,15 +19,15 @@ export default function Home() {
   
   // Project navigation functions
   const goToPreviousProject = () => {
-    setFeaturedProjectIndex(prev => prev === 0 ? filteredProjects.length - 1 : prev - 1);
+    setFeaturedProjectIndex(prev => prev === 0 ? Math.max(0, filteredProjects.length - 1) : prev - 1);
   };
   
   const goToNextProject = () => {
-    setFeaturedProjectIndex(prev => (prev + 1) % filteredProjects.length);
+    setFeaturedProjectIndex(prev => (prev + 1) % Math.max(1, filteredProjects.length));
   };
   
   const goToProject = (index: number) => {
-    setFeaturedProjectIndex(index);
+    setFeaturedProjectIndex(Math.min(index, Math.max(0, filteredProjects.length - 1)));
   };
 
   // SERVICES DATA - ORIGINAL COPY COMPLIANT - Enhanced Visual Treatment Only
@@ -290,6 +290,9 @@ export default function Home() {
         (project.industryTags && project.industryTags.some(tag => tag.includes(selectedCategory)))
       );
 
+  // Ensure featuredProjectIndex is within bounds
+  const safeFeaturedProjectIndex = Math.min(featuredProjectIndex, Math.max(0, filteredProjects.length - 1));
+
   return (
     <div className="min-h-screen" style={{backgroundColor: '#fffbee'}}>
       {/* ACCESSIBILITY - Skip Navigation Links */}
@@ -512,7 +515,7 @@ export default function Home() {
               </button>
               
               <div className="project-counter-foundation">
-                <span className="current-project">{featuredProjectIndex + 1}</span>
+                <span className="current-project">{safeFeaturedProjectIndex + 1}</span>
                 <span className="divider">/</span>
                 <span className="total-projects">{filteredProjects.length}</span>
               </div>
@@ -528,7 +531,7 @@ export default function Home() {
             {/* Featured Project Display */}
             <motion.div 
               className="featured-project-display"
-              key={featuredProjectIndex}
+              key={safeFeaturedProjectIndex}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -538,7 +541,7 @@ export default function Home() {
                 <div 
                   className="project-image-css-bg"
                   style={{
-                    backgroundImage: `url(${filteredProjects[featuredProjectIndex].image})`,
+                    backgroundImage: `url(${filteredProjects[safeFeaturedProjectIndex]?.image || ''})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat'
@@ -546,31 +549,31 @@ export default function Home() {
                 >
                   {/* Image Overlay Info */}
                   <div className="image-overlay-info">
-                    <span className="project-year-overlay">{filteredProjects[featuredProjectIndex].year}</span>
-                    <span className="project-category-overlay">{filteredProjects[featuredProjectIndex].category}</span>
+                    <span className="project-year-overlay">{filteredProjects[safeFeaturedProjectIndex]?.year || ''}</span>
+                    <span className="project-category-overlay">{filteredProjects[safeFeaturedProjectIndex]?.category || ''}</span>
                   </div>
                 </div>
                 
                 {/* Systematic Content Hierarchy */}
                 <div className="project-content-systematic">
                   <header className="project-header-foundation">
-                    <h3 className="project-title-foundation">{filteredProjects[featuredProjectIndex].title}</h3>
-                    <p className="project-client-foundation">{filteredProjects[featuredProjectIndex].client}</p>
+                    <h3 className="project-title-foundation">{filteredProjects[safeFeaturedProjectIndex]?.title || ''}</h3>
+                    <p className="project-client-foundation">{filteredProjects[safeFeaturedProjectIndex]?.client || ''}</p>
                     <div className="project-meta-foundation">
-                      <span>{filteredProjects[featuredProjectIndex].year}</span>
+                      <span>{filteredProjects[safeFeaturedProjectIndex]?.year || ''}</span>
                       <span>•</span>
-                      <span>{filteredProjects[featuredProjectIndex].location}</span>
+                      <span>{filteredProjects[safeFeaturedProjectIndex]?.location || ''}</span>
                     </div>
                   </header>
                   
                   <div className="project-description-section">
-                    <p className="project-subtitle-foundation">{filteredProjects[featuredProjectIndex].subtitle}</p>
-                    <p className="project-description-foundation">{filteredProjects[featuredProjectIndex].description}</p>
+                    <p className="project-subtitle-foundation">{filteredProjects[safeFeaturedProjectIndex]?.subtitle || ''}</p>
+                    <p className="project-description-foundation">{filteredProjects[safeFeaturedProjectIndex]?.description || ''}</p>
                   </div>
                   
                   <div className="project-capabilities-section">
                     <div className="capabilities-grid">
-                      {filteredProjects[featuredProjectIndex].tech.map(capability => (
+                      {filteredProjects[safeFeaturedProjectIndex] && filteredProjects[safeFeaturedProjectIndex].tech && filteredProjects[safeFeaturedProjectIndex].tech.map(capability => (
                         <span key={capability} className="capability-tag-foundation">
                           {capability}
                         </span>
@@ -580,14 +583,14 @@ export default function Home() {
                   
                   <div className="project-actions-section">
                     <button 
-                      onClick={() => setSelectedProject(featuredProjectIndex)}
+                      onClick={() => setSelectedProject(safeFeaturedProjectIndex)}
                       className="button-foundation primary"
                     >
                       View Full Case Study
                     </button>
-                    {filteredProjects[featuredProjectIndex].website && (
+                    {filteredProjects[safeFeaturedProjectIndex]?.website && (
                       <a 
-                        href={filteredProjects[featuredProjectIndex].website}
+                        href={filteredProjects[safeFeaturedProjectIndex].website}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="button-foundation"
@@ -610,7 +613,7 @@ export default function Home() {
               {filteredProjects.map((project, index) => (
                 <motion.button 
                   key={project.title}
-                  className={`project-thumbnail-nav ${index === featuredProjectIndex ? 'active' : ''}`}
+                  className={`project-thumbnail-nav ${index === safeFeaturedProjectIndex ? 'active' : ''}`}
                   onClick={() => goToProject(index)}
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.2 }}
