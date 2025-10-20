@@ -5104,3 +5104,265 @@ h4, .text-h4 {
     contain: layout;
   }
 }
+
+/* ========================================== */
+/* LANDOR-CALIBER HERO SECTION STYLING */
+/* ========================================== */
+
+/* Hero Content Container - Mathematical Precision */
+.hero-content-landor {
+  position: relative;
+  z-index: 10;
+  max-width: 1400px; /* Golden ratio derived */
+  margin: 0 auto;
+  padding: 0 clamp(2rem, 6vw, 8rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.hero-philosophy-statement {
+  max-width: 900px; /* Optimal reading width for luxury content */
+  margin: 0 auto;
+}
+
+/* Primary Philosophy Text - Luxury Serif Treatment */
+.hero-philosophy-text {
+  font-family: 'Playfair Display', 'Times New Roman', Georgia, serif;
+  font-size: clamp(2.8rem, 6.5vw, 7.2rem); /* φ⁴ to φ⁵ scaling */
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: calc(var(--space-lg) * 1.618); /* Golden ratio spacing */
+  text-shadow: 
+    0 4px 20px rgba(0,0,0,0.8),
+    0 8px 40px rgba(0,0,0,0.4),
+    0 2px 8px rgba(0,0,0,0.6);
+  /* GPU acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* Philosophy Highlight - Sophisticated Animation */
+.philosophy-highlight {
+  position: relative;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 102, 99, 0.3) 0%,
+    rgba(255, 142, 139, 0.4) 50%,
+    rgba(255, 174, 159, 0.3) 100%
+  );
+  background-repeat: no-repeat;
+  background-position: 0% 100%;
+  padding: 0.1em 0.3em;
+  border-radius: 0.2em;
+  font-weight: 400;
+  color: #ff6663;
+  text-shadow: 
+    0 4px 20px rgba(255,102,99,0.6),
+    0 8px 40px rgba(255,102,99,0.3),
+    0 2px 8px rgba(255,102,99,0.4);
+}
+
+.philosophy-highlight::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6663, #ff8a80, #ff6663);
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+/* Value Proposition - Clean Sans Treatment */
+.value-proposition-luxury {
+  margin-bottom: calc(var(--space-xl) * 1.618); /* Golden ratio spacing */
+}
+
+.value-proposition-text {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.2rem, 2.8vw, 2rem);
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 700px;
+  margin: 0 auto;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+}
+
+/* Luxury Credentials Grid */
+.credentials-luxury {
+  margin-bottom: calc(var(--space-xl) * 1.618);
+}
+
+.credential-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: calc(var(--space-lg) * 0.618); /* Golden ratio gap */
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.credential-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: calc(var(--space-md) * 1.618);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 102, 99, 0.1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* GPU acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.credential-item:hover {
+  transform: translateY(-8px) translateZ(0);
+  background: rgba(255, 102, 99, 0.08);
+  border-color: rgba(255, 102, 99, 0.3);
+  box-shadow: 0 20px 40px rgba(255, 102, 99, 0.15);
+}
+
+.credential-number {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  font-weight: 600;
+  color: #ff6663;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 10px rgba(255,102,99,0.5);
+}
+
+.credential-label {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.9rem, 1.4vw, 1rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+/* Luxury Engagement CTA */
+.engagement-cta-luxury {
+  margin-top: calc(var(--space-xl) * 1.618);
+}
+
+.cta-discovery-conversation {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 2.8rem;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 102, 99, 0.3);
+  border-radius: 3rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* GPU acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+  /* Minimum touch target */
+  min-height: 44px;
+  min-width: 200px;
+}
+
+.cta-discovery-conversation:hover {
+  transform: translateY(-4px) scale(1.02) translateZ(0);
+  background: linear-gradient(135deg, 
+    rgba(255, 102, 99, 0.1) 0%, 
+    rgba(255, 102, 99, 0.05) 100%);
+  border-color: #ff6663;
+  box-shadow: 
+    0 20px 40px rgba(255, 102, 99, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.cta-text {
+  font-weight: 500;
+}
+
+.cta-arrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.cta-discovery-conversation:hover .cta-arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+/* Responsive Optimization */
+@media (max-width: 768px) {
+  .hero-content-landor {
+    padding: 0 clamp(1.5rem, 5vw, 2.5rem);
+    text-align: center;
+  }
+
+  .hero-philosophy-text {
+    font-size: clamp(2.2rem, 7vw, 4rem);
+    line-height: 1.15;
+    margin-bottom: calc(var(--space-md) * 1.618);
+  }
+
+  .value-proposition-text {
+    font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+    line-height: 1.4;
+  }
+
+  .credential-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    max-width: 300px;
+  }
+
+  .credential-item {
+    padding: var(--space-md);
+  }
+
+  .credential-number {
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
+  }
+
+  .credential-label {
+    font-size: 0.85rem;
+  }
+
+  .cta-discovery-conversation {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-philosophy-text {
+    font-size: clamp(1.8rem, 8vw, 3rem);
+  }
+
+  .value-proposition-text {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+  }
+}
