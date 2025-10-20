@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface NavigationItem {
   name: string;
@@ -21,7 +21,20 @@ export function FloatingNavigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const { scrollY } = useScroll();
+
+  // Mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = lastScrollY;
@@ -48,102 +61,144 @@ export function FloatingNavigation() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    // Close mobile menu when item is clicked
+    setIsMobileMenuOpen(false);
   };
+
+  // Keyboard navigation support
+  const handleKeyDown = (e: React.KeyboardEvent, href: string) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleNavClick(href);
+    }
+  };
+
+  // Close mobile menu on escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('keydown', handleEscape);
+      return () => document.removeEventListener('keydown', handleEscape);
+    }
+  }, [isMobileMenuOpen]);
 
   return (
     <motion.nav
-      className={`navigation-floating ${isScrolled ? 'scrolled' : ''} ${isHidden ? 'hidden' : ''}`}
+      className={`navigation-floating navigation-responsive ${isScrolled ? 'scrolled' : ''} ${isHidden ? 'hidden' : ''}`}
       initial={{ opacity: 0, y: -100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
       aria-label="Main navigation"
       role="navigation"
     >
-      {/* Brand Logo */}
+      {/* Brand Logo - Always Visible */}
       <motion.a
         href="#hero"
         onClick={(e) => {
           e.preventDefault();
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
-        className="nav-item-premium"
-        style={{ 
-          marginRight: '2rem',
-          fontSize: '1.5rem',
-          fontWeight: '600',
-          color: '#ff6663',
-          fontFamily: 'var(--font-display)'
-        }}
+        className="nav-brand-enhanced"
         whileHover={{ scale: 1.05 }}
-        onMouseMove={(e) => {
-          const rect = e.currentTarget.getBoundingClientRect();
-          const centerX = rect.left + rect.width / 2;
-          const centerY = rect.top + rect.height / 2;
-          const deltaX = (e.clientX - centerX) / (rect.width / 2);
-          const deltaY = (e.clientY - centerY) / (rect.height / 2);
-          
-          e.currentTarget.style.transform = `
-            perspective(500px) 
-            rotateY(${deltaX * 8}deg) 
-            rotateX(${-deltaY * 8}deg)
-            translateZ(15px)
-          `;
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = 'perspective(500px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
-        }}
+        onKeyDown={(e) => handleKeyDown(e, '#hero')}
+        tabIndex={0}
         aria-label="Return to top of page"
       >
         silvana.
       </motion.a>
 
-      {/* Navigation Items */}
-      <div className="flex items-center gap-2">
-        {navigationItems.map((item, index) => (
+      {/* Desktop Navigation */}
+      {!isMobile && (
+        <div className="nav-desktop-container">
+          {navigationItems.map((item, index) => (
+            <motion.button
+              key={item.name}
+              onClick={() => handleNavClick(item.href)}
+              onKeyDown={(e) => handleKeyDown(e, item.href)}
+              className="nav-item-enhanced"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.6, 
+                delay: 0.8 + index * 0.1,
+                ease: [0.23, 1, 0.32, 1]
+              }}
+              whileHover={{ scale: 1.05 }}
+              tabIndex={0}
+              aria-label={`Navigate to ${item.name} section`}
+            >
+              <span className="nav-section-number">
+                {item.number}
+              </span>
+              <span className="nav-section-name">
+                {item.name.toUpperCase()}
+              </span>
+            </motion.button>
+          ))}
+        </div>
+      )}
+
+      {/* Mobile Navigation */}
+      {isMobile && (
+        <>
+          {/* Mobile Menu Toggle */}
           <motion.button
-            key={item.name}
-            onClick={() => handleNavClick(item.href)}
-            className="nav-item-premium"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ 
-              duration: 0.6, 
-              delay: 0.8 + index * 0.1,
-              ease: [0.23, 1, 0.32, 1]
-            }}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="mobile-menu-toggle"
             whileHover={{ scale: 1.05 }}
-            onMouseMove={(e) => {
-              const rect = e.currentTarget.getBoundingClientRect();
-              const centerX = rect.left + rect.width / 2;
-              const centerY = rect.top + rect.height / 2;
-              const deltaX = (e.clientX - centerX) / (rect.width / 2);
-              const deltaY = (e.clientY - centerY) / (rect.height / 2);
-              
-              e.currentTarget.style.transform = `
-                perspective(500px) 
-                rotateY(${deltaX * 5}deg) 
-                rotateX(${-deltaY * 5}deg)
-                translateZ(10px)
-              `;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'perspective(500px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
-            }}
-            aria-label={`Navigate to ${item.name} section`}
+            whileTap={{ scale: 0.95 }}
+            aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isMobileMenuOpen}
           >
-            <span className="nav-section-number">
-              {item.number}
-            </span>
-            <span style={{ 
-              fontSize: '0.875rem',
-              fontWeight: '500',
-              letterSpacing: '0.02em'
-            }}>
-              {item.name.toUpperCase()}
-            </span>
+            <span className={`hamburger-line ${isMobileMenuOpen ? 'line-1-open' : ''}`}></span>
+            <span className={`hamburger-line ${isMobileMenuOpen ? 'line-2-open' : ''}`}></span>
+            <span className={`hamburger-line ${isMobileMenuOpen ? 'line-3-open' : ''}`}></span>
           </motion.button>
-        ))}
-      </div>
+
+          {/* Mobile Menu Overlay */}
+          {isMobileMenuOpen && (
+            <motion.div
+              className="mobile-menu-overlay"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+            >
+              <div className="mobile-menu-content">
+                {navigationItems.map((item, index) => (
+                  <motion.button
+                    key={item.name}
+                    onClick={() => handleNavClick(item.href)}
+                    onKeyDown={(e) => handleKeyDown(e, item.href)}
+                    className="mobile-nav-item"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ 
+                      duration: 0.4, 
+                      delay: index * 0.1,
+                      ease: [0.23, 1, 0.32, 1]
+                    }}
+                    tabIndex={0}
+                    aria-label={`Navigate to ${item.name} section`}
+                  >
+                    <span className="mobile-nav-number">
+                      {item.number}
+                    </span>
+                    <span className="mobile-nav-name">
+                      {item.name}
+                    </span>
+                  </motion.button>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </>
+      )}
     </motion.nav>
   );
 }
