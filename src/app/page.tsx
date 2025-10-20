@@ -555,23 +555,17 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <div className="project-card-foundation featured">
-                {/* Perfect Image Presentation */}
-                <div className="project-image-container-perfect">
-                  <div className="image-aspect-wrapper">
-                    <Image
-                      src={filteredProjects[featuredProjectIndex].image}
-                      alt={`${filteredProjects[featuredProjectIndex].title} - ${filteredProjects[featuredProjectIndex].client}`}
-                      fill
-                      className="project-image-perfect"
-                      quality={95}
-                      sizes="60vw"
-                      priority
-                      style={{
-                        objectFit: 'cover',
-                        objectPosition: 'center'
-                      }}
-                    />
-                  </div>
+                {/* SIMPLIFIED Image Presentation - DEBUG VERSION */}
+                <div className="project-image-simple">
+                  <Image
+                    src={filteredProjects[featuredProjectIndex].image}
+                    alt={`${filteredProjects[featuredProjectIndex].title} - ${filteredProjects[featuredProjectIndex].client}`}
+                    width={600}
+                    height={400}
+                    className="project-image-basic"
+                    quality={95}
+                    priority
+                  />
                   
                   {/* Image Overlay Info */}
                   <div className="image-overlay-info">
@@ -648,10 +642,10 @@ export default function Home() {
                     <Image 
                       src={project.image} 
                       alt={project.title}
-                      fill
-                      className="object-cover"
+                      width={200}
+                      height={150}
+                      className="object-cover thumbnail-img-basic"
                       quality={75}
-                      sizes="200px"
                     />
                   </div>
                   <div className="thumbnail-info">
@@ -1322,11 +1316,10 @@ export default function Home() {
                   <Image
                     src={projects[selectedProject].image}
                     alt={`${projects[selectedProject].title} - Main showcase`}
-                    fill
-                    className="object-cover rounded-xl"
+                    width={500}
+                    height={350}
+                    className="object-cover rounded-xl gallery-main-img-basic"
                     quality={85}
-                    placeholder="blur"
-                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdwAB/9k="
                   />
                 </motion.div>
                 
@@ -1348,9 +1341,10 @@ export default function Home() {
                         <Image
                           src={image}
                           alt={`${projects[selectedProject].title} - Gallery ${index + 1}`}
-                          fill
-                          className="object-cover"
-                          quality={85}
+                          width={80}
+                          height={80}
+                          className="object-cover gallery-thumb-basic"
+                          quality={75}
                         />
                       </button>
                     ))}
