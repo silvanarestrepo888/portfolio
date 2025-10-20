@@ -30,7 +30,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 2;
+  z-index: 3;
   pointer-events: none;
 }
 
@@ -85,7 +85,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 3;
+  z-index: 4;
   pointer-events: none;
   mix-blend-mode: overlay;
 }
@@ -172,9 +172,9 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, 
-    rgba(0, 0, 0, 0.4) 0%, 
-    rgba(0, 0, 0, 0.2) 50%, 
-    rgba(0, 0, 0, 0.6) 100%
+    rgba(0, 0, 0, 0.3) 0%, 
+    rgba(0, 0, 0, 0.1) 50%, 
+    rgba(0, 0, 0, 0.4) 100%
   );
   z-index: 5;
 }
@@ -2445,6 +2445,16 @@ body {
   z-index: 1;
   /* Distorted breathing animation */
   animation: photo-distort-breathe 8s ease-in-out infinite;
+}
+
+/* Override for distorted background */
+.hero-photo-distorted {
+  filter: grayscale(100%) contrast(1.2) brightness(0.7) !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  opacity: 0.8 !important;
+  transform: scale(1.1) !important;
+  z-index: 1 !important;
 }
 
 @keyframes photo-distort-breathe {
