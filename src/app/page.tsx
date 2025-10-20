@@ -318,46 +318,21 @@ export default function Home() {
 
       {/* HERO FOUNDATION - Award-Winning Visual Communication */}
       <main id="main-content">
-      <section id="hero" className="hero-distorted-section">
-        {/* Distorted Photo Background - Stella Petkova Inspired */}
-        <div className="hero-distorted-container">
-          <Image 
-            src="/silvana-profile.jpg"
-            alt="Silvana Restrepo - Principal Experience Architect"
-            fill
-            className="hero-distorted-image"
-            quality={90}
-            priority
-            sizes="100vw"
-          />
-          
-          {/* Vertical Glitch Lines Overlay */}
-          <div className="hero-glitch-lines">
-            <div className="glitch-line glitch-line-1"></div>
-            <div className="glitch-line glitch-line-2"></div>
-            <div className="glitch-line glitch-line-3"></div>
-            <div className="glitch-line glitch-line-4"></div>
-            <div className="glitch-line glitch-line-5"></div>
-            <div className="glitch-line glitch-line-6"></div>
-            <div className="glitch-line glitch-line-7"></div>
-            <div className="glitch-line glitch-line-8"></div>
-            <div className="glitch-line glitch-line-9"></div>
-            <div className="glitch-line glitch-line-10"></div>
-          </div>
-          
-          {/* Digital Distortion Overlay */}
-          <div className="hero-distortion-overlay">
-            <div className="distortion-layer distortion-layer-1"></div>
-            <div className="distortion-layer distortion-layer-2"></div>
-            <div className="distortion-layer distortion-layer-3"></div>
-          </div>
-        </div>
-        
-        {/* Text Overlay for Readability */}
-        <div className="hero-text-overlay"></div>
+      <section 
+        id="hero" 
+        className="hero-css-background"
+        style={{
+          backgroundImage: 'url(/silvana-profile.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Simple Text Overlay */}
+        <div className="hero-overlay-simple"></div>
         
         {/* Content Over Photo */}
-        <div className="hero-content-over-photo">
+        <div className="hero-content-simple">
           <motion.h1 
             className="hero-title-simple"
             initial={{ opacity: 0, y: 30 }}
@@ -636,16 +611,14 @@ export default function Home() {
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="thumbnail-image">
-                    <Image 
-                      src={project.image} 
-                      alt={project.title}
-                      width={200}
-                      height={150}
-                      className="object-cover thumbnail-img-basic"
-                      quality={75}
-                    />
-                  </div>
+                  <div 
+                    className="thumbnail-image-css-bg"
+                    style={{
+                      backgroundImage: `url(${project.image})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }}
+                  ></div>
                   <div className="thumbnail-info">
                     <span className="thumbnail-title">{project.title}</span>
                     <span className="thumbnail-client">{project.client}</span>
@@ -1303,14 +1276,14 @@ export default function Home() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 1.2 }}
                 >
-                  <Image
-                    src={projects[selectedProject].image}
-                    alt={`${projects[selectedProject].title} - Main showcase`}
-                    width={500}
-                    height={350}
-                    className="object-cover rounded-xl gallery-main-img-basic"
-                    quality={85}
-                  />
+                  <div
+                    className="gallery-main-image-css-bg"
+                    style={{
+                      backgroundImage: `url(${projects[selectedProject].image})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }}
+                  ></div>
                 </motion.div>
                 
                 {/* Enhanced Gallery - Using Existing galleryImages */}
@@ -1328,14 +1301,14 @@ export default function Home() {
                         }}
                         className={`gallery-thumbnail ${currentGalleryImage === index ? 'active' : ''}`}
                       >
-                        <Image
-                          src={image}
-                          alt={`${projects[selectedProject].title} - Gallery ${index + 1}`}
-                          width={80}
-                          height={80}
-                          className="object-cover gallery-thumb-basic"
-                          quality={75}
-                        />
+                        <div
+                          className="gallery-thumb-css-bg"
+                          style={{
+                            backgroundImage: `url(${image})`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center'
+                          }}
+                        ></div>
                       </button>
                     ))}
                   </div>
