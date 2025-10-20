@@ -441,10 +441,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROJECTS SECTION - Foundation Design */}
+      {/* PROJECTS SECTION - Ultra-Luxury Refinement */}
       <section 
         id="projects" 
-        className="section-luxury"
+        className="projects-section-ultra-luxury"
         style={{
           background: 'linear-gradient(180deg, var(--pannocotta-warm) 0%, var(--pannocotta-primary) 50%, var(--pannocotta-soft) 100%)',
           minHeight: '100vh',
@@ -453,35 +453,42 @@ export default function Home() {
           justifyContent: 'center'
         }}
       >
-        <div className="container-foundation">
+        <div className="projects-container-ultra-luxury">
+          {/* Ultra-Luxury Section Header */}
           <motion.div 
-            className="heading-desktop"
+            className="projects-header-luxury"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
-            <div className="mb-phi-xl">
+            <div className="projects-header-content">
               <span 
-                className="text-foundation-sm font-foundation-accent block mb-phi-sm"
+                className="projects-section-number"
                 style={{ 
                   color: 'rgba(255, 102, 99, 0.6)'
                 }}
               >
                 02
               </span>
-              <h2 className="text-foundation-3xl font-foundation-display text-gray-800">
+              <motion.h2 
+                className="projects-title-luxury"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
                 Projects
-              </h2>
+              </motion.h2>
             </div>
             <motion.p 
-              className="text-foundation-lg font-foundation-body text-gray-600 text-center max-w-4xl mx-auto mb-12"
+              className="projects-description-luxury"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
+              transition={{ duration: 1, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              A curated selection of strategic consulting projects that demonstrate experience-driven innovation, digital transformation, and business acceleration across diverse industries and global markets.
+              A curated selection of <span className="highlight-term">strategic consulting projects</span> that demonstrate <span className="highlight-term">experience-driven innovation</span>, <span className="highlight-term">digital transformation</span>, and <span className="highlight-term">business acceleration</span> across diverse industries and global markets.
             </motion.p>
             
             {/* Project Filter Tags - Luxury Spacing */}
@@ -504,46 +511,46 @@ export default function Home() {
             </div>
           </motion.div>
           
-          {/* PROJECT SHOWCASE FOUNDATION - User Controlled Excellence */}
-          <div className="project-showcase-foundation">
+          {/* Ultra-Luxury Project Carousel */}
+          <div className="projects-carousel-luxury">
             
-            {/* Project Navigation Controls */}
+            {/* Sophisticated Navigation Controls */}
             <motion.div 
-              className="project-navigation-clean"
+              className="projects-navigation-luxury"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
               <button 
                 onClick={goToPreviousProject}
-                className="nav-btn-foundation"
+                className="nav-btn-luxury"
               >
                 ← Previous Project
               </button>
               
-              <div className="project-counter-foundation">
-                <span className="current-project">{safeFeaturedProjectIndex + 1}</span>
-                <span className="divider">/</span>
-                <span className="total-projects">{filteredProjects.length}</span>
+              <div className="project-counter-luxury">
+                <span className="current-project-luxury">{safeFeaturedProjectIndex + 1}</span>
+                <span className="divider-luxury">/</span>
+                <span className="total-projects-luxury">{filteredProjects.length}</span>
               </div>
               
               <button 
                 onClick={goToNextProject}
-                className="nav-btn-foundation"
+                className="nav-btn-luxury"
               >
                 Next Project →
               </button>
             </motion.div>
             
-            {/* Featured Project Display */}
+            {/* Ultra-Luxury Featured Project Display */}
             <motion.div 
-              className="featured-project-display"
+              className="featured-project-luxury"
               key={safeFeaturedProjectIndex}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="project-card-foundation featured">
+              <div className="project-card-luxury featured">
                 {/* CSS BACKGROUND IMAGE - NUCLEAR APPROACH */}
                 <div 
                   className="project-image-css-bg"
@@ -610,9 +617,9 @@ export default function Home() {
               </div>
             </motion.div>
             
-            {/* Project Grid Navigation */}
+            {/* Ultra-Luxury Project Thumbnails Grid */}
             <motion.div 
-              className="project-grid-navigation"
+              className="projects-grid-luxury"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -620,22 +627,29 @@ export default function Home() {
               {filteredProjects.map((project, index) => (
                 <motion.button 
                   key={project.title}
-                  className={`project-thumbnail-nav ${index === safeFeaturedProjectIndex ? 'active' : ''}`}
+                  className={`project-thumbnail-luxury ${index === safeFeaturedProjectIndex ? 'active' : ''}`}
                   onClick={() => goToProject(index)}
-                  whileHover={{ y: -4 }}
+                  whileHover={{ 
+                    y: -8, 
+                    scale: 1.02,
+                    transition: { duration: 0.3 }
+                  }}
                   transition={{ duration: 0.2 }}
                 >
                   <div 
-                    className="thumbnail-image-css-bg"
+                    className="thumbnail-image-luxury"
                     style={{
                       backgroundImage: `url(${project.image})`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center'
                     }}
                   ></div>
-                  <div className="thumbnail-info">
-                    <span className="thumbnail-title">{project.title}</span>
-                    <span className="thumbnail-client">{project.client}</span>
+                  <div className="thumbnail-overlay-luxury">
+                    <div className="thumbnail-info-luxury">
+                      <span className="thumbnail-title-luxury">{project.title}</span>
+                      <span className="thumbnail-client-luxury">{project.client}</span>
+                    </div>
+                    <div className="thumbnail-indicator-luxury"></div>
                   </div>
                 </motion.button>
               ))}
