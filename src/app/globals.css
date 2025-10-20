@@ -3177,13 +3177,19 @@ body {
   box-shadow: 0 6px 16px rgba(255, 102, 99, 0.3);
 }
 
-/* CARD FOUNDATION INTERACTIONS */
+/* CARD FOUNDATION INTERACTIONS - SENIOR SOPHISTICATION */
 .card-foundation {
-  background: white;
-  border-radius: 1rem;
-  border: 1px solid rgba(255, 102, 99, 0.1);
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.98) 0%, 
+    rgba(255, 251, 238, 0.92) 100%);
+  backdrop-filter: blur(20px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 102, 99, 0.08);
   transition: all var(--duration-normal) var(--ease-foundation);
-  box-shadow: 0 2px 8px rgba(255, 102, 99, 0.05);
+  box-shadow: 
+    0 15px 30px rgba(255, 102, 99, 0.05),
+    0 0 0 1px rgba(255, 255, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .card-foundation:hover {
@@ -3321,11 +3327,18 @@ body {
   display: grid;
   grid-template-columns: 1.618fr 1fr; /* Golden ratio */
   gap: 0;
-  background: white;
-  border-radius: 1.5rem;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.98) 0%, 
+    var(--pannocotta-primary) 50%,
+    rgba(255, 251, 238, 0.95) 100%);
+  backdrop-filter: blur(25px);
+  border-radius: 2rem;
   overflow: hidden;
-  box-shadow: 0 12px 40px rgba(255, 102, 99, 0.1);
-  border: 1px solid rgba(255, 102, 99, 0.05);
+  box-shadow: 
+    0 25px 60px rgba(255, 102, 99, 0.08),
+    0 0 0 1px rgba(255, 102, 99, 0.06),
+    inset 0 2px 0 rgba(255, 255, 255, 0.8);
+  border: none;
   min-height: 500px;
 }
 
@@ -5764,18 +5777,25 @@ h4, .text-h4 {
 /* SERVICES SECTION - LANDOR VISUAL ENHANCEMENT OF ORIGINAL COPY */
 /* ========================================== */
 
-/* Enhanced Services Container */
+/* Enhanced Services Container - SENIOR SOPHISTICATION */
 .services-luxury-enhanced {
-  /* Enhanced shadow system */
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.98) 0%, 
+    var(--pannocotta-primary) 30%,
+    var(--pannocotta-warm) 70%,
+    rgba(255, 255, 255, 0.95) 100%) !important;
+  /* Official brand color elevation */
   box-shadow: 
-    0 40px 80px rgba(255, 102, 99, 0.08),
-    0 0 0 1px rgba(255, 102, 99, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  border: none; /* Remove default border for cleaner look */
+    0 50px 100px rgba(255, 102, 99, 0.08),
+    0 0 0 1px rgba(255, 102, 99, 0.08),
+    inset 0 2px 0 rgba(255, 255, 255, 0.9);
+  border: none;
   /* GPU acceleration */
   transform: translateZ(0);
   backface-visibility: hidden;
   will-change: transform;
+  /* Sophisticated texture overlay */
+  background-size: 100% 100%, 150% 150%;
 }
 
 /* Enhanced Service Columns */
@@ -6031,4 +6051,38 @@ h4, .text-h4 {
     font-size: 0.85rem;
     line-height: 1.5;
   }
+}
+
+/* ========================================== */
+/* EXPERIENCE CARDS - SENIOR SOPHISTICATION */
+/* ========================================== */
+
+.experience-card-sophisticated {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.98) 0%, 
+    rgba(255, 251, 238, 0.95) 30%,
+    rgba(254, 247, 240, 0.9) 100%);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 102, 99, 0.08);
+  border-radius: 2rem;
+  padding: 2.5rem;
+  box-shadow: 
+    0 20px 50px rgba(255, 102, 99, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* GPU acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, box-shadow;
+  /* Remove harsh white box feeling */
+  background-blend-mode: soft-light;
+}
+
+.experience-card-sophisticated:hover {
+  border-color: rgba(255, 102, 99, 0.15);
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 1) 0%, 
+    rgba(255, 251, 238, 0.98) 30%,
+    rgba(254, 247, 240, 0.95) 100%);
 }

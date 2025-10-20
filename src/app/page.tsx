@@ -798,10 +798,10 @@ export default function Home() {
                   {/* Content Card */}
                   <div className={`w-5/12 ${experience.side === 'left' ? 'pr-8' : 'pl-8'}`}>
                     <motion.div 
-                      className="bg-white rounded-2xl p-8 shadow-lg"
+                      className="experience-card-sophisticated"
                       whileHover={{ 
-                        y: -5,
-                        boxShadow: '0 25px 50px rgba(255, 102, 99, 0.1)'
+                        y: -8,
+                        boxShadow: '0 40px 80px rgba(255, 102, 99, 0.12)'
                       }}
                       transition={{ duration: 0.3 }}
                     >
@@ -1380,9 +1380,7 @@ export default function Home() {
                 </div>
                 
                 {/* Project Capabilities - Using Existing Tech */}
-                <div className="capabilities-section bg-white rounded-2xl p-phi-lg mb-phi-lg" style={{
-                  boxShadow: '0 15px 35px rgba(255, 102, 99, 0.08)'
-                }}>
+                <div className="capabilities-section capabilities-section-sophisticated p-phi-lg mb-phi-lg">
                   <h3 className="text-foundation-xl font-foundation-display text-gray-800 mb-phi-md">Capabilities</h3>
                   <div className="flex flex-col gap-3">
                     {projects[selectedProject].tech && projects[selectedProject].tech.map((capability, index) => (
