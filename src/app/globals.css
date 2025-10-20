@@ -1,5 +1,184 @@
 @import "tailwindcss";
 
+/* DISTORTED HERO BACKGROUND - Stella Petkova Inspired */
+.hero-distorted-background {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-photo-container-distorted {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-photo-distorted {
+  filter: grayscale(100%) contrast(1.2) brightness(0.7);
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+/* Vertical Glitch Lines */
+.hero-glitch-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.glitch-line {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.1) 20%, 
+    rgba(255, 255, 255, 0.3) 50%, 
+    rgba(255, 255, 255, 0.1) 80%, 
+    transparent 100%
+  );
+  animation: glitchMove 3s ease-in-out infinite;
+}
+
+.glitch-line-1 { left: 10%; width: 2px; animation-delay: 0s; }
+.glitch-line-2 { left: 20%; width: 1px; animation-delay: 0.3s; }
+.glitch-line-3 { left: 35%; width: 3px; animation-delay: 0.6s; }
+.glitch-line-4 { left: 45%; width: 1px; animation-delay: 0.9s; }
+.glitch-line-5 { left: 60%; width: 2px; animation-delay: 1.2s; }
+.glitch-line-6 { left: 70%; width: 1px; animation-delay: 1.5s; }
+.glitch-line-7 { left: 80%; width: 2px; animation-delay: 1.8s; }
+.glitch-line-8 { left: 15%; width: 1px; animation-delay: 2.1s; }
+.glitch-line-9 { left: 55%; width: 2px; animation-delay: 2.4s; }
+.glitch-line-10 { left: 85%; width: 1px; animation-delay: 2.7s; }
+
+@keyframes glitchMove {
+  0%, 100% { 
+    transform: translateY(0) scaleY(1);
+    opacity: 0.3;
+  }
+  25% { 
+    transform: translateY(-10px) scaleY(1.1);
+    opacity: 0.6;
+  }
+  50% { 
+    transform: translateY(5px) scaleY(0.9);
+    opacity: 0.4;
+  }
+  75% { 
+    transform: translateY(-5px) scaleY(1.05);
+    opacity: 0.5;
+  }
+}
+
+/* Digital Distortion Overlay */
+.hero-distortion-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.distortion-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(0, 0, 0, 0.1) 25%, 
+    transparent 50%, 
+    rgba(255, 255, 255, 0.05) 75%, 
+    transparent 100%
+  );
+  animation: distortionPulse 4s ease-in-out infinite;
+}
+
+.distortion-layer-1 {
+  animation-delay: 0s;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(0, 0, 0, 0.15) 20%, 
+    transparent 40%, 
+    rgba(255, 255, 255, 0.08) 60%, 
+    transparent 80%, 
+    rgba(0, 0, 0, 0.1) 100%
+  );
+}
+
+.distortion-layer-2 {
+  animation-delay: 1.3s;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.03) 30%, 
+    transparent 60%, 
+    rgba(0, 0, 0, 0.08) 90%, 
+    transparent 100%
+  );
+}
+
+.distortion-layer-3 {
+  animation-delay: 2.6s;
+  background: linear-gradient(90deg, 
+    rgba(0, 0, 0, 0.05) 0%, 
+    transparent 25%, 
+    rgba(255, 255, 255, 0.06) 50%, 
+    transparent 75%, 
+    rgba(0, 0, 0, 0.12) 100%
+  );
+}
+
+@keyframes distortionPulse {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: scaleX(1);
+  }
+  25% { 
+    opacity: 0.6;
+    transform: scaleX(1.02);
+  }
+  50% { 
+    opacity: 0.4;
+    transform: scaleX(0.98);
+  }
+  75% { 
+    opacity: 0.5;
+    transform: scaleX(1.01);
+  }
+}
+
+/* Ensure content stays above distortion */
+.hero-content-over-photo {
+  position: relative;
+  z-index: 10;
+}
+
+.hero-overlay-for-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.4) 0%, 
+    rgba(0, 0, 0, 0.2) 50%, 
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  z-index: 5;
+}
+
 :root {
   --background: #fffbee;
   --foreground: #374151;

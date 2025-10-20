@@ -318,17 +318,40 @@ export default function Home() {
 
       {/* HERO FOUNDATION - Award-Winning Visual Communication */}
       <main id="main-content">
-      <section id="hero" className="hero-with-photo">
-        {/* Direct Photo Background - Simple Approach */}
-        <Image 
-          src="/silvana-profile.jpg"
-          alt="Silvana Restrepo - Principal Experience Architect"
-          fill
-          className="hero-background-photo"
-          quality={90}
-          priority
-          sizes="100vw"
-        />
+      <section id="hero" className="hero-with-photo hero-distorted-background">
+        {/* Distorted Photo Background - Stella Petkova Inspired */}
+        <div className="hero-photo-container-distorted">
+          <Image 
+            src="/silvana-profile.jpg"
+            alt="Silvana Restrepo - Principal Experience Architect"
+            fill
+            className="hero-background-photo hero-photo-distorted"
+            quality={90}
+            priority
+            sizes="100vw"
+          />
+          
+          {/* Vertical Glitch Lines Overlay */}
+          <div className="hero-glitch-lines">
+            <div className="glitch-line glitch-line-1"></div>
+            <div className="glitch-line glitch-line-2"></div>
+            <div className="glitch-line glitch-line-3"></div>
+            <div className="glitch-line glitch-line-4"></div>
+            <div className="glitch-line glitch-line-5"></div>
+            <div className="glitch-line glitch-line-6"></div>
+            <div className="glitch-line glitch-line-7"></div>
+            <div className="glitch-line glitch-line-8"></div>
+            <div className="glitch-line glitch-line-9"></div>
+            <div className="glitch-line glitch-line-10"></div>
+          </div>
+          
+          {/* Digital Distortion Overlay */}
+          <div className="hero-distortion-overlay">
+            <div className="distortion-layer distortion-layer-1"></div>
+            <div className="distortion-layer distortion-layer-2"></div>
+            <div className="distortion-layer distortion-layer-3"></div>
+          </div>
+        </div>
         
         {/* Text Overlay for Readability */}
         <div className="hero-overlay-for-text"></div>
