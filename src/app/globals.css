@@ -2248,9 +2248,18 @@ body {
   z-index: 4;
   opacity: 0.1; /* Extremely light to prioritize photo visibility */
   /* contain: layout style; REMOVED - was blocking photo visibility */
-  /* Ensure photo visibility priority */
-  mix-blend-mode: overlay;
-  /* Multi-layer particle animation system */
+}
+
+/* MINIMAL TEXT CONTRAST OVERLAY - PHOTO VISIBILITY PRIORITY */
+.hero-text-contrast-only {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(135deg, rgba(0,0,0,0.1) 0%, transparent 60%),
+    linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.05) 100%);
+  z-index: 2;
+  opacity: 0.6;
+  /* Just enough contrast for text readability, minimal photo interference */
   background: 
     /* Primary particle layer */
     radial-gradient(circle at 20% 30%, rgba(255,102,99,0.02) 0%, transparent 40%),

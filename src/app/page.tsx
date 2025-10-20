@@ -338,12 +338,9 @@ export default function Home() {
               />
             </div>
             
-            {/* Sophisticated Multi-Layer Overlay System */}
+            {/* Minimal Overlay System - PHOTO VISIBILITY PRIORITY */}
             <div className="hero-overlay-foundation hero-overlay-luxury">
-              <div className="hero-background-breathing"></div>
-              <div className="hero-overlay-gradient-primary"></div>
-              <div className="hero-overlay-gradient-secondary"></div>
-              <div className="hero-overlay-particle-system"></div>
+              <div className="hero-text-contrast-only"></div>
             </div>
           </div>
           
