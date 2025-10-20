@@ -672,35 +672,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* EXPERIENCE SECTION - Clean Timeline Design */}
+      {/* EXPERIENCE SECTION - Architectural Transformation */}
       <section 
         id="experience"
-        className="py-20"
+        className="experience-architecture-container"
         style={{ 
           background: 'linear-gradient(135deg, #fef7f0 0%, #fef3ec 100%)',
           minHeight: '100vh'
         }}
       >
         <div className="max-w-7xl mx-auto px-8">
-          {/* Section Header */}
+          {/* Section Header - Original Copy with Enhanced Typography */}
           <motion.div 
-            className="text-center mb-16"
+            className="experience-header text-center mb-20"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
             <span 
-              className="text-sm font-semibold tracking-wider uppercase block mb-4"
+              className="section-number text-sm font-semibold tracking-wider uppercase block mb-4"
               style={{ color: 'rgba(255, 102, 99, 0.7)' }}
             >
               03
             </span>
-            <h2 className="text-5xl font-light text-gray-900 mb-6">
+            <h2 className="section-title text-5xl font-light text-gray-900 mb-8">
               Experience
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Some of the hats I have worn over more than 20 years of non-stop, continuous upscaling, reinventing, evolving, and reimagining business, brands, and teams.
+            <p className="section-intro text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-light">
+              Some of the <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>upscaling</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>reinventing</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>evolving</span>, and <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>reimagining</span> business, brands, and teams.
             </p>
           </motion.div>
 
