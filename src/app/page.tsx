@@ -555,18 +555,16 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <div className="project-card-foundation featured">
-                {/* SIMPLIFIED Image Presentation - DEBUG VERSION */}
-                <div className="project-image-simple">
-                  <Image
-                    src={filteredProjects[featuredProjectIndex].image}
-                    alt={`${filteredProjects[featuredProjectIndex].title} - ${filteredProjects[featuredProjectIndex].client}`}
-                    width={600}
-                    height={400}
-                    className="project-image-basic"
-                    quality={95}
-                    priority
-                  />
-                  
+                {/* CSS BACKGROUND IMAGE - NUCLEAR APPROACH */}
+                <div 
+                  className="project-image-css-bg"
+                  style={{
+                    backgroundImage: `url(${filteredProjects[featuredProjectIndex].image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat'
+                  }}
+                >
                   {/* Image Overlay Info */}
                   <div className="image-overlay-info">
                     <span className="project-year-overlay">{filteredProjects[featuredProjectIndex].year}</span>
@@ -1122,24 +1120,16 @@ export default function Home() {
       </footer>
       </main>
 
-      {/* ENHANCED PROJECT DETAILS - Editorial Quality Using Existing Content */}
+      {/* CLEAN PROJECT DETAILS - SINGLE LAYOUT */}
       {selectedProject !== null && (
         <motion.div 
-          className="project-modal-enhanced"
+          className="project-modal-clean"
           onClick={() => setSelectedProject(null)}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
         >
-          <motion.div 
-            className="h-full overflow-y-auto"
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-            onClick={(e) => e.stopPropagation()}
-          >
             {/* Minimalist Navigation - Luxury Brand Standard */}
             <div className="fixed top-8 left-8 right-8 z-50 flex justify-between items-center">
               <motion.button
