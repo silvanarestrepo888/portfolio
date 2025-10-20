@@ -1323,12 +1323,19 @@ body {
   border-color: #ff8e8b;
 }
 
-/* ENHANCED PROJECT CARD SYSTEM */
+/* ENHANCED PROJECT CARD SYSTEM - SENIOR SOPHISTICATION */
 .project-card-enhanced {
-  border-radius: 1.5rem;
+  border-radius: 2rem;
   overflow: hidden;
-  background: white;
-  box-shadow: 0 20px 40px rgba(255, 102, 99, 0.08);
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%, 
+    rgba(255, 251, 238, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 102, 99, 0.06);
+  box-shadow: 
+    0 30px 60px rgba(255, 102, 99, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -1352,14 +1359,21 @@ body {
   border-radius: 0 1.5rem 1.5rem 0;
 }
 
-/* PROJECT MODAL ENHANCEMENTS */
+/* PROJECT MODAL ENHANCEMENTS - SENIOR SOPHISTICATION */
 .project-modal-enhanced {
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: var(--pannocotta-primary);
+  background: linear-gradient(135deg, 
+    var(--pannocotta-primary) 0%, 
+    var(--pannocotta-warm) 50%, 
+    var(--pannocotta-soft) 100%);
   overflow-y: auto;
   padding: var(--space-xl);
+  /* Sophisticated grain texture overlay */
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255, 102, 99, 0.01) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 142, 139, 0.008) 0%, transparent 50%);
 }
 
 .project-modal-grid {
@@ -1376,21 +1390,38 @@ body {
 }
 
 .project-sidebar-enhanced {
-  background: white;
-  border-radius: 2rem;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%, 
+    rgba(255, 251, 238, 0.9) 50%,
+    rgba(254, 247, 240, 0.85) 100%);
+  backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 102, 99, 0.08);
+  border-radius: 2.5rem;
   padding: var(--space-xl);
-  box-shadow: 0 25px 60px rgba(255, 102, 99, 0.08);
+  box-shadow: 
+    0 40px 80px rgba(255, 102, 99, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
   height: fit-content;
   position: sticky;
   top: var(--space-xl);
+  /* Remove harsh white box feeling */
+  background-blend-mode: soft-light;
 }
 
-/* ENHANCED GALLERY SYSTEM */
+/* ENHANCED GALLERY SYSTEM - SENIOR SOPHISTICATION */
 .gallery-luxury {
-  background: white;
-  border-radius: 1.5rem;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.9) 0%, 
+    rgba(255, 251, 238, 0.85) 100%);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 102, 99, 0.08);
+  border-radius: 2rem;
   padding: var(--space-lg);
-  box-shadow: 0 15px 35px rgba(255, 102, 99, 0.1);
+  box-shadow: 
+    0 25px 50px rgba(255, 102, 99, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
   margin-bottom: var(--space-lg);
 }
 
