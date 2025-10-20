@@ -2250,42 +2250,72 @@ body {
   /* contain: layout style; REMOVED - was blocking photo visibility */
 }
 
-/* CLEAN HERO PHOTO BACKGROUND - FOLLOWING INSPIRATION */
-.hero-photo-background {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
+/* HERO WITH PHOTO - SIMPLE WORKING APPROACH */
+.hero-with-photo {
+  position: relative;
+  height: 100vh;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hero-photo-distorted {
+.hero-background-photo {
   object-fit: cover;
   object-position: center;
+  z-index: 1;
   /* Distorted breathing animation */
   animation: photo-distort-breathe 8s ease-in-out infinite;
-  /* GPU optimization */
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  will-change: transform, filter;
 }
 
 @keyframes photo-distort-breathe {
   0%, 100% { 
-    transform: scale(1) perspective(1000px) rotateX(0deg);
-    filter: blur(0px) contrast(1) brightness(1);
+    transform: scale(1);
+    filter: contrast(1.1) brightness(0.9);
   }
   50% { 
-    transform: scale(1.05) perspective(1000px) rotateX(1deg);
-    filter: blur(0.5px) contrast(1.1) brightness(1.05);
+    transform: scale(1.05);
+    filter: contrast(1.2) brightness(0.95);
   }
 }
 
-/* Simple Text Overlay - Following Inspiration */
-.hero-text-overlay-simple {
+/* Text Overlay for Readability */
+.hero-overlay-for-text {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, transparent 70%);
   z-index: 2;
+}
+
+/* Content Over Photo */
+.hero-content-over-photo {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.hero-title-simple {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-weight: 300;
+  line-height: 0.9;
+  margin: 0;
+}
+
+.word-experience {
+  display: block;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+}
+
+.word-architect {
+  display: block;
+  color: #ff6663;
+  text-shadow: 0 4px 20px rgba(255,102,99,0.6);
 }
 
 /* PARTICLE SYSTEM TEMPORARILY REMOVED FOR PHOTO VISIBILITY */

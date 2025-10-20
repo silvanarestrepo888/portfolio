@@ -318,39 +318,32 @@ export default function Home() {
 
       {/* HERO FOUNDATION - Award-Winning Visual Communication */}
       <main id="main-content">
-      <section id="hero" className="hero-foundation hero-award-winning">
-        <div className="hero-container-foundation">
-          {/* CLEAN PHOTO BACKGROUND - FOLLOWING INSPIRATION */}
-          <div className="hero-photo-background">
-            <Image 
-              src="/silvana-profile.jpg"
-              alt="Silvana Restrepo - Principal Experience Architect"
-              fill
-              className="hero-photo-distorted"
-              quality={90}
-              priority
-              sizes="100vw"
-              onError={() => console.warn('Hero image failed to load')}
-            />
-            
-            {/* Simple Text Contrast - Following Inspiration */}
-            <div className="hero-text-overlay-simple"></div>
-          </div>
-          
-          {/* COPY COMPLIANT - Enhanced Visual Treatment of Original Content */}
-          <div className="hero-content-foundation">
-            <div className="hero-branding">
-              <motion.h1 
-                className="hero-title-foundation hero-title-landor"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, delay: 0.3 }}
-              >
-                <span className="word-experience word-experience-enhanced">Experience</span>
-                <span className="word-architect word-architect-enhanced">Architect</span>
-              </motion.h1>
-            </div>
-          </div>
+      <section id="hero" className="hero-with-photo">
+        {/* Direct Photo Background - Simple Approach */}
+        <Image 
+          src="/silvana-profile.jpg"
+          alt="Silvana Restrepo - Principal Experience Architect"
+          fill
+          className="hero-background-photo"
+          quality={90}
+          priority
+          sizes="100vw"
+        />
+        
+        {/* Text Overlay for Readability */}
+        <div className="hero-overlay-for-text"></div>
+        
+        {/* Content Over Photo */}
+        <div className="hero-content-over-photo">
+          <motion.h1 
+            className="hero-title-simple"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 0.3 }}
+          >
+            <span className="word-experience">Experience</span>
+            <span className="word-architect">Architect</span>
+          </motion.h1>
         </div>
       </section>
 
