@@ -320,49 +320,25 @@ export default function Home() {
       <main id="main-content">
       <section 
         id="hero" 
-        className="hero-ultra-luxury"
+        className="hero-section-new"
       >
-        {/* Ultra-Luxury Background System */}
-        <div className="hero-luxury-background">
+        {/* Simple Background Image */}
+        <div className="hero-bg-container">
           <Image 
             src="/silvana-profile.jpg"
             alt="Silvana Restrepo - Principal Experience Architect"
             fill
-            className="hero-luxury-image"
+            className="hero-bg-image"
             quality={100}
             priority
             sizes="100vw"
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdwAB/9k="
           />
-          
-          {/* Luxury Gradient Overlays */}
-          <div className="hero-luxury-gradient-1"></div>
-          <div className="hero-luxury-gradient-2"></div>
-          <div className="hero-luxury-gradient-3"></div>
-          
-          {/* Sophisticated Light Effects */}
-          <div className="hero-luxury-lights">
-            <div className="luxury-light luxury-light-1"></div>
-            <div className="luxury-light luxury-light-2"></div>
-            <div className="luxury-light luxury-light-3"></div>
-            <div className="luxury-light luxury-light-4"></div>
-          </div>
-          
-          {/* Premium Texture Overlay */}
-          <div className="hero-luxury-texture"></div>
-          
-          {/* Elegant Vignette */}
-          <div className="hero-luxury-vignette"></div>
         </div>
         
-        {/* Sophisticated Text Overlay */}
-        <div className="hero-luxury-overlay"></div>
-        
         {/* Content Over Photo */}
-        <div className="hero-content-simple">
+        <div className="hero-content-new">
           <motion.h1 
-            className="hero-title-simple"
+            className="hero-title-new"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3 }}
