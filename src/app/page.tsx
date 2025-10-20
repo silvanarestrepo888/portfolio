@@ -316,22 +316,31 @@ export default function Home() {
       <FloatingNavigation />
       
 
-      {/* HERO FOUNDATION - Clear Value Communication */}
+      {/* HERO FOUNDATION - Award-Winning Visual Communication */}
       <main id="main-content">
-      <section id="hero" className="hero-foundation">
+      <section id="hero" className="hero-foundation hero-award-winning">
         <div className="hero-container-foundation">
-          {/* Professional Photo Background */}
-          <div className="hero-background-professional">
-            <Image 
-              src="/silvana-profile.jpg"
-              alt="Silvana Restrepo - Principal Experience Architect"
-              fill
-              className="hero-image-foundation"
-              quality={95}
-              priority
-              sizes="100vw"
-            />
-            <div className="hero-overlay-foundation"></div>
+          {/* Sophisticated Animated Photo Background System */}
+          <div className="hero-background-professional hero-background-enhanced">
+            {/* Primary Photo Layer with Breathing Animation */}
+            <div className="hero-photo-layer">
+              <Image 
+                src="/silvana-profile.jpg"
+                alt="Silvana Restrepo - Principal Experience Architect"
+                fill
+                className="hero-image-foundation hero-image-breathing"
+                quality={95}
+                priority
+                sizes="100vw"
+              />
+            </div>
+            
+            {/* Sophisticated Multi-Layer Overlay System */}
+            <div className="hero-overlay-foundation hero-overlay-luxury">
+              <div className="hero-overlay-gradient-primary"></div>
+              <div className="hero-overlay-gradient-secondary"></div>
+              <div className="hero-overlay-particle-system"></div>
+            </div>
           </div>
           
           {/* Clear Value Proposition */}
@@ -468,7 +477,7 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.6 }}
             >
               <blockquote className="philosophy-quote-foundation">
-                "The art of my craft lies in connecting strategic business goals with the essence of human desire"
+                &ldquo;The art of my craft lies in connecting strategic business goals with the essence of human desire&rdquo;
               </blockquote>
               <div className="philosophy-context">
                 <p>This philosophy drives every project, every strategy, and every solution I create for global brands seeking meaningful transformation.</p>
