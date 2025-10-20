@@ -318,14 +318,14 @@ export default function Home() {
 
       {/* HERO FOUNDATION - Award-Winning Visual Communication */}
       <main id="main-content">
-      <section id="hero" className="hero-with-photo hero-distorted-background">
+      <section id="hero" className="hero-distorted-section">
         {/* Distorted Photo Background - Stella Petkova Inspired */}
-        <div className="hero-photo-container-distorted">
+        <div className="hero-distorted-container">
           <Image 
             src="/silvana-profile.jpg"
             alt="Silvana Restrepo - Principal Experience Architect"
             fill
-            className="hero-background-photo hero-photo-distorted"
+            className="hero-distorted-image"
             quality={90}
             priority
             sizes="100vw"
@@ -354,7 +354,7 @@ export default function Home() {
         </div>
         
         {/* Text Overlay for Readability */}
-        <div className="hero-overlay-for-text"></div>
+        <div className="hero-text-overlay"></div>
         
         {/* Content Over Photo */}
         <div className="hero-content-over-photo">
