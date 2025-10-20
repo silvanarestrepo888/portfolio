@@ -2246,8 +2246,10 @@ body {
   position: absolute;
   inset: 0;
   z-index: 4;
-  opacity: 0.2; /* Much lighter to prioritize photo visibility */
-  contain: layout style;
+  opacity: 0.1; /* Extremely light to prioritize photo visibility */
+  /* contain: layout style; REMOVED - was blocking photo visibility */
+  /* Ensure photo visibility priority */
+  mix-blend-mode: overlay;
   /* Multi-layer particle animation system */
   background: 
     /* Primary particle layer */
