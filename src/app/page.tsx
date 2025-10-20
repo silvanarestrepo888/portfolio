@@ -390,40 +390,24 @@ export default function Home() {
               </p>
             </motion.header>
             
-            {/* Enhanced Expertise Pillars - ORIGINAL COPY */}
+            {/* Beautiful Single Narrative - Original Flow Restored */}
             <motion.div 
-              className="expertise-pillars-enhanced thinking-frameworks-landor"
+              className="narrative-single-flow"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
             >
-              <div className="pillar-enhanced framework-luxury">
-                <div className="pillar-icon-elegant framework-icon-landor">
-                  <div className="icon-strategic-vision">🎯</div>
-                </div>
-                <h3 className="pillar-title-elegant framework-title-luxury">Strategic Design</h3>
-                <p className="pillar-description-elegant framework-philosophy-text">
-                  Business transformation through human-centered design thinking that connects strategic goals with authentic human experiences.
+              <div className="narrative-content-beautiful">
+                <p className="narrative-paragraph-elegant">
+                  🎯 <strong>Strategic Design:</strong> Business transformation through human-centered design thinking that connects strategic goals with authentic human experiences.
                 </p>
-              </div>
-              
-              <div className="pillar-enhanced framework-luxury">
-                <div className="pillar-icon-elegant framework-icon-landor">
-                  <div className="icon-human-centered">🌍</div>
-                </div>
-                <h3 className="pillar-title-elegant framework-title-luxury">Global Experience</h3>
-                <p className="pillar-description-elegant framework-philosophy-text">
-                  25+ international markets, cultural intelligence, and local adaptation expertise creating universally resonant solutions.
+                
+                <p className="narrative-paragraph-elegant">
+                  🌍 <strong>Global Experience:</strong> 25+ international markets, cultural intelligence, and local adaptation expertise creating universally resonant solutions.
                 </p>
-              </div>
-              
-              <div className="pillar-enhanced framework-luxury">
-                <div className="pillar-icon-elegant framework-icon-landor">
-                  <div className="icon-transformation">🏢</div>
-                </div>
-                <h3 className="pillar-title-elegant framework-title-luxury">Fortune 500 Scale</h3>
-                <p className="pillar-description-elegant framework-philosophy-text">
-                  Enterprise-level digital transformation, systems thinking, and organizational change management at global scale.
+                
+                <p className="narrative-paragraph-elegant">
+                  🏢 <strong>Fortune 500 Scale:</strong> Enterprise-level digital transformation, systems thinking, and organizational change management at global scale.
                 </p>
               </div>
             </motion.div>
@@ -1167,9 +1151,9 @@ export default function Home() {
                     </h3>
                   </motion.div>
                   
-                  {/* Expanded Content - Only on Hover */}
+                  {/* Clean Expanded Content - Following Inspiration Design */}
                   <motion.div
-                    className="absolute inset-0 p-8 pt-32"
+                    className="service-expanded-clean"
                     initial={{ opacity: 0 }}
                     animate={{
                       opacity: expandedService === index ? 1 : 0,
@@ -1177,42 +1161,50 @@ export default function Home() {
                     }}
                     transition={{ duration: 0.4, delay: 0.2 }}
                   >
-                    {/* Capabilities List - ORIGINAL COPY */}
-                    <div className="mb-8">
+                    {/* Service Title - Clean Header */}
+                    <div className="service-header-clean">
+                      <span className="service-number-clean">{service.number}</span>
+                      <h3 className="service-title-expanded-clean">{service.title}</h3>
+                    </div>
+                    
+                    {/* Capabilities List - Clean Vertical Layout Following Inspiration */}
+                    <div className="capabilities-section-clean">
                       {service.capabilities.map((capability, capIndex) => (
                         <motion.div
                           key={capIndex}
-                          className="capability-item mb-3 capability-item-landor"
-                          initial={{ opacity: 0, x: -20 }}
+                          className="capability-line-clean"
+                          initial={{ opacity: 0, x: -10 }}
                           animate={{
                             opacity: expandedService === index ? 1 : 0,
-                            x: expandedService === index ? 0 : -20
+                            x: expandedService === index ? 0 : -10
                           }}
                           transition={{ 
-                            duration: 0.3, 
-                            delay: expandedService === index ? 0.3 + capIndex * 0.1 : 0 
+                            duration: 0.2, 
+                            delay: expandedService === index ? 0.1 + capIndex * 0.03 : 0 
                           }}
                         >
-                          {capability}
+                          /{capability}
                         </motion.div>
                       ))}
                     </div>
                     
-                    {/* Service Description - ORIGINAL COPY */}
-                    <motion.p
-                      className="service-description-reference service-description-landor"
-                      initial={{ opacity: 0, y: 10 }}
+                    {/* Service Description - Clean Bottom Section */}
+                    <motion.div
+                      className="service-description-clean"
+                      initial={{ opacity: 0, y: 5 }}
                       animate={{
                         opacity: expandedService === index ? 1 : 0,
-                        y: expandedService === index ? 0 : 10
+                        y: expandedService === index ? 0 : 5
                       }}
                       transition={{ 
-                        duration: 0.4, 
-                        delay: expandedService === index ? 0.8 : 0
+                        duration: 0.3, 
+                        delay: expandedService === index ? 0.4 : 0
                       }}
                     >
-                      {service.description}
-                    </motion.p>
+                      <p className="service-description-text">
+                        {service.description}
+                      </p>
+                    </motion.div>
                   </motion.div>
                   
                   {/* Column Background Enhancement on Hover */}

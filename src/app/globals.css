@@ -2034,7 +2034,7 @@ body {
 
 .hero-content-foundation {
   position: relative;
-  z-index: 10;
+  z-index: 20; /* Higher z-index to ensure text appears over photo */
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 clamp(2rem, 6vw, 4rem);
@@ -2159,18 +2159,20 @@ body {
   will-change: transform;
 }
 
-/* Enhanced Photo Animation - Clearly Visible */
+/* Enhanced Photo Animation - FIXED FOR VISIBILITY */
 .hero-image-breathing {
   object-fit: cover;
   object-position: center top;
-  filter: contrast(1.15) saturate(1.1) brightness(0.85);
+  filter: contrast(1.15) saturate(1.1) brightness(0.9); /* Brighter for visibility */
   /* Enhanced breathing animation - MORE VISIBLE */
-  animation: hero-photo-breathe 6s ease-in-out infinite;
+  animation: hero-photo-breathe 8s ease-in-out infinite;
   /* GPU acceleration without containment blocking */
   transform: translateZ(0);
   backface-visibility: hidden;
   will-change: transform;
-  /* Remove containment that may block animation visibility */
+  /* Ensure photo is visible */
+  opacity: 1;
+  z-index: 1;
 }
 
 /* Optimized Overlay System - Build-Safe */
@@ -2188,12 +2190,12 @@ body {
   position: absolute;
   inset: 0;
   background: 
-    linear-gradient(135deg, rgba(0,0,0,0.4) 0%, transparent 50%, rgba(255,102,99,0.1) 100%),
-    linear-gradient(45deg, rgba(0,0,0,0.2) 0%, transparent 40%);
-  z-index: 1;
+    linear-gradient(135deg, rgba(0,0,0,0.3) 0%, transparent 60%, rgba(255,102,99,0.05) 100%),
+    linear-gradient(45deg, rgba(0,0,0,0.15) 0%, transparent 50%);
+  z-index: 2;
   /* Simplified animation for build stability */
   animation: overlay-breathe 12s ease-in-out infinite;
-  opacity: 0.7; /* Reduced to show photo better */
+  opacity: 0.8; /* Lighter overlay to show photo */
   contain: layout style;
 }
 
@@ -2201,11 +2203,11 @@ body {
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(ellipse at 30% 70%, rgba(255,102,99,0.05) 0%, transparent 70%);
-  z-index: 2;
+    radial-gradient(ellipse at 30% 70%, rgba(255,102,99,0.03) 0%, transparent 70%);
+  z-index: 3;
   /* Simplified for performance */
   animation: overlay-float 10s ease-in-out infinite;
-  opacity: 0.6; /* Reduced to show photo better */
+  opacity: 0.4; /* Much lighter to show photo */
   contain: layout style;
 }
 
@@ -2213,8 +2215,8 @@ body {
 .hero-overlay-particle-system {
   position: absolute;
   inset: 0;
-  z-index: 3;
-  opacity: 0.4;
+  z-index: 4;
+  opacity: 0.2; /* Much lighter to prioritize photo visibility */
   contain: layout style;
   /* Multi-layer particle animation system */
   background: 
@@ -5150,7 +5152,7 @@ h4, .text-h4 {
 /* Hero Content Container - Mathematical Precision */
 .hero-content-landor {
   position: relative;
-  z-index: 10;
+  z-index: 20; /* Higher z-index to ensure text appears over photo */
   max-width: 1400px; /* Golden ratio derived */
   margin: 0 auto;
   padding: 0 clamp(2rem, 6vw, 8rem);
@@ -5666,6 +5668,64 @@ h4, .text-h4 {
     width: 64px;
     height: 64px;
     margin-bottom: calc(var(--space-md) * 1.618);
+  }
+}
+
+/* ========================================== */
+/* BEAUTIFUL SINGLE NARRATIVE FLOW - RESTORED ORIGINAL CONCEPT */
+/* ========================================== */
+
+.narrative-single-flow {
+  max-width: 800px;
+  margin: 0 auto calc(var(--space-xl) * 1.618);
+}
+
+.narrative-content-beautiful {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  padding: calc(var(--space-xl) * 1.618);
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 102, 99, 0.1);
+  box-shadow: 0 20px 60px rgba(255, 102, 99, 0.08);
+  /* GPU optimization */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.narrative-paragraph-elegant {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+  font-weight: 400;
+  color: #333;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+  margin-bottom: calc(var(--space-lg) * 1.618);
+  text-align: left;
+}
+
+.narrative-paragraph-elegant:last-child {
+  margin-bottom: 0;
+}
+
+.narrative-paragraph-elegant strong {
+  font-weight: 600;
+  color: #ff6663;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+
+/* Responsive Narrative */
+@media (max-width: 768px) {
+  .narrative-content-beautiful {
+    padding: calc(var(--space-lg) * 1.618);
+    border-radius: 1.5rem;
+  }
+  
+  .narrative-paragraph-elegant {
+    font-size: clamp(1rem, 3.5vw, 1.15rem);
+    line-height: 1.7;
+    margin-bottom: calc(var(--space-md) * 1.618);
+    text-align: center;
   }
 }
 
