@@ -6856,6 +6856,9 @@ h4, .text-h4 {
 .experience-architecture-container {
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Section Header Enhancements */
@@ -6907,6 +6910,9 @@ h4, .text-h4 {
   position: relative;
   z-index: 5;
   padding: 2rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: center;
 }
 
 /* Experience Layer Cards */
@@ -6948,6 +6954,9 @@ h4, .text-h4 {
   grid-column: 1 / -1;
   background: linear-gradient(135deg, rgba(255, 102, 99, 0.05) 0%, rgba(255, 255, 255, 0.95) 100%);
   border: 2px solid rgba(255, 102, 99, 0.2);
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .layer-strategic {
@@ -7085,15 +7094,38 @@ h4, .text-h4 {
 }
 
 /* Responsive Design */
+@media (min-width: 1200px) {
+  .experience-layers-grid {
+    max-width: 1400px;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+  
+  .layer-top {
+    max-width: 1200px;
+  }
+}
+
 @media (max-width: 768px) {
   .experience-layers-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     padding: 1rem 0;
+    max-width: 100%;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   
   .experience-layer-card {
     padding: 1.5rem;
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .layer-top {
+    max-width: 100%;
+    margin: 0;
   }
   
   .layer-role {
