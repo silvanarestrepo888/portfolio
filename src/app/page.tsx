@@ -1386,10 +1386,10 @@ export default function Home() {
             onClick={(e) => e.stopPropagation()}
           >
             <Image 
-              src={selectedProject !== null && projects[selectedProject].galleryImages ? 
+              src={projects[selectedProject].galleryImages ? 
                 projects[selectedProject].galleryImages[currentGalleryImage] : 
-                (selectedProject !== null ? projects[selectedProject].image : '')} 
-              alt={`${selectedProject !== null ? projects[selectedProject].title : ''} - Gallery image ${currentGalleryImage + 1} zoomed view`} 
+                projects[selectedProject].image} 
+              alt={`${projects[selectedProject].title} - Gallery image ${currentGalleryImage + 1} zoomed view`} 
               width={1400}
               height={900}
               className="object-contain rounded-xl" 
@@ -1408,12 +1408,11 @@ export default function Home() {
             
             {/* Image Counter */}
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded-full text-sm font-medium">
-              Image {currentGalleryImage + 1} of {selectedProject !== null && projects[selectedProject].galleryImages ? 
+              Image {currentGalleryImage + 1} of {projects[selectedProject].galleryImages ? 
                 projects[selectedProject].galleryImages.length : 2}
             </div>
           </motion.div>
         </motion.div>
       )}
-    </div>
   );
 }
