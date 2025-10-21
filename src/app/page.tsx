@@ -7,6 +7,8 @@ import Image from 'next/image';
 import { CustomCursor } from '../components/motion/CustomCursor';
 import { MagneticCursor } from '../components/ui/MagneticCursor';
 import { FloatingNavigation } from '../components/navigation/FloatingNavigation';
+import { useScrollAnimation, useParallax } from '../hooks/useScrollAnimation';
+import { LoadingSpinner, ImageSkeleton } from '../components/LoadingSpinner';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -14,6 +16,11 @@ export default function Home() {
   const [currentGalleryImage, setCurrentGalleryImage] = useState(0);
   const [galleryZoomOpen, setGalleryZoomOpen] = useState(false);
   const [heroImageZoom, setHeroImageZoom] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  
+  // Enhanced scroll animations
+  const { isVisible: aboutVisible, scrollY } = useScrollAnimation();
+  const parallaxTransform = useParallax(0.3);
   
   // Foundation Project Exploration System
   const [featuredProjectIndex, setFeaturedProjectIndex] = useState(0);
@@ -374,12 +381,13 @@ export default function Home() {
         id="hero" 
         className="hero-section-luxury"
       >
-        <div className="hero-bg-luxury">
+        <div className="hero-bg-luxury parallax-container">
             <Image 
               src="/silvana-profile.jpg"
               alt="Silvana Restrepo - Principal Experience Architect"
               fill
-            className="hero-bg-image-luxury"
+            className="hero-bg-image-luxury parallax-element gpu-accelerated"
+            style={{ transform: parallaxTransform }}
             quality={100}
               priority
               sizes="100vw"
@@ -670,7 +678,7 @@ export default function Home() {
             
             {/* CLEAN BALANCED CAROUSEL - BACK TO PERFECTION */}
             <motion.div 
-              className="balanced-carousel-container"
+              className="balanced-carousel-container enhanced-hover gpu-accelerated"
               key={safeFeaturedProjectIndex}
               initial={{ opacity: 0, y: 20 }}
               animate={{ 
@@ -766,7 +774,7 @@ export default function Home() {
                       <div className="balanced-actions">
                       <button
                           onClick={() => setSelectedProject(safeFeaturedProjectIndex)}
-                          className="balanced-btn primary"
+                          className="balanced-btn primary magnetic-button touch-friendly enhanced-focus gpu-accelerated"
                         >
                           View Full Case Study
                       </button>
@@ -776,7 +784,7 @@ export default function Home() {
                             href={filteredProjects[safeFeaturedProjectIndex].website}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="balanced-btn secondary"
+                            className="balanced-btn secondary magnetic-button touch-friendly enhanced-focus gpu-accelerated"
                           >
                             Visit Website
                           </a>
@@ -1025,10 +1033,24 @@ export default function Home() {
           <div className="services-unified-container">
             <div className="services-unified-grid">
               {referenceServices.map((service, index) => (
-                <div
+                <motion.div
                   key={service.number}
-                  className="service-unified-card"
+                  className="service-unified-card enhanced-hover glass-card gpu-accelerated"
                   data-service={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ 
+                    opacity: 1, 
+                    y: 0,
+                    transition: { 
+                      duration: 0.6,
+                      delay: index * 0.1
+                    }
+                  }}
+                  whileHover={{
+                    scale: 1.03,
+                    transition: { duration: 0.3 }
+                  }}
+                  viewport={{ once: true }}
                 >
                   {/* Front Side - Always Visible */}
                   <div className="service-card-front">
@@ -1056,7 +1078,7 @@ export default function Home() {
               </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -1093,7 +1115,7 @@ export default function Home() {
               <div className="footer-contact-links-landor">
               <a 
                 href="mailto:silvanarestrepo888@gmail.com"
-                  className="footer-contact-link-landor typography-caption luxury-hover-glow"
+                  className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
               >
                   <Mail size={16} />
                 Contact
@@ -1102,7 +1124,7 @@ export default function Home() {
                 href="https://linkedin.com/in/silvanarestrepo"
                 target="_blank"
                 rel="noopener noreferrer"
-                  className="footer-contact-link-landor typography-caption luxury-hover-glow"
+                  className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
               >
                   <Linkedin size={16} />
                 LinkedIn
@@ -1111,7 +1133,7 @@ export default function Home() {
                 href="https://silvana.mmm.page/human-perspective"
                 target="_blank"
                 rel="noopener noreferrer"
-                  className="footer-contact-link-landor typography-caption luxury-hover-glow"
+                  className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
               >
                   <ExternalLink size={16} />
                 Portfolio
