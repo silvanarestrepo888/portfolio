@@ -6200,41 +6200,137 @@ h4, .text-h4 {
   background-size: 100% 100%, 150% 150%;
 }
 
-/* Enhanced Service Columns */
+/* ULTRA-LUXURY SERVICE COLUMNS - Award-Winning Craftsmanship */
 .service-column-landor {
-  /* Enhanced visual treatment */
-  backdrop-filter: blur(10px);
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  background: linear-gradient(145deg, 
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(248, 248, 248, 0.95) 100%
+  );
+  border-right: 1px solid rgba(255, 102, 99, 0.08);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+  backdrop-filter: blur(20px);
   /* GPU optimization */
   transform: translateZ(0);
   backface-visibility: hidden;
-  will-change: transform, background-color;
+  will-change: transform, background-color, box-shadow;
 }
 
+/* Sophisticated texture overlay */
+.service-column-landor::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 102, 99, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 102, 99, 0.01) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.service-column-landor:hover::before {
+  opacity: 1;
+}
+
+/* Enhanced service dividers */
+.service-column-landor:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: 0;
+  width: 1px;
+  height: 60%;
+  background: linear-gradient(180deg, 
+    transparent 0%, 
+    rgba(255, 102, 99, 0.1) 50%, 
+    transparent 100%
+  );
+}
+
+/* ULTRA-LUXURY HOVER STATES */
 .service-column-landor:hover {
-  background: linear-gradient(135deg, 
-    rgba(255, 102, 99, 0.02) 0%, 
-    rgba(255, 102, 99, 0.05) 100%) !important;
+  background: linear-gradient(145deg, 
+    rgba(255, 102, 99, 0.02) 0%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(248, 248, 248, 0.98) 100%
+  ) !important;
+  transform: translateY(-2px) scale(1.01);
   box-shadow: 
-    inset 0 0 30px rgba(255, 102, 99, 0.05),
-    0 20px 40px rgba(255, 102, 99, 0.1);
+    0 30px 60px rgba(255, 102, 99, 0.08),
+    0 0 0 1px rgba(255, 102, 99, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  z-index: 10;
 }
 
-/* Enhanced Service Number */
+/* Multi-layered shadow system for luxury feel */
+.services-luxury-enhanced {
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.08),
+    0 10px 25px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1px 0 rgba(255, 102, 99, 0.05);
+}
+
+/* Individual card shadows */
+.service-column-landor {
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+/* ULTRA-LUXURY SERVICE NUMBER - Sophisticated Typography */
 .service-number-landor {
   font-family: 'Inter', sans-serif !important;
-  font-weight: 300 !important;
-  color: rgba(255, 102, 99, 0.7) !important;
-  letter-spacing: 0.1em;
+  font-weight: 200 !important;
+  font-size: 0.8rem !important;
+  color: rgba(255, 102, 99, 0.6) !important;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  font-size: 0.9rem !important;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
-/* Enhanced Service Title */
+/* Elegant underline animation */
+.service-number-landor::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #ff6663, transparent);
+  transition: width 0.3s ease;
+}
+
+.service-column-landor:hover .service-number-landor::after {
+  width: 100%;
+}
+
+.service-column-landor:hover .service-number-landor {
+  color: rgba(255, 102, 99, 0.8) !important;
+}
+
+/* ULTRA-LUXURY SERVICE TITLE - Award-Winning Typography */
 .service-title-landor {
-  font-family: 'Playfair Display', serif !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.4rem !important;
   color: #1a1a1a !important;
-  font-style: italic;
+  line-height: 1.2 !important;
+  letter-spacing: -0.01em !important;
+  margin-bottom: 0.5rem !important;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.service-column-landor:hover .service-title-landor {
+  color: #ff6663 !important;
+  transform: translateX(2px);
 }
 
 /* Enhanced Capability Items */
