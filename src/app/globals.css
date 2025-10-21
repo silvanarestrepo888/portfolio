@@ -12634,7 +12634,6 @@ h4, .text-h4 {
   border-radius: 16px;
   scrollbar-width: thin;
   scrollbar-color: rgba(0,0,0,0.2) transparent;
-  position: relative;
 }
 
 .service-reveal-content::before {
@@ -12672,8 +12671,10 @@ h4, .text-h4 {
 }
 
 .service-grapefruit-container:hover .service-reveal-content {
-  opacity: 1;
-  transform: translateY(0) scale(1.02);
+  opacity: 1 !important;
+  transform: translateY(0) scale(1.02) !important;
+  display: flex !important;
+  visibility: visible !important;
 }
 
 .service-grapefruit-container:hover {
@@ -12681,12 +12682,13 @@ h4, .text-h4 {
     #d44a4a 0%, 
     #e55a5a 30%,
     var(--grapefruit-primary) 60%,
-    #d44a4a 100%);
+    #d44a4a 100%) !important;
   box-shadow: 
     0 25px 80px rgba(0, 0, 0, 0.2),
     0 12px 35px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  transform: translateY(-8px) scale(1.02);
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-8px) scale(1.02) !important;
+  border: 3px solid #ff0000 !important;
 }
 
 .service-grapefruit-container:hover::after {
