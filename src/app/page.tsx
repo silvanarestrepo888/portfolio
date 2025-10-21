@@ -246,11 +246,6 @@ export default function Home() {
       ]
     }
   ];
-      website: "https://qiddiya.com/",
-      image: "/projects/qiddiya/hero-qiddiya.png",
-      secondaryImage: "/projects/qiddiya/secondary-qiddiya.png",
-      galleryImages: [
-        "/projects/qiddiya/secondary-qiddiya.png",
         "/projects/qiddiya/emergency-management.png",
         "/projects/qiddiya/guest-search-digital-id.png",
         "/projects/qiddiya/unified-guest-interaction.png"
