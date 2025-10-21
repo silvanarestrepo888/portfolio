@@ -31,10 +31,6 @@ export default function Home() {
     setTimeout(() => setIsTransitioning(false), 1200);
   };
 
-  // Pause auto-play on hover (only for navigation controls)
-  const handleMouseLeave = () => {
-    // Only resume if leaving navigation controls
-  };
 
   // SERVICES DATA - ORIGINAL COPY COMPLIANT - Enhanced Visual Treatment Only
   const referenceServices = [
@@ -1237,7 +1233,7 @@ export default function Home() {
             <div className="content-section scope">
               <h3 className="section-title">Scope of the Project</h3>
               <p className="section-text">
-                Strategic consulting and experience design across {projects[selectedProject].client}'s digital ecosystem, 
+                Strategic consulting and experience design across {projects[selectedProject].client}&apos;s digital ecosystem, 
                 focusing on {projects[selectedProject].subtitle.toLowerCase()} and business transformation.
               </p>
             </div>
