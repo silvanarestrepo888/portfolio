@@ -12443,6 +12443,68 @@ h4, .text-h4 {
   }
 }
 
+/* ===== PROJECT DETAILS SPACING FIXES ===== */
+
+.project-metadata-section {
+  margin: 3rem 0;
+  padding: 0 2rem;
+}
+
+.metadata-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.metadata-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.metadata-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.metadata-label {
+  color: var(--grapefruit-primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+}
+
+.metadata-value {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.project-tag {
+  background: var(--grapefruit-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 /* ===== ULTRA-SOPHISTICATED HOVER-REVEAL SERVICES - VISUAL PERFECTION ===== */
 
 .services-hover-reveal-container {

@@ -127,8 +127,9 @@ export default function Home() {
       image: "/projects/kayanee/hero-kayanee.jpeg",
       secondaryImage: "/projects/kayanee/secundary-kayanee.jpeg",
       galleryImages: [
-        "/projects/kayanee/secundary-kayanee.jpeg",
-        "/projects/kayanee/Screenshot 2024-11-15 at 10.42.42.png"
+        "/projects/kayanee/Kayanee/Project Gallery /secundary-kayanee.jpeg",
+        "/projects/kayanee/Kayanee/Project Gallery /Screenshot 2024-11-15 at 10.42.42.png",
+        "/projects/kayanee/Kayanee/Project Gallery /Screens-VSCO.jpeg"
       ],
       context: "For centuries, wellness has been a deeply personal journey—rooted in culture, tradition, and individual aspirations. In Saudi Arabia, a new chapter is being written, Kayanne is more than just a wellness brand; it's a movement, a vision, and a revolution in how women experience health, self-care, and empowerment. Kayanee is the first ecosystem integrating physical, digital, and social experiences for women's holistic wellbeing.",
       scope: "Spaces were designed to intuitively recognise wellness needs, blending physical environments with AI-driven digital journeys. Crafted to be a phygital ecosystem merging behavioural science with technology to create deeply personalised transformative experiences. Seamless interactions across touch points—from retail environments to digital platforms—enhancing women's holistic wellbeing journey.",
@@ -153,10 +154,9 @@ export default function Home() {
       image: "/projects/augoor/hero-2.png",
       secondaryImage: "/projects/augoor/photo-main-carrusel.jpeg",
       galleryImages: [
-        "/projects/augoor/photo-main-carrusel.jpeg",
-        "/projects/augoor/Screenshot 2025-04-15 at 13.33.51.png",
-        "/projects/augoor/Screenshot 2025-04-15 at 13.34.12.png",
-        "/projects/augoor/Screenshot 2025-04-15 at 13.34.27.png"
+        "/projects/augoor/Augoor/Project Gallery/Screenshot 2025-04-15 at 13.33.51.png",
+        "/projects/augoor/Augoor/Project Gallery/Screenshot 2025-04-15 at 13.34.12.png",
+        "/projects/augoor/Augoor/Project Gallery/Screenshot 2025-04-15 at 13.34.27.png"
       ],
       context: "In the ever-evolving landscape of software development, navigating and understanding vast, complex codebases is one of the most significant challenges developers face. Augoor was developed within Globant X—a pioneering incubator creating AI-driven products for digital acceleration. It transforms static repositories into dynamic, navigable data warehouses enhancing developer efficiency and collaboration.",
       scope: "Back in 2020 we conducted global ethnographic research to uncover how developers search, document, and navigate complex code systems to transform writing code using plain English, a way of creating technology that today, in 2025 It's not only a reality, but a strong well established way of developing. Adaptive intelligence frameworks were architected with feedback loops that evolve through contextual developer interactions. We designed seamless UX patterns by integrating AI-assisted documentation, code dependencies and code search that feel natural within existing development workflows.",
@@ -181,9 +181,9 @@ export default function Home() {
       image: "/projects/chime-care/hero-j&j.jpeg",
       secondaryImage: "/projects/chime-care/secundary-jjpeg.jpeg",
       galleryImages: [
-        "/projects/chime-care/secundary-jjpeg.jpeg",
-        "/projects/chime-care/Screenshot 2025-03-06 at 171139-VSCO.jpeg",
-        "/projects/chime-care/Screenshot 2025-04-15 at 13.23.31.png"
+        "/projects/chime-care/J&J/Project GalleryImages/Screenshot 2025-03-06 at 171139-VSCO.jpeg",
+        "/projects/chime-care/J&J/Project GalleryImages/Screenshot 2025-04-15 at 13.23.31.png",
+        "/projects/chime-care/J&J/Project GalleryImages/Secundary Image-VSCO.jpeg"
       ],
       context: "For optometrists and surgeons, precision is essential—every decision and data point affects patient vision outcomes. CHiME Care was envisioned as more than just a digital tool; it is an intelligent support system that guides practitioners through complex surgical workflows. In partnership with Johnson & Johnson's Experience Design leadership, we established the foundations for this specialised platform.",
       scope: "We researched with practicing optometrists to reveal workflow patterns and decision points critical to surgical planning. Intuitive interfaces were designed for specialised tools, including toric calculators, case reviews, and performance metrics, to enhance clinical decisions. A comprehensive design system architecture was created to ensure consistent experiences while supporting rapid platform evolution.",
@@ -208,10 +208,10 @@ export default function Home() {
       image: "/projects/nomade/main-hero-carrusel.jpeg",
       secondaryImage: "/projects/nomade/secundary-hero.jpeg",
       galleryImages: [
-        "/projects/nomade/secundary-hero.jpeg",
-        "/projects/nomade/Screenshot 2024-11-15 at 15.21.56.png",
-        "/projects/nomade/Screenshot 2025-04-15 at 13.46.25.png",
-        "/projects/nomade/Screenshot 2025-04-15 at 13.57.49.png"
+        "/projects/nomade/Nomade/Project Gallery/Screenshot 2024-11-15 at 15.21.56.png",
+        "/projects/nomade/Nomade/Project Gallery/Screenshot 2025-04-15 at 13.46.25.png",
+        "/projects/nomade/Nomade/Project Gallery/Screenshot 2025-04-15 at 13.57.49.png",
+        "/projects/nomade/Nomade/Project Gallery/Screenshot 2025-04-15 at 14.08.50.png"
       ],
       context: "Riviera Maya's Nomade Hotels are sanctuaries that blend luxury with nature, evolving alongside guest expectations. The challenge was clear: how to preserve a deeply personal, ritualistic, and human-centred approach while seamlessly integrating digital efficiencies. Nomade envisioned a transformation into a tech-enabled hospitality brand without losing its soul.",
       scope: "In collaboration with Nomade team, we envisioned a guest-centric digital ecosystem integrating CRM, personalisation engines, and an intuitive e-concierge system. Service blueprinting was build to reimagin every touchpoint—from booking to check-out—as opportunities for meaningful cultural connection. Backend systems integration unified operations were mapped out to preserve the spontaneous, authentic interactions defining Nomade's essence.",
@@ -236,9 +236,9 @@ export default function Home() {
       image: "/projects/danone/main-hero-carrusel.jpeg",
       secondaryImage: "/projects/danone/secundary-hero.png",
       galleryImages: [
-        "/projects/danone/secundary-hero.png",
-        "/projects/danone/Screenshot 2025-04-15 at 14.01.55.png",
-        "/projects/danone/Screenshot 2025-04-15 at 14.03.20.png"
+        "/projects/danone/Danone/Project Gallery/Screenshot 2025-04-15 at 14.01.55.png",
+        "/projects/danone/Danone/Project Gallery/Screenshot 2025-04-15 at 14.03.20.png",
+        "/projects/danone/Danone/Project Gallery/secundary-danone.jpeg"
       ],
       context: "In food and beverage, pricing decisions must be intelligent and adaptive against rapidly shifting market dynamics. Danone needed to transition from a reactive, inflationary pricing approach to predictive models aligned with erratic market behaviour. A comprehensive Digital Maturity Assessment was undertaken to evaluate capabilities across technology, data, processes, and organisational culture.",
       scope: "We led the maturity assessment, identifying capability gaps between Danone's digital ambition and its current operational reality. Critical challenges in data governance, technology automation, and cross-functional processes Scalability was diagnosed. A modular pricing framework was architected to ensure strategic alignment with broader organisational transformation objectives.",
@@ -263,10 +263,9 @@ export default function Home() {
       image: "/projects/parques-reunidos/hero-parque-reunidos.png",
       secondaryImage: "/projects/parques-reunidos/secundary-image.jpeg",
       galleryImages: [
-        "/projects/parques-reunidos/secundary-image.jpeg",
-        "/projects/parques-reunidos/Envisioning for Digital Planning and Booking.png",
-        "/projects/parques-reunidos/Envisioning for Dynamic Booking.png",
-        "/projects/parques-reunidos/Project Envisioning Customer Journey Unfied .png"
+        "/projects/parques-reunidos/Parques Reunidos/Project Gallery/Envisioning for Digital Planning and Booking.png",
+        "/projects/parques-reunidos/Parques Reunidos/Project Gallery/Envisioning for Dynamic Booking.png",
+        "/projects/parques-reunidos/Parques Reunidos/Project Gallery/Project Envisioning Customer Journey Unfied .png"
       ],
       context: "Parques Reunidos is a global leisure leader operating seventy diverse entertainment venues spanning three continents and multiple experience categories. Portfolio diversity created operational complexity—particularly across six sales channels and seven distinct product categories. Fragmented systems limited consistent guest experiences and prevented implementation of enterprise-wide product strategies.",
       scope: "In collaboration with internal teams, we created a unified product taxonomy to enable operational efficiency while preserving the authenticity of local venue offerings. We designed governance frameworks that balance centralised intelligence with venue-specific innovation across diverse properties. Integration pathways were mapped to connect disparate systems into a coherent operational ecosystem, enhancing both efficiency and engagement.",
@@ -291,10 +290,9 @@ export default function Home() {
       image: "/projects/qiddiya/hero-qiddiya.png",
       secondaryImage: "/projects/qiddiya/secondary-qiddiya.png",
       galleryImages: [
-        "/projects/qiddiya/secondary-qiddiya.png",
-        "/projects/qiddiya/emergency-management.png",
-        "/projects/qiddiya/guest-search-digital-id.png",
-        "/projects/qiddiya/unified-guest-interaction.png"
+        "/projects/qiddiya/Qiddiya/Project gallery  images/Emergency Management-Unified Alert System.png",
+        "/projects/qiddiya/Qiddiya/Project gallery  images/Guest Search by Digital ID.png",
+        "/projects/qiddiya/Qiddiya/Project gallery  images/Unified Guest Interaction History.png"
       ],
       context: "Saudi Arabia's flagship entertainment destination required comprehensive guest support systems navigating uncharted territory in a landmark entertainment project. Theme parks, water attractions, sports facilities, and retail centers operated through a unified digital infrastructure where both guests and operational staff would encounter these systems for the first time. Cultural complexity demanded sophisticated solutions: Saudi families, GCC visitors, and international tourists each brought different service expectations, with every touchpoint depending entirely on digital systems without analog alternatives available.",
       scope: "This proof of concept established a validated product strategy for complex entertainment ecosystem requirements through stakeholder collaboration and technical feasibility. Provided development teams with validated integration requirements, with PRDs specifying exact connections with Digital ID and ticketing systems. Workflow validation created shared understanding through stakeholder alignment via tangible prototypes, while designing data collection specs for guest interaction patterns and defining KPI structures for digital adoption and cultural adaptation success.",
@@ -1070,7 +1068,7 @@ export default function Home() {
                       damping: 20
                     }
                   }}
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.03,
                     transition: { 
                       duration: 0.4, 
@@ -1083,7 +1081,7 @@ export default function Home() {
                 >
                   {/* Grapefruit Container - Visual Accessible */}
                   <div className="service-container-grapefruit">
-                    {/* Service Number - Always Visible */}
+                  {/* Service Number - Always Visible */}
                     <div className="service-number-accessible">
                       <span className="service-number-text">{service.number}</span>
                     </div>
@@ -1092,9 +1090,9 @@ export default function Home() {
                     <h3 className="service-title-accessible">
                       {service.title}
                     </h3>
-                    
+                  
                     {/* Hover Reveal Content - Panna Cotta Vanilla */}
-                    <motion.div 
+                  <motion.div
                       className="service-hover-content"
                       initial={{ opacity: 0, y: 20 }}
                       whileHover={{ 
@@ -1105,29 +1103,29 @@ export default function Home() {
                           ease: [0.25, 0.46, 0.45, 0.94]
                         }
                       }}
-                    >
-                      {/* Capabilities List */}
+                  >
+                    {/* Capabilities List */}
                       <div className="service-capabilities-reveal">
-                        {service.capabilities.map((capability, capIndex) => (
-                          <motion.div
-                            key={capIndex}
+                      {service.capabilities.map((capability, capIndex) => (
+                        <motion.div
+                          key={capIndex}
                             className="capability-reveal-item"
                             initial={{ opacity: 0, x: -10 }}
                             whileHover={{ 
                               opacity: 1, 
                               x: 0,
                               transition: { 
-                                duration: 0.3, 
+                            duration: 0.3, 
                                 delay: capIndex * 0.1
                               }
-                            }}
-                          >
+                          }}
+                        >
                             <div className="capability-dot"></div>
                             <span className="capability-text">{capability}</span>
-                          </motion.div>
-                        ))}
-                      </div>
-                      
+                        </motion.div>
+                      ))}
+                    </div>
+                    
                       {/* Description */}
                       <div className="service-description-reveal">
                         <p className="description-text">{service.description}</p>
@@ -1138,25 +1136,25 @@ export default function Home() {
                     <div className="service-hover-indicator">
                       <motion.div 
                         className="hover-arrow"
-                        animate={{ 
+                      animate={{
                           x: [0, 5, 0],
                           opacity: [0.6, 1, 0.6]
-                        }}
-                        transition={{ 
+                      }}
+                      transition={{ 
                           duration: 2,
                           repeat: Infinity,
                           ease: "easeInOut"
-                        }}
-                      >
+                      }}
+                    >
                         →
-                      </motion.div>
-                    </div>
-                    
+                  </motion.div>
+            </div>
+            
                     {/* Sophisticated Background Effects */}
                     <div className="service-bg-gradient"></div>
                     <div className="service-bg-pattern"></div>
-                  </div>
-                </motion.div>
+              </div>
+            </motion.div>
               ))}
             </div>
           </div>
@@ -1667,10 +1665,12 @@ export default function Home() {
       {/* Gallery Zoom Modal */}
       {galleryZoomOpen && (
         <motion.div 
-          className="fixed inset-0 z-70 bg-black/95 flex items-center justify-center"
-          onClick={() => {
-            console.log('Gallery modal background clicked - closing');
-            setGalleryZoomOpen(false);
+          className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center"
+          onMouseDown={(e) => {
+            if (e.target === e.currentTarget) {
+              console.log('Gallery modal background clicked - closing');
+              setGalleryZoomOpen(false);
+            }
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -1678,48 +1678,77 @@ export default function Home() {
           transition={{ duration: 0.3 }}
         >
           <motion.div
-            className="relative max-w-[90vw] max-h-[90vh]"
+            className="relative max-w-[95vw] max-h-[95vh] w-full mx-4"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            onClick={(e) => e.stopPropagation()}
+            onMouseDown={(e) => e.stopPropagation()}
           >
-            <Image 
+            <img 
               src={selectedProject !== null && projects[selectedProject].galleryImages ? 
                 projects[selectedProject].galleryImages[currentGalleryImage] : 
                 (selectedProject !== null ? projects[selectedProject].image : '')} 
               alt={`${selectedProject !== null ? projects[selectedProject].title : ''} - Gallery image ${currentGalleryImage + 1} zoomed view`} 
-              width={1400}
-              height={900}
-              className="object-contain rounded-xl" 
-              quality={95}
+              className="w-full h-auto object-contain rounded-xl shadow-2xl" 
             />
+            
+            {/* Navigation Arrows */}
+            {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.length > 1 && (
+              <>
+                <button
+                  onMouseDown={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setCurrentGalleryImage(prev => 
+                      prev === 0 ? projects[selectedProject].galleryImages.length - 1 : prev - 1
+                    );
+                  }}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white/95 rounded-full flex items-center justify-center text-gray-800 text-2xl font-bold hover:bg-white hover:scale-110 transition-all duration-200 shadow-lg"
+                >
+                  ‹
+                </button>
+                <button
+                  onMouseDown={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setCurrentGalleryImage(prev => 
+                      prev === projects[selectedProject].galleryImages.length - 1 ? 0 : prev + 1
+                    );
+                  }}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white/95 rounded-full flex items-center justify-center text-gray-800 text-2xl font-bold hover:bg-white hover:scale-110 transition-all duration-200 shadow-lg"
+                >
+                  ›
+                </button>
+              </>
+            )}
             
             {/* Close Button */}
             <motion.button 
-              onClick={(e) => {
+              onMouseDown={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 console.log('Gallery modal close button clicked');
                 setGalleryZoomOpen(false);
               }}
-              className="absolute top-4 right-4 w-12 h-12 bg-white/90 rounded-full flex items-center justify-center text-gray-800 text-xl font-bold"
-              whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 102, 99, 0.9)' }}
+              className="absolute top-6 right-6 w-14 h-14 bg-white/95 rounded-full flex items-center justify-center text-gray-800 text-2xl font-bold hover:bg-red-500 hover:text-white transition-all duration-200 shadow-lg"
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
               ×
             </motion.button>
             
             {/* Image Counter */}
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/90 px-4 py-2 rounded-full text-sm font-medium">
+            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-6 py-3 rounded-full text-lg font-medium backdrop-blur-sm">
               Image {currentGalleryImage + 1} of {selectedProject !== null && projects[selectedProject].galleryImages ? 
-                projects[selectedProject].galleryImages.length : 2}
+                projects[selectedProject].galleryImages.length : 0}
             </div>
           </motion.div>
+        </motion.div>
+      )}
 
-          {/* FOOTER */}
-          <footer className="project-details-footer">
+      {/* FOOTER - MOVED OUTSIDE MODAL */}
+      <footer className="project-details-footer">
             <div className="footer-content">
               <div className="footer-brand">
                 <h3 className="footer-brand-name typography-h3">silvana.</h3>
