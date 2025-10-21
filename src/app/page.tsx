@@ -153,7 +153,7 @@ export default function Home() {
     },
     {
       title: "Chime Care J&J",
-      subtitle: "Elevating Ophthalmic Practices with Experience-Driven Innovation",
+      subtitle: "Elevating Ophthalmic Practices with Digital Innovation",
       description: "CHiME Care supports ophthalmic practices by uniting digital tools with clinical expertise. CHiME Care streamlines surgical patient management workflows, allowing practitioners to focus entirely on precision care while intelligent systems handle complexity behind the scenes.",
       tech: ["Design Ops", "Design Systems", "Service Design"],
       industryTags: ["Health & Wellness"],
@@ -451,7 +451,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 1.1 }}
                 >
-                  Each endeavour brings me closer to my mission: connecting strategic business goals with the essence of the <span className="highlight-human">#human perspective</span>.
+                  Each endeavour brings me closer to my mission: connecting strategic business goals with the essence of the <span className="highlight-human-typography">#human perspective</span>.
                 </motion.p>
                 
                 <motion.p 
@@ -488,11 +488,13 @@ export default function Home() {
                     height: 'auto',
                     objectFit: 'cover',
                     objectPosition: 'center',
-                    borderRadius: '12px'
+                    borderRadius: '12px',
+                    display: 'block'
                   }}
                   quality={100}
                   priority
                   unoptimized
+                  loading="eager"
                 />
                 <div className="about-photo-overlay">
                   <div className="about-photo-accent"></div>
@@ -566,7 +568,7 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              A curated selection of <span className="highlight-term-award">strategic consulting projects</span> that demonstrate <span className="highlight-term-award">experience-driven innovation</span>, <span className="highlight-term-award">digital transformation</span>, and <span className="highlight-term-award">business acceleration</span> across diverse industries and global markets.
+              A curated selection of projects that demonstrate my expertise in experience design, digital transformation, and business innovation across diverse industries and global markets.
             </motion.p>
             
             {/* Sophisticated Filter Tags with Perfect Spacing */}
@@ -772,7 +774,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-8">
           {/* Section Header - Original Copy with Enhanced Typography */}
           <motion.div 
-            className="experience-header text-center mb-12"
+            className="experience-header text-center mb-8"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -801,28 +803,7 @@ export default function Home() {
             transition={{ duration: 1 }}
             viewport={{ once: true }}
           >
-            {/* Particle System Background */}
-            <div className="experience-particles">
-              {[...Array(20)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="particle"
-                    style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                  }}
-                  animate={{
-                    y: [0, -20, 0],
-                    opacity: [0.3, 0.8, 0.3],
-                  }}
-                  transition={{
-                    duration: 3 + Math.random() * 2,
-                    repeat: Infinity,
-                    delay: Math.random() * 2,
-                  }}
-                />
-                ))}
-              </div>
+            {/* Clean Experience Section - No Floating Elements */}
 
             {/* Architectural Layers */}
             <div className="experience-layers-grid">
@@ -1006,7 +987,7 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              Meticulously architected solutions that transform complex business challenges into strategic advantages, addressing demanding market realities while anticipating future possibilities.
+              Strategic consulting and design services that transform business challenges into competitive advantages through experience-driven innovation and human-centered design.
             </motion.p>
           </motion.div>
           
@@ -1353,7 +1334,7 @@ export default function Home() {
                 </div>
                 <div className="section-content">
                   <p className="section-text typography-body">
-                    Experience-driven innovation methodology combining user research, strategic design, 
+                    Innovation methodology combining user research, strategic design, 
                     and digital transformation to deliver measurable business impact.
                   </p>
                   <div className="capability-tags">

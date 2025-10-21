@@ -8084,25 +8084,7 @@ h4, .text-h4 {
   transform: translateY(-1px);
 }
 
-/* Particle System */
-.experience-particles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 10; /* Sophisticated layering */
-}
-
-.particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: var(--grapefruit-primary);
-  border-radius: 50%;
-  opacity: 0.3;
-}
+/* Particle System Removed - Clean Design */
 
 /* Architectural Layers Grid */
 .experience-layers-grid {
@@ -8381,7 +8363,7 @@ h4, .text-h4 {
 /* Ultra-Luxury About Header - Perfectly Centered */
 .about-header-ultra-luxury {
   text-align: center;
-  margin-bottom: 3.75rem; /* 60px - Golden ratio precision */
+  margin-bottom: 2.5rem; /* 40px - Reduced spacing */
   position: relative;
 }
 
@@ -9067,7 +9049,7 @@ h4, .text-h4 {
 /* Award-Winning Section Header with Sophisticated Spacing */
 .projects-header-award-winning {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 2.5rem; /* 40px - Reduced spacing */
   position: relative;
 }
 
@@ -12197,24 +12179,25 @@ h4, .text-h4 {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(circle at 30% 20%, rgba(255, 102, 99, 0.04) 0%, transparent 60%),
-    radial-gradient(circle at 70% 80%, rgba(255, 102, 99, 0.06) 0%, transparent 65%),
+    radial-gradient(circle at 30% 20%, rgba(255, 102, 99, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 70% 80%, rgba(255, 102, 99, 0.12) 0%, transparent 65%),
     repeating-linear-gradient(45deg, 
       transparent 0px, 
-      rgba(255, 102, 99, 0.015) 1px, 
+      rgba(255, 102, 99, 0.03) 1px, 
       transparent 2px, 
       transparent 8px),
     repeating-linear-gradient(135deg, 
       transparent 0px, 
-      rgba(255, 102, 99, 0.01) 1px, 
+      rgba(255, 102, 99, 0.02) 1px, 
       transparent 3px, 
       transparent 12px);
-  animation: noiseBreath 12s ease-in-out infinite;
+  animation: noiseBreath 8s ease-in-out infinite;
   pointer-events: none;
   z-index: 3;
   will-change: opacity, transform;
   backface-visibility: hidden;
   mix-blend-mode: overlay;
+  opacity: 0.7;
 }
 
 @keyframes noiseBreath {
@@ -12242,6 +12225,40 @@ h4, .text-h4 {
     animation: none;
     opacity: 0.4;
   }
+}
+
+/* ===== VERBATIM HIGHLIGHTING TYPOGRAPHY - LANDOR STANDARDS ===== */
+
+.highlight-human-typography {
+  color: var(--grapefruit-primary);
+  font-weight: 600;
+  font-family: var(--font-sans);
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: 0.02em;
+  text-shadow: none;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  transition: color 0.3s ease;
+}
+
+.craft-highlight-luxury {
+  color: var(--panna-cotta-vanilla);
+  font-weight: 700;
+  font-family: var(--font-sans);
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, var(--grapefruit-primary) 0%, var(--grapefruit-primary) 100%);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  display: inline-block;
+  transition: all 0.3s ease;
 }
 
 /* ===== ULTRA-PERFECTIONIST TYPOGRAPHY CLASSES ===== */
