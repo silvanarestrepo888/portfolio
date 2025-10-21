@@ -1311,26 +1311,30 @@ export default function Home() {
                     </p>
                   </motion.section>
                   
-                  {/* Testimonial Section - Using Existing Testimonial */}
-                  {projects[selectedProject].testimonial && (
-                    <motion.section
-                      className="testimonial-enhanced"
-                      initial={{ opacity: 0, y: 40 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.9 }}
-                    >
-                      <div 
-                        className="border-l-4 px-phi-xl py-phi-lg bg-white rounded-2xl"
-                        style={{ 
-                          borderColor: '#ff6663',
-                          boxShadow: '0 15px 35px rgba(255, 102, 99, 0.08)'
-                        }}
-                      >
-                        <blockquote className="text-foundation-xl font-foundation-display text-gray-800 mb-phi-md" style={{ fontStyle: 'italic' }}>
-                          &ldquo;{projects[selectedProject].testimonial}&rdquo;
-                        </blockquote>
-                        <cite className="text-foundation-sm font-foundation-accent font-semibold" style={{ color: 'var(--grapefruit-primary)' }}>
-                          {projects[selectedProject].testimonialAuthor}
+                  {/* Project Details Section */}
+                  <motion.section
+                    className="content-section"
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.9 }}
+                  >
+                    <h2 className="text-foundation-2xl font-foundation-display text-gray-800 mb-phi-lg">Project Details</h2>
+                    <div className="grid grid-cols-2 gap-6">
+                      <div>
+                        <h3 className="text-foundation-lg font-foundation-display text-gray-800 mb-2">Client</h3>
+                        <p className="text-foundation-base font-foundation-body text-gray-700">{projects[selectedProject].client}</p>
+                      </div>
+                      <div>
+                        <h3 className="text-foundation-lg font-foundation-display text-gray-800 mb-2">Year</h3>
+                        <p className="text-foundation-base font-foundation-body text-gray-700">{projects[selectedProject].year}</p>
+                      </div>
+                      <div>
+                        <h3 className="text-foundation-lg font-foundation-display text-gray-800 mb-2">Location</h3>
+                        <p className="text-foundation-base font-foundation-body text-gray-700">{projects[selectedProject].location}</p>
+                      </div>
+                      <div>
+                        <h3 className="text-foundation-lg font-foundation-display text-gray-800 mb-2">Category</h3>
+                        <p className="text-foundation-base font-foundation-body text-gray-700">{projects[selectedProject].category}</p>
                         </cite>
                       </div>
                     </motion.section>
