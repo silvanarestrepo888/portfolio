@@ -1646,7 +1646,7 @@ body {
 
 /* SECTION LUXURY UTILITIES */
 .section-luxury {
-  padding-block: clamp(var(--space-xl), 12vw, var(--space-3xl));
+  padding-block: clamp(var(--space-lg), 8vw, var(--space-2xl));
 }
 
 .section-luxury-minimal {
@@ -8373,7 +8373,7 @@ h4, .text-h4 {
 .about-container-ultra-luxury {
   width: 100%;
   margin: 0 auto;
-  padding: 120px 4rem;
+  padding: 80px 4rem;
   position: relative;
   z-index: 2;
 }
@@ -8381,7 +8381,7 @@ h4, .text-h4 {
 /* Ultra-Luxury About Header - Perfectly Centered */
 .about-header-ultra-luxury {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
   position: relative;
 }
 
@@ -9059,7 +9059,7 @@ h4, .text-h4 {
 .projects-container-award-winning {
   width: 100%;
   margin: 0 auto;
-  padding: 120px 4rem;
+  padding: 80px 4rem;
   position: relative;
   z-index: 2;
 }
@@ -9067,7 +9067,7 @@ h4, .text-h4 {
 /* Award-Winning Section Header with Sophisticated Spacing */
 .projects-header-award-winning {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
   position: relative;
 }
 

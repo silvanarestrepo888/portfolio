@@ -414,7 +414,7 @@ export default function Home() {
               </motion.h2>
                 </div>
             <motion.p 
-              className="about-description-ultra-luxury luxury-description text-center max-w-4xl mx-auto"
+              className="about-description-ultra-luxury typography-body text-center max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
@@ -557,7 +557,7 @@ export default function Home() {
             </div>
             
             <motion.p 
-              className="projects-description-award-winning luxury-description text-center max-w-4xl mx-auto"
+              className="projects-description-award-winning typography-body text-center max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
@@ -769,7 +769,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-8">
           {/* Section Header - Original Copy with Enhanced Typography */}
           <motion.div 
-            className="experience-header text-center mb-20"
+            className="experience-header text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -1037,7 +1037,7 @@ export default function Home() {
                       opacity: expandedService === null || expandedService === index ? 1 : 0.4
                     }}
                   >
-                    <span className="luxury-caption">
+                    <span className="typography-caption">
                       {service.number}
                     </span>
                   </motion.div>
@@ -1072,7 +1072,7 @@ export default function Home() {
                   >
                     {/* Service Title - Clean Header */}
                     <div className="service-header-clean">
-                      <span className="service-number-clean luxury-caption">{service.number}</span>
+                      <span className="service-number-clean typography-caption">{service.number}</span>
                       <h3 className="service-title-expanded-clean luxury-project-title">{service.title}</h3>
                     </div>
                     
@@ -1081,7 +1081,7 @@ export default function Home() {
                       {service.capabilities.map((capability, capIndex) => (
                         <motion.div
                           key={capIndex}
-                          className="capability-line-clean luxury-body"
+                          className="capability-line-clean typography-body"
                           style={{ '--index': capIndex } as React.CSSProperties}
                           initial={{ opacity: 0, x: -10 }}
                           animate={{
@@ -1111,7 +1111,7 @@ export default function Home() {
                         delay: expandedService === index ? 0.4 : 0
                       }}
                     >
-                      <p className="service-description-text luxury-description">
+                      <p className="service-description-text typography-body">
                       {service.description}
                       </p>
                     </motion.div>
@@ -1155,14 +1155,14 @@ export default function Home() {
             {/* Brand Section */}
             <div className="footer-brand">
               <h3 className="footer-brand-name luxury-project-title">silvana.</h3>
-              <p className="footer-brand-title luxury-body">Principal Experience Architect</p>
+              <p className="footer-brand-title typography-body">Principal Experience Architect</p>
             </div>
             
             {/* Contact Links */}
             <div className="footer-contact">
               <a 
                 href="mailto:silvanarestrepo888@gmail.com"
-                className="footer-contact-link luxury-body luxury-hover-glow"
+                className="footer-contact-link typography-body luxury-hover-glow"
               >
                 <Mail size={18} />
                 Contact
@@ -1171,7 +1171,7 @@ export default function Home() {
                 href="https://linkedin.com/in/silvanarestrepo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="footer-contact-link luxury-body luxury-hover-glow"
+                className="footer-contact-link typography-body luxury-hover-glow"
               >
                 <Linkedin size={18} />
                 LinkedIn
@@ -1180,7 +1180,7 @@ export default function Home() {
                 href="https://silvana.mmm.page/human-perspective"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="footer-contact-link luxury-body luxury-hover-glow"
+                className="footer-contact-link typography-body luxury-hover-glow"
               >
                 <ExternalLink size={18} />
                 Portfolio
@@ -1189,7 +1189,7 @@ export default function Home() {
             
             {/* Copyright */}
             <div className="footer-legal">
-              <span className="footer-copyright luxury-caption">
+              <span className="footer-copyright typography-caption">
                 © 2025 Silvana Restrepo. All rights reserved.
               </span>
             </div>
@@ -1251,7 +1251,7 @@ export default function Home() {
                     {projects[selectedProject].title}
               </motion.h1>
               <motion.p 
-                className="project-subtitle luxury-description"
+                className="project-subtitle typography-body"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -1266,25 +1266,25 @@ export default function Home() {
             <div className="metadata-container">
               <div className="metadata-grid">
                 <div className="metadata-item">
-                  <span className="metadata-label luxury-caption">Client</span>
-                  <span className="metadata-value luxury-body">{projects[selectedProject].client}</span>
+                  <span className="metadata-label typography-caption">Client</span>
+                  <span className="metadata-value typography-body">{projects[selectedProject].client}</span>
                 </div>
                 <div className="metadata-item">
-                  <span className="metadata-label luxury-caption">Year</span>
-                  <span className="metadata-value luxury-body">{projects[selectedProject].year}</span>
+                  <span className="metadata-label typography-caption">Year</span>
+                  <span className="metadata-value typography-body">{projects[selectedProject].year}</span>
                 </div>
                 <div className="metadata-item">
-                  <span className="metadata-label luxury-caption">Location</span>
-                  <span className="metadata-value luxury-body">{projects[selectedProject].location}</span>
+                  <span className="metadata-label typography-caption">Location</span>
+                  <span className="metadata-value typography-body">{projects[selectedProject].location}</span>
                 </div>
                 <div className="metadata-item">
-                  <span className="metadata-label luxury-caption">Category</span>
-                  <span className="metadata-value luxury-body">{projects[selectedProject].category}</span>
+                  <span className="metadata-label typography-caption">Category</span>
+                  <span className="metadata-value typography-body">{projects[selectedProject].category}</span>
                 </div>
               </div>
               <div className="project-tags">
                 {projects[selectedProject].tech.map((tag, index) => (
-                  <span key={index} className="project-tag luxury-caption">
+                  <span key={index} className="project-tag typography-caption">
                     {tag}
                     </span>
                 ))}
@@ -1305,7 +1305,7 @@ export default function Home() {
                 viewport={{ once: true, margin: "-100px" }}
               >
                 <div className="section-header">
-                  <span className="section-number luxury-caption">01</span>
+                  <span className="section-number typography-caption">01</span>
                   <h2 className="section-title typography-h3">Context</h2>
                 </div>
                 <div className="section-content">
@@ -1324,7 +1324,7 @@ export default function Home() {
                 viewport={{ once: true, margin: "-100px" }}
               >
                 <div className="section-header">
-                  <span className="section-number luxury-caption">02</span>
+                  <span className="section-number typography-caption">02</span>
                   <h2 className="section-title typography-h3">Scope of the Project</h2>
                 </div>
                 <div className="section-content">
@@ -1345,7 +1345,7 @@ export default function Home() {
                 viewport={{ once: true, margin: "-100px" }}
               >
                 <div className="section-header">
-                  <span className="section-number luxury-caption">03</span>
+                  <span className="section-number typography-caption">03</span>
                   <h2 className="section-title typography-h3">Approach</h2>
                 </div>
                 <div className="section-content">
@@ -1355,7 +1355,7 @@ export default function Home() {
                   </p>
                   <div className="capability-tags">
                     {projects[selectedProject].tech.map((capability, index) => (
-                      <span key={index} className="capability-tag luxury-caption">
+                      <span key={index} className="capability-tag typography-caption">
                         {capability}
                       </span>
                     ))}
@@ -1372,19 +1372,19 @@ export default function Home() {
                 viewport={{ once: true, margin: "-100px" }}
               >
                 <div className="section-header">
-                  <span className="section-number luxury-caption">04</span>
+                  <span className="section-number typography-caption">04</span>
                   <h2 className="section-title typography-h3">Testimonial</h2>
                 </div>
                 <div className="section-content">
                   <div className="testimonial-container">
-                    <blockquote className="testimonial-quote luxury-body">
+                    <blockquote className="testimonial-quote typography-body">
                       &ldquo;Silvana&apos;s strategic approach transformed our digital ecosystem. Her expertise in experience design and business transformation delivered measurable results that exceeded our expectations.&rdquo;
                         </blockquote>
                     <div className="testimonial-attribution">
-                      <p className="testimonial-author luxury-caption">
+                      <p className="testimonial-author typography-caption">
                         {projects[selectedProject].client}
                       </p>
-                      <p className="testimonial-role luxury-caption">
+                      <p className="testimonial-role typography-caption">
                         {projects[selectedProject].category}
                       </p>
                     </div>
@@ -1405,7 +1405,7 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <h2 className="gallery-title typography-h3">Project Gallery</h2>
-              <span className="gallery-count luxury-caption">
+              <span className="gallery-count typography-caption">
                 {selectedProject !== null && projects[selectedProject].galleryImages ? 
                   `1 of ${projects[selectedProject].galleryImages.length + 1}` : 
                   '1 of 1'
@@ -1438,7 +1438,7 @@ export default function Home() {
                     quality={100}
                   />
                 <div className="gallery-overlay">
-                  <span className="zoom-text luxury-caption">Click to explore</span>
+                  <span className="zoom-text typography-caption">Click to explore</span>
                 </div>
                 </motion.div>
                 
@@ -1477,7 +1477,7 @@ export default function Home() {
                           quality={100}
                         />
                   <div className="gallery-overlay">
-                    <span className="zoom-text luxury-caption">Click to explore</span>
+                    <span className="zoom-text typography-caption">Click to explore</span>
                   </div>
                 </motion.div>
                     ))}
@@ -1495,14 +1495,14 @@ export default function Home() {
             >
               <h3 className="testimonial-title typography-h3">Client Testimonial</h3>
               <div className="testimonial-quote-container">
-                <blockquote className="testimonial-quote luxury-body">
+                <blockquote className="testimonial-quote typography-body">
                   &ldquo;Silvana&apos;s strategic approach transformed our digital ecosystem. Her expertise in experience design and business transformation delivered measurable results that exceeded our expectations.&rdquo;
                 </blockquote>
                 <div className="testimonial-attribution">
-                  <p className="testimonial-author luxury-caption">
+                  <p className="testimonial-author typography-caption">
                     {selectedProject !== null ? projects[selectedProject].client : 'Client Name'}
                   </p>
-                  <p className="testimonial-role luxury-caption">
+                  <p className="testimonial-role typography-caption">
                     {selectedProject !== null ? projects[selectedProject].category : 'Project Category'}
                   </p>
                 </div>
@@ -1669,14 +1669,14 @@ export default function Home() {
             <div className="footer-content">
               <div className="footer-brand">
                 <h3 className="footer-brand-name luxury-project-title">silvana.</h3>
-                <p className="footer-brand-title luxury-body">Principal Experience Architect</p>
+                <p className="footer-brand-title typography-body">Principal Experience Architect</p>
               </div>
               <div className="footer-links">
-                <a href="#about" className="footer-link luxury-body">About</a>
-                <a href="#projects" className="footer-link luxury-body">Projects</a>
-                <a href="#experience" className="footer-link luxury-body">Experience</a>
-                <a href="#services" className="footer-link luxury-body">Services</a>
-                <a href="#footer" className="footer-link luxury-body">Contact</a>
+                <a href="#about" className="footer-link typography-body">About</a>
+                <a href="#projects" className="footer-link typography-body">Projects</a>
+                <a href="#experience" className="footer-link typography-body">Experience</a>
+                <a href="#services" className="footer-link typography-body">Services</a>
+                <a href="#footer" className="footer-link typography-body">Contact</a>
               </div>
             </div>
           </footer>
