@@ -479,7 +479,14 @@ export default function Home() {
                   alt="Silvana Restrepo - Principal Experience Architect"
                   width={500}
                   height={600}
-                  className="about-photo-luxury"
+                  className="about-photo-perfect"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    objectFit: 'cover',
+                    objectPosition: 'center',
+                    borderRadius: '12px'
+                  }}
                   quality={100}
                   priority
                 />
@@ -647,15 +654,21 @@ export default function Home() {
                   
                   {/* Image Section - 60% (Perfect Balance) */}
                   <div className="balanced-image-section">
-                    <div 
-                      className="balanced-image-container"
+                    <div className="balanced-image-container">
+                      <Image
+                        src={filteredProjects[safeFeaturedProjectIndex]?.image || ''}
+                        alt={filteredProjects[safeFeaturedProjectIndex]?.title || ''}
+                        width={800}
+                        height={600}
+                        className="balanced-image-perfect"
                   style={{
-                        backgroundImage: `url(${filteredProjects[safeFeaturedProjectIndex]?.image || ''})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat'
-                      }}
-                    >
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          objectPosition: 'center'
+                        }}
+                        quality={100}
+                      />
                       {/* Tags Inside Image Container */}
                       <div className="balanced-overlay-tags">
                         <span className="balanced-year-tag">
@@ -1224,8 +1237,15 @@ export default function Home() {
                     alt={projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].title}
                     width={60}
                     height={40}
-                    className="nav-project-image"
-                    style={{ objectFit: 'cover' }}
+                    className="nav-project-image-perfect"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      objectPosition: 'center',
+                      borderRadius: '6px'
+                    }}
+                    quality={100}
                   />
                   <div className="nav-project-text">
                     <span className="luxury-caption">Previous</span>
@@ -1253,8 +1273,15 @@ export default function Home() {
                     alt={projects[(selectedProject + 1) % projects.length].title}
                     width={60}
                     height={40}
-                    className="nav-project-image"
-                    style={{ objectFit: 'cover' }}
+                    className="nav-project-image-perfect"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      objectPosition: 'center',
+                      borderRadius: '6px'
+                    }}
+                    quality={100}
                   />
                   <div className="nav-project-text">
                     <span className="luxury-caption">Next</span>
@@ -1290,10 +1317,10 @@ export default function Home() {
               <motion.h1 
                 className="project-title luxury-hero"
                 initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                {projects[selectedProject].title}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
+                    {projects[selectedProject].title}
               </motion.h1>
               <motion.p 
                 className="project-subtitle luxury-description"
@@ -1301,7 +1328,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                {projects[selectedProject].subtitle}
+                    {projects[selectedProject].subtitle}
               </motion.p>
             </div>
           </div>
@@ -1331,9 +1358,9 @@ export default function Home() {
                 {projects[selectedProject].tech.map((tag, index) => (
                   <span key={index} className="project-tag luxury-caption">
                     {tag}
-                  </span>
+                    </span>
                 ))}
-              </div>
+                  </div>
             </div>
           </div>
                 
@@ -1341,9 +1368,9 @@ export default function Home() {
           <div className="project-content-sections">
             <div className="content-sections-container">
               
-              {/* Context Section */}
-              <motion.section
-                className="content-section"
+                  {/* Context Section */}
+                  <motion.section
+                    className="content-section"
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -1358,11 +1385,11 @@ export default function Home() {
                     {projects[selectedProject].description}
                   </p>
                 </div>
-              </motion.section>
-              
+                  </motion.section>
+                  
               {/* Scope of the Project Section */}
-              <motion.section
-                className="content-section"
+                  <motion.section
+                    className="content-section"
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
@@ -1379,11 +1406,11 @@ export default function Home() {
                     measurable growth and operational excellence.
                   </p>
                 </div>
-              </motion.section>
-              
+                  </motion.section>
+                  
               {/* Approach Section */}
-              <motion.section
-                className="content-section"
+                  <motion.section
+                    className="content-section"
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -1406,10 +1433,10 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-              </motion.section>
-              
+                  </motion.section>
+                  
               {/* Testimonial Section */}
-              <motion.section
+                    <motion.section
                 className="content-section"
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -1424,7 +1451,7 @@ export default function Home() {
                   <div className="testimonial-container">
                     <blockquote className="testimonial-quote luxury-body">
                       &ldquo;Silvana&apos;s strategic approach transformed our digital ecosystem. Her expertise in experience design and business transformation delivered measurable results that exceeded our expectations.&rdquo;
-                    </blockquote>
+                        </blockquote>
                     <div className="testimonial-attribution">
                       <p className="testimonial-author luxury-caption">
                         {projects[selectedProject].client}
@@ -1434,8 +1461,8 @@ export default function Home() {
                       </p>
                     </div>
                   </div>
-                </div>
-              </motion.section>
+                      </div>
+                    </motion.section>
               
             </div>
           </div>
@@ -1470,11 +1497,18 @@ export default function Home() {
                 >
                   <Image
                     src={projects[selectedProject].image}
-                  alt={projects[selectedProject].title}
-                  fill
-                  className="gallery-image"
-                  style={{ objectFit: 'cover' }}
-                />
+                    alt={projects[selectedProject].title}
+                    width={600}
+                    height={400}
+                    className="gallery-image-perfect"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      objectPosition: 'center'
+                    }}
+                    quality={100}
+                  />
                 <div className="gallery-overlay">
                   <span className="zoom-text luxury-caption">Click to explore</span>
                 </div>
@@ -1502,10 +1536,17 @@ export default function Home() {
                       >
                         <Image
                           src={image}
-                    alt={`${projects[selectedProject].title} - Image ${index + 2}`}
-                          fill
-                    className="gallery-image"
-                    style={{ objectFit: 'cover' }}
+                          alt={`${projects[selectedProject].title} - Image ${index + 2}`}
+                          width={400}
+                          height={300}
+                          className="gallery-image-perfect"
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            objectPosition: 'center'
+                          }}
+                          quality={100}
                         />
                   <div className="gallery-overlay">
                     <span className="zoom-text luxury-caption">Click to explore</span>

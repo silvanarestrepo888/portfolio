@@ -11952,3 +11952,84 @@ h4, .text-h4 {
     padding: 1.5rem;
   }
 }
+
+/* ========================================
+   PERFECT IMAGE IMPLEMENTATION - ZERO TOLERANCE
+   ======================================== */
+
+/* About Me Photo Perfect */
+.about-photo-perfect {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.about-photo-perfect:hover {
+  transform: scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* Project Carousel Images Perfect */
+.balanced-image-perfect {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.balanced-image-perfect:hover {
+  transform: scale(1.05);
+}
+
+/* Gallery Images Perfect */
+.gallery-image-perfect {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.gallery-image-perfect:hover {
+  transform: scale(1.02);
+}
+
+/* Navigation Project Images Perfect */
+.nav-project-image-perfect {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav-project-image-perfect:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive Image Sizing */
+@media (max-width: 768px) {
+  .about-photo-perfect,
+  .balanced-image-perfect,
+  .gallery-image-perfect,
+  .nav-project-image-perfect {
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-photo-perfect,
+  .balanced-image-perfect,
+  .gallery-image-perfect,
+  .nav-project-image-perfect {
+    border-radius: 6px;
+  }
+}
