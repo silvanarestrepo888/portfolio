@@ -427,27 +427,32 @@ export default function Home() {
         id="hero" 
         className="hero-section-luxury section-hero-sophisticated section-transition-sophisticated"
       >
-        <div className="hero-bg-luxury parallax-container">
+        <div className="hero-bg-unified parallax-container">
+          {/* Artistic Photo Background Layer - Cohesive Integration */}
+          <div className="hero-photo-layer-unified">
             <Image 
               src="/silvana-profile.jpg"
               alt="Silvana Restrepo - Principal Experience Architect"
               fill
-            className="hero-bg-image-luxury parallax-element gpu-accelerated"
-            style={{ transform: parallaxTransform }}
-            quality={100}
+              className="hero-photo-artistic-unified parallax-element gpu-accelerated"
+              style={{ transform: parallaxTransform }}
+              quality={100}
               priority
               sizes="100vw"
             />
-            
-          {/* Elegant Gradient Overlays */}
-          <div className="hero-gradient-overlay-1"></div>
-          <div className="hero-gradient-overlay-2"></div>
+          </div>
           
-          {/* Sophisticated Vignette */}
+          {/* Unified Color Story Overlay */}
+          <div className="hero-unified-color-story"></div>
+          
+          {/* Cohesive Gradient Foundation */}
+          <div className="unified-gradient-foundation"></div>
+          
+          {/* Visual Bridge to About Section */}
+          <div className="unified-section-connector"></div>
+          
+          {/* Sophisticated Vignette - Preserved */}
           <div className="hero-vignette-luxury"></div>
-          
-          {/* Sophisticated Noise Texture - Landor Standards */}
-          <div className="hero-texture-noise"></div>
         </div>
         
         {/* Content Over Photo */}
@@ -553,22 +558,22 @@ export default function Home() {
 
             {/* Right Column - Profile Photo */}
             <div className="about-photo-column">
-              <div className="about-photo-container">
+              <div className="about-photo-container about-photo-unified-sophisticated">
                 <Image
                   src="/silvana-profile.jpg"
               alt="Silvana Restrepo - Principal Experience Architect"
               width={600}
               height={500}
-              className="about-photo-perfect"
+              className="about-photo-perfect about-photo-cohesive"
                   style={{
                 width: '100%',
                 height: '500px',
                 objectFit: 'cover',
                 objectPosition: 'center',
-                borderRadius: '12px'
+                borderRadius: '20px'
               }}
+              quality={100}
               priority
-              unoptimized={false}
               onError={(e) => {
                 console.log('Profile image load error - Next.js Image');
                 // Graceful fallback - show a subtle background instead of broken image
@@ -579,9 +584,12 @@ export default function Home() {
                 console.log('Profile image loaded successfully - Next.js Image');
               }}
             />
-                <div className="about-photo-overlay">
-                  <div className="about-photo-accent"></div>
-                </div>
+                
+                {/* Unified Color Harmony */}
+                <div className="about-photo-unified-harmony"></div>
+                
+                {/* Cohesive Accent System */}
+                <div className="about-photo-unified-accent"></div>
               </div>
             </div>
           </motion.div>

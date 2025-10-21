@@ -15600,3 +15600,384 @@ img {
 /* ========================================== */
 /* END VERTICAL TIMELINE EXPERIENCE SECTION */
 /* ========================================== */
+
+/* ========================================== */
+/* PHASE 3C: UNIFIED COHESIVE VISUAL SYSTEM */
+/* Award-Winning Photo Integration + Visual Cohesiveness */
+/* ========================================== */
+
+/* COHESIVE COLOR TEMPERATURE SYSTEM */
+:root {
+  /* Warmer, more cohesive color variations */
+  --coral-warm: #FF7A77;      /* Warmer coral for harmony */
+  --charcoal-warm: #3A3A3A;   /* Warmer charcoal for flow */
+  --cream-coral-hint: #FFF6F5; /* Cream with subtle coral */
+  
+  /* Unified gradient system for cohesive flow */
+  --unified-gradient-1: linear-gradient(135deg, var(--charcoal-warm) 0%, var(--coral-warm) 100%);
+  --unified-gradient-2: linear-gradient(135deg, var(--cream-coral-hint) 0%, var(--cream-warm) 100%);
+  --unified-gradient-3: linear-gradient(135deg, var(--charcoal-warm) 0%, var(--charcoal-primary) 100%);
+  --unified-gradient-4: linear-gradient(135deg, var(--coral-warm) 0%, var(--coral-deep) 100%);
+  --unified-gradient-5: linear-gradient(135deg, var(--charcoal-warm) 0%, var(--charcoal-medium) 100%);
+}
+
+/* HERO PHOTO ARTISTIC BACKGROUND INTEGRATION */
+.hero-bg-unified {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.hero-photo-layer-unified {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-photo-artistic-unified {
+  object-fit: cover;
+  object-position: 65% center; /* Strategic positioning for text readability */
+  
+  /* Cohesive duotone using warmer tones for flow */
+  filter: 
+    sepia(70%) 
+    saturate(110%) 
+    hue-rotate(15deg)    /* Warmer, not cool tones */
+    brightness(0.9) 
+    contrast(1.1);
+  
+  /* Cohesive blend mode - gentler integration */
+  mix-blend-mode: soft-light;
+  opacity: 0.75;
+  
+  /* Performance optimization */
+  will-change: transform, filter;
+  backface-visibility: hidden;
+}
+
+.hero-unified-color-story {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg, 
+    rgba(58, 58, 58, 0.6) 0%,      /* Warmer charcoal */
+    transparent 45%, 
+    rgba(255, 122, 119, 0.25) 100% /* Warmer coral */
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.unified-gradient-foundation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--unified-gradient-1);
+  mix-blend-mode: multiply;
+  opacity: 0.3;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.unified-section-connector {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--cream-coral-hint) 100% /* Creates visual bridge to about */
+  );
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* ABOUT PHOTO UNIFIED SOPHISTICATED SYSTEM */
+.about-photo-unified-sophisticated {
+  position: relative;
+  border-radius: 24px; /* Consistent with hero curves */
+  overflow: hidden;
+  
+  /* Unified background using cohesive color story */
+  background: linear-gradient(135deg, 
+    var(--cream-warm) 0%, 
+    var(--cream-coral-hint) 100%); /* Subtle coral hint for cohesiveness */
+  
+  padding: 12px; /* Generous, luxurious frame */
+  
+  /* Cohesive shadow system matching hero depth */
+  box-shadow: 
+    0 25px 60px rgba(58, 58, 58, 0.12),   /* Warmer charcoal shadows */
+    0 8px 25px rgba(255, 122, 119, 0.08), /* Warmer coral accent */
+    0 2px 8px rgba(58, 58, 58, 0.05);     /* Detail shadow */
+  
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.about-photo-unified-sophisticated:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 35px 80px rgba(58, 58, 58, 0.15),
+    0 12px 30px rgba(255, 122, 119, 0.12),
+    0 4px 12px rgba(58, 58, 58, 0.08);
+}
+
+.about-photo-cohesive {
+  border-radius: 16px;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.about-photo-unified-harmony {
+  position: absolute;
+  top: 12px; 
+  left: 12px; 
+  right: 12px; 
+  bottom: 12px;
+  border-radius: 16px;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 122, 119, 0.08) 100% /* Subtle cohesive warm coral */
+  );
+  mix-blend-mode: color;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.about-photo-unified-sophisticated:hover .about-photo-unified-harmony {
+  opacity: 1;
+}
+
+.about-photo-unified-accent {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 122, 119, 0.15); /* Warmer coral accent */
+  pointer-events: none;
+  
+  /* Animated border on hover for cohesiveness */
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.about-photo-unified-sophisticated:hover .about-photo-unified-accent {
+  border-color: rgba(255, 122, 119, 0.4);
+  box-shadow: inset 0 0 20px rgba(255, 122, 119, 0.1);
+}
+
+/* UPDATED SECTION BACKGROUNDS FOR COHESIVENESS */
+.section-hero-sophisticated {
+  background: var(--unified-gradient-1) !important; /* Override existing */
+  position: relative;
+  overflow: hidden;
+}
+
+.section-about-sophisticated {
+  background: var(--unified-gradient-2) !important; /* Override existing */
+  position: relative;
+}
+
+.section-projects-sophisticated {
+  background: var(--unified-gradient-3) !important; /* Override existing */
+  position: relative;
+}
+
+.section-services-sophisticated {
+  background: var(--unified-gradient-4) !important; /* Override existing */
+  position: relative;
+}
+
+.section-experience-sophisticated {
+  background: var(--unified-gradient-5) !important; /* Override existing */
+  position: relative;
+}
+
+/* VISUAL BRIDGES BETWEEN SECTIONS */
+.section-about-sophisticated::after {
+  content: '';
+  position: absolute;
+  bottom: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100px;
+  background: linear-gradient(
+    to bottom, 
+    transparent 0%, 
+    var(--charcoal-warm) 100%
+  );
+  z-index: 5;
+  pointer-events: none;
+  /* Creates smooth transition to projects */
+}
+
+.section-projects-sophisticated::after {
+  content: '';
+  position: absolute;
+  bottom: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100px;
+  background: linear-gradient(
+    to bottom, 
+    transparent 0%, 
+    var(--coral-warm) 100%
+  );
+  z-index: 5;
+  pointer-events: none;
+  /* Creates smooth transition to services */
+}
+
+.section-services-sophisticated::after {
+  content: '';
+  position: absolute;
+  bottom: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100px;
+  background: linear-gradient(
+    to bottom, 
+    transparent 0%, 
+    var(--charcoal-warm) 100%
+  );
+  z-index: 5;
+  pointer-events: none;
+  /* Creates smooth transition to experience */
+}
+
+/* COHESIVE TEXT COLOR ADJUSTMENTS */
+.section-hero-sophisticated .hero-title-luxury-centered {
+  color: var(--cream-primary);
+  text-shadow: 0 8px 40px rgba(58, 58, 58, 0.7); /* Warmer shadow */
+}
+
+.section-about-sophisticated h2,
+.section-about-sophisticated h3 {
+  color: var(--charcoal-warm); /* Warmer, more cohesive */
+}
+
+.section-projects-sophisticated h2,
+.section-projects-sophisticated .projects-title-award-winning {
+  color: var(--cream-primary);
+  text-shadow: 0 4px 20px rgba(58, 58, 58, 0.5);
+}
+
+.section-services-sophisticated h2 {
+  color: var(--cream-primary);
+  text-shadow: 0 4px 20px rgba(26, 26, 26, 0.5);
+}
+
+.section-experience-sophisticated h2 {
+  color: var(--cream-primary);
+  text-shadow: 0 4px 20px rgba(58, 58, 58, 0.5);
+}
+
+/* COHESIVE BUTTON SYSTEM */
+.section-hero-sophisticated .magnetic-button,
+.section-projects-sophisticated .magnetic-button {
+  background: var(--coral-warm); /* Warmer coral for cohesiveness */
+  color: var(--cream-primary);
+  border: 1px solid var(--coral-primary);
+}
+
+.section-about-sophisticated .magnetic-button {
+  background: var(--coral-warm);
+  color: var(--cream-primary);
+  border: 1px solid var(--coral-primary);
+}
+
+.section-services-sophisticated .magnetic-button {
+  background: var(--cream-primary);
+  color: var(--coral-warm);
+  border: 1px solid var(--coral-warm);
+}
+
+.section-experience-sophisticated .magnetic-button {
+  background: var(--coral-warm);
+  color: var(--cream-primary);
+  border: 1px solid var(--coral-primary);
+}
+
+/* MOBILE COHESIVE OPTIMIZATIONS */
+@media (max-width: 768px) {
+  .hero-photo-artistic-unified {
+    object-position: 75% center;
+    opacity: 0.5;
+    filter: 
+      sepia(50%) 
+      saturate(90%) 
+      hue-rotate(10deg)
+      brightness(1.1);
+  }
+  
+  .hero-unified-color-story {
+    opacity: 0.8;
+  }
+  
+  .unified-section-connector {
+    height: 80px;
+  }
+  
+  .about-photo-unified-sophisticated {
+    padding: 8px;
+    border-radius: 20px;
+  }
+  
+  .about-photo-cohesive {
+    border-radius: 14px;
+  }
+  
+  /* Simplified section connectors on mobile */
+  .section-about-sophisticated::after,
+  .section-projects-sophisticated::after,
+  .section-services-sophisticated::after {
+    height: 60px;
+    opacity: 0.7;
+  }
+}
+
+/* ACCESSIBILITY AND PERFORMANCE */
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo-artistic-unified,
+  .about-photo-unified-sophisticated,
+  .about-photo-cohesive {
+    transition: none !important;
+    transform: none !important;
+  }
+  
+  .about-photo-unified-harmony,
+  .about-photo-unified-accent {
+    transition: none !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .hero-photo-artistic-unified {
+    filter: contrast(1.5) brightness(1.2);
+    mix-blend-mode: normal;
+  }
+  
+  .hero-unified-color-story {
+    opacity: 0.9;
+  }
+}
+
+/* ========================================== */
+/* END PHASE 3C: UNIFIED COHESIVE SYSTEM */
+/* ========================================== */
