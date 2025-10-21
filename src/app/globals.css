@@ -12179,25 +12179,25 @@ h4, .text-h4 {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(circle at 30% 20%, rgba(255, 102, 99, 0.08) 0%, transparent 60%),
-    radial-gradient(circle at 70% 80%, rgba(255, 102, 99, 0.12) 0%, transparent 65%),
+    radial-gradient(circle at 30% 20%, rgba(255, 102, 99, 0.15) 0%, transparent 60%),
+    radial-gradient(circle at 70% 80%, rgba(255, 102, 99, 0.2) 0%, transparent 65%),
     repeating-linear-gradient(45deg, 
       transparent 0px, 
-      rgba(255, 102, 99, 0.03) 1px, 
+      rgba(255, 102, 99, 0.05) 1px, 
       transparent 2px, 
       transparent 8px),
     repeating-linear-gradient(135deg, 
       transparent 0px, 
-      rgba(255, 102, 99, 0.02) 1px, 
+      rgba(255, 102, 99, 0.03) 1px, 
       transparent 3px, 
       transparent 12px);
-  animation: noiseBreath 8s ease-in-out infinite;
+  animation: noiseBreath 6s ease-in-out infinite;
   pointer-events: none;
   z-index: 3;
   will-change: opacity, transform;
   backface-visibility: hidden;
   mix-blend-mode: overlay;
-  opacity: 0.7;
+  opacity: 1;
 }
 
 @keyframes noiseBreath {
@@ -12439,6 +12439,116 @@ h4, .text-h4 {
   
   .footer-legal-landor {
     justify-content: center;
+  }
+}
+
+/* ===== LANDOR STANDARDS SERVICES SECTION - CLEAN IMPLEMENTATION ===== */
+
+.services-container-landor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.services-grid-landor {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.service-card-landor {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card-landor::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--grapefruit-primary), var(--grapefruit-secondary));
+  border-radius: 16px 16px 0 0;
+}
+
+.service-card-landor:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+.service-header-landor {
+  margin-bottom: 1.5rem;
+}
+
+.service-number-landor {
+  color: var(--grapefruit-primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.service-title-landor {
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.service-capabilities-landor {
+  margin-bottom: 1.5rem;
+}
+
+.capability-item-landor {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.capability-item-landor::before {
+  content: '•';
+  color: var(--grapefruit-primary);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.service-description-landor {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 1.5rem;
+}
+
+.service-description-text-landor {
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .services-grid-landor {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .service-card-landor {
+    padding: 1.5rem;
   }
 }
 

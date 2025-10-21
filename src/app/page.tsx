@@ -489,12 +489,16 @@ export default function Home() {
                     objectFit: 'cover',
                     objectPosition: 'center',
                     borderRadius: '12px',
-                    display: 'block'
+                    display: 'block',
+                    visibility: 'visible',
+                    opacity: 1
                   }}
                   quality={100}
                   priority
                   unoptimized
                   loading="eager"
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                 />
                 <div className="about-photo-overlay">
                   <div className="about-photo-accent"></div>
@@ -991,143 +995,39 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          {/* ELITE SERVICES SECTION - ORIGINAL COPY COMPLIANT - Enhanced Visual Treatment */}
-          <div className="w-full max-w-[90vw] mx-auto px-4">
-            {/* Interactive Services System */}
-            <div className="services-hover-system flex h-[70vh] border border-gray-200 rounded-3xl overflow-hidden bg-white shadow-2xl services-luxury-enhanced">
+          {/* LANDOR STANDARDS SERVICES SECTION - CLEAN IMPLEMENTATION */}
+          <div className="services-container-landor">
+            <div className="services-grid-landor">
               {referenceServices.map((service, index) => (
                 <motion.div
                   key={service.number}
-                  className="service-column-interactive relative cursor-pointer border-r border-gray-200 last:border-r-0 service-column-landor luxury-hover-scale luxury-border-subtle"
-                  onMouseEnter={() => setExpandedService(index)}
-                  onMouseLeave={() => setExpandedService(null)}
-                  animate={{
-                    width: getServiceColumnWidth(index),
-                    opacity: expandedService === null ? 1 : (expandedService === index ? 1 : 0.7)
-                  }}
-                  transition={{
-                    duration: 0.6,
-                    ease: [0.25, 0.46, 0.45, 0.94],
-                    type: "tween"
-                  }}
-                  whileHover={{
-                    zIndex: expandedService === index ? 10 : 1
-                  }}
+                  className="service-card-landor"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
                 >
-                  {/* Service Number - Always Visible */}
-                  <motion.div 
-                    className="absolute top-8 left-6"
-                    animate={{
-                      opacity: expandedService === null || expandedService === index ? 1 : 0.4
-                    }}
-                  >
-                    <span className="typography-caption">
-                      {service.number}
-                    </span>
-                  </motion.div>
+                  <div className="service-header-landor">
+                    <span className="service-number-landor typography-caption">{service.number}</span>
+                    <h3 className="service-title-landor typography-h3">{service.title}</h3>
+                  </div>
                   
-                  {/* Service Title - Vertical when collapsed */}
-                  <motion.div
-                    className="absolute top-24 left-6 origin-top-left"
-                    style={{
-                      transformOrigin: 'top left',
-                      width: expandedService === index ? 'auto' : '200px'
-                    }}
-                    animate={{
-                      rotate: expandedService === index ? 0 : -90,
-                      x: expandedService === index ? 0 : 30
-                    }}
-                    transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  >
-                    <h3 className="service-title-interactive typography-h3">
-                      {service.title}
-                    </h3>
-                  </motion.div>
-                  
-                  {/* Clean Expanded Content - Following Inspiration Design */}
-                  <motion.div
-                    className="service-expanded-clean"
-                    initial={{ opacity: 0 }}
-                    animate={{
-                      opacity: expandedService === index ? 1 : 0,
-                      pointerEvents: expandedService === index ? 'auto' : 'none'
-                    }}
-                    transition={{ duration: 0.4, delay: 0.2 }}
-                  >
-                    {/* Service Title - Clean Header */}
-                    <div className="service-header-clean">
-                      <span className="service-number-clean typography-caption">{service.number}</span>
-                      <h3 className="service-title-expanded-clean typography-h3">{service.title}</h3>
-                    </div>
-                    
-                    {/* Capabilities List - Clean Vertical Layout Following Inspiration */}
-                    <div className="capabilities-section-clean">
+                  <div className="service-capabilities-landor">
                       {service.capabilities.map((capability, capIndex) => (
-                        <motion.div
-                          key={capIndex}
-                          className="capability-line-clean typography-body"
-                          style={{ '--index': capIndex } as React.CSSProperties}
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{
-                            opacity: expandedService === index ? 1 : 0,
-                            x: expandedService === index ? 0 : -10
-                          }}
-                          transition={{ 
-                            duration: 0.2, 
-                            delay: expandedService === index ? 0.1 + capIndex * 0.03 : 0 
-                          }}
-                        >
+                      <div key={capIndex} className="capability-item-landor typography-body">
                           {capability}
-                        </motion.div>
+                      </div>
                       ))}
                     </div>
                     
-                    {/* Service Description - Clean Bottom Section */}
-                    <motion.div
-                      className="service-description-clean"
-                      initial={{ opacity: 0, y: 5 }}
-                      animate={{
-                        opacity: expandedService === index ? 1 : 0,
-                        y: expandedService === index ? 0 : 5
-                      }}
-                      transition={{ 
-                        duration: 0.3, 
-                        delay: expandedService === index ? 0.4 : 0
-                      }}
-                    >
-                      <p className="service-description-text typography-body">
+                  <div className="service-description-landor">
+                    <p className="service-description-text-landor typography-body">
                       {service.description}
-                      </p>
-                    </motion.div>
-                  </motion.div>
-                  
-                  {/* Column Background Enhancement on Hover */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-b from-transparent via-coral/5 to-coral/10"
-                    initial={{ opacity: 0 }}
-                    animate={{
-                      opacity: expandedService === index ? 1 : 0
-                    }}
-                    transition={{ duration: 0.4 }}
-                  />
+                    </p>
+                  </div>
                 </motion.div>
               ))}
             </div>
-            
-            {/* Services Navigation Guidance */}
-            <motion.div
-              className="text-center mt-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              <div className="inline-flex items-center gap-4 px-6 py-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg">
-                <span className="text-foundation-xs font-foundation-accent text-gray-600">
-                  Explore each service column
-                </span>
-                <div className="w-2 h-2 rounded-full bg-coral animate-pulse" />
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
