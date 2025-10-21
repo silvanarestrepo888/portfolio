@@ -1206,89 +1206,176 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Hero Section - Full Width Image */}
-          <div className="project-hero-section">
+          {/* SOPHISTICATED HERO SECTION - Full Width Immersive */}
+          <div className="sophisticated-hero-section">
             <div 
-              className="project-hero-image"
+              className="hero-image-container"
               style={{
                 backgroundImage: `url(${projects[selectedProject].image})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat'
               }}
-            />
+            >
+              {/* Elegant Overlay */}
+              <div className="hero-overlay">
+                <div className="hero-content">
+                  <motion.h1 
+                    className="hero-title"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                  >
+                    {projects[selectedProject].title}
+                  </motion.h1>
+                  <motion.p 
+                    className="hero-subtitle"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                  >
+                    {projects[selectedProject].subtitle}
+                  </motion.p>
+                  <motion.div 
+                    className="hero-meta"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                  >
+                    <span className="hero-client">{projects[selectedProject].client}</span>
+                    <span className="hero-year">{projects[selectedProject].year}</span>
+                    <span className="hero-location">{projects[selectedProject].location}</span>
+                  </motion.div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Content Sections - 2x2 Grid */}
-          <div className="project-content-sections">
+          {/* SOPHISTICATED CONTENT SECTIONS - 2x2 Grid */}
+          <div className="sophisticated-content-sections">
             {/* Context */}
-            <div className="content-section context">
-              <h3 className="section-title">Context</h3>
-              <p className="section-text">
-                {projects[selectedProject].description}
-              </p>
-            </div>
+            <motion.div 
+              className="sophisticated-content-section context"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <h3 className="sophisticated-section-title">Context</h3>
+              <div className="sophisticated-section-content">
+                <p className="sophisticated-section-text">
+                  {projects[selectedProject].description}
+                </p>
+              </div>
+            </motion.div>
 
             {/* Scope */}
-            <div className="content-section scope">
-              <h3 className="section-title">Scope of the Project</h3>
-              <p className="section-text">
-                Strategic consulting and experience design across {projects[selectedProject].client}&apos;s digital ecosystem, 
-                focusing on {projects[selectedProject].subtitle.toLowerCase()} and business transformation.
-              </p>
-            </div>
+            <motion.div 
+              className="sophisticated-content-section scope"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <h3 className="sophisticated-section-title">Scope of the Project</h3>
+              <div className="sophisticated-section-content">
+                <p className="sophisticated-section-text">
+                  Strategic consulting and experience design across {projects[selectedProject].client}&apos;s digital ecosystem, 
+                  focusing on {projects[selectedProject].subtitle.toLowerCase()} and business transformation.
+                </p>
+              </div>
+            </motion.div>
 
             {/* Approach */}
-            <div className="content-section approach">
-              <h3 className="section-title">Approach</h3>
-              <p className="section-text">
-                Experience-driven innovation methodology combining user research, strategic design, 
-                and digital transformation to deliver measurable business impact.
-              </p>
-            </div>
+            <motion.div 
+              className="sophisticated-content-section approach"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <h3 className="sophisticated-section-title">Approach</h3>
+              <div className="sophisticated-section-content">
+                <p className="sophisticated-section-text">
+                  Experience-driven innovation methodology combining user research, strategic design, 
+                  and digital transformation to deliver measurable business impact.
+                </p>
+              </div>
+            </motion.div>
 
             {/* Testimonial */}
-            <div className="content-section testimonial">
-              <h3 className="section-title">Impact</h3>
-              <p className="section-text">
-                Delivered strategic transformation that enabled {projects[selectedProject].client} to achieve 
-                enhanced user experience and business growth across their digital platforms.
-              </p>
-            </div>
+            <motion.div 
+              className="sophisticated-content-section testimonial"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              <h3 className="sophisticated-section-title">Impact</h3>
+              <div className="sophisticated-section-content">
+                <p className="sophisticated-section-text">
+                  Delivered strategic transformation that enabled {projects[selectedProject].client} to achieve 
+                  enhanced user experience and business growth across their digital platforms.
+                </p>
+              </div>
+            </motion.div>
           </div>
 
-          {/* Image Gallery */}
-          <div className="project-gallery-section">
-            <h3 className="gallery-title">Project Gallery</h3>
-            <div className="gallery-grid">
+          {/* SOPHISTICATED IMAGE GALLERY */}
+          <div className="sophisticated-gallery-section">
+            <motion.h3 
+              className="sophisticated-gallery-title"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              Project Gallery
+            </motion.h3>
+            <div className="sophisticated-gallery-grid">
               {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.map((image, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className="gallery-item"
+                  className="sophisticated-gallery-item"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
                   onClick={() => {
                     setCurrentGalleryImage(index);
                     setGalleryZoomOpen(true);
                   }}
+                  whileHover={{ scale: 1.05, y: -10 }}
                 >
                   <div
-                    className="gallery-image"
+                    className="sophisticated-gallery-image"
                     style={{
                       backgroundImage: `url(${image})`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center'
                     }}
                   />
-                </div>
+                  <div className="gallery-overlay">
+                    <div className="gallery-icon">🔍</div>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>
 
-          {/* Project Navigation */}
-          <div className="project-navigation-section">
-            <div className="nav-project prev-project">
-              <div className="nav-project-thumbnail">
+          {/* SOPHISTICATED PROJECT NAVIGATION */}
+          <div className="sophisticated-navigation-section">
+            <motion.div 
+              className="sophisticated-nav-project prev-project"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              onClick={() => {
+                const prevIndex = selectedProject === 0 ? projects.length - 1 : selectedProject - 1;
+                setSelectedProject(prevIndex);
+              }}
+              whileHover={{ scale: 1.02, x: -10 }}
+            >
+              <div className="sophisticated-nav-thumbnail">
                 <div
-                  className="nav-thumbnail-image"
+                  className="sophisticated-nav-image"
                   style={{
                     backgroundImage: `url(${projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].image})`,
                     backgroundSize: 'cover',
@@ -1296,20 +1383,33 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="nav-project-info">
-                <span className="nav-label">Previous</span>
-                <h4 className="nav-title">{projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].title}</h4>
+              <div className="sophisticated-nav-info">
+                <span className="sophisticated-nav-label">Previous Project</span>
+                <h4 className="sophisticated-nav-title">{projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].title}</h4>
+                <p className="sophisticated-nav-subtitle">{projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].subtitle}</p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="nav-project next-project">
-              <div className="nav-project-info">
-                <span className="nav-label">Next</span>
-                <h4 className="nav-title">{projects[(selectedProject + 1) % projects.length].title}</h4>
+            <motion.div 
+              className="sophisticated-nav-project next-project"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              onClick={() => {
+                const nextIndex = (selectedProject + 1) % projects.length;
+                setSelectedProject(nextIndex);
+              }}
+              whileHover={{ scale: 1.02, x: 10 }}
+            >
+              <div className="sophisticated-nav-info">
+                <span className="sophisticated-nav-label">Next Project</span>
+                <h4 className="sophisticated-nav-title">{projects[(selectedProject + 1) % projects.length].title}</h4>
+                <p className="sophisticated-nav-subtitle">{projects[(selectedProject + 1) % projects.length].subtitle}</p>
               </div>
-              <div className="nav-project-thumbnail">
+              <div className="sophisticated-nav-thumbnail">
                 <div
-                  className="nav-thumbnail-image"
+                  className="sophisticated-nav-image"
                   style={{
                     backgroundImage: `url(${projects[(selectedProject + 1) % projects.length].image})`,
                     backgroundSize: 'cover',
@@ -1317,7 +1417,7 @@ export default function Home() {
                   }}
                 />
               </div>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       )}
