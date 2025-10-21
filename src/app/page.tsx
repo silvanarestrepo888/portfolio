@@ -587,8 +587,8 @@ export default function Home() {
                   <span className="auto-play-text">
                     {isAutoPlaying ? 'Auto-playing' : 'Paused'}
                   </span>
-                </div>
-                
+              </div>
+              
                 <div className="project-counter-minimal">
                   <span className="current-project-minimal">{safeFeaturedProjectIndex + 1}</span>
                   <span className="divider-minimal">/</span>
@@ -597,43 +597,30 @@ export default function Home() {
               </div>
             </motion.div>
             
-            {/* PERFECT GOLDEN RATIO CAROUSEL - 100% PERFECTION */}
+            {/* CLEAN BALANCED CAROUSEL - BACK TO PERFECTION */}
             <motion.div 
-              className="perfect-carousel-container"
+              className="balanced-carousel-container"
               key={safeFeaturedProjectIndex}
-              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ 
-                opacity: isTransitioning ? 0.8 : 1, 
-                y: 0, 
-                scale: 1 
+                opacity: isTransitioning ? 0.9 : 1, 
+                y: 0
               }}
-              transition={{ 
-                duration: isTransitioning ? 0.8 : 1.4, 
-                ease: [0.16, 1, 0.3, 1], // Physics-based easing
-                type: "spring",
-                stiffness: 100,
-                damping: 20
+              transition={{
+                duration: isTransitioning ? 0.6 : 1.0, 
+                ease: [0.25, 0.46, 0.45, 0.94]
               }}
               onHoverStart={() => setIsAutoPlaying(false)}
               onHoverEnd={() => setIsAutoPlaying(true)}
             >
-              <div className="perfect-project-card">
-                {/* Golden Ratio Layout: 61.8% Image / 38.2% Content */}
-                <div className="perfect-layout-grid">
+              <div className="balanced-project-card">
+                {/* Clean Balanced Layout: 60% Image / 40% Content */}
+                <div className="balanced-layout-grid">
                   
-                  {/* Image Section - 61.8% (Golden Ratio) */}
-                  <motion.div 
-                    className="perfect-image-section"
-                    initial={{ opacity: 0, x: -50, scale: 1.02 }}
-                    animate={{ opacity: 1, x: 0, scale: 1 }}
-                    transition={{ 
-                      duration: 1.2, 
-                      delay: 0.2,
-                      ease: [0.16, 1, 0.3, 1]
-                    }}
-                  >
-                    <motion.div 
-                      className="perfect-image-container"
+                  {/* Image Section - 60% (Perfect Balance) */}
+                  <div className="balanced-image-section">
+                    <div 
+                      className="balanced-image-container"
                       style={{
                         backgroundImage: `url(${filteredProjects[safeFeaturedProjectIndex]?.image || ''})`,
                         backgroundSize: 'contain !important',
@@ -641,252 +628,85 @@ export default function Home() {
                         backgroundRepeat: 'no-repeat !important',
                         backgroundColor: 'rgba(0, 0, 0, 0.02)'
                       }}
-                      key={`perfect-image-${safeFeaturedProjectIndex}`}
-                      initial={{ opacity: 0, scale: 1.05, rotateY: -5 }}
-                      animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                      transition={{ 
-                        duration: 1.4, 
-                        ease: [0.16, 1, 0.3, 1],
-                        type: "spring",
-                        stiffness: 80,
-                        damping: 25
-                      }}
-                      whileHover={{ 
-                        scale: 1.02,
-                        transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
-                      }}
                     >
-                      {/* Perfect Gradient Overlay for Text Readability */}
-                      <div className="perfect-gradient-overlay" />
-                      
-                      {/* Perfect Overlay Tags with Micro-Interactions */}
-                      <motion.div 
-                        className="perfect-overlay-tags"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.6 }}
-                      >
-                        <motion.span 
-                          className="perfect-year-tag"
-                          whileHover={{ 
-                            scale: 1.05,
-                            boxShadow: "0 8px 25px rgba(0, 0, 0, 0.15)",
-                            transition: { duration: 0.3 }
-                          }}
-                        >
+                      {/* Simple Overlay Tags */}
+                      <div className="balanced-overlay-tags">
+                        <span className="balanced-year-tag">
                           {filteredProjects[safeFeaturedProjectIndex]?.year || ''}
-                        </motion.span>
-                        <motion.span 
-                          className="perfect-category-tag"
-                          whileHover={{ 
-                            scale: 1.05,
-                            boxShadow: "0 8px 25px rgba(255, 102, 99, 0.4)",
-                            transition: { duration: 0.3 }
-                          }}
-                        >
+                        </span>
+                        <span className="balanced-category-tag">
                           {filteredProjects[safeFeaturedProjectIndex]?.category || ''}
-                        </motion.span>
-                      </motion.div>
-                      
-                      {/* Perfect Loading Indicator */}
-                      <motion.div 
-                        className="perfect-loading-indicator"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: isTransitioning ? 1 : 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <div className="perfect-spinner" />
-                      </motion.div>
-                    </motion.div>
-                  </motion.div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                   
-                  {/* Content Section - 38.2% (Golden Ratio) */}
-                  <motion.div 
-                    className="perfect-content-section"
-                    initial={{ opacity: 0, x: 50, scale: 0.98 }}
-                    animate={{ opacity: 1, x: 0, scale: 1 }}
-                    transition={{ 
-                      duration: 1.2, 
-                      delay: 0.4,
-                      ease: [0.16, 1, 0.3, 1]
-                    }}
-                  >
-                    <div className="perfect-content-inner">
+                  {/* Content Section - 40% (Perfect Balance) */}
+                  <div className="balanced-content-section">
+                    <div className="balanced-content-inner">
                       
-                      {/* Perfect Project Header with Staggered Animation */}
-                      <motion.header 
-                        className="perfect-header"
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.6 }}
-                      >
-                        <motion.h3 
-                          className="perfect-title"
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8, delay: 0.8 }}
-                        >
+                      {/* Clean Project Header */}
+                      <header className="balanced-header">
+                        <h3 className="balanced-title">
                           {filteredProjects[safeFeaturedProjectIndex]?.title || ''}
-                        </motion.h3>
+                        </h3>
                         
-                        <motion.p 
-                          className="perfect-client"
-                          initial={{ opacity: 0, y: 15 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8, delay: 1.0 }}
-                        >
+                        <p className="balanced-client">
                           {filteredProjects[safeFeaturedProjectIndex]?.client || ''}
-                        </motion.p>
+                        </p>
                         
-                        <motion.div 
-                          className="perfect-meta"
-                          initial={{ opacity: 0, y: 15 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8, delay: 1.2 }}
-                        >
+                        <div className="balanced-meta">
                           <span>{filteredProjects[safeFeaturedProjectIndex]?.year || ''}</span>
-                          <span className="perfect-divider">•</span>
+                          <span className="balanced-divider">•</span>
                           <span>{filteredProjects[safeFeaturedProjectIndex]?.location || ''}</span>
-                        </motion.div>
-                      </motion.header>
+                        </div>
+                      </header>
                       
-                      {/* Perfect Description with Reading Flow */}
-                      <motion.div 
-                        className="perfect-description"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 1.4 }}
-                      >
-                        <motion.p 
-                          className="perfect-subtitle"
-                          initial={{ opacity: 0, y: 15 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8, delay: 1.6 }}
-                        >
+                      {/* Clean Description */}
+                      <div className="balanced-description">
+                        <p className="balanced-subtitle">
                           {filteredProjects[safeFeaturedProjectIndex]?.subtitle || ''}
-                        </motion.p>
+                        </p>
                         
-                        <motion.p 
-                          className="perfect-description-text"
-                          initial={{ opacity: 0, y: 15 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8, delay: 1.8 }}
-                        >
+                        <p className="balanced-description-text">
                           {filteredProjects[safeFeaturedProjectIndex]?.description || ''}
-                        </motion.p>
-                      </motion.div>
+                        </p>
+                      </div>
                       
-                      {/* Perfect Capability Tags with Magnetic Effect */}
-                      <motion.div 
-                        className="perfect-capabilities"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 2.0 }}
-                      >
-                        <div className="perfect-tags">
-                          {filteredProjects[safeFeaturedProjectIndex] && filteredProjects[safeFeaturedProjectIndex].tech && filteredProjects[safeFeaturedProjectIndex].tech.slice(0, 3).map((capability, index) => (
-                            <motion.span 
-                              key={capability} 
-                              className="perfect-tag"
-                              initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                              animate={{ opacity: 1, scale: 1, y: 0 }}
-                              transition={{ 
-                                duration: 0.6, 
-                                delay: 2.2 + (index * 0.1),
-                                ease: [0.16, 1, 0.3, 1]
-                              }}
-                              whileHover={{ 
-                                scale: 1.05,
-                                y: -2,
-                                boxShadow: "0 8px 25px rgba(255, 102, 99, 0.3)",
-                                transition: { duration: 0.3 }
-                              }}
-                              whileTap={{ scale: 0.95 }}
-                            >
+                      {/* Clean Capability Tags */}
+                      <div className="balanced-capabilities">
+                        <div className="balanced-tags">
+                          {filteredProjects[safeFeaturedProjectIndex] && filteredProjects[safeFeaturedProjectIndex].tech && filteredProjects[safeFeaturedProjectIndex].tech.slice(0, 3).map((capability) => (
+                            <span key={capability} className="balanced-tag">
                               {capability}
-                            </motion.span>
+                            </span>
                           ))}
                         </div>
-                      </motion.div>
+                      </div>
                       
-                      {/* Perfect Action Buttons with Magnetic Effect */}
-                      <motion.div 
-                        className="perfect-actions"
-                        initial={{ opacity: 0, y: 25 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 2.4 }}
-                      >
-                        <motion.button
+                      {/* Clean Action Buttons */}
+                      <div className="balanced-actions">
+                        <button
                           onClick={() => setSelectedProject(safeFeaturedProjectIndex)}
-                          className="perfect-btn primary"
-                          whileHover={{ 
-                            scale: 1.05,
-                            y: -3,
-                            boxShadow: "0 15px 40px rgba(255, 102, 99, 0.4)",
-                            transition: { duration: 0.3 }
-                          }}
-                          whileTap={{ scale: 0.95 }}
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.6, delay: 2.6 }}
+                          className="balanced-btn primary"
                         >
-                          <span>View Full Case Study</span>
-                          <motion.div 
-                            className="perfect-btn-ripple"
-                            whileHover={{ scale: 1.2, opacity: 0.1 }}
-                            transition={{ duration: 0.6 }}
-                          />
-                        </motion.button>
+                          View Full Case Study
+                        </button>
                         
                         {filteredProjects[safeFeaturedProjectIndex]?.website && (
-                          <motion.a 
+                          <a 
                             href={filteredProjects[safeFeaturedProjectIndex].website}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="perfect-btn secondary"
-                            whileHover={{ 
-                              scale: 1.05,
-                              y: -3,
-                              boxShadow: "0 8px 30px rgba(0, 0, 0, 0.15)",
-                              transition: { duration: 0.3 }
-                            }}
-                            whileTap={{ scale: 0.95 }}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 2.8 }}
+                            className="balanced-btn secondary"
                           >
-                            <span>Visit Website</span>
-                            <motion.div 
-                              className="perfect-btn-ripple"
-                              whileHover={{ scale: 1.2, opacity: 0.1 }}
-                              transition={{ duration: 0.6 }}
-                            />
-                          </motion.a>
+                            Visit Website
+                          </a>
                         )}
-                      </motion.div>
+                      </div>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
-                
-                {/* Perfect Progress Indicator */}
-                <motion.div 
-                  className="perfect-progress-indicator"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 3.0 }}
-                >
-                  <div className="perfect-progress-bar">
-                    <motion.div 
-                      className="perfect-progress-fill"
-                      initial={{ width: 0 }}
-                      animate={{ width: `${((safeFeaturedProjectIndex + 1) / filteredProjects.length) * 100}%` }}
-                      transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-                    />
-                  </div>
-                  <div className="perfect-progress-text">
-                    {safeFeaturedProjectIndex + 1} of {filteredProjects.length}
-                  </div>
-                </motion.div>
               </div>
             </motion.div>
             
@@ -1495,12 +1315,12 @@ export default function Home() {
                   </motion.section>
                   
                   {/* Project Details Section */}
-                  <motion.section
+                    <motion.section
                     className="content-section"
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.9 }}
-                  >
+                      initial={{ opacity: 0, y: 40 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.9 }}
+                    >
                     <h2 className="text-foundation-2xl font-foundation-display text-gray-800 mb-phi-lg">Project Details</h2>
                     <div className="grid grid-cols-2 gap-6">
                       <div>
@@ -1519,8 +1339,8 @@ export default function Home() {
                         <h3 className="text-foundation-lg font-foundation-display text-gray-800 mb-2">Category</h3>
                         <p className="text-foundation-base font-foundation-body text-gray-700">{projects[selectedProject].category}</p>
                       </div>
-                    </div>
-                  </motion.section>
+                      </div>
+                    </motion.section>
                 </article>
               </main>
               
