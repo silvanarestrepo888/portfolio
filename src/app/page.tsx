@@ -17,6 +17,7 @@ export default function Home() {
   // Foundation Project Exploration System
   const [featuredProjectIndex, setFeaturedProjectIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   
   // Project navigation functions
   const goToPreviousProject = () => {
