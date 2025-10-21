@@ -415,7 +415,7 @@ export default function Home() {
               </motion.h2>
                 </div>
             <motion.p 
-              className="about-description-ultra-luxury luxury-description"
+              className="about-description-ultra-luxury luxury-description text-center max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
@@ -550,7 +550,7 @@ export default function Home() {
             </div>
             
             <motion.p 
-              className="projects-description-award-winning luxury-description"
+              className="projects-description-award-winning luxury-description text-center max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
@@ -769,7 +769,7 @@ export default function Home() {
             <h2 className="luxury-section-header">
                 Experience
               </h2>
-            <p className="luxury-description max-w-4xl mx-auto">
+            <p className="luxury-description text-center max-w-4xl mx-auto">
               Some of the <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>upscaling</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>reinventing</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>evolving</span>, and <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>reimagining</span> business, brands, and teams.
             </p>
           </motion.div>
@@ -1040,7 +1040,7 @@ export default function Home() {
                     }}
                     transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
                   >
-                    <h3 className="service-title-interactive whitespace-nowrap luxury-project-title">
+                    <h3 className="service-title-interactive luxury-project-title">
                       {service.title}
                     </h3>
                   </motion.div>
@@ -1139,15 +1139,15 @@ export default function Home() {
           <div className="footer-grid">
             {/* Brand Section */}
             <div className="footer-brand">
-              <h3 className="footer-brand-name">silvana.</h3>
-              <p className="footer-brand-title">Principal Experience Architect</p>
+              <h3 className="footer-brand-name luxury-project-title">silvana.</h3>
+              <p className="footer-brand-title luxury-body">Principal Experience Architect</p>
             </div>
             
             {/* Contact Links */}
             <div className="footer-contact">
               <a 
                 href="mailto:silvanarestrepo888@gmail.com"
-                className="footer-contact-link"
+                className="footer-contact-link luxury-body luxury-hover-glow"
               >
                 <Mail size={18} />
                 Contact
@@ -1156,7 +1156,7 @@ export default function Home() {
                 href="https://linkedin.com/in/silvanarestrepo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="footer-contact-link"
+                className="footer-contact-link luxury-body luxury-hover-glow"
               >
                 <Linkedin size={18} />
                 LinkedIn
@@ -1165,7 +1165,7 @@ export default function Home() {
                 href="https://silvana.mmm.page/human-perspective"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="footer-contact-link"
+                className="footer-contact-link luxury-body luxury-hover-glow"
               >
                 <ExternalLink size={18} />
                 Portfolio
@@ -1174,7 +1174,7 @@ export default function Home() {
             
             {/* Copyright */}
             <div className="footer-legal">
-              <span className="footer-copyright">
+              <span className="footer-copyright luxury-caption">
                 © 2025 Silvana Restrepo. All rights reserved.
               </span>
             </div>
