@@ -447,15 +447,6 @@ export default function Home() {
                   className="about-main-story"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 1.0 }}
-                >
-                  I have embarked on projects ranging from wellness movements to creating AI-driven platforms that empower developers worldwide.
-                </motion.p>
-                
-                <motion.p 
-                  className="about-main-story"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 1.1 }}
                 >
                   Each endeavour brings me closer to my mission: connecting strategic business goals with the essence of the <span className="highlight-human">#human perspective</span>.
@@ -1284,7 +1275,7 @@ export default function Home() {
                 fill
                 className="hero-image"
                 style={{
-                  objectFit: 'cover',
+                  objectFit: 'contain',
                   objectPosition: 'center'
                 }}
                 priority
