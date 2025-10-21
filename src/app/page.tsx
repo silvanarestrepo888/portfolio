@@ -359,85 +359,136 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ABOUT SECTION - Award-Winning Sophistication */}
+      {/* ABOUT SECTION - Ultra-Luxury Single-View */}
       <section 
         id="about" 
-        className="about-section-enhanced"
+        className="about-section-ultra-luxury"
         style={{ 
           background: 'linear-gradient(135deg, var(--pannocotta-primary) 0%, var(--pannocotta-soft) 100%)',
-          paddingTop: 'var(--space-lg)',
-          paddingBottom: 'var(--space-lg)'
+          minHeight: '100vh',
+          display: 'flex',
+          alignItems: 'center'
         }}
       >
-        <div className="container-about-enhanced">
-          <div className="about-content-flow-optimized">
-            {/* Enhanced About Header - ORIGINAL COPY */}
-            <motion.header 
-              className="about-header-enhanced"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}
-            >
-              <span className="section-number-elegant section-number-luxury">01</span>
-              <h2 className="section-title-elegant section-title-landor">The Journey</h2>
-              <p className="section-intro-elegant">
-                Two decades of transforming how global brands connect with human experiences
-              </p>
-            </motion.header>
-            
-            {/* Beautiful Single Narrative - Original Flow Restored */}
-            <motion.div 
-              className="narrative-single-flow"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.4 }}
-            >
-              <div className="narrative-content-beautiful">
-                <p className="narrative-paragraph-elegant">
-                  🎯 <strong>Strategic Design:</strong> Business transformation through human-centered design thinking that connects strategic goals with authentic human experiences.
-                </p>
-                
-                <p className="narrative-paragraph-elegant">
-                  🌍 <strong>Global Experience:</strong> 25+ international markets, cultural intelligence, and local adaptation expertise creating universally resonant solutions.
-                </p>
-                
-                <p className="narrative-paragraph-elegant">
-                  🏢 <strong>Fortune 500 Scale:</strong> Enterprise-level digital transformation, systems thinking, and organizational change management at global scale.
-                </p>
-              </div>
-            </motion.div>
-            
-            {/* Enhanced Philosophy Section - Craft Highlighted */}
-            <motion.div 
-              className="philosophy-enhanced"
-              initial={{ opacity: 0, y: 30 }}
+        <div className="about-container-ultra-luxury">
+          {/* Ultra-Luxury Section Header - Perfectly Centered */}
+          <motion.header 
+            className="about-header-ultra-luxury"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+          >
+            <div className="about-header-content">
+              <span className="about-section-number">01</span>
+              <motion.h2 
+                className="about-title-ultra-luxury"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.4 }}
+              >
+                The Journey
+              </motion.h2>
+            </div>
+            <motion.p 
+              className="about-description-ultra-luxury"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
-              whileHover={{ scale: 1.02 }}
             >
-              <motion.blockquote 
-                className="philosophy-quote-elegant philosophy-quote-craft"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 1.5, delay: 0.8 }}
-              >
-                &ldquo;The art of my <motion.span 
-                  className="craft-highlight"
-                  initial={{ backgroundSize: "0% 100%" }}
-                  whileInView={{ backgroundSize: "100% 100%" }}
-                  transition={{ duration: 1.2, delay: 1.2, ease: "easeInOut" }}
-                >craft</motion.span> lies in connecting strategic business goals with the essence of human desire&rdquo;
-              </motion.blockquote>
-              <motion.div 
-                className="philosophy-attribution"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.4 }}
-              >
-                <p className="philosophy-context">This philosophy drives every project, every strategy, and every solution I create for global brands seeking meaningful transformation.</p>
-              </motion.div>
-            </motion.div>
-          </div>
+              Two decades of transforming how global brands connect with human experiences
+            </motion.p>
+          </motion.header>
+          
+          {/* Ultra-Luxury Symmetric Two-Column Layout */}
+          <motion.div 
+            className="about-content-ultra-luxury"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.8 }}
+          >
+            {/* Left Column - Text Content */}
+            <div className="about-text-column">
+              <div className="about-text-content">
+                <div className="about-narrative-section">
+                  <h3 className="about-subtitle-luxury">
+                    <span className="about-icon">🎯</span>
+                    Strategic Design
+                  </h3>
+                  <p className="about-paragraph-luxury">
+                    Business transformation through human-centered design thinking that connects strategic goals with authentic human experiences.
+                  </p>
+                </div>
+                
+                <div className="about-narrative-section">
+                  <h3 className="about-subtitle-luxury">
+                    <span className="about-icon">🌍</span>
+                    Global Experience
+                  </h3>
+                  <p className="about-paragraph-luxury">
+                    25+ international markets, cultural intelligence, and local adaptation expertise creating universally resonant solutions.
+                  </p>
+                </div>
+                
+                <div className="about-narrative-section">
+                  <h3 className="about-subtitle-luxury">
+                    <span className="about-icon">🏢</span>
+                    Fortune 500 Scale
+                  </h3>
+                  <p className="about-paragraph-luxury">
+                    Enterprise-level digital transformation, systems thinking, and organizational change management at global scale.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Right Column - Profile Photo */}
+            <div className="about-photo-column">
+              <div className="about-photo-container">
+                <Image 
+                  src="/silvana-profile.jpg"
+                  alt="Silvana Restrepo - Principal Experience Architect"
+                  width={500}
+                  height={600}
+                  className="about-photo-luxury"
+                  quality={100}
+                  priority
+                />
+                <div className="about-photo-overlay">
+                  <div className="about-photo-accent"></div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+          
+          {/* Ultra-Luxury Philosophy Quote */}
+          <motion.div 
+            className="about-philosophy-ultra-luxury"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.0 }}
+          >
+            <motion.blockquote 
+              className="philosophy-quote-ultra-luxury"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1.5, delay: 1.2 }}
+            >
+              &ldquo;The art of my <motion.span 
+                className="craft-highlight-luxury"
+                initial={{ backgroundSize: "0% 100%" }}
+                whileInView={{ backgroundSize: "100% 100%" }}
+                transition={{ duration: 1.2, delay: 1.4, ease: "easeInOut" }}
+              >craft</motion.span> lies in connecting strategic business goals with the essence of human desire&rdquo;
+            </motion.blockquote>
+            <motion.p 
+              className="philosophy-context-luxury"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.6 }}
+            >
+              This philosophy drives every project, every strategy, and every solution I create for global brands seeking meaningful transformation.
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
