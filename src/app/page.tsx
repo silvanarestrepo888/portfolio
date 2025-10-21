@@ -513,13 +513,13 @@ export default function Home() {
             {/* Right Column - Profile Photo */}
             <div className="about-photo-column">
               <div className="about-photo-container">
-            <Image
-              src="/silvana-profile.jpg"
+                <Image
+                  src="/silvana-profile.jpg"
               alt="Silvana Restrepo - Principal Experience Architect"
               width={600}
               height={500}
               className="about-photo-perfect"
-              style={{
+                  style={{
                 width: '100%',
                 height: '500px',
                 objectFit: 'cover',
@@ -1050,13 +1050,6 @@ export default function Home() {
                       ease: [0.25, 0.46, 0.45, 0.94]
                     }
                   }}
-                  whileHover={{
-                    scale: 1.02,
-                    transition: { 
-                      duration: 0.3, 
-                      ease: [0.25, 0.46, 0.45, 0.94]
-                    }
-                  }}
                   viewport={{ once: true }}
                 >
                   {/* Grapefruit Container - Base State */}
@@ -1079,8 +1072,8 @@ export default function Home() {
                       <div className="excellence-section">
                         <h4 className="excellence-title">Proven Excellence:</h4>
                         <p className="excellence-description">{service.provenExcellence}</p>
-                      </div>
-                      
+                    </div>
+                    
                       {/* For Projects That Demand */}
                       <div className="demand-section">
                         <h4 className="demand-title">For projects that demand:</h4>
@@ -1092,20 +1085,20 @@ export default function Home() {
                     <div className="service-hover-indicator-benchmark">
                   <motion.div
                         className="hover-indicator"
-                    animate={{
+                      animate={{
                           opacity: [0.4, 0.8, 0.4]
-                          }}
-                          transition={{ 
+                      }}
+                      transition={{ 
                           duration: 2,
                           repeat: Infinity,
                           ease: "easeInOut"
-                          }}
-                        >
+                      }}
+                    >
                         HOVER TO EXPLORE
-                        </motion.div>
-                    </div>
-                  </div>
-                </motion.div>
+                  </motion.div>
+            </div>
+              </div>
+            </motion.div>
               ))}
             </div>
           </div>
@@ -1297,8 +1290,8 @@ export default function Home() {
                 </div>
                 <div className="section-content">
                   <p className="section-text typography-body">
-                    {projects[selectedProject].context}
-                  </p>
+                      {projects[selectedProject].context}
+                    </p>
                 </div>
                   </motion.section>
                   
@@ -1335,8 +1328,8 @@ export default function Home() {
                 </div>
                 <div className="section-content">
                   <p className="section-text typography-body">
-                    {projects[selectedProject].impact}
-                  </p>
+                      {projects[selectedProject].impact}
+                    </p>
                 </div>
                   </motion.section>
                   
