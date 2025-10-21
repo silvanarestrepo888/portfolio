@@ -387,9 +387,8 @@ export default function Home() {
       {/* ABOUT SECTION - Ultra-Luxury Single-View */}
       <section 
         id="about" 
-        className="about-section-ultra-luxury"
+        className="about-section-ultra-luxury luxury-background-texture"
         style={{ 
-          background: 'linear-gradient(135deg, var(--pannocotta-primary) 0%, var(--pannocotta-soft) 100%)',
           minHeight: '100vh',
           display: 'flex',
           alignItems: 'center'
@@ -528,9 +527,8 @@ export default function Home() {
       {/* PROJECTS SECTION - Award-Winning Enhancement */}
       <section 
         id="projects" 
-        className="projects-section-award-winning"
+        className="projects-section-award-winning luxury-background-texture"
         style={{
-          background: 'linear-gradient(180deg, var(--pannocotta-warm) 0%, var(--pannocotta-primary) 50%, var(--pannocotta-soft) 100%)',
           minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
@@ -653,7 +651,7 @@ export default function Home() {
               onHoverStart={() => setIsAutoPlaying(false)}
               onHoverEnd={() => setIsAutoPlaying(true)}
             >
-              <div className="balanced-project-card">
+              <div className="balanced-project-card luxury-hover-elevation luxury-shadow-medium">
                 {/* Clean Balanced Layout: 60% Image / 40% Content */}
                 <div className="balanced-layout-grid">
                   
@@ -756,9 +754,8 @@ export default function Home() {
       {/* EXPERIENCE SECTION - Architectural Transformation */}
       <section 
         id="experience"
-        className="experience-architecture-container"
+        className="experience-architecture-container luxury-background-texture"
         style={{ 
-          background: 'linear-gradient(135deg, #fef7f0 0%, #fef3ec 100%)',
           minHeight: '100vh'
         }}
       >
@@ -928,7 +925,7 @@ export default function Home() {
                   viewport={{ once: true }}
                 >
             <motion.button 
-              className="w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-600"
+              className="w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-600 luxury-hover-elevation luxury-shadow-medium"
               whileHover={{ 
                 scale: 1.1, 
                 backgroundColor: '#ff6663',
@@ -1011,7 +1008,7 @@ export default function Home() {
               {referenceServices.map((service, index) => (
                 <motion.div
                   key={service.number}
-                  className="service-column-interactive relative cursor-pointer border-r border-gray-200 last:border-r-0 service-column-landor"
+                  className="service-column-interactive relative cursor-pointer border-r border-gray-200 last:border-r-0 service-column-landor luxury-hover-scale luxury-border-subtle"
                   onMouseEnter={() => setExpandedService(index)}
                   onMouseLeave={() => setExpandedService(null)}
                   animate={{

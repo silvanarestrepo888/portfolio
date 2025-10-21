@@ -151,6 +151,203 @@
 }
 
 /* ========================================== */
+/* VISUAL SOPHISTICATION SYSTEM - LANDOR STANDARDS */
+/* ========================================== */
+
+/* SUBTLE BACKGROUND TEXTURES - NON-INTERFERING */
+.luxury-background-texture {
+  position: relative;
+  background: linear-gradient(135deg, 
+    var(--white-bones) 0%, 
+    var(--stone) 50%, 
+    var(--white-bones) 100%
+  );
+}
+
+.luxury-background-texture::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 102, 99, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 102, 99, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 102, 99, 0.01) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* SOPHISTICATED SECTION BACKGROUNDS */
+.about-section-ultra-luxury {
+  background: linear-gradient(135deg, 
+    var(--white-bones) 0%, 
+    var(--stone) 100%
+  );
+  position: relative;
+}
+
+.about-section-ultra-luxury::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(255, 102, 99, 0.02) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(255, 102, 99, 0.015) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.projects-section-award-winning {
+  background: linear-gradient(135deg, 
+    var(--stone) 0%, 
+    var(--white-bones) 100%
+  );
+  position: relative;
+}
+
+.projects-section-award-winning::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 70%, rgba(255, 102, 99, 0.025) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(255, 102, 99, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.experience-architecture-container {
+  background: linear-gradient(135deg, 
+    var(--white-bones) 0%, 
+    var(--stone) 100%
+  );
+  position: relative;
+}
+
+.experience-architecture-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 50% 10%, rgba(255, 102, 99, 0.02) 0%, transparent 60%),
+    radial-gradient(circle at 20% 90%, rgba(255, 102, 99, 0.015) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* PREMIUM MICRO-INTERACTIONS */
+.luxury-hover-elevation {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.luxury-hover-elevation:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.1),
+    0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.luxury-hover-scale {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.luxury-hover-scale:hover {
+  transform: scale(1.02);
+}
+
+.luxury-hover-glow {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.luxury-hover-glow:hover {
+  box-shadow: 
+    0 0 20px rgba(255, 102, 99, 0.15),
+    0 0 40px rgba(255, 102, 99, 0.1);
+}
+
+/* SOPHISTICATED SHADOWS */
+.luxury-shadow-subtle {
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.luxury-shadow-medium {
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.06),
+    0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.luxury-shadow-strong {
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* PREMIUM GRADIENTS */
+.luxury-gradient-subtle {
+  background: linear-gradient(135deg, 
+    var(--white-bones) 0%, 
+    var(--stone) 100%
+  );
+}
+
+.luxury-gradient-warm {
+  background: linear-gradient(135deg, 
+    var(--white-bones) 0%, 
+    rgba(255, 102, 99, 0.05) 50%,
+    var(--stone) 100%
+  );
+}
+
+.luxury-gradient-accent {
+  background: linear-gradient(135deg, 
+    var(--grapefruit) 0%, 
+    var(--coral-glow) 100%
+  );
+}
+
+/* SOPHISTICATED BORDERS */
+.luxury-border-subtle {
+  border: 1px solid rgba(255, 102, 99, 0.1);
+}
+
+.luxury-border-medium {
+  border: 1px solid rgba(255, 102, 99, 0.2);
+}
+
+.luxury-border-accent {
+  border: 1px solid var(--grapefruit);
+}
+
+/* PREMIUM LAYERING */
+.luxury-layer-1 {
+  z-index: 1;
+  position: relative;
+}
+
+.luxury-layer-2 {
+  z-index: 2;
+  position: relative;
+}
+
+.luxury-layer-3 {
+  z-index: 3;
+  position: relative;
+}
+
+/* ========================================== */
 
 /* DISTORTED HERO BACKGROUND - Stella Petkova Inspired */
 .hero-distorted-section {
