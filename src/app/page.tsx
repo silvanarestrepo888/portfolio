@@ -367,6 +367,9 @@ export default function Home() {
           
           {/* Sophisticated Vignette */}
           <div className="hero-vignette-luxury"></div>
+          
+          {/* Sophisticated Noise Texture - Landor Standards */}
+          <div className="hero-texture-noise"></div>
         </div>
         
         {/* Content Over Photo */}
