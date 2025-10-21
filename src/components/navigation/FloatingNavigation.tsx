@@ -115,7 +115,7 @@ export function FloatingNavigation() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }
         }}
-        className="nav-brand-enhanced"
+        className="nav-brand-enhanced luxury-navigation"
         whileHover={{ scale: 1.05 }}
         onKeyDown={(e) => handleKeyDown(e, '#hero')}
         tabIndex={0}
@@ -132,7 +132,7 @@ export function FloatingNavigation() {
               key={item.name}
               onClick={() => handleNavClick(item.href)}
               onKeyDown={(e) => handleKeyDown(e, item.href)}
-              className="nav-item-enhanced"
+              className="nav-item-enhanced luxury-navigation"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
@@ -187,7 +187,7 @@ export function FloatingNavigation() {
                     key={item.name}
                     onClick={() => handleNavClick(item.href)}
                     onKeyDown={(e) => handleKeyDown(e, item.href)}
-                    className="mobile-nav-item"
+                    className="mobile-nav-item luxury-navigation"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ 

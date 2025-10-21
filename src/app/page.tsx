@@ -407,7 +407,7 @@ export default function Home() {
             <div className="about-header-content">
               <span className="about-section-number">01</span>
               <motion.h2 
-                className="about-title-ultra-luxury"
+                className="about-title-ultra-luxury luxury-section-header"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.4 }}
@@ -416,7 +416,7 @@ export default function Home() {
               </motion.h2>
                 </div>
             <motion.p 
-              className="about-description-ultra-luxury"
+              className="about-description-ultra-luxury luxury-description"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
@@ -550,7 +550,7 @@ export default function Home() {
             <div className="projects-header-content-award">
               <span className="projects-section-number-award">02</span>
               <motion.h2 
-                className="projects-title-award-winning"
+                className="projects-title-award-winning luxury-section-header"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
@@ -561,7 +561,7 @@ export default function Home() {
             </div>
             
             <motion.p 
-              className="projects-description-award-winning"
+              className="projects-description-award-winning luxury-description"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
@@ -778,10 +778,10 @@ export default function Home() {
               >
                 03
               </span>
-            <h2 className="section-title text-5xl font-light text-gray-900 mb-8">
+            <h2 className="section-title text-5xl font-light text-gray-900 mb-8 luxury-section-header">
                 Experience
               </h2>
-            <p className="section-intro text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-light">
+            <p className="section-intro text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-light luxury-description">
               Some of the <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>upscaling</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>reinventing</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>evolving</span>, and <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>reimagining</span> business, brands, and teams.
             </p>
           </motion.div>
@@ -989,12 +989,12 @@ export default function Home() {
               >
                 04
               </span>
-              <h2 className="text-foundation-3xl font-foundation-display text-gray-800 section-title-landor">
+              <h2 className="text-foundation-3xl font-foundation-display text-gray-800 section-title-landor luxury-section-header">
                 Services
               </h2>
             </div>
             <motion.p 
-              className="text-foundation-lg font-foundation-body text-gray-600 text-center max-w-4xl mx-auto mb-12"
+              className="text-foundation-lg font-foundation-body text-gray-600 text-center max-w-4xl mx-auto mb-12 luxury-description"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
