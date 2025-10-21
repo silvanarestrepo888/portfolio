@@ -7225,7 +7225,7 @@ h4, .text-h4 {
   margin-bottom: 80px;
 }
 
-/* Left Column - Text Content */
+/* Left Column - Text Content - Stella Petkova Style */
 .about-text-column {
   display: flex;
   align-items: center;
@@ -7237,32 +7237,51 @@ h4, .text-h4 {
   width: 100%;
 }
 
-.about-narrative-section {
-  margin-bottom: 40px;
-  padding: 0 20px;
-}
-
-.about-subtitle-luxury {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  font-weight: 400;
+.about-main-story {
+  font-size: 1.2rem;
+  line-height: 1.8;
   color: var(--text-primary);
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.about-icon {
-  font-size: 1.5rem;
-  filter: grayscale(0.3);
-}
-
-.about-paragraph-luxury {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
   font-weight: 300;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.about-welcome {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  font-weight: 400;
+  font-style: italic;
+  margin-top: 32px;
+  text-align: left;
+  position: relative;
+}
+
+.about-welcome::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--grapefruit-primary);
+}
+
+.highlight-human {
+  color: var(--grapefruit-primary);
+  font-weight: 500;
+  position: relative;
+}
+
+.highlight-human::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--grapefruit-primary), transparent);
+  opacity: 0.3;
 }
 
 /* Right Column - Profile Photo */
