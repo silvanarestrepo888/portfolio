@@ -170,8 +170,8 @@ export default function Home() {
       title: "Nomade Tulum",
       subtitle: "Preserving deeply personal guest experiences while meeting digital expectations",
       description: "Nestled in Riviera Maya, Nomade faced a modern dilemma: preserving deeply personal guest experiences while meeting digital expectations. Their new operational ecosystem curatesmeaningful interactions without sacrificing the soul of spontaneous connection.",
-      tech: ["Experience Design", "Service Design", "Digital Transformation", "Hospitality Innovation", "Guest Journey"],
-      industryTags: ["Luxury Hospitality", "Guest Experience", "Tourism Technology", "Cultural Preservation"],
+      tech: ["Experience Design", "Service Design", "Digital Transformation"],
+      industryTags: ["Hospitality"],
       category: "Hospitality",
       year: "2021",
       client: "Nomade Group",
@@ -184,12 +184,7 @@ export default function Home() {
         "/projects/nomade/Screenshot 2024-11-15 at 15.21.56.png",
         "/projects/nomade/Screenshot 2025-04-15 at 13.46.25.png",
         "/projects/nomade/Screenshot 2025-04-15 at 13.57.49.png"
-      ],
-      testimonial: "It was a pleasure to work with Sil, I found a great professional, very collaborative, open to challenge and to make her part. Both clients we work with were very happy with her, and excellent feedaback received",
-      testimonialAuthor: "Gerardo Bava-VP Delivery-Globant",
-      context: "Riviera Maya's Nomade Hotels are sanctuaries that blend luxury with nature, evolving alongside guest expectations. The challenge was clear: how to preserve a deeply personal, ritualistic, and human-centred approach while seamlessly integrating digital efficiencies. Nomade envisioned a transformation into a tech-enabled hospitality brand without losing its soul.",
-      challenge: "In collaboration with Nomade team, we envisioned a guest-centric digital ecosystem integrating CRM, personalisation engines, and an intuitive e-concierge system. Service blueprinting reimagined every touchpoint—from booking to check-out—as opportunities for meaningful cultural connection. Backend systems integration unified operations while preserving the spontaneous, authentic interactions defining Nomade's essence.",
-      impact: "Discovery research provided insights into transforming fragmented guest touchpoints into integrated digital and physical narratives. The integrated platform eliminates operational inefficiencies while enhancing real-time decision-making across all departments. This approach delivers measurable operational efficiency and enriches guest experience, supporting expansion from two assets to ten more in an eight-year pipeline."
+      ]
     },
     {
       title: "Danone Digital Transformation",
