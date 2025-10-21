@@ -1212,7 +1212,7 @@ export default function Home() {
               whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-              ← Back to Projects
+              <span className="luxury-body">← Back to Projects</span>
               </motion.button>
               
             <div className="project-navigation">
@@ -1223,7 +1223,7 @@ export default function Home() {
                 }}
                 className="nav-button prev"
               >
-                Previous
+                <span className="luxury-body">Previous</span>
               </button>
               <button
                   onClick={() => {
@@ -1232,7 +1232,7 @@ export default function Home() {
                   }}
                 className="nav-button next"
                 >
-                Next
+                <span className="luxury-body">Next</span>
               </button>
               </div>
             </div>
@@ -1267,7 +1267,7 @@ export default function Home() {
           {/* Project Info Below Image */}
           <div className="project-info-section">
             <motion.h1 
-              className="project-title"
+              className="project-title luxury-hero"
               initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
@@ -1275,7 +1275,7 @@ export default function Home() {
                     {projects[selectedProject].title}
             </motion.h1>
             <motion.p 
-              className="project-subtitle"
+              className="project-subtitle luxury-description"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -1288,9 +1288,9 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <span className="project-client">{projects[selectedProject].client}</span>
-              <span className="project-year">{projects[selectedProject].year}</span>
-              <span className="project-location">{projects[selectedProject].location}</span>
+              <span className="project-client luxury-body">{projects[selectedProject].client}</span>
+              <span className="project-year luxury-body">{projects[selectedProject].year}</span>
+              <span className="project-location luxury-body">{projects[selectedProject].location}</span>
             </motion.div>
                   </div>
 
@@ -1305,9 +1305,9 @@ export default function Home() {
               viewport={{ once: true, margin: "-100px" }}
             >
               <div className="section-number">01</div>
-              <h3 className="section-title">Context</h3>
+              <h3 className="section-title luxury-section-header">Context</h3>
               <div className="section-content">
-                <p className="section-text">
+                <p className="section-text luxury-body">
                   {projects[selectedProject].description}
                 </p>
               </div>
@@ -1322,9 +1322,9 @@ export default function Home() {
               viewport={{ once: true, margin: "-100px" }}
             >
               <div className="section-number">02</div>
-              <h3 className="section-title">Scope of the Project</h3>
+              <h3 className="section-title luxury-section-header">Scope of the Project</h3>
               <div className="section-content">
-                <p className="section-text">
+                <p className="section-text luxury-body">
                   Strategic consulting and experience design across {projects[selectedProject].client}&apos;s digital ecosystem, 
                   focusing on {projects[selectedProject].subtitle.toLowerCase()} and business transformation.
                 </p>
@@ -1340,9 +1340,9 @@ export default function Home() {
               viewport={{ once: true, margin: "-100px" }}
             >
               <div className="section-number">03</div>
-              <h3 className="section-title">Approach</h3>
+              <h3 className="section-title luxury-section-header">Approach</h3>
               <div className="section-content">
-                <p className="section-text">
+                <p className="section-text luxury-body">
                   Experience-driven innovation methodology combining user research, strategic design, 
                   and digital transformation to deliver measurable business impact.
                 </p>
@@ -1358,9 +1358,9 @@ export default function Home() {
               viewport={{ once: true, margin: "-100px" }}
             >
               <div className="section-number">04</div>
-              <h3 className="section-title">Impact</h3>
+              <h3 className="section-title luxury-section-header">Impact</h3>
               <div className="section-content">
-                <p className="section-text">
+                <p className="section-text luxury-body">
                   Delivered strategic transformation that enabled {projects[selectedProject].client} to achieve 
                   enhanced user experience and business growth across their digital platforms.
                 </p>
@@ -1371,7 +1371,7 @@ export default function Home() {
           {/* PROJECT GALLERY */}
           <div className="project-gallery-section">
             <motion.h3 
-              className="gallery-title"
+              className="gallery-title luxury-section-header"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
