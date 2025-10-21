@@ -245,16 +245,6 @@ export default function Home() {
         "/projects/qiddiya/unified-guest-interaction.png"
       ]
     }
-    },
-    {
-      title: "Parques Reunidos",
-      subtitle: "Catalog Harmonisation",
-      description: "Seventy diverse entertainment venues created stunning operational complexity. A unified product language now preserves venue-specific narratives while enabling enterprise-wide product strategies, turning fragmented systems into coordinated platform across three continents.",
-      tech: ["Experience Design", "Service Design", "Digital Transformation", "Content Strategy", "Portfolio Management"],
-      industryTags: ["Entertainment Industry", "Theme Parks", "Leisure Management", "Global Operations"],
-      category: "Themed Parks",
-      year: "2023",
-      client: "Parques Reunidos",
       location: "Spain",
       website: "https://www.parquesreunidos.com/",
       image: "/projects/parques-reunidos/hero-parque-reunidos.png",
