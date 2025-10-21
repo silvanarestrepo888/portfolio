@@ -7848,9 +7848,9 @@ h4, .text-h4 {
 }
 
 .projects-container-award-winning {
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  padding: 120px 60px;
+  padding: 120px 4rem;
   position: relative;
   z-index: 2;
 }
@@ -8783,7 +8783,7 @@ h4, .text-h4 {
 /* Responsive Design for Award-Winning Projects */
 @media (max-width: 1024px) {
   .projects-container-award-winning {
-    padding: 80px 40px;
+    padding: 80px 3rem;
   }
   
   .projects-title-award-winning {
@@ -8811,7 +8811,7 @@ h4, .text-h4 {
 
 @media (max-width: 768px) {
   .projects-container-award-winning {
-    padding: 60px 20px;
+    padding: 60px 2rem;
   }
   
   .projects-title-award-winning {
