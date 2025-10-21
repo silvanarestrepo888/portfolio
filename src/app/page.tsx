@@ -395,13 +395,7 @@ export default function Home() {
           alignItems: 'center'
         }}
       >
-        {/* Award-Winning Glassmorphism Layers */}
-        <div className="glassmorphism-layer-1" />
-        <div className="glassmorphism-layer-2" />
-        <div className="glassmorphism-layer-3" />
-        
-        {/* Award-Winning Particle System */}
-        <div className="award-winning-particles" />
+        {/* Background interference elements removed for clean design */}
         <div className="about-container-ultra-luxury">
           {/* Ultra-Luxury Section Header - Perfectly Centered */}
               <motion.header
@@ -543,13 +537,7 @@ export default function Home() {
           justifyContent: 'center'
         }}
       >
-        {/* Award-Winning Glassmorphism Layers */}
-        <div className="glassmorphism-layer-1" />
-        <div className="glassmorphism-layer-2" />
-        <div className="glassmorphism-layer-3" />
-        
-        {/* Award-Winning Particle System */}
-        <div className="award-winning-particles" />
+        {/* Background interference elements removed for clean design */}
         <div className="projects-container-award-winning">
           {/* Award-Winning Section Header with Sophisticated Spacing */}
           <motion.div 
@@ -774,13 +762,7 @@ export default function Home() {
           minHeight: '100vh'
         }}
       >
-        {/* Award-Winning Glassmorphism Layers */}
-        <div className="glassmorphism-layer-1" />
-        <div className="glassmorphism-layer-2" />
-        <div className="glassmorphism-layer-3" />
-        
-        {/* Award-Winning Particle System */}
-        <div className="award-winning-particles" />
+        {/* Background interference elements removed for clean design */}
         <div className="max-w-7xl mx-auto px-8">
           {/* Section Header - Original Copy with Enhanced Typography */}
           <motion.div 
