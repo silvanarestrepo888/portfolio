@@ -573,26 +573,41 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            {/* Cinematic Auto-Play Indicator */}
+            {/* Sophisticated Carousel Indicators */}
             <motion.div 
-              className="cinematic-auto-indicator"
+              className="sophisticated-carousel-indicators"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.0 }}
               viewport={{ once: true }}
             >
-              <div className="auto-play-status">
+              <div className="carousel-status">
                 <div className="auto-play-indicator">
                   <div className={`auto-play-dot ${isAutoPlaying ? 'playing' : 'paused'}`}></div>
                   <span className="auto-play-text">
                     {isAutoPlaying ? 'Auto-playing' : 'Paused'}
                   </span>
+                </div>
+                
+                <div className="project-counter">
+                  <span className="current-project">{safeFeaturedProjectIndex + 1}</span>
+                  <span className="divider">/</span>
+                  <span className="total-projects">{filteredProjects.length}</span>
+                </div>
               </div>
               
-                <div className="project-counter-minimal">
-                  <span className="current-project-minimal">{safeFeaturedProjectIndex + 1}</span>
-                  <span className="divider-minimal">/</span>
-                  <span className="total-projects-minimal">{filteredProjects.length}</span>
+              {/* Upcoming Projects Preview */}
+              <div className="upcoming-projects-preview">
+                <div className="upcoming-label">Coming Up</div>
+                <div className="upcoming-thumbnails">
+                  {filteredProjects.slice(safeFeaturedProjectIndex + 1, safeFeaturedProjectIndex + 4).map((project, index) => (
+                    <div 
+                      key={`upcoming-${index}`}
+                      className="upcoming-thumbnail"
+                      style={{ backgroundImage: `url(${project.image})` }}
+                      onClick={() => goToProjectWithTransition(safeFeaturedProjectIndex + index + 1)}
+                    />
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -623,13 +638,12 @@ export default function Home() {
                       className="balanced-image-container"
                       style={{
                         backgroundImage: `url(${filteredProjects[safeFeaturedProjectIndex]?.image || ''})`,
-                        backgroundSize: 'contain !important',
-                        backgroundPosition: 'center !important',
-                        backgroundRepeat: 'no-repeat !important',
-                        backgroundColor: 'rgba(0, 0, 0, 0.02)'
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat'
                       }}
                     >
-                      {/* Simple Overlay Tags */}
+                      {/* Tags Inside Image Container */}
                       <div className="balanced-overlay-tags">
                         <span className="balanced-year-tag">
                           {filteredProjects[safeFeaturedProjectIndex]?.year || ''}
