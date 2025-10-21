@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Linkedin, Mail, ExternalLink } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import { CustomCursor } from '../components/motion/CustomCursor';
 import { MagneticCursor } from '../components/ui/MagneticCursor';
@@ -286,6 +286,24 @@ export default function Home() {
   ];
 
   const projectCategories = ["ALL WORK", "EXPERIENCE DESIGN", "PRODUCT STRATEGY", "SERVICE DESIGN", "USER RESEARCH", "DESIGN OPS"];
+  
+  // Project-specific color personalities using our 3-color system
+  const currentProjectColor = useMemo(() => {
+    if (selectedProject === null) return 'project-charcoal-dominant';
+    
+    const project = projects[selectedProject];
+    const projectColorMoods = {
+      'Kayanee': 'project-coral-dominant',
+      'Augoor': 'project-charcoal-dominant', 
+      'Chime Care J&J': 'project-cream-dominant',
+      'Nomade Tulum': 'project-charcoal-dominant',
+      'Danone Digital Transformation': 'project-coral-dominant',
+      'Parques Reunidos': 'project-charcoal-dominant',
+      'Flagship Entertainment Destination, KSA': 'project-coral-dominant'
+    };
+    
+    return projectColorMoods[project.title as keyof typeof projectColorMoods] || 'project-charcoal-dominant';
+  }, [selectedProject]);
   
   const filteredProjects = selectedCategory === "ALL WORK" 
     ? projects 
@@ -1027,7 +1045,7 @@ export default function Home() {
       {/* AWARD-WINNING PROJECT DETAILS PAGE - LANDOR STANDARDS */}
       {selectedProject !== null && (
         <motion.div 
-          className="project-details-overlay"
+          className={`project-details-overlay ${currentProjectColor}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -1047,7 +1065,7 @@ export default function Home() {
           </div>
 
           {/* HERO SECTION - Perfect Visual Exploration with Proper Spacing */}
-          <div className="project-hero-section">
+          <div className="project-hero-section project-details-hero-section">
             <div className="hero-image-container">
               <Image
                 src={projects[selectedProject].secondaryImage || projects[selectedProject].image}
@@ -1119,7 +1137,7 @@ export default function Home() {
           </div>
                 
           {/* CONTENT SECTIONS - PROPER MARGINS & 100% COPY COMPLIANCE */}
-          <div className="project-content-sections">
+          <div className="project-content-sections project-details-content-sections">
             <div className="content-sections-container">
               
                   {/* Context Section */}
@@ -1212,7 +1230,7 @@ export default function Home() {
           </div>
               
           {/* PROJECT GALLERY */}
-          <div className="project-gallery-section">
+          <div className="project-gallery-section project-details-gallery-section">
                 <motion.div 
               className="gallery-header"
               initial={{ opacity: 0, y: 30 }}
