@@ -251,7 +251,7 @@ export default function Home() {
     }
   ];
 
-  const projectCategories = ["ALL WORK", "EXPERIENCE DESIGN", "PRODUCT STRATEGY", "SERVICE DESIGN", "USER RESEARCH", "DESIGN OPS", "DIGITAL TRANSFORMATION"];
+  const projectCategories = ["ALL WORK", "EXPERIENCE DESIGN", "PRODUCT STRATEGY", "SERVICE DESIGN", "USER RESEARCH", "DESIGN OPS"];
   
   const filteredProjects = selectedCategory === "ALL WORK" 
     ? projects 
@@ -1267,7 +1267,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="project-tags">
-                {projects[selectedProject].tech.map((tag, index) => (
+                {projects[selectedProject].tech.slice(0, 3).map((tag, index) => (
                   <span key={index} className="project-tag typography-caption">
                     {tag}
                     </span>
