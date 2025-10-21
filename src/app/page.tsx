@@ -1033,72 +1033,42 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          {/* BENCHMARK SERVICES SECTION - GRID LAYOUT WITH HOVER REVEAL */}
-          <div className="services-benchmark-container">
-            <div className="services-benchmark-grid">
+          {/* UNIFIED SERVICES COMPONENT - SINGLE VIEW WITH HOVER EXPLORATION */}
+          <div className="services-unified-container">
+            <div className="services-unified-grid">
               {referenceServices.map((service, index) => (
-                <motion.div
+                <div
                   key={service.number}
-                  className="service-benchmark-card"
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ 
-                    opacity: 1, 
-                    y: 0,
-                    transition: { 
-                    duration: 0.6,
-                      delay: index * 0.1,
-                      ease: [0.25, 0.46, 0.45, 0.94]
-                    }
-                  }}
-                  viewport={{ once: true }}
+                  className="service-unified-card"
+                  data-service={index}
                 >
-                  {/* Grapefruit Container - Base State */}
-                  <div className="service-grapefruit-container">
-                    {/* Service Number & Title - Always Visible */}
-                    <div className="service-header-benchmark">
-                      <span className="service-number-benchmark">{service.number}</span>
-                      <h3 className="service-title-benchmark">{service.title}</h3>
-                    </div>
-                    
-                    {/* Hover Reveal Content - Panna Cotta Vanilla */}
-                  <div className="service-reveal-content">
-                      {/* Strategic Capability */}
-                      <div className="capability-section">
-                        <h4 className="capability-title">Strategic Capability:</h4>
-                        <p className="capability-description">{service.description}</p>
-                      </div>
-                      
-                      {/* Proven Excellence */}
-                      <div className="excellence-section">
-                        <h4 className="excellence-title">Proven Excellence:</h4>
-                        <p className="excellence-description">{service.provenExcellence}</p>
-                    </div>
-                    
-                      {/* For Projects That Demand */}
-                      <div className="demand-section">
-                        <h4 className="demand-title">For projects that demand:</h4>
-                        <p className="demand-description">{service.demand}</p>
-                      </div>
+                  {/* Front Side - Always Visible */}
+                  <div className="service-card-front">
+                    <div className="service-number">{service.number}</div>
+                    <h3 className="service-title">{service.title}</h3>
+                    <div className="service-hover-hint">Hover to explore</div>
                   </div>
                   
-                    {/* Hover Indicator */}
-                    <div className="service-hover-indicator-benchmark">
-                  <motion.div
-                        className="hover-indicator"
-                      animate={{
-                          opacity: [0.4, 0.8, 0.4]
-                      }}
-                      transition={{ 
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                      }}
-                    >
-                        HOVER TO EXPLORE
-                  </motion.div>
+                  {/* Back Side - Revealed on Hover */}
+                  <div className="service-card-back">
+                    <div className="service-content">
+                      <div className="service-content-section">
+                        <h4 className="content-title">Strategic Capability</h4>
+                        <p className="content-description">{service.description}</p>
+                    </div>
+                    
+                      <div className="service-content-section">
+                        <h4 className="content-title">Proven Excellence</h4>
+                        <p className="content-description">{service.provenExcellence}</p>
             </div>
+            
+                      <div className="service-content-section">
+                        <h4 className="content-title">For projects that demand</h4>
+                        <p className="content-description">{service.demand}</p>
               </div>
-            </motion.div>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
