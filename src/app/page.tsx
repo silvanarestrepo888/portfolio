@@ -38,63 +38,45 @@ export default function Home() {
   const referenceServices = [
     {
       number: "00-1",
-      title: "WEB DESIGN",
-      capabilities: [
-        "MODERN LAYOUTS",
-        "RESPONSIVE DESIGN", 
-        "SEO-FRIENDLY STRUCTURE",
-        "CLEAR NAVIGATION",
-        "VISUAL STORYTELLING"
-      ],
-      description: "I create websites that stand out from the competition and bring real value to businesses. Each project combines creativity and functionality to deliver the best digital solutions."
+      title: "Accelerated Product Innovation",
+      description: "Transform product visions into market reality through AI-powered rapid prototyping and validation. Implementing innovation sprints where data accelerates ideation, AI accelerates testing, and go-to-market strategies—turning months of development into weeks of strategic clarity.",
+      provenExcellence: "Augoor platform development—31,000+ developers, transforming static repositories into intelligent knowledge systems",
+      demand: "Speed to market without sacrificing strategic depth."
     },
     {
       number: "00-2", 
-      title: "UX/UI DESIGN",
-      capabilities: [
-        "USER RESEARCH",
-        "INTERACTION DESIGN",
-        "PROTOTYPING",
-        "USABILITY TESTING",
-        "DESIGN SYSTEMS"
-      ],
-      description: "User-centered design approach creating intuitive digital experiences that connect with human behavior and business objectives."
+      title: "Experience Orchestration",
+      description: "Harmonizing thousands of touchpoints across locations/channels/vendors into one resonant brand voice. Systems thinking applied to create unified experience architectures where daily interactions feel like one seamless conversation—whether digital, physical, or hybrid.",
+      provenExcellence: "Theme Park- Multiple Channels-One unified experience language",
+      demand: "Coherent brand experiences that scale without losing soul. Global reach with local resonance."
     },
     {
       number: "00-3",
-      title: "CREATIVE DESIGN", 
-      capabilities: [
-        "BRAND IDENTITY",
-        "VISUAL CONCEPTS",
-        "CREATIVE DIRECTION",
-        "DESIGN STRATEGY",
-        "INNOVATIVE SOLUTIONS"
-      ],
-      description: "Creative solutions establishing strong brand presence through strategic visual communication and innovative design thinking."
+      title: "Intelligent Operations Architecture", 
+      description: "Building AI-augmented teams that outperform traditional structures. Design agentic systems where AI specialists and human experts collaborate as unified intelligence. I help to architect operational ecosystems with embedded market monitoring, competitive intelligence, and automated research capabilities—creating self-optimizing organizations.",
+      provenExcellence: "Globant X initiatives—AI-human collaboration frameworks deployed across 31,000 team members",
+      demand: "Operations that think, adapt, and evolve. Intelligence is embedded in every process."
     },
     {
       number: "00-4",
-      title: "PRODUCT AND APP DESIGN",
-      capabilities: [
-        "MOBILE INTERFACES",
-        "USER FLOWS",
-        "INTERACTION PATTERNS",
-        "PRODUCT STRATEGY",
-        "APP OPTIMIZATION"
-      ],
-      description: "End-to-end product design from concept to launch, focusing on user needs and business success through strategic design."
+      title: "Transformation Foundations",
+      description: "Engineering organizational evolution through scalable design foundations. Design systems become organizational DNA. Every component strengthens the whole. Every decision accelerates the next. I collaborate to create modular, scalable frameworks —turning organizational complexity into competitive advantage.",
+      provenExcellence: "Kayanee wellness platform—Saudi Arabia's first integrated phygital ecosystem.",
+      demand: "Transformation that compounds. Every change strengthens the foundation for the next leap."
     },
     {
       number: "00-5",
-      title: "DEVELOPMENT",
-      capabilities: [
-        "FRONT-END DEVELOPMENT",
-        "RESPONSIVE CODING",
-        "PERFORMANCE OPTIMIZATION",
-        "TECHNICAL IMPLEMENTATION",
-        "QUALITY ASSURANCE"
-      ],
-      description: "Technical implementation bringing designs to life with clean, optimized code that performs excellently across all devices."
+      title: "Strategic Innovation Consulting",
+      description: "Converting market disruption into systematic advantage. Navigate complexity with frameworks that transform uncertainty into opportunity. I blend behavioral economics, emerging technology foresight, and cultural intelligence to create innovation strategies that don't just respond to change—they create it.",
+      provenExcellence: "Centre for Fourth Industrial Revolution—governance frameworks adopted across global affiliate network",
+      demand: "Innovation with precision. Strategies that move from boardroom to market with velocity."
+    },
+    {
+      number: "00-6",
+      title: "Customer Intelligence Platforms",
+      description: "Turning customer behavior into a competitive advantage. Architecting intelligence systems that don't just track customer behavior—they anticipate it, I design platforms where every interaction feeds learning algorithms, creating self-improving experiences that evolve faster than market demands.",
+      provenExcellence: "32 retail destinations achieving 26% sales growth through behavior-driven experience design",
+      demand: "Customer relationships that deepen with every interaction. Intelligence that scales intimacy."
     }
   ];
 
@@ -1049,112 +1031,90 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          {/* ULTRA-SOPHISTICATED HOVER-REVEAL SERVICES - VISUAL PERFECTION */}
-          <div className="services-hover-reveal-container">
-            <div className="services-hover-grid">
+          {/* BENCHMARK SERVICES SECTION - GRID LAYOUT WITH HOVER REVEAL */}
+          <div className="services-benchmark-container">
+            <div className="services-benchmark-grid">
               {referenceServices.map((service, index) => (
                 <motion.div
                   key={service.number}
-                  className="service-hover-card"
-                  initial={{ opacity: 0, y: 60 }}
+                  className="service-benchmark-card"
+                  initial={{ opacity: 0, y: 40 }}
                   whileInView={{ 
                     opacity: 1, 
                     y: 0,
                     transition: { 
-                      duration: 0.8, 
-                      delay: index * 0.15,
-                      type: "spring",
-                      stiffness: 100,
-                      damping: 20
+                    duration: 0.6,
+                      delay: index * 0.1,
+                      ease: [0.25, 0.46, 0.45, 0.94]
                     }
                   }}
                   whileHover={{
-                    scale: 1.03,
+                    scale: 1.02,
                     transition: { 
-                      duration: 0.4, 
-                      type: "spring", 
-                      stiffness: 400,
-                      damping: 25
+                      duration: 0.3, 
+                      ease: [0.25, 0.46, 0.45, 0.94]
                     }
                   }}
                   viewport={{ once: true }}
                 >
-                  {/* Grapefruit Container - Visual Accessible */}
-                  <div className="service-container-grapefruit">
-                  {/* Service Number - Always Visible */}
-                    <div className="service-number-accessible">
-                      <span className="service-number-text">{service.number}</span>
+                  {/* Grapefruit Container - Base State */}
+                  <div className="service-grapefruit-container">
+                    {/* Service Number & Title - Always Visible */}
+                    <div className="service-header-benchmark">
+                      <span className="service-number-benchmark">{service.number}</span>
+                      <h3 className="service-title-benchmark">{service.title}</h3>
                     </div>
                     
-                    {/* Service Title - Always Visible */}
-                    <h3 className="service-title-accessible">
-                      {service.title}
-                    </h3>
-                  
                     {/* Hover Reveal Content - Panna Cotta Vanilla */}
                   <motion.div
-                      className="service-hover-content"
-                      initial={{ opacity: 0, y: 20 }}
+                      className="service-reveal-content"
+                      initial={{ opacity: 0, y: 30 }}
                       whileHover={{ 
                         opacity: 1, 
                         y: 0,
                         transition: { 
-                          duration: 0.5, 
+                          duration: 0.4, 
                           ease: [0.25, 0.46, 0.45, 0.94]
                         }
                       }}
-                  >
-                    {/* Capabilities List */}
-                      <div className="service-capabilities-reveal">
-                      {service.capabilities.map((capability, capIndex) => (
-                        <motion.div
-                          key={capIndex}
-                            className="capability-reveal-item"
-                            initial={{ opacity: 0, x: -10 }}
-                            whileHover={{ 
-                              opacity: 1, 
-                              x: 0,
-                              transition: { 
-                            duration: 0.3, 
-                                delay: capIndex * 0.1
-                              }
-                          }}
-                        >
-                            <div className="capability-dot"></div>
-                            <span className="capability-text">{capability}</span>
-                        </motion.div>
-                      ))}
-                    </div>
-                    
-                      {/* Description */}
-                      <div className="service-description-reveal">
-                        <p className="description-text">{service.description}</p>
+                    >
+                      {/* Strategic Capability */}
+                      <div className="capability-section">
+                        <h4 className="capability-title">Strategic Capability:</h4>
+                        <p className="capability-description">{service.description}</p>
                       </div>
-                    </motion.div>
-                    
+                      
+                      {/* Proven Excellence */}
+                      <div className="excellence-section">
+                        <h4 className="excellence-title">Proven Excellence:</h4>
+                        <p className="excellence-description">{service.provenExcellence}</p>
+                      </div>
+                      
+                      {/* For Projects That Demand */}
+                      <div className="demand-section">
+                        <h4 className="demand-title">For projects that demand:</h4>
+                        <p className="demand-description">{service.demand}</p>
+                      </div>
+                  </motion.div>
+                  
                     {/* Hover Indicator */}
-                    <div className="service-hover-indicator">
-                      <motion.div 
-                        className="hover-arrow"
-                      animate={{
-                          x: [0, 5, 0],
-                          opacity: [0.6, 1, 0.6]
-                      }}
-                      transition={{ 
+                    <div className="service-hover-indicator-benchmark">
+                  <motion.div
+                        className="hover-indicator"
+                    animate={{
+                          opacity: [0.4, 0.8, 0.4]
+                          }}
+                          transition={{ 
                           duration: 2,
                           repeat: Infinity,
                           ease: "easeInOut"
-                      }}
-                    >
-                        →
-                  </motion.div>
-            </div>
-            
-                    {/* Sophisticated Background Effects */}
-                    <div className="service-bg-gradient"></div>
-                    <div className="service-bg-pattern"></div>
-              </div>
-            </motion.div>
+                          }}
+                        >
+                        HOVER TO EXPLORE
+                        </motion.div>
+                    </div>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>

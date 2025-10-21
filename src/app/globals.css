@@ -12505,6 +12505,213 @@ h4, .text-h4 {
   letter-spacing: 0.05em;
 }
 
+/* ===== BENCHMARK SERVICES SECTION - GRID LAYOUT WITH HOVER REVEAL ===== */
+
+.services-benchmark-container {
+  position: relative;
+  padding: 4rem 0;
+  overflow: hidden;
+}
+
+.services-benchmark-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.service-benchmark-card {
+  position: relative;
+  cursor: pointer;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-benchmark-card:last-child {
+  border-right: none;
+}
+
+.service-grapefruit-container {
+  position: relative;
+  background: linear-gradient(145deg, 
+    var(--grapefruit-primary) 0%, 
+    #e55a5a 50%,
+    var(--grapefruit-primary) 100%);
+  padding: 2rem 1.5rem;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+}
+
+.service-grapefruit-container:hover {
+  background: linear-gradient(145deg, 
+    #e55a5a 0%, 
+    var(--grapefruit-primary) 50%,
+    #e55a5a 100%);
+}
+
+/* Service Header - Always Visible */
+.service-header-benchmark {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.service-number-benchmark {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.9;
+}
+
+.service-title-benchmark {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Reveal Content - Panna Cotta Vanilla */
+.service-reveal-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(145deg, 
+    var(--panna-cotta-vanilla) 0%, 
+    #f7f3e9 50%,
+    var(--panna-cotta-vanilla) 100%);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 5;
+}
+
+/* Content Sections */
+.capability-section,
+.excellence-section,
+.demand-section {
+  margin-bottom: 1.5rem;
+}
+
+.capability-title,
+.excellence-title,
+.demand-title {
+  color: #2d3748;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.capability-description,
+.excellence-description,
+.demand-description {
+  color: #4a5568;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Hover Indicator */
+.service-hover-indicator-benchmark {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  z-index: 10;
+  text-align: center;
+}
+
+.hover-indicator {
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .services-benchmark-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .service-benchmark-card:nth-child(3n) {
+    border-right: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-benchmark-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .service-benchmark-card:nth-child(2n) {
+    border-right: none;
+  }
+  
+  .service-grapefruit-container {
+    padding: 1.5rem 1rem;
+    min-height: 350px;
+  }
+  
+  .service-title-benchmark {
+    font-size: 1rem;
+  }
+  
+  .service-reveal-content {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-benchmark-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-benchmark-card {
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-benchmark-card:last-child {
+    border-bottom: none;
+  }
+  
+  .service-grapefruit-container {
+    min-height: 300px;
+  }
+}
+
 /* ===== ULTRA-SOPHISTICATED HOVER-REVEAL SERVICES - VISUAL PERFECTION ===== */
 
 .services-hover-reveal-container {
