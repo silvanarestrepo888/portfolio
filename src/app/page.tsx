@@ -1026,56 +1026,43 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          {/* UNIFIED SERVICES COMPONENT - SINGLE VIEW WITH HOVER EXPLORATION */}
-          <div className="services-unified-container">
-            <div className="services-unified-grid">
+          {/* SERVICES HOVER AMPLIFICATION SYSTEM */}
+          <div className="services-amplification-container">
+            <div className="services-amplification-grid">
               {referenceServices.map((service, index) => (
-                <motion.div
+                <div
                   key={service.number}
-                  className="service-unified-card enhanced-hover glass-card gpu-accelerated"
-                  data-service={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ 
-                    opacity: 1, 
-                    y: 0,
-                    transition: { 
-                      duration: 0.6,
-                      delay: index * 0.1
-                    }
-                  }}
-                  whileHover={{
-                    scale: 1.03,
-                    transition: { duration: 0.3 }
-                  }}
-                  viewport={{ once: true }}
+                  className={`service-amplification-item ${expandedService === index ? 'expanded' : 'compact'}`}
+                  onMouseEnter={() => setExpandedService(index)}
+                  onMouseLeave={() => setExpandedService(null)}
                 >
-                  {/* Front Side - Always Visible */}
-                  <div className="service-card-front">
+                  {/* Basic Content - Always Visible */}
+                  <div className="service-basic-content">
                     <div className="service-number">{service.number}</div>
                     <h3 className="service-title">{service.title}</h3>
                     <div className="service-hover-hint">Hover to explore</div>
                   </div>
                   
-                  {/* Back Side - Revealed on Hover */}
-                  <div className="service-card-back">
-                    <div className="service-content">
+                  {/* Detailed Content - Revealed on Hover */}
+                  {expandedService === index && (
+                    <div className="service-detailed-content">
                       <div className="service-content-section">
                         <h4 className="content-title">Strategic Capability</h4>
                         <p className="content-description">{service.description}</p>
-                    </div>
-                    
+                      </div>
+                      
                       <div className="service-content-section">
                         <h4 className="content-title">Proven Excellence</h4>
                         <p className="content-description">{service.provenExcellence}</p>
-            </div>
-            
+                      </div>
+                      
                       <div className="service-content-section">
                         <h4 className="content-title">For projects that demand</h4>
                         <p className="content-description">{service.demand}</p>
-              </div>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
+                  )}
+                </div>
               ))}
             </div>
           </div>
