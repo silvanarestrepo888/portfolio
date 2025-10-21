@@ -405,7 +405,7 @@ export default function Home() {
             <div className="about-header-content">
               <span className="about-section-number">01</span>
               <motion.h2 
-                className="about-title-ultra-luxury luxury-section-header"
+                className="about-title-ultra-luxury typography-h2"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.4 }}
@@ -545,7 +545,7 @@ export default function Home() {
             <div className="projects-header-content-award">
               <span className="projects-section-number-award">02</span>
               <motion.h2 
-                className="projects-title-award-winning luxury-section-header"
+                className="projects-title-award-winning typography-h2"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
@@ -660,14 +660,16 @@ export default function Home() {
                         alt={filteredProjects[safeFeaturedProjectIndex]?.title || ''}
                         width={800}
                         height={600}
-                        className="balanced-image-perfect"
-                  style={{
+                        className="balanced-image-perfect gpu-accelerated"
+                        style={{
                           width: '100%',
                           height: '100%',
                           objectFit: 'cover',
                           objectPosition: 'center'
                         }}
                         quality={100}
+                        priority
+                        loading="eager"
                       />
                       {/* Tags Inside Image Container */}
                       <div className="balanced-overlay-tags">
@@ -778,7 +780,7 @@ export default function Home() {
               >
                 03
               </span>
-            <h2 className="luxury-section-header">
+            <h2 className="typography-h2">
                 Experience
               </h2>
             <p className="luxury-description text-center max-w-4xl mx-auto">
@@ -989,7 +991,7 @@ export default function Home() {
               >
                 04
               </span>
-              <h2 className="luxury-section-header">
+              <h2 className="typography-h2">
                 Services
               </h2>
             </div>
@@ -1317,10 +1319,10 @@ export default function Home() {
               <motion.h1 
                 className="project-title luxury-hero"
                 initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                {projects[selectedProject].title}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
+                    {projects[selectedProject].title}
               </motion.h1>
               <motion.p 
                 className="project-subtitle luxury-description"
@@ -1328,7 +1330,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                {projects[selectedProject].subtitle}
+                    {projects[selectedProject].subtitle}
               </motion.p>
             </div>
           </div>
@@ -1378,10 +1380,10 @@ export default function Home() {
               >
                 <div className="section-header">
                   <span className="section-number luxury-caption">01</span>
-                  <h2 className="section-title luxury-section-header">Context</h2>
+                  <h2 className="section-title typography-h3">Context</h2>
                 </div>
                 <div className="section-content">
-                  <p className="section-text luxury-body">
+                  <p className="section-text typography-body">
                     {projects[selectedProject].description}
                   </p>
                 </div>
@@ -1397,10 +1399,10 @@ export default function Home() {
               >
                 <div className="section-header">
                   <span className="section-number luxury-caption">02</span>
-                  <h2 className="section-title luxury-section-header">Scope of the Project</h2>
+                  <h2 className="section-title typography-h3">Scope of the Project</h2>
                 </div>
                 <div className="section-content">
-                  <p className="section-text luxury-body">
+                  <p className="section-text typography-body">
                     Strategic transformation initiative encompassing user experience design, 
                     digital platform optimization, and business process enhancement to drive 
                     measurable growth and operational excellence.
@@ -1418,10 +1420,10 @@ export default function Home() {
               >
                 <div className="section-header">
                   <span className="section-number luxury-caption">03</span>
-                  <h2 className="section-title luxury-section-header">Approach</h2>
+                  <h2 className="section-title typography-h3">Approach</h2>
                 </div>
                 <div className="section-content">
-                  <p className="section-text luxury-body">
+                  <p className="section-text typography-body">
                     Experience-driven innovation methodology combining user research, strategic design, 
                     and digital transformation to deliver measurable business impact.
                   </p>
@@ -1445,7 +1447,7 @@ export default function Home() {
               >
                 <div className="section-header">
                   <span className="section-number luxury-caption">04</span>
-                  <h2 className="section-title luxury-section-header">Testimonial</h2>
+                  <h2 className="section-title typography-h3">Testimonial</h2>
                 </div>
                 <div className="section-content">
                   <div className="testimonial-container">
@@ -1476,7 +1478,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="gallery-title luxury-section-header">Project Gallery</h2>
+              <h2 className="gallery-title typography-h3">Project Gallery</h2>
               <span className="gallery-count luxury-caption">
                 {selectedProject !== null && projects[selectedProject].galleryImages ? 
                   `1 of ${projects[selectedProject].galleryImages.length + 1}` : 
@@ -1565,7 +1567,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h3 className="testimonial-title luxury-section-header">Client Testimonial</h3>
+              <h3 className="testimonial-title typography-h3">Client Testimonial</h3>
               <div className="testimonial-quote-container">
                 <blockquote className="testimonial-quote luxury-body">
                   &ldquo;Silvana&apos;s strategic approach transformed our digital ecosystem. Her expertise in experience design and business transformation delivered measurable results that exceeded our expectations.&rdquo;

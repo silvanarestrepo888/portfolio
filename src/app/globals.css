@@ -11983,12 +11983,14 @@ h4, .text-h4 {
   object-position: center !important;
   border-radius: 12px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .about-photo-perfect:hover {
-  transform: scale(1.02);
+  transform: scale(1.02) translateY(-4px);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.05) contrast(1.02);
 }
 
 /* Project Carousel Images Perfect */
@@ -11998,11 +12000,14 @@ h4, .text-h4 {
   object-fit: cover !important;
   object-position: center !important;
   border-radius: 8px;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .balanced-image-perfect:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  filter: brightness(1.1) contrast(1.05);
 }
 
 /* Gallery Images Perfect */
