@@ -32,6 +32,46 @@ export default function Home() {
     setFeaturedProjectIndex(Math.min(index, Math.max(0, filteredProjects.length - 1)));
   };
 
+  // Auto-carousel effect
+  useEffect(() => {
+    if (!isAutoPlaying || filteredProjects.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setFeaturedProjectIndex(prev => {
+        const nextIndex = prev === filteredProjects.length - 1 ? 0 : prev + 1;
+        setIsTransitioning(true);
+        setTimeout(() => setIsTransitioning(false), 1000);
+        return nextIndex;
+      });
+    }, 5000); // Auto-advance every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, filteredProjects.length]);
+
+  // Enhanced navigation functions with transitions
+  const goToPreviousProjectWithTransition = () => {
+    setIsTransitioning(true);
+    setFeaturedProjectIndex(prev => prev === 0 ? Math.max(0, filteredProjects.length - 1) : prev - 1);
+    setTimeout(() => setIsTransitioning(false), 1000);
+  };
+
+  const goToNextProjectWithTransition = () => {
+    setIsTransitioning(true);
+    setFeaturedProjectIndex(prev => prev === filteredProjects.length - 1 ? 0 : prev + 1);
+    setTimeout(() => setIsTransitioning(false), 1000);
+  };
+
+  const goToProjectWithTransition = (index: number) => {
+    if (index === featuredProjectIndex) return;
+    setIsTransitioning(true);
+    setFeaturedProjectIndex(Math.min(index, Math.max(0, filteredProjects.length - 1)));
+    setTimeout(() => setIsTransitioning(false), 1000);
+  };
+
+  // Pause auto-play on hover
+  const handleMouseEnter = () => setIsAutoPlaying(false);
+  const handleMouseLeave = () => setIsAutoPlaying(true);
+
   // SERVICES DATA - ORIGINAL COPY COMPLIANT - Enhanced Visual Treatment Only
   const referenceServices = [
     {
@@ -548,8 +588,10 @@ export default function Home() {
               viewport={{ once: true }}
             >
                 <button
-                onClick={goToPreviousProject}
+                onClick={goToPreviousProjectWithTransition}
                 className="nav-btn-award-winning prev"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
                 >
                 ← Previous
                 </button>
