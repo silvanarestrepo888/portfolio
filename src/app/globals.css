@@ -8144,33 +8144,363 @@ h4, .text-h4 {
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* Full-Width Cinematic Carousel */
-.cinematic-carousel-container {
+/* 🏆 PERFECT GOLDEN RATIO CAROUSEL - 100% PERFECTION */
+.perfect-carousel-container {
   position: relative;
   width: 100%;
   margin: 0 auto;
   padding: 0 4rem;
   overflow: hidden;
+  perspective: 1000px;
 }
 
-.cinematic-project-card {
+.perfect-project-card {
+  position: relative;
+  width: 100%;
+  min-height: 85vh;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.08) 0%, 
+    rgba(255, 255, 255, 0.02) 50%, 
+    rgba(255, 255, 255, 0.12) 100%);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 32px;
+  padding: 4rem;
+  box-shadow: 
+    0 32px 100px rgba(0, 0, 0, 0.12),
+    0 16px 50px rgba(0, 0, 0, 0.08),
+    0 8px 25px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+.perfect-project-card:hover {
+  transform: translateY(-8px) rotateX(2deg);
+  box-shadow: 
+    0 48px 120px rgba(0, 0, 0, 0.15),
+    0 24px 60px rgba(0, 0, 0, 0.1),
+    0 12px 30px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Perfect Golden Ratio Layout Grid */
+.perfect-layout-grid {
+  display: grid;
+  grid-template-columns: 61.8% 38.2%; /* Golden Ratio */
+  gap: 4rem;
+  height: 100%;
+  min-height: 70vh;
+  align-items: center;
+}
+
+/* Perfect Image Section - 61.8% */
+.perfect-image-section {
+  position: relative;
+  height: 100%;
+  min-height: 60vh;
+  border-radius: 24px;
+  overflow: hidden;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.05) 50%, 
+    rgba(255, 255, 255, 0.15) 100%);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.perfect-image-container {
+  width: 100%;
+  height: 100%;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-color: rgba(0, 0, 0, 0.02);
+  position: relative;
+  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+.perfect-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.1) 0%, 
+    transparent 30%, 
+    transparent 70%, 
+    rgba(0, 0, 0, 0.15) 100%);
+  pointer-events: none;
+}
+
+.perfect-overlay-tags {
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  width: 100%;
-  min-height: 80vh;
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 24px;
-  padding: 3rem;
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.08);
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  gap: 1rem;
+  z-index: 10;
 }
 
-.cinematic-project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 35px 100px rgba(0, 0, 0, 0.12);
+.perfect-year-tag,
+.perfect-category-tag {
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.perfect-category-tag {
+  background: linear-gradient(135deg, #ff6663 0%, #ff8a80 100%);
+  color: white;
+  border: 1px solid rgba(255, 102, 99, 0.4);
+  box-shadow: 
+    0 8px 25px rgba(255, 102, 99, 0.3),
+    0 4px 12px rgba(255, 102, 99, 0.2);
+}
+
+.perfect-loading-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+
+.perfect-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #ff6663;
+  border-radius: 50%;
+  animation: perfect-spin 1s linear infinite;
+}
+
+@keyframes perfect-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Perfect Content Section - 38.2% */
+.perfect-content-section {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+}
+
+.perfect-content-inner {
+  width: 100%;
+  max-width: 500px;
+}
+
+.perfect-header {
+  margin-bottom: 3rem;
+}
+
+.perfect-title {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.perfect-client {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #666;
+  margin: 0 0 1rem 0;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+.perfect-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 1.125rem;
+  color: #888;
+  font-weight: 500;
+}
+
+.perfect-divider {
+  color: #ccc;
+  font-weight: 300;
+}
+
+.perfect-description {
+  margin-bottom: 3.5rem;
+}
+
+.perfect-subtitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 2rem 0;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.perfect-description-text {
+  font-size: 1.25rem;
+  color: #555;
+  line-height: 1.8;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+}
+
+.perfect-capabilities {
+  margin-bottom: 4rem;
+}
+
+.perfect-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.perfect-tag {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, 
+    rgba(255, 102, 99, 0.12) 0%, 
+    rgba(255, 102, 99, 0.08) 100%);
+  border: 1px solid rgba(255, 102, 99, 0.25);
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ff6663;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.perfect-tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.3), 
+    transparent);
+  transition: left 0.6s ease;
+}
+
+.perfect-tag:hover::before {
+  left: 100%;
+}
+
+.perfect-actions {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.perfect-btn {
+  position: relative;
+  padding: 1.25rem 3rem;
+  border-radius: 50px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  text-align: center;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.perfect-btn.primary {
+  background: linear-gradient(135deg, #ff6663 0%, #ff8a80 100%);
+  color: white;
+  box-shadow: 
+    0 12px 35px rgba(255, 102, 99, 0.4),
+    0 6px 20px rgba(255, 102, 99, 0.3);
+}
+
+.perfect-btn.secondary {
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.perfect-btn-ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.perfect-progress-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.perfect-progress-bar {
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.perfect-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6663 0%, #ff8a80 100%);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(255, 102, 99, 0.5);
+}
+
+.perfect-progress-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Cinematic Image Section - 60% */
@@ -8593,167 +8923,301 @@ h4, .text-h4 {
   }
 }
 
-/* Responsive Design for Cinematic Carousel */
+/* 🏆 RESPONSIVE DESIGN FOR PERFECT CAROUSEL - 100% PERFECTION */
 @media (max-width: 1600px) {
-  .cinematic-carousel-container {
+  .perfect-carousel-container {
     padding: 0 3rem;
   }
   
-  .cinematic-project-card {
-    padding: 2.5rem;
-    gap: 2.5rem;
+  .perfect-project-card {
+    padding: 3.5rem;
+    min-height: 80vh;
   }
   
-  .cinematic-image-section {
-    height: 55vh;
-    min-height: 450px;
+  .perfect-layout-grid {
+    gap: 3.5rem;
   }
   
-  .cinematic-title {
-    font-size: 3rem;
+  .perfect-image-section {
+    min-height: 55vh;
+  }
+  
+  .perfect-title {
+    font-size: 3.5rem;
+  }
+  
+  .perfect-client {
+    font-size: 1.5rem;
   }
 }
 
 @media (max-width: 1400px) {
-  .cinematic-carousel-container {
+  .perfect-carousel-container {
     padding: 0 2.5rem;
   }
   
-  .cinematic-project-card {
-    padding: 2rem;
-    gap: 2rem;
+  .perfect-project-card {
+    padding: 3rem;
+    min-height: 75vh;
   }
   
-  .cinematic-image-section {
-    height: 50vh;
-    min-height: 400px;
+  .perfect-layout-grid {
+    gap: 3rem;
   }
   
-  .cinematic-title {
-    font-size: 2.75rem;
+  .perfect-image-section {
+    min-height: 50vh;
   }
   
-  .cinematic-client {
-    font-size: 1.25rem;
+  .perfect-title {
+    font-size: 3.25rem;
+  }
+  
+  .perfect-client {
+    font-size: 1.375rem;
+  }
+  
+  .perfect-subtitle {
+    font-size: 1.375rem;
+  }
+  
+  .perfect-description-text {
+    font-size: 1.125rem;
   }
 }
 
 @media (max-width: 1200px) {
-  .cinematic-carousel-container {
+  .perfect-carousel-container {
     padding: 0 2rem;
   }
   
-  .cinematic-project-card {
-    padding: 1.75rem;
-    gap: 1.75rem;
+  .perfect-project-card {
+    padding: 2.5rem;
     min-height: 70vh;
   }
   
-  .cinematic-image-section {
-    height: 45vh;
-    min-height: 350px;
+  .perfect-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    min-height: auto;
   }
   
-  .cinematic-title {
-    font-size: 2.5rem;
+  .perfect-image-section {
+    min-height: 45vh;
+    order: 1;
   }
   
-  .cinematic-client {
-    font-size: 1.125rem;
+  .perfect-content-section {
+    order: 2;
+    padding-left: 0;
   }
   
-  .cinematic-description-text {
+  .perfect-title {
+    font-size: 3rem;
+  }
+  
+  .perfect-client {
+    font-size: 1.25rem;
+  }
+  
+  .perfect-subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .perfect-description-text {
+    font-size: 1rem;
+  }
+  
+  .perfect-tag {
+    font-size: 0.9rem;
+    padding: 0.875rem 1.75rem;
+  }
+  
+  .perfect-btn {
+    padding: 1.125rem 2.75rem;
     font-size: 1rem;
   }
 }
 
 @media (max-width: 768px) {
-  .cinematic-carousel-container {
+  .perfect-carousel-container {
     padding: 0 1.5rem;
   }
   
-  .cinematic-project-card {
-    padding: 1.5rem;
-    gap: 1.5rem;
-    min-height: 60vh;
+  .perfect-project-card {
+    padding: 2rem;
+    min-height: 65vh;
   }
   
-  .cinematic-image-section {
-    height: 40vh;
-    min-height: 300px;
+  .perfect-layout-grid {
+    gap: 2rem;
   }
   
-  .cinematic-title {
-    font-size: 2.25rem;
+  .perfect-image-section {
+    min-height: 40vh;
   }
   
-  .cinematic-client {
-    font-size: 1rem;
+  .perfect-title {
+    font-size: 2.75rem;
   }
   
-  .cinematic-subtitle {
+  .perfect-client {
     font-size: 1.125rem;
   }
   
-  .cinematic-description-text {
+  .perfect-subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .perfect-description-text {
     font-size: 0.95rem;
   }
   
-  .cinematic-tag {
+  .perfect-tag {
     font-size: 0.85rem;
-    padding: 0.625rem 1.25rem;
+    padding: 0.75rem 1.5rem;
   }
   
-  .cinematic-btn {
-    padding: 0.875rem 2rem;
+  .perfect-btn {
+    padding: 1rem 2.5rem;
     font-size: 0.95rem;
+    min-width: 180px;
+  }
+  
+  .perfect-actions {
+    gap: 1.5rem;
+  }
+  
+  .perfect-progress-bar {
+    width: 150px;
   }
 }
 
 @media (max-width: 480px) {
-  .cinematic-carousel-container {
+  .perfect-carousel-container {
     padding: 0 1rem;
   }
   
-  .cinematic-project-card {
-    padding: 1.25rem;
-    gap: 1.25rem;
-    min-height: 50vh;
+  .perfect-project-card {
+    padding: 1.5rem;
+    min-height: 60vh;
   }
   
-  .cinematic-image-section {
-    height: 35vh;
-    min-height: 250px;
+  .perfect-layout-grid {
+    gap: 1.5rem;
   }
   
-  .cinematic-title {
-    font-size: 2rem;
+  .perfect-image-section {
+    min-height: 35vh;
   }
   
-  .cinematic-client {
-    font-size: 0.95rem;
+  .perfect-title {
+    font-size: 2.5rem;
   }
   
-  .cinematic-subtitle {
+  .perfect-client {
     font-size: 1rem;
   }
   
-  .cinematic-description-text {
+  .perfect-subtitle {
+    font-size: 1rem;
+  }
+  
+  .perfect-description-text {
     font-size: 0.9rem;
   }
   
-  .cinematic-tag {
+  .perfect-tag {
     font-size: 0.8rem;
-    padding: 0.5rem 1rem;
+    padding: 0.625rem 1.25rem;
   }
   
-  .cinematic-btn {
-    padding: 0.75rem 1.5rem;
+  .perfect-btn {
+    padding: 0.875rem 2rem;
     font-size: 0.9rem;
+    min-width: 160px;
   }
   
-  .cinematic-actions {
+  .perfect-actions {
+    flex-direction: column;
     gap: 1rem;
+  }
+  
+  .perfect-progress-bar {
+    width: 120px;
+  }
+  
+  .perfect-progress-text {
+    font-size: 0.8rem;
+  }
+}
+
+/* 🎯 PERFECT MICRO-INTERACTIONS */
+@media (hover: hover) {
+  .perfect-tag:hover {
+    background: linear-gradient(135deg, #ff6663 0%, #ff8a80 100%);
+    color: white;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+      0 12px 30px rgba(255, 102, 99, 0.4),
+      0 6px 15px rgba(255, 102, 99, 0.3);
+  }
+  
+  .perfect-btn:hover {
+    transform: translateY(-4px) scale(1.02);
+  }
+  
+  .perfect-btn.primary:hover {
+    box-shadow: 
+      0 20px 50px rgba(255, 102, 99, 0.5),
+      0 10px 25px rgba(255, 102, 99, 0.4);
+  }
+  
+  .perfect-btn.secondary:hover {
+    background: white;
+    box-shadow: 
+      0 12px 35px rgba(0, 0, 0, 0.15),
+      0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* 🚀 PERFORMANCE OPTIMIZATIONS */
+.perfect-image-container {
+  will-change: transform, opacity;
+}
+
+.perfect-tag,
+.perfect-btn {
+  will-change: transform, box-shadow;
+}
+
+/* 🎨 ACCESSIBILITY ENHANCEMENTS */
+@media (prefers-reduced-motion: reduce) {
+  .perfect-project-card,
+  .perfect-image-container,
+  .perfect-tag,
+  .perfect-btn {
+    transition: none;
+  }
+  
+  .perfect-spinner {
+    animation: none;
+  }
+}
+
+/* 🌟 HIGH CONTRAST MODE */
+@media (prefers-contrast: high) {
+  .perfect-project-card {
+    border: 2px solid #000;
+  }
+  
+  .perfect-tag {
+    border: 2px solid #ff6663;
+  }
+  
+  .perfect-btn.primary {
+    background: #ff6663;
+    border: 2px solid #000;
   }
 }
 

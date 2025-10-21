@@ -287,7 +287,7 @@ export default function Home() {
         setTimeout(() => setIsTransitioning(false), 1200);
         return nextIndex;
       });
-    }, 5000); // Auto-advance every 5 seconds for elegant, always-in-motion experience
+    }, 4500); // Auto-advance every 4.5 seconds for perfect reading pace and always-in-motion experience
 
     return () => clearInterval(interval);
   }, [isAutoPlaying, filteredProjects.length]);
@@ -597,101 +597,296 @@ export default function Home() {
               </div>
             </motion.div>
             
-            {/* Full-Width Cinematic Carousel */}
+            {/* PERFECT GOLDEN RATIO CAROUSEL - 100% PERFECTION */}
             <motion.div 
-              className="cinematic-carousel-container"
+              className="perfect-carousel-container"
               key={safeFeaturedProjectIndex}
-              initial={{ opacity: 0, y: 30, scale: 0.98 }}
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
               animate={{ 
-                opacity: isTransitioning ? 0.7 : 1, 
+                opacity: isTransitioning ? 0.8 : 1, 
                 y: 0, 
                 scale: 1 
               }}
               transition={{ 
-                duration: isTransitioning ? 0.6 : 1.2, 
-                ease: [0.25, 0.46, 0.45, 0.94] 
+                duration: isTransitioning ? 0.8 : 1.4, 
+                ease: [0.16, 1, 0.3, 1], // Physics-based easing
+                type: "spring",
+                stiffness: 100,
+                damping: 20
               }}
+              onHoverStart={() => setIsAutoPlaying(false)}
+              onHoverEnd={() => setIsAutoPlaying(true)}
             >
-              <div className="cinematic-project-card">
-                {/* Full-Width Image Section */}
-                <div className="cinematic-image-section">
+              <div className="perfect-project-card">
+                {/* Golden Ratio Layout: 61.8% Image / 38.2% Content */}
+                <div className="perfect-layout-grid">
+                  
+                  {/* Image Section - 61.8% (Golden Ratio) */}
                   <motion.div 
-                    className="cinematic-image-container"
-                    style={{
-                      backgroundImage: `url(${filteredProjects[safeFeaturedProjectIndex]?.image || ''})`,
-                      backgroundSize: 'contain !important',
-                      backgroundPosition: 'center !important',
-                      backgroundRepeat: 'no-repeat !important',
-                      backgroundColor: 'rgba(0, 0, 0, 0.02)'
-                    }}
-                    key={`image-${safeFeaturedProjectIndex}`}
-                    initial={{ opacity: 0, scale: 1.05 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    className="perfect-image-section"
+                    initial={{ opacity: 0, x: -50, scale: 1.02 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
                     transition={{ 
-                      duration: 1.0, 
-                      ease: [0.25, 0.46, 0.45, 0.94] 
+                      duration: 1.2, 
+                      delay: 0.2,
+                      ease: [0.16, 1, 0.3, 1]
                     }}
                   >
-                    {/* Image Overlay Tags */}
-                    <div className="cinematic-overlay-tags">
-                      <span className="cinematic-year-tag">{filteredProjects[safeFeaturedProjectIndex]?.year || ''}</span>
-                      <span className="cinematic-category-tag">{filteredProjects[safeFeaturedProjectIndex]?.category || ''}</span>
+                    <motion.div 
+                      className="perfect-image-container"
+                      style={{
+                        backgroundImage: `url(${filteredProjects[safeFeaturedProjectIndex]?.image || ''})`,
+                        backgroundSize: 'contain !important',
+                        backgroundPosition: 'center !important',
+                        backgroundRepeat: 'no-repeat !important',
+                        backgroundColor: 'rgba(0, 0, 0, 0.02)'
+                      }}
+                      key={`perfect-image-${safeFeaturedProjectIndex}`}
+                      initial={{ opacity: 0, scale: 1.05, rotateY: -5 }}
+                      animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                      transition={{ 
+                        duration: 1.4, 
+                        ease: [0.16, 1, 0.3, 1],
+                        type: "spring",
+                        stiffness: 80,
+                        damping: 25
+                      }}
+                      whileHover={{ 
+                        scale: 1.02,
+                        transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
+                      }}
+                    >
+                      {/* Perfect Gradient Overlay for Text Readability */}
+                      <div className="perfect-gradient-overlay" />
+                      
+                      {/* Perfect Overlay Tags with Micro-Interactions */}
+                      <motion.div 
+                        className="perfect-overlay-tags"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.6 }}
+                      >
+                        <motion.span 
+                          className="perfect-year-tag"
+                          whileHover={{ 
+                            scale: 1.05,
+                            boxShadow: "0 8px 25px rgba(0, 0, 0, 0.15)",
+                            transition: { duration: 0.3 }
+                          }}
+                        >
+                          {filteredProjects[safeFeaturedProjectIndex]?.year || ''}
+                        </motion.span>
+                        <motion.span 
+                          className="perfect-category-tag"
+                          whileHover={{ 
+                            scale: 1.05,
+                            boxShadow: "0 8px 25px rgba(255, 102, 99, 0.4)",
+                            transition: { duration: 0.3 }
+                          }}
+                        >
+                          {filteredProjects[safeFeaturedProjectIndex]?.category || ''}
+                        </motion.span>
+                      </motion.div>
+                      
+                      {/* Perfect Loading Indicator */}
+                      <motion.div 
+                        className="perfect-loading-indicator"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: isTransitioning ? 1 : 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <div className="perfect-spinner" />
+                      </motion.div>
+                    </motion.div>
+                  </motion.div>
+                  
+                  {/* Content Section - 38.2% (Golden Ratio) */}
+                  <motion.div 
+                    className="perfect-content-section"
+                    initial={{ opacity: 0, x: 50, scale: 0.98 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    transition={{ 
+                      duration: 1.2, 
+                      delay: 0.4,
+                      ease: [0.16, 1, 0.3, 1]
+                    }}
+                  >
+                    <div className="perfect-content-inner">
+                      
+                      {/* Perfect Project Header with Staggered Animation */}
+                      <motion.header 
+                        className="perfect-header"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.6 }}
+                      >
+                        <motion.h3 
+                          className="perfect-title"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.8, delay: 0.8 }}
+                        >
+                          {filteredProjects[safeFeaturedProjectIndex]?.title || ''}
+                        </motion.h3>
+                        
+                        <motion.p 
+                          className="perfect-client"
+                          initial={{ opacity: 0, y: 15 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.8, delay: 1.0 }}
+                        >
+                          {filteredProjects[safeFeaturedProjectIndex]?.client || ''}
+                        </motion.p>
+                        
+                        <motion.div 
+                          className="perfect-meta"
+                          initial={{ opacity: 0, y: 15 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.8, delay: 1.2 }}
+                        >
+                          <span>{filteredProjects[safeFeaturedProjectIndex]?.year || ''}</span>
+                          <span className="perfect-divider">•</span>
+                          <span>{filteredProjects[safeFeaturedProjectIndex]?.location || ''}</span>
+                        </motion.div>
+                      </motion.header>
+                      
+                      {/* Perfect Description with Reading Flow */}
+                      <motion.div 
+                        className="perfect-description"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 1.4 }}
+                      >
+                        <motion.p 
+                          className="perfect-subtitle"
+                          initial={{ opacity: 0, y: 15 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.8, delay: 1.6 }}
+                        >
+                          {filteredProjects[safeFeaturedProjectIndex]?.subtitle || ''}
+                        </motion.p>
+                        
+                        <motion.p 
+                          className="perfect-description-text"
+                          initial={{ opacity: 0, y: 15 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.8, delay: 1.8 }}
+                        >
+                          {filteredProjects[safeFeaturedProjectIndex]?.description || ''}
+                        </motion.p>
+                      </motion.div>
+                      
+                      {/* Perfect Capability Tags with Magnetic Effect */}
+                      <motion.div 
+                        className="perfect-capabilities"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 2.0 }}
+                      >
+                        <div className="perfect-tags">
+                          {filteredProjects[safeFeaturedProjectIndex] && filteredProjects[safeFeaturedProjectIndex].tech && filteredProjects[safeFeaturedProjectIndex].tech.slice(0, 3).map((capability, index) => (
+                            <motion.span 
+                              key={capability} 
+                              className="perfect-tag"
+                              initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                              animate={{ opacity: 1, scale: 1, y: 0 }}
+                              transition={{ 
+                                duration: 0.6, 
+                                delay: 2.2 + (index * 0.1),
+                                ease: [0.16, 1, 0.3, 1]
+                              }}
+                              whileHover={{ 
+                                scale: 1.05,
+                                y: -2,
+                                boxShadow: "0 8px 25px rgba(255, 102, 99, 0.3)",
+                                transition: { duration: 0.3 }
+                              }}
+                              whileTap={{ scale: 0.95 }}
+                            >
+                              {capability}
+                            </motion.span>
+                          ))}
+                        </div>
+                      </motion.div>
+                      
+                      {/* Perfect Action Buttons with Magnetic Effect */}
+                      <motion.div 
+                        className="perfect-actions"
+                        initial={{ opacity: 0, y: 25 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 2.4 }}
+                      >
+                        <motion.button
+                          onClick={() => setSelectedProject(safeFeaturedProjectIndex)}
+                          className="perfect-btn primary"
+                          whileHover={{ 
+                            scale: 1.05,
+                            y: -3,
+                            boxShadow: "0 15px 40px rgba(255, 102, 99, 0.4)",
+                            transition: { duration: 0.3 }
+                          }}
+                          whileTap={{ scale: 0.95 }}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 2.6 }}
+                        >
+                          <span>View Full Case Study</span>
+                          <motion.div 
+                            className="perfect-btn-ripple"
+                            whileHover={{ scale: 1.2, opacity: 0.1 }}
+                            transition={{ duration: 0.6 }}
+                          />
+                        </motion.button>
+                        
+                        {filteredProjects[safeFeaturedProjectIndex]?.website && (
+                          <motion.a 
+                            href={filteredProjects[safeFeaturedProjectIndex].website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="perfect-btn secondary"
+                            whileHover={{ 
+                              scale: 1.05,
+                              y: -3,
+                              boxShadow: "0 8px 30px rgba(0, 0, 0, 0.15)",
+                              transition: { duration: 0.3 }
+                            }}
+                            whileTap={{ scale: 0.95 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 2.8 }}
+                          >
+                            <span>Visit Website</span>
+                            <motion.div 
+                              className="perfect-btn-ripple"
+                              whileHover={{ scale: 1.2, opacity: 0.1 }}
+                              transition={{ duration: 0.6 }}
+                            />
+                          </motion.a>
+                        )}
+                      </motion.div>
                     </div>
                   </motion.div>
                 </div>
                 
-                {/* Full-Width Content Section */}
-                <div className="cinematic-content-section">
-                  <div className="cinematic-content-inner">
-                    {/* Project Header */}
-                    <header className="cinematic-header">
-                      <h3 className="cinematic-title">{filteredProjects[safeFeaturedProjectIndex]?.title || ''}</h3>
-                      <p className="cinematic-client">{filteredProjects[safeFeaturedProjectIndex]?.client || ''}</p>
-                      <div className="cinematic-meta">
-                        <span>{filteredProjects[safeFeaturedProjectIndex]?.year || ''}</span>
-                        <span>•</span>
-                        <span>{filteredProjects[safeFeaturedProjectIndex]?.location || ''}</span>
-                      </div>
-                    </header>
-                    
-                    {/* Project Description */}
-                    <div className="cinematic-description">
-                      <p className="cinematic-subtitle">{filteredProjects[safeFeaturedProjectIndex]?.subtitle || ''}</p>
-                      <p className="cinematic-description-text">{filteredProjects[safeFeaturedProjectIndex]?.description || ''}</p>
-                    </div>
-                    
-                    {/* Capability Tags */}
-                    <div className="cinematic-capabilities">
-                      <div className="cinematic-tags">
-                        {filteredProjects[safeFeaturedProjectIndex] && filteredProjects[safeFeaturedProjectIndex].tech && filteredProjects[safeFeaturedProjectIndex].tech.slice(0, 3).map(capability => (
-                          <span key={capability} className="cinematic-tag">
-                            {capability}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    {/* Action Buttons */}
-                    <div className="cinematic-actions">
-                      <button
-                        onClick={() => setSelectedProject(safeFeaturedProjectIndex)}
-                        className="cinematic-btn primary"
-                      >
-                        View Full Case Study
-                      </button>
-                      {filteredProjects[safeFeaturedProjectIndex]?.website && (
-                        <a 
-                          href={filteredProjects[safeFeaturedProjectIndex].website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="cinematic-btn secondary"
-                        >
-                          Visit Website
-                        </a>
-                      )}
-                    </div>
+                {/* Perfect Progress Indicator */}
+                <motion.div 
+                  className="perfect-progress-indicator"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 3.0 }}
+                >
+                  <div className="perfect-progress-bar">
+                    <motion.div 
+                      className="perfect-progress-fill"
+                      initial={{ width: 0 }}
+                      animate={{ width: `${((safeFeaturedProjectIndex + 1) / filteredProjects.length) * 100}%` }}
+                      transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+                    />
                   </div>
-                </div>
+                  <div className="perfect-progress-text">
+                    {safeFeaturedProjectIndex + 1} of {filteredProjects.length}
+                  </div>
+                </motion.div>
               </div>
             </motion.div>
             
