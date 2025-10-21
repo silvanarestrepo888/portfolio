@@ -1068,18 +1068,7 @@ export default function Home() {
                     </div>
                     
                     {/* Hover Reveal Content - Panna Cotta Vanilla */}
-                  <motion.div
-                      className="service-reveal-content"
-                      initial={{ opacity: 0, y: 30 }}
-                      whileHover={{ 
-                        opacity: 1, 
-                        y: 0,
-                        transition: { 
-                          duration: 0.4, 
-                          ease: [0.25, 0.46, 0.45, 0.94]
-                        }
-                      }}
-                    >
+                  <div className="service-reveal-content">
                       {/* Strategic Capability */}
                       <div className="capability-section">
                         <h4 className="capability-title">Strategic Capability:</h4>
@@ -1097,7 +1086,7 @@ export default function Home() {
                         <h4 className="demand-title">For projects that demand:</h4>
                         <p className="demand-description">{service.demand}</p>
                       </div>
-                  </motion.div>
+                  </div>
                   
                     {/* Hover Indicator */}
                     <div className="service-hover-indicator-benchmark">
