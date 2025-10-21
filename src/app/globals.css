@@ -411,6 +411,82 @@ body {
   50% { background-position: 100% 50%; }
 }
 
+/* ========================================== */
+/* ENHANCED ANIMATION KEYFRAMES - PREMIUM EFFECTS */
+/* ========================================== */
+
+/* Enhanced Editorial Gradient Flow */
+@keyframes editorial-gradient-flow {
+  0%, 100% { 
+    background-position: 0% 50%; 
+    filter: drop-shadow(0 4px 12px rgba(255, 102, 99, 0.15));
+  }
+  25% { 
+    background-position: 25% 25%; 
+    filter: drop-shadow(0 6px 16px rgba(255, 102, 99, 0.20));
+  }
+  50% { 
+    background-position: 100% 50%; 
+    filter: drop-shadow(0 8px 20px rgba(255, 102, 99, 0.25));
+  }
+  75% { 
+    background-position: 75% 75%; 
+    filter: drop-shadow(0 6px 16px rgba(255, 102, 99, 0.20));
+  }
+}
+
+/* Dramatic Grapefruit Pulse */
+@keyframes dramatic-grapefruit-pulse {
+  0%, 100% { 
+    opacity: 0.8;
+    filter: hue-rotate(0deg) saturate(1);
+  }
+  25% { 
+    opacity: 0.9;
+    filter: hue-rotate(5deg) saturate(1.1);
+  }
+  50% { 
+    opacity: 1;
+    filter: hue-rotate(10deg) saturate(1.2);
+  }
+  75% { 
+    opacity: 0.95;
+    filter: hue-rotate(5deg) saturate(1.1);
+  }
+}
+
+/* Enhanced Hero Breathe */
+@keyframes enhanced-hero-breathe {
+  0%, 100% { 
+    filter: contrast(1.08) brightness(0.95) saturate(1.15) blur(0px);
+    transform: scale(1.03);
+  }
+  25% { 
+    filter: contrast(1.12) brightness(0.97) saturate(1.18) blur(0.1px);
+    transform: scale(1.035);
+  }
+  50% { 
+    filter: contrast(1.15) brightness(1.0) saturate(1.2) blur(0.2px);
+    transform: scale(1.04);
+  }
+  75% { 
+    filter: contrast(1.12) brightness(0.97) saturate(1.18) blur(0.1px);
+    transform: scale(1.035);
+  }
+}
+
+/* Editorial Text Shimmer */
+@keyframes editorial-text-shimmer {
+  0%, 100% { 
+    text-shadow: 0 2px 8px rgba(255, 102, 99, 0.12);
+    opacity: 1;
+  }
+  50% { 
+    text-shadow: 0 4px 16px rgba(255, 102, 99, 0.20);
+    opacity: 0.95;
+  }
+}
+
 .hero-typography-awwwards:hover {
   transform: perspective(1000px) rotateX(2deg) translateY(-8px) translateZ(20px);
   filter: drop-shadow(0 25px 50px rgba(255, 102, 99, 0.4));
@@ -490,30 +566,42 @@ body {
 .typography-hero {
   font-family: var(--font-display);
   font-size: clamp(4rem, 12vw, 12rem);
-  font-weight: 300;
-  letter-spacing: var(--letter-spacing-tight);
-  line-height: var(--line-height-tight);
+  font-weight: 200; /* Enhanced for editorial elegance */
+  letter-spacing: -0.04em; /* Enhanced editorial letter-spacing */
+  line-height: 0.85; /* Tighter for editorial drama */
   font-style: normal;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* ENSURE VISIBLE GRADIENT EFFECT */
-  background: linear-gradient(135deg, #ffffff 0%, #ff6663 30%, #ffffff 70%, #ff6663 100%);
-  background-size: 300% 300%;
+  /* ENHANCED EDITORIAL GRADIENT EFFECT */
+  background: linear-gradient(135deg, 
+    #1a1a1a 0%, 
+    #ff6663 20%, 
+    #ffffff 40%, 
+    #ff6663 60%, 
+    #1a1a1a 80%, 
+    #ff6663 100%);
+  background-size: 400% 400%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-flow 8s ease-in-out infinite;
+  animation: editorial-gradient-flow 12s ease-in-out infinite;
+  /* Editorial text shadow for depth */
+  filter: drop-shadow(0 4px 12px rgba(255, 102, 99, 0.15));
 }
 
-/* DISPLAY TYPOGRAPHY - Refined & Professional */
+/* DISPLAY TYPOGRAPHY - Enhanced Editorial Treatment */
 .typography-display {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3.5rem); /* Reduced from oversized */
-  font-weight: 400;
-  letter-spacing: var(--letter-spacing-tight);
-  line-height: var(--line-height-snug);
-  font-style: italic;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300; /* Enhanced for editorial sophistication */
+  letter-spacing: -0.02em; /* Enhanced editorial spacing */
+  line-height: 1.2; /* Enhanced for better readability */
+  font-style: italic; /* Editorial italics for sophistication */
+  /* Editorial text shadow for premium depth */
+  text-shadow: 0 2px 8px rgba(255, 102, 99, 0.12);
+  /* Subtle color enhancement */
+  color: #1a1a1a;
 }
 
 /* ACCENT TYPOGRAPHY - Professional Scale */
@@ -553,6 +641,95 @@ body {
   letter-spacing: var(--letter-spacing-normal);
   line-height: var(--line-height-relaxed);
   font-style: italic;
+}
+
+/* ========================================== */
+/* EDITORIAL TYPOGRAPHY CLASSES - LUXURY PRESENTATION */
+/* ========================================== */
+
+/* EDITORIAL HEADLINE - Dramatic Editorial Headlines */
+.editorial-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  background: linear-gradient(135deg, 
+    #1a1a1a 0%, 
+    #ff6663 25%, 
+    #1a1a1a 50%, 
+    #ff6663 75%, 
+    #1a1a1a 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 12px rgba(255, 102, 99, 0.15);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* EDITORIAL SUBHEAD - Sophisticated Subheadings */
+.editorial-subhead {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: #2d3748;
+  text-shadow: 0 2px 6px rgba(255, 102, 99, 0.08);
+  margin-bottom: 1.5rem;
+}
+
+/* EDITORIAL BODY LUXURY - Premium Body Text */
+.editorial-body-luxury {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.015em;
+  color: #333;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* EDITORIAL CAPTION - Refined Captions */
+.editorial-caption {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  color: #666;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+/* EDITORIAL EMPHASIS - For highlighted text */
+.editorial-emphasis {
+  color: #ff6663;
+  font-weight: 600;
+  position: relative;
+  background: linear-gradient(120deg, 
+    rgba(255, 102, 99, 0.1) 0%, 
+    rgba(255, 102, 99, 0.2) 50%, 
+    rgba(255, 102, 99, 0.1) 100%);
+  padding: 0.1em 0.3em;
+  border-radius: 0.2em;
+  transition: all 0.3s ease;
+}
+
+/* EDITORIAL LEAD - Introduction paragraphs */
+.editorial-lead {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.3rem, 2.8vw, 1.6rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 2rem;
+  text-shadow: 0 1px 3px rgba(255, 102, 99, 0.05);
 }
 
 /* ========================================== */
@@ -10342,4 +10519,105 @@ h4, .text-h4 {
     gap: 16px;
   }
 }
+
+/* ========================================== */
+/* RESPONSIVE OPTIMIZATIONS FOR ENHANCEMENTS */
+/* ========================================== */
+
+/* Mobile Grapefruit Adjustments */
+@media (max-width: 768px) {
+  .hero-gradient-overlay-1 {
+    background: linear-gradient(135deg, 
+      rgba(255, 102, 99, 0.20) 0%, 
+      rgba(255, 122, 119, 0.12) 15%,
+      transparent 30%, 
+      rgba(0, 0, 0, 0.12) 70%, 
+      rgba(255, 142, 139, 0.10) 85%,
+      rgba(255, 102, 99, 0.15) 100%
+    );
+    animation-duration: 10s; /* Faster for mobile performance */
+  }
+  
+  .hero-bg-image-luxury {
+    filter: contrast(1.05) brightness(0.98) saturate(1.12) !important;
+    animation-duration: 8s; /* Optimized for mobile */
+  }
+  
+  /* Editorial Typography Mobile Optimization */
+  .editorial-headline {
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+  
+  .editorial-subhead {
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    line-height: 1.3;
+  }
+  
+  .editorial-body-luxury {
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    line-height: 1.7;
+  }
+  
+  .editorial-lead {
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    line-height: 1.5;
+  }
+}
+
+/* Tablet Photo Visibility Improvements */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-bg-image-luxury {
+    filter: contrast(1.06) brightness(0.96) saturate(1.14) !important;
+    transform: scale(1.025) !important;
+  }
+  
+  .hero-gradient-overlay-1 {
+    background: linear-gradient(135deg, 
+      rgba(255, 102, 99, 0.22) 0%, 
+      rgba(255, 122, 119, 0.13) 15%,
+      transparent 30%, 
+      rgba(0, 0, 0, 0.13) 70%, 
+      rgba(255, 142, 139, 0.11) 85%,
+      rgba(255, 102, 99, 0.16) 100%
+    );
+  }
+}
+
+/* Editorial Typography Scaling for All Devices */
+@media (max-width: 480px) {
+  .editorial-headline {
+    font-size: clamp(2rem, 8vw, 3rem);
+    letter-spacing: -0.01em;
+  }
+  
+  .editorial-subhead {
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+  }
+  
+  .editorial-emphasis {
+    padding: 0.05em 0.2em;
+    background: linear-gradient(120deg, 
+      rgba(255, 102, 99, 0.15) 0%, 
+      rgba(255, 102, 99, 0.25) 50%, 
+      rgba(255, 102, 99, 0.15) 100%);
+  }
+}
+
+/* Performance Enhancement for Enhanced Animations */
+@media (prefers-reduced-motion: reduce) {
+  .hero-gradient-overlay-1,
+  .hero-bg-image-luxury {
+    animation: none !important;
+  }
+  
+  .editorial-headline,
+  .editorial-subhead,
+  .editorial-body-luxury {
+    animation: none !important;
+    text-shadow: none !important;
+  }
+}
+
 /* Force deployment update */
