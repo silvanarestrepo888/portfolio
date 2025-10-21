@@ -573,41 +573,28 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            {/* Sophisticated Navigation Controls with Perfect Spacing */}
+            {/* Cinematic Auto-Play Indicator */}
             <motion.div 
-              className="projects-navigation-award-winning"
+              className="cinematic-auto-indicator"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.0 }}
               viewport={{ once: true }}
             >
-                <button
-                onClick={goToPreviousProjectWithTransition}
-                className="nav-btn-award-winning prev"
-                >
-                ← Previous
-                </button>
-              
-              <div className="project-counter-award-winning">
-                <span className="current-project-award">{safeFeaturedProjectIndex + 1}</span>
-                <span className="divider-award">/</span>
-                <span className="total-projects-award">{filteredProjects.length}</span>
+              <div className="auto-play-status">
                 <div className="auto-play-indicator">
-                  <button
-                    onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-                    className={`auto-play-toggle ${isAutoPlaying ? 'playing' : 'paused'}`}
-                  >
-                    {isAutoPlaying ? '⏸️' : '▶️'}
-                  </button>
+                  <div className={`auto-play-dot ${isAutoPlaying ? 'playing' : 'paused'}`}></div>
+                  <span className="auto-play-text">
+                    {isAutoPlaying ? 'Auto-playing' : 'Paused'}
+                  </span>
+                </div>
+                
+                <div className="project-counter-minimal">
+                  <span className="current-project-minimal">{safeFeaturedProjectIndex + 1}</span>
+                  <span className="divider-minimal">/</span>
+                  <span className="total-projects-minimal">{filteredProjects.length}</span>
                 </div>
               </div>
-              
-                <button
-                onClick={goToNextProjectWithTransition}
-                className="nav-btn-award-winning next"
-                >
-                Next →
-                </button>
             </motion.div>
             
             {/* Apple/Tesla-Style Side Panel Preview */}
@@ -628,7 +615,7 @@ export default function Home() {
                         className="project-image-container-award"
                         style={{
                           backgroundImage: `url(${filteredProjects[safeFeaturedProjectIndex]?.image || ''})`,
-                          backgroundSize: 'cover',
+                          backgroundSize: 'contain',
                           backgroundPosition: 'center',
                           backgroundRepeat: 'no-repeat'
                         }}
@@ -746,63 +733,6 @@ export default function Home() {
               </div>
             </motion.div>
             
-            {/* Award-Winning Project Thumbnails with Perfect Spacing */}
-            <motion.div 
-              className="projects-thumbnails-award-winning"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              viewport={{ once: true }}
-            >
-              {filteredProjects.map((project, index) => (
-                <motion.button 
-                  key={project.title}
-                  className={`project-thumbnail-award ${index === safeFeaturedProjectIndex ? 'active' : ''}`}
-                  onClick={() => goToProjectWithTransition(index)}
-                  whileHover={{ 
-                    y: -8, 
-                    scale: 1.02,
-                    transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }
-                  }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div 
-                    className="thumbnail-image-award"
-                    style={{
-                      backgroundImage: `url(${project.image})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center'
-                    }}
-                  ></div>
-                  <div className="thumbnail-overlay-award">
-                    <div className="thumbnail-info-award">
-                      <span className="thumbnail-title-award">{project.title}</span>
-                      <span className="thumbnail-client-award">{project.client}</span>
-                    </div>
-                    <div className="thumbnail-indicator-award"></div>
-                  </div>
-                </motion.button>
-              ))}
-            </motion.div>
-            
-            {/* Elegant Pagination Dots */}
-            <motion.div 
-              className="pagination-dots-award-winning"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.4 }}
-              viewport={{ once: true }}
-            >
-              <div className="pagination-dots-container">
-                  {filteredProjects.map((_, index) => (
-                  <button
-                      key={index}
-                    className={`pagination-dot ${index === safeFeaturedProjectIndex ? 'active' : ''}`}
-                    onClick={() => goToProjectWithTransition(index)}
-                    />
-                  ))}
-              </div>
-            </motion.div>
             </motion.div>
         </div>
       </section>
