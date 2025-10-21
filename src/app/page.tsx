@@ -600,147 +600,147 @@ export default function Home() {
                 </button>
             </motion.div>
             
-            {/* Ultra-Luxury Featured Project Display */}
+            {/* Award-Winning Featured Project with Golden Ratio Layout */}
             <motion.div 
-              className="featured-project-luxury"
+              className="featured-project-award-winning"
               key={safeFeaturedProjectIndex}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <div className="project-card-luxury featured">
-                {/* CSS BACKGROUND IMAGE - NUCLEAR APPROACH */}
-                <div 
-                  className="project-image-css-bg"
+              <div className="project-card-award-winning">
+                {/* Image Section - 60% (Golden Ratio) */}
+                <div className="project-image-section-award">
+                  <div 
+                    className="project-image-container-award"
                   style={{
-                    backgroundImage: `url(${filteredProjects[safeFeaturedProjectIndex]?.image || ''})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat'
-                  }}
-                >
-                  {/* Image Overlay Info */}
-                  <div className="image-overlay-info">
-                    <span className="project-year-overlay">{filteredProjects[safeFeaturedProjectIndex]?.year || ''}</span>
-                    <span className="project-category-overlay">{filteredProjects[safeFeaturedProjectIndex]?.category || ''}</span>
+                      backgroundImage: `url(${filteredProjects[safeFeaturedProjectIndex]?.image || ''})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat'
+                    }}
+                  >
+                    {/* Image Overlay Tags */}
+                    <div className="image-overlay-tags-award">
+                      <span className="project-year-tag-award">{filteredProjects[safeFeaturedProjectIndex]?.year || ''}</span>
+                      <span className="project-category-tag-award">{filteredProjects[safeFeaturedProjectIndex]?.category || ''}</span>
+                      </div>
                     </div>
                   </div>
                   
-                {/* Systematic Content Hierarchy */}
-                <div className="project-content-systematic">
-                  <header className="project-header-foundation">
-                    <h3 className="project-title-foundation">{filteredProjects[safeFeaturedProjectIndex]?.title || ''}</h3>
-                    <p className="project-client-foundation">{filteredProjects[safeFeaturedProjectIndex]?.client || ''}</p>
-                      <div className="project-meta-foundation">
-                      <span>{filteredProjects[safeFeaturedProjectIndex]?.year || ''}</span>
-                          <span>•</span>
-                      <span>{filteredProjects[safeFeaturedProjectIndex]?.location || ''}</span>
-                        </div>
-                  </header>
-                  
-                  <div className="project-description-section">
-                    <p className="project-subtitle-foundation">{filteredProjects[safeFeaturedProjectIndex]?.subtitle || ''}</p>
-                    <p className="project-description-foundation">{filteredProjects[safeFeaturedProjectIndex]?.description || ''}</p>
+                {/* Content Section - 40% (Golden Ratio) */}
+                <div className="project-content-section-award">
+                  <div className="project-content-inner-award">
+                      {/* Project Header */}
+                    <header className="project-header-award">
+                      <h3 className="project-title-award">{filteredProjects[safeFeaturedProjectIndex]?.title || ''}</h3>
+                      <p className="project-client-award">{filteredProjects[safeFeaturedProjectIndex]?.client || ''}</p>
+                      <div className="project-meta-award">
+                        <span>{filteredProjects[safeFeaturedProjectIndex]?.year || ''}</span>
+                        <span>•</span>
+                        <span>{filteredProjects[safeFeaturedProjectIndex]?.location || ''}</span>
+                      </div>
+                    </header>
+                    
+                    {/* Project Description */}
+                    <div className="project-description-award">
+                      <p className="project-subtitle-award">{filteredProjects[safeFeaturedProjectIndex]?.subtitle || ''}</p>
+                      <p className="project-description-text-award">{filteredProjects[safeFeaturedProjectIndex]?.description || ''}</p>
                       </div>
                       
-                  <div className="project-capabilities-section">
-                    <div className="capabilities-grid">
-                      {filteredProjects[safeFeaturedProjectIndex] && filteredProjects[safeFeaturedProjectIndex].tech && filteredProjects[safeFeaturedProjectIndex].tech.map(capability => (
-                        <span key={capability} className="capability-tag-foundation">
-                          {capability}
+                    {/* Capability Tags */}
+                    <div className="project-capabilities-award">
+                      <div className="capabilities-tags-award">
+                        {filteredProjects[safeFeaturedProjectIndex] && filteredProjects[safeFeaturedProjectIndex].tech && filteredProjects[safeFeaturedProjectIndex].tech.slice(0, 2).map(capability => (
+                          <span key={capability} className="capability-tag-award">
+                            {capability}
                           </span>
                         ))}
-                    </div>
+                      </div>
                       </div>
                       
-                  <div className="project-actions-section">
+                    {/* Action Buttons */}
+                    <div className="project-actions-award">
                       <button
-                      onClick={() => setSelectedProject(safeFeaturedProjectIndex)}
-                      className="button-foundation primary"
-                    >
-                      View Full Case Study
-                      </button>
-                    {filteredProjects[safeFeaturedProjectIndex]?.website && (
-                      <a 
-                        href={filteredProjects[safeFeaturedProjectIndex].website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="button-foundation"
+                        onClick={() => setSelectedProject(safeFeaturedProjectIndex)}
+                        className="action-btn-award primary"
                       >
-                        Visit Live Site
-                      </a>
-                    )}
+                        View Full Case Study
+                      </button>
+                      {filteredProjects[safeFeaturedProjectIndex]?.website && (
+                        <a 
+                          href={filteredProjects[safeFeaturedProjectIndex].website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="action-btn-award secondary"
+                        >
+                          Visit Website
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
                   </div>
                 </motion.div>
             
-            {/* Ultra-Luxury Project Thumbnails Grid */}
+            {/* Award-Winning Project Thumbnails with Perfect Spacing */}
             <motion.div 
-              className="projects-grid-luxury"
+              className="projects-thumbnails-award-winning"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              viewport={{ once: true }}
             >
               {filteredProjects.map((project, index) => (
                 <motion.button 
                   key={project.title}
-                  className={`project-thumbnail-luxury ${index === safeFeaturedProjectIndex ? 'active' : ''}`}
+                  className={`project-thumbnail-award ${index === safeFeaturedProjectIndex ? 'active' : ''}`}
                   onClick={() => goToProject(index)}
                   whileHover={{ 
                     y: -8, 
                     scale: 1.02,
-                    transition: { duration: 0.3 }
+                    transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }
                   }}
                   transition={{ duration: 0.2 }}
                 >
                   <div 
-                    className="thumbnail-image-luxury"
+                    className="thumbnail-image-award"
                     style={{
                       backgroundImage: `url(${project.image})`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center'
                     }}
                   ></div>
-                  <div className="thumbnail-overlay-luxury">
-                    <div className="thumbnail-info-luxury">
-                      <span className="thumbnail-title-luxury">{project.title}</span>
-                      <span className="thumbnail-client-luxury">{project.client}</span>
+                  <div className="thumbnail-overlay-award">
+                    <div className="thumbnail-info-award">
+                      <span className="thumbnail-title-award">{project.title}</span>
+                      <span className="thumbnail-client-award">{project.client}</span>
                     </div>
-                    <div className="thumbnail-indicator-luxury"></div>
+                    <div className="thumbnail-indicator-award"></div>
                   </div>
                 </motion.button>
               ))}
             </motion.div>
             
-            {/* Carousel Status Indicator */}
+            {/* Elegant Pagination Dots */}
             <motion.div 
-              className="text-center mt-12"
+              className="pagination-dots-award-winning"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              transition={{ duration: 0.8, delay: 1.4 }}
+              viewport={{ once: true }}
             >
-              <div className="inline-flex items-center gap-6 px-8 py-4 bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-coral animate-pulse" />
-                  <span className="body-text-humanist text-sm font-medium text-gray-700">
-                    Auto-Moving Projects
-                  </span>
-                </div>
-                <div className="flex gap-2">
+              <div className="pagination-dots-container">
                   {filteredProjects.map((_, index) => (
-                    <div 
+                  <button
                       key={index}
-                      className="w-2 h-2 rounded-full bg-coral/30"
+                    className={`pagination-dot ${index === safeFeaturedProjectIndex ? 'active' : ''}`}
+                    onClick={() => goToProject(index)}
                     />
                   ))}
-                </div>
-                <span className="body-text-humanist text-xs text-gray-500">
-                  Hover to pause • Click to explore
-                </span>
               </div>
             </motion.div>
-          </div>
+            </motion.div>
         </div>
       </section>
 
