@@ -1483,7 +1483,12 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true, margin: "-50px" }}
-                onClick={() => setHeroImageZoom(true)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  console.log('Hero image clicked');
+                  setHeroImageZoom(true);
+                }}
                 whileHover={{ scale: 1.02 }}
                 >
                   <Image
@@ -1519,7 +1524,10 @@ export default function Home() {
                     stiffness: 100
                   }}
                   viewport={{ once: true, margin: "-50px" }}
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          console.log('Gallery image clicked:', index);
                           setCurrentGalleryImage(index);
                           setGalleryZoomOpen(true);
                         }}
@@ -1684,8 +1692,11 @@ export default function Home() {
       {/* Gallery Zoom Modal */}
       {galleryZoomOpen && (
         <motion.div 
-          className="fixed inset-0 z-60 bg-black/95 flex items-center justify-center"
-          onClick={() => setGalleryZoomOpen(false)}
+          className="fixed inset-0 z-70 bg-black/95 flex items-center justify-center"
+          onClick={() => {
+            console.log('Gallery modal background clicked - closing');
+            setGalleryZoomOpen(false);
+          }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -1712,7 +1723,12 @@ export default function Home() {
             
             {/* Close Button */}
             <motion.button 
-              onClick={() => setGalleryZoomOpen(false)}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Gallery modal close button clicked');
+                setGalleryZoomOpen(false);
+              }}
               className="absolute top-4 right-4 w-12 h-12 bg-white/90 rounded-full flex items-center justify-center text-gray-800 text-xl font-bold"
               whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 102, 99, 0.9)' }}
               whileTap={{ scale: 0.9 }}
