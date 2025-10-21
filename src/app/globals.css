@@ -14931,3 +14931,363 @@ img {
 /* ========================================== */
 /* END PHASE 3: 3D INTERACTIVE PROJECT CARDS */
 /* ========================================== */
+
+/* ========================================== */
+/* PHASE 3B: SOPHISTICATED 3-COLOR DRAMA SYSTEM */
+/* Award-Winning Color Restraint & Impact */
+/* ========================================== */
+
+/* SOPHISTICATED COLOR PALETTE - CSS CUSTOM PROPERTIES */
+:root {
+  /* Coral Palette */
+  --coral-primary: #FF6663;
+  --coral-light: #FF9999;
+  --coral-deep: #E63946;
+  --coral-dark: #C1121F;
+  
+  /* Charcoal Palette */
+  --charcoal-primary: #2C2C2C;
+  --charcoal-deep: #1A1A1A;
+  --charcoal-medium: #404040;
+  --charcoal-light: #6B6B6B;
+  
+  /* Cream Palette */
+  --cream-primary: #FFF8F0;
+  --cream-warm: #FFF5E6;
+  --cream-cool: #F8F9FA;
+  --cream-pure: #FFFFFF;
+  
+  /* Section Gradients */
+  --hero-gradient: linear-gradient(135deg, var(--charcoal-deep) 0%, var(--charcoal-primary) 60%, var(--coral-primary) 100%);
+  --about-gradient: linear-gradient(135deg, var(--cream-primary) 0%, var(--cream-warm) 100%);
+  --projects-gradient: linear-gradient(135deg, var(--charcoal-primary) 0%, var(--charcoal-deep) 100%);
+  --services-gradient: linear-gradient(135deg, var(--coral-primary) 0%, var(--coral-deep) 100%);
+  --experience-gradient: linear-gradient(135deg, var(--charcoal-deep) 0%, var(--charcoal-medium) 100%);
+}
+
+/* HERO SECTION - Bold Confidence */
+.section-hero-sophisticated {
+  background: var(--hero-gradient);
+  position: relative;
+  overflow: hidden;
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.section-hero-sophisticated::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 70%, rgba(255, 102, 99, 0.2) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(26, 26, 26, 0.3) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.section-hero-sophisticated .hero-title-luxury-centered {
+  color: var(--cream-primary);
+  text-shadow: 0 8px 40px rgba(26, 26, 26, 0.8);
+}
+
+/* ABOUT SECTION - Warm Authority */
+.section-about-sophisticated {
+  background: var(--about-gradient);
+  position: relative;
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.section-about-sophisticated::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(255, 102, 99, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 90% 10%, rgba(255, 248, 240, 0.1) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.section-about-sophisticated h2,
+.section-about-sophisticated h3 {
+  color: var(--charcoal-deep);
+}
+
+.section-about-sophisticated p {
+  color: var(--charcoal-primary);
+}
+
+.section-about-sophisticated .highlight-human-typography {
+  color: var(--coral-deep);
+  font-weight: 500;
+}
+
+/* PROJECTS SECTION - Dynamic Focus */
+.section-projects-sophisticated {
+  background: var(--projects-gradient);
+  position: relative;
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.section-projects-sophisticated::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 40% 60%, rgba(255, 102, 99, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255, 248, 240, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.section-projects-sophisticated h2,
+.section-projects-sophisticated .projects-title-award-winning {
+  color: var(--cream-primary);
+}
+
+.section-projects-sophisticated p {
+  color: var(--cream-cool);
+}
+
+.section-projects-sophisticated .filter-tag-award-winning {
+  background: rgba(255, 102, 99, 0.1);
+  color: var(--coral-light);
+  border: 1px solid rgba(255, 102, 99, 0.3);
+}
+
+.section-projects-sophisticated .filter-tag-award-winning:hover {
+  background: var(--coral-primary);
+  color: var(--cream-primary);
+}
+
+/* SERVICES SECTION - Energetic Capability */
+.section-services-sophisticated {
+  background: var(--services-gradient);
+  position: relative;
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.section-services-sophisticated::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 60% 40%, rgba(255, 248, 240, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 20% 80%, rgba(26, 26, 26, 0.2) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.section-services-sophisticated h2 {
+  color: var(--cream-primary);
+}
+
+.section-services-sophisticated p {
+  color: var(--cream-cool);
+}
+
+.section-services-sophisticated .service-unified-card {
+  background: rgba(255, 248, 240, 0.1);
+  border: 1px solid rgba(255, 248, 240, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.section-services-sophisticated .service-unified-card:hover {
+  background: rgba(255, 248, 240, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(26, 26, 26, 0.3);
+}
+
+/* EXPERIENCE SECTION - Refined Expertise */
+.section-experience-sophisticated {
+  background: var(--experience-gradient);
+  position: relative;
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.section-experience-sophisticated::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 153, 153, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 70% 70%, rgba(255, 248, 240, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.section-experience-sophisticated h2 {
+  color: var(--cream-primary);
+}
+
+.section-experience-sophisticated p {
+  color: var(--cream-cool);
+}
+
+.section-experience-sophisticated .experience-layer-card {
+  background: rgba(255, 248, 240, 0.08);
+  border: 1px solid rgba(255, 248, 240, 0.15);
+}
+
+.section-experience-sophisticated .experience-layer-card:hover {
+  background: rgba(255, 248, 240, 0.12);
+  border-color: rgba(255, 153, 153, 0.3);
+}
+
+/* SOPHISTICATED SECTION TRANSITIONS */
+.section-transition-sophisticated {
+  position: relative;
+  transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.section-transition-sophisticated::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--next-section-gradient, transparent);
+  opacity: 0;
+  transition: opacity 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* INTELLIGENT COLOR RESPONSES */
+.coral-dominant {
+  background: linear-gradient(135deg, var(--coral-light) 0%, var(--coral-primary) 100%);
+  color: var(--cream-primary);
+}
+
+.charcoal-dominant {
+  background: linear-gradient(135deg, var(--charcoal-deep) 0%, var(--charcoal-primary) 100%);
+  color: var(--cream-primary);
+}
+
+.cream-dominant {
+  background: linear-gradient(135deg, var(--cream-primary) 0%, var(--cream-warm) 100%);
+  color: var(--charcoal-deep);
+}
+
+/* ENHANCED PROJECT CARDS WITH SECTION COLORS */
+.section-projects-sophisticated .project-card-3d {
+  background: rgba(255, 248, 240, 0.05);
+  border: 1px solid rgba(255, 248, 240, 0.1);
+}
+
+.section-projects-sophisticated .project-card-3d:hover {
+  background: rgba(255, 248, 240, 0.08);
+  box-shadow: 
+    0 25px 80px rgba(26, 26, 26, 0.4),
+    0 10px 40px rgba(255, 102, 99, 0.2);
+}
+
+/* SOPHISTICATED BUTTON STYLING */
+.section-hero-sophisticated .magnetic-button,
+.section-projects-sophisticated .magnetic-button {
+  background: var(--coral-primary);
+  color: var(--cream-primary);
+  border: 1px solid var(--coral-deep);
+}
+
+.section-hero-sophisticated .magnetic-button:hover,
+.section-projects-sophisticated .magnetic-button:hover {
+  background: var(--coral-deep);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(255, 102, 99, 0.4);
+}
+
+.section-about-sophisticated .magnetic-button {
+  background: var(--coral-deep);
+  color: var(--cream-primary);
+}
+
+.section-services-sophisticated .magnetic-button {
+  background: var(--cream-primary);
+  color: var(--coral-deep);
+}
+
+/* SECTION INDICATORS */
+.section-indicator {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 100;
+}
+
+.section-indicator-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 248, 240, 0.3);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+}
+
+.section-indicator-dot.active {
+  background: var(--coral-primary);
+  transform: scale(1.3);
+  box-shadow: 0 0 20px rgba(255, 102, 99, 0.5);
+}
+
+/* MOBILE OPTIMIZATIONS */
+@media (max-width: 768px) {
+  .section-hero-sophisticated::before,
+  .section-about-sophisticated::before,
+  .section-projects-sophisticated::before,
+  .section-services-sophisticated::before,
+  .section-experience-sophisticated::before {
+    opacity: 0.5;
+  }
+  
+  .section-indicator {
+    display: none;
+  }
+  
+  .section-transition-sophisticated {
+    transition: all 0.8s ease;
+  }
+}
+
+/* ACCESSIBILITY SUPPORT */
+@media (prefers-reduced-motion: reduce) {
+  .section-transition-sophisticated,
+  .section-transition-sophisticated::after {
+    transition: none !important;
+  }
+  
+  .section-hero-sophisticated::before,
+  .section-about-sophisticated::before,
+  .section-projects-sophisticated::before,
+  .section-services-sophisticated::before,
+  .section-experience-sophisticated::before {
+    animation: none !important;
+  }
+}
+
+/* HIGH CONTRAST MODE */
+@media (prefers-contrast: high) {
+  :root {
+    --coral-primary: #FF0000;
+    --charcoal-deep: #000000;
+    --cream-primary: #FFFFFF;
+  }
+}
+
+/* ========================================== */
+/* END PHASE 3B: SOPHISTICATED COLOR DRAMA */
+/* ========================================== */

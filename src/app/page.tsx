@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { CustomCursor } from '../components/motion/CustomCursor';
 import { MagneticCursor } from '../components/ui/MagneticCursor';
 import { FloatingNavigation } from '../components/navigation/FloatingNavigation';
+import { SectionIndicator } from '../components/navigation/SectionIndicator';
 import { useParallax } from '../hooks/useScrollAnimation';
 import { InteractiveProjectCard } from '../components/projects/InteractiveProjectCard';
 
@@ -373,12 +374,15 @@ export default function Home() {
       {/* AWWWARDS FLOATING NAVIGATION SYSTEM */}
       <FloatingNavigation />
       
+      {/* SOPHISTICATED SECTION INDICATOR */}
+      <SectionIndicator />
+      
 
       {/* HERO FOUNDATION - Award-Winning Visual Communication */}
       <main id="main-content">
       <section 
         id="hero" 
-        className="hero-section-luxury"
+        className="hero-section-luxury section-hero-sophisticated section-transition-sophisticated"
       >
         <div className="hero-bg-luxury parallax-container">
             <Image 
@@ -419,7 +423,7 @@ export default function Home() {
       {/* ABOUT SECTION - Ultra-Luxury Single-View */}
       <section 
         id="about" 
-        className="about-section-ultra-luxury luxury-background-texture"
+        className="about-section-ultra-luxury luxury-background-texture section-about-sophisticated section-transition-sophisticated"
         style={{ 
           minHeight: '100vh',
           display: 'flex',
@@ -566,7 +570,7 @@ export default function Home() {
       {/* PROJECTS SECTION - Award-Winning Enhancement */}
       <section 
         id="projects" 
-        className="projects-section-award-winning luxury-background-texture"
+        className="projects-section-award-winning luxury-background-texture section-projects-sophisticated section-transition-sophisticated"
         style={{
           minHeight: '100vh',
           display: 'flex',
@@ -706,7 +710,7 @@ export default function Home() {
       {/* EXPERIENCE SECTION - Architectural Transformation */}
       <section 
         id="experience"
-        className="experience-architecture-container luxury-background-texture"
+        className="experience-architecture-container luxury-background-texture section-experience-sophisticated section-transition-sophisticated"
         style={{ 
           minHeight: '100vh'
         }}
@@ -895,10 +899,7 @@ export default function Home() {
       {/* SERVICES SECTION - Foundation Design */}
       <section 
         id="services"
-        className="section-luxury"
-        style={{
-          background: 'linear-gradient(-45deg, var(--pannocotta-primary) 0%, var(--pannocotta-warm) 100%)'
-        }}
+        className="section-luxury section-services-sophisticated section-transition-sophisticated"
       >
         <div className="container-foundation">
           <motion.div 
