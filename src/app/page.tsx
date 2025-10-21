@@ -1181,279 +1181,161 @@ export default function Home() {
       </footer>
       </main>
 
-      {/* CLEAN PROJECT DETAILS - SINGLE LAYOUT */}
+      {/* SOPHISTICATED PROJECT DETAILS PAGE */}
       {selectedProject !== null && (
         <motion.div 
-          className="project-modal-clean"
-          onClick={() => setSelectedProject(null)}
+          className="project-details-overlay"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
-          >
-            {/* Minimalist Navigation - Luxury Brand Standard */}
-            <div className="fixed top-8 left-8 right-8 z-50 flex justify-between items-center">
-              <motion.button
-                onClick={() => setSelectedProject(null)}
-                className="flex items-center gap-3 px-6 py-3 bg-white/90 rounded-full backdrop-blur-sm text-gray-700 font-medium"
-                whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 1)' }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
+        >
+          {/* Navigation Header */}
+          <div className="project-details-header">
+            <motion.button
+              onClick={() => setSelectedProject(null)}
+              className="back-button"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              ← Back to Projects
+            </motion.button>
+            
+            <div className="project-navigation">
+              <button
+                onClick={() => {
+                  const prevIndex = selectedProject === 0 ? projects.length - 1 : selectedProject - 1;
+                  setSelectedProject(prevIndex);
+                }}
+                className="nav-button prev"
               >
-                ← Projects
-              </motion.button>
-              
-              <div className="flex gap-4">
-                <motion.button
-                  onClick={() => {
-                    const prevIndex = selectedProject === 0 ? projects.length - 1 : selectedProject - 1;
-                    setSelectedProject(prevIndex);
-                    setCurrentGalleryImage(0);
-                  }}
-                  className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center backdrop-blur-sm"
-                  whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 255, 255, 1)' }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <ArrowDown size={18} style={{ transform: 'rotate(90deg)', color: '#ff6663' }} />
-                </motion.button>
-                
-                <motion.button
-                  onClick={() => setSelectedProject(null)}
-                  className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center backdrop-blur-sm"
-                  whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 102, 99, 0.9)' }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <span className="text-gray-700 text-xl">×</span>
-                </motion.button>
-                
-                <motion.button
-                  onClick={() => {
-                    const nextIndex = (selectedProject + 1) % projects.length;
-                    setSelectedProject(nextIndex);
-                    setCurrentGalleryImage(0);
-                  }}
-                  className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center backdrop-blur-sm"
-                  whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 255, 255, 1)' }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <ArrowDown size={18} style={{ transform: 'rotate(-90deg)', color: '#ff6663' }} />
-                </motion.button>
-              </div>
+                Previous
+              </button>
+              <button
+                onClick={() => {
+                  const nextIndex = (selectedProject + 1) % projects.length;
+                  setSelectedProject(nextIndex);
+                }}
+                className="nav-button next"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+
+          {/* Hero Section - Full Width Image */}
+          <div className="project-hero-section">
+            <div 
+              className="project-hero-image"
+              style={{
+                backgroundImage: `url(${projects[selectedProject].image})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+              }}
+            />
+          </div>
+
+          {/* Content Sections - 2x2 Grid */}
+          <div className="project-content-sections">
+            {/* Context */}
+            <div className="content-section context">
+              <h3 className="section-title">Context</h3>
+              <p className="section-text">
+                {projects[selectedProject].description}
+              </p>
             </div>
 
-            {/* ENHANCED EDITORIAL LAYOUT - Using Existing Content Structure */}
-            <div className="project-modal-grid" style={{ 
-              paddingTop: 'var(--space-3xl)', 
-              paddingBottom: 'var(--content-gap)' 
-            }}>
-              
-              {/* Main Content Section - Using Existing Content */}
-              <main className="project-story-section">
-                {/* Project Header - Using Existing Meta */}
-                <motion.header
-                  className="mb-phi-2xl"
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
-                  <h1 className="text-foundation-4xl font-foundation-display text-gray-800 mb-phi-lg">
-                    {projects[selectedProject].title}
-                  </h1>
-                  <p className="text-foundation-xl font-foundation-display text-gray-700 mb-phi-md" style={{ fontStyle: 'italic' }}>
-                    {projects[selectedProject].subtitle}
-                  </p>
-                  
-                  {/* Project Meta */}
-                  <div className="flex flex-wrap gap-6 mb-phi-lg">
-                    <span className="text-foundation-lg font-foundation-accent font-semibold" style={{ color: 'var(--grapefruit-primary)' }}>
-                      {projects[selectedProject].client}
-                    </span>
-                    <span className="text-foundation-sm font-foundation-accent text-gray-600">
-                      {projects[selectedProject].year}
-                    </span>
-                    <span className="text-foundation-sm font-foundation-accent text-gray-600">
-                      {projects[selectedProject].location}
-                    </span>
-                    <a 
-                      href={projects[selectedProject].website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-foundation-sm font-foundation-accent hover:underline"
-                      style={{ color: 'var(--grapefruit-primary)' }}
-                    >
-                      Visit Live Project →
-                    </a>
-                  </div>
-                </motion.header>
-                
-                {/* Content Sections - Using Existing Content Structure */}
-                <article className="space-y-16">
-                  {/* Context Section */}
-                  <motion.section
-                    className="content-section"
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                  >
-                    <h2 className="text-foundation-2xl font-foundation-display text-gray-800 mb-phi-lg">Context</h2>
-                    <p className="text-foundation-base font-foundation-body text-gray-700">
-                      {projects[selectedProject].description}
-                    </p>
-                  </motion.section>
-                  
-                  {/* Challenge/Approach Section */}
-                  <motion.section
-                    className="content-section"
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
-                  >
-                    <h2 className="text-foundation-2xl font-foundation-display text-gray-800 mb-phi-lg">Approach</h2>
-                    <p className="text-foundation-base font-foundation-body text-gray-700">
-                      This project demonstrates our approach to {projects[selectedProject].category.toLowerCase()} challenges through innovative design solutions.
-                    </p>
-                  </motion.section>
-                  
-                  {/* Impact Section */}
-                  <motion.section
-                    className="content-section"
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.7 }}
-                  >
-                    <h2 className="text-foundation-2xl font-foundation-display text-gray-800 mb-phi-lg">Impact</h2>
-                    <p className="text-foundation-base font-foundation-body text-gray-700">
-                      This project showcases our expertise in {projects[selectedProject].tech.join(', ').toLowerCase()} and delivers measurable results for our clients.
-                    </p>
-                  </motion.section>
-                  
-                  {/* Project Details Section */}
-                    <motion.section
-                    className="content-section"
-                      initial={{ opacity: 0, y: 40 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.9 }}
-                    >
-                    <h2 className="text-foundation-2xl font-foundation-display text-gray-800 mb-phi-lg">Project Details</h2>
-                    <div className="grid grid-cols-2 gap-6">
-                      <div>
-                        <h3 className="text-foundation-lg font-foundation-display text-gray-800 mb-2">Client</h3>
-                        <p className="text-foundation-base font-foundation-body text-gray-700">{projects[selectedProject].client}</p>
-                      </div>
-                      <div>
-                        <h3 className="text-foundation-lg font-foundation-display text-gray-800 mb-2">Year</h3>
-                        <p className="text-foundation-base font-foundation-body text-gray-700">{projects[selectedProject].year}</p>
-                      </div>
-                      <div>
-                        <h3 className="text-foundation-lg font-foundation-display text-gray-800 mb-2">Location</h3>
-                        <p className="text-foundation-base font-foundation-body text-gray-700">{projects[selectedProject].location}</p>
-                      </div>
-                      <div>
-                        <h3 className="text-foundation-lg font-foundation-display text-gray-800 mb-2">Category</h3>
-                        <p className="text-foundation-base font-foundation-body text-gray-700">{projects[selectedProject].category}</p>
-                      </div>
-                      </div>
-                    </motion.section>
-                </article>
-              </main>
-              
-              {/* Sidebar - Enhanced Gallery & Project Info Using Existing Content */}
-              <aside className="project-sidebar-enhanced">
-                {/* Hero Image Display */}
-                <motion.div 
-                  className="gallery-main-image mb-phi-lg"
-                  initial={{ opacity: 0, scale: 1.02 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1.2 }}
+            {/* Scope */}
+            <div className="content-section scope">
+              <h3 className="section-title">Scope of the Project</h3>
+              <p className="section-text">
+                Strategic consulting and experience design across {projects[selectedProject].client}'s digital ecosystem, 
+                focusing on {projects[selectedProject].subtitle.toLowerCase()} and business transformation.
+              </p>
+            </div>
+
+            {/* Approach */}
+            <div className="content-section approach">
+              <h3 className="section-title">Approach</h3>
+              <p className="section-text">
+                Experience-driven innovation methodology combining user research, strategic design, 
+                and digital transformation to deliver measurable business impact.
+              </p>
+            </div>
+
+            {/* Testimonial */}
+            <div className="content-section testimonial">
+              <h3 className="section-title">Impact</h3>
+              <p className="section-text">
+                Delivered strategic transformation that enabled {projects[selectedProject].client} to achieve 
+                enhanced user experience and business growth across their digital platforms.
+              </p>
+            </div>
+          </div>
+
+          {/* Image Gallery */}
+          <div className="project-gallery-section">
+            <h3 className="gallery-title">Project Gallery</h3>
+            <div className="gallery-grid">
+              {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.map((image, index) => (
+                <div
+                  key={index}
+                  className="gallery-item"
+                  onClick={() => {
+                    setCurrentGalleryImage(index);
+                    setGalleryZoomOpen(true);
+                  }}
                 >
                   <div
-                    className="gallery-main-image-css-bg"
+                    className="gallery-image"
                     style={{
-                      backgroundImage: `url(${projects[selectedProject].image})`,
+                      backgroundImage: `url(${image})`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center'
                     }}
-                  ></div>
-                </motion.div>
-                
-                {/* Enhanced Gallery - Using Existing galleryImages */}
-                <div className="gallery-luxury">
-                  <h3 className="text-foundation-xl font-foundation-display text-gray-800 mb-phi-md">Gallery</h3>
-                  
-                  {/* Gallery Thumbnails */}
-                  <div className="gallery-thumbnails">
-                    {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.map((image, index) => (
-                      <button
-                        key={index}
-                        onClick={() => {
-                          setCurrentGalleryImage(index);
-                          setGalleryZoomOpen(true);
-                        }}
-                        className={`gallery-thumbnail ${currentGalleryImage === index ? 'active' : ''}`}
-                      >
-                        <div
-                          className="gallery-thumb-css-bg"
-                          style={{
-                            backgroundImage: `url(${image})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center'
-                          }}
-                        ></div>
-                      </button>
-                    ))}
-                  </div>
-                  
-                  {/* Gallery Navigation */}
-                  <div className="gallery-navigation">
-                    <button 
-                      className="gallery-nav-btn"
-                      onClick={() => {
-                        const newIndex = currentGalleryImage === 0 ? 
-                          (projects[selectedProject].galleryImages?.length || 1) - 1 : 
-                          currentGalleryImage - 1;
-                        setCurrentGalleryImage(newIndex);
-                      }}
-                    >
-                      Previous
-                    </button>
-                    <span className="gallery-counter">
-                      {currentGalleryImage + 1} of {projects[selectedProject].galleryImages?.length || 2}
-                    </span>
-                    <button 
-                      className="gallery-nav-btn"
-                      onClick={() => {
-                        const newIndex = currentGalleryImage === (projects[selectedProject].galleryImages?.length || 1) - 1 ? 
-                          0 : currentGalleryImage + 1;
-                        setCurrentGalleryImage(newIndex);
-                      }}
-                    >
-                      Next
-                    </button>
-                  </div>
+                  />
                 </div>
-                
-                {/* Project Capabilities - Using Existing Tech */}
-                <div className="capabilities-section capabilities-section-sophisticated p-phi-lg mb-phi-lg">
-                  <h3 className="text-foundation-xl font-foundation-display text-gray-800 mb-phi-md">Capabilities</h3>
-                  <div className="flex flex-col gap-3">
-                    {selectedProject !== null && projects[selectedProject].tech && projects[selectedProject].tech.map((capability, index) => (
-                      <div 
-                        key={index}
-                        className="px-4 py-3 bg-gray-50 rounded-xl border-l-4"
-                        style={{
-                          borderColor: index === 0 ? '#ff6663' : 'rgba(255, 102, 99, 0.3)'
-                        }}
-                      >
-                        <span className="text-foundation-sm font-foundation-accent text-gray-700">
-                          {capability}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </aside>
+              ))}
             </div>
+          </div>
+
+          {/* Project Navigation */}
+          <div className="project-navigation-section">
+            <div className="nav-project prev-project">
+              <div className="nav-project-thumbnail">
+                <div
+                  className="nav-thumbnail-image"
+                  style={{
+                    backgroundImage: `url(${projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                />
+              </div>
+              <div className="nav-project-info">
+                <span className="nav-label">Previous</span>
+                <h4 className="nav-title">{projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].title}</h4>
+              </div>
+            </div>
+
+            <div className="nav-project next-project">
+              <div className="nav-project-info">
+                <span className="nav-label">Next</span>
+                <h4 className="nav-title">{projects[(selectedProject + 1) % projects.length].title}</h4>
+              </div>
+              <div className="nav-project-thumbnail">
+                <div
+                  className="nav-thumbnail-image"
+                  style={{
+                    backgroundImage: `url(${projects[(selectedProject + 1) % projects.length].image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                />
+              </div>
+            </div>
+          </div>
         </motion.div>
       )}
 
