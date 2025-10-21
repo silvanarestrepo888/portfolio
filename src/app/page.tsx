@@ -489,6 +489,7 @@ export default function Home() {
                   }}
                   quality={100}
                   priority
+                  unoptimized
                 />
                 <div className="about-photo-overlay">
                   <div className="about-photo-accent"></div>
@@ -664,7 +665,7 @@ export default function Home() {
                         style={{
                           width: '100%',
                           height: '100%',
-                          objectFit: 'cover',
+                          objectFit: 'contain',
                           objectPosition: 'center'
                         }}
                         quality={100}
@@ -783,7 +784,7 @@ export default function Home() {
             <h2 className="typography-h2">
                 Experience
               </h2>
-            <p className="luxury-description text-center max-w-4xl mx-auto">
+            <p className="typography-body text-center max-w-4xl mx-auto">
               Some of the <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>upscaling</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>reinventing</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>evolving</span>, and <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>reimagining</span> business, brands, and teams.
             </p>
           </motion.div>
@@ -996,7 +997,7 @@ export default function Home() {
               </h2>
             </div>
             <motion.p 
-              className="luxury-description text-center max-w-4xl mx-auto mb-12"
+              className="typography-body text-center max-w-4xl mx-auto mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
@@ -1218,81 +1219,6 @@ export default function Home() {
               ← Back to Projects
               </motion.button>
               
-            {/* Project Navigation - Top Right */}
-            <div className="project-navigation">
-              {/* Previous Project */}
-                <motion.button
-                  onClick={() => {
-                    const prevIndex = selectedProject === 0 ? projects.length - 1 : selectedProject - 1;
-                    setSelectedProject(prevIndex);
-                  setTimeout(() => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }, 100);
-                }}
-                className="nav-button prev"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <div className="nav-project-info">
-                  <Image
-                    src={projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].image}
-                    alt={projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].title}
-                    width={60}
-                    height={40}
-                    className="nav-project-image-perfect"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      objectPosition: 'center',
-                      borderRadius: '6px'
-                    }}
-                    quality={100}
-                  />
-                  <div className="nav-project-text">
-                    <span className="luxury-caption">Previous</span>
-                    <span className="luxury-body">{projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].title}</span>
-                  </div>
-                </div>
-                </motion.button>
-                
-              {/* Next Project */}
-                <motion.button
-                  onClick={() => {
-                    const nextIndex = (selectedProject + 1) % projects.length;
-                    setSelectedProject(nextIndex);
-                  setTimeout(() => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }, 100);
-                }}
-                className="nav-button next"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <div className="nav-project-info">
-                  <Image
-                    src={projects[(selectedProject + 1) % projects.length].image}
-                    alt={projects[(selectedProject + 1) % projects.length].title}
-                    width={60}
-                    height={40}
-                    className="nav-project-image-perfect"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      objectPosition: 'center',
-                      borderRadius: '6px'
-                    }}
-                    quality={100}
-                  />
-                  <div className="nav-project-text">
-                    <span className="luxury-caption">Next</span>
-                    <span className="luxury-body">{projects[(selectedProject + 1) % projects.length].title}</span>
-                  </div>
-                </div>
-                </motion.button>
-              </div>
-            </div>
 
           {/* HERO SECTION - Perfect Visual Exploration with Proper Spacing */}
           <div className="project-hero-section">

@@ -14,7 +14,7 @@ const navigationItems: NavigationItem[] = [
   { name: 'Projects', number: '02', href: '#projects' },
   { name: 'Experience', number: '03', href: '#experience' },
   { name: 'Services', number: '04', href: '#services' },
-  { name: 'Contact', number: '05', href: '#footer' }
+  { name: 'Contact Me', number: '05', href: '#footer' }
 ];
 
 export function FloatingNavigation() {

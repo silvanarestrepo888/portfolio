@@ -11972,6 +11972,63 @@ h4, .text-h4 {
 }
 
 /* ========================================
+   PROJECT DETAILS FOOTER - LANDOR STANDARDS
+   ======================================== */
+
+.project-details-footer {
+  background: var(--grapefruit-primary);
+  color: var(--panna-cotta-vanilla);
+  padding: 60px 0;
+  margin-top: 80px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-brand-name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--panna-cotta-vanilla);
+  margin: 0;
+}
+
+.footer-brand-title {
+  font-size: 1rem;
+  color: var(--panna-cotta-vanilla);
+  opacity: 0.8;
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 40px;
+}
+
+.footer-link {
+  color: var(--panna-cotta-vanilla);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  opacity: 0.7;
+  transform: translateY(-2px);
+}
+
+/* ========================================
    PERFECT IMAGE IMPLEMENTATION - ZERO TOLERANCE
    ======================================== */
 
