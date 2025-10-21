@@ -13,6 +13,8 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("ALL WORK");
   const [currentGalleryImage, setCurrentGalleryImage] = useState(0);
   const [galleryZoomOpen, setGalleryZoomOpen] = useState(false);
+  const [heroImageZoom, setHeroImageZoom] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   
   // Foundation Project Exploration System
   const [featuredProjectIndex, setFeaturedProjectIndex] = useState(0);
@@ -274,6 +276,13 @@ export default function Home() {
 
     return () => clearInterval(interval);
   }, [isAutoPlaying, filteredProjects.length]);
+
+  // Scroll effect for parallax and progressive disclosure
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Ensure featuredProjectIndex is within bounds
   const safeFeaturedProjectIndex = Math.min(featuredProjectIndex, Math.max(0, filteredProjects.length - 1));
@@ -1206,8 +1215,8 @@ export default function Home() {
               </div>
             </div>
 
-          {/* CLEAN HERO SECTION - Pure Image Exploration */}
-          <div className="clean-hero-section">
+          {/* ENHANCED HERO SECTION - Click to Zoom & Parallax */}
+          <div className="enhanced-hero-section">
             <div 
               className="hero-image-container"
               style={{
@@ -1215,9 +1224,16 @@ export default function Home() {
                 backgroundSize: 'contain',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
-                backgroundColor: '#000'
+                backgroundColor: '#000',
+                transform: `translateY(${scrollY * 0.5}px)`
               }}
-            />
+              onClick={() => setHeroImageZoom(true)}
+            >
+              <div className="hero-zoom-overlay">
+                <div className="zoom-icon">🔍</div>
+                <span className="zoom-text">Click to explore</span>
+              </div>
+            </div>
           </div>
 
           {/* Project Info Below Image */}
@@ -1250,74 +1266,82 @@ export default function Home() {
             </motion.div>
                   </div>
 
-          {/* SOPHISTICATED CONTENT SECTIONS - 2x2 Grid */}
-          <div className="sophisticated-content-sections">
-            {/* Context */}
+          {/* ASYMMETRIC CONTENT SECTIONS - Progressive Disclosure */}
+          <div className="asymmetric-content-sections">
+            {/* Context - Large */}
             <motion.div 
-              className="sophisticated-content-section context"
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
+              className="content-section-large context"
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true, margin: "-100px" }}
             >
-              <h3 className="sophisticated-section-title">Context</h3>
-              <div className="sophisticated-section-content">
-                <p className="sophisticated-section-text">
+              <div className="section-icon">🎯</div>
+              <h3 className="section-title">Context</h3>
+              <div className="section-content">
+                <p className="section-text">
                   {projects[selectedProject].description}
                 </p>
               </div>
             </motion.div>
 
-            {/* Scope */}
+            {/* Scope - Medium */}
             <motion.div 
-              className="sophisticated-content-section scope"
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
+              className="content-section-medium scope"
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true, margin: "-100px" }}
             >
-              <h3 className="sophisticated-section-title">Scope of the Project</h3>
-              <div className="sophisticated-section-content">
-                <p className="sophisticated-section-text">
+              <div className="section-icon">📋</div>
+              <h3 className="section-title">Scope of the Project</h3>
+              <div className="section-content">
+                <p className="section-text">
                   Strategic consulting and experience design across {projects[selectedProject].client}&apos;s digital ecosystem, 
                   focusing on {projects[selectedProject].subtitle.toLowerCase()} and business transformation.
                 </p>
               </div>
             </motion.div>
 
-            {/* Approach */}
+            {/* Approach - Small */}
             <motion.div 
-              className="sophisticated-content-section approach"
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
+              className="content-section-small approach"
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
+              viewport={{ once: true, margin: "-100px" }}
             >
-              <h3 className="sophisticated-section-title">Approach</h3>
-              <div className="sophisticated-section-content">
-                <p className="sophisticated-section-text">
+              <div className="section-icon">🚀</div>
+              <h3 className="section-title">Approach</h3>
+              <div className="section-content">
+                <p className="section-text">
                   Experience-driven innovation methodology combining user research, strategic design, 
                   and digital transformation to deliver measurable business impact.
                 </p>
               </div>
             </motion.div>
 
-            {/* Testimonial */}
+            {/* Impact - Medium */}
             <motion.div 
-              className="sophisticated-content-section testimonial"
-                      initial={{ opacity: 0, y: 40 }}
-                      animate={{ opacity: 1, y: 0 }}
+              className="content-section-medium impact"
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
+              viewport={{ once: true, margin: "-100px" }}
             >
-              <h3 className="sophisticated-section-title">Impact</h3>
-              <div className="sophisticated-section-content">
-                <p className="sophisticated-section-text">
+              <div className="section-icon">✨</div>
+              <h3 className="section-title">Impact</h3>
+              <div className="section-content">
+                <p className="section-text">
                   Delivered strategic transformation that enabled {projects[selectedProject].client} to achieve 
                   enhanced user experience and business growth across their digital platforms.
                 </p>
-                      </div>
-                </motion.div>
+              </div>
+            </motion.div>
           </div>
 
-          {/* CLEAN IMAGE GALLERY - 3 Images Only */}
-          <div className="clean-gallery-section">
+          {/* ENHANCED IMAGE GALLERY - Smooth Transitions & Fullscreen */}
+          <div className="enhanced-gallery-section">
             <motion.h3 
               className="gallery-title"
               initial={{ opacity: 0, y: 30 }}
@@ -1327,20 +1351,29 @@ export default function Home() {
             >
               Project Gallery
             </motion.h3>
-            <div className="gallery-three-grid">
+            <div className="gallery-masonry-grid">
               {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.slice(0, 3).map((image, index) => (
                 <motion.div
-                        key={index}
-                  className="gallery-item"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                        onClick={() => {
-                          setCurrentGalleryImage(index);
-                          setGalleryZoomOpen(true);
-                        }}
-                  whileHover={{ scale: 1.05, y: -10 }}
+                  key={index}
+                  className={`gallery-item gallery-item-${index + 1}`}
+                  initial={{ opacity: 0, scale: 0.8, y: 50 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: index * 0.2,
+                    type: "spring",
+                    stiffness: 100
+                  }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  onClick={() => {
+                    setCurrentGalleryImage(index);
+                    setGalleryZoomOpen(true);
+                  }}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -15,
+                    transition: { duration: 0.3 }
+                  }}
                 >
                   <div
                     className="gallery-image"
@@ -1352,11 +1385,12 @@ export default function Home() {
                   />
                   <div className="gallery-overlay">
                     <div className="gallery-icon">🔍</div>
+                    <span className="gallery-text">View Full Size</span>
                   </div>
                 </motion.div>
               ))}
             </div>
-                  </div>
+          </div>
                   
           {/* SOPHISTICATED PROJECT NAVIGATION */}
           <div className="sophisticated-navigation-section">
@@ -1420,6 +1454,45 @@ export default function Home() {
                       </div>
             </motion.div>
             </div>
+        </motion.div>
+      )}
+
+      {/* Hero Image Zoom Modal */}
+      {heroImageZoom && (
+        <motion.div 
+          className="hero-zoom-modal"
+          onClick={() => setHeroImageZoom(false)}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <motion.div
+            className="hero-zoom-content"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div
+              className="hero-zoom-image"
+              style={{
+                backgroundImage: `url(${selectedProject !== null ? projects[selectedProject].image : ''})`,
+                backgroundSize: 'contain',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+              }}
+            />
+            <motion.button 
+              onClick={() => setHeroImageZoom(false)}
+              className="hero-zoom-close"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              ×
+            </motion.button>
+          </motion.div>
         </motion.div>
       )}
 
