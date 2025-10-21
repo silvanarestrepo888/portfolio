@@ -513,29 +513,33 @@ export default function Home() {
             {/* Right Column - Profile Photo */}
             <div className="about-photo-column">
               <div className="about-photo-container">
-                <img
+            <img
                   src="/silvana-profile.jpg"
-                  alt="Silvana Restrepo - Principal Experience Architect"
-                  className="about-photo-perfect"
+              alt="Silvana Restrepo - Principal Experience Architect"
+              className="about-photo-perfect"
                   style={{
-                    width: '100%',
-                    height: '500px',
-                    objectFit: 'cover',
-                    objectPosition: 'center',
-                    borderRadius: '12px',
-                    display: 'block',
-                    visibility: 'visible',
-                    opacity: 1,
-                    maxWidth: '100%',
-                    minHeight: '500px',
-                    backgroundColor: '#f3f4f6'
-                  }}
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'block';
-                    e.currentTarget.style.backgroundColor = '#f3f4f6';
-                    e.currentTarget.style.border = '2px dashed #d1d5db';
-                  }}
-                />
+                width: '100%',
+                height: '500px',
+                objectFit: 'cover',
+                objectPosition: 'center',
+                borderRadius: '12px',
+                display: 'block',
+                visibility: 'visible',
+                opacity: 1,
+                maxWidth: '100%',
+                minHeight: '500px',
+                backgroundColor: '#f3f4f6'
+              }}
+              onError={(e) => {
+                console.log('Image load error:', e);
+                e.currentTarget.style.display = 'block';
+                e.currentTarget.style.backgroundColor = '#f3f4f6';
+                e.currentTarget.style.border = '2px dashed #d1d5db';
+              }}
+              onLoad={(e) => {
+                console.log('Image loaded successfully:', e.currentTarget.src);
+              }}
+            />
                 <div className="about-photo-overlay">
                   <div className="about-photo-accent"></div>
                 </div>
@@ -1466,11 +1470,9 @@ export default function Home() {
                         }}
                   whileHover={{ scale: 1.02 }}
                       >
-                        <Image
+                        <img
                           src={image}
                           alt={`${projects[selectedProject].title} - Image ${index + 2}`}
-                          width={400}
-                          height={300}
                           className="gallery-image-perfect"
                           style={{
                             width: '100%',
@@ -1478,7 +1480,13 @@ export default function Home() {
                             objectFit: 'cover',
                             objectPosition: 'center'
                           }}
-                          quality={100}
+                          onError={(e) => {
+                            console.log('Gallery thumbnail load error:', e.currentTarget.src);
+                            e.currentTarget.style.display = 'none';
+                          }}
+                          onLoad={(e) => {
+                            console.log('Gallery thumbnail loaded successfully:', e.currentTarget.src);
+                          }}
                         />
                   <div className="gallery-overlay">
                     <span className="zoom-text typography-caption">Click to explore</span>
@@ -1651,6 +1659,13 @@ export default function Home() {
                 (selectedProject !== null ? projects[selectedProject].image : '')} 
               alt={`${selectedProject !== null ? projects[selectedProject].title : ''} - Gallery image ${currentGalleryImage + 1} zoomed view`} 
               className="w-full h-auto object-contain rounded-xl shadow-2xl" 
+              onError={(e) => {
+                console.log('Gallery image load error:', e.currentTarget.src);
+                e.currentTarget.style.display = 'none';
+              }}
+              onLoad={(e) => {
+                console.log('Gallery image loaded successfully:', e.currentTarget.src);
+              }}
             />
             
             {/* Navigation Arrows */}
