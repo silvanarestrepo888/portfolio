@@ -1310,7 +1310,7 @@ export default function Home() {
                 </div>
                 <div className="section-content">
                   <p className="section-text typography-body">
-                    {projects[selectedProject].description}
+                    {projects[selectedProject].context}
                   </p>
                 </div>
                   </motion.section>
@@ -1329,9 +1329,7 @@ export default function Home() {
                 </div>
                 <div className="section-content">
                   <p className="section-text typography-body">
-                    Strategic transformation initiative encompassing user experience design, 
-                    digital platform optimization, and business process enhancement to drive 
-                    measurable growth and operational excellence.
+                    {projects[selectedProject].scope}
                   </p>
                 </div>
                   </motion.section>
@@ -1350,16 +1348,8 @@ export default function Home() {
                 </div>
                 <div className="section-content">
                   <p className="section-text typography-body">
-                    Innovation methodology combining user research, strategic design, 
-                    and digital transformation to deliver measurable business impact.
+                    {projects[selectedProject].impact}
                   </p>
-                  <div className="capability-tags">
-                    {projects[selectedProject].tech.map((capability, index) => (
-                      <span key={index} className="capability-tag typography-caption">
-                        {capability}
-                      </span>
-                    ))}
-                  </div>
                 </div>
                   </motion.section>
                   
@@ -1378,14 +1368,14 @@ export default function Home() {
                 <div className="section-content">
                   <div className="testimonial-container">
                     <blockquote className="testimonial-quote typography-body">
-                      &ldquo;Silvana&apos;s strategic approach transformed our digital ecosystem. Her expertise in experience design and business transformation delivered measurable results that exceeded our expectations.&rdquo;
+                      &ldquo;{projects[selectedProject].testimonial.quote}&rdquo;
                         </blockquote>
                     <div className="testimonial-attribution">
                       <p className="testimonial-author typography-caption">
-                        {projects[selectedProject].client}
+                        {projects[selectedProject].testimonial.author}
                       </p>
                       <p className="testimonial-role typography-caption">
-                        {projects[selectedProject].category}
+                        {projects[selectedProject].testimonial.role}
                       </p>
                     </div>
                   </div>
