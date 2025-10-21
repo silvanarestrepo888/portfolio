@@ -151,8 +151,8 @@ export default function Home() {
       title: "Chime Care J&J",
       subtitle: "Elevating Ophthalmic Practices with Experience-Driven Innovation",
       description: "CHiME Care supports ophthalmic practices by uniting digital tools with clinical expertise. CHiME Care streamlines surgical patient management workflows, allowing practitioners to focus entirely on precision care while intelligent systems handle complexity behind the scenes.",
-      tech: ["Design Ops", "Design Systems", "Service Design", "Healthcare UX", "Clinical Workflow"],
-      industryTags: ["Healthcare Technology", "Surgical Systems", "Medical Devices", "Clinical Excellence"],
+      tech: ["Design Ops", "Design Systems", "Service Design"],
+      industryTags: ["Health & Wellness"],
       category: "Health & Wellness",
       year: "2022",
       client: "Johnson & Johnson Surgical Vision",
@@ -164,12 +164,7 @@ export default function Home() {
         "/projects/chime-care/secundary-jjpeg.jpeg",
         "/projects/chime-care/Screenshot 2025-03-06 at 171139-VSCO.jpeg",
         "/projects/chime-care/Screenshot 2025-04-15 at 13.23.31.png"
-      ],
-      testimonial: "Silvana is an excellent professional that has been a great plus in the \"cosmic eyes\" POD. Her commitment and skills are outstanding",
-      testimonialAuthor: "Karina Paola Bailetti-Project Manager-Globant",
-      context: "For optometrists and surgeons, precision is essential—every decision and data point affects patient vision outcomes. CHiME Care was envisioned as more than just a digital tool; it's an intelligent support system guiding practitioners through complex surgical workflows. In partnership with Johnson & Johnson's Experience Design leadership, we established the foundations for this specialised platform.",
-      challenge: "We researched with practicing optometrists to reveal workflow patterns and decision points critical to surgical planning. Intuitive interfaces were designed for specialised tools, including toric calculators, case reviews, and performance metrics to enhance clinical decisions. A comprehensive design system architecture ensures consistent experiences while supporting rapid platform evolution.",
-      impact: "CHiME Care transforms fragmented ophthalmic practices into connected ecosystems where intelligence amplifies surgical precision. Optometrists now benefit from a digital assistant that enhances workflow, optimises surgical planning, and provides meaningful procedural insights. The platform drives widespread adoption throughout Johnson & Johnson Vision's ecosystem while laying foundations for future innovations."
+      ]
     },
     {
       title: "Nomade Tulum",
