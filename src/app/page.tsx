@@ -245,16 +245,6 @@ export default function Home() {
         "/projects/qiddiya/unified-guest-interaction.png"
       ]
     }
-      location: "Spain",
-      website: "https://www.parquesreunidos.com/",
-      image: "/projects/parques-reunidos/hero-parque-reunidos.png",
-      secondaryImage: "/projects/parques-reunidos/secundary-image.jpeg",
-      galleryImages: [
-        "/projects/parques-reunidos/secundary-image.jpeg",
-        "/projects/parques-reunidos/Envisioning for Digital Planning and Booking.png",
-        "/projects/parques-reunidos/Envisioning for Dynamic Booking.png"
-      ],
-      testimonial: "We have completed the Catalog Harmonisation Project in the expected time and conditions, despite having a very complex scope, with changes along the way. We have simultaneously created spaces for new project opportunities and increase client satisfactions with a NPS of 9",
       testimonialAuthor: "Diego Salcedo-Delivery Manager-Globant",
       context: "Parques Reunidos is a global leisure leader operating seventy diverse entertainment venues spanning three continents and multiple experience categories. Portfolio diversity created operational complexity—particularly across six sales channels and seven distinct product categories. Fragmented systems limited consistent guest experiences and prevented implementation of enterprise-wide product strategies.",
       challenge: "In collaboration with internal teams, we created a unified product taxonomy to enable operational efficiency while preserving the authenticity of local venue offerings. We designed governance frameworks that balance centralised intelligence with venue-specific innovation across diverse properties. Integration pathways were mapped to connect disparate systems into a coherent operational ecosystem, enhancing both efficiency and engagement.",
