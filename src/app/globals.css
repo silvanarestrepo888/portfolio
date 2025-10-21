@@ -136,7 +136,7 @@
 
 /* SOPHISTICATED HOVER STATES */
 .luxury-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Sophisticated easing */
 }
 
 .luxury-hover:hover {
@@ -176,7 +176,7 @@
     radial-gradient(circle at 80% 20%, rgba(255, 102, 99, 0.02) 0%, transparent 50%),
     radial-gradient(circle at 40% 40%, rgba(255, 102, 99, 0.01) 0%, transparent 50%);
   pointer-events: none;
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
 }
 
 /* SOPHISTICATED SECTION BACKGROUNDS */
@@ -199,7 +199,7 @@
     radial-gradient(circle at 10% 20%, rgba(255, 102, 99, 0.02) 0%, transparent 40%),
     radial-gradient(circle at 90% 80%, rgba(255, 102, 99, 0.015) 0%, transparent 40%);
   pointer-events: none;
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
 }
 
 .projects-section-award-winning {
@@ -221,7 +221,7 @@
     radial-gradient(circle at 30% 70%, rgba(255, 102, 99, 0.025) 0%, transparent 50%),
     radial-gradient(circle at 70% 30%, rgba(255, 102, 99, 0.02) 0%, transparent 50%);
   pointer-events: none;
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
 }
 
 .experience-architecture-container {
@@ -243,7 +243,7 @@
     radial-gradient(circle at 50% 10%, rgba(255, 102, 99, 0.02) 0%, transparent 60%),
     radial-gradient(circle at 20% 90%, rgba(255, 102, 99, 0.015) 0%, transparent 60%);
   pointer-events: none;
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
 }
 
 /* PREMIUM MICRO-INTERACTIONS */
@@ -259,7 +259,7 @@
 }
 
 .luxury-hover-scale {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Sophisticated easing */
 }
 
 .luxury-hover-scale:hover {
@@ -267,7 +267,7 @@
 }
 
 .luxury-hover-glow {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Sophisticated easing */
 }
 
 .luxury-hover-glow:hover {
@@ -333,7 +333,7 @@
 
 /* PREMIUM LAYERING */
 .luxury-layer-1 {
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
   position: relative;
 }
 
@@ -369,7 +369,7 @@
 
 .testimonial-title {
   margin-bottom: 3rem;
-  color: var(--white-bones);
+  color: var(--text-primary);
 }
 
 .testimonial-quote-container {
@@ -383,7 +383,7 @@
 .testimonial-quote {
   font-size: var(--text-lg);
   line-height: 1.6;
-  color: var(--white-bones);
+  color: var(--text-primary);
   font-style: italic;
   margin-bottom: 2rem;
   position: relative;
@@ -442,7 +442,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
 }
 
 .hero-distorted-image {
@@ -1975,7 +1975,7 @@ body {
   position: absolute;
   inset: 0;
   background: var(--pannocotta-primary);
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
   will-change: transform;
 }
 
@@ -2052,7 +2052,7 @@ body {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
 }
 
 .video-bg {
@@ -2105,7 +2105,7 @@ body {
 /* HIGH CONTRAST MODE SUPPORT */
 @media (prefers-contrast: high) {
   :root {
-    --grapefruit-primary: #cc0000;
+    --grapefruit-primary: #ff6663;
     --pannocotta-primary: #ffffff;
   }
   
@@ -2265,7 +2265,7 @@ body {
   box-shadow: 
     0 25px 50px rgba(255,102,99,0.08),
     inset 0 1px 0 rgba(255,255,255,0.3);
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
   animation: glass-layer-float-1 25s ease-in-out infinite;
   pointer-events: none;
   /* GPU acceleration */
@@ -2958,7 +2958,7 @@ body {
 
 .footer-compact {
   background: linear-gradient(135deg, var(--midnight) 0%, var(--deep-charcoal) 100%);
-  color: var(--white-bones);
+  color: var(--text-primary);
   padding: 4rem 0 3rem 0;
   margin-top: var(--space-3xl);
   position: relative;
@@ -2976,7 +2976,7 @@ body {
     radial-gradient(circle at 20% 80%, rgba(255, 102, 99, 0.03) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(255, 102, 99, 0.02) 0%, transparent 50%);
   pointer-events: none;
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
 }
 
 .footer-content-efficient {
@@ -3024,7 +3024,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--white-bones);
+  color: var(--text-primary);
   text-decoration: none;
   font-size: var(--text-sm);
   font-weight: 400;
@@ -3118,7 +3118,7 @@ body {
 .hero-background-professional {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
 }
 
 .hero-image-foundation {
@@ -3256,7 +3256,7 @@ body {
 .hero-photo-layer {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
   /* GPU-optimized container */
   transform: translateZ(0);
   backface-visibility: hidden;
@@ -3276,7 +3276,7 @@ body {
   will-change: transform;
   /* Ensure photo is visible */
   opacity: 1;
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
 }
 
 /* Optimized Overlay System - FIXED for Photo Visibility */
@@ -3336,7 +3336,7 @@ body {
 .hero-background-photo {
   object-fit: cover;
   object-position: center;
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
   /* Distorted breathing animation */
   animation: photo-distort-breathe 8s ease-in-out infinite;
 }
@@ -3419,7 +3419,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
 }
 
 .hero-bg-image {
@@ -3909,7 +3909,7 @@ body {
 /* Sophisticated Quote CSS Styling - 35 Lines of Craft Enhancement */
 .philosophy-quote-craft {
   position: relative;
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
   /* Sophisticated text shadow for depth */
   text-shadow: 0 2px 8px rgba(255, 102, 99, 0.08);
   /* Enhanced typography spacing */
@@ -4831,7 +4831,7 @@ body {
 
 /* Professional card hover effects */
 .professional-card {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Sophisticated easing */
 }
 
 .professional-card:hover {
@@ -7255,7 +7255,7 @@ h4, .text-h4 {
     rgba(255, 102, 99, 0.3) 50%, 
     transparent 100%
   );
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
 }
 
 /* Subtle pulse animation for focus state */
@@ -7635,7 +7635,7 @@ h4, .text-h4 {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
 }
 
 .hero-luxury-image {
@@ -7886,7 +7886,7 @@ h4, .text-h4 {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
 }
 
 .hero-bg-image {
@@ -7931,7 +7931,7 @@ h4, .text-h4 {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
 }
 
 .hero-bg-image-luxury {
@@ -8092,7 +8092,7 @@ h4, .text-h4 {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 1;
+  z-index: 10; /* Sophisticated layering */
 }
 
 .particle {
@@ -8381,7 +8381,7 @@ h4, .text-h4 {
 /* Ultra-Luxury About Header - Perfectly Centered */
 .about-header-ultra-luxury {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 3.75rem; /* 60px - Golden ratio precision */
   position: relative;
 }
 
@@ -8591,7 +8591,7 @@ h4, .text-h4 {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: left center;
-  color: var(--white-bones);
+  color: var(--text-primary);
   font-weight: 700;
   font-size: 1.2em;
   position: relative;
@@ -11870,7 +11870,7 @@ h4, .text-h4 {
 
 .section-number {
   background: var(--grapefruit);
-  color: var(--white-bones);
+  color: var(--text-primary);
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
@@ -11883,7 +11883,7 @@ h4, .text-h4 {
 
 .section-title {
   margin: 0;
-  color: var(--white-bones);
+  color: var(--text-primary);
 }
 
 /* Section Content with Proper Margins */
@@ -12026,6 +12026,16 @@ h4, .text-h4 {
 .footer-link:hover {
   opacity: 0.7;
   transform: translateY(-2px);
+}
+
+/* Ultra-perfectionist focus states */
+.footer-link:focus,
+.back-button:focus,
+.nav-item-enhanced:focus {
+  outline: 2px solid var(--grapefruit-primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+  transition: outline 0.2s ease;
 }
 
 /* ========================================
@@ -12178,6 +12188,39 @@ h4, .text-h4 {
   --space-64: 16rem;     /* 256px */
 }
 
+/* ===== ULTRA-PERFECTIONIST TYPOGRAPHY CLASSES ===== */
+
+/* Micro-interaction perfection */
+.typography-h1:hover,
+.typography-h2:hover,
+.typography-h3:hover {
+  transform: translateY(-1px);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+/* Performance micro-optimizations */
+.typography-h1,
+.typography-h2,
+.typography-h3,
+.typography-h4 {
+  contain: layout style paint;
+  backface-visibility: hidden;
+}
+
+/* Ultra-sophisticated shadow system */
+.typography-h1 {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.typography-h2 {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.typography-h3 {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
 /* ===== PERFECT TYPOGRAPHY CLASSES ===== */
 .typography-h1 {
   font-family: var(--font-secondary);
@@ -12185,7 +12228,7 @@ h4, .text-h4 {
   font-weight: 300;
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tighter);
-  color: var(--white-bones);
+  color: var(--text-primary);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -12197,7 +12240,7 @@ h4, .text-h4 {
   font-weight: 300;
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tighter);
-  color: var(--white-bones);
+  color: var(--text-primary);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -12209,7 +12252,7 @@ h4, .text-h4 {
   font-weight: 400;
   line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight);
-  color: var(--white-bones);
+  color: var(--text-primary);
   text-rendering: optimizeLegibility;
 }
 
@@ -12219,7 +12262,7 @@ h4, .text-h4 {
   font-weight: 400;
   line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight);
-  color: var(--white-bones);
+  color: var(--text-primary);
   text-rendering: optimizeLegibility;
 }
 
@@ -12342,7 +12385,7 @@ h4, .text-h4 {
   overflow: hidden;
   border-radius: var(--space-3);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Sophisticated easing */
 }
 
 .image-container:hover {
@@ -12355,7 +12398,7 @@ h4, .text-h4 {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Sophisticated easing */
 }
 
 .image-perfect:hover {
@@ -12370,13 +12413,13 @@ h4, .text-h4 {
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  color: var(--white-bones);
+  color: var(--text-primary);
   background: var(--grapefruit);
   border: none;
   border-radius: var(--space-2);
   padding: var(--space-3) var(--space-6);
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Sophisticated easing */
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -12403,7 +12446,7 @@ h4, .text-h4 {
   border-radius: var(--space-2);
   padding: var(--space-3) var(--space-6);
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Sophisticated easing */
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -12413,7 +12456,7 @@ h4, .text-h4 {
 
 .btn-secondary:hover {
   background: var(--grapefruit);
-  color: var(--white-bones);
+  color: var(--text-primary);
   transform: translateY(-2px);
   box-shadow: 0 8px 16px rgba(255, 102, 99, 0.2);
 }
@@ -12425,7 +12468,7 @@ h4, .text-h4 {
   border-radius: var(--space-4);
   padding: var(--space-8);
   backdrop-filter: blur(10px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Sophisticated easing */
 }
 
 .card:hover {
@@ -12442,7 +12485,7 @@ h4, .text-h4 {
   padding: var(--space-10);
   backdrop-filter: blur(20px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Sophisticated easing */
 }
 
 .card-elevated:hover {
