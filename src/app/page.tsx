@@ -1215,20 +1215,26 @@ export default function Home() {
               </div>
             </div>
 
-          {/* ENHANCED HERO SECTION - Click to Zoom & Parallax */}
-          <div className="enhanced-hero-section">
+          {/* FIXED HERO SECTION - Proper Image Display */}
+          <div className="fixed-hero-section">
             <div 
               className="hero-image-container"
               style={{
-                backgroundImage: `url(${projects[selectedProject].image})`,
-                backgroundSize: 'contain',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-                backgroundColor: '#000',
                 transform: `translateY(${scrollY * 0.5}px)`
               }}
               onClick={() => setHeroImageZoom(true)}
             >
+              <Image
+                src={projects[selectedProject].image}
+                alt={projects[selectedProject].title}
+                fill
+                className="hero-image"
+                style={{
+                  objectFit: 'contain',
+                  objectPosition: 'center'
+                }}
+                priority
+              />
               <div className="hero-zoom-overlay">
                 <div className="zoom-icon">🔍</div>
                 <span className="zoom-text">Click to explore</span>
@@ -1276,7 +1282,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <div className="section-icon">🎯</div>
+              <div className="section-number">01</div>
               <h3 className="section-title">Context</h3>
               <div className="section-content">
                 <p className="section-text">
@@ -1293,7 +1299,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <div className="section-icon">📋</div>
+              <div className="section-number">02</div>
               <h3 className="section-title">Scope of the Project</h3>
               <div className="section-content">
                 <p className="section-text">
@@ -1311,7 +1317,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.6 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <div className="section-icon">🚀</div>
+              <div className="section-number">03</div>
               <h3 className="section-title">Approach</h3>
               <div className="section-content">
                 <p className="section-text">
@@ -1329,7 +1335,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.8 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <div className="section-icon">✨</div>
+              <div className="section-number">04</div>
               <h3 className="section-title">Impact</h3>
               <div className="section-content">
                 <p className="section-text">
@@ -1340,8 +1346,8 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* ENHANCED IMAGE GALLERY - Smooth Transitions & Fullscreen */}
-          <div className="enhanced-gallery-section">
+          {/* PROJECT GALLERY */}
+          <div className="project-gallery-section">
             <motion.h3 
               className="gallery-title"
               initial={{ opacity: 0, y: 30 }}
@@ -1351,11 +1357,11 @@ export default function Home() {
             >
               Project Gallery
             </motion.h3>
-            <div className="gallery-masonry-grid">
-              {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.slice(0, 3).map((image, index) => (
+            <div className="gallery-grid">
+              {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.map((image, index) => (
                 <motion.div
                   key={index}
-                  className={`gallery-item gallery-item-${index + 1}`}
+                  className="gallery-item"
                   initial={{ opacity: 0, scale: 0.8, y: 50 }}
                   whileInView={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ 
@@ -1375,17 +1381,73 @@ export default function Home() {
                     transition: { duration: 0.3 }
                   }}
                 >
-                  <div
+                  <Image
+                    src={image}
+                    alt={`${projects[selectedProject].title} - Image ${index + 1}`}
+                    fill
                     className="gallery-image"
                     style={{
-                      backgroundImage: `url(${image})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center'
+                      objectFit: 'cover',
+                      objectPosition: 'center'
                     }}
                   />
                   <div className="gallery-overlay">
                     <div className="gallery-icon">🔍</div>
                     <span className="gallery-text">View Full Size</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* TESTIMONIAL GALLERY */}
+          <div className="testimonial-gallery-section">
+            <motion.h3 
+              className="gallery-title"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              Testimonial Gallery
+            </motion.h3>
+            <div className="testimonial-grid">
+              {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.map((image, index) => (
+                <motion.div
+                  key={`testimonial-${index}`}
+                  className="testimonial-item"
+                  initial={{ opacity: 0, scale: 0.8, y: 50 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ 
+                    duration: 0.8, 
+                    delay: index * 0.2,
+                    type: "spring",
+                    stiffness: 100
+                  }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  onClick={() => {
+                    setCurrentGalleryImage(index);
+                    setGalleryZoomOpen(true);
+                  }}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -15,
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  <Image
+                    src={image}
+                    alt={`${projects[selectedProject].title} - Testimonial ${index + 1}`}
+                    fill
+                    className="testimonial-image"
+                    style={{
+                      objectFit: 'cover',
+                      objectPosition: 'center'
+                    }}
+                  />
+                  <div className="testimonial-overlay">
+                    <div className="testimonial-icon">💬</div>
+                    <span className="testimonial-text">View Testimonial</span>
                   </div>
                 </motion.div>
               ))}
@@ -1403,7 +1465,9 @@ export default function Home() {
                       onClick={() => {
                 const prevIndex = selectedProject === 0 ? projects.length - 1 : selectedProject - 1;
                 setSelectedProject(prevIndex);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setTimeout(() => {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 100);
               }}
               whileHover={{ scale: 1.02, x: -10 }}
             >
@@ -1433,7 +1497,9 @@ export default function Home() {
               onClick={() => {
                 const nextIndex = (selectedProject + 1) % projects.length;
                 setSelectedProject(nextIndex);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setTimeout(() => {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 100);
               }}
               whileHover={{ scale: 1.02, x: 10 }}
             >
