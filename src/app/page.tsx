@@ -316,7 +316,7 @@ export default function Home() {
       const sections = ['hero', 'about', 'projects', 'experience', 'services'];
       const scrollPosition = window.scrollY + window.innerHeight / 2;
       
-      sections.forEach((sectionId, index) => {
+      sections.forEach((sectionId) => {
         const section = document.getElementById(sectionId);
         if (section) {
           const rect = section.getBoundingClientRect();
@@ -336,81 +336,7 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleSectionScroll);
   }, []);
 
-  // 10X SOPHISTICATION - Advanced Background System Integration
-  useEffect(() => {
-    // Enhanced cursor tracking with sophisticated effects
-    const handleAdvancedMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
-      setCursorPosition({ x, y });
-      setIsCursorActive(true);
-      
-      // Update CSS custom properties for cursor-responsive backgrounds
-      document.documentElement.style.setProperty('--cursor-x', `${x}%`);
-      document.documentElement.style.setProperty('--cursor-y', `${y}%`);
-      
-      // Add sophisticated cursor grapefruit effect
-      const cursorElement = document.querySelector('.cursor-responsive-background');
-      if (cursorElement) {
-        cursorElement.classList.add('active');
-      }
-    };
 
-    const handleAdvancedMouseLeave = () => {
-      setIsCursorActive(false);
-      const cursorElement = document.querySelector('.cursor-responsive-background');
-      if (cursorElement) {
-        cursorElement.classList.remove('active');
-      }
-    };
-
-    window.addEventListener('mousemove', handleAdvancedMouseMove);
-    window.addEventListener('mouseleave', handleAdvancedMouseLeave);
-    
-    return () => {
-      window.removeEventListener('mousemove', handleAdvancedMouseMove);
-      window.removeEventListener('mouseleave', handleAdvancedMouseLeave);
-    };
-  }, []);
-
-  // 10X SOPHISTICATION - Scroll-Triggered Color Morphing System
-  useEffect(() => {
-    const handleScrollColorMorphing = () => {
-      const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight;
-      
-      // Calculate scroll progress for smooth color transitions
-      const scrollProgress = Math.min(scrollPosition / (windowHeight * 4), 1);
-      const colorIntensity = Math.sin(scrollProgress * Math.PI) * 0.5 + 0.5;
-      
-      // Update scroll-triggered color system with sophisticated gradients
-      const heroEnd = windowHeight * 0.8;
-      const aboutStart = windowHeight * 0.8;
-      const aboutEnd = windowHeight * 1.8;
-      const projectsStart = windowHeight * 1.8;
-      const projectsEnd = windowHeight * 2.8;
-      const experienceStart = windowHeight * 2.8;
-      const experienceEnd = windowHeight * 3.8;
-      const servicesStart = windowHeight * 3.8;
-      
-      // Sophisticated color morphing based on scroll position
-      document.documentElement.style.setProperty('--scroll-color-1', 
-        scrollPosition < heroEnd ? `rgba(255, 102, 99, ${colorIntensity * 0.12})` : 'transparent');
-      document.documentElement.style.setProperty('--scroll-color-2', 
-        scrollPosition >= aboutStart && scrollPosition < aboutEnd ? `rgba(255, 102, 99, ${colorIntensity * 0.08})` : 'transparent');
-      document.documentElement.style.setProperty('--scroll-color-3', 
-        scrollPosition >= projectsStart && scrollPosition < projectsEnd ? `rgba(255, 102, 99, ${colorIntensity * 0.15})` : 'transparent');
-      document.documentElement.style.setProperty('--scroll-color-4', 
-        scrollPosition >= experienceStart && scrollPosition < experienceEnd ? `rgba(255, 102, 99, ${colorIntensity * 0.10})` : 'transparent');
-      document.documentElement.style.setProperty('--scroll-color-5', 
-        scrollPosition >= servicesStart ? `rgba(255, 102, 99, ${colorIntensity * 0.06})` : 'transparent');
-    };
-
-    window.addEventListener('scroll', handleScrollColorMorphing);
-    handleScrollColorMorphing(); // Initial call
-    
-    return () => window.removeEventListener('scroll', handleScrollColorMorphing);
-  }, []);
 
 
   // Ensure featuredProjectIndex is within bounds
