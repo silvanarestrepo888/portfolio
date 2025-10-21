@@ -7353,48 +7353,23 @@ h4, .text-h4 {
   50% { transform: scale(1.1); opacity: 0.8; }
 }
 
-/* Ultra-Luxury Philosophy Quote */
+/* Ultra-Luxury Philosophy Quote - Stella Petkova Style */
 .about-philosophy-ultra-luxury {
   text-align: center;
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 60px 40px;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(20px);
-  border-radius: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  padding: 40px 0;
 }
 
 .philosophy-quote-ultra-luxury {
   font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 300;
-  line-height: 1.4;
+  line-height: 1.5;
   color: var(--text-primary);
-  margin-bottom: 24px;
+  margin: 0;
   font-style: italic;
   position: relative;
-}
-
-.philosophy-quote-ultra-luxury::before {
-  content: '"';
-  font-size: 4rem;
-  color: var(--grapefruit-primary);
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  opacity: 0.3;
-}
-
-.philosophy-quote-ultra-luxury::after {
-  content: '"';
-  font-size: 4rem;
-  color: var(--grapefruit-primary);
-  position: absolute;
-  bottom: -40px;
-  right: -20px;
-  opacity: 0.3;
 }
 
 .craft-highlight-luxury {
@@ -7405,15 +7380,6 @@ h4, .text-h4 {
   color: var(--grapefruit-primary);
   font-weight: 500;
   transition: all 0.3s ease;
-}
-
-.philosophy-context-luxury {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  font-weight: 300;
-  max-width: 600px;
-  margin: 0 auto;
 }
 
 /* Responsive Design for Ultra-Luxury About */
@@ -7434,12 +7400,16 @@ h4, .text-h4 {
     font-size: 1.3rem;
   }
   
-  .about-subtitle-luxury {
-    font-size: 1.6rem;
+  .about-main-story {
+    font-size: 1.1rem;
+  }
+  
+  .about-welcome {
+    font-size: 1.2rem;
   }
   
   .philosophy-quote-ultra-luxury {
-    font-size: 1.9rem;
+    font-size: 1.6rem;
   }
 }
 
@@ -7462,18 +7432,14 @@ h4, .text-h4 {
     font-size: 1.1rem;
   }
   
-  .about-narrative-section {
-    padding: 0;
-    margin-bottom: 30px;
-  }
-  
-  .about-subtitle-luxury {
-    font-size: 1.4rem;
-    justify-content: center;
-  }
-  
-  .about-paragraph-luxury {
+  .about-main-story {
     font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .about-welcome {
+    font-size: 1.1rem;
+    margin-top: 24px;
   }
   
   .about-photo-container {
