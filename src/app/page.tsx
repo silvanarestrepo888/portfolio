@@ -1307,7 +1307,7 @@ export default function Home() {
                   >
                     <h2 className="text-foundation-2xl font-foundation-display text-gray-800 mb-phi-lg">Impact</h2>
                     <p className="text-foundation-base font-foundation-body text-gray-700">
-                      {projects[selectedProject].impact}
+                      This project showcases our expertise in {projects[selectedProject].tech.join(', ').toLowerCase()} and delivers measurable results for our clients.
                     </p>
                   </motion.section>
                   
