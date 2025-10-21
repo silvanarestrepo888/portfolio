@@ -113,8 +113,8 @@ export default function Home() {
       title: "Kayanee",
       subtitle: "The First-of-Its-Kind Collective Saudi Wellness Experience Platform",
       description: "The first of its kind collective Saudi wellness experience platform. Beyond fitness or nutrition alone, Kayanee pioneers an ecosystem where women discover wellness as an holistic journey.",
-      tech: ["Experience Design", "Service Design", "Product Strategy", "Cultural Intelligence", "Ecosystem Design"],
-      industryTags: ["Health & Wellness", "Saudi Market", "Women's Empowerment", "Phygital Experiences"],
+      tech: ["Experience Design", "Service Design", "Product Strategy"],
+      industryTags: ["Health & Wellness"],
       category: "Health & Wellness",
       year: "2022",
       client: "Kayanee, a PIF Company",
@@ -125,19 +125,14 @@ export default function Home() {
       galleryImages: [
         "/projects/kayanee/secundary-kayanee.jpeg",
         "/projects/kayanee/Screenshot 2024-11-15 at 10.42.42.png"
-      ],
-      testimonial: "Amazing proposal and presentation for Kayanee and princess Reema @ KSA...you are already on the next level. Keep rocking!",
-      testimonialAuthor: "Martin Migoya -CEO - Globant",
-      context: "For centuries, wellness has been a deeply personal journey rooted in culture, tradition, and individual aspirations. In Saudi Arabia, Kayanee writes a new chapter as more than just a wellness brand—it's a movement revolutionizing how women experience health and empowerment. This pioneering ecosystem integrates physical, digital, and social experiences for women's holistic wellbeing.",
-      challenge: "Spaces were designed to intuitively recognise wellness needs, blending physical environments with AI-driven digital journeys. We crafted a phygital ecosystem merging behavioural science with technology to create deeply personalised transformative experiences. Seamless interactions across touchpoints—from retail environments to digital platforms—enhance women's holistic wellbeing journey.",
-      impact: "Kayanee redefines possibility within Saudi Arabia's wellness industry through cultural-technological fusion. The e-commerce platform launch initiates a vision extending beyond digital into integrated experiences. New innovations, experiences, and services continuously develop to shape the future of women's wellness in Saudi Arabia."
+      ]
     },
     {
       title: "Augoor",
       subtitle: "Transforming static code into dynamic knowledge",
       description: "Transforming software development, Augoor reinvents how engineers navigate vast codebases,using AI-driven intelligence to convert static repositories into dynamic knowledge hubs, amplifying efficiency, collaboration, and human ingenuity in tech ecosystems.",
-      tech: ["Service Design", "User Research", "Product Strategy", "AI Integration", "Developer Experience"],
-      industryTags: ["AI Software Development", "Enterprise Solutions", "Developer Tools", "Code Intelligence"],
+      tech: ["Service Design", "User Research", "Product Strategy"],
+      industryTags: ["AI Software Development"],
       category: "AI Software Development",
       year: "2020",
       client: "Globant X",
@@ -150,12 +145,7 @@ export default function Home() {
         "/projects/augoor/Screenshot 2025-04-15 at 13.33.51.png",
         "/projects/augoor/Screenshot 2025-04-15 at 13.34.12.png",
         "/projects/augoor/Screenshot 2025-04-15 at 13.34.27.png"
-      ],
-      testimonial: "Silvana has been a great team player who is proactive to help, listen the issues, put herself in other's shoes and think about the solutions. She is very thoughtful in providing the solution which will help keep satisfying the customers. I have always enjoyed my conversation with her as it has taught me so many things from customer experience perspective.",
-      testimonialAuthor: "Deepika Wahi Lopez-Product Manager-Globant",
-      context: "In the ever-evolving landscape of software development, navigating vast, complex codebases remains one of the most significant challenges developers face. Augoor was developed within Globant X—a pioneering incubator creating AI-driven products for digital acceleration. It transforms static repositories into dynamic, navigable data warehouses enhancing developer efficiency and collaboration.",
-      challenge: "In 2020 we conducted global ethnographic research to uncover how developers search, document, and navigate complex code systems. Our goal was transforming code writing using plain English—a approach that by 2025 became a well-established development methodology. We designed seamless UX patterns integrating AI-assisted documentation, code dependencies, and search that feel natural within existing development workflows.",
-      impact: "Engineers now work with greater confidence, automating tedious tasks while focusing on creative development. Every feature feels like a natural extension of engineering workflows, not just another tool. Augoor amplifies human ingenuity rather than replacing it, unlocking collaborative innovation across development teams."
+      ]
     },
     {
       title: "Chime Care J&J",
