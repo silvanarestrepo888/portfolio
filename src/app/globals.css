@@ -8587,17 +8587,19 @@ h4, .text-h4 {
 }
 
 .craft-highlight-luxury {
-  background: linear-gradient(120deg, var(--grapefruit-primary) 0%, var(--grapefruit-primary) 100%);
-  background-size: 0% 100%;
+  background: linear-gradient(120deg, var(--grapefruit) 0%, var(--grapefruit) 100%);
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: left center;
-  color: var(--grapefruit-primary);
-  font-weight: 600;
-  font-size: 1.1em;
+  color: var(--white-bones);
+  font-weight: 700;
+  font-size: 1.2em;
   position: relative;
-  transition: all 0.3s ease;
-  padding: 2px 4px;
-  border-radius: 4px;
+  transition: all 0.6s ease;
+  padding: 4px 8px;
+  border-radius: 6px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(255, 102, 99, 0.3);
 }
 
 .craft-highlight-luxury::before {
@@ -10288,7 +10290,9 @@ h4, .text-h4 {
   height: 100%;
   display: flex;
   align-items: center;
-  padding-left: 2rem;
+  justify-content: center;
+  padding: 2rem;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .balanced-content-inner {
@@ -11796,3 +11800,155 @@ h4, .text-h4 {
 /* Performance Enhancement for Enhanced Animations */
 
 /* Force deployment update */
+
+/* ========================================
+   SECONDARY PROJECT DETAILS PAGE - LANDOR STANDARDS
+   ======================================== */
+
+/* Hero Image Perfect Display */
+.hero-image-perfect {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 70vh;
+  object-fit: contain !important;
+  object-position: center;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Project Title Section */
+.project-title-section {
+  padding: 3rem 0;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Metadata Container with Proper Margins */
+.metadata-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Content Sections Container with Proper Margins */
+.content-sections-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Content Section with Proper Spacing */
+.content-section {
+  margin-bottom: 4rem;
+  padding: 2rem 0;
+}
+
+/* Section Header with Proper Alignment */
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.section-number {
+  background: var(--grapefruit);
+  color: var(--white-bones);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.section-title {
+  margin: 0;
+  color: var(--white-bones);
+}
+
+/* Section Content with Proper Margins */
+.section-content {
+  padding-left: 3.5rem;
+}
+
+.section-text {
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: var(--panna-cotta-vanilla);
+}
+
+/* Testimonial Container */
+.testimonial-container {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--grapefruit);
+  margin-top: 1rem;
+}
+
+.testimonial-quote {
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  color: var(--panna-cotta-vanilla);
+}
+
+.testimonial-attribution {
+  text-align: right;
+}
+
+.testimonial-author {
+  font-weight: 600;
+  color: var(--grapefruit);
+  margin-bottom: 0.25rem;
+}
+
+.testimonial-role {
+  color: var(--panna-cotta-vanilla);
+  opacity: 0.8;
+}
+
+/* Capability Tags */
+.capability-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.capability-tag {
+  background: rgba(255, 102, 99, 0.1);
+  color: var(--grapefruit);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 102, 99, 0.3);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Responsive Design for Secondary Project Details */
+@media (max-width: 768px) {
+  .project-title-section {
+    padding: 2rem 1rem;
+  }
+  
+  .metadata-container,
+  .content-sections-container {
+    padding: 0 1rem;
+  }
+  
+  .section-content {
+    padding-left: 2rem;
+  }
+  
+  .testimonial-container {
+    padding: 1.5rem;
+  }
+}

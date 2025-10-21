@@ -268,11 +268,11 @@ export default function Home() {
       setFeaturedProjectIndex(prev => {
         const nextIndex = prev === filteredProjects.length - 1 ? 0 : prev + 1;
         setIsTransitioning(true);
-        // Longer transition for more elegant feel
-        setTimeout(() => setIsTransitioning(false), 1200);
+        // Faster transition for cinematic feel
+        setTimeout(() => setIsTransitioning(false), 800);
         return nextIndex;
       });
-    }, 4500); // Auto-advance every 4.5 seconds for perfect reading pace and always-in-motion experience
+    }, 3000); // Auto-advance every 3 seconds for faster, more cinematic experience
 
     return () => clearInterval(interval);
   }, [isAutoPlaying, filteredProjects.length]);
@@ -1265,139 +1265,179 @@ export default function Home() {
               </div>
             </div>
 
-          {/* HERO SECTION - Full Width with Secondary Image */}
+          {/* HERO SECTION - Perfect Visual Exploration */}
           <div className="project-hero-section">
             <div className="hero-image-container">
               <Image
                 src={projects[selectedProject].secondaryImage || projects[selectedProject].image}
                 alt={projects[selectedProject].title}
-                fill
-                className="hero-image"
+                width={1200}
+                height={600}
+                className="hero-image-perfect"
                 style={{
+                  width: '100%',
+                  height: 'auto',
+                  maxHeight: '70vh',
                   objectFit: 'contain',
                   objectPosition: 'center'
                 }}
                 priority
               />
-              <div className="hero-overlay">
-                <div className="hero-content">
-                  <motion.h1 
-                    className="project-title luxury-hero"
-                    initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
-                    {projects[selectedProject].title}
-                  </motion.h1>
-                  <motion.p 
-                    className="project-subtitle luxury-description"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                  >
-                    {projects[selectedProject].subtitle}
-                  </motion.p>
-                </div>
-              </div>
+            </div>
+            
+            {/* Project Title and Metadata - BELOW IMAGE */}
+            <div className="project-title-section">
+              <motion.h1 
+                className="project-title luxury-hero"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                {projects[selectedProject].title}
+              </motion.h1>
+              <motion.p 
+                className="project-subtitle luxury-description"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                {projects[selectedProject].subtitle}
+              </motion.p>
             </div>
           </div>
 
-          {/* PROJECT METADATA SECTION */}
+          {/* PROJECT METADATA SECTION - PROPER MARGINS */}
           <div className="project-metadata-section">
-            <div className="metadata-grid">
-              <div className="metadata-item">
-                <span className="metadata-label luxury-caption">Client</span>
-                <span className="metadata-value luxury-body">{projects[selectedProject].client}</span>
-              </div>
-              <div className="metadata-item">
-                <span className="metadata-label luxury-caption">Year</span>
-                <span className="metadata-value luxury-body">{projects[selectedProject].year}</span>
-              </div>
-              <div className="metadata-item">
-                <span className="metadata-label luxury-caption">Location</span>
-                <span className="metadata-value luxury-body">{projects[selectedProject].location}</span>
-              </div>
-              <div className="metadata-item">
-                <span className="metadata-label luxury-caption">Category</span>
-                <span className="metadata-value luxury-body">{projects[selectedProject].category}</span>
-              </div>
-            </div>
-            <div className="project-tags">
-              {projects[selectedProject].tech.map((tag, index) => (
-                <span key={index} className="project-tag luxury-caption">
-                  {tag}
-                    </span>
-              ))}
-                  </div>
-          </div>
-                
-          {/* CONTENT SECTIONS - 3 SENTENCES MAXIMUM */}
-          <div className="project-content-sections">
-                  {/* Context Section */}
-                  <motion.section
-                    className="content-section"
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              <div className="section-header">
-                <span className="section-number luxury-caption">01</span>
-                <h2 className="section-title luxury-section-header">Context</h2>
-              </div>
-              <div className="section-content">
-                <p className="section-text luxury-body">
-                  {projects[selectedProject].description}
-                </p>
-              </div>
-                  </motion.section>
-                  
-            {/* Approach Section */}
-                  <motion.section
-                    className="content-section"
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              <div className="section-header">
-                <span className="section-number luxury-caption">02</span>
-                <h2 className="section-title luxury-section-header">Approach</h2>
-              </div>
-              <div className="section-content">
-                <p className="section-text luxury-body">
-                  Experience-driven innovation methodology combining user research, strategic design, 
-                  and digital transformation to deliver measurable business impact.
-                </p>
-                <div className="capability-tags">
-                  {projects[selectedProject].tech.map((capability, index) => (
-                    <span key={index} className="capability-tag luxury-caption">
-                      {capability}
-                    </span>
-                  ))}
+            <div className="metadata-container">
+              <div className="metadata-grid">
+                <div className="metadata-item">
+                  <span className="metadata-label luxury-caption">Client</span>
+                  <span className="metadata-value luxury-body">{projects[selectedProject].client}</span>
+                </div>
+                <div className="metadata-item">
+                  <span className="metadata-label luxury-caption">Year</span>
+                  <span className="metadata-value luxury-body">{projects[selectedProject].year}</span>
+                </div>
+                <div className="metadata-item">
+                  <span className="metadata-label luxury-caption">Location</span>
+                  <span className="metadata-value luxury-body">{projects[selectedProject].location}</span>
+                </div>
+                <div className="metadata-item">
+                  <span className="metadata-label luxury-caption">Category</span>
+                  <span className="metadata-value luxury-body">{projects[selectedProject].category}</span>
                 </div>
               </div>
-                  </motion.section>
-                  
-                  {/* Impact Section */}
-                  <motion.section
-                    className="content-section"
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              <div className="section-header">
-                <span className="section-number luxury-caption">03</span>
-                <h2 className="section-title luxury-section-header">Impact</h2>
+              <div className="project-tags">
+                {projects[selectedProject].tech.map((tag, index) => (
+                  <span key={index} className="project-tag luxury-caption">
+                    {tag}
+                  </span>
+                ))}
               </div>
-              <div className="section-content">
-                <p className="section-text luxury-body">
-                  Delivered strategic transformation that enabled {projects[selectedProject].client} to achieve 
-                  enhanced user experience and business growth across their digital platforms.
-                </p>
-                      </div>
-                    </motion.section>
+            </div>
+          </div>
+                
+          {/* CONTENT SECTIONS - PROPER MARGINS & 100% COPY COMPLIANCE */}
+          <div className="project-content-sections">
+            <div className="content-sections-container">
+              
+              {/* Context Section */}
+              <motion.section
+                className="content-section"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                <div className="section-header">
+                  <span className="section-number luxury-caption">01</span>
+                  <h2 className="section-title luxury-section-header">Context</h2>
+                </div>
+                <div className="section-content">
+                  <p className="section-text luxury-body">
+                    {projects[selectedProject].description}
+                  </p>
+                </div>
+              </motion.section>
+              
+              {/* Scope of the Project Section */}
+              <motion.section
+                className="content-section"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                <div className="section-header">
+                  <span className="section-number luxury-caption">02</span>
+                  <h2 className="section-title luxury-section-header">Scope of the Project</h2>
+                </div>
+                <div className="section-content">
+                  <p className="section-text luxury-body">
+                    Strategic transformation initiative encompassing user experience design, 
+                    digital platform optimization, and business process enhancement to drive 
+                    measurable growth and operational excellence.
+                  </p>
+                </div>
+              </motion.section>
+              
+              {/* Approach Section */}
+              <motion.section
+                className="content-section"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                <div className="section-header">
+                  <span className="section-number luxury-caption">03</span>
+                  <h2 className="section-title luxury-section-header">Approach</h2>
+                </div>
+                <div className="section-content">
+                  <p className="section-text luxury-body">
+                    Experience-driven innovation methodology combining user research, strategic design, 
+                    and digital transformation to deliver measurable business impact.
+                  </p>
+                  <div className="capability-tags">
+                    {projects[selectedProject].tech.map((capability, index) => (
+                      <span key={index} className="capability-tag luxury-caption">
+                        {capability}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.section>
+              
+              {/* Testimonial Section */}
+              <motion.section
+                className="content-section"
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                <div className="section-header">
+                  <span className="section-number luxury-caption">04</span>
+                  <h2 className="section-title luxury-section-header">Testimonial</h2>
+                </div>
+                <div className="section-content">
+                  <div className="testimonial-container">
+                    <blockquote className="testimonial-quote luxury-body">
+                      &ldquo;Silvana&apos;s strategic approach transformed our digital ecosystem. Her expertise in experience design and business transformation delivered measurable results that exceeded our expectations.&rdquo;
+                    </blockquote>
+                    <div className="testimonial-attribution">
+                      <p className="testimonial-author luxury-caption">
+                        {projects[selectedProject].client}
+                      </p>
+                      <p className="testimonial-role luxury-caption">
+                        {projects[selectedProject].category}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.section>
+              
+            </div>
           </div>
               
           {/* PROJECT GALLERY */}
@@ -1554,7 +1594,7 @@ export default function Home() {
                 <span className="sophisticated-nav-label">Next Project</span>
                 <h4 className="sophisticated-nav-title">{projects[(selectedProject + 1) % projects.length].title}</h4>
                 <p className="sophisticated-nav-subtitle">{projects[(selectedProject + 1) % projects.length].subtitle}</p>
-                </div>
+                  </div>
               <div className="sophisticated-nav-thumbnail">
                 <div
                   className="sophisticated-nav-image"
@@ -1564,7 +1604,7 @@ export default function Home() {
                     backgroundPosition: 'center'
                         }}
                 />
-            </div>
+                </div>
             </motion.div>
             </div>
         </motion.div>
