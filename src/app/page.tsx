@@ -129,7 +129,15 @@ export default function Home() {
       galleryImages: [
         "/projects/kayanee/secundary-kayanee.jpeg",
         "/projects/kayanee/Screenshot 2024-11-15 at 10.42.42.png"
-      ]
+      ],
+      context: "For centuries, wellness has been a deeply personal journey—rooted in culture, tradition, and individual aspirations. In Saudi Arabia, a new chapter is being written, Kayanne is more than just a wellness brand; it's a movement, a vision, and a revolution in how women experience health, self-care, and empowerment. Kayanee is the first ecosystem integrating physical, digital, and social experiences for women's holistic wellbeing.",
+      scope: "Spaces were designed to intuitively recognise wellness needs, blending physical environments with AI-driven digital journeys. Crafted to be a phygital ecosystem merging behavioural science with technology to create deeply personalised transformative experiences. Seamless interactions across touch points—from retail environments to digital platforms—enhancing women's holistic wellbeing journey.",
+      approach: "Kayanee redefines possibility within Saudi Arabia's $19 billion wellness industry through cultural-technological fusion. The e-commerce platform launch initiates a vision extending beyond digital into integrated experiences. The full vision is still unfolding, with new innovations, experiences, and services continuously being developed to shape the future of women's wellness in Saudi Arabia.",
+      testimonial: {
+        quote: "Amazing proposal and presentation for Kayanee and princess Reema @ KSA...you are already on the next level. Keep rocking!",
+        author: "Martin Migoya",
+        role: "CEO - Globant"
+      }
     },
     {
       title: "Augoor",
@@ -149,7 +157,15 @@ export default function Home() {
         "/projects/augoor/Screenshot 2025-04-15 at 13.33.51.png",
         "/projects/augoor/Screenshot 2025-04-15 at 13.34.12.png",
         "/projects/augoor/Screenshot 2025-04-15 at 13.34.27.png"
-      ]
+      ],
+      context: "In the ever-evolving landscape of software development, navigating and understanding vast, complex codebases is one of the most significant challenges developers face. Augoor was developed within Globant X—a pioneering incubator creating AI-driven products for digital acceleration. It transforms static repositories into dynamic, navigable data warehouses enhancing developer efficiency and collaboration.",
+      scope: "Back in 2020 we conducted global ethnographic research to uncover how developers search, document, and navigate complex code systems to transform writing code using plain English, a way of creating technology that today, in 2025 It's not only a reality, but a strong well established way of developing. Adaptive intelligence frameworks were architected with feedback loops that evolve through contextual developer interactions. We designed seamless UX patterns by integrating AI-assisted documentation, code dependencies and code search that feel natural within existing development workflows.",
+      approach: "Engineers now work with greater confidence, automating tedious tasks while focusing on creative development. Every feature is designed to feel like a natural extension of engineering workflows, not just another tool. Augoor amplifies human ingenuity rather than replacing it, unlocking collaborative innovation across development teams.",
+      testimonial: {
+        quote: "Silvana has been a great team player who is proactive to help, listen the issues, put herself in other's shoes and think about the solutions. She is very thoughtful in providing the solution which will help keep satisfying the customers. I have always enjoyed my conversation with her as it has taught me so many things from customer experience perspective.",
+        author: "Deepika Wahi Lopez",
+        role: "Product Manager - Globant"
+      }
     },
     {
       title: "Chime Care J&J",
@@ -168,7 +184,15 @@ export default function Home() {
         "/projects/chime-care/secundary-jjpeg.jpeg",
         "/projects/chime-care/Screenshot 2025-03-06 at 171139-VSCO.jpeg",
         "/projects/chime-care/Screenshot 2025-04-15 at 13.23.31.png"
-      ]
+      ],
+      context: "For optometrists and surgeons, precision is essential—every decision and data point affects patient vision outcomes. CHiME Care was envisioned as more than just a digital tool; it is an intelligent support system that guides practitioners through complex surgical workflows. In partnership with Johnson & Johnson's Experience Design leadership, we established the foundations for this specialised platform.",
+      scope: "We researched with practicing optometrists to reveal workflow patterns and decision points critical to surgical planning. Intuitive interfaces were designed for specialised tools, including toric calculators, case reviews, and performance metrics, to enhance clinical decisions. A comprehensive design system architecture was created to ensure consistent experiences while supporting rapid platform evolution.",
+      approach: "CHiME Care transforms fragmented ophthalmic practices into connected ecosystems where intelligence amplifies surgical precision. Optometrists now benefit from a digital assistant that enhances workflow, optimises surgical planning, and provides meaningful procedural insights. The platform drives widespread adoption throughout Johnson & Johnson Vision's ecosystem while laying the foundation for future innovations based on behavioural usage patterns.",
+      testimonial: {
+        quote: "Silvana is an excellent professional that has been a great plus in the \"cosmic eyes\" POD. Her commitment and skills are outstanding",
+        author: "Karina Paola Bailetti",
+        role: "Project Manager - Globant"
+      }
     },
     {
       title: "Nomade Tulum",
@@ -188,7 +212,15 @@ export default function Home() {
         "/projects/nomade/Screenshot 2024-11-15 at 15.21.56.png",
         "/projects/nomade/Screenshot 2025-04-15 at 13.46.25.png",
         "/projects/nomade/Screenshot 2025-04-15 at 13.57.49.png"
-      ]
+      ],
+      context: "Riviera Maya's Nomade Hotels are sanctuaries that blend luxury with nature, evolving alongside guest expectations. The challenge was clear: how to preserve a deeply personal, ritualistic, and human-centred approach while seamlessly integrating digital efficiencies. Nomade envisioned a transformation into a tech-enabled hospitality brand without losing its soul.",
+      scope: "In collaboration with Nomade team, we envisioned a guest-centric digital ecosystem integrating CRM, personalisation engines, and an intuitive e-concierge system. Service blueprinting was build to reimagin every touchpoint—from booking to check-out—as opportunities for meaningful cultural connection. Backend systems integration unified operations were mapped out to preserve the spontaneous, authentic interactions defining Nomade's essence.",
+      approach: "Discovery research provided insights into transforming fragmented guest touchpoints into integrated digital and physical narratives. The integrated platform proposed truthfully taught to eliminate operational inefficiencies while enhancing real-time decision-making across all departments. This approach has delivered measurable operational efficiency and enriched the guest experience to be adopted as part of the opex and capex strategy, with the vision to expand from two assets to a vision of 10 more in a pipeline of eight years as presented by the client.",
+      testimonial: {
+        quote: "It was a pleasure to work with Sil, I found a great professional, very collaborative, open to challenge and to make her part. Both clients we work with were very happy with her, and excellent feedaback received",
+        author: "Gerardo Bava",
+        role: "VP Delivery - Globant"
+      }
     },
     {
       title: "Danone Digital Transformation",
@@ -207,7 +239,15 @@ export default function Home() {
         "/projects/danone/secundary-hero.png",
         "/projects/danone/Screenshot 2025-04-15 at 14.01.55.png",
         "/projects/danone/Screenshot 2025-04-15 at 14.03.20.png"
-      ]
+      ],
+      context: "In food and beverage, pricing decisions must be intelligent and adaptive against rapidly shifting market dynamics. Danone needed to transition from a reactive, inflationary pricing approach to predictive models aligned with erratic market behaviour. A comprehensive Digital Maturity Assessment was undertaken to evaluate capabilities across technology, data, processes, and organisational culture.",
+      scope: "We led the maturity assessment, identifying capability gaps between Danone's digital ambition and its current operational reality. Critical challenges in data governance, technology automation, and cross-functional processes Scalability was diagnosed. A modular pricing framework was architected to ensure strategic alignment with broader organisational transformation objectives.",
+      approach: "The strategic roadmap established foundations for dynamic pricing capabilities leveraging predictive analytics and automation. Detailed implementation frameworks outlined pathways to overcome silos between pricing, sales, and finance teams. The discovery phase delivered a scalable vision positioning pricing as strategic advantage in Danone's digital transformation.",
+      testimonial: {
+        quote: "Silvana is a person who shows permanent commitment to the project, always responsible and collaborating not only with regard to her tasks and objectives but also with those of the team and the project. On the other hand, she has proven to be innovative, proposing, challenging and always seeking to optimize work dynamics and tools to work with clients.",
+        author: "Roberto Hernán Murdocca",
+        role: "Tech Director - Globant"
+      }
     },
     {
       title: "Parques Reunidos",
@@ -227,7 +267,15 @@ export default function Home() {
         "/projects/parques-reunidos/Envisioning for Digital Planning and Booking.png",
         "/projects/parques-reunidos/Envisioning for Dynamic Booking.png",
         "/projects/parques-reunidos/Project Envisioning Customer Journey Unfied .png"
-      ]
+      ],
+      context: "Parques Reunidos is a global leisure leader operating seventy diverse entertainment venues spanning three continents and multiple experience categories. Portfolio diversity created operational complexity—particularly across six sales channels and seven distinct product categories. Fragmented systems limited consistent guest experiences and prevented implementation of enterprise-wide product strategies.",
+      scope: "In collaboration with internal teams, we created a unified product taxonomy to enable operational efficiency while preserving the authenticity of local venue offerings. We designed governance frameworks that balance centralised intelligence with venue-specific innovation across diverse properties. Integration pathways were mapped to connect disparate systems into a coherent operational ecosystem, enhancing both efficiency and engagement.",
+      approach: "As Globant we established master catalog architecture, creating a unified product language while preserving unique venue-specific narratives. Designed a governance system, transforming fragmented decision processes into coordinated strategic actions across the portfolio. Envisioned an implementation roadmap elevating product ecosystems from operational necessities to strategic enablers of guest delight.",
+      testimonial: {
+        quote: "We have completed the Catalog Harmonisation Project in the expected time and conditions, despite having a very complex scope, with changes along the way. We have simultaneously created spaces for new project opportunities and increase client satisfactions with a NPS of 9",
+        author: "Diego Salcedo",
+        role: "Delivery Manager - Globant"
+      }
     },
     {
       title: "Flagship Entertainment Destination, KSA",
@@ -247,7 +295,15 @@ export default function Home() {
         "/projects/qiddiya/emergency-management.png",
         "/projects/qiddiya/guest-search-digital-id.png",
         "/projects/qiddiya/unified-guest-interaction.png"
-      ]
+      ],
+      context: "Saudi Arabia's flagship entertainment destination required comprehensive guest support systems navigating uncharted territory in a landmark entertainment project. Theme parks, water attractions, sports facilities, and retail centers operated through a unified digital infrastructure where both guests and operational staff would encounter these systems for the first time. Cultural complexity demanded sophisticated solutions: Saudi families, GCC visitors, and international tourists each brought different service expectations, with every touchpoint depending entirely on digital systems without analog alternatives available.",
+      scope: "This proof of concept established a validated product strategy for complex entertainment ecosystem requirements through stakeholder collaboration and technical feasibility. Provided development teams with validated integration requirements, with PRDs specifying exact connections with Digital ID and ticketing systems. Workflow validation created shared understanding through stakeholder alignment via tangible prototypes, while designing data collection specs for guest interaction patterns and defining KPI structures for digital adoption and cultural adaptation success.",
+      approach: "Technical Foundation Established: Development teams received validated integration requirements, enabling confident planning without major architectural uncertainty. Operational Readiness Framework: Workflow validation created a shared understanding with achievable roadmaps that reflect real operational constraints. Intelligence Framework Design: Blueprints outlined future experience preservation measurement, paving the way for a truly world-class digital guest experience.",
+      testimonial: {
+        quote: "This foundational work provided our internal teams with the confidence and clarity needed to align internal visions and also determine what part of the experience wouldn't be considered if it weren't for this envisioning.",
+        author: "Project Stakeholder",
+        role: "Qiddiya"
+      }
     }
   ];
 
@@ -1006,16 +1062,16 @@ export default function Home() {
                   </div>
                   
                   <div className="service-simple-capabilities">
-                    {service.capabilities.map((capability, capIndex) => (
+                      {service.capabilities.map((capability, capIndex) => (
                       <div key={capIndex} className="service-simple-capability">
-                        {capability}
-                      </div>
-                    ))}
-                  </div>
-                  
+                          {capability}
+                    </div>
+              ))}
+            </div>
+            
                   <div className="service-simple-description">
                     <p>{service.description}</p>
-                  </div>
+              </div>
                 </div>
               ))}
             </div>
