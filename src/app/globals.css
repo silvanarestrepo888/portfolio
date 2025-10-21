@@ -14705,3 +14705,206 @@ img {
 /* ========================================== */
 /* END PHASE 2 ENHANCEMENTS */
 /* ========================================== */
+
+/* ========================================== */
+/* PHASE 3: 3D INTERACTIVE PROJECT CARDS */
+/* Award-Winning 3D Effects and Interactions */
+/* ========================================== */
+
+/* 3D PROJECT CARD FOUNDATION */
+.project-card-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  position: relative;
+  will-change: transform;
+}
+
+.project-card-3d:hover {
+  transform: perspective(1000px) 
+             rotateX(var(--rotation-x, 0deg)) 
+             rotateY(var(--rotation-y, 0deg)) 
+             translateZ(20px) 
+             scale(1.02);
+}
+
+/* SOPHISTICATED 3D SHADOWS */
+.project-card-shadow-3d {
+  box-shadow: 
+    0 calc(25px + var(--shadow-intensity, 0.2) * 30px) calc(80px + var(--shadow-intensity, 0.2) * 40px) rgba(0, 0, 0, var(--shadow-intensity, 0.2)),
+    0 calc(10px + var(--shadow-intensity, 0.2) * 15px) calc(40px + var(--shadow-intensity, 0.2) * 20px) rgba(255, 102, 99, 0.1),
+    0 calc(5px + var(--shadow-intensity, 0.2) * 10px) calc(20px + var(--shadow-intensity, 0.2) * 15px) rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-card-shadow-3d:hover {
+  box-shadow: 
+    0 calc(35px + var(--shadow-intensity, 0.3) * 50px) calc(100px + var(--shadow-intensity, 0.3) * 60px) rgba(0, 0, 0, var(--shadow-intensity, 0.3)),
+    0 calc(15px + var(--shadow-intensity, 0.3) * 25px) calc(60px + var(--shadow-intensity, 0.3) * 40px) rgba(255, 102, 99, 0.15),
+    0 calc(8px + var(--shadow-intensity, 0.3) * 15px) calc(30px + var(--shadow-intensity, 0.3) * 25px) rgba(0, 0, 0, 0.15);
+}
+
+/* 3D PARALLAX LAYERS */
+.project-card-3d .balanced-image-perfect {
+  transform: translateZ(10px);
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-card-3d .balanced-overlay-tags {
+  transform: translateZ(15px);
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-card-3d .balanced-content-section {
+  transform: translateZ(5px);
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-card-3d .balanced-btn {
+  transform: translateZ(20px);
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ENHANCED 3D HOVER STATES */
+.project-card-3d:hover .balanced-image-perfect {
+  transform: translateZ(15px) scale(1.02);
+}
+
+.project-card-3d:hover .balanced-overlay-tags {
+  transform: translateZ(25px);
+}
+
+.project-card-3d:hover .balanced-content-section {
+  transform: translateZ(10px);
+}
+
+.project-card-3d:hover .balanced-btn {
+  transform: translateZ(30px) scale(1.05);
+}
+
+/* 3D ROTATION BOUNDARIES */
+.project-card-3d[style*="rotateX"] {
+  transition: transform 0.1s linear;
+}
+
+.project-card-3d[style*="rotateY"] {
+  transition: transform 0.1s linear;
+}
+
+/* SMOOTH RESET ANIMATION */
+.project-card-3d:not(:hover) {
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 3D PERSPECTIVE CONTAINER */
+.projects-3d-container {
+  perspective: 1200px;
+  perspective-origin: center center;
+}
+
+/* ENHANCED MAGNETIC BUTTONS FOR 3D */
+.project-card-3d .magnetic-button {
+  transform-style: preserve-3d;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-card-3d .magnetic-button:hover {
+  transform: translateZ(35px) scale(1.1);
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.2),
+    0 25px 60px rgba(255, 102, 99, 0.15);
+}
+
+/* 3D ENTRANCE ANIMATIONS */
+.project-card-3d-enter {
+  animation: project3DEnter 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes project3DEnter {
+  0% {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(-30deg) translateY(100px) translateZ(-50px);
+  }
+  60% {
+    opacity: 0.8;
+    transform: perspective(1000px) rotateX(-5deg) translateY(10px) translateZ(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0deg) translateY(0px) translateZ(0px);
+  }
+}
+
+/* STAGGERED 3D ENTRANCES */
+.project-card-3d:nth-child(1) { animation-delay: 0ms; }
+.project-card-3d:nth-child(2) { animation-delay: 100ms; }
+.project-card-3d:nth-child(3) { animation-delay: 200ms; }
+.project-card-3d:nth-child(4) { animation-delay: 300ms; }
+.project-card-3d:nth-child(5) { animation-delay: 400ms; }
+.project-card-3d:nth-child(6) { animation-delay: 500ms; }
+
+/* MOBILE 3D OPTIMIZATIONS */
+@media (max-width: 768px) {
+  .project-card-3d {
+    perspective: 800px;
+  }
+  
+  .project-card-3d:hover {
+    transform: perspective(800px) translateZ(10px) scale(1.01);
+  }
+  
+  .project-card-shadow-3d {
+    box-shadow: 
+      0 15px 40px rgba(0, 0, 0, 0.15),
+      0 8px 25px rgba(255, 102, 99, 0.08);
+  }
+  
+  /* Simplified 3D effects for mobile performance */
+  .project-card-3d .balanced-image-perfect,
+  .project-card-3d .balanced-overlay-tags,
+  .project-card-3d .balanced-content-section,
+  .project-card-3d .balanced-btn {
+    transform: translateZ(0px);
+  }
+}
+
+/* TOUCH DEVICE 3D ADAPTATIONS */
+@media (hover: none) and (pointer: coarse) {
+  .project-card-3d:hover {
+    transform: perspective(800px) scale(1.02);
+  }
+  
+  .project-card-3d .magnetic-button:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* HIGH PERFORMANCE 3D */
+.project-card-3d,
+.project-card-3d * {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* REDUCED MOTION SUPPORT */
+@media (prefers-reduced-motion: reduce) {
+  .project-card-3d,
+  .project-card-3d:hover,
+  .project-card-3d .balanced-image-perfect,
+  .project-card-3d .balanced-overlay-tags,
+  .project-card-3d .balanced-content-section,
+  .project-card-3d .balanced-btn {
+    transform: none !important;
+    animation: none !important;
+    transition: opacity 0.3s ease !important;
+  }
+  
+  .project-card-shadow-3d {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+/* ========================================== */
+/* END PHASE 3: 3D INTERACTIVE PROJECT CARDS */
+/* ========================================== */

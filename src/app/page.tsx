@@ -8,6 +8,7 @@ import { CustomCursor } from '../components/motion/CustomCursor';
 import { MagneticCursor } from '../components/ui/MagneticCursor';
 import { FloatingNavigation } from '../components/navigation/FloatingNavigation';
 import { useParallax } from '../hooks/useScrollAnimation';
+import { InteractiveProjectCard } from '../components/projects/InteractiveProjectCard';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -673,13 +674,13 @@ export default function Home() {
               </div>
             </motion.div>
             
-            {/* CLEAN BALANCED CAROUSEL - BACK TO PERFECTION */}
+            {/* 3D INTERACTIVE PROJECT CAROUSEL - AWARD-WINNING */}
             <motion.div 
-              className="balanced-carousel-container enhanced-hover gpu-accelerated"
+              className="projects-3d-container"
               key={safeFeaturedProjectIndex}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ 
-                opacity: isTransitioning ? 0.9 : 1, 
+                opacity: isTransitioning ? 0.95 : 1, 
                 y: 0
               }}
               transition={{
@@ -689,108 +690,13 @@ export default function Home() {
               onHoverStart={() => setIsAutoPlaying(false)}
               onHoverEnd={() => setIsAutoPlaying(true)}
             >
-              <div className="balanced-project-card luxury-hover-elevation luxury-shadow-medium">
-                {/* Clean Balanced Layout: 60% Image / 40% Content */}
-                <div className="balanced-layout-grid">
-                  
-                  {/* Image Section - 60% (Perfect Balance) */}
-                  <div className="balanced-image-section">
-                    <div className="balanced-image-container">
-                      <Image
-                        src={filteredProjects[safeFeaturedProjectIndex]?.image || ''}
-                        alt={filteredProjects[safeFeaturedProjectIndex]?.title || ''}
-                        width={800}
-                        height={600}
-                        className="balanced-image-perfect gpu-accelerated"
-                  style={{
-                          width: '100%',
-                          height: '100%',
-                          objectFit: 'contain',
-                          objectPosition: 'center'
-                        }}
-                        quality={100}
-                        priority
-                        loading="eager"
-                      />
-                      {/* Tags Inside Image Container */}
-                      <div className="balanced-overlay-tags">
-                        <span className="balanced-year-tag">
-                          {filteredProjects[safeFeaturedProjectIndex]?.year || ''}
-                        </span>
-                        <span className="balanced-category-tag">
-                          {filteredProjects[safeFeaturedProjectIndex]?.category || ''}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Content Section - 40% (Perfect Balance) */}
-                  <div className="balanced-content-section">
-                    <div className="balanced-content-inner">
-                      
-                      {/* Clean Project Header */}
-                      <header className="balanced-header">
-                        <h3 className="balanced-title">
-                          {filteredProjects[safeFeaturedProjectIndex]?.title || ''}
-                        </h3>
-                        
-                        <p className="balanced-client">
-                          {filteredProjects[safeFeaturedProjectIndex]?.client || ''}
-                        </p>
-                        
-                        <div className="balanced-meta">
-                          <span>{filteredProjects[safeFeaturedProjectIndex]?.year || ''}</span>
-                          <span className="balanced-divider">•</span>
-                          <span>{filteredProjects[safeFeaturedProjectIndex]?.location || ''}</span>
-                      </div>
-                      </header>
-                      
-                      {/* Clean Description */}
-                      <div className="balanced-description">
-                        <p className="balanced-subtitle">
-                          {filteredProjects[safeFeaturedProjectIndex]?.subtitle || ''}
-                        </p>
-                        
-                        <p className="balanced-description-text">
-                          {filteredProjects[safeFeaturedProjectIndex]?.description || ''}
-                        </p>
-                      </div>
-                      
-                      {/* Clean Capability Tags */}
-                      <div className="balanced-capabilities">
-                        <div className="balanced-tags">
-                          {filteredProjects[safeFeaturedProjectIndex] && filteredProjects[safeFeaturedProjectIndex].tech && filteredProjects[safeFeaturedProjectIndex].tech.slice(0, 3).map((capability) => (
-                            <span key={capability} className="balanced-tag">
-                              {capability}
-                          </span>
-                        ))}
-                        </div>
-                      </div>
-                      
-                      {/* Clean Action Buttons */}
-                      <div className="balanced-actions">
-                      <button
-                          onClick={() => setSelectedProject(safeFeaturedProjectIndex)}
-                          className="balanced-btn primary magnetic-button touch-friendly enhanced-focus gpu-accelerated"
-                        >
-                          View Full Case Study
-                      </button>
-                        
-                        {filteredProjects[safeFeaturedProjectIndex]?.website && (
-                          <a 
-                            href={filteredProjects[safeFeaturedProjectIndex].website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="balanced-btn secondary magnetic-button touch-friendly enhanced-focus gpu-accelerated"
-                          >
-                            Visit Website
-                          </a>
-                        )}
-                </div>
-                </div>
-              </div>
-          </div>
-              </div>
+              <InteractiveProjectCard
+                project={filteredProjects[safeFeaturedProjectIndex]}
+                index={safeFeaturedProjectIndex}
+                isActive={!isTransitioning}
+                onSelect={setSelectedProject}
+                className="project-card-3d-enter"
+              />
             </motion.div>
             
             </motion.div>
