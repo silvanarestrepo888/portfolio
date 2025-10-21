@@ -610,17 +610,17 @@ export default function Home() {
                 </button>
             </motion.div>
             
-            {/* Sophisticated Cinematic Carousel - 70/30 Layout */}
+            {/* Apple/Tesla-Style Side Panel Preview */}
             <motion.div 
-              className="cinematic-carousel-container"
+              className="side-panel-container"
               key={safeFeaturedProjectIndex}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <div className="cinematic-layout">
-                {/* Current Project - 70% */}
-                <div className="current-project-section">
+              <div className="side-panel-layout">
+                {/* Main Project - 70% */}
+                <div className="main-project-panel">
                   <div className="project-card-award-winning">
                     {/* Image Section - 60% of current project */}
                     <div className="project-image-section-award">
@@ -696,46 +696,51 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Upcoming Project Preview - 30% */}
-                <div className="upcoming-preview-section">
-                  <div className="upcoming-preview-container">
-                    <h4 className="upcoming-preview-title">Coming Up</h4>
-                    <div className="upcoming-slide-track">
-                      {filteredProjects.slice(safeFeaturedProjectIndex + 1, safeFeaturedProjectIndex + 2).map((project, index) => (
-                        <motion.div
-                          key={`upcoming-${safeFeaturedProjectIndex + index + 1}`}
-                          className="upcoming-slide-card"
-                          initial={{ opacity: 0, x: 50 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -50 }}
-                          transition={{ 
-                            duration: 1.2, 
-                            ease: [0.25, 0.46, 0.45, 0.94],
-                            delay: 0.3
-                          }}
-                          whileHover={{ 
-                            x: -8, 
-                            scale: 1.02,
-                            transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }
-                          }}
-                          onClick={() => goToProjectWithTransition(safeFeaturedProjectIndex + index + 1)}
-                        >
-                          <div 
-                            className="upcoming-slide-image"
-                            style={{ backgroundImage: `url(${project.image})` }}
-                          />
-                          <div className="upcoming-slide-content">
-                            <h5 className="upcoming-slide-title">{project.title}</h5>
-                            <p className="upcoming-slide-client">{project.client}</p>
-                            <div className="upcoming-slide-tags">
-                              {project.tech.slice(0, 2).map(tag => (
-                                <span key={tag} className="upcoming-slide-tag">{tag}</span>
-                              ))}
-                            </div>
-                          </div>
-                        </motion.div>
-                      ))}
+                {/* Side Panel - 30% */}
+                <div className="side-panel-preview">
+                  <div className="side-panel-header">
+                    <h4 className="side-panel-title">More Projects</h4>
+                    <div className="side-panel-counter">
+                      {safeFeaturedProjectIndex + 1} of {filteredProjects.length}
                     </div>
+                  </div>
+                  
+                  <div className="side-panel-list">
+                    {filteredProjects.map((project, index) => (
+                      <motion.div
+                        key={`side-panel-${index}`}
+                        className={`side-panel-item ${index === safeFeaturedProjectIndex ? 'active' : ''}`}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ 
+                          duration: 0.5, 
+                          delay: index * 0.1,
+                          ease: [0.25, 0.46, 0.45, 0.94]
+                        }}
+                        whileHover={{ 
+                          x: -4,
+                          transition: { duration: 0.3 }
+                        }}
+                        onClick={() => goToProjectWithTransition(index)}
+                      >
+                        <div 
+                          className="side-panel-thumbnail"
+                          style={{ backgroundImage: `url(${project.image})` }}
+                        />
+                        <div className="side-panel-content">
+                          <h5 className="side-panel-project-title">{project.title}</h5>
+                          <p className="side-panel-project-client">{project.client}</p>
+                          <div className="side-panel-tags">
+                            {project.tech.slice(0, 2).map(tag => (
+                              <span key={tag} className="side-panel-tag">{tag}</span>
+                            ))}
+                          </div>
+                        </div>
+                        {index === safeFeaturedProjectIndex && (
+                          <div className="side-panel-active-indicator" />
+                        )}
+                      </motion.div>
+                    ))}
                   </div>
                 </div>
               </div>
