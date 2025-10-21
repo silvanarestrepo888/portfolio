@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Linkedin, Mail, ExternalLink, ArrowDown } from 'lucide-react';
+import { Linkedin, Mail, ExternalLink } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { CustomCursor } from '../components/motion/CustomCursor';
@@ -22,11 +22,6 @@ export default function Home() {
 
 
   // Sophisticated navigation functions with elegant transitions
-  const goToPreviousProjectWithTransition = () => {
-    setIsTransitioning(true);
-    setFeaturedProjectIndex(prev => prev === 0 ? Math.max(0, filteredProjects.length - 1) : prev - 1);
-    setTimeout(() => setIsTransitioning(false), 1200);
-  };
 
   const goToNextProjectWithTransition = () => {
     setIsTransitioning(true);
