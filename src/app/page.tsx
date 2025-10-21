@@ -1051,28 +1051,137 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          {/* SERVICES SECTION - SIMPLE & CLEAN */}
-          <div className="services-simple-container">
-            <div className="services-simple-grid">
+          {/* ULTRA-SOPHISTICATED SERVICES SECTION - DRAMATIC ELEVATION */}
+          <div className="services-ultra-sophisticated">
+            <div className="services-elevation-container">
               {referenceServices.map((service, index) => (
-                <div key={service.number} className="service-simple-card">
-                  <div className="service-simple-header">
-                    <span className="service-simple-number">{service.number}</span>
-                    <h3 className="service-simple-title">{service.title}</h3>
+                <motion.div
+                  key={service.number}
+                  className="service-elevation-card"
+                  initial={{ opacity: 0, y: 100, rotateX: -15 }}
+                  whileInView={{ 
+                    opacity: 1, 
+                    y: 0, 
+                    rotateX: 0,
+                    transition: { 
+                      duration: 0.8, 
+                      delay: index * 0.2,
+                      type: "spring",
+                      stiffness: 100,
+                      damping: 15
+                    }
+                  }}
+                  whileHover={{
+                    y: -20, 
+                    rotateX: 5,
+                    scale: 1.02,
+                    transition: { duration: 0.4, type: "spring", stiffness: 300 }
+                  }}
+                  viewport={{ once: true }}
+                >
+                  {/* Sophisticated Background Layers */}
+                  <div className="service-bg-layer-1"></div>
+                  <div className="service-bg-layer-2"></div>
+                  <div className="service-bg-layer-3"></div>
+                  
+                  {/* Floating Number with Sophisticated Animation */}
+                  <motion.div 
+                    className="service-floating-number"
+                    animate={{
+                      y: [0, -10, 0],
+                      rotate: [0, 5, 0]
+                    }}
+                    transition={{ 
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
+                      {service.number}
+                  </motion.div>
+                  
+                  {/* Sophisticated Header */}
+                  <div className="service-sophisticated-header">
+                    <motion.h3 
+                      className="service-elevation-title"
+                      whileHover={{ 
+                        scale: 1.05,
+                        color: "var(--grapefruit-primary)"
+                      }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {service.title}
+                    </motion.h3>
+                    <div className="service-title-underline"></div>
                   </div>
                   
-                  <div className="service-simple-capabilities">
+                  {/* Sophisticated Capabilities with Staggered Animation */}
+                  <div className="service-capabilities-sophisticated">
                       {service.capabilities.map((capability, capIndex) => (
-                      <div key={capIndex} className="service-simple-capability">
-                          {capability}
+                        <motion.div
+                          key={capIndex}
+                        className="capability-elevation-item"
+                          initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ 
+                          opacity: 1, 
+                          x: 0,
+                          transition: { 
+                            duration: 0.5, 
+                            delay: (index * 0.2) + (capIndex * 0.1)
+                          }
+                        }}
+                        whileHover={{ 
+                          x: 10,
+                          color: "var(--grapefruit-primary)",
+                          transition: { duration: 0.2 }
+                        }}
+                        viewport={{ once: true }}
+                      >
+                        <div className="capability-icon-elevation"></div>
+                        <span>{capability}</span>
+                        </motion.div>
+                      ))}
                     </div>
-              ))}
-            </div>
-            
-                  <div className="service-simple-description">
-                    <p>{service.description}</p>
+                    
+                  {/* Sophisticated Description with Gradient Text */}
+                  <motion.div 
+                    className="service-description-sophisticated"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ 
+                      opacity: 1,
+                      transition: { 
+                        duration: 0.6, 
+                        delay: (index * 0.2) + 0.4
+                      }
+                    }}
+                    viewport={{ once: true }}
+                  >
+                    <p className="description-gradient-text">{service.description}</p>
+                  </motion.div>
+                  
+                  {/* Sophisticated Hover Glow Effect */}
+                  <div className="service-hover-glow"></div>
+                  
+                  {/* Floating Particles */}
+                  <div className="service-particles">
+                    {[...Array(6)].map((_, particleIndex) => (
+                  <motion.div
+                        key={particleIndex}
+                        className="service-particle"
+                    animate={{
+                          y: [0, -30, 0],
+                          opacity: [0, 1, 0],
+                          scale: [0.5, 1, 0.5]
+                        }}
+                        transition={{
+                          duration: 2 + particleIndex * 0.5,
+                          repeat: Infinity,
+                          delay: particleIndex * 0.3
+                        }}
+                      />
+                    ))}
               </div>
-                </div>
+            </motion.div>
               ))}
             </div>
           </div>
