@@ -778,10 +778,10 @@ export default function Home() {
               >
                 03
               </span>
-            <h2 className="section-title text-5xl font-light text-gray-900 mb-8 luxury-section-header">
+            <h2 className="luxury-section-header">
                 Experience
               </h2>
-            <p className="section-intro text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-light luxury-description">
+            <p className="luxury-description max-w-4xl mx-auto">
               Some of the <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>upscaling</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>reinventing</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>evolving</span>, and <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>reimagining</span> business, brands, and teams.
             </p>
           </motion.div>
@@ -989,12 +989,12 @@ export default function Home() {
               >
                 04
               </span>
-              <h2 className="text-foundation-3xl font-foundation-display text-gray-800 section-title-landor luxury-section-header">
+              <h2 className="luxury-section-header">
                 Services
               </h2>
             </div>
             <motion.p 
-              className="text-foundation-lg font-foundation-body text-gray-600 text-center max-w-4xl mx-auto mb-12 luxury-description"
+              className="luxury-description text-center max-w-4xl mx-auto mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
@@ -1034,7 +1034,7 @@ export default function Home() {
                       opacity: expandedService === null || expandedService === index ? 1 : 0.4
                     }}
                   >
-                    <span className="service-number-landor">
+                    <span className="luxury-caption">
                       {service.number}
                     </span>
                   </motion.div>
@@ -1052,7 +1052,7 @@ export default function Home() {
                     }}
                     transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
                   >
-                    <h3 className="service-title-interactive whitespace-nowrap service-title-landor">
+                    <h3 className="service-title-interactive whitespace-nowrap luxury-project-title">
                       {service.title}
                     </h3>
                   </motion.div>
@@ -1069,8 +1069,8 @@ export default function Home() {
                   >
                     {/* Service Title - Clean Header */}
                     <div className="service-header-clean">
-                      <span className="service-number-clean">{service.number}</span>
-                      <h3 className="service-title-expanded-clean">{service.title}</h3>
+                      <span className="service-number-clean luxury-caption">{service.number}</span>
+                      <h3 className="service-title-expanded-clean luxury-project-title">{service.title}</h3>
                     </div>
                     
                     {/* Capabilities List - Clean Vertical Layout Following Inspiration */}
@@ -1078,7 +1078,7 @@ export default function Home() {
                       {service.capabilities.map((capability, capIndex) => (
                         <motion.div
                           key={capIndex}
-                          className="capability-line-clean capability-item-landor"
+                          className="capability-line-clean luxury-body"
                           style={{ '--index': capIndex } as React.CSSProperties}
                           initial={{ opacity: 0, x: -10 }}
                           animate={{
@@ -1108,7 +1108,7 @@ export default function Home() {
                         delay: expandedService === index ? 0.4 : 0
                       }}
                     >
-                      <p className="service-description-text service-description-landor">
+                      <p className="service-description-text luxury-description">
                       {service.description}
                       </p>
                     </motion.div>
