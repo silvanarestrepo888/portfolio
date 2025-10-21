@@ -84,7 +84,8 @@ export default function Home() {
     }
   ];
 
-  // Services hover expansion state - Sophisticated Interaction (unused code removed)
+  // Services hover expansion state - Hover Amplification System
+  const [expandedService, setExpandedService] = useState<number | null>(null);
   
   const projects = [
     {
