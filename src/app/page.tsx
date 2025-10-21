@@ -1248,10 +1248,7 @@ export default function Home() {
             >
               <h2 className="gallery-title typography-h3">Project Gallery</h2>
               <span className="gallery-count typography-caption">
-                {selectedProject !== null && projects[selectedProject].galleryImages ? 
-                  `1 of ${projects[selectedProject].galleryImages.length + 1}` : 
-                  '1 of 1'
-                }
+                3 Image Gallery
               </span>
             </motion.div>
             <div className="gallery-grid">
@@ -1289,8 +1286,8 @@ export default function Home() {
                 </div>
                 </motion.div>
                 
-              {/* Secondary Images */}
-              {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.map((image, index) => (
+              {/* Secondary Images - Only First 2 for Symmetrical 3-Image Gallery */}
+              {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.slice(0, 2).map((image, index) => (
                 <motion.div 
                         key={index}
                   className="gallery-item"
@@ -1575,22 +1572,6 @@ export default function Home() {
         </motion.div>
       )}
 
-      {/* FOOTER - MOVED OUTSIDE MODAL */}
-      <footer className="project-details-footer">
-        <div className="footer-content">
-          <div className="footer-brand">
-            <h3 className="footer-brand-name typography-h3">silvana.</h3>
-            <p className="footer-brand-title typography-body">Principal Experience Architect</p>
-          </div>
-          <div className="footer-links">
-            <a href="#about" className="footer-link typography-body">About</a>
-            <a href="#projects" className="footer-link typography-body">Projects</a>
-            <a href="#experience" className="footer-link typography-body">Experience</a>
-            <a href="#services" className="footer-link typography-body">Services</a>
-            <a href="#footer" className="footer-link typography-body">Contact</a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
