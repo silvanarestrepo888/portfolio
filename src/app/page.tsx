@@ -246,11 +246,6 @@ export default function Home() {
       ]
     }
   ];
-      industryTags: ["Entertainment Destination", "Guest Services", "Cultural Intelligence", "Digital Infrastructure"],
-      category: "Hospitality-Themed Parks-Retail",
-      year: "2025",
-      client: "Qiddiya",
-      location: "KSA",
       website: "https://qiddiya.com/",
       image: "/projects/qiddiya/hero-qiddiya.png",
       secondaryImage: "/projects/qiddiya/secondary-qiddiya.png",
