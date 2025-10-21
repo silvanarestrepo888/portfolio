@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Linkedin, Mail, ExternalLink, ArrowDown } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { CustomCursor } from '../components/motion/CustomCursor';
 import { MagneticCursor } from '../components/ui/MagneticCursor';
@@ -16,6 +16,7 @@ export default function Home() {
   
   // Foundation Project Exploration System
   const [featuredProjectIndex, setFeaturedProjectIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   
   // Project navigation functions
   const goToPreviousProject = () => {
@@ -244,17 +245,6 @@ export default function Home() {
         "/projects/qiddiya/guest-search-digital-id.png",
         "/projects/qiddiya/unified-guest-interaction.png"
       ]
-    }
-  ];
-        "/projects/qiddiya/emergency-management.png",
-        "/projects/qiddiya/guest-search-digital-id.png",
-        "/projects/qiddiya/unified-guest-interaction.png"
-      ],
-      testimonial: "This foundational work provided our internal teams with the confidence and clarity needed to align internal visions and also determine what part of the experience wouldn't be considered if it weren't for this envisioning.",
-      testimonialAuthor: "Project Stakeholder",
-      context: "Saudi Arabia's flagship entertainment destination required comprehensive guest support systems navigating uncharted territory in a landmark entertainment project. Theme parks, water attractions, sports facilities, and retail centers operated through a unified digital infrastructure where both guests and operational staff would encounter these systems for the first time. Cultural complexity demanded sophisticated solutions: Saudi families, GCC visitors, and international tourists each brought different service expectations, with every touchpoint depending entirely on digital systems.",
-      challenge: "This proof of concept established a validated product strategy for complex entertainment ecosystem requirements through stakeholder collaboration and technical feasibility. We provided development teams with validated integration requirements, with PRDs specifying exact connections with Digital ID and ticketing systems. Workflow validation created shared understanding through stakeholder alignment via tangible prototypes, while designing data collection specs for guest interaction patterns.",
-      impact: "Development teams received validated integration requirements, enabling confident planning without major architectural uncertainty. Workflow validation created shared understanding with achievable roadmaps that reflect real operational constraints. Our blueprints outlined future experience preservation measurement, paving the way for a truly world-class digital guest experience."
     }
   ];
 
@@ -1291,7 +1281,7 @@ export default function Home() {
                   >
                     <h2 className="text-foundation-2xl font-foundation-display text-gray-800 mb-phi-lg">Context</h2>
                     <p className="text-foundation-base font-foundation-body text-gray-700">
-                      {projects[selectedProject].context}
+                      {projects[selectedProject].description}
                     </p>
                   </motion.section>
                   
@@ -1304,7 +1294,7 @@ export default function Home() {
                   >
                     <h2 className="text-foundation-2xl font-foundation-display text-gray-800 mb-phi-lg">Approach</h2>
                     <p className="text-foundation-base font-foundation-body text-gray-700">
-                      {projects[selectedProject].challenge}
+                      This project demonstrates our approach to {projects[selectedProject].category.toLowerCase()} challenges through innovative design solutions.
                     </p>
                   </motion.section>
                   
