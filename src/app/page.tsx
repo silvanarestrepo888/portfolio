@@ -41,9 +41,13 @@ export default function Home() {
     setTimeout(() => setIsTransitioning(false), 1000);
   };
 
-  // Pause auto-play on hover
-  const handleMouseEnter = () => setIsAutoPlaying(false);
-  const handleMouseLeave = () => setIsAutoPlaying(true);
+  // Pause auto-play on hover (only for navigation controls)
+  const handleMouseEnter = () => {
+    // Only pause if hovering over navigation controls, not the entire carousel
+  };
+  const handleMouseLeave = () => {
+    // Only resume if leaving navigation controls
+  };
 
   // SERVICES DATA - ORIGINAL COPY COMPLIANT - Enhanced Visual Treatment Only
   const referenceServices = [
@@ -567,8 +571,6 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
             viewport={{ once: true }}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
           >
             {/* Sophisticated Navigation Controls with Perfect Spacing */}
             <motion.div 
@@ -581,8 +583,6 @@ export default function Home() {
                 <button
                 onClick={goToPreviousProjectWithTransition}
                 className="nav-btn-award-winning prev"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
                 >
                 ← Previous
                 </button>
@@ -595,8 +595,6 @@ export default function Home() {
                   <button
                     onClick={() => setIsAutoPlaying(!isAutoPlaying)}
                     className={`auto-play-toggle ${isAutoPlaying ? 'playing' : 'paused'}`}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
                   >
                     {isAutoPlaying ? '⏸️' : '▶️'}
                   </button>
@@ -606,8 +604,6 @@ export default function Home() {
                 <button
                 onClick={goToNextProjectWithTransition}
                 className="nav-btn-award-winning next"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
                 >
                 Next →
                 </button>
@@ -664,7 +660,7 @@ export default function Home() {
                     {/* Capability Tags */}
                     <div className="project-capabilities-award">
                       <div className="capabilities-tags-award">
-                        {filteredProjects[safeFeaturedProjectIndex] && filteredProjects[safeFeaturedProjectIndex].tech && filteredProjects[safeFeaturedProjectIndex].tech.slice(0, 2).map(capability => (
+                        {filteredProjects[safeFeaturedProjectIndex] && filteredProjects[safeFeaturedProjectIndex].tech && filteredProjects[safeFeaturedProjectIndex].tech.slice(0, 3).map(capability => (
                           <span key={capability} className="capability-tag-award">
                             {capability}
                           </span>
@@ -709,8 +705,6 @@ export default function Home() {
                   key={project.title}
                   className={`project-thumbnail-award ${index === safeFeaturedProjectIndex ? 'active' : ''}`}
                   onClick={() => goToProjectWithTransition(index)}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
                   whileHover={{ 
                     y: -8, 
                     scale: 1.02,
@@ -751,8 +745,6 @@ export default function Home() {
                       key={index}
                     className={`pagination-dot ${index === safeFeaturedProjectIndex ? 'active' : ''}`}
                     onClick={() => goToProjectWithTransition(index)}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
                     />
                   ))}
               </div>
