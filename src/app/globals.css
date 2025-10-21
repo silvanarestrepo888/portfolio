@@ -7986,10 +7986,83 @@ h4, .text-h4 {
 .project-counter-award-winning {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   font-size: 14px;
   font-weight: 500;
   color: var(--text-secondary);
+}
+
+/* Auto-Play Controls */
+.auto-play-indicator {
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+}
+
+.auto-play-toggle {
+  background: rgba(255, 102, 99, 0.1);
+  border: 1px solid var(--grapefruit-primary);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 12px;
+}
+
+.auto-play-toggle:hover {
+  background: var(--grapefruit-primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+.auto-play-toggle.playing {
+  background: var(--grapefruit-primary);
+  color: white;
+}
+
+.auto-play-toggle.paused {
+  background: transparent;
+  color: var(--grapefruit-primary);
+}
+
+/* Carousel Transition Effects */
+.projects-carousel-award-winning {
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.featured-project-award-winning {
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-thumbnail-award {
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-thumbnail-award.active {
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(255, 102, 99, 0.2);
+}
+
+.pagination-dot {
+  transition: all 0.3s ease;
+}
+
+.pagination-dot.active {
+  background: var(--grapefruit-primary);
+  transform: scale(1.2);
+}
+
+/* Smooth image transitions */
+.project-image-container-award {
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-image-container-award:hover {
+  transform: scale(1.02);
 }
 
 .current-project-award {

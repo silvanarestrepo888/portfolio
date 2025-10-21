@@ -19,34 +19,7 @@ export default function Home() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
   
-  // Project navigation functions
-  const goToPreviousProject = () => {
-    setFeaturedProjectIndex(prev => prev === 0 ? Math.max(0, filteredProjects.length - 1) : prev - 1);
-  };
-  
-  const goToNextProject = () => {
-    setFeaturedProjectIndex(prev => (prev + 1) % Math.max(1, filteredProjects.length));
-  };
-  
-  const goToProject = (index: number) => {
-    setFeaturedProjectIndex(Math.min(index, Math.max(0, filteredProjects.length - 1)));
-  };
 
-  // Auto-carousel effect
-  useEffect(() => {
-    if (!isAutoPlaying || filteredProjects.length <= 1) return;
-
-    const interval = setInterval(() => {
-      setFeaturedProjectIndex(prev => {
-        const nextIndex = prev === filteredProjects.length - 1 ? 0 : prev + 1;
-        setIsTransitioning(true);
-        setTimeout(() => setIsTransitioning(false), 1000);
-        return nextIndex;
-      });
-    }, 5000); // Auto-advance every 5 seconds
-
-    return () => clearInterval(interval);
-  }, [isAutoPlaying, filteredProjects.length]);
 
   // Enhanced navigation functions with transitions
   const goToPreviousProjectWithTransition = () => {
@@ -297,6 +270,22 @@ export default function Home() {
         project.tech.some(t => t.includes(selectedCategory.replace(" DESIGN", "").replace(" STRATEGY", "").replace(" TRANSFORMATION", "").replace(" RESEARCH", "").replace(" OPS", ""))) ||
         (project.industryTags && project.industryTags.some(tag => tag.includes(selectedCategory)))
       );
+
+  // Auto-carousel effect
+  useEffect(() => {
+    if (!isAutoPlaying || filteredProjects.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setFeaturedProjectIndex(prev => {
+        const nextIndex = prev === filteredProjects.length - 1 ? 0 : prev + 1;
+        setIsTransitioning(true);
+        setTimeout(() => setIsTransitioning(false), 1000);
+        return nextIndex;
+      });
+    }, 5000); // Auto-advance every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, filteredProjects.length]);
 
   // Ensure featuredProjectIndex is within bounds
   const safeFeaturedProjectIndex = Math.min(featuredProjectIndex, Math.max(0, filteredProjects.length - 1));
@@ -578,6 +567,8 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
             viewport={{ once: true }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             {/* Sophisticated Navigation Controls with Perfect Spacing */}
             <motion.div 
@@ -600,11 +591,23 @@ export default function Home() {
                 <span className="current-project-award">{safeFeaturedProjectIndex + 1}</span>
                 <span className="divider-award">/</span>
                 <span className="total-projects-award">{filteredProjects.length}</span>
+                <div className="auto-play-indicator">
+                  <button
+                    onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+                    className={`auto-play-toggle ${isAutoPlaying ? 'playing' : 'paused'}`}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    {isAutoPlaying ? '⏸️' : '▶️'}
+                  </button>
+                </div>
               </div>
               
                 <button
-                onClick={goToNextProject}
+                onClick={goToNextProjectWithTransition}
                 className="nav-btn-award-winning next"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
                 >
                 Next →
                 </button>
@@ -705,7 +708,9 @@ export default function Home() {
                 <motion.button 
                   key={project.title}
                   className={`project-thumbnail-award ${index === safeFeaturedProjectIndex ? 'active' : ''}`}
-                  onClick={() => goToProject(index)}
+                  onClick={() => goToProjectWithTransition(index)}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
                   whileHover={{ 
                     y: -8, 
                     scale: 1.02,
@@ -745,7 +750,9 @@ export default function Home() {
                   <button
                       key={index}
                     className={`pagination-dot ${index === safeFeaturedProjectIndex ? 'active' : ''}`}
-                    onClick={() => goToProject(index)}
+                    onClick={() => goToProjectWithTransition(index)}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                     />
                   ))}
               </div>
