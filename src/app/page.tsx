@@ -1292,7 +1292,7 @@ export default function Home() {
               </div>
             </div>
 
-          {/* HERO SECTION - Perfect Visual Exploration */}
+          {/* HERO SECTION - Perfect Visual Exploration with Proper Spacing */}
           <div className="project-hero-section">
             <div className="hero-image-container">
               <Image
@@ -1304,7 +1304,7 @@ export default function Home() {
                 style={{
                   width: '100%',
                   height: 'auto',
-                  maxHeight: '70vh',
+                  maxHeight: '60vh',
                   objectFit: 'contain',
                   objectPosition: 'center'
                 }}
@@ -1312,15 +1312,15 @@ export default function Home() {
               />
             </div>
             
-            {/* Project Title and Metadata - BELOW IMAGE */}
+            {/* Project Title and Metadata - BELOW IMAGE with Proper Spacing */}
             <div className="project-title-section">
               <motion.h1 
                 className="project-title luxury-hero"
                 initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
-                    {projects[selectedProject].title}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                {projects[selectedProject].title}
               </motion.h1>
               <motion.p 
                 className="project-subtitle luxury-description"
@@ -1328,7 +1328,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                    {projects[selectedProject].subtitle}
+                {projects[selectedProject].subtitle}
               </motion.p>
             </div>
           </div>
