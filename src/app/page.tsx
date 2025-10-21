@@ -1195,7 +1195,7 @@ export default function Home() {
       </footer>
       </main>
 
-      {/* SOPHISTICATED PROJECT DETAILS PAGE */}
+      {/* AWARD-WINNING PROJECT DETAILS PAGE - LANDOR STANDARDS */}
       {selectedProject !== null && (
         <motion.div 
           className="project-details-overlay"
@@ -1204,224 +1204,290 @@ export default function Home() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
         >
-          {/* Navigation Header */}
+          {/* ULTRA-LUXURY NAVIGATION HEADER */}
           <div className="project-details-header">
+            {/* Back to Projects Button - Top Left */}
               <motion.button
                 onClick={() => setSelectedProject(null)}
-              className="back-button"
+              className="back-button luxury-navigation"
               whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-              <span className="luxury-body">← Back to Projects</span>
+              ← Back to Projects
               </motion.button>
               
+            {/* Project Navigation - Top Right */}
             <div className="project-navigation">
-              <button
+              {/* Previous Project */}
+                <motion.button
                   onClick={() => {
                     const prevIndex = selectedProject === 0 ? projects.length - 1 : selectedProject - 1;
                     setSelectedProject(prevIndex);
+                  setTimeout(() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }, 100);
                 }}
                 className="nav-button prev"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <span className="luxury-body">Previous</span>
-              </button>
-              <button
+                <div className="nav-project-info">
+                  <Image
+                    src={projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].image}
+                    alt={projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].title}
+                    width={60}
+                    height={40}
+                    className="nav-project-image"
+                    style={{ objectFit: 'cover' }}
+                  />
+                  <div className="nav-project-text">
+                    <span className="luxury-caption">Previous</span>
+                    <span className="luxury-body">{projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].title}</span>
+                  </div>
+                </div>
+                </motion.button>
+                
+              {/* Next Project */}
+                <motion.button
                   onClick={() => {
                     const nextIndex = (selectedProject + 1) % projects.length;
                     setSelectedProject(nextIndex);
-                  }}
+                  setTimeout(() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }, 100);
+                }}
                 className="nav-button next"
-                >
-                <span className="luxury-body">Next</span>
-              </button>
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <div className="nav-project-info">
+                  <Image
+                    src={projects[(selectedProject + 1) % projects.length].image}
+                    alt={projects[(selectedProject + 1) % projects.length].title}
+                    width={60}
+                    height={40}
+                    className="nav-project-image"
+                    style={{ objectFit: 'cover' }}
+                  />
+                  <div className="nav-project-text">
+                    <span className="luxury-caption">Next</span>
+                    <span className="luxury-body">{projects[(selectedProject + 1) % projects.length].title}</span>
+                  </div>
+                </div>
+                </motion.button>
               </div>
             </div>
 
-          {/* FIXED HERO SECTION - Proper Image Display */}
-          <div className="fixed-hero-section">
-            <div 
-              className="hero-image-container"
-              style={{
-                transform: `translateY(${scrollY * 0.5}px)`
-              }}
-              onClick={() => setHeroImageZoom(true)}
-            >
+          {/* HERO SECTION - Full Width with Secondary Image */}
+          <div className="project-hero-section">
+            <div className="hero-image-container">
               <Image
-                src={projects[selectedProject].image}
+                src={projects[selectedProject].secondaryImage || projects[selectedProject].image}
                 alt={projects[selectedProject].title}
                 fill
                 className="hero-image"
                 style={{
-                  objectFit: 'contain',
+                  objectFit: 'cover',
                   objectPosition: 'center'
                 }}
                 priority
               />
-              <div className="hero-zoom-overlay">
-                <div className="zoom-icon">🔍</div>
-                <span className="zoom-text">Click to explore</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Project Info Below Image */}
-          <div className="project-info-section">
-            <motion.h1 
-              className="project-title luxury-hero"
-              initial={{ opacity: 0, y: 30 }}
+              <div className="hero-overlay">
+                <div className="hero-content">
+                  <motion.h1 
+                    className="project-title luxury-hero"
+                    initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
                 >
                     {projects[selectedProject].title}
-            </motion.h1>
-            <motion.p 
-              className="project-subtitle luxury-description"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
+                  </motion.h1>
+                  <motion.p 
+                    className="project-subtitle luxury-description"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                  >
                     {projects[selectedProject].subtitle}
-            </motion.p>
-            <motion.div 
-              className="project-meta"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <span className="project-client luxury-body">{projects[selectedProject].client}</span>
-              <span className="project-year luxury-body">{projects[selectedProject].year}</span>
-              <span className="project-location luxury-body">{projects[selectedProject].location}</span>
-            </motion.div>
-                  </div>
+                  </motion.p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          {/* ASYMMETRIC CONTENT SECTIONS - Progressive Disclosure */}
-          <div className="asymmetric-content-sections">
-            {/* Context - Large */}
-            <motion.div 
-              className="content-section-large context"
+          {/* PROJECT METADATA SECTION */}
+          <div className="project-metadata-section">
+            <div className="metadata-grid">
+              <div className="metadata-item">
+                <span className="metadata-label luxury-caption">Client</span>
+                <span className="metadata-value luxury-body">{projects[selectedProject].client}</span>
+              </div>
+              <div className="metadata-item">
+                <span className="metadata-label luxury-caption">Year</span>
+                <span className="metadata-value luxury-body">{projects[selectedProject].year}</span>
+              </div>
+              <div className="metadata-item">
+                <span className="metadata-label luxury-caption">Location</span>
+                <span className="metadata-value luxury-body">{projects[selectedProject].location}</span>
+              </div>
+              <div className="metadata-item">
+                <span className="metadata-label luxury-caption">Category</span>
+                <span className="metadata-value luxury-body">{projects[selectedProject].category}</span>
+              </div>
+            </div>
+            <div className="project-tags">
+              {projects[selectedProject].tech.map((tag, index) => (
+                <span key={index} className="project-tag luxury-caption">
+                  {tag}
+                    </span>
+              ))}
+                  </div>
+          </div>
+                
+          {/* CONTENT SECTIONS - 3 SENTENCES MAXIMUM */}
+          <div className="project-content-sections">
+                  {/* Context Section */}
+                  <motion.section
+                    className="content-section"
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <div className="section-number">01</div>
-              <h3 className="section-title luxury-section-header">Context</h3>
+              <div className="section-header">
+                <span className="section-number luxury-caption">01</span>
+                <h2 className="section-title luxury-section-header">Context</h2>
+              </div>
               <div className="section-content">
                 <p className="section-text luxury-body">
                   {projects[selectedProject].description}
                 </p>
               </div>
-            </motion.div>
-
-            {/* Scope - Medium */}
-            <motion.div 
-              className="content-section-medium scope"
+                  </motion.section>
+                  
+            {/* Approach Section */}
+                  <motion.section
+                    className="content-section"
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <div className="section-number">02</div>
-              <h3 className="section-title luxury-section-header">Scope of the Project</h3>
-              <div className="section-content">
-                <p className="section-text luxury-body">
-                  Strategic consulting and experience design across {projects[selectedProject].client}&apos;s digital ecosystem, 
-                  focusing on {projects[selectedProject].subtitle.toLowerCase()} and business transformation.
-                </p>
+              <div className="section-header">
+                <span className="section-number luxury-caption">02</span>
+                <h2 className="section-title luxury-section-header">Approach</h2>
               </div>
-            </motion.div>
-
-            {/* Approach - Small */}
-            <motion.div 
-              className="content-section-small approach"
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              <div className="section-number">03</div>
-              <h3 className="section-title luxury-section-header">Approach</h3>
               <div className="section-content">
                 <p className="section-text luxury-body">
                   Experience-driven innovation methodology combining user research, strategic design, 
                   and digital transformation to deliver measurable business impact.
                 </p>
+                <div className="capability-tags">
+                  {projects[selectedProject].tech.map((capability, index) => (
+                    <span key={index} className="capability-tag luxury-caption">
+                      {capability}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </motion.div>
-
-            {/* Impact - Medium */}
-            <motion.div 
-              className="content-section-medium impact"
+                  </motion.section>
+                  
+                  {/* Impact Section */}
+                  <motion.section
+                    className="content-section"
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <div className="section-number">04</div>
-              <h3 className="section-title luxury-section-header">Impact</h3>
+              <div className="section-header">
+                <span className="section-number luxury-caption">03</span>
+                <h2 className="section-title luxury-section-header">Impact</h2>
+              </div>
               <div className="section-content">
                 <p className="section-text luxury-body">
                   Delivered strategic transformation that enabled {projects[selectedProject].client} to achieve 
                   enhanced user experience and business growth across their digital platforms.
                 </p>
                       </div>
-            </motion.div>
+                    </motion.section>
           </div>
-
+              
           {/* PROJECT GALLERY */}
           <div className="project-gallery-section">
-            <motion.h3 
-              className="gallery-title luxury-section-header"
+                <motion.div 
+              className="gallery-header"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              Project Gallery
-            </motion.h3>
+              <h2 className="gallery-title luxury-section-header">Project Gallery</h2>
+              <span className="gallery-count luxury-caption">
+                {selectedProject !== null && projects[selectedProject].galleryImages ? 
+                  `1 of ${projects[selectedProject].galleryImages.length + 1}` : 
+                  '1 of 1'
+                }
+              </span>
+            </motion.div>
             <div className="gallery-grid">
+              {/* Primary Image */}
+              <motion.div 
+                className="gallery-item primary"
+                initial={{ opacity: 0, scale: 0.8, y: 50 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true, margin: "-50px" }}
+                onClick={() => setHeroImageZoom(true)}
+                whileHover={{ scale: 1.02 }}
+                >
+                  <Image
+                    src={projects[selectedProject].image}
+                  alt={projects[selectedProject].title}
+                  fill
+                  className="gallery-image"
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="gallery-overlay">
+                  <span className="zoom-text luxury-caption">Click to explore</span>
+                </div>
+                </motion.div>
+                
+              {/* Secondary Images */}
               {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.map((image, index) => (
                 <motion.div 
-                  key={index}
+                        key={index}
                   className="gallery-item"
                   initial={{ opacity: 0, scale: 0.8, y: 50 }}
                   whileInView={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ 
                     duration: 0.8, 
-                    delay: index * 0.2,
+                    delay: 0.3 + index * 0.1,
                     type: "spring",
                     stiffness: 100
                   }}
                   viewport={{ once: true, margin: "-50px" }}
-                  onClick={() => {
-                    setCurrentGalleryImage(index);
-                    setGalleryZoomOpen(true);
-                  }}
-                  whileHover={{ 
-                    scale: 1.05, 
-                    y: -15,
-                    transition: { duration: 0.3 }
-                  }}
-                >
-                  <Image
-                    src={image}
-                    alt={`${projects[selectedProject].title} - Image ${index + 1}`}
-                    fill
+                        onClick={() => {
+                          setCurrentGalleryImage(index);
+                          setGalleryZoomOpen(true);
+                        }}
+                  whileHover={{ scale: 1.02 }}
+                      >
+                        <Image
+                          src={image}
+                    alt={`${projects[selectedProject].title} - Image ${index + 2}`}
+                          fill
                     className="gallery-image"
-                    style={{
-                      objectFit: 'cover',
-                      objectPosition: 'center'
-                    }}
-                  />
+                    style={{ objectFit: 'cover' }}
+                        />
                   <div className="gallery-overlay">
-                    <div className="gallery-icon">🔍</div>
-                    <span className="gallery-text">View Full Size</span>
+                    <span className="zoom-text luxury-caption">Click to explore</span>
                   </div>
                 </motion.div>
-              ))}
+                    ))}
             </div>
-          </div>
-
+                  </div>
+                  
           {/* TESTIMONIAL GALLERY */}
           <div className="testimonial-gallery-section">
             <motion.h3 
@@ -1447,7 +1513,7 @@ export default function Home() {
                     stiffness: 100
                   }}
                   viewport={{ once: true, margin: "-50px" }}
-                        onClick={() => {
+                      onClick={() => {
                           setCurrentGalleryImage(index);
                           setGalleryZoomOpen(true);
                         }}
@@ -1473,9 +1539,9 @@ export default function Home() {
                   </div>
                 </motion.div>
               ))}
-            </div>
                   </div>
-                  
+                </div>
+                
           {/* SOPHISTICATED PROJECT NAVIGATION */}
           <div className="sophisticated-navigation-section">
             <motion.div 
@@ -1496,18 +1562,18 @@ export default function Home() {
               <div className="sophisticated-nav-thumbnail">
                 <div
                   className="sophisticated-nav-image"
-                  style={{
+                        style={{
                     backgroundImage: `url(${projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].image})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
-                  }}
+                        }}
                 />
-                  </div>
+                      </div>
               <div className="sophisticated-nav-info">
                 <span className="sophisticated-nav-label">Previous Project</span>
                 <h4 className="sophisticated-nav-title">{projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].title}</h4>
                 <p className="sophisticated-nav-subtitle">{projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].subtitle}</p>
-                </div>
+                  </div>
             </motion.div>
 
             <motion.div 
@@ -1529,7 +1595,7 @@ export default function Home() {
                 <span className="sophisticated-nav-label">Next Project</span>
                 <h4 className="sophisticated-nav-title">{projects[(selectedProject + 1) % projects.length].title}</h4>
                 <p className="sophisticated-nav-subtitle">{projects[(selectedProject + 1) % projects.length].subtitle}</p>
-                  </div>
+                </div>
               <div className="sophisticated-nav-thumbnail">
                 <div
                   className="sophisticated-nav-image"
@@ -1539,7 +1605,7 @@ export default function Home() {
                     backgroundPosition: 'center'
                         }}
                 />
-                </div>
+            </div>
             </motion.div>
             </div>
         </motion.div>
@@ -1629,6 +1695,23 @@ export default function Home() {
                 projects[selectedProject].galleryImages.length : 2}
             </div>
           </motion.div>
+
+          {/* FOOTER */}
+          <footer className="project-details-footer">
+            <div className="footer-content">
+              <div className="footer-brand">
+                <h3 className="footer-brand-name luxury-project-title">silvana.</h3>
+                <p className="footer-brand-title luxury-body">Principal Experience Architect</p>
+              </div>
+              <div className="footer-links">
+                <a href="#about" className="footer-link luxury-body">About</a>
+                <a href="#projects" className="footer-link luxury-body">Projects</a>
+                <a href="#experience" className="footer-link luxury-body">Experience</a>
+                <a href="#services" className="footer-link luxury-body">Services</a>
+                <a href="#footer" className="footer-link luxury-body">Contact</a>
+              </div>
+            </div>
+          </footer>
         </motion.div>
       )}
     </div>
