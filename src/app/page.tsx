@@ -80,19 +80,7 @@ export default function Home() {
     }
   ];
 
-  // Services hover expansion state - Sophisticated Interaction
-  const [expandedService, setExpandedService] = useState<number | null>(null);
-  
-  // Column width calculator for sophisticated expansion
-  const getServiceColumnWidth = (index: number) => {
-    if (expandedService === null) {
-      return '20%'; // Equal distribution when no hover
-    }
-    if (expandedService === index) {
-      return '40%'; // Expanded service takes more space
-    }
-    return '15%'; // Compressed services
-  };
+  // Services hover expansion state - Sophisticated Interaction (unused code removed)
   
   const projects = [
     {
