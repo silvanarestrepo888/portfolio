@@ -777,7 +777,7 @@ export default function Home() {
           >
               <span 
               className="section-number text-sm font-semibold tracking-wider uppercase block mb-4"
-              style={{ color: 'rgba(255, 102, 99, 0.7)' }}
+              style={{ color: 'var(--grapefruit-primary)' }}
               >
                 03
               </span>
@@ -987,7 +987,7 @@ export default function Home() {
               <span 
                 className="text-foundation-sm font-foundation-accent block mb-phi-sm"
                 style={{
-                  color: 'rgba(255, 102, 99, 0.6)'
+                  color: 'var(--grapefruit-primary)'
                 }}
               >
                 04
@@ -1055,7 +1055,7 @@ export default function Home() {
                     }}
                     transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
                   >
-                    <h3 className="service-title-interactive luxury-project-title">
+                    <h3 className="service-title-interactive typography-h3">
                       {service.title}
                     </h3>
                   </motion.div>
@@ -1073,7 +1073,7 @@ export default function Home() {
                     {/* Service Title - Clean Header */}
                     <div className="service-header-clean">
                       <span className="service-number-clean typography-caption">{service.number}</span>
-                      <h3 className="service-title-expanded-clean luxury-project-title">{service.title}</h3>
+                      <h3 className="service-title-expanded-clean typography-h3">{service.title}</h3>
                     </div>
                     
                     {/* Capabilities List - Clean Vertical Layout Following Inspiration */}
@@ -1154,7 +1154,7 @@ export default function Home() {
           <div className="footer-grid">
             {/* Brand Section */}
             <div className="footer-brand">
-              <h3 className="footer-brand-name luxury-project-title">silvana.</h3>
+              <h3 className="footer-brand-name typography-h3">silvana.</h3>
               <p className="footer-brand-title typography-body">Principal Experience Architect</p>
             </div>
             
@@ -1212,13 +1212,13 @@ export default function Home() {
             {/* Back to Projects Button - Top Left */}
               <motion.button
                 onClick={() => setSelectedProject(null)}
-              className="back-button luxury-navigation"
+              className="back-button typography-body"
               whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
               ← Back to Projects
               </motion.button>
-              
+          </div>
 
           {/* HERO SECTION - Perfect Visual Exploration with Proper Spacing */}
           <div className="project-hero-section">
@@ -1243,7 +1243,7 @@ export default function Home() {
             {/* Project Title and Metadata - BELOW IMAGE with Proper Spacing */}
             <div className="project-title-section">
               <motion.h1 
-                className="project-title luxury-hero"
+                className="project-title typography-h1"
                 initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
@@ -1668,7 +1668,7 @@ export default function Home() {
           <footer className="project-details-footer">
             <div className="footer-content">
               <div className="footer-brand">
-                <h3 className="footer-brand-name luxury-project-title">silvana.</h3>
+                <h3 className="footer-brand-name typography-h3">silvana.</h3>
                 <p className="footer-brand-title typography-body">Principal Experience Architect</p>
               </div>
               <div className="footer-links">
