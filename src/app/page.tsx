@@ -89,6 +89,9 @@ export default function Home() {
   // Services hover expansion state - Hover Amplification System
   const [expandedService, setExpandedService] = useState<number | null>(null);
   
+  // Timeline progress state
+  const [timelineProgress, setTimelineProgress] = useState(0);
+  
   const projects = [
     {
       title: "Kayanee",
@@ -335,11 +338,33 @@ export default function Home() {
         }
       });
     };
+
+    const handleTimelineProgress = () => {
+      const experienceSection = document.getElementById('experience');
+      if (experienceSection) {
+        const rect = experienceSection.getBoundingClientRect();
+        const sectionTop = rect.top;
+        const sectionHeight = rect.height;
+        const windowHeight = window.innerHeight;
+        
+        // Calculate progress based on how much of the section is visible
+        const progress = Math.max(0, Math.min(100, 
+          ((windowHeight - sectionTop) / (windowHeight + sectionHeight)) * 100
+        ));
+        
+        setTimelineProgress(progress);
+      }
+    };
     
     window.addEventListener('scroll', handleSectionScroll);
+    window.addEventListener('scroll', handleTimelineProgress);
     handleSectionScroll(); // Initial check
+    handleTimelineProgress(); // Initial check
     
-    return () => window.removeEventListener('scroll', handleSectionScroll);
+    return () => {
+      window.removeEventListener('scroll', handleSectionScroll);
+      window.removeEventListener('scroll', handleTimelineProgress);
+    };
   }, []);
 
 
@@ -376,7 +401,7 @@ export default function Home() {
       
       {/* SOPHISTICATED SECTION INDICATOR */}
       <SectionIndicator />
-      
+
 
       {/* HERO FOUNDATION - Award-Winning Visual Communication */}
       <main id="main-content">
@@ -653,15 +678,15 @@ export default function Home() {
                   <span className="auto-play-text">
                     {isAutoPlaying ? 'Auto-playing' : 'Paused'}
                 </span>
-                </div>
+              </div>
                 
                 <div className="project-counter">
                   <span className="current-project">{safeFeaturedProjectIndex + 1}</span>
                   <span className="divider">/</span>
                   <span className="total-projects">{filteredProjects.length}</span>
-                </div>
-              </div>
-              
+                    </div>
+                  </div>
+                  
               {/* Upcoming Projects Preview */}
               <div className="upcoming-projects-preview">
                 <div className="upcoming-label">Coming Up</div>
@@ -673,9 +698,9 @@ export default function Home() {
                       style={{ backgroundImage: `url(${project.image})` }}
                       onClick={() => goToProjectWithTransition(safeFeaturedProjectIndex + index + 1)}
                     />
-                  ))}
-                </div>
-              </div>
+                        ))}
+                      </div>
+                  </div>
             </motion.div>
             
             {/* 3D INTERACTIVE PROJECT CAROUSEL - AWARD-WINNING */}
@@ -707,19 +732,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* EXPERIENCE SECTION - Architectural Transformation */}
+      {/* EXPERIENCE SECTION - Vertical Timeline */}
       <section 
         id="experience"
-        className="experience-architecture-container luxury-background-texture section-experience-sophisticated section-transition-sophisticated"
+        className="experience-timeline-section"
         style={{ 
-          minHeight: '100vh'
+          minHeight: '100vh',
+          background: 'linear-gradient(135deg, var(--charcoal-deep) 0%, var(--charcoal-primary) 100%)'
         }}
       >
-        {/* Background interference elements removed for clean design */}
-        <div className="max-w-7xl mx-auto px-8">
-          {/* Section Header - Original Copy with Enhanced Typography */}
+        <div className="experience-timeline-container">
+          {/* Section Header */}
           <motion.div 
-            className="experience-header text-center mb-8"
+            className="experience-timeline-header text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -727,172 +752,122 @@ export default function Home() {
           >
               <span 
               className="section-number text-sm font-semibold tracking-wider uppercase block mb-4"
-              style={{ color: 'var(--grapefruit-primary)' }}
+              style={{ color: 'var(--coral-primary)' }}
               >
                 03
               </span>
-            <h2 className="typography-h2">
+            <h2 className="typography-h2" style={{ color: 'var(--cream-primary)' }}>
                 Experience
               </h2>
-            <p className="typography-body text-center max-w-4xl mx-auto">
-              Some of the <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>upscaling</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>reinventing</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>evolving</span>, and <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>reimagining</span> business, brands, and teams.
+            <p className="typography-body text-center max-w-4xl mx-auto" style={{ color: 'var(--cream-cool)' }}>
+              Some of the <span className="highlight-word" style={{ color: 'var(--coral-primary)' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--coral-primary)' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--coral-primary)' }}>upscaling</span>, <span className="highlight-word" style={{ color: 'var(--coral-primary)' }}>reinventing</span>, <span className="highlight-word" style={{ color: 'var(--coral-primary)' }}>evolving</span>, and <span className="highlight-word" style={{ color: 'var(--coral-primary)' }}>reimagining</span> business, brands, and teams.
             </p>
           </motion.div>
           
+          {/* Vertical Timeline */}
+          <div className="experience-timeline-wrapper">
+            {/* Timeline Line */}
+            <div className="experience-timeline-line">
+              <div 
+                className="experience-timeline-progress"
+                style={{ height: `${timelineProgress}%` }}
+              ></div>
+            </div>
 
-          {/* Architectural Layers System */}
-            <motion.div 
-            className="experience-layers-container"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-          >
-            {/* Clean Experience Section - No Floating Elements */}
-
-            {/* Architectural Layers */}
-            <div className="experience-layers-grid">
+            {/* Timeline Content */}
+            <div className="experience-timeline-content">
               {[
                 {
                   year: "2020—2025",
                   role: "Business Partner & Experience Architect", 
                   company: "Globant",
-                  description: "I orchestrate enterprise-scale digital initiatives for global brands, translating their vision into practical roadmaps that support business goals. Contributed to architect physical-digital systems for healthcare, entertainment, hospitality, retail, Finance, and wellness teams, supporting faster value delivery.",
-                  layer: "top",
-                  level: 7
+                  description: "I orchestrate enterprise-scale digital initiatives for global brands, translating their vision into practical roadmaps that support business goals. Contributed to architect physical-digital systems for healthcare, entertainment, hospitality, retail, Finance, and wellness teams, supporting faster value delivery."
                 },
                 {
                   year: "2019—2020",
                   role: "Senior Researcher",
                   company: "Centre for Fourth Industrial Revolution-WEF",
-                  description: "I helped develop frameworks connecting technologies with governance approaches, supporting sustainable bridges between public policy and industry innovation.",
-                  layer: "strategic",
-                  level: 6
+                  description: "I helped develop frameworks connecting technologies with governance approaches, supporting sustainable bridges between public policy and industry innovation."
                 },
                 {
                   year: "2018—2019", 
                   role: "Strategic Design Director",
                   company: "Designit a WIPRO Company",
-                  description: "I led regional operations to scale market presence and transform business complexity into actionable design solutions.",
-                  layer: "leadership",
-                  level: 5
+                  description: "I led regional operations to scale market presence and transform business complexity into actionable design solutions."
                 },
                 {
                   year: "2016—2018",
                   role: "Marketing Director",
                   company: "Grupo Éxito",
-                  description: "I transformed retail destinations into experiential ecosystems, orchestrating over 1,000 brand partnerships while driving entertainment-centric commerce innovation.",
-                  layer: "business",
-                  level: 4
+                  description: "I transformed retail destinations into experiential ecosystems, orchestrating over 1,000 brand partnerships while driving entertainment-centric commerce innovation."
                 },
                 {
                   year: "2013—2016",
                   role: "Business Intelligence Manager",
                   company: "Industrias HACEB", 
-                  description: "I reengineered market segmentation frameworks from production-centric to consumer-centric models, driving sales growth and operational efficiencies.",
-                  layer: "analytics",
-                  level: 3
+                  description: "I reengineered market segmentation frameworks from production-centric to consumer-centric models, driving sales growth and operational efficiencies."
                 },
                 {
                   year: "2012—2016",
                   role: "Independent Advisor",
                   company: "Independent",
-                  description: "I decoded emerging consumer behaviours for global enterprises, transforming abstract trend signals into implementable product innovation roadmaps.",
-                  layer: "innovation",
-                  level: 2
+                  description: "I decoded emerging consumer behaviours for global enterprises, transforming abstract trend signals into implementable product innovation roadmaps."
                 },
                 {
                   year: "2002—2011",
                   role: "Senior Marketing Analyst",
                   company: "TIGO-Millicom",
-                  description: "I supported corporate expansion through mergers and acquisitions, enhancing national competitive positioning while integrating diverse teams into the main brand.",
-                  layer: "foundation",
-                  level: 1
+                  description: "I supported corporate expansion through mergers and acquisitions, enhancing national competitive positioning while integrating diverse teams into the main brand."
                 }
               ].map((experience, index) => (
+                <div key={index} className={`experience-timeline-item ${index % 2 === 0 ? 'timeline-left' : 'timeline-right'}`}>
+                  {/* Timeline Node */}
                 <motion.div 
-                  key={index}
-                  className={`experience-layer-card layer-${experience.layer}`}
-                  data-layer={experience.level}
-                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  whileHover={{
-                    y: -10, 
-                    scale: 1.05,
-                    transition: { duration: 0.3 }
-                  }}
-                  transition={{ 
-                    duration: 0.8, 
-                    delay: index * 0.15,
-                    type: "spring",
-                    stiffness: 100
+                    className="experience-timeline-node"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{ 
+                      scale: 1, 
+                      opacity: 1,
+                      transition: { 
+                        duration: 0.6,
+                        delay: 0.2 + (index * 0.2),
+                        type: "spring",
+                        bounce: 0.6
+                      }
                   }}
                   viewport={{ once: true }}
-                >
-                  {/* Connection Lines */}
-                  {index < 6 && (
-                    <div className="connection-line" />
-                  )}
-                  
-                  {/* Layer Content */}
-                  <div className="layer-content">
-                    <div className="layer-header">
-                      <span className="layer-year">{experience.year}</span>
-                      <span className="layer-company">{experience.company}</span>
-                    </div>
-                    <h3 className="layer-role">{experience.role}</h3>
-                    <p className="layer-description">{experience.description}</p>
+                  />
+
+                  {/* Text Container */}
+                <motion.div 
+                    className="experience-text-container"
+                  initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ 
+                      opacity: 1, 
+                      y: 0,
+                      transition: { 
+                        duration: 0.8,
+                        delay: 0.4 + (index * 0.2),
+                        ease: [0.25, 0.46, 0.45, 0.94]
+                      }
+                    }}
+                  viewport={{ once: true }}
+                    whileHover={{
+                      scale: 1.02,
+                      transition: { duration: 0.3 }
+                    }}
+                  >
+                    <div className="experience-text-content">
+                      <span className="experience-year">{experience.year}</span>
+                      <h3 className="experience-role">{experience.role}</h3>
+                      <p className="experience-company">{experience.company}</p>
+                      <p className="experience-description">{experience.description}</p>
                   </div>
-                  
-                  {/* Layer Visual Indicator */}
-                  <div className="layer-indicator" />
                 </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
-
-          {/* Navigation Arrows */}
-                <motion.div 
-            className="flex justify-center items-center mt-16 gap-8"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-                  viewport={{ once: true }}
-                >
-            <motion.button 
-              className="w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-600 luxury-hover-elevation luxury-shadow-medium"
-              whileHover={{ 
-                scale: 1.1, 
-                backgroundColor: '#ff6663',
-                color: 'white',
-                boxShadow: '0 10px 25px rgba(255, 102, 99, 0.3)'
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M15 18l-6-6 6-6"/>
-              </svg>
-            </motion.button>
-            
-            <span className="text-sm text-gray-500 font-medium uppercase tracking-wider">
-              Explore Journey
-            </span>
-            
-            <motion.button 
-              className="w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-600"
-              whileHover={{ 
-                scale: 1.1, 
-                backgroundColor: '#ff6663',
-                color: 'white',
-                boxShadow: '0 10px 25px rgba(255, 102, 99, 0.3)'
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M9 18l6-6-6-6"/>
-              </svg>
-            </motion.button>
-                </motion.div>
+          </div>
         </div>
       </section>
 
@@ -956,17 +931,17 @@ export default function Home() {
                       <div className="service-content-section">
                         <h4 className="content-title">Strategic Capability</h4>
                         <p className="content-description">{service.description}</p>
-                      </div>
-                      
+                    </div>
+                    
                       <div className="service-content-section">
                         <h4 className="content-title">Proven Excellence</h4>
                         <p className="content-description">{service.provenExcellence}</p>
-                      </div>
-                      
+            </div>
+            
                       <div className="service-content-section">
                         <h4 className="content-title">For projects that demand</h4>
                         <p className="content-description">{service.demand}</p>
-                      </div>
+              </div>
                     </div>
                   )}
                 </div>
