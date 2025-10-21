@@ -14991,7 +14991,7 @@ img {
 
 /* HERO SECTION - Bold Confidence */
 .section-hero-sophisticated {
-  background: var(--hero-gradient);
+  background: transparent;
   position: relative;
   overflow: hidden;
   transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -15650,7 +15650,7 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 10;
+  z-index: 1;
 }
 
 .hero-photo-layer-unified {
@@ -15659,7 +15659,7 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 2;
   overflow: hidden;
 }
 
@@ -15667,17 +15667,15 @@ img {
   object-fit: cover;
   object-position: 65% center; /* Strategic positioning for text readability */
   
-  /* Lighter filter for better visibility */
+  /* Minimal filter for maximum visibility */
   filter: 
-    sepia(25%) 
-    saturate(120%) 
-    hue-rotate(10deg)    /* Subtle warmth */
-    brightness(1.2) 
-    contrast(1.1);
+    brightness(1.1) 
+    contrast(1.05)
+    saturate(1.1);
   
   /* Normal blend mode for clear visibility */
   mix-blend-mode: normal;
-  opacity: 0.95;
+  opacity: 1;
   
   /* Performance optimization */
   will-change: transform, filter;
@@ -15692,12 +15690,14 @@ img {
   height: 100%;
   background: linear-gradient(
     135deg, 
-    var(--vanilla-whisper) 0%,   /* Sophisticated vanilla overlay */
-    transparent 60%, 
-    var(--grapefruit-whisper) 100% /* Subtle grapefruit accent */
+    transparent 0%,
+    transparent 70%, 
+    var(--grapefruit-whisper) 100%
   );
-  z-index: 2;
+  z-index: 3;
   pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: 0.3;
 }
 
 .unified-gradient-foundation {
@@ -15708,8 +15708,8 @@ img {
   height: 100%;
   background: var(--unified-gradient-1);
   mix-blend-mode: soft-light;
-  opacity: 0.1;
-  z-index: 3;
+  opacity: 0.05;
+  z-index: 4;
   pointer-events: none;
 }
 
@@ -15722,7 +15722,7 @@ img {
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    var(--cream-coral-hint) 100% /* Creates visual bridge to about */
+    var(--vanilla-whisper) 100% /* Creates subtle vanilla bridge */
   );
   z-index: 4;
   pointer-events: none;
@@ -15734,18 +15734,18 @@ img {
   border-radius: 24px; /* Consistent with hero curves */
   overflow: hidden;
   
-  /* Unified background using cohesive color story */
+  /* Sophisticated two-color background */
   background: linear-gradient(135deg, 
-    var(--cream-warm) 0%, 
-    var(--cream-coral-hint) 100%); /* Subtle coral hint for cohesiveness */
+    var(--vanilla-pure) 0%, 
+    var(--vanilla-warm) 100%);
   
   padding: 12px; /* Generous, luxurious frame */
   
-  /* Cohesive shadow system matching hero depth */
+  /* Sophisticated two-color shadow system */
   box-shadow: 
-    0 25px 60px rgba(58, 58, 58, 0.12),   /* Warmer charcoal shadows */
-    0 8px 25px rgba(255, 122, 119, 0.08), /* Warmer coral accent */
-    0 2px 8px rgba(58, 58, 58, 0.05);     /* Detail shadow */
+    0 25px 60px var(--grapefruit-whisper),
+    0 8px 25px var(--grapefruit-subtle),
+    0 2px 8px var(--grapefruit-whisper);
   
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -15753,9 +15753,9 @@ img {
 .about-photo-unified-sophisticated:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 
-    0 35px 80px rgba(58, 58, 58, 0.15),
-    0 12px 30px rgba(255, 122, 119, 0.12),
-    0 4px 12px rgba(58, 58, 58, 0.08);
+    0 35px 80px var(--grapefruit-subtle),
+    0 12px 30px var(--grapefruit-soft),
+    0 4px 12px var(--grapefruit-subtle);
 }
 
 .about-photo-cohesive {
