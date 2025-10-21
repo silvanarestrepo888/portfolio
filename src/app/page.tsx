@@ -477,11 +477,9 @@ export default function Home() {
             {/* Right Column - Profile Photo */}
             <div className="about-photo-column">
               <div className="about-photo-container">
-                <Image
+                <img
                   src="/silvana-profile.jpg"
                   alt="Silvana Restrepo - Principal Experience Architect"
-                  width={500}
-                  height={600}
                   className="about-photo-perfect"
                   style={{
                     width: '100%',
@@ -491,14 +489,10 @@ export default function Home() {
                     borderRadius: '12px',
                     display: 'block',
                     visibility: 'visible',
-                    opacity: 1
+                    opacity: 1,
+                    maxWidth: '100%',
+                    height: 'auto'
                   }}
-                  quality={100}
-                  priority
-                  unoptimized
-                  loading="eager"
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                 />
                 <div className="about-photo-overlay">
                   <div className="about-photo-accent"></div>
@@ -995,37 +989,28 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          {/* LANDOR STANDARDS SERVICES SECTION - CLEAN IMPLEMENTATION */}
-          <div className="services-container-landor">
-            <div className="services-grid-landor">
+          {/* SERVICES SECTION - SIMPLE & CLEAN */}
+          <div className="services-simple-container">
+            <div className="services-simple-grid">
               {referenceServices.map((service, index) => (
-                <motion.div
-                  key={service.number}
-                  className="service-card-landor"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="service-header-landor">
-                    <span className="service-number-landor typography-caption">{service.number}</span>
-                    <h3 className="service-title-landor typography-h3">{service.title}</h3>
+                <div key={service.number} className="service-simple-card">
+                  <div className="service-simple-header">
+                    <span className="service-simple-number">{service.number}</span>
+                    <h3 className="service-simple-title">{service.title}</h3>
                   </div>
                   
-                  <div className="service-capabilities-landor">
-                      {service.capabilities.map((capability, capIndex) => (
-                      <div key={capIndex} className="capability-item-landor typography-body">
-                          {capability}
+                  <div className="service-simple-capabilities">
+                    {service.capabilities.map((capability, capIndex) => (
+                      <div key={capIndex} className="service-simple-capability">
+                        {capability}
                       </div>
-                      ))}
-                    </div>
-                    
-                  <div className="service-description-landor">
-                    <p className="service-description-text-landor typography-body">
-                      {service.description}
-                    </p>
+                    ))}
                   </div>
-                </motion.div>
+                  
+                  <div className="service-simple-description">
+                    <p>{service.description}</p>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
