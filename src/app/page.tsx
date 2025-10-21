@@ -245,11 +245,7 @@ export default function Home() {
         "/projects/qiddiya/unified-guest-interaction.png"
       ]
     }
-    {
-      title: "Flagship Entertainment Destination, KSA",
-      subtitle: "PoC Guest Support Platform",
-      description: "Saudi Arabia's flagship entertainment destination required comprehensive guest support systems navigating uncharted territory in a landmark entertainment project.",
-      tech: ["Product Strategy", "Service Design", "Prototyping", "Guest Support Systems", "Cultural Adaptation"],
+  ];
       industryTags: ["Entertainment Destination", "Guest Services", "Cultural Intelligence", "Digital Infrastructure"],
       category: "Hospitality-Themed Parks-Retail",
       year: "2025",
