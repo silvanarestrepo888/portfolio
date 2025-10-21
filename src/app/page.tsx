@@ -1335,10 +1335,9 @@ export default function Home() {
                       <div>
                         <h3 className="text-foundation-lg font-foundation-display text-gray-800 mb-2">Category</h3>
                         <p className="text-foundation-base font-foundation-body text-gray-700">{projects[selectedProject].category}</p>
-                        </cite>
                       </div>
-                    </motion.section>
-                  )}
+                    </div>
+                  </motion.section>
                 </article>
               </main>
               
