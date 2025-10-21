@@ -109,9 +109,9 @@ export default function Home() {
       image: "/projects/kayanee/hero-kayanee.jpeg",
       secondaryImage: "/projects/kayanee/secundary-kayanee.jpeg",
       galleryImages: [
-        "/projects/kayanee/Kayanee/Project Gallery /secundary-kayanee.jpeg",
-        "/projects/kayanee/Kayanee/Project Gallery /Screenshot 2024-11-15 at 10.42.42.png",
-        "/projects/kayanee/Kayanee/Project Gallery /Screens-VSCO.jpeg"
+        "/projects/kayanee/Project Gallery /secundary-kayanee.jpeg",
+        "/projects/kayanee/Project Gallery /Screenshot 2024-11-15 at 10.42.42.png",
+        "/projects/kayanee/Project Gallery /Screens-VSCO.jpeg"
       ],
       context: "For centuries, wellness has been a deeply personal journey—rooted in culture, tradition, and individual aspirations. In Saudi Arabia, a new chapter is being written, Kayanne is more than just a wellness brand; it's a movement, a vision, and a revolution in how women experience health, self-care, and empowerment. Kayanee is the first ecosystem integrating physical, digital, and social experiences for women's holistic wellbeing.",
       scope: "Spaces were designed to intuitively recognise wellness needs, blending physical environments with AI-driven digital journeys. Crafted to be a phygital ecosystem merging behavioural science with technology to create deeply personalised transformative experiences. Seamless interactions across touch points—from retail environments to digital platforms—enhancing women's holistic wellbeing journey.",
@@ -136,9 +136,9 @@ export default function Home() {
       image: "/projects/augoor/hero-2.png",
       secondaryImage: "/projects/augoor/photo-main-carrusel.jpeg",
       galleryImages: [
-        "/projects/augoor/Augoor/Project Gallery/Screenshot 2025-04-15 at 13.33.51.png",
-        "/projects/augoor/Augoor/Project Gallery/Screenshot 2025-04-15 at 13.34.12.png",
-        "/projects/augoor/Augoor/Project Gallery/Screenshot 2025-04-15 at 13.34.27.png"
+        "/projects/augoor/Project Gallery/Screenshot 2025-04-15 at 13.33.51.png",
+        "/projects/augoor/Project Gallery/Screenshot 2025-04-15 at 13.34.12.png",
+        "/projects/augoor/Project Gallery/Screenshot 2025-04-15 at 13.34.27.png"
       ],
       context: "In the ever-evolving landscape of software development, navigating and understanding vast, complex codebases is one of the most significant challenges developers face. Augoor was developed within Globant X—a pioneering incubator creating AI-driven products for digital acceleration. It transforms static repositories into dynamic, navigable data warehouses enhancing developer efficiency and collaboration.",
       scope: "Back in 2020 we conducted global ethnographic research to uncover how developers search, document, and navigate complex code systems to transform writing code using plain English, a way of creating technology that today, in 2025 It's not only a reality, but a strong well established way of developing. Adaptive intelligence frameworks were architected with feedback loops that evolve through contextual developer interactions. We designed seamless UX patterns by integrating AI-assisted documentation, code dependencies and code search that feel natural within existing development workflows.",
@@ -163,9 +163,9 @@ export default function Home() {
       image: "/projects/chime-care/hero-j&j.jpeg",
       secondaryImage: "/projects/chime-care/secundary-jjpeg.jpeg",
       galleryImages: [
-        "/projects/chime-care/J&J/Project GalleryImages/Screenshot 2025-03-06 at 171139-VSCO.jpeg",
-        "/projects/chime-care/J&J/Project GalleryImages/Screenshot 2025-04-15 at 13.23.31.png",
-        "/projects/chime-care/J&J/Project GalleryImages/Secundary Image-VSCO.jpeg"
+        "/projects/chime-care/Project GalleryImages/Screenshot 2025-03-06 at 171139-VSCO.jpeg",
+        "/projects/chime-care/Project GalleryImages/Screenshot 2025-04-15 at 13.23.31.png",
+        "/projects/chime-care/Project GalleryImages/Secundary Image-VSCO.jpeg"
       ],
       context: "For optometrists and surgeons, precision is essential—every decision and data point affects patient vision outcomes. CHiME Care was envisioned as more than just a digital tool; it is an intelligent support system that guides practitioners through complex surgical workflows. In partnership with Johnson & Johnson's Experience Design leadership, we established the foundations for this specialised platform.",
       scope: "We researched with practicing optometrists to reveal workflow patterns and decision points critical to surgical planning. Intuitive interfaces were designed for specialised tools, including toric calculators, case reviews, and performance metrics, to enhance clinical decisions. A comprehensive design system architecture was created to ensure consistent experiences while supporting rapid platform evolution.",
@@ -190,10 +190,10 @@ export default function Home() {
       image: "/projects/nomade/main-hero-carrusel.jpeg",
       secondaryImage: "/projects/nomade/secundary-hero.jpeg",
       galleryImages: [
-        "/projects/nomade/Nomade/Project Gallery/Screenshot 2024-11-15 at 15.21.56.png",
-        "/projects/nomade/Nomade/Project Gallery/Screenshot 2025-04-15 at 13.46.25.png",
-        "/projects/nomade/Nomade/Project Gallery/Screenshot 2025-04-15 at 13.57.49.png",
-        "/projects/nomade/Nomade/Project Gallery/Screenshot 2025-04-15 at 14.08.50.png"
+        "/projects/nomade/Project Gallery/Screenshot 2024-11-15 at 15.21.56.png",
+        "/projects/nomade/Project Gallery/Screenshot 2025-04-15 at 13.46.25.png",
+        "/projects/nomade/Project Gallery/Screenshot 2025-04-15 at 13.57.49.png",
+        "/projects/nomade/Project Gallery/Screenshot 2025-04-15 at 14.08.50.png"
       ],
       context: "Riviera Maya's Nomade Hotels are sanctuaries that blend luxury with nature, evolving alongside guest expectations. The challenge was clear: how to preserve a deeply personal, ritualistic, and human-centred approach while seamlessly integrating digital efficiencies. Nomade envisioned a transformation into a tech-enabled hospitality brand without losing its soul.",
       scope: "In collaboration with Nomade team, we envisioned a guest-centric digital ecosystem integrating CRM, personalisation engines, and an intuitive e-concierge system. Service blueprinting was build to reimagin every touchpoint—from booking to check-out—as opportunities for meaningful cultural connection. Backend systems integration unified operations were mapped out to preserve the spontaneous, authentic interactions defining Nomade's essence.",
@@ -218,9 +218,9 @@ export default function Home() {
       image: "/projects/danone/main-hero-carrusel.jpeg",
       secondaryImage: "/projects/danone/secundary-hero.png",
       galleryImages: [
-        "/projects/danone/Danone/Project Gallery/Screenshot 2025-04-15 at 14.01.55.png",
-        "/projects/danone/Danone/Project Gallery/Screenshot 2025-04-15 at 14.03.20.png",
-        "/projects/danone/Danone/Project Gallery/secundary-danone.jpeg"
+        "/projects/danone/Project Gallery/Screenshot 2025-04-15 at 14.01.55.png",
+        "/projects/danone/Project Gallery/Screenshot 2025-04-15 at 14.03.20.png",
+        "/projects/danone/Project Gallery/secundary-danone.jpeg"
       ],
       context: "In food and beverage, pricing decisions must be intelligent and adaptive against rapidly shifting market dynamics. Danone needed to transition from a reactive, inflationary pricing approach to predictive models aligned with erratic market behaviour. A comprehensive Digital Maturity Assessment was undertaken to evaluate capabilities across technology, data, processes, and organisational culture.",
       scope: "We led the maturity assessment, identifying capability gaps between Danone's digital ambition and its current operational reality. Critical challenges in data governance, technology automation, and cross-functional processes Scalability was diagnosed. A modular pricing framework was architected to ensure strategic alignment with broader organisational transformation objectives.",
@@ -245,9 +245,9 @@ export default function Home() {
       image: "/projects/parques-reunidos/hero-parque-reunidos.png",
       secondaryImage: "/projects/parques-reunidos/secundary-image.jpeg",
       galleryImages: [
-        "/projects/parques-reunidos/Parques Reunidos/Project Gallery/Envisioning for Digital Planning and Booking.png",
-        "/projects/parques-reunidos/Parques Reunidos/Project Gallery/Envisioning for Dynamic Booking.png",
-        "/projects/parques-reunidos/Parques Reunidos/Project Gallery/Project Envisioning Customer Journey Unfied .png"
+        "/projects/parques-reunidos/Project Gallery/Envisioning for Digital Planning and Booking.png",
+        "/projects/parques-reunidos/Project Gallery/Envisioning for Dynamic Booking.png",
+        "/projects/parques-reunidos/Project Gallery/Project Envisioning Customer Journey Unfied .png"
       ],
       context: "Parques Reunidos is a global leisure leader operating seventy diverse entertainment venues spanning three continents and multiple experience categories. Portfolio diversity created operational complexity—particularly across six sales channels and seven distinct product categories. Fragmented systems limited consistent guest experiences and prevented implementation of enterprise-wide product strategies.",
       scope: "In collaboration with internal teams, we created a unified product taxonomy to enable operational efficiency while preserving the authenticity of local venue offerings. We designed governance frameworks that balance centralised intelligence with venue-specific innovation across diverse properties. Integration pathways were mapped to connect disparate systems into a coherent operational ecosystem, enhancing both efficiency and engagement.",
@@ -272,9 +272,9 @@ export default function Home() {
       image: "/projects/qiddiya/hero-qiddiya.png",
       secondaryImage: "/projects/qiddiya/secondary-qiddiya.png",
       galleryImages: [
-        "/projects/qiddiya/Qiddiya/Project gallery  images/Emergency Management-Unified Alert System.png",
-        "/projects/qiddiya/Qiddiya/Project gallery  images/Guest Search by Digital ID.png",
-        "/projects/qiddiya/Qiddiya/Project gallery  images/Unified Guest Interaction History.png"
+        "/projects/qiddiya/Project gallery  images/Emergency Management-Unified Alert System.png",
+        "/projects/qiddiya/Project gallery  images/Guest Search by Digital ID.png",
+        "/projects/qiddiya/Project gallery  images/Unified Guest Interaction History.png"
       ],
       context: "Saudi Arabia's flagship entertainment destination required comprehensive guest support systems navigating uncharted territory in a landmark entertainment project. Theme parks, water attractions, sports facilities, and retail centers operated through a unified digital infrastructure where both guests and operational staff would encounter these systems for the first time. Cultural complexity demanded sophisticated solutions: Saudi families, GCC visitors, and international tourists each brought different service expectations, with every touchpoint depending entirely on digital systems without analog alternatives available.",
       scope: "This proof of concept established a validated product strategy for complex entertainment ecosystem requirements through stakeholder collaboration and technical feasibility. Provided development teams with validated integration requirements, with PRDs specifying exact connections with Digital ID and ticketing systems. Workflow validation created shared understanding through stakeholder alignment via tangible prototypes, while designing data collection specs for guest interaction patterns and defining KPI structures for digital adoption and cultural adaptation success.",
@@ -513,31 +513,29 @@ export default function Home() {
             {/* Right Column - Profile Photo */}
             <div className="about-photo-column">
               <div className="about-photo-container">
-            <img
-                  src="/silvana-profile.jpg"
+            <Image
+              src="/silvana-profile.jpg"
               alt="Silvana Restrepo - Principal Experience Architect"
+              width={500}
+              height={500}
               className="about-photo-perfect"
-                  style={{
+              style={{
                 width: '100%',
                 height: '500px',
                 objectFit: 'cover',
                 objectPosition: 'center',
-                borderRadius: '12px',
-                display: 'block',
-                visibility: 'visible',
-                opacity: 1,
-                maxWidth: '100%',
-                minHeight: '500px',
-                backgroundColor: '#f3f4f6'
+                borderRadius: '12px'
               }}
+              priority
+              quality={100}
               onError={(e) => {
-                console.log('Image load error:', e);
-                e.currentTarget.style.display = 'block';
+                console.log('Profile image load error');
+                // Graceful fallback - show a subtle background instead of broken image
                 e.currentTarget.style.backgroundColor = '#f3f4f6';
                 e.currentTarget.style.border = '2px dashed #d1d5db';
               }}
-              onLoad={(e) => {
-                console.log('Image loaded successfully:', e.currentTarget.src);
+              onLoad={() => {
+                console.log('Profile image loaded successfully');
               }}
             />
                 <div className="about-photo-overlay">
@@ -1460,9 +1458,11 @@ export default function Home() {
                         }}
                   whileHover={{ scale: 1.02 }}
                       >
-                        <img
+                        <Image
                           src={image}
                           alt={`${projects[selectedProject].title} - Image ${index + 2}`}
+                          width={600}
+                          height={400}
                           className="gallery-image-perfect"
                           style={{
                             width: '100%',
@@ -1470,12 +1470,15 @@ export default function Home() {
                             objectFit: 'cover',
                             objectPosition: 'center'
                           }}
+                          quality={100}
                           onError={(e) => {
-                            console.log('Gallery thumbnail load error:', e.currentTarget.src);
-                            e.currentTarget.style.display = 'none';
+                            console.log('Gallery thumbnail load error:', image);
+                            // Graceful fallback for gallery images
+                            e.currentTarget.style.backgroundColor = '#f3f4f6';
+                            e.currentTarget.style.border = '1px solid #d1d5db';
                           }}
-                          onLoad={(e) => {
-                            console.log('Gallery thumbnail loaded successfully:', e.currentTarget.src);
+                          onLoad={() => {
+                            console.log('Gallery thumbnail loaded successfully:', image);
                           }}
                         />
                   <div className="gallery-overlay">
@@ -1643,18 +1646,24 @@ export default function Home() {
             transition={{ duration: 0.3 }}
             onMouseDown={(e) => e.stopPropagation()}
           >
-            <img 
+            <Image 
               src={selectedProject !== null && projects[selectedProject].galleryImages ? 
                 projects[selectedProject].galleryImages[currentGalleryImage] : 
                 (selectedProject !== null ? projects[selectedProject].image : '')} 
               alt={`${selectedProject !== null ? projects[selectedProject].title : ''} - Gallery image ${currentGalleryImage + 1} zoomed view`} 
+              width={1200}
+              height={800}
               className="w-full h-auto object-contain rounded-xl shadow-2xl" 
+              quality={100}
+              priority
               onError={(e) => {
-                console.log('Gallery image load error:', e.currentTarget.src);
-                e.currentTarget.style.display = 'none';
+                console.log('Gallery zoom image load error');
+                // Graceful fallback for zoom images
+                e.currentTarget.style.backgroundColor = '#f3f4f6';
+                e.currentTarget.style.border = '2px dashed #d1d5db';
               }}
-              onLoad={(e) => {
-                console.log('Gallery image loaded successfully:', e.currentTarget.src);
+              onLoad={() => {
+                console.log('Gallery zoom image loaded successfully');
               }}
             />
             
