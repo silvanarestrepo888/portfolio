@@ -21,6 +21,11 @@ export default function Home() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
   
+  // 10X SOPHISTICATION - Advanced Background System
+  const [cursorPosition, setCursorPosition] = useState({ x: 50, y: 50 });
+  const [activeSection, setActiveSection] = useState('hero');
+  const [isCursorActive, setIsCursorActive] = useState(false);
+  
 
 
   // Sophisticated navigation functions with elegant transitions
@@ -284,11 +289,214 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Award-Winning Cursor Tracking for Interactive Background System
+  useEffect(() => {
+    const updateCursor = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth) * 100;
+      const y = (e.clientY / window.innerHeight) * 100;
+      document.documentElement.style.setProperty('--cursor-x', `${x}%`);
+      document.documentElement.style.setProperty('--cursor-y', `${y}%`);
+    };
+    
+    // Only enable on desktop for performance
+    if (window.innerWidth > 1024) {
+      window.addEventListener('mousemove', updateCursor);
+      
+      // Activate cursor background on first movement
+      const cursorBg = document.querySelector('.cursor-responsive-background');
+      if (cursorBg) {
+        cursorBg.classList.add('active');
+      }
+    }
+    
+    return () => {
+      window.removeEventListener('mousemove', updateCursor);
+    };
+  }, []);
+
+  // Award-Winning Scroll-Triggered Section Detection
+  useEffect(() => {
+    const handleSectionScroll = () => {
+      const sections = ['hero', 'about', 'projects', 'experience', 'services'];
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      
+      sections.forEach((sectionId, index) => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          const sectionTop = window.scrollY + rect.top;
+          const sectionBottom = sectionTop + rect.height;
+          
+          if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+            document.documentElement.className = `scroll-section-${sectionId}`;
+          }
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', handleSectionScroll);
+    handleSectionScroll(); // Initial check
+    
+    return () => window.removeEventListener('scroll', handleSectionScroll);
+  }, []);
+
+  // 10X SOPHISTICATION - Advanced Background System Integration
+  useEffect(() => {
+    // Enhanced cursor tracking with sophisticated effects
+    const handleAdvancedMouseMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth) * 100;
+      const y = (e.clientY / window.innerHeight) * 100;
+      setCursorPosition({ x, y });
+      setIsCursorActive(true);
+      
+      // Update CSS custom properties for cursor-responsive backgrounds
+      document.documentElement.style.setProperty('--cursor-x', `${x}%`);
+      document.documentElement.style.setProperty('--cursor-y', `${y}%`);
+      
+      // Add sophisticated cursor grapefruit effect
+      const cursorElement = document.querySelector('.cursor-responsive-background');
+      if (cursorElement) {
+        cursorElement.classList.add('active');
+      }
+    };
+
+    const handleAdvancedMouseLeave = () => {
+      setIsCursorActive(false);
+      const cursorElement = document.querySelector('.cursor-responsive-background');
+      if (cursorElement) {
+        cursorElement.classList.remove('active');
+      }
+    };
+
+    window.addEventListener('mousemove', handleAdvancedMouseMove);
+    window.addEventListener('mouseleave', handleAdvancedMouseLeave);
+    
+    return () => {
+      window.removeEventListener('mousemove', handleAdvancedMouseMove);
+      window.removeEventListener('mouseleave', handleAdvancedMouseLeave);
+    };
+  }, []);
+
+  // 10X SOPHISTICATION - Scroll-Triggered Color Morphing System
+  useEffect(() => {
+    const handleScrollColorMorphing = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+      // Calculate scroll progress for smooth color transitions
+      const scrollProgress = Math.min(scrollPosition / (windowHeight * 4), 1);
+      const colorIntensity = Math.sin(scrollProgress * Math.PI) * 0.5 + 0.5;
+      
+      // Update scroll-triggered color system with sophisticated gradients
+      const heroEnd = windowHeight * 0.8;
+      const aboutStart = windowHeight * 0.8;
+      const aboutEnd = windowHeight * 1.8;
+      const projectsStart = windowHeight * 1.8;
+      const projectsEnd = windowHeight * 2.8;
+      const experienceStart = windowHeight * 2.8;
+      const experienceEnd = windowHeight * 3.8;
+      const servicesStart = windowHeight * 3.8;
+      
+      // Sophisticated color morphing based on scroll position
+      document.documentElement.style.setProperty('--scroll-color-1', 
+        scrollPosition < heroEnd ? `rgba(255, 102, 99, ${colorIntensity * 0.12})` : 'transparent');
+      document.documentElement.style.setProperty('--scroll-color-2', 
+        scrollPosition >= aboutStart && scrollPosition < aboutEnd ? `rgba(255, 102, 99, ${colorIntensity * 0.08})` : 'transparent');
+      document.documentElement.style.setProperty('--scroll-color-3', 
+        scrollPosition >= projectsStart && scrollPosition < projectsEnd ? `rgba(255, 102, 99, ${colorIntensity * 0.15})` : 'transparent');
+      document.documentElement.style.setProperty('--scroll-color-4', 
+        scrollPosition >= experienceStart && scrollPosition < experienceEnd ? `rgba(255, 102, 99, ${colorIntensity * 0.10})` : 'transparent');
+      document.documentElement.style.setProperty('--scroll-color-5', 
+        scrollPosition >= servicesStart ? `rgba(255, 102, 99, ${colorIntensity * 0.06})` : 'transparent');
+    };
+
+    window.addEventListener('scroll', handleScrollColorMorphing);
+    handleScrollColorMorphing(); // Initial call
+    
+    return () => window.removeEventListener('scroll', handleScrollColorMorphing);
+  }, []);
+
+  // 10X SOPHISTICATION - Advanced Cursor-Responsive Background System
+  useEffect(() => {
+    const handleAdvancedCursorMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth) * 100;
+      const y = (e.clientY / window.innerHeight) * 100;
+      
+      // Update cursor position for background effects
+      setCursorPosition({ x, y });
+      setIsCursorActive(true);
+      
+      // Update CSS custom properties for cursor-responsive backgrounds
+      document.documentElement.style.setProperty('--cursor-x', `${x}%`);
+      document.documentElement.style.setProperty('--cursor-y', `${y}%`);
+      
+      // Add cursor-responsive background class to body
+      document.body.classList.add('cursor-active');
+    };
+
+    const handleMouseLeave = () => {
+      setIsCursorActive(false);
+      document.body.classList.remove('cursor-active');
+    };
+
+    // Add cursor-responsive background element
+    const cursorBackground = document.createElement('div');
+    cursorBackground.className = 'cursor-responsive-background';
+    cursorBackground.id = 'cursor-responsive-bg';
+    document.body.appendChild(cursorBackground);
+
+    window.addEventListener('mousemove', handleAdvancedCursorMove);
+    window.addEventListener('mouseleave', handleMouseLeave);
+    
+    return () => {
+      window.removeEventListener('mousemove', handleAdvancedCursorMove);
+      window.removeEventListener('mouseleave', handleMouseLeave);
+      const bg = document.getElementById('cursor-responsive-bg');
+      if (bg) bg.remove();
+    };
+  }, []);
+
+  // 10X SOPHISTICATION - Scroll-Triggered Color Morphing System
+  useEffect(() => {
+    const handleScrollColorMorphing = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      // Calculate scroll progress (0 to 1)
+      const scrollProgress = scrollPosition / (documentHeight - windowHeight);
+      
+      // Create dynamic color intensity based on scroll position
+      const colorIntensity = Math.sin(scrollProgress * Math.PI) * 0.3 + 0.1;
+      
+      // Update scroll-triggered color system
+      document.documentElement.style.setProperty('--scroll-color-1', 
+        scrollPosition < windowHeight * 0.8 ? `rgba(255, 102, 99, ${colorIntensity * 0.8})` : 'transparent');
+      document.documentElement.style.setProperty('--scroll-color-2', 
+        scrollPosition >= windowHeight * 0.8 && scrollPosition < windowHeight * 1.8 ? `rgba(255, 102, 99, ${colorIntensity * 0.6})` : 'transparent');
+      document.documentElement.style.setProperty('--scroll-color-3', 
+        scrollPosition >= windowHeight * 1.8 && scrollPosition < windowHeight * 2.8 ? `rgba(255, 102, 99, ${colorIntensity * 0.9})` : 'transparent');
+      document.documentElement.style.setProperty('--scroll-color-4', 
+        scrollPosition >= windowHeight * 2.8 && scrollPosition < windowHeight * 3.8 ? `rgba(255, 102, 99, ${colorIntensity * 0.7})` : 'transparent');
+      document.documentElement.style.setProperty('--scroll-color-5', 
+        scrollPosition >= windowHeight * 3.8 ? `rgba(255, 102, 99, ${colorIntensity * 0.5})` : 'transparent');
+    };
+
+    window.addEventListener('scroll', handleScrollColorMorphing);
+    handleScrollColorMorphing(); // Initial call
+    
+    return () => window.removeEventListener('scroll', handleScrollColorMorphing);
+  }, []);
+
   // Ensure featuredProjectIndex is within bounds
   const safeFeaturedProjectIndex = Math.min(featuredProjectIndex, Math.max(0, filteredProjects.length - 1));
 
   return (
     <div className="min-h-screen" style={{backgroundColor: '#fffbee'}}>
+      {/* 10X SOPHISTICATION - ADVANCED BACKGROUND SYSTEMS */}
+      <div className="cursor-responsive-background" />
+      <div className="scroll-responsive-grapefruit" />
+      
       {/* ACCESSIBILITY - Skip Navigation Links */}
       <a 
         href="#main-content"
@@ -364,6 +572,13 @@ export default function Home() {
           alignItems: 'center'
         }}
       >
+        {/* Award-Winning Glassmorphism Layers */}
+        <div className="glassmorphism-layer-1" />
+        <div className="glassmorphism-layer-2" />
+        <div className="glassmorphism-layer-3" />
+        
+        {/* Award-Winning Particle System */}
+        <div className="award-winning-particles" />
         <div className="about-container-ultra-luxury">
           {/* Ultra-Luxury Section Header - Perfectly Centered */}
               <motion.header
@@ -505,6 +720,13 @@ export default function Home() {
           justifyContent: 'center'
         }}
       >
+        {/* Award-Winning Glassmorphism Layers */}
+        <div className="glassmorphism-layer-1" />
+        <div className="glassmorphism-layer-2" />
+        <div className="glassmorphism-layer-3" />
+        
+        {/* Award-Winning Particle System */}
+        <div className="award-winning-particles" />
         <div className="projects-container-award-winning">
           {/* Award-Winning Section Header with Sophisticated Spacing */}
           <motion.div 
@@ -729,6 +951,13 @@ export default function Home() {
           minHeight: '100vh'
         }}
       >
+        {/* Award-Winning Glassmorphism Layers */}
+        <div className="glassmorphism-layer-1" />
+        <div className="glassmorphism-layer-2" />
+        <div className="glassmorphism-layer-3" />
+        
+        {/* Award-Winning Particle System */}
+        <div className="award-winning-particles" />
         <div className="max-w-7xl mx-auto px-8">
           {/* Section Header - Original Copy with Enhanced Typography */}
           <motion.div 
