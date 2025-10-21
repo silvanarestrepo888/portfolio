@@ -23,11 +23,6 @@ export default function Home() {
 
   // Sophisticated navigation functions with elegant transitions
 
-  const goToNextProjectWithTransition = () => {
-    setIsTransitioning(true);
-    setFeaturedProjectIndex(prev => prev === filteredProjects.length - 1 ? 0 : prev + 1);
-    setTimeout(() => setIsTransitioning(false), 1200);
-  };
 
   const goToProjectWithTransition = (index: number) => {
     if (index === featuredProjectIndex) return;
@@ -37,9 +32,6 @@ export default function Home() {
   };
 
   // Pause auto-play on hover (only for navigation controls)
-  const handleMouseEnter = () => {
-    // Only pause if hovering over navigation controls, not the entire carousel
-  };
   const handleMouseLeave = () => {
     // Only resume if leaving navigation controls
   };
