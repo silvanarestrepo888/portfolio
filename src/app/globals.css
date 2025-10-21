@@ -1947,16 +1947,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
-    /* Micro particles */
-    radial-gradient(1px 1px at 20% 30%, var(--grapefruit-medium), transparent),
-    radial-gradient(1px 1px at 40% 70%, var(--grapefruit-subtle), transparent),
-    radial-gradient(1px 1px at 90% 40%, var(--grapefruit-ultra-subtle), transparent),
-    /* Medium particles */
-    radial-gradient(2px 2px at 60% 60%, var(--grapefruit-strong), transparent),
-    radial-gradient(2px 2px at 30% 20%, var(--grapefruit-medium), transparent),
-    /* Macro particles */
-    radial-gradient(3px 3px at 80% 80%, var(--grapefruit-subtle), transparent);
   background-repeat: repeat;
   background-size: 150px 150px, 200px 200px, 180px 180px, 250px 250px, 220px 220px, 300px 300px;
   z-index: 4;
@@ -1970,22 +1960,12 @@ body {
 
 /* Enhanced Particles for About Section */
 .about-section-ultra-luxury .award-winning-particles {
-  background-image: 
-    /* Warm story particles */
-    radial-gradient(1px 1px at 25% 35%, var(--grapefruit-bold), transparent),
-    radial-gradient(1px 1px at 60% 80%, var(--grapefruit-strong), transparent),
-    radial-gradient(2px 2px at 80% 15%, var(--grapefruit-medium), transparent);
   animation: story-particles-float 35s ease-in-out infinite;
   opacity: 0.7;
 }
 
 /* Enhanced Particles for Projects Section */
 .projects-section-award-winning .award-winning-particles {
-  background-image: 
-    /* Innovation particles */
-    radial-gradient(2px 2px at 15% 25%, var(--grapefruit-dramatic), transparent),
-    radial-gradient(1px 1px at 85% 75%, var(--grapefruit-bold), transparent),
-    radial-gradient(3px 3px at 50% 50%, var(--grapefruit-strong), transparent);
   animation: innovation-particles-flow 45s ease-in-out infinite;
   opacity: 0.8;
 }
@@ -2001,11 +1981,6 @@ body {
   left: 0;
   width: 100%;
   height: 120%;
-  background: 
-    radial-gradient(ellipse 150% 50% at 50% 100%,
-      var(--grapefruit-bold) 0%,
-      var(--grapefruit-strong) 30%,
-      transparent 60%);
   z-index: 5;
   animation: section-morphing-transition 20s ease-in-out infinite;
   pointer-events: none;
@@ -11450,10 +11425,6 @@ h4, .text-h4 {
     background-size: 100px 100px, 120px 120px, 150px 150px;
     animation-duration: 20s;
     opacity: 0.3;
-    /* Remove complex particles */
-    background-image: 
-      radial-gradient(1px 1px at 30% 40%, var(--grapefruit-medium), transparent),
-      radial-gradient(2px 2px at 70% 60%, var(--grapefruit-subtle), transparent);
   }
   
   /* Simplified glassmorphism for mobile */
@@ -11478,16 +11449,6 @@ h4, .text-h4 {
     backdrop-filter: blur(0.5px);
   }
   
-  /* Disable cursor system on mobile */
-  .cursor-responsive-background {
-    display: none;
-  }
-  
-  /* Simplified scroll system on mobile */
-  .scroll-responsive-grapefruit {
-    animation: none;
-    opacity: 0.3;
-  }
 }
 
 /* Tablet Performance Balance */
@@ -11506,10 +11467,6 @@ h4, .text-h4 {
     animation-duration: 20s;
   }
   
-  /* Optimized cursor system for tablets */
-  .cursor-responsive-background {
-    opacity: 0.7;
-  }
 }
 
 /* Ultra-Wide Display Excellence */
@@ -11527,13 +11484,6 @@ h4, .text-h4 {
     opacity: 0.8;
   }
   
-  /* Enhanced cursor system for large displays */
-  .cursor-responsive-background {
-    background: radial-gradient(circle 400px at var(--cursor-x, 50%) var(--cursor-y, 50%), 
-      var(--grapefruit-dramatic) 0%, 
-      var(--grapefruit-medium) 25%, 
-      transparent 50%);
-  }
 }
 
 /* ========================================== */
@@ -11547,8 +11497,6 @@ h4, .text-h4 {
   .projects-section-award-winning::before,
   .experience-architecture-container::before,
   .section-luxury::before,
-  .cursor-responsive-background,
-  .scroll-responsive-grapefruit,
   .glassmorphism-layer-1,
   .glassmorphism-layer-2,
   .glassmorphism-layer-3,
@@ -11571,10 +11519,6 @@ h4, .text-h4 {
     animation: none;
   }
   
-  /* Maintain grapefruit treatment without animation */
-  .cursor-responsive-background {
-    display: none;
-  }
   
   .hero-gradient-overlay-1,
   .hero-bg-image-luxury {
@@ -11604,11 +11548,6 @@ h4, .text-h4 {
     filter: contrast(1.5);
   }
   
-  :root {
-    --grapefruit-strong: rgba(255, 102, 99, 0.15);
-    --grapefruit-dramatic: rgba(255, 102, 99, 0.20);
-    --grapefruit-bold: rgba(255, 102, 99, 0.25);
-  }
 }
 
 

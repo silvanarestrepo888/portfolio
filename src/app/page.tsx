@@ -285,30 +285,6 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Award-Winning Cursor Tracking for Interactive Background System
-  useEffect(() => {
-    const updateCursor = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
-      document.documentElement.style.setProperty('--cursor-x', `${x}%`);
-      document.documentElement.style.setProperty('--cursor-y', `${y}%`);
-    };
-    
-    // Only enable on desktop for performance
-    if (window.innerWidth > 1024) {
-      window.addEventListener('mousemove', updateCursor);
-      
-      // Activate cursor background on first movement
-      const cursorBg = document.querySelector('.cursor-responsive-background');
-      if (cursorBg) {
-        cursorBg.classList.add('active');
-      }
-    }
-    
-    return () => {
-      window.removeEventListener('mousemove', updateCursor);
-    };
-  }, []);
 
   // Award-Winning Scroll-Triggered Section Detection
   useEffect(() => {
@@ -375,7 +351,6 @@ export default function Home() {
         id="hero" 
         className="hero-section-luxury"
       >
-        {/* Sophisticated Background System */}
         <div className="hero-bg-luxury">
             <Image 
               src="/silvana-profile.jpg"
