@@ -15675,9 +15675,9 @@ img {
   height: 100%;
   background: linear-gradient(
     135deg, 
-    rgba(255, 248, 240, 0.3) 0%,   /* Gentle cream overlay */
-    transparent 50%, 
-    rgba(255, 181, 179, 0.15) 100% /* Subtle warm coral accent */
+    rgba(255, 248, 240, 0.1) 0%,   /* Much lighter cream overlay */
+    transparent 60%, 
+    rgba(255, 181, 179, 0.05) 100% /* Very subtle coral accent */
   );
   z-index: 2;
   pointer-events: none;
@@ -15690,8 +15690,8 @@ img {
   width: 100%;
   height: 100%;
   background: var(--unified-gradient-1);
-  mix-blend-mode: multiply;
-  opacity: 0.3;
+  mix-blend-mode: soft-light;
+  opacity: 0.1;
   z-index: 3;
   pointer-events: none;
 }
