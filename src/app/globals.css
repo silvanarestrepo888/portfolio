@@ -14958,11 +14958,12 @@ img {
   --cream-pure: #FFFFFF;
   
   /* Section Gradients */
-  --hero-gradient: linear-gradient(135deg, var(--charcoal-deep) 0%, var(--charcoal-primary) 60%, var(--coral-primary) 100%);
+  /* GENTLE SOPHISTICATED BACKGROUND SYSTEM */
+  --hero-gradient: linear-gradient(135deg, var(--cream-warm) 0%, var(--cream-primary) 100%);
   --about-gradient: linear-gradient(135deg, var(--cream-primary) 0%, var(--cream-warm) 100%);
-  --projects-gradient: linear-gradient(135deg, var(--charcoal-primary) 0%, var(--charcoal-deep) 100%);
-  --services-gradient: linear-gradient(135deg, var(--coral-primary) 0%, var(--coral-deep) 100%);
-  --experience-gradient: linear-gradient(135deg, var(--charcoal-deep) 0%, var(--charcoal-medium) 100%);
+  --projects-gradient: linear-gradient(135deg, var(--charcoal-primary) 0%, var(--charcoal-deep) 100%); /* Keep charcoal only for projects */
+  --services-gradient: linear-gradient(135deg, rgba(255, 181, 179, 0.15) 0%, var(--cream-warm) 100%); /* Gentle coral warmth */
+  --experience-gradient: linear-gradient(135deg, var(--cream-primary) 0%, var(--cream-warm) 100%);
 }
 
 /* HERO SECTION - Bold Confidence */
@@ -14976,8 +14977,8 @@ img {
 /* Removed cluttered hero overlay for clean sophistication */
 
 .section-hero-sophisticated .hero-title-luxury-centered {
-  color: var(--cream-primary);
-  text-shadow: 0 8px 40px rgba(26, 26, 26, 0.8);
+  color: var(--charcoal-deep);
+  text-shadow: 0 8px 40px rgba(255, 255, 255, 0.3);
 }
 
 /* ABOUT SECTION - Warm Authority */
@@ -15042,23 +15043,25 @@ img {
 /* Removed cluttered services overlay for clean energy */
 
 .section-services-sophisticated h2 {
-  color: var(--cream-primary);
+  color: var(--charcoal-deep);
 }
 
 .section-services-sophisticated p {
-  color: var(--cream-cool);
+  color: var(--charcoal-primary);
 }
 
 .section-services-sophisticated .service-unified-card {
-  background: rgba(255, 248, 240, 0.1);
-  border: 1px solid rgba(255, 248, 240, 0.2);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 102, 99, 0.15);
   backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .section-services-sophisticated .service-unified-card:hover {
-  background: rgba(255, 248, 240, 0.2);
+  background: rgba(255, 255, 255, 0.9);
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(26, 26, 26, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 102, 99, 0.3);
 }
 
 /* EXPERIENCE SECTION - Refined Expertise */
@@ -15071,21 +15074,23 @@ img {
 /* Removed cluttered experience overlay for clean authority */
 
 .section-experience-sophisticated h2 {
-  color: var(--cream-primary);
+  color: var(--charcoal-deep);
 }
 
 .section-experience-sophisticated p {
-  color: var(--cream-cool);
+  color: var(--charcoal-primary);
 }
 
 .section-experience-sophisticated .experience-layer-card {
-  background: rgba(255, 248, 240, 0.08);
-  border: 1px solid rgba(255, 248, 240, 0.15);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 102, 99, 0.1);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
 }
 
 .section-experience-sophisticated .experience-layer-card:hover {
-  background: rgba(255, 248, 240, 0.12);
-  border-color: rgba(255, 153, 153, 0.3);
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 102, 99, 0.25);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
 /* REFINED SECTION TRANSITIONS - Clean & Professional */
@@ -15645,17 +15650,17 @@ img {
   object-fit: cover;
   object-position: 65% center; /* Strategic positioning for text readability */
   
-  /* Cohesive duotone using warmer tones for flow */
+  /* Refined duotone for gentle cream background */
   filter: 
-    sepia(70%) 
-    saturate(110%) 
-    hue-rotate(15deg)    /* Warmer, not cool tones */
-    brightness(0.9) 
-    contrast(1.1);
+    sepia(45%) 
+    saturate(130%) 
+    hue-rotate(20deg)    /* Warmer, sophisticated tones */
+    brightness(1.1) 
+    contrast(1.05);
   
-  /* Cohesive blend mode - gentler integration */
-  mix-blend-mode: soft-light;
-  opacity: 0.75;
+  /* Gentler blend mode for sophisticated integration */
+  mix-blend-mode: multiply;
+  opacity: 0.85;
   
   /* Performance optimization */
   will-change: transform, filter;
@@ -15670,9 +15675,9 @@ img {
   height: 100%;
   background: linear-gradient(
     135deg, 
-    rgba(58, 58, 58, 0.6) 0%,      /* Warmer charcoal */
-    transparent 45%, 
-    rgba(255, 122, 119, 0.25) 100% /* Warmer coral */
+    rgba(255, 248, 240, 0.3) 0%,   /* Gentle cream overlay */
+    transparent 50%, 
+    rgba(255, 181, 179, 0.15) 100% /* Subtle warm coral accent */
   );
   z-index: 2;
   pointer-events: none;

@@ -764,7 +764,7 @@ export default function Home() {
         className="experience-timeline-section"
         style={{ 
           minHeight: '100vh',
-          background: 'linear-gradient(135deg, var(--charcoal-deep) 0%, var(--charcoal-primary) 100%)'
+          background: 'var(--experience-gradient)'
         }}
       >
         <div className="experience-timeline-container">
@@ -782,10 +782,10 @@ export default function Home() {
               >
                 03
               </span>
-            <h2 className="typography-h2" style={{ color: 'var(--cream-primary)' }}>
+            <h2 className="typography-h2" style={{ color: 'var(--charcoal-deep)' }}>
                 Experience
               </h2>
-            <p className="typography-body text-center max-w-4xl mx-auto" style={{ color: 'var(--cream-cool)' }}>
+            <p className="typography-body text-center max-w-4xl mx-auto" style={{ color: 'var(--charcoal-primary)' }}>
               Some of the <span className="highlight-word" style={{ color: 'var(--coral-primary)' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--coral-primary)' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--coral-primary)' }}>upscaling</span>, <span className="highlight-word" style={{ color: 'var(--coral-primary)' }}>reinventing</span>, <span className="highlight-word" style={{ color: 'var(--coral-primary)' }}>evolving</span>, and <span className="highlight-word" style={{ color: 'var(--coral-primary)' }}>reimagining</span> business, brands, and teams.
             </p>
           </motion.div>
