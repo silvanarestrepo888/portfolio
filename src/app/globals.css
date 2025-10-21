@@ -8036,6 +8036,21 @@ h4, .text-h4 {
   text-shadow: 0 6px 30px rgba(0, 0, 0, 0.7);
 }
 
+.hero-title-luxury-centered {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3.5rem, 9vw, 9rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 6px 30px rgba(0, 0, 0, 0.8);
+  /* Single line centered layout */
+  display: block;
+  width: 100%;
+}
+
 .word-experience-luxury {
   display: block;
   font-style: italic;

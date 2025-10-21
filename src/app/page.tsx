@@ -405,13 +405,12 @@ export default function Home() {
         {/* Content Over Photo */}
         <div className="hero-content-luxury">
           <motion.h1 
-            className="hero-title-luxury"
+            className="hero-title-luxury-centered"
             initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3 }}
           >
-            <span className="word-experience-luxury">Experience</span>
-            <span className="word-architect-luxury">Architect</span>
+            Experience Architect
           </motion.h1>
         </div>
       </section>
