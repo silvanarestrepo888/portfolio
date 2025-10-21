@@ -667,7 +667,7 @@ export default function Home() {
                         width={800}
                         height={600}
                         className="balanced-image-perfect gpu-accelerated"
-                        style={{
+                  style={{
                           width: '100%',
                           height: '100%',
                           objectFit: 'contain',
@@ -1132,50 +1132,73 @@ export default function Home() {
         </div>
       </section>
 
-      {/* COMPACT PROFESSIONAL FOOTER */}
-      <footer className="footer-compact">
-        <div className="footer-content-efficient">
-          <div className="footer-grid">
-            {/* Brand Section */}
-            <div className="footer-brand">
-              <h3 className="footer-brand-name typography-h3">silvana.</h3>
-              <p className="footer-brand-title typography-body">Principal Experience Architect</p>
+      {/* LANDOR STANDARDS FOOTER - ULTRA-LUXURY */}
+      <footer id="footer" className="footer-landor-standards">
+        <div className="footer-container-landor">
+          <div className="footer-content-landor">
+            {/* Brand Section - Enhanced */}
+            <div className="footer-brand-landor">
+              <h3 className="footer-brand-name-landor typography-h3">silvana.</h3>
+              <p className="footer-brand-title-landor typography-body">Principal Experience Architect</p>
+              <p className="footer-brand-description-landor typography-caption">
+                Transforming business challenges into strategic advantages through experience-driven innovation.
+              </p>
             </div>
             
-            {/* Contact Links */}
-            <div className="footer-contact">
+            {/* Navigation Section */}
+            <div className="footer-navigation-landor">
+              <h4 className="footer-nav-title-landor typography-body">Navigation</h4>
+              <div className="footer-nav-links-landor">
+                <a href="#about" className="footer-nav-link-landor typography-caption">About</a>
+                <a href="#projects" className="footer-nav-link-landor typography-caption">Projects</a>
+                <a href="#experience" className="footer-nav-link-landor typography-caption">Experience</a>
+                <a href="#services" className="footer-nav-link-landor typography-caption">Services</a>
+              </div>
+            </div>
+            
+            {/* Contact Section - Enhanced */}
+            <div className="footer-contact-landor">
+              <h4 className="footer-contact-title-landor typography-body">Contact</h4>
+              <div className="footer-contact-links-landor">
               <a 
                 href="mailto:silvanarestrepo888@gmail.com"
-                className="footer-contact-link typography-body luxury-hover-glow"
+                  className="footer-contact-link-landor typography-caption luxury-hover-glow"
               >
-                <Mail size={18} />
+                  <Mail size={16} />
                 Contact
               </a>
               <a 
                 href="https://linkedin.com/in/silvanarestrepo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="footer-contact-link typography-body luxury-hover-glow"
+                  className="footer-contact-link-landor typography-caption luxury-hover-glow"
               >
-                <Linkedin size={18} />
+                  <Linkedin size={16} />
                 LinkedIn
               </a>
               <a 
                 href="https://silvana.mmm.page/human-perspective"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="footer-contact-link typography-body luxury-hover-glow"
+                  className="footer-contact-link-landor typography-caption luxury-hover-glow"
               >
-                <ExternalLink size={18} />
+                  <ExternalLink size={16} />
                 Portfolio
               </a>
+              </div>
+            </div>
             </div>
             
-            {/* Copyright */}
-            <div className="footer-legal">
-              <span className="footer-copyright typography-caption">
+          {/* Footer Bottom - Enhanced */}
+          <div className="footer-bottom-landor">
+            <div className="footer-copyright-landor">
+              <span className="footer-copyright-text-landor typography-caption">
                 © 2025 Silvana Restrepo. All rights reserved.
               </span>
+            </div>
+            <div className="footer-legal-landor">
+              <a href="#" className="footer-legal-link-landor typography-caption">Privacy Policy</a>
+              <a href="#" className="footer-legal-link-landor typography-caption">Terms of Service</a>
             </div>
           </div>
         </div>
@@ -1223,7 +1246,7 @@ export default function Home() {
                 priority
               />
             </div>
-            
+
             {/* Project Title and Metadata - BELOW IMAGE with Proper Spacing */}
             <div className="project-title-section">
               <motion.h1 
