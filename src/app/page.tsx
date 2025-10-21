@@ -978,9 +978,6 @@ export default function Home() {
                 <motion.div
                   key={service.number}
                   className="service-column-interactive relative cursor-pointer border-r border-gray-200 last:border-r-0 service-column-landor"
-                  style={{
-                    backgroundColor: expandedService === index ? 'rgba(255, 102, 99, 0.03)' : 'white'
-                  }}
                   onMouseEnter={() => setExpandedService(index)}
                   onMouseLeave={() => setExpandedService(null)}
                   animate={{
@@ -993,7 +990,6 @@ export default function Home() {
                     type: "tween"
                   }}
                   whileHover={{
-                    boxShadow: expandedService === index ? '0 25px 60px rgba(255, 102, 99, 0.15)' : '0 0 0 rgba(0,0,0,0)',
                     zIndex: expandedService === index ? 10 : 1
                   }}
                 >
@@ -1004,7 +1000,7 @@ export default function Home() {
                       opacity: expandedService === null || expandedService === index ? 1 : 0.4
                     }}
                   >
-                    <span className="typography-accent font-semibold text-gray-500 service-number-landor">
+                    <span className="service-number-landor">
                       {service.number}
                     </span>
                   </motion.div>
@@ -1022,16 +1018,7 @@ export default function Home() {
                     }}
                     transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
                   >
-                    <h3 
-                      className="service-title-interactive text-gray-800 whitespace-nowrap service-title-landor"
-                      style={{ 
-                        fontSize: expandedService === index ? '1.5rem' : '1.25rem',
-                        transition: 'font-size 0.6s ease',
-                        fontWeight: '700',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.02em'
-                      }}
-                    >
+                    <h3 className="service-title-interactive whitespace-nowrap service-title-landor">
                       {service.title}
                     </h3>
                   </motion.div>
@@ -1057,7 +1044,8 @@ export default function Home() {
                       {service.capabilities.map((capability, capIndex) => (
                         <motion.div
                           key={capIndex}
-                          className="capability-line-clean"
+                          className="capability-line-clean capability-item-landor"
+                          style={{ '--index': capIndex } as React.CSSProperties}
                           initial={{ opacity: 0, x: -10 }}
                           animate={{
                             opacity: expandedService === index ? 1 : 0,
@@ -1068,7 +1056,7 @@ export default function Home() {
                             delay: expandedService === index ? 0.1 + capIndex * 0.03 : 0 
                           }}
                         >
-                          /{capability}
+                          {capability}
                         </motion.div>
                       ))}
                     </div>
@@ -1086,7 +1074,7 @@ export default function Home() {
                         delay: expandedService === index ? 0.4 : 0
                       }}
                     >
-                      <p className="service-description-text">
+                      <p className="service-description-text service-description-landor">
                       {service.description}
                       </p>
                     </motion.div>
@@ -1342,7 +1330,7 @@ export default function Home() {
                   Delivered strategic transformation that enabled {projects[selectedProject].client} to achieve 
                   enhanced user experience and business growth across their digital platforms.
                 </p>
-              </div>
+                      </div>
             </motion.div>
           </div>
 
@@ -1359,7 +1347,7 @@ export default function Home() {
             </motion.h3>
             <div className="gallery-grid">
               {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.map((image, index) => (
-                <motion.div
+                <motion.div 
                   key={index}
                   className="gallery-item"
                   initial={{ opacity: 0, scale: 0.8, y: 50 }}
@@ -1425,18 +1413,18 @@ export default function Home() {
                     stiffness: 100
                   }}
                   viewport={{ once: true, margin: "-50px" }}
-                  onClick={() => {
-                    setCurrentGalleryImage(index);
-                    setGalleryZoomOpen(true);
-                  }}
+                        onClick={() => {
+                          setCurrentGalleryImage(index);
+                          setGalleryZoomOpen(true);
+                        }}
                   whileHover={{ 
                     scale: 1.05, 
                     y: -15,
                     transition: { duration: 0.3 }
                   }}
-                >
-                  <Image
-                    src={image}
+                      >
+                        <Image
+                          src={image}
                     alt={`${projects[selectedProject].title} - Testimonial ${index + 1}`}
                     fill
                     className="testimonial-image"
@@ -1452,7 +1440,7 @@ export default function Home() {
                 </motion.div>
               ))}
             </div>
-          </div>
+                  </div>
                   
           {/* SOPHISTICATED PROJECT NAVIGATION */}
           <div className="sophisticated-navigation-section">
@@ -1494,7 +1482,7 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              onClick={() => {
+                      onClick={() => {
                 const nextIndex = (selectedProject + 1) % projects.length;
                 setSelectedProject(nextIndex);
                 setTimeout(() => {
@@ -1507,7 +1495,7 @@ export default function Home() {
                 <span className="sophisticated-nav-label">Next Project</span>
                 <h4 className="sophisticated-nav-title">{projects[(selectedProject + 1) % projects.length].title}</h4>
                 <p className="sophisticated-nav-subtitle">{projects[(selectedProject + 1) % projects.length].subtitle}</p>
-              </div>
+                  </div>
               <div className="sophisticated-nav-thumbnail">
                 <div
                   className="sophisticated-nav-image"
@@ -1517,7 +1505,7 @@ export default function Home() {
                     backgroundPosition: 'center'
                         }}
                 />
-                      </div>
+                </div>
             </motion.div>
             </div>
         </motion.div>
@@ -1543,7 +1531,7 @@ export default function Home() {
           >
             <div
               className="hero-zoom-image"
-              style={{
+                        style={{
                 backgroundImage: `url(${selectedProject !== null ? projects[selectedProject].image : ''})`,
                 backgroundSize: 'contain',
                 backgroundPosition: 'center',

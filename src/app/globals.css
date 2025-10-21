@@ -6202,19 +6202,19 @@ h4, .text-h4 {
 
 /* ULTRA-LUXURY SERVICE COLUMNS - Award-Winning Craftsmanship */
 .service-column-landor {
-  position: relative;
+  position: relative !important;
   background: linear-gradient(145deg, 
     rgba(255, 255, 255, 0.9) 0%,
     rgba(248, 248, 248, 0.95) 100%
-  );
-  border-right: 1px solid rgba(255, 102, 99, 0.08);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  overflow: hidden;
-  backdrop-filter: blur(20px);
+  ) !important;
+  border-right: 1px solid rgba(255, 102, 99, 0.08) !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  overflow: hidden !important;
+  backdrop-filter: blur(20px) !important;
   /* GPU optimization */
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  will-change: transform, background-color, box-shadow;
+  transform: translateZ(0) !important;
+  backface-visibility: hidden !important;
+  will-change: transform, background-color, box-shadow !important;
 }
 
 /* Sophisticated texture overlay */
@@ -6259,12 +6259,12 @@ h4, .text-h4 {
     rgba(255, 255, 255, 0.95) 50%,
     rgba(248, 248, 248, 0.98) 100%
   ) !important;
-  transform: translateY(-2px) scale(1.01);
+  transform: translateY(-2px) scale(1.01) !important;
   box-shadow: 
     0 30px 60px rgba(255, 102, 99, 0.08),
     0 0 0 1px rgba(255, 102, 99, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  z-index: 10;
+    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+  z-index: 10 !important;
 }
 
 /* Multi-layered shadow system for luxury feel */
@@ -6289,10 +6289,11 @@ h4, .text-h4 {
   font-weight: 200 !important;
   font-size: 0.8rem !important;
   color: rgba(255, 102, 99, 0.6) !important;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  position: relative;
-  transition: all 0.3s ease;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  position: relative !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
 }
 
 /* Elegant underline animation */
@@ -6324,8 +6325,9 @@ h4, .text-h4 {
   line-height: 1.2 !important;
   letter-spacing: -0.01em !important;
   margin-bottom: 0.5rem !important;
-  position: relative;
-  transition: all 0.3s ease;
+  position: relative !important;
+  transition: all 0.3s ease !important;
+  text-transform: uppercase !important;
 }
 
 .service-column-landor:hover .service-title-landor {
