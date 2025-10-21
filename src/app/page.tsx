@@ -971,9 +971,9 @@ export default function Home() {
           </motion.div>
           
           {/* ELITE SERVICES SECTION - ORIGINAL COPY COMPLIANT - Enhanced Visual Treatment */}
-          <div className="max-w-[95vw] mx-auto">
+          <div className="w-full max-w-[90vw] mx-auto px-4">
             {/* Interactive Services System */}
-            <div className="services-hover-system flex h-[75vh] border border-gray-200 rounded-3xl overflow-hidden bg-white shadow-2xl services-luxury-enhanced">
+            <div className="services-hover-system flex h-[70vh] border border-gray-200 rounded-3xl overflow-hidden bg-white shadow-2xl services-luxury-enhanced">
               {referenceServices.map((service, index) => (
                 <motion.div
                   key={service.number}
