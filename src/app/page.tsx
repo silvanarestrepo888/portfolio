@@ -1342,7 +1342,7 @@ export default function Home() {
               >
                 <div className="section-header">
                   <span className="section-number typography-caption">03</span>
-                  <h2 className="section-title typography-h3">Approach</h2>
+                  <h2 className="section-title typography-h3">Impact</h2>
                 </div>
                 <div className="section-content">
                   <p className="section-text typography-body">
@@ -1501,14 +1501,14 @@ export default function Home() {
               <h3 className="testimonial-title typography-h3">Client Testimonial</h3>
               <div className="testimonial-quote-container">
                 <blockquote className="testimonial-quote typography-body">
-                  &ldquo;Silvana&apos;s strategic approach transformed our digital ecosystem. Her expertise in experience design and business transformation delivered measurable results that exceeded our expectations.&rdquo;
+                  &ldquo;{selectedProject !== null ? projects[selectedProject].testimonial.quote : ''}&rdquo;
                 </blockquote>
                 <div className="testimonial-attribution">
                   <p className="testimonial-author typography-caption">
-                    {selectedProject !== null ? projects[selectedProject].client : 'Client Name'}
+                    {selectedProject !== null ? projects[selectedProject].testimonial.author : ''}
                   </p>
                   <p className="testimonial-role typography-caption">
-                    {selectedProject !== null ? projects[selectedProject].category : 'Project Category'}
+                    {selectedProject !== null ? projects[selectedProject].testimonial.role : ''}
                   </p>
                 </div>
               </div>
