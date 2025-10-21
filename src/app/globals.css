@@ -8065,6 +8065,158 @@ h4, .text-h4 {
   transform: scale(1.02);
 }
 
+/* Elegant Continuous Carousel */
+.elegant-carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Upcoming Projects Preview */
+.upcoming-projects-preview {
+  flex: 0 0 300px;
+  margin-left: 40px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.upcoming-title {
+  font-family: 'Founders Grotesk', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--grapefruit-primary);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.upcoming-track {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.upcoming-project-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.upcoming-project-card:hover {
+  box-shadow: 0 8px 30px rgba(255, 102, 99, 0.2);
+  transform: translateX(-5px);
+}
+
+.upcoming-image {
+  width: 100%;
+  height: 120px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.upcoming-content {
+  padding: 12px;
+}
+
+.upcoming-project-title {
+  font-family: 'Founders Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.upcoming-project-client {
+  font-family: 'Founders Grotesk', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.upcoming-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.upcoming-tag {
+  font-family: 'Founders Grotesk', sans-serif;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  background: rgba(255, 102, 99, 0.1);
+  color: var(--grapefruit-primary);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 102, 99, 0.2);
+}
+
+/* Smooth carousel transitions */
+.elegant-carousel-container {
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-card-award-winning {
+  flex: 1;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Responsive design for elegant carousel */
+@media (max-width: 1024px) {
+  .carousel-track {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .upcoming-projects-preview {
+    flex: none;
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .upcoming-track {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 12px;
+    padding-bottom: 10px;
+  }
+  
+  .upcoming-project-card {
+    flex: 0 0 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .upcoming-projects-preview {
+    padding: 15px;
+  }
+  
+  .upcoming-title {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+  
+  .upcoming-image {
+    height: 100px;
+  }
+  
+  .upcoming-project-card {
+    flex: 0 0 180px;
+  }
+}
+
 .current-project-award {
   color: var(--grapefruit-primary);
   font-weight: 600;

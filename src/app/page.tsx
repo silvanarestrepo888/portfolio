@@ -21,24 +21,24 @@ export default function Home() {
   
 
 
-  // Enhanced navigation functions with transitions
+  // Sophisticated navigation functions with elegant transitions
   const goToPreviousProjectWithTransition = () => {
     setIsTransitioning(true);
     setFeaturedProjectIndex(prev => prev === 0 ? Math.max(0, filteredProjects.length - 1) : prev - 1);
-    setTimeout(() => setIsTransitioning(false), 1000);
+    setTimeout(() => setIsTransitioning(false), 1200);
   };
 
   const goToNextProjectWithTransition = () => {
     setIsTransitioning(true);
     setFeaturedProjectIndex(prev => prev === filteredProjects.length - 1 ? 0 : prev + 1);
-    setTimeout(() => setIsTransitioning(false), 1000);
+    setTimeout(() => setIsTransitioning(false), 1200);
   };
 
   const goToProjectWithTransition = (index: number) => {
     if (index === featuredProjectIndex) return;
     setIsTransitioning(true);
     setFeaturedProjectIndex(Math.min(index, Math.max(0, filteredProjects.length - 1)));
-    setTimeout(() => setIsTransitioning(false), 1000);
+    setTimeout(() => setIsTransitioning(false), 1200);
   };
 
   // Pause auto-play on hover (only for navigation controls)
@@ -275,7 +275,7 @@ export default function Home() {
         (project.industryTags && project.industryTags.some(tag => tag.includes(selectedCategory)))
       );
 
-  // Auto-carousel effect
+  // Elegant Auto-carousel effect with sophisticated timing
   useEffect(() => {
     if (!isAutoPlaying || filteredProjects.length <= 1) return;
 
@@ -283,10 +283,11 @@ export default function Home() {
       setFeaturedProjectIndex(prev => {
         const nextIndex = prev === filteredProjects.length - 1 ? 0 : prev + 1;
         setIsTransitioning(true);
-        setTimeout(() => setIsTransitioning(false), 1000);
+        // Longer transition for more elegant feel
+        setTimeout(() => setIsTransitioning(false), 1200);
         return nextIndex;
       });
-    }, 5000); // Auto-advance every 5 seconds
+    }, 6000); // Auto-advance every 6 seconds for more sophisticated pacing
 
     return () => clearInterval(interval);
   }, [isAutoPlaying, filteredProjects.length]);
@@ -609,13 +610,13 @@ export default function Home() {
                 </button>
             </motion.div>
             
-            {/* Award-Winning Featured Project with Golden Ratio Layout */}
+            {/* Elegant Continuous Carousel with Preview */}
             <motion.div 
-              className="featured-project-award-winning"
+              className="elegant-carousel-container"
               key={safeFeaturedProjectIndex}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               <div className="project-card-award-winning">
                 {/* Image Section - 60% (Golden Ratio) */}
@@ -689,8 +690,44 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                  </div>
-                </motion.div>
+              </div>
+
+              {/* Upcoming Projects Preview - Right Side */}
+              <div className="upcoming-projects-preview">
+                <h4 className="upcoming-title">Coming Up</h4>
+                <div className="upcoming-track">
+                  {filteredProjects.slice(safeFeaturedProjectIndex + 1, safeFeaturedProjectIndex + 4).map((project, index) => (
+                    <motion.div
+                      key={`upcoming-${safeFeaturedProjectIndex + index + 1}`}
+                      className="upcoming-project-card"
+                      initial={{ opacity: 0, x: 30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.2 }}
+                      whileHover={{ 
+                        x: -10, 
+                        scale: 1.02,
+                        transition: { duration: 0.3 }
+                      }}
+                      onClick={() => goToProjectWithTransition(safeFeaturedProjectIndex + index + 1)}
+                    >
+                      <div 
+                        className="upcoming-image"
+                        style={{ backgroundImage: `url(${project.image})` }}
+                      />
+                      <div className="upcoming-content">
+                        <h5 className="upcoming-project-title">{project.title}</h5>
+                        <p className="upcoming-project-client">{project.client}</p>
+                        <div className="upcoming-tags">
+                          {project.tech.slice(0, 2).map(tag => (
+                            <span key={tag} className="upcoming-tag">{tag}</span>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
             
             {/* Award-Winning Project Thumbnails with Perfect Spacing */}
             <motion.div 
