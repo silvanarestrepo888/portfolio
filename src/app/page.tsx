@@ -190,8 +190,8 @@ export default function Home() {
       title: "Danone Digital Transformation",
       subtitle: "Driving Digital Transformation in Pricing Strategy",
       description: "In volatile markets, reactive pricing costs opportunities. Danone's Smart Pricing System represents a fundamental shift—data intelligence and predictive analytics now enable real-time market response, transforming pricing from operational necessity into competitive advantage.",
-      tech: ["Digital Transformation", "Service Design", "Product Strategy", "Pricing Intelligence", "Market Analytics"],
-      industryTags: ["Food & Beverage", "Pricing Strategy", "Market Intelligence", "Operational Excellence"],
+      tech: ["Digital Transformation", "Service Design", "Product Strategy"],
+      industryTags: ["Food and Beverage"],
       category: "Food and Beverage",
       year: "2021",
       client: "Danone",
@@ -203,12 +203,48 @@ export default function Home() {
         "/projects/danone/secundary-hero.png",
         "/projects/danone/Screenshot 2025-04-15 at 14.01.55.png",
         "/projects/danone/Screenshot 2025-04-15 at 14.03.20.png"
-      ],
-      testimonial: "Silvana is a person who shows permanent commitment to the project, always responsible and collaborating not only with regard to her tasks and objectives but also with those of the team and the project. On the other hand, she has proven to be innovative, proposing, challenging and always seeking to optimize work dynamics and tools to work with clients",
-      testimonialAuthor: "Roberto Hernán Murdocca- Tech Director-Globant",
-      context: "In food and beverage, pricing decisions must be intelligent and adaptive against rapidly shifting market dynamics. Danone needed to transition from a reactive, inflationary pricing approach to predictive models aligned with erratic market behaviour. A comprehensive Digital Maturity Assessment was undertaken to evaluate capabilities across technology, data, processes, and organisational culture.",
-      challenge: "We led the maturity assessment, identifying capability gaps between Danone's digital ambition and its current operational reality. Critical challenges in data governance, technology automation, and cross-functional processes Scalability was diagnosed. A modular pricing framework was architected to ensure strategic alignment with broader organisational transformation objectives.",
-      impact: "The strategic roadmap established foundations for dynamic pricing capabilities leveraging predictive analytics and automation. Detailed implementation frameworks outlined pathways to overcome silos between pricing, sales, and finance teams. The discovery phase delivered a scalable vision positioning pricing as strategic advantage in Danone's digital transformation."
+      ]
+    },
+    {
+      title: "Parques Reunidos",
+      subtitle: "Catalog Harmonisation",
+      description: "Seventy diverse entertainment venues created stunning operational complexity. A unified product language now preserves venue-specific narratives while enabling enterprise-wide product strategies, turning fragmented systems into coordinated platform across three continents.",
+      tech: ["Experience Design", "Service Design", "Digital Transformation"],
+      industryTags: ["Themed Parks"],
+      category: "Themed Parks",
+      year: "2023",
+      client: "Parques Reunidos",
+      location: "Spain",
+      website: "https://www.parquesreunidos.com/",
+      image: "/projects/parques-reunidos/hero-parque-reunidos.png",
+      secondaryImage: "/projects/parques-reunidos/secundary-image.jpeg",
+      galleryImages: [
+        "/projects/parques-reunidos/secundary-image.jpeg",
+        "/projects/parques-reunidos/Envisioning for Digital Planning and Booking.png",
+        "/projects/parques-reunidos/Envisioning for Dynamic Booking.png",
+        "/projects/parques-reunidos/Project Envisioning Customer Journey Unfied .png"
+      ]
+    },
+    {
+      title: "Flagship Entertainment Destination, KSA",
+      subtitle: "PoC Guest Support Platform",
+      description: "Saudi Arabia's flagship entertainment destination required comprehensive guest support systems navigating uncharted territory in a landmark entertainment project. Theme parks, water attractions, sports facilities, and retail centers operated through a unified digital infrastructure where both guests and operational staff would encounter these systems for the first time.",
+      tech: ["Product Strategy", "Service Design", "Prototyping"],
+      industryTags: ["Hospitality-Themed Parks-Retail"],
+      category: "Hospitality-Themed Parks-Retail",
+      year: "2025",
+      client: "Qiddiya",
+      location: "KSA",
+      website: "https://qiddiya.com/",
+      image: "/projects/qiddiya/hero-qiddiya.png",
+      secondaryImage: "/projects/qiddiya/secondary-qiddiya.png",
+      galleryImages: [
+        "/projects/qiddiya/secondary-qiddiya.png",
+        "/projects/qiddiya/emergency-management.png",
+        "/projects/qiddiya/guest-search-digital-id.png",
+        "/projects/qiddiya/unified-guest-interaction.png"
+      ]
+    }
     },
     {
       title: "Parques Reunidos",
