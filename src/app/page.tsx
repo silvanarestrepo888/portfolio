@@ -1709,22 +1709,20 @@ export default function Home() {
 
       {/* FOOTER - MOVED OUTSIDE MODAL */}
       <footer className="project-details-footer">
-            <div className="footer-content">
-              <div className="footer-brand">
-                <h3 className="footer-brand-name typography-h3">silvana.</h3>
-                <p className="footer-brand-title typography-body">Principal Experience Architect</p>
-              </div>
-              <div className="footer-links">
-                <a href="#about" className="footer-link typography-body">About</a>
-                <a href="#projects" className="footer-link typography-body">Projects</a>
-                <a href="#experience" className="footer-link typography-body">Experience</a>
-                <a href="#services" className="footer-link typography-body">Services</a>
-                <a href="#footer" className="footer-link typography-body">Contact</a>
-              </div>
-            </div>
-          </footer>
-        </motion.div>
-      )}
+        <div className="footer-content">
+          <div className="footer-brand">
+            <h3 className="footer-brand-name typography-h3">silvana.</h3>
+            <p className="footer-brand-title typography-body">Principal Experience Architect</p>
+          </div>
+          <div className="footer-links">
+            <a href="#about" className="footer-link typography-body">About</a>
+            <a href="#projects" className="footer-link typography-body">Projects</a>
+            <a href="#experience" className="footer-link typography-body">Experience</a>
+            <a href="#services" className="footer-link typography-body">Services</a>
+            <a href="#footer" className="footer-link typography-body">Contact</a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
