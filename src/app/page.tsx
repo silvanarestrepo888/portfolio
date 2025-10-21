@@ -14,7 +14,6 @@ export default function Home() {
   const [currentGalleryImage, setCurrentGalleryImage] = useState(0);
   const [galleryZoomOpen, setGalleryZoomOpen] = useState(false);
   const [heroImageZoom, setHeroImageZoom] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
   
   // Foundation Project Exploration System
   const [featuredProjectIndex, setFeaturedProjectIndex] = useState(0);
@@ -280,7 +279,7 @@ export default function Home() {
 
   // Scroll effect for parallax and progressive disclosure
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
+    const handleScroll = () => {};
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -1488,7 +1487,7 @@ export default function Home() {
               <h3 className="testimonial-title luxury-section-header">Client Testimonial</h3>
               <div className="testimonial-quote-container">
                 <blockquote className="testimonial-quote luxury-body">
-                  "Silvana's strategic approach transformed our digital ecosystem. Her expertise in experience design and business transformation delivered measurable results that exceeded our expectations."
+                  &ldquo;Silvana&apos;s strategic approach transformed our digital ecosystem. Her expertise in experience design and business transformation delivered measurable results that exceeded our expectations.&rdquo;
                 </blockquote>
                 <div className="testimonial-attribution">
                   <p className="testimonial-author luxury-caption">
