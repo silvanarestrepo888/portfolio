@@ -327,16 +327,16 @@ export default function Home() {
       >
         {/* Sophisticated Background System */}
         <div className="hero-bg-luxury">
-          <Image 
-            src="/silvana-profile.jpg"
-            alt="Silvana Restrepo - Principal Experience Architect"
-            fill
+            <Image 
+              src="/silvana-profile.jpg"
+              alt="Silvana Restrepo - Principal Experience Architect"
+              fill
             className="hero-bg-image-luxury"
             quality={100}
-            priority
-            sizes="100vw"
-          />
-          
+              priority
+              sizes="100vw"
+            />
+            
           {/* Elegant Gradient Overlays */}
           <div className="hero-gradient-overlay-1"></div>
           <div className="hero-gradient-overlay-2"></div>
@@ -350,7 +350,7 @@ export default function Home() {
           <motion.h1 
             className="hero-title-luxury"
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3 }}
           >
             <span className="word-experience-luxury">Experience</span>
@@ -372,12 +372,12 @@ export default function Home() {
       >
         <div className="about-container-ultra-luxury">
           {/* Ultra-Luxury Section Header - Perfectly Centered */}
-          <motion.header 
+              <motion.header
             className="about-header-ultra-luxury"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-          >
+                transition={{ duration: 1, delay: 0.2 }}
+              >
             <div className="about-header-content">
               <span className="about-section-number">01</span>
               <motion.h2 
@@ -388,7 +388,7 @@ export default function Home() {
               >
                 The Journey
               </motion.h2>
-            </div>
+                </div>
             <motion.p 
               className="about-description-ultra-luxury"
               initial={{ opacity: 0, y: 20 }}
@@ -397,10 +397,10 @@ export default function Home() {
             >
               Two decades of transforming how global brands connect with human experiences
             </motion.p>
-          </motion.header>
-          
+              </motion.header>
+
           {/* Ultra-Luxury Symmetric Two-Column Layout - Stella Petkova Style */}
-          <motion.div 
+              <motion.div
             className="about-content-ultra-luxury"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -453,13 +453,13 @@ export default function Home() {
                 >
                   Welcome to my world—where strategy meets soul, and design becomes the universal language of possibility
                 </motion.p>
-              </div>
+                </div>
             </div>
-            
+
             {/* Right Column - Profile Photo */}
             <div className="about-photo-column">
               <div className="about-photo-container">
-                <Image 
+                <Image
                   src="/silvana-profile.jpg"
                   alt="Silvana Restrepo - Principal Experience Architect"
                   width={500}
@@ -476,7 +476,7 @@ export default function Home() {
           </motion.div>
           
           {/* Ultra-Luxury Philosophy Quote - Your Exact Quote */}
-          <motion.div 
+                <motion.div 
             className="about-philosophy-ultra-luxury"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -499,10 +499,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROJECTS SECTION - Ultra-Luxury Refinement */}
+      {/* PROJECTS SECTION - Award-Winning Enhancement */}
       <section 
         id="projects" 
-        className="projects-section-ultra-luxury"
+        className="projects-section-award-winning"
         style={{
           background: 'linear-gradient(180deg, var(--pannocotta-warm) 0%, var(--pannocotta-primary) 50%, var(--pannocotta-soft) 100%)',
           minHeight: '100vh',
@@ -511,26 +511,19 @@ export default function Home() {
           justifyContent: 'center'
         }}
       >
-        <div className="projects-container-ultra-luxury">
-          {/* Ultra-Luxury Section Header */}
+        <div className="projects-container-award-winning">
+          {/* Award-Winning Section Header with Sophisticated Spacing */}
           <motion.div 
-            className="projects-header-luxury"
+            className="projects-header-award-winning"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
           >
-            <div className="projects-header-content">
-              <span 
-                className="projects-section-number"
-                style={{ 
-                  color: 'rgba(255, 102, 99, 0.6)'
-                }}
-              >
-                02
-              </span>
+            <div className="projects-header-content-award">
+              <span className="projects-section-number-award">02</span>
               <motion.h2 
-                className="projects-title-luxury"
+                className="projects-title-award-winning"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}
@@ -539,65 +532,72 @@ export default function Home() {
                 Projects
               </motion.h2>
             </div>
+            
             <motion.p 
-              className="projects-description-luxury"
+              className="projects-description-award-winning"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              A curated selection of <span className="highlight-term">strategic consulting projects</span> that demonstrate <span className="highlight-term">experience-driven innovation</span>, <span className="highlight-term">digital transformation</span>, and <span className="highlight-term">business acceleration</span> across diverse industries and global markets.
+              A curated selection of <span className="highlight-term-award">strategic consulting projects</span> that demonstrate <span className="highlight-term-award">experience-driven innovation</span>, <span className="highlight-term-award">digital transformation</span>, and <span className="highlight-term-award">business acceleration</span> across diverse industries and global markets.
             </motion.p>
             
-            {/* Project Filter Tags - Luxury Spacing */}
-            <div className="flex-luxury-wrap optical-center-horizontal gap-phi-sm">
+            {/* Sophisticated Filter Tags with Perfect Spacing */}
+            <motion.div 
+              className="projects-filter-tags-award"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.6 }}
+              viewport={{ once: true }}
+            >
               {projectCategories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className="px-6 py-3 rounded-full text-sm font-medium transition-all duration-300"
-                  style={{
-                    backgroundColor: selectedCategory === category ? '#ff6663' : 'transparent',
-                    color: selectedCategory === category ? 'white' : '#ff6663',
-                    border: `1px solid ${selectedCategory === category ? '#ff6663' : 'rgba(255, 102, 99, 0.3)'}`,
-                    letterSpacing: '0.05em'
-                  }}
+                  className="filter-tag-award-winning"
                 >
                   {category}
                 </button>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
           
-          {/* Ultra-Luxury Project Carousel */}
-          <div className="projects-carousel-luxury">
-            
-            {/* Sophisticated Navigation Controls */}
+          {/* Award-Winning Project Carousel with Organic Flow */}
             <motion.div 
-              className="projects-navigation-luxury"
+            className="projects-carousel-award-winning"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            {/* Sophisticated Navigation Controls with Perfect Spacing */}
+            <motion.div 
+              className="projects-navigation-award-winning"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+              viewport={{ once: true }}
             >
-              <button 
+                <button
                 onClick={goToPreviousProject}
-                className="nav-btn-luxury"
-              >
-                ← Previous Project
-              </button>
+                className="nav-btn-award-winning prev"
+                >
+                ← Previous
+                </button>
               
-              <div className="project-counter-luxury">
-                <span className="current-project-luxury">{safeFeaturedProjectIndex + 1}</span>
-                <span className="divider-luxury">/</span>
-                <span className="total-projects-luxury">{filteredProjects.length}</span>
+              <div className="project-counter-award-winning">
+                <span className="current-project-award">{safeFeaturedProjectIndex + 1}</span>
+                <span className="divider-award">/</span>
+                <span className="total-projects-award">{filteredProjects.length}</span>
               </div>
               
-              <button 
+                <button
                 onClick={goToNextProject}
-                className="nav-btn-luxury"
-              >
-                Next Project →
-              </button>
+                className="nav-btn-award-winning next"
+                >
+                Next →
+                </button>
             </motion.div>
             
             {/* Ultra-Luxury Featured Project Display */}
@@ -623,43 +623,43 @@ export default function Home() {
                   <div className="image-overlay-info">
                     <span className="project-year-overlay">{filteredProjects[safeFeaturedProjectIndex]?.year || ''}</span>
                     <span className="project-category-overlay">{filteredProjects[safeFeaturedProjectIndex]?.category || ''}</span>
+                    </div>
                   </div>
-                </div>
-                
+                  
                 {/* Systematic Content Hierarchy */}
                 <div className="project-content-systematic">
                   <header className="project-header-foundation">
                     <h3 className="project-title-foundation">{filteredProjects[safeFeaturedProjectIndex]?.title || ''}</h3>
                     <p className="project-client-foundation">{filteredProjects[safeFeaturedProjectIndex]?.client || ''}</p>
-                    <div className="project-meta-foundation">
+                      <div className="project-meta-foundation">
                       <span>{filteredProjects[safeFeaturedProjectIndex]?.year || ''}</span>
-                      <span>•</span>
+                          <span>•</span>
                       <span>{filteredProjects[safeFeaturedProjectIndex]?.location || ''}</span>
-                    </div>
+                        </div>
                   </header>
                   
                   <div className="project-description-section">
                     <p className="project-subtitle-foundation">{filteredProjects[safeFeaturedProjectIndex]?.subtitle || ''}</p>
                     <p className="project-description-foundation">{filteredProjects[safeFeaturedProjectIndex]?.description || ''}</p>
-                  </div>
-                  
+                      </div>
+                      
                   <div className="project-capabilities-section">
                     <div className="capabilities-grid">
                       {filteredProjects[safeFeaturedProjectIndex] && filteredProjects[safeFeaturedProjectIndex].tech && filteredProjects[safeFeaturedProjectIndex].tech.map(capability => (
                         <span key={capability} className="capability-tag-foundation">
                           {capability}
-                        </span>
-                      ))}
+                          </span>
+                        ))}
                     </div>
-                  </div>
-                  
+                      </div>
+                      
                   <div className="project-actions-section">
-                    <button 
+                      <button
                       onClick={() => setSelectedProject(safeFeaturedProjectIndex)}
                       className="button-foundation primary"
                     >
                       View Full Case Study
-                    </button>
+                      </button>
                     {filteredProjects[safeFeaturedProjectIndex]?.website && (
                       <a 
                         href={filteredProjects[safeFeaturedProjectIndex].website}
@@ -672,8 +672,8 @@ export default function Home() {
                     )}
                   </div>
                 </div>
-              </div>
-            </motion.div>
+                  </div>
+                </motion.div>
             
             {/* Ultra-Luxury Project Thumbnails Grid */}
             <motion.div 
@@ -762,23 +762,23 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <span 
+              <span 
               className="section-number text-sm font-semibold tracking-wider uppercase block mb-4"
               style={{ color: 'rgba(255, 102, 99, 0.7)' }}
-            >
-              03
-            </span>
+              >
+                03
+              </span>
             <h2 className="section-title text-5xl font-light text-gray-900 mb-8">
-              Experience
-            </h2>
+                Experience
+              </h2>
             <p className="section-intro text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-light">
               Some of the <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>upscaling</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>reinventing</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>evolving</span>, and <span className="highlight-word" style={{ color: 'var(--grapefruit-primary)' }}>reimagining</span> business, brands, and teams.
             </p>
           </motion.div>
-
+          
 
           {/* Architectural Layers System */}
-          <motion.div 
+            <motion.div 
             className="experience-layers-container"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -791,7 +791,7 @@ export default function Home() {
                 <motion.div
                   key={i}
                   className="particle"
-                  style={{
+                    style={{
                     left: `${Math.random() * 100}%`,
                     top: `${Math.random() * 100}%`,
                   }}
@@ -805,8 +805,8 @@ export default function Home() {
                     delay: Math.random() * 2,
                   }}
                 />
-              ))}
-            </div>
+                ))}
+              </div>
 
             {/* Architectural Layers */}
             <div className="experience-layers-grid">
@@ -874,7 +874,7 @@ export default function Home() {
                   data-layer={experience.level}
                   initial={{ opacity: 0, y: 50, scale: 0.9 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  whileHover={{ 
+                  whileHover={{
                     y: -10, 
                     scale: 1.05,
                     transition: { duration: 0.3 }
@@ -910,13 +910,13 @@ export default function Home() {
           </motion.div>
 
           {/* Navigation Arrows */}
-          <motion.div 
+                <motion.div 
             className="flex justify-center items-center mt-16 gap-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
+                  viewport={{ once: true }}
+                >
             <motion.button 
               className="w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-600"
               whileHover={{ 
@@ -950,7 +950,7 @@ export default function Home() {
                 <path d="M9 18l6-6-6-6"/>
               </svg>
             </motion.button>
-          </motion.div>
+                </motion.div>
         </div>
       </section>
 
@@ -1111,7 +1111,7 @@ export default function Home() {
                       }}
                     >
                       <p className="service-description-text">
-                        {service.description}
+                      {service.description}
                       </p>
                     </motion.div>
                   </motion.div>
@@ -1206,7 +1206,7 @@ export default function Home() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
-        >
+          >
             {/* Minimalist Navigation - Luxury Brand Standard */}
             <div className="fixed top-8 left-8 right-8 z-50 flex justify-between items-center">
               <motion.button
