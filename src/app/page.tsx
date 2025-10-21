@@ -1476,59 +1476,31 @@ export default function Home() {
             </div>
                   </div>
                   
-          {/* TESTIMONIAL GALLERY */}
-          <div className="testimonial-gallery-section">
-            <motion.h3 
-              className="gallery-title"
+          {/* CLIENT TESTIMONIAL - TEXT CONTAINER */}
+          <div className="testimonial-text-section">
+            <motion.div
+              className="testimonial-content"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              Testimonial Gallery
-            </motion.h3>
-            <div className="testimonial-grid">
-              {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.map((image, index) => (
-                <motion.div
-                  key={`testimonial-${index}`}
-                  className="testimonial-item"
-                  initial={{ opacity: 0, scale: 0.8, y: 50 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.8, 
-                    delay: index * 0.2,
-                    type: "spring",
-                    stiffness: 100
-                  }}
-                  viewport={{ once: true, margin: "-50px" }}
-                      onClick={() => {
-                          setCurrentGalleryImage(index);
-                          setGalleryZoomOpen(true);
-                        }}
-                  whileHover={{ 
-                    scale: 1.05, 
-                    y: -15,
-                    transition: { duration: 0.3 }
-                  }}
-                      >
-                        <Image
-                          src={image}
-                    alt={`${projects[selectedProject].title} - Testimonial ${index + 1}`}
-                    fill
-                    className="testimonial-image"
-                    style={{
-                      objectFit: 'cover',
-                      objectPosition: 'center'
-                    }}
-                  />
-                  <div className="testimonial-overlay">
-                    <div className="testimonial-icon">💬</div>
-                    <span className="testimonial-text">View Testimonial</span>
-                  </div>
-                </motion.div>
-              ))}
-                  </div>
+              <h3 className="testimonial-title luxury-section-header">Client Testimonial</h3>
+              <div className="testimonial-quote-container">
+                <blockquote className="testimonial-quote luxury-body">
+                  "Silvana's strategic approach transformed our digital ecosystem. Her expertise in experience design and business transformation delivered measurable results that exceeded our expectations."
+                </blockquote>
+                <div className="testimonial-attribution">
+                  <p className="testimonial-author luxury-caption">
+                    {selectedProject !== null ? projects[selectedProject].client : 'Client Name'}
+                  </p>
+                  <p className="testimonial-role luxury-caption">
+                    {selectedProject !== null ? projects[selectedProject].category : 'Project Category'}
+                  </p>
                 </div>
+              </div>
+            </motion.div>
+          </div>
                 
           {/* SOPHISTICATED PROJECT NAVIGATION */}
           <div className="sophisticated-navigation-section">

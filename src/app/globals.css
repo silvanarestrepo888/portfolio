@@ -348,6 +348,83 @@
 }
 
 /* ========================================== */
+/* TESTIMONIAL TEXT SECTION - LUXURY TYPOGRAPHY */
+/* ========================================== */
+
+.testimonial-text-section {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, 
+    var(--deep-charcoal) 0%, 
+    var(--midnight) 100%
+  );
+  position: relative;
+}
+
+.testimonial-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.testimonial-title {
+  margin-bottom: 3rem;
+  color: var(--white-bones);
+}
+
+.testimonial-quote-container {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 102, 99, 0.2);
+  border-radius: 1rem;
+  padding: 3rem;
+  backdrop-filter: blur(10px);
+}
+
+.testimonial-quote {
+  font-size: var(--text-lg);
+  line-height: 1.6;
+  color: var(--white-bones);
+  font-style: italic;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.testimonial-quote::before {
+  content: '"';
+  font-size: 4rem;
+  color: var(--grapefruit);
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  font-family: var(--font-serif);
+}
+
+.testimonial-quote::after {
+  content: '"';
+  font-size: 4rem;
+  color: var(--grapefruit);
+  position: absolute;
+  bottom: -2rem;
+  right: -1rem;
+  font-family: var(--font-serif);
+}
+
+.testimonial-attribution {
+  text-align: right;
+}
+
+.testimonial-author {
+  color: var(--grapefruit);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-role {
+  color: var(--warm-gray);
+  font-size: var(--text-sm);
+}
+
+/* ========================================== */
 
 /* DISTORTED HERO BACKGROUND - Stella Petkova Inspired */
 .hero-distorted-section {
@@ -9385,6 +9462,17 @@ h4, .text-h4 {
   z-index: 50;
   overflow-y: auto;
   padding: 0;
+}
+
+.project-hero-section {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  background: var(--midnight);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
 }
 
 .project-details-content {
