@@ -21,10 +21,6 @@ export default function Home() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
   
-  // 10X SOPHISTICATION - Advanced Background System
-  const [cursorPosition, setCursorPosition] = useState({ x: 50, y: 50 });
-  const [activeSection, setActiveSection] = useState('hero');
-  const [isCursorActive, setIsCursorActive] = useState(false);
   
 
 
@@ -416,86 +412,12 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScrollColorMorphing);
   }, []);
 
-  // 10X SOPHISTICATION - Advanced Cursor-Responsive Background System
-  useEffect(() => {
-    const handleAdvancedCursorMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
-      
-      // Update cursor position for background effects
-      setCursorPosition({ x, y });
-      setIsCursorActive(true);
-      
-      // Update CSS custom properties for cursor-responsive backgrounds
-      document.documentElement.style.setProperty('--cursor-x', `${x}%`);
-      document.documentElement.style.setProperty('--cursor-y', `${y}%`);
-      
-      // Add cursor-responsive background class to body
-      document.body.classList.add('cursor-active');
-    };
-
-    const handleMouseLeave = () => {
-      setIsCursorActive(false);
-      document.body.classList.remove('cursor-active');
-    };
-
-    // Add cursor-responsive background element
-    const cursorBackground = document.createElement('div');
-    cursorBackground.className = 'cursor-responsive-background';
-    cursorBackground.id = 'cursor-responsive-bg';
-    document.body.appendChild(cursorBackground);
-
-    window.addEventListener('mousemove', handleAdvancedCursorMove);
-    window.addEventListener('mouseleave', handleMouseLeave);
-    
-    return () => {
-      window.removeEventListener('mousemove', handleAdvancedCursorMove);
-      window.removeEventListener('mouseleave', handleMouseLeave);
-      const bg = document.getElementById('cursor-responsive-bg');
-      if (bg) bg.remove();
-    };
-  }, []);
-
-  // 10X SOPHISTICATION - Scroll-Triggered Color Morphing System
-  useEffect(() => {
-    const handleScrollColorMorphing = () => {
-      const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      
-      // Calculate scroll progress (0 to 1)
-      const scrollProgress = scrollPosition / (documentHeight - windowHeight);
-      
-      // Create dynamic color intensity based on scroll position
-      const colorIntensity = Math.sin(scrollProgress * Math.PI) * 0.3 + 0.1;
-      
-      // Update scroll-triggered color system
-      document.documentElement.style.setProperty('--scroll-color-1', 
-        scrollPosition < windowHeight * 0.8 ? `rgba(255, 102, 99, ${colorIntensity * 0.8})` : 'transparent');
-      document.documentElement.style.setProperty('--scroll-color-2', 
-        scrollPosition >= windowHeight * 0.8 && scrollPosition < windowHeight * 1.8 ? `rgba(255, 102, 99, ${colorIntensity * 0.6})` : 'transparent');
-      document.documentElement.style.setProperty('--scroll-color-3', 
-        scrollPosition >= windowHeight * 1.8 && scrollPosition < windowHeight * 2.8 ? `rgba(255, 102, 99, ${colorIntensity * 0.9})` : 'transparent');
-      document.documentElement.style.setProperty('--scroll-color-4', 
-        scrollPosition >= windowHeight * 2.8 && scrollPosition < windowHeight * 3.8 ? `rgba(255, 102, 99, ${colorIntensity * 0.7})` : 'transparent');
-      document.documentElement.style.setProperty('--scroll-color-5', 
-        scrollPosition >= windowHeight * 3.8 ? `rgba(255, 102, 99, ${colorIntensity * 0.5})` : 'transparent');
-    };
-
-    window.addEventListener('scroll', handleScrollColorMorphing);
-    handleScrollColorMorphing(); // Initial call
-    
-    return () => window.removeEventListener('scroll', handleScrollColorMorphing);
-  }, []);
 
   // Ensure featuredProjectIndex is within bounds
   const safeFeaturedProjectIndex = Math.min(featuredProjectIndex, Math.max(0, filteredProjects.length - 1));
 
   return (
     <div className="min-h-screen" style={{backgroundColor: '#fffbee'}}>
-      {/* 10X SOPHISTICATION - ADVANCED BACKGROUND SYSTEMS */}
-      <div className="cursor-responsive-background" />
-      <div className="scroll-responsive-grapefruit" />
       
       {/* ACCESSIBILITY - Skip Navigation Links */}
       <a 
