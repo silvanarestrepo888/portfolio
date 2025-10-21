@@ -516,7 +516,7 @@ export default function Home() {
             <Image
               src="/silvana-profile.jpg"
               alt="Silvana Restrepo - Principal Experience Architect"
-              width={500}
+              width={600}
               height={500}
               className="about-photo-perfect"
               style={{
@@ -527,15 +527,15 @@ export default function Home() {
                 borderRadius: '12px'
               }}
               priority
-              quality={100}
+              unoptimized={false}
               onError={(e) => {
-                console.log('Profile image load error');
+                console.log('Profile image load error - Next.js Image');
                 // Graceful fallback - show a subtle background instead of broken image
                 e.currentTarget.style.backgroundColor = '#f3f4f6';
                 e.currentTarget.style.border = '2px dashed #d1d5db';
               }}
               onLoad={() => {
-                console.log('Profile image loaded successfully');
+                console.log('Profile image loaded successfully - Next.js Image');
               }}
             />
                 <div className="about-photo-overlay">
