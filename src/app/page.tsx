@@ -7,8 +7,7 @@ import Image from 'next/image';
 import { CustomCursor } from '../components/motion/CustomCursor';
 import { MagneticCursor } from '../components/ui/MagneticCursor';
 import { FloatingNavigation } from '../components/navigation/FloatingNavigation';
-import { useScrollAnimation, useParallax } from '../hooks/useScrollAnimation';
-import { LoadingSpinner, ImageSkeleton } from '../components/LoadingSpinner';
+import { useParallax } from '../hooks/useScrollAnimation';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -16,10 +15,8 @@ export default function Home() {
   const [currentGalleryImage, setCurrentGalleryImage] = useState(0);
   const [galleryZoomOpen, setGalleryZoomOpen] = useState(false);
   const [heroImageZoom, setHeroImageZoom] = useState(false);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
   
   // Enhanced scroll animations
-  const { isVisible: aboutVisible, scrollY } = useScrollAnimation();
   const parallaxTransform = useParallax(0.3);
   
   // Foundation Project Exploration System

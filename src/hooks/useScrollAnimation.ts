@@ -89,11 +89,11 @@ export function useParallax(speed: number = 0.5) {
 }
 
 // Throttle utility function
-function throttle<T extends (...args: any[]) => any>(func: T, limit: number): T {
+function throttle<T extends (...args: unknown[]) => unknown>(func: T, limit: number): T {
   let inThrottle: boolean;
-  return ((...args: any[]) => {
+  return ((...args: unknown[]) => {
     if (!inThrottle) {
-      func.apply(this, args);
+      func(...args);
       inThrottle = true;
       setTimeout(() => inThrottle = false, limit);
     }
