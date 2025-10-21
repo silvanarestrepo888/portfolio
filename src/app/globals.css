@@ -7169,9 +7169,9 @@ h4, .text-h4 {
 }
 
 .about-container-ultra-luxury {
-  max-width: 1400px;
+  width: 100%;
   margin: 0 auto;
-  padding: 120px 40px;
+  padding: 120px 4rem;
   position: relative;
   z-index: 2;
 }
@@ -7409,7 +7409,7 @@ h4, .text-h4 {
 /* Responsive Design for Ultra-Luxury About */
 @media (max-width: 1024px) {
   .about-container-ultra-luxury {
-    padding: 80px 30px;
+    padding: 80px 3rem;
   }
   
   .about-content-ultra-luxury {
@@ -7439,7 +7439,7 @@ h4, .text-h4 {
 
 @media (max-width: 768px) {
   .about-container-ultra-luxury {
-    padding: 60px 20px;
+    padding: 60px 2rem;
   }
   
   .about-content-ultra-luxury {
