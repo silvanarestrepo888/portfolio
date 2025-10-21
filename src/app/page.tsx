@@ -569,7 +569,7 @@ export default function Home() {
                   <div className={`auto-play-dot ${isAutoPlaying ? 'playing' : 'paused'}`}></div>
                   <span className="auto-play-text">
                     {isAutoPlaying ? 'Auto-playing' : 'Paused'}
-                  </span>
+                </span>
                 </div>
                 
                 <div className="project-counter">
@@ -619,7 +619,7 @@ export default function Home() {
                   <div className="balanced-image-section">
                     <div 
                       className="balanced-image-container"
-                      style={{
+                  style={{
                         backgroundImage: `url(${filteredProjects[safeFeaturedProjectIndex]?.image || ''})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
@@ -656,7 +656,7 @@ export default function Home() {
                           <span>{filteredProjects[safeFeaturedProjectIndex]?.year || ''}</span>
                           <span className="balanced-divider">•</span>
                           <span>{filteredProjects[safeFeaturedProjectIndex]?.location || ''}</span>
-                        </div>
+                      </div>
                       </header>
                       
                       {/* Clean Description */}
@@ -676,19 +676,19 @@ export default function Home() {
                           {filteredProjects[safeFeaturedProjectIndex] && filteredProjects[safeFeaturedProjectIndex].tech && filteredProjects[safeFeaturedProjectIndex].tech.slice(0, 3).map((capability) => (
                             <span key={capability} className="balanced-tag">
                               {capability}
-                            </span>
-                          ))}
+                          </span>
+                        ))}
                         </div>
                       </div>
                       
                       {/* Clean Action Buttons */}
                       <div className="balanced-actions">
-                        <button
+                      <button
                           onClick={() => setSelectedProject(safeFeaturedProjectIndex)}
                           className="balanced-btn primary"
                         >
                           View Full Case Study
-                        </button>
+                      </button>
                         
                         {filteredProjects[safeFeaturedProjectIndex]?.website && (
                           <a 
@@ -700,10 +700,10 @@ export default function Home() {
                             Visit Website
                           </a>
                         )}
-                      </div>
-                    </div>
-                  </div>
                 </div>
+                </div>
+              </div>
+          </div>
               </div>
             </motion.div>
             
@@ -1175,89 +1175,88 @@ export default function Home() {
         >
           {/* Navigation Header */}
           <div className="project-details-header">
-            <motion.button
-              onClick={() => setSelectedProject(null)}
+              <motion.button
+                onClick={() => setSelectedProject(null)}
               className="back-button"
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+                whileTap={{ scale: 0.95 }}
+              >
               ← Back to Projects
-            </motion.button>
-            
+              </motion.button>
+              
             <div className="project-navigation">
               <button
-                onClick={() => {
-                  const prevIndex = selectedProject === 0 ? projects.length - 1 : selectedProject - 1;
-                  setSelectedProject(prevIndex);
+                  onClick={() => {
+                    const prevIndex = selectedProject === 0 ? projects.length - 1 : selectedProject - 1;
+                    setSelectedProject(prevIndex);
                 }}
                 className="nav-button prev"
               >
                 Previous
               </button>
               <button
-                onClick={() => {
-                  const nextIndex = (selectedProject + 1) % projects.length;
-                  setSelectedProject(nextIndex);
-                }}
+                  onClick={() => {
+                    const nextIndex = (selectedProject + 1) % projects.length;
+                    setSelectedProject(nextIndex);
+                  }}
                 className="nav-button next"
-              >
+                >
                 Next
               </button>
+              </div>
             </div>
-          </div>
 
-          {/* SOPHISTICATED HERO SECTION - Full Width Immersive */}
-          <div className="sophisticated-hero-section">
+          {/* CLEAN HERO SECTION - Pure Image Exploration */}
+          <div className="clean-hero-section">
             <div 
               className="hero-image-container"
               style={{
                 backgroundImage: `url(${projects[selectedProject].image})`,
-                backgroundSize: 'cover',
+                backgroundSize: 'contain',
                 backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat'
+                backgroundRepeat: 'no-repeat',
+                backgroundColor: '#000'
               }}
-            >
-              {/* Elegant Overlay */}
-              <div className="hero-overlay">
-                <div className="hero-content">
-                  <motion.h1 
-                    className="hero-title"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                  >
-                    {projects[selectedProject].title}
-                  </motion.h1>
-                  <motion.p 
-                    className="hero-subtitle"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                  >
-                    {projects[selectedProject].subtitle}
-                  </motion.p>
-                  <motion.div 
-                    className="hero-meta"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                  >
-                    <span className="hero-client">{projects[selectedProject].client}</span>
-                    <span className="hero-year">{projects[selectedProject].year}</span>
-                    <span className="hero-location">{projects[selectedProject].location}</span>
-                  </motion.div>
-                </div>
-              </div>
-            </div>
+            />
           </div>
+
+          {/* Project Info Below Image */}
+          <div className="project-info-section">
+            <motion.h1 
+              className="project-title"
+              initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
+                    {projects[selectedProject].title}
+            </motion.h1>
+            <motion.p 
+              className="project-subtitle"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+                    {projects[selectedProject].subtitle}
+            </motion.p>
+            <motion.div 
+              className="project-meta"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <span className="project-client">{projects[selectedProject].client}</span>
+              <span className="project-year">{projects[selectedProject].year}</span>
+              <span className="project-location">{projects[selectedProject].location}</span>
+            </motion.div>
+                  </div>
 
           {/* SOPHISTICATED CONTENT SECTIONS - 2x2 Grid */}
           <div className="sophisticated-content-sections">
             {/* Context */}
             <motion.div 
               className="sophisticated-content-section context"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h3 className="sophisticated-section-title">Context</h3>
@@ -1271,8 +1270,8 @@ export default function Home() {
             {/* Scope */}
             <motion.div 
               className="sophisticated-content-section scope"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <h3 className="sophisticated-section-title">Scope of the Project</h3>
@@ -1287,8 +1286,8 @@ export default function Home() {
             {/* Approach */}
             <motion.div 
               className="sophisticated-content-section approach"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <h3 className="sophisticated-section-title">Approach</h3>
@@ -1303,8 +1302,8 @@ export default function Home() {
             {/* Testimonial */}
             <motion.div 
               className="sophisticated-content-section testimonial"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
+                      initial={{ opacity: 0, y: 40 }}
+                      animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
               <h3 className="sophisticated-section-title">Impact</h3>
@@ -1313,14 +1312,14 @@ export default function Home() {
                   Delivered strategic transformation that enabled {projects[selectedProject].client} to achieve 
                   enhanced user experience and business growth across their digital platforms.
                 </p>
-              </div>
-            </motion.div>
+                      </div>
+                </motion.div>
           </div>
 
-          {/* SOPHISTICATED IMAGE GALLERY */}
-          <div className="sophisticated-gallery-section">
+          {/* CLEAN IMAGE GALLERY - 3 Images Only */}
+          <div className="clean-gallery-section">
             <motion.h3 
-              className="sophisticated-gallery-title"
+              className="gallery-title"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -1328,23 +1327,23 @@ export default function Home() {
             >
               Project Gallery
             </motion.h3>
-            <div className="sophisticated-gallery-grid">
-              {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.map((image, index) => (
+            <div className="gallery-three-grid">
+              {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.slice(0, 3).map((image, index) => (
                 <motion.div
-                  key={index}
-                  className="sophisticated-gallery-item"
+                        key={index}
+                  className="gallery-item"
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  onClick={() => {
-                    setCurrentGalleryImage(index);
-                    setGalleryZoomOpen(true);
-                  }}
+                        onClick={() => {
+                          setCurrentGalleryImage(index);
+                          setGalleryZoomOpen(true);
+                        }}
                   whileHover={{ scale: 1.05, y: -10 }}
                 >
                   <div
-                    className="sophisticated-gallery-image"
+                    className="gallery-image"
                     style={{
                       backgroundImage: `url(${image})`,
                       backgroundSize: 'cover',
@@ -1357,8 +1356,8 @@ export default function Home() {
                 </motion.div>
               ))}
             </div>
-          </div>
-
+                  </div>
+                  
           {/* SOPHISTICATED PROJECT NAVIGATION */}
           <div className="sophisticated-navigation-section">
             <motion.div 
@@ -1367,9 +1366,10 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              onClick={() => {
+                      onClick={() => {
                 const prevIndex = selectedProject === 0 ? projects.length - 1 : selectedProject - 1;
                 setSelectedProject(prevIndex);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               whileHover={{ scale: 1.02, x: -10 }}
             >
@@ -1382,12 +1382,12 @@ export default function Home() {
                     backgroundPosition: 'center'
                   }}
                 />
-              </div>
+                  </div>
               <div className="sophisticated-nav-info">
                 <span className="sophisticated-nav-label">Previous Project</span>
                 <h4 className="sophisticated-nav-title">{projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].title}</h4>
                 <p className="sophisticated-nav-subtitle">{projects[selectedProject === 0 ? projects.length - 1 : selectedProject - 1].subtitle}</p>
-              </div>
+                </div>
             </motion.div>
 
             <motion.div 
@@ -1399,6 +1399,7 @@ export default function Home() {
               onClick={() => {
                 const nextIndex = (selectedProject + 1) % projects.length;
                 setSelectedProject(nextIndex);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               whileHover={{ scale: 1.02, x: 10 }}
             >
@@ -1410,15 +1411,15 @@ export default function Home() {
               <div className="sophisticated-nav-thumbnail">
                 <div
                   className="sophisticated-nav-image"
-                  style={{
+                        style={{
                     backgroundImage: `url(${projects[(selectedProject + 1) % projects.length].image})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
-                  }}
+                        }}
                 />
-              </div>
+                      </div>
             </motion.div>
-          </div>
+            </div>
         </motion.div>
       )}
 
