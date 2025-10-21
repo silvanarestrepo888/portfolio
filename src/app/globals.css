@@ -6333,23 +6333,48 @@ h4, .text-h4 {
   transform: translateX(2px);
 }
 
-/* Enhanced Capability Items */
+/* ULTRA-LUXURY CAPABILITY ITEMS - Sophisticated Micro-interactions */
 .capability-item-landor {
+  position: relative;
+  padding-left: 1rem;
   font-family: 'Inter', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: #555;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(26, 26, 26, 0.8);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  padding: 0.3rem 0;
-  border-left: 2px solid transparent;
-  padding-left: 0.75rem;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  padding: 0.3rem 0 0.3rem 1rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+  transition-delay: calc(var(--index, 0) * 0.05s);
+}
+
+/* Elegant arrow indicator */
+.capability-item-landor::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #ff6663;
+  font-weight: 300;
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: all 0.2s ease;
+}
+
+/* Capability reveal animation */
+.service-column-landor:hover .capability-item-landor {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.service-column-landor:hover .capability-item-landor::before {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .capability-item-landor:hover {
-  border-left-color: rgba(255, 102, 99, 0.4);
-  color: #333;
+  color: #ff6663;
   transform: translateX(4px);
 }
 
@@ -6400,6 +6425,50 @@ h4, .text-h4 {
     font-size: 0.9rem !important;
     line-height: 1.6 !important;
   }
+}
+
+/* ULTRA-LUXURY BORDER TREATMENT - Award-Winning Craftsmanship */
+.services-hover-system {
+  border: 1px solid rgba(255, 102, 99, 0.1);
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(248, 248, 248, 0.98) 50%,
+    rgba(255, 255, 255, 0.95) 100%
+  );
+  backdrop-filter: blur(20px);
+}
+
+/* Sophisticated top accent line */
+.services-hover-system::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 102, 99, 0.3) 50%, 
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+/* Subtle pulse animation for focus state */
+@keyframes subtle-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(255, 102, 99, 0.1);
+  }
+  50% { 
+    box-shadow: 0 0 0 8px rgba(255, 102, 99, 0.05);
+  }
+}
+
+.service-column-landor:focus-within {
+  animation: subtle-pulse 2s infinite;
 }
 
 /* ========================================== */
