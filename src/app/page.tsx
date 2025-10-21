@@ -399,45 +399,60 @@ export default function Home() {
             </motion.p>
           </motion.header>
           
-          {/* Ultra-Luxury Symmetric Two-Column Layout */}
+          {/* Ultra-Luxury Symmetric Two-Column Layout - Stella Petkova Style */}
           <motion.div 
             className="about-content-ultra-luxury"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
           >
-            {/* Left Column - Text Content */}
+            {/* Left Column - Your Exact Content */}
             <div className="about-text-column">
               <div className="about-text-content">
-                <div className="about-narrative-section">
-                  <h3 className="about-subtitle-luxury">
-                    <span className="about-icon">🎯</span>
-                    Strategic Design
-                  </h3>
-                  <p className="about-paragraph-luxury">
-                    Business transformation through human-centered design thinking that connects strategic goals with authentic human experiences.
-                  </p>
-                </div>
+                <motion.p 
+                  className="about-main-story"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 0.9 }}
+                >
+                  I believe the most compelling stories begin with curiosity—a spark that has carried me across continents, blending diverse perspectives from anthropology to business, from innovation to experience design, and from emerging technologies to business transformation.
+                </motion.p>
                 
-                <div className="about-narrative-section">
-                  <h3 className="about-subtitle-luxury">
-                    <span className="about-icon">🌍</span>
-                    Global Experience
-                  </h3>
-                  <p className="about-paragraph-luxury">
-                    25+ international markets, cultural intelligence, and local adaptation expertise creating universally resonant solutions.
-                  </p>
-                </div>
+                <motion.p 
+                  className="about-main-story"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 1.0 }}
+                >
+                  I have embarked on projects ranging from wellness movements to creating AI-driven platforms that empower developers worldwide.
+                </motion.p>
                 
-                <div className="about-narrative-section">
-                  <h3 className="about-subtitle-luxury">
-                    <span className="about-icon">🏢</span>
-                    Fortune 500 Scale
-                  </h3>
-                  <p className="about-paragraph-luxury">
-                    Enterprise-level digital transformation, systems thinking, and organizational change management at global scale.
-                  </p>
-                </div>
+                <motion.p 
+                  className="about-main-story"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 1.1 }}
+                >
+                  Each endeavour brings me closer to my mission: connecting strategic business goals with the essence of the <span className="highlight-human">#human perspective</span>.
+                </motion.p>
+                
+                <motion.p 
+                  className="about-main-story"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 1.2 }}
+                >
+                  Whether leading teams in retail innovation or pioneering Experience design for global brands, my passion remains: to reveal what lies beneath and transform it into tangible expansion.
+                </motion.p>
+                
+                <motion.p 
+                  className="about-welcome"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 1.3 }}
+                >
+                  Welcome to my world—where strategy meets soul, and design becomes the universal language of possibility
+                </motion.p>
               </div>
             </div>
             
@@ -460,34 +475,26 @@ export default function Home() {
             </div>
           </motion.div>
           
-          {/* Ultra-Luxury Philosophy Quote */}
+          {/* Ultra-Luxury Philosophy Quote - Your Exact Quote */}
           <motion.div 
             className="about-philosophy-ultra-luxury"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.0 }}
+            transition={{ duration: 1, delay: 1.4 }}
           >
             <motion.blockquote 
               className="philosophy-quote-ultra-luxury"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ duration: 1.5, delay: 1.2 }}
+              transition={{ duration: 1.5, delay: 1.6 }}
             >
-              &ldquo;The art of my <motion.span 
+              &ldquo;The art of <motion.span 
                 className="craft-highlight-luxury"
                 initial={{ backgroundSize: "0% 100%" }}
                 whileInView={{ backgroundSize: "100% 100%" }}
-                transition={{ duration: 1.2, delay: 1.4, ease: "easeInOut" }}
-              >craft</motion.span> lies in connecting strategic business goals with the essence of human desire&rdquo;
+                transition={{ duration: 1.2, delay: 1.8, ease: "easeInOut" }}
+              >MY CRAFT</motion.span> lies in listening to the unspoken, seeing the invisible, and touching the intangible essence of human desire&rdquo;
             </motion.blockquote>
-            <motion.p 
-              className="philosophy-context-luxury"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.6 }}
-            >
-              This philosophy drives every project, every strategy, and every solution I create for global brands seeking meaningful transformation.
-            </motion.p>
           </motion.div>
         </div>
       </section>
