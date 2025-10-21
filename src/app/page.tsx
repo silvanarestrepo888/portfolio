@@ -287,7 +287,7 @@ export default function Home() {
         setTimeout(() => setIsTransitioning(false), 1200);
         return nextIndex;
       });
-    }, 6000); // Auto-advance every 6 seconds for more sophisticated pacing
+    }, 5000); // Auto-advance every 5 seconds for elegant, always-in-motion experience
 
     return () => clearInterval(interval);
   }, [isAutoPlaying, filteredProjects.length]);
@@ -597,137 +597,99 @@ export default function Home() {
               </div>
             </motion.div>
             
-            {/* Apple/Tesla-Style Side Panel Preview */}
+            {/* Full-Width Cinematic Carousel */}
             <motion.div 
-              className="side-panel-container"
+              className="cinematic-carousel-container"
               key={safeFeaturedProjectIndex}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+              initial={{ opacity: 0, y: 30, scale: 0.98 }}
+              animate={{ 
+                opacity: isTransitioning ? 0.7 : 1, 
+                y: 0, 
+                scale: 1 
+              }}
+              transition={{ 
+                duration: isTransitioning ? 0.6 : 1.2, 
+                ease: [0.25, 0.46, 0.45, 0.94] 
+              }}
             >
-              <div className="side-panel-layout">
-                {/* Main Project - 70% */}
-                <div className="main-project-panel">
-                  <div className="project-card-award-winning">
-                    {/* Image Section - 60% of current project */}
-                    <div className="project-image-section-award">
-                      <div 
-                        className="project-image-container-award"
-                        style={{
-                          backgroundImage: `url(${filteredProjects[safeFeaturedProjectIndex]?.image || ''})`,
-                          backgroundSize: 'contain',
-                          backgroundPosition: 'center',
-                          backgroundRepeat: 'no-repeat'
-                        }}
-                      >
-                        {/* Image Overlay Tags */}
-                        <div className="image-overlay-tags-award">
-                          <span className="project-year-tag-award">{filteredProjects[safeFeaturedProjectIndex]?.year || ''}</span>
-                          <span className="project-category-tag-award">{filteredProjects[safeFeaturedProjectIndex]?.category || ''}</span>
-                        </div>
+              <div className="cinematic-project-card">
+                {/* Full-Width Image Section */}
+                <div className="cinematic-image-section">
+                  <motion.div 
+                    className="cinematic-image-container"
+                    style={{
+                      backgroundImage: `url(${filteredProjects[safeFeaturedProjectIndex]?.image || ''})`,
+                      backgroundSize: 'contain !important',
+                      backgroundPosition: 'center !important',
+                      backgroundRepeat: 'no-repeat !important',
+                      backgroundColor: 'rgba(0, 0, 0, 0.02)'
+                    }}
+                    key={`image-${safeFeaturedProjectIndex}`}
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ 
+                      duration: 1.0, 
+                      ease: [0.25, 0.46, 0.45, 0.94] 
+                    }}
+                  >
+                    {/* Image Overlay Tags */}
+                    <div className="cinematic-overlay-tags">
+                      <span className="cinematic-year-tag">{filteredProjects[safeFeaturedProjectIndex]?.year || ''}</span>
+                      <span className="cinematic-category-tag">{filteredProjects[safeFeaturedProjectIndex]?.category || ''}</span>
+                    </div>
+                  </motion.div>
+                </div>
+                
+                {/* Full-Width Content Section */}
+                <div className="cinematic-content-section">
+                  <div className="cinematic-content-inner">
+                    {/* Project Header */}
+                    <header className="cinematic-header">
+                      <h3 className="cinematic-title">{filteredProjects[safeFeaturedProjectIndex]?.title || ''}</h3>
+                      <p className="cinematic-client">{filteredProjects[safeFeaturedProjectIndex]?.client || ''}</p>
+                      <div className="cinematic-meta">
+                        <span>{filteredProjects[safeFeaturedProjectIndex]?.year || ''}</span>
+                        <span>•</span>
+                        <span>{filteredProjects[safeFeaturedProjectIndex]?.location || ''}</span>
+                      </div>
+                    </header>
+                    
+                    {/* Project Description */}
+                    <div className="cinematic-description">
+                      <p className="cinematic-subtitle">{filteredProjects[safeFeaturedProjectIndex]?.subtitle || ''}</p>
+                      <p className="cinematic-description-text">{filteredProjects[safeFeaturedProjectIndex]?.description || ''}</p>
+                    </div>
+                    
+                    {/* Capability Tags */}
+                    <div className="cinematic-capabilities">
+                      <div className="cinematic-tags">
+                        {filteredProjects[safeFeaturedProjectIndex] && filteredProjects[safeFeaturedProjectIndex].tech && filteredProjects[safeFeaturedProjectIndex].tech.slice(0, 3).map(capability => (
+                          <span key={capability} className="cinematic-tag">
+                            {capability}
+                          </span>
+                        ))}
                       </div>
                     </div>
                     
-                    {/* Content Section - 40% of current project */}
-                    <div className="project-content-section-award">
-                      <div className="project-content-inner-award">
-                        {/* Project Header */}
-                        <header className="project-header-award">
-                          <h3 className="project-title-award">{filteredProjects[safeFeaturedProjectIndex]?.title || ''}</h3>
-                          <p className="project-client-award">{filteredProjects[safeFeaturedProjectIndex]?.client || ''}</p>
-                          <div className="project-meta-award">
-                            <span>{filteredProjects[safeFeaturedProjectIndex]?.year || ''}</span>
-                            <span>•</span>
-                            <span>{filteredProjects[safeFeaturedProjectIndex]?.location || ''}</span>
-                          </div>
-                        </header>
-                        
-                        {/* Project Description */}
-                        <div className="project-description-award">
-                          <p className="project-subtitle-award">{filteredProjects[safeFeaturedProjectIndex]?.subtitle || ''}</p>
-                          <p className="project-description-text-award">{filteredProjects[safeFeaturedProjectIndex]?.description || ''}</p>
-                        </div>
-                        
-                        {/* Capability Tags */}
-                        <div className="project-capabilities-award">
-                          <div className="capabilities-tags-award">
-                            {filteredProjects[safeFeaturedProjectIndex] && filteredProjects[safeFeaturedProjectIndex].tech && filteredProjects[safeFeaturedProjectIndex].tech.slice(0, 3).map(capability => (
-                              <span key={capability} className="capability-tag-award">
-                                {capability}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                        
-                        {/* Action Buttons */}
-                        <div className="project-actions-award">
-                          <button
-                            onClick={() => setSelectedProject(safeFeaturedProjectIndex)}
-                            className="action-btn-award primary"
-                          >
-                            View Full Case Study
-                          </button>
-                          {filteredProjects[safeFeaturedProjectIndex]?.website && (
-                            <a 
-                              href={filteredProjects[safeFeaturedProjectIndex].website}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="action-btn-award secondary"
-                            >
-                              Visit Website
-                            </a>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Side Panel - 30% */}
-                <div className="side-panel-preview">
-                  <div className="side-panel-header">
-                    <h4 className="side-panel-title">More Projects</h4>
-                    <div className="side-panel-counter">
-                      {safeFeaturedProjectIndex + 1} of {filteredProjects.length}
-                    </div>
-                  </div>
-                  
-                  <div className="side-panel-list">
-                    {filteredProjects.map((project, index) => (
-                      <motion.div
-                        key={`side-panel-${index}`}
-                        className={`side-panel-item ${index === safeFeaturedProjectIndex ? 'active' : ''}`}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ 
-                          duration: 0.5, 
-                          delay: index * 0.1,
-                          ease: [0.25, 0.46, 0.45, 0.94]
-                        }}
-                        whileHover={{ 
-                          x: -4,
-                          transition: { duration: 0.3 }
-                        }}
-                        onClick={() => goToProjectWithTransition(index)}
+                    {/* Action Buttons */}
+                    <div className="cinematic-actions">
+                      <button
+                        onClick={() => setSelectedProject(safeFeaturedProjectIndex)}
+                        className="cinematic-btn primary"
                       >
-                        <div 
-                          className="side-panel-thumbnail"
-                          style={{ backgroundImage: `url(${project.image})` }}
-                        />
-                        <div className="side-panel-content">
-                          <h5 className="side-panel-project-title">{project.title}</h5>
-                          <p className="side-panel-project-client">{project.client}</p>
-                          <div className="side-panel-tags">
-                            {project.tech.slice(0, 2).map(tag => (
-                              <span key={tag} className="side-panel-tag">{tag}</span>
-                            ))}
-                          </div>
-                        </div>
-                        {index === safeFeaturedProjectIndex && (
-                          <div className="side-panel-active-indicator" />
-                        )}
-                      </motion.div>
-                    ))}
+                        View Full Case Study
+                      </button>
+                      {filteredProjects[safeFeaturedProjectIndex]?.website && (
+                        <a 
+                          href={filteredProjects[safeFeaturedProjectIndex].website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="cinematic-btn secondary"
+                        >
+                          Visit Website
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
