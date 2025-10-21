@@ -6,23 +6,22 @@
 
 /* SOPHISTICATED COLOR PALETTE */
 :root {
-  /* Primary Brand Colors */
-  --grapefruit: #FF6663;
-  --panna-cotta-vanilla: #F5F5DC;
-  --white-bones: #FAFAFA;
-  --charcoal: #2C2C2C;
-  --warm-gray: #8B8B8B;
+  /* SOPHISTICATED TWO-COLOR SYSTEM */
+  /* Primary: Grapefruit Variations */
+  --grapefruit-pure: #FF6663;
+  --grapefruit-rich: rgba(255, 102, 99, 0.9);
+  --grapefruit-medium: rgba(255, 102, 99, 0.7);
+  --grapefruit-soft: rgba(255, 102, 99, 0.3);
+  --grapefruit-subtle: rgba(255, 102, 99, 0.1);
+  --grapefruit-whisper: rgba(255, 102, 99, 0.05);
   
-  /* Secondary Sophisticated Neutrals */
-  --stone: #F5F5F5;
-  --slate: #6B6B6B;
-  --midnight: #1A1A1A;
-  --pearl: #FFFFFF;
-  
-  /* Accent Premium Touches */
-  --coral-glow: #FF9999;
-  --warm-stone: #E8E8E8;
-  --deep-charcoal: #404040;
+  /* Secondary: Panna-Cotta-Vanilla Variations */
+  --vanilla-pure: #F5F5DC;
+  --vanilla-warm: #F8F6E8;
+  --vanilla-light: #FDFCF8;
+  --vanilla-rich: #F0EDD4;
+  --vanilla-deep: #EBE8C8;
+  --vanilla-whisper: #FFFEF9;
   
   /* Typography Scale - Golden Ratio */
   --text-xs: 12px;      /* 0.75 × 16px */
@@ -50,7 +49,7 @@
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-weight: 400;
   line-height: 1.6;
-  color: var(--charcoal);
+  color: var(--grapefruit-medium);
 }
 
 /* HERO HEADLINES - 64px, Light Weight */
@@ -58,7 +57,7 @@
   font-size: var(--text-5xl);
   font-weight: 300;
   line-height: 1.2;
-  color: var(--charcoal);
+  color: var(--grapefruit-rich);
   letter-spacing: -0.02em;
 }
 
@@ -67,7 +66,7 @@
   font-size: var(--text-3xl);
   font-weight: 500;
   line-height: 1.3;
-  color: var(--charcoal);
+  color: var(--grapefruit-rich);
   letter-spacing: -0.01em;
 }
 
@@ -76,7 +75,7 @@
   font-size: var(--text-xl);
   font-weight: 500;
   line-height: 1.4;
-  color: var(--charcoal);
+  color: var(--grapefruit-rich);
   letter-spacing: -0.005em;
 }
 
@@ -2634,7 +2633,7 @@ body {
   font-family: var(--font-accent);
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--charcoal-deep);
+  color: var(--grapefruit-rich);
   margin-bottom: 2.5rem;
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -5741,23 +5740,23 @@ h4, .text-h4 {
   top: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--vanilla-whisper);
   backdrop-filter: blur(60px) saturate(200%);
   border-radius: 3rem;
   padding: 1rem 2rem;
   transition: all 0.6s var(--ease-premium);
-  border: 1px solid rgba(255, 102, 99, 0.25);
+  border: 1px solid var(--grapefruit-soft);
   z-index: 100;
   will-change: transform, background-color, box-shadow;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 32px var(--grapefruit-whisper);
 }
 
 .navigation-floating.scrolled {
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--vanilla-light);
   backdrop-filter: blur(50px) saturate(200%);
-  box-shadow: 0 20px 60px rgba(255, 102, 99, 0.15);
+  box-shadow: 0 20px 60px var(--grapefruit-subtle);
   transform: translateX(-50%) translateY(-5px);
-  border-color: rgba(255, 102, 99, 0.25);
+  border-color: var(--grapefruit-soft);
 }
 
 .navigation-floating.hidden {
@@ -10199,25 +10198,25 @@ h4, .text-h4 {
   width: 100%;
   min-height: 80vh;
   background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.95) 0%, 
-    rgba(255, 248, 240, 0.9) 100%
+    var(--vanilla-pure) 0%, 
+    var(--vanilla-warm) 100%
   );
   backdrop-filter: blur(20px);
-  border: 2px solid rgba(255, 102, 99, 0.15);
+  border: 2px solid var(--grapefruit-subtle);
   border-radius: 32px;
   padding: 3rem;
   box-shadow: 
-    0 25px 80px rgba(0, 0, 0, 0.08),
-    0 8px 32px rgba(255, 102, 99, 0.1);
+    0 25px 80px var(--grapefruit-whisper),
+    0 8px 32px var(--grapefruit-subtle);
   transition: all 0.4s ease;
   overflow: hidden;
 }
 
 .balanced-project-card:hover {
   box-shadow: 
-    0 35px 100px rgba(0, 0, 0, 0.12),
-    0 12px 48px rgba(255, 102, 99, 0.15);
-  border-color: rgba(255, 102, 99, 0.25);
+    0 35px 100px var(--grapefruit-subtle),
+    0 12px 48px var(--grapefruit-soft);
+  border-color: var(--grapefruit-soft);
   transform: translateY(-4px);
 }
 
@@ -14154,17 +14153,17 @@ img {
 
 .service-amplification-item {
   background: linear-gradient(145deg,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(255, 248, 240, 0.8) 50%,
-    rgba(255, 255, 255, 0.95) 100%);
-  border: 1px solid rgba(255, 102, 99, 0.12);
+    var(--vanilla-light) 0%,
+    var(--vanilla-warm) 50%,
+    var(--vanilla-pure) 100%);
+  border: 1px solid var(--grapefruit-subtle);
   border-radius: 24px;
   padding: 2rem;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   box-shadow: 
-    0 4px 20px rgba(0, 0, 0, 0.04),
-    0 2px 8px rgba(255, 102, 99, 0.08);
+    0 4px 20px var(--grapefruit-whisper),
+    0 2px 8px var(--grapefruit-subtle);
   overflow: hidden;
   position: relative;
   backdrop-filter: blur(10px);
@@ -14181,13 +14180,13 @@ img {
   min-width: 350px;
   max-width: 350px;
   background: linear-gradient(145deg,
-    rgba(255, 255, 255, 0.98) 0%,
-    rgba(255, 248, 240, 0.95) 50%,
-    rgba(255, 255, 255, 1) 100%);
-  border-color: rgba(255, 102, 99, 0.25);
+    var(--vanilla-pure) 0%,
+    var(--vanilla-warm) 50%,
+    var(--vanilla-light) 100%);
+  border-color: var(--grapefruit-soft);
   box-shadow: 
-    0 12px 48px rgba(0, 0, 0, 0.08),
-    0 6px 24px rgba(255, 102, 99, 0.12);
+    0 12px 48px var(--grapefruit-whisper),
+    0 6px 24px var(--grapefruit-subtle);
   transform: translateY(-4px);
 }
 
@@ -14982,12 +14981,12 @@ img {
   --cream-pure: #FFFFFF;
   
   /* Section Gradients */
-  /* GENTLE SOPHISTICATED BACKGROUND SYSTEM */
-  --hero-gradient: linear-gradient(135deg, var(--cream-warm) 0%, var(--cream-primary) 100%);
-  --about-gradient: linear-gradient(135deg, var(--cream-primary) 0%, var(--cream-warm) 100%);
-  --projects-gradient: linear-gradient(135deg, var(--charcoal-primary) 0%, var(--charcoal-deep) 100%); /* Keep charcoal only for projects */
-  --services-gradient: linear-gradient(135deg, rgba(255, 181, 179, 0.15) 0%, var(--cream-warm) 100%); /* Gentle coral warmth */
-  --experience-gradient: linear-gradient(135deg, var(--cream-primary) 0%, var(--cream-warm) 100%);
+  /* SOPHISTICATED TWO-COLOR BACKGROUND SYSTEM */
+  --hero-gradient: linear-gradient(135deg, var(--vanilla-light) 0%, var(--vanilla-pure) 100%);
+  --about-gradient: linear-gradient(135deg, var(--vanilla-pure) 0%, var(--vanilla-warm) 100%);
+  --projects-gradient: linear-gradient(135deg, var(--grapefruit-whisper) 0%, var(--vanilla-light) 100%);
+  --services-gradient: linear-gradient(135deg, var(--vanilla-warm) 0%, var(--grapefruit-whisper) 100%);
+  --experience-gradient: linear-gradient(135deg, var(--vanilla-whisper) 0%, var(--vanilla-pure) 100%);
 }
 
 /* HERO SECTION - Bold Confidence */
@@ -15001,8 +15000,8 @@ img {
 /* Removed cluttered hero overlay for clean sophistication */
 
 .section-hero-sophisticated .hero-title-luxury-centered {
-  color: var(--charcoal-deep);
-  text-shadow: 0 8px 40px rgba(255, 255, 255, 0.3);
+  color: var(--grapefruit-rich);
+  text-shadow: 0 8px 40px var(--vanilla-whisper);
 }
 
 /* ABOUT SECTION - Warm Authority */
@@ -15016,15 +15015,15 @@ img {
 
 .section-about-sophisticated h2,
 .section-about-sophisticated h3 {
-  color: var(--charcoal-deep);
+  color: var(--grapefruit-rich);
 }
 
 .section-about-sophisticated p {
-  color: var(--charcoal-primary);
+  color: var(--grapefruit-medium);
 }
 
 .section-about-sophisticated .highlight-human-typography {
-  color: var(--coral-deep);
+  color: var(--grapefruit-pure);
   font-weight: 500;
 }
 
@@ -15039,22 +15038,22 @@ img {
 
 .section-projects-sophisticated h2,
 .section-projects-sophisticated .projects-title-award-winning {
-  color: var(--cream-primary);
+  color: var(--grapefruit-rich);
 }
 
 .section-projects-sophisticated p {
-  color: var(--cream-cool);
+  color: var(--grapefruit-medium);
 }
 
 .section-projects-sophisticated .filter-tag-award-winning {
-  background: rgba(255, 102, 99, 0.1);
-  color: var(--coral-light);
-  border: 1px solid rgba(255, 102, 99, 0.3);
+  background: var(--grapefruit-subtle);
+  color: var(--grapefruit-medium);
+  border: 1px solid var(--grapefruit-soft);
 }
 
 .section-projects-sophisticated .filter-tag-award-winning:hover {
-  background: var(--coral-primary);
-  color: var(--cream-primary);
+  background: var(--grapefruit-pure);
+  color: var(--vanilla-pure);
 }
 
 /* SERVICES SECTION - Energetic Capability */
@@ -15067,25 +15066,25 @@ img {
 /* Removed cluttered services overlay for clean energy */
 
 .section-services-sophisticated h2 {
-  color: var(--charcoal-deep);
+  color: var(--grapefruit-rich);
 }
 
 .section-services-sophisticated p {
-  color: var(--charcoal-primary);
+  color: var(--grapefruit-medium);
 }
 
 .section-services-sophisticated .service-unified-card {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(255, 102, 99, 0.15);
+  background: var(--vanilla-whisper);
+  border: 1px solid var(--grapefruit-subtle);
   backdrop-filter: blur(10px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px var(--grapefruit-whisper);
 }
 
 .section-services-sophisticated .service-unified-card:hover {
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--vanilla-pure);
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  border-color: rgba(255, 102, 99, 0.3);
+  box-shadow: 0 20px 40px var(--grapefruit-subtle);
+  border-color: var(--grapefruit-soft);
 }
 
 /* EXPERIENCE SECTION - Refined Expertise */
@@ -15098,23 +15097,23 @@ img {
 /* Removed cluttered experience overlay for clean authority */
 
 .section-experience-sophisticated h2 {
-  color: var(--charcoal-deep);
+  color: var(--grapefruit-rich);
 }
 
 .section-experience-sophisticated p {
-  color: var(--charcoal-primary);
+  color: var(--grapefruit-medium);
 }
 
 .section-experience-sophisticated .experience-layer-card {
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(255, 102, 99, 0.1);
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+  background: var(--vanilla-light);
+  border: 1px solid var(--grapefruit-subtle);
+  box-shadow: 0 2px 15px var(--grapefruit-whisper);
 }
 
 .section-experience-sophisticated .experience-layer-card:hover {
-  background: rgba(255, 255, 255, 0.8);
-  border-color: rgba(255, 102, 99, 0.25);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  background: var(--vanilla-pure);
+  border-color: var(--grapefruit-soft);
+  box-shadow: 0 8px 30px var(--grapefruit-subtle);
 }
 
 /* REFINED SECTION TRANSITIONS - Clean & Professional */
@@ -15130,13 +15129,13 @@ img {
 }
 
 .charcoal-dominant {
-  background: linear-gradient(135deg, var(--charcoal-deep) 0%, var(--charcoal-primary) 100%);
-  color: var(--cream-primary);
+  background: linear-gradient(135deg, var(--grapefruit-whisper) 0%, var(--vanilla-light) 100%);
+  color: var(--grapefruit-rich);
 }
 
 .cream-dominant {
-  background: linear-gradient(135deg, var(--cream-primary) 0%, var(--cream-warm) 100%);
-  color: var(--charcoal-deep);
+  background: linear-gradient(135deg, var(--vanilla-pure) 0%, var(--vanilla-warm) 100%);
+  color: var(--grapefruit-rich);
 }
 
 /* ENHANCED PROJECT CARDS WITH SECTION COLORS */
@@ -15248,20 +15247,20 @@ img {
 }
 
 .project-details-hero-section {
-  background: linear-gradient(135deg, var(--charcoal-primary) 0%, var(--charcoal-deep) 100%);
+  background: linear-gradient(135deg, var(--vanilla-warm) 0%, var(--grapefruit-whisper) 100%);
   position: relative;
   padding: 2rem 0;
 }
 
 .project-details-content-sections {
-  background: var(--cream-primary);
-  color: var(--charcoal-deep);
+  background: var(--vanilla-pure);
+  color: var(--grapefruit-rich);
   position: relative;
   padding: 4rem 0;
 }
 
 .project-details-gallery-section {
-  background: linear-gradient(135deg, var(--cream-warm) 0%, var(--cream-primary) 100%);
+  background: linear-gradient(135deg, var(--vanilla-warm) 0%, var(--vanilla-pure) 100%);
   position: relative;
   padding: 3rem 0;
 }
@@ -15271,15 +15270,15 @@ img {
 .project-coral-dominant .project-details-overlay,
 .project-charcoal-dominant .project-details-overlay,
 .project-cream-dominant .project-details-overlay {
-  background: linear-gradient(135deg, var(--cream-primary) 0%, var(--cream-warm) 100%);
-  color: var(--charcoal-deep);
+  background: linear-gradient(135deg, var(--vanilla-pure) 0%, var(--vanilla-warm) 100%);
+  color: var(--grapefruit-rich);
 }
 
 .project-coral-dominant .project-details-content-sections,
 .project-charcoal-dominant .project-details-content-sections,
 .project-cream-dominant .project-details-content-sections {
-  background: var(--cream-primary);
-  color: var(--charcoal-deep);
+  background: var(--vanilla-pure);
+  color: var(--grapefruit-rich);
 }
 
 .project-coral-dominant .project-details-hero-section,
@@ -15326,8 +15325,8 @@ img {
 }
 
 .section-experience-sophisticated .magnetic-button {
-  background: var(--coral-light);
-  color: var(--charcoal-deep);
+  background: var(--grapefruit-soft);
+  color: var(--vanilla-pure);
 }
 
 /* ========================================== */
@@ -15370,9 +15369,9 @@ img {
   width: 3px;
   background: linear-gradient(
     to bottom,
-    var(--coral-primary) 0%,
-    var(--coral-deep) 50%,
-    var(--charcoal-medium) 100%
+    var(--grapefruit-pure) 0%,
+    var(--grapefruit-medium) 50%,
+    var(--grapefruit-soft) 100%
   );
   transform: translateX(-50%);
   border-radius: 2px;
@@ -15637,11 +15636,11 @@ img {
   --cream-coral-hint: #FFF6F5; /* Cream with subtle coral */
   
   /* Unified gradient system for cohesive flow */
-  --unified-gradient-1: linear-gradient(135deg, var(--charcoal-warm) 0%, var(--coral-warm) 100%);
-  --unified-gradient-2: linear-gradient(135deg, var(--cream-coral-hint) 0%, var(--cream-warm) 100%);
-  --unified-gradient-3: linear-gradient(135deg, var(--charcoal-warm) 0%, var(--charcoal-primary) 100%);
-  --unified-gradient-4: linear-gradient(135deg, var(--coral-warm) 0%, var(--coral-deep) 100%);
-  --unified-gradient-5: linear-gradient(135deg, var(--charcoal-warm) 0%, var(--charcoal-medium) 100%);
+  --unified-gradient-1: linear-gradient(135deg, var(--vanilla-warm) 0%, var(--grapefruit-whisper) 100%);
+  --unified-gradient-2: linear-gradient(135deg, var(--vanilla-light) 0%, var(--vanilla-warm) 100%);
+  --unified-gradient-3: linear-gradient(135deg, var(--vanilla-pure) 0%, var(--grapefruit-subtle) 100%);
+  --unified-gradient-4: linear-gradient(135deg, var(--grapefruit-whisper) 0%, var(--vanilla-light) 100%);
+  --unified-gradient-5: linear-gradient(135deg, var(--vanilla-warm) 0%, var(--vanilla-pure) 100%);
 }
 
 /* HERO PHOTO ARTISTIC BACKGROUND INTEGRATION */
@@ -15693,9 +15692,9 @@ img {
   height: 100%;
   background: linear-gradient(
     135deg, 
-    rgba(255, 248, 240, 0.1) 0%,   /* Much lighter cream overlay */
+    var(--vanilla-whisper) 0%,   /* Sophisticated vanilla overlay */
     transparent 60%, 
-    rgba(255, 181, 179, 0.05) 100% /* Very subtle coral accent */
+    var(--grapefruit-whisper) 100% /* Subtle grapefruit accent */
   );
   z-index: 2;
   pointer-events: none;
@@ -15846,7 +15845,7 @@ img {
   background: linear-gradient(
     to bottom, 
     transparent 0%, 
-    var(--charcoal-warm) 100%
+    var(--grapefruit-whisper) 100%
   );
   z-index: 5;
   pointer-events: none;
@@ -15880,7 +15879,7 @@ img {
   background: linear-gradient(
     to bottom, 
     transparent 0%, 
-    var(--charcoal-warm) 100%
+    var(--grapefruit-whisper) 100%
   );
   z-index: 5;
   pointer-events: none;
@@ -15889,55 +15888,55 @@ img {
 
 /* COHESIVE TEXT COLOR ADJUSTMENTS */
 .section-hero-sophisticated .hero-title-luxury-centered {
-  color: var(--cream-primary);
-  text-shadow: 0 8px 40px rgba(58, 58, 58, 0.7); /* Warmer shadow */
+  color: var(--grapefruit-rich);
+  text-shadow: 0 8px 40px var(--vanilla-whisper);
 }
 
 .section-about-sophisticated h2,
 .section-about-sophisticated h3 {
-  color: var(--charcoal-warm); /* Warmer, more cohesive */
+  color: var(--grapefruit-rich);
 }
 
 .section-projects-sophisticated h2,
 .section-projects-sophisticated .projects-title-award-winning {
-  color: var(--cream-primary);
-  text-shadow: 0 4px 20px rgba(58, 58, 58, 0.5);
+  color: var(--grapefruit-rich);
+  text-shadow: 0 4px 20px var(--vanilla-whisper);
 }
 
 .section-services-sophisticated h2 {
-  color: var(--cream-primary);
-  text-shadow: 0 4px 20px rgba(26, 26, 26, 0.5);
+  color: var(--grapefruit-rich);
+  text-shadow: 0 4px 20px var(--vanilla-whisper);
 }
 
 .section-experience-sophisticated h2 {
-  color: var(--cream-primary);
-  text-shadow: 0 4px 20px rgba(58, 58, 58, 0.5);
+  color: var(--grapefruit-rich);
+  text-shadow: 0 4px 20px var(--vanilla-whisper);
 }
 
 /* COHESIVE BUTTON SYSTEM */
 .section-hero-sophisticated .magnetic-button,
 .section-projects-sophisticated .magnetic-button {
-  background: var(--coral-warm); /* Warmer coral for cohesiveness */
-  color: var(--cream-primary);
-  border: 1px solid var(--coral-primary);
+  background: var(--grapefruit-soft);
+  color: var(--vanilla-pure);
+  border: 1px solid var(--grapefruit-medium);
 }
 
 .section-about-sophisticated .magnetic-button {
-  background: var(--coral-warm);
-  color: var(--cream-primary);
-  border: 1px solid var(--coral-primary);
+  background: var(--grapefruit-soft);
+  color: var(--vanilla-pure);
+  border: 1px solid var(--grapefruit-medium);
 }
 
 .section-services-sophisticated .magnetic-button {
-  background: var(--cream-primary);
-  color: var(--coral-warm);
-  border: 1px solid var(--coral-warm);
+  background: var(--vanilla-pure);
+  color: var(--grapefruit-medium);
+  border: 1px solid var(--grapefruit-soft);
 }
 
 .section-experience-sophisticated .magnetic-button {
-  background: var(--coral-warm);
-  color: var(--cream-primary);
-  border: 1px solid var(--coral-primary);
+  background: var(--grapefruit-soft);
+  color: var(--vanilla-pure);
+  border: 1px solid var(--grapefruit-medium);
 }
 
 /* MOBILE COHESIVE OPTIMIZATIONS */

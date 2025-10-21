@@ -778,15 +778,15 @@ export default function Home() {
           >
               <span 
               className="section-number text-sm font-semibold tracking-wider uppercase block mb-4"
-              style={{ color: 'var(--coral-primary)' }}
+              style={{ color: 'var(--grapefruit-pure)' }}
               >
                 03
               </span>
-            <h2 className="typography-h2" style={{ color: 'var(--charcoal-deep)' }}>
+            <h2 className="typography-h2" style={{ color: 'var(--grapefruit-rich)' }}>
                 Experience
               </h2>
-            <p className="typography-body text-center max-w-4xl mx-auto" style={{ color: 'var(--charcoal-primary)' }}>
-              Some of the <span className="highlight-word" style={{ color: 'var(--coral-primary)' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--coral-primary)' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--coral-primary)' }}>upscaling</span>, <span className="highlight-word" style={{ color: 'var(--coral-primary)' }}>reinventing</span>, <span className="highlight-word" style={{ color: 'var(--coral-primary)' }}>evolving</span>, and <span className="highlight-word" style={{ color: 'var(--coral-primary)' }}>reimagining</span> business, brands, and teams.
+            <p className="typography-body text-center max-w-4xl mx-auto" style={{ color: 'var(--grapefruit-medium)' }}>
+              Some of the <span className="highlight-word" style={{ color: 'var(--grapefruit-pure)' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--grapefruit-pure)' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--grapefruit-pure)' }}>upscaling</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-pure)' }}>reinventing</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-pure)' }}>evolving</span>, and <span className="highlight-word" style={{ color: 'var(--grapefruit-pure)' }}>reimagining</span> business, brands, and teams.
             </p>
           </motion.div>
           
@@ -914,7 +914,7 @@ export default function Home() {
               <span 
                 className="text-foundation-sm font-foundation-accent block mb-phi-sm"
                 style={{
-                  color: 'var(--grapefruit-primary)'
+                  color: 'var(--grapefruit-pure)'
                 }}
               >
                 04
