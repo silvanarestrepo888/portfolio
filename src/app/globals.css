@@ -15567,20 +15567,83 @@ img {
   border-radius: 0 !important;
 }
 
-/* COMPREHENSIVE FRAMELESS PROJECT CARDS - NO EXCEPTIONS */
+/* NUCLEAR FRAMELESS PROJECT CARDS - COMPLETE ELIMINATION */
 .section-projects-sophisticated .project-card-3d,
 .project-card-3d,
 .balanced-project-card,
 .project-card-enhanced,
 .project-card-shadow-3d,
-.luxury-hover-elevation {
-  /* FORCE COMPLETE FRAME REMOVAL - USER'S REPEATED REQUEST */
+.luxury-hover-elevation,
+.balanced-layout-grid,
+.balanced-image-section,
+.balanced-image-container,
+.balanced-content-section,
+.balanced-image-perfect,
+.project-card-foundation,
+.project-image-container,
+.InteractiveProjectCard,
+[class*="project-card"],
+[class*="balanced-"] {
+  /* NUCLEAR FRAME ELIMINATION - EVERY POSSIBLE FRAME SOURCE */
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
   outline: none !important;
   backdrop-filter: none !important;
   border-radius: 0 !important;
+  padding: 0 !important; /* Remove padding that creates visual frames */
+  margin: 0 !important; /* Remove margin spacing that looks like frames */
+}
+
+/* ADD BACK MINIMAL CONTENT SPACING - NO FRAMES */
+.balanced-content-section {
+  padding: 2rem !important; /* Only content spacing, no visual frames */
+}
+
+.balanced-layout-grid {
+  gap: 2rem !important; /* Maintain functional spacing between image and content */
+  padding: 2rem !important; /* Content breathing room only */
+}
+
+/* ENSURE PROJECTS SECTION CONTAINER IS FRAMELESS */
+.projects-carousel-award-winning,
+.projects-3d-container,
+.projects-container-award-winning {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* FORCE IMAGE ELEMENTS TO BE CLEAN */
+.balanced-image-perfect,
+img[class*="balanced-"],
+img[class*="project-"] {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-radius: 0 !important;
+}
+
+/* FINAL NUCLEAR OVERRIDE - CATCH ALL REMAINING FRAMES */
+.projects-section-award-winning *,
+.section-projects-sophisticated *,
+.projects-carousel-award-winning *,
+.projects-3d-container * {
+  border: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  outline: none !important;
+}
+
+/* ONLY ALLOW CONTENT SPACING WHERE NEEDED */
+.balanced-content-section h3,
+.balanced-content-section p,
+.balanced-content-section .balanced-tags {
+  padding: 0.5rem !important; /* Minimal content spacing only */
 }
 
 .section-projects-sophisticated .project-card-3d:hover,
@@ -15588,13 +15651,16 @@ img {
 .balanced-project-card:hover,
 .project-card-enhanced:hover,
 .project-card-shadow-3d:hover,
-.luxury-hover-elevation:hover {
-  /* FRAMELESS HOVER - ONLY SUBTLE ELEVATION */
+.luxury-hover-elevation:hover,
+[class*="project-card"]:hover,
+[class*="balanced-"]:hover {
+  /* COMPLETELY FRAMELESS HOVER - MINIMAL EFFECT */
   background: transparent !important;
   border: none !important;
-  box-shadow: 0 40px 100px var(--grapefruit-breath) !important;
-  transform: translateY(-12px);
+  box-shadow: none !important; /* NO SHADOW AT ALL */
   outline: none !important;
+  transform: translateY(-4px) !important; /* Subtle lift only */
+  backdrop-filter: none !important;
 }
 
 /* SOPHISTICATED BUTTON STYLING */
