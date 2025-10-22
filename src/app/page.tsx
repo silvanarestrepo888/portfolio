@@ -132,6 +132,7 @@ export default function Home() {
   ];
 
   // Services hover expansion state
+  // Perfect Accordion - Expansion State
   const [expandedService, setExpandedService] = useState<string | null>(null);
   
   // Timeline progress state
@@ -1117,139 +1118,98 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          {/* LANDOR-LEVEL SERVICES ACCORDION - AWARD-WINNING DESIGN */}
-          <div className="services-accordion-landor">
-            {referenceServices.map((service, index) => (
-              <motion.div 
-                key={service.number}
-                className={`service-accordion-item-landor ${expandedService === service.number ? 'expanded' : ''}`}
-                onMouseEnter={() => setExpandedService(service.number)}
-                onMouseLeave={() => setExpandedService(null)}
-                onClick={() => setExpandedService(expandedService === service.number ? null : service.number)}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: index * 0.1,
-                  ease: [0.25, 0.46, 0.45, 0.94]
-                }}
-                viewport={{ once: true, margin: "-50px" }}
-                whileHover={{ 
-                  y: -2,
-                  transition: { duration: 0.3 }
-                }}
-                whileTap={{ 
-                  scale: 0.98,
-                  transition: { duration: 0.1 }
-                }}
-              >
-                {/* Sophisticated Header */}
-                <div className="service-header-landor">
-                  <div className="service-header-content">
-                    <div className="service-number-container">
-                      <span className="service-number-landor">{service.number}</span>
-                      <div className="service-number-line"></div>
-                    </div>
-                    
-                    <div className="service-title-container">
-                      <h3 className="service-title-landor">{service.title}</h3>
-                      <p className="service-subtitle-landor">{service.subtitle}</p>
-                    </div>
-                    
-                    <div className="service-icon-container">
-                      <motion.div 
-                        className="service-icon-landor"
-                        animate={{ 
-                          rotate: expandedService === service.number ? 45 : 0,
-                          scale: expandedService === service.number ? 1.1 : 1
-                        }}
-                        transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-                      >
-                        <service.icon />
-                      </motion.div>
-                    </div>
-                  </div>
-                  
-                  {/* Elegant Progress Indicator */}
-                  <div className="service-progress-landor">
-                    <motion.div 
-                      className="service-progress-bar"
-                      initial={{ width: 0 }}
-                      animate={{ 
-                        width: expandedService === service.number ? '100%' : '0%'
-                      }}
-                      transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    />
-                  </div>
-                </div>
-                
-                {/* Sophisticated Expanded Content */}
+          {/* PERFECT ACCORDION - FLAWLESS DESIGN & FUNCTIONALITY */}
+          <div className="services-accordion-perfection">
+            {referenceServices.map((service, index) => {
+              const isExpanded = expandedService === service.number;
+              
+              return (
                 <motion.div 
-                  className="service-content-landor"
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ 
-                    height: expandedService === service.number ? 'auto' : 0,
-                    opacity: expandedService === service.number ? 1 : 0
-                  }}
+                  key={service.number}
+                  className={`service-item-perfection ${isExpanded ? 'is-expanded' : ''}`}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ 
-                    duration: 0.5, 
+                    duration: 0.6, 
+                    delay: index * 0.1,
                     ease: [0.25, 0.46, 0.45, 0.94]
                   }}
-                  style={{ overflow: 'hidden' }}
+                  viewport={{ once: true }}
                 >
-                  <div className="service-content-inner">
-                    {/* Strategic Capability Section */}
-                    <div className="service-capability-section">
-                      <div className="service-section-header">
-                        <span className="service-section-number">01</span>
-                        <h4 className="service-section-title">Strategic Capability</h4>
+                  {/* Accordion Header - Always Visible */}
+                  <button
+                    className="service-header-perfection"
+                    onClick={() => setExpandedService(isExpanded ? null : service.number)}
+                    aria-expanded={isExpanded}
+                  >
+                    {/* Left: Number Badge */}
+                    <div className="service-number-perfection">
+                      {service.number}
+                    </div>
+
+                    {/* Center: Title & Icon */}
+                    <div className="service-title-group">
+                      <div className="service-icon-perfection">
+                        <service.icon />
                       </div>
-                      <p className="service-section-description">{service.description}</p>
-                    </div>
-                    
-                    {/* Project Demand Section */}
-                    <div className="service-demand-section">
-                      <div className="service-section-header">
-                        <span className="service-section-number">02</span>
-                        <h4 className="service-section-title">For Projects That Demand</h4>
+                      <div className="service-title-content">
+                        <h3 className="service-title-perfection">
+                          {service.title}
+                        </h3>
+                        <p className="service-subtitle-perfection">
+                          {service.subtitle}
+                        </p>
                       </div>
-                      <p className="service-section-description">{service.demand}</p>
                     </div>
-                    
-                    {/* Sophisticated Action Area */}
-                    <div className="service-action-landor">
-                      <motion.button 
-                        className="service-cta-landor"
-                        whileHover={{ 
-                          scale: 1.05,
-                          y: -2
-                        }}
-                        whileTap={{ 
-                          scale: 0.95
-                        }}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          // Add contact or project inquiry action
-                        }}
-                      >
-                        <span>Discuss This Service</span>
-                        <motion.span 
-                          className="cta-arrow"
-                          animate={{ x: [0, 4, 0] }}
-                          transition={{ 
-                            duration: 1.5, 
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                          }}
-                        >
-                          →
-                        </motion.span>
-                      </motion.button>
+
+                    {/* Right: Expand Indicator */}
+                    <motion.div 
+                      className="service-expand-indicator"
+                      animate={{ 
+                        rotate: isExpanded ? 180 : 0
+                      }}
+                      transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    >
+                      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="15" stroke="currentColor" strokeWidth="2"/>
+                        <path d="M10 14L16 20L22 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </motion.div>
+                  </button>
+
+                  {/* Accordion Content - Expandable */}
+                  <motion.div 
+                    className="service-content-perfection"
+                    initial={false}
+                    animate={{ 
+                      height: isExpanded ? 'auto' : 0,
+                      opacity: isExpanded ? 1 : 0
+                    }}
+                    transition={{ 
+                      duration: 0.4, 
+                      ease: [0.25, 0.46, 0.45, 0.94]
+                    }}
+                    style={{ overflow: 'hidden' }}
+                  >
+                    <div className="service-content-inner-perfection">
+                      {/* Description - Copy Compliant */}
+                      <div className="service-section-perfection">
+                        <p className="service-section-text-perfection">
+                          {service.description}
+                        </p>
+                      </div>
+
+                      {/* Demand - Copy Compliant */}
+                      <div className="service-section-perfection service-demand-box">
+                        <p className="service-section-text-perfection">
+                          {service.demand}
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </motion.div>
-              </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
