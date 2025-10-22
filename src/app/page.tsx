@@ -1066,55 +1066,137 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          {/* PROPER ACCORDION SERVICES */}
-          <div className="services-stack">
+          {/* LANDOR-LEVEL SERVICES ACCORDION - AWARD-WINNING DESIGN */}
+          <div className="services-accordion-landor">
             {referenceServices.map((service, index) => (
               <motion.div 
                 key={service.number}
-                className={`service-row ${expandedService === service.number ? 'expanded' : ''}`}
+                className={`service-accordion-item-landor ${expandedService === service.number ? 'expanded' : ''}`}
                 onMouseEnter={() => setExpandedService(service.number)}
                 onMouseLeave={() => setExpandedService(null)}
-                initial={{ opacity: 0, y: 20 }}
+                onClick={() => setExpandedService(expandedService === service.number ? null : service.number)}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                viewport={{ once: true }}
-                tabIndex={0}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.1,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+                viewport={{ once: true, margin: "-50px" }}
+                whileHover={{ 
+                  y: -2,
+                  transition: { duration: 0.3 }
+                }}
+                whileTap={{ 
+                  scale: 0.98,
+                  transition: { duration: 0.1 }
+                }}
               >
-                {/* Compact Header Row */}
-                <div className="service-header-row">
-                  <span className="service-arrow">
-                    {expandedService === service.number ? '▿' : '▸'}
-                  </span>
-                  <span className="service-num">{service.number}</span>
-                  <h3 className="service-name">{service.title}</h3>
+                {/* Sophisticated Header */}
+                <div className="service-header-landor">
+                  <div className="service-header-content">
+                    <div className="service-number-container">
+                      <span className="service-number-landor">{service.number}</span>
+                      <div className="service-number-line"></div>
+                    </div>
+                    
+                    <div className="service-title-container">
+                      <h3 className="service-title-landor">{service.title}</h3>
+                      <p className="service-subtitle-landor">{service.subtitle}</p>
+                    </div>
+                    
+                    <div className="service-icon-container">
+                      <motion.div 
+                        className="service-icon-landor"
+                        animate={{ 
+                          rotate: expandedService === service.number ? 45 : 0,
+                          scale: expandedService === service.number ? 1.1 : 1
+                        }}
+                        transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      >
+                        <service.icon />
+                      </motion.div>
+                    </div>
+                  </div>
+                  
+                  {/* Elegant Progress Indicator */}
+                  <div className="service-progress-landor">
+                    <motion.div 
+                      className="service-progress-bar"
+                      initial={{ width: 0 }}
+                      animate={{ 
+                        width: expandedService === service.number ? '100%' : '0%'
+                      }}
+                      transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    />
+                  </div>
                 </div>
                 
-                <div className="service-tagline">{service.subtitle}</div>
-                
-                {/* Expanded Content */}
-                {expandedService === service.number && (
-                  <motion.div 
-                    className="service-expanded"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  >
-                    <div className="capability-block">
-                      <h4>STRATEGIC CAPABILITY:</h4>
-                      <p>{service.description}</p>
+                {/* Sophisticated Expanded Content */}
+                <motion.div 
+                  className="service-content-landor"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ 
+                    height: expandedService === service.number ? 'auto' : 0,
+                    opacity: expandedService === service.number ? 1 : 0
+                  }}
+                  transition={{ 
+                    duration: 0.5, 
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                  }}
+                  style={{ overflow: 'hidden' }}
+                >
+                  <div className="service-content-inner">
+                    {/* Strategic Capability Section */}
+                    <div className="service-capability-section">
+                      <div className="service-section-header">
+                        <span className="service-section-number">01</span>
+                        <h4 className="service-section-title">Strategic Capability</h4>
+                      </div>
+                      <p className="service-section-description">{service.description}</p>
                     </div>
-                    <div className="demand-block">
-                      <h4>FOR PROJECTS THAT DEMAND:</h4>  
-                      <p>{service.demand}</p>
+                    
+                    {/* Project Demand Section */}
+                    <div className="service-demand-section">
+                      <div className="service-section-header">
+                        <span className="service-section-number">02</span>
+                        <h4 className="service-section-title">For Projects That Demand</h4>
+                      </div>
+                      <p className="service-section-description">{service.demand}</p>
                     </div>
-                  </motion.div>
-                )}
-                
-                {/* Divider */}
-                {index < referenceServices.length - 1 && (
-                  <div className="service-divider"></div>
-                )}
+                    
+                    {/* Sophisticated Action Area */}
+                    <div className="service-action-landor">
+                      <motion.button 
+                        className="service-cta-landor"
+                        whileHover={{ 
+                          scale: 1.05,
+                          y: -2
+                        }}
+                        whileTap={{ 
+                          scale: 0.95
+                        }}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          // Add contact or project inquiry action
+                        }}
+                      >
+                        <span>Discuss This Service</span>
+                        <motion.span 
+                          className="cta-arrow"
+                          animate={{ x: [0, 4, 0] }}
+                          transition={{ 
+                            duration: 1.5, 
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                        >
+                          →
+                        </motion.span>
+                      </motion.button>
+                    </div>
+                  </div>
+                </motion.div>
               </motion.div>
             ))}
           </div>
