@@ -1108,10 +1108,12 @@ export default function Home() {
                     <div className="service-content-grid">
                       <div className="service-subtitle-compact">{service.subtitle}</div>
                       <div className="service-description-compact">
-                        <strong>Strategic Capability:</strong> {service.description}
+                        <div className="content-label">Strategic Capability</div>
+                        {service.description}
                       </div>
                       <div className="service-demand-compact">
-                        <strong>For Projects That Demand:</strong> {service.demand}
+                        <div className="content-label">For Projects That Demand</div>
+                        {service.demand}
                       </div>
                     </div>
                   </motion.div>
