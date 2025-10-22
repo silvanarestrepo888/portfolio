@@ -17887,5 +17887,72 @@ img[class*="project-"] {
   backface-visibility: hidden;
 }
 
-/* SERVICES SECTION - ZERO CSS CONFLICTS */
-/* All styling handled via inline styles in JSX */
+/* ========================================== */
+/* SERVICES SECTION - VISUAL ACCESSIBILITY OVERRIDE */
+/* ========================================== */
+
+/* Override inline styles with accessible design - High Specificity */
+section#services {
+  background: var(--vanilla-warm) !important;
+  padding: 80px 0 !important;
+  min-height: auto !important;
+}
+
+/* Section Number - Accessible */
+section#services span[class*="text-foundation"] {
+  color: var(--grapefruit-pure) !important;
+  text-shadow: none !important;
+}
+
+/* Section Title - High Contrast */
+section#services h2 {
+  color: var(--grapefruit-intelligence) !important;
+  text-shadow: none !important;
+  font-size: clamp(2.5rem, 5vw, 3rem) !important;
+}
+
+/* Section Description - Readable Dark Text */
+section#services .typography-body {
+  color: rgba(45, 45, 45, 0.9) !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
+}
+
+/* Service Cards - White Background for Contrast */
+section#services [style*="rgba(255, 255, 255, 0.08)"] {
+  background: #FFFFFF !important;
+}
+
+/* Service Titles - Dark Text on White */
+section#services h3 {
+  color: var(--grapefruit-intelligence) !important;
+  text-shadow: none !important;
+}
+
+/* All Paragraph Text - Dark Grey */
+section#services p {
+  color: rgba(45, 45, 45, 0.9) !important;
+  text-shadow: none !important;
+}
+
+/* All H4 Headers - Grapefruit */
+section#services h4 {
+  color: var(--grapefruit-intelligence) !important;
+  text-shadow: none !important;
+}
+
+/* Mobile Readability */
+@media (max-width: 768px) {
+  section#services h2 {
+    font-size: 2rem !important;
+  }
+  
+  section#services h3 {
+    font-size: 1.25rem !important;
+  }
+  
+  section#services p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+}
