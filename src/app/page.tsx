@@ -540,12 +540,35 @@ export default function Home() {
         <div className="hero-content-luxury">
           <motion.h1 
             id="hero-title"
-            className="hero-title-luxury-centered hero-title-award-winning"
+            className="hero-title-luxury-centered hero-title-award-winning hero-title-split-sophisticated"
             initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            Experience Architect
+            <motion.span 
+              className="word-experience word-experience-tactile"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ 
+                duration: 0.8, 
+                delay: 0.5, 
+                ease: [0.25, 0.46, 0.45, 0.94] 
+              }}
+            >
+              Experience
+            </motion.span>
+            <motion.span 
+              className="word-architect word-architect-tactile"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ 
+                duration: 0.8, 
+                delay: 0.7, 
+                ease: [0.25, 0.46, 0.45, 0.94] 
+              }}
+            >
+              Architect
+            </motion.span>
           </motion.h1>
           
           {/* ELEGANT CTA BUTTONS - Small and Sophisticated */}
