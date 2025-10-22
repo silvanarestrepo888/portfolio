@@ -8904,50 +8904,40 @@ h4, .text-h4 {
 }
 
 .craft-highlight-luxury {
-  /* FIFTH TIME REQUEST - SOPHISTICATED DESIGN TREATMENT */
-  font-family: var(--font-architectural-display); /* Elegant serif */
-  font-size: 1.6em; /* Larger emphasis for impact */
-  font-weight: 400; /* Refined sophisticated weight */
-  font-style: italic; /* Elegant italics as requested */
-  color: var(--grapefruit-intelligence);
+  /* FIFTH TIME REQUEST - SIMPLE ELEGANT APPROACH THAT ACTUALLY WORKS */
+  font-family: "Playfair Display", serif !important;
+  font-size: 1.4em !important;
+  font-weight: 400 !important;
+  font-style: italic !important;
+  color: #FF6663 !important; /* Direct color - no variables */
   
-  /* Sophisticated background treatment */
-  background: linear-gradient(
-    120deg,
-    transparent 0%,
-    var(--grapefruit-whisper) 15%,
-    var(--grapefruit-moment) 50%,
-    var(--grapefruit-whisper) 85%,
-    transparent 100%
-  );
+  /* SIMPLE elegant background */
+  background: rgba(255, 102, 99, 0.1) !important;
   
-  /* Elegant spacing and positioning */
-  padding: 0.4rem 1rem;
-  margin: 0 0.25rem;
-  border-radius: 12px;
-  letter-spacing: 0.015em;
+  /* Clean elegant spacing */
+  padding: 0.3rem 0.8rem !important;
+  margin: 0 0.3rem !important;
+  border-radius: 8px !important;
+  letter-spacing: 0.02em !important;
   
-  /* Sophisticated shadows and effects */
-  text-shadow: 0 2px 8px var(--vanilla-whisper);
-  border: 1px solid var(--grapefruit-whisper);
-  box-shadow: 
-    0 4px 16px var(--grapefruit-breath),
-    0 2px 8px var(--grapefruit-whisper);
+  /* Simple elegant effects */
+  text-shadow: 0 2px 6px rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(255, 102, 99, 0.2) !important;
+  box-shadow: 0 3px 12px rgba(255, 102, 99, 0.15) !important;
   
-  /* Subtle artistic positioning */
-  display: inline-block;
-  transform: rotate(-0.8deg); /* Artistic sophistication */
+  /* Simple positioning */
+  display: inline-block !important;
+  position: relative !important;
   
-  /* Smooth sophisticated transition */
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  position: relative;
+  /* Smooth transition */
+  transition: all 0.4s ease !important;
 }
 
 .craft-highlight-luxury:hover {
-  transform: rotate(0deg) scale(1.05);
-  box-shadow: 
-    0 6px 24px var(--grapefruit-moment),
-    0 3px 12px var(--grapefruit-whisper);
+  /* SIMPLE hover effect */
+  background: rgba(255, 102, 99, 0.15) !important;
+  box-shadow: 0 4px 16px rgba(255, 102, 99, 0.2) !important;
+  transform: scale(1.02) !important;
 }
 
 /* Responsive Design for Ultra-Luxury About */

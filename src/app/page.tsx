@@ -535,7 +535,7 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 2.2 }}
             >
-              Featured Projects
+              Projects
             </motion.button>
             
             <motion.a
@@ -548,7 +548,7 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 2.4 }}
             >
-              My CV
+              Executive CV
             </motion.a>
           </motion.div>
         </div>
