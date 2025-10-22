@@ -1047,7 +1047,7 @@ export default function Home() {
               <span 
                 className="text-foundation-sm font-foundation-accent block mb-phi-sm"
                 style={{
-                  color: 'var(--grapefruit-pure)'
+                  color: 'var(--grapefruit-intelligence)'
                 }}
               >
                 04
