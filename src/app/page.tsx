@@ -1030,12 +1030,12 @@ export default function Home() {
       </section>
 
       {/* ULTRA-SIMPLE SERVICES - ZERO CSS CONFLICTS */}
-      <section id="services" style={{padding: '80px 20px', background: 'rgba(255, 102, 99, 0.95)'}}>
+      <section id="services" style={{padding: '80px 20px 0', background: 'var(--vanilla-whisper)'}}>
         <div style={{maxWidth: '800px', margin: '0 auto'}}>
           <h2 style={{
             textAlign: 'center', 
             marginBottom: '20px', 
-            color: 'white',
+            color: 'var(--grapefruit-intelligence)',
             fontFamily: 'Playfair Display, serif',
             fontSize: '44px',
             fontWeight: '400'
@@ -1046,7 +1046,7 @@ export default function Home() {
           <p style={{
             textAlign: 'center', 
             marginBottom: '40px', 
-            color: 'rgba(255, 255, 255, 0.9)',
+            color: 'rgba(45, 45, 45, 0.8)',
             fontSize: '16px',
             maxWidth: '600px',
             margin: '0 auto 40px auto',
@@ -1059,10 +1059,10 @@ export default function Home() {
             <div 
               key={service.number}
               style={{
-                border: '1px solid rgba(255, 255, 255, 0.3)',
+                border: '1px solid var(--grapefruit-whisper)',
                 borderRadius: '8px',
-                marginBottom: '12px',
-                background: 'rgba(255, 255, 255, 0.1)',
+                marginBottom: '8px',
+                background: 'rgba(255, 255, 255, 0.9)',
                 overflow: 'visible',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease'
@@ -1078,8 +1078,8 @@ export default function Home() {
                 <span style={{
                   fontSize: '12px',
                   fontWeight: '600',
-                  color: '#ff6663',
-                  background: 'rgba(255, 255, 255, 0.2)',
+                  color: 'white',
+                  background: 'var(--grapefruit-intelligence)',
                   padding: '4px 8px',
                   borderRadius: '4px',
                   minWidth: '28px',
@@ -1092,9 +1092,9 @@ export default function Home() {
                   flex: 1,
                   margin: 0,
                   fontFamily: 'Playfair Display, serif',
-                  fontSize: '20px',
-                  fontWeight: '400',
-                  color: 'rgba(255, 255, 255, 0.95)',
+                  fontSize: '24px',
+                  fontWeight: '500',
+                  color: 'var(--grapefruit-intelligence)',
                   lineHeight: '1.2'
                 }}>
                   {service.title}
@@ -1103,7 +1103,7 @@ export default function Home() {
                 <span style={{
                   fontSize: '18px',
                   fontWeight: '600',
-                  color: 'rgba(255, 255, 255, 0.8)',
+                  color: 'var(--grapefruit-intelligence)',
                   width: '24px',
                   textAlign: 'center'
                 }}>
@@ -1114,38 +1114,38 @@ export default function Home() {
               {expandedService === service.number && (
                 <div style={{
                   padding: '0 24px 24px',
-                  borderTop: '1px solid rgba(255, 255, 255, 0.1)'
+                  borderTop: '1px solid var(--grapefruit-whisper)'
                 }}>
                   <p style={{
-                    fontSize: '16px',
-                    color: 'rgba(255, 255, 255, 0.8)',
-                    marginBottom: '16px',
+                    fontSize: '18px',
+                    color: 'rgba(45, 45, 45, 0.7)',
+                    marginBottom: '20px',
                     fontWeight: '400'
                   }}>
                     {service.subtitle}
                   </p>
                   
                   <div style={{
-                    marginBottom: '16px',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    padding: '16px',
-                    borderRadius: '6px',
-                    borderLeft: '2px solid rgba(255, 255, 255, 0.2)'
+                    marginBottom: '20px',
+                    background: 'rgba(255, 102, 99, 0.05)',
+                    padding: '20px',
+                    borderRadius: '8px',
+                    borderLeft: '3px solid var(--grapefruit-whisper)'
                   }}>
                     <h4 style={{
-                      fontSize: '12px',
-                      fontWeight: '600',
-                      color: 'rgba(255, 255, 255, 0.9)',
+                      fontSize: '14px',
+                      fontWeight: '700',
+                      color: 'var(--grapefruit-intelligence)',
                       textTransform: 'uppercase',
                       letterSpacing: '0.08em',
-                      marginBottom: '8px'
+                      marginBottom: '10px'
                     }}>
                       Strategic Capability
                     </h4>
                     <p style={{
-                      fontSize: '14px',
-                      color: 'rgba(255, 255, 255, 0.8)',
-                      lineHeight: '1.6',
+                      fontSize: '16px',
+                      color: 'rgba(45, 45, 45, 0.9)',
+                      lineHeight: '1.8',
                       margin: 0
                     }}>
                       {service.description}
@@ -1153,26 +1153,26 @@ export default function Home() {
                   </div>
                   
                   <div style={{
-                    marginBottom: '16px',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    padding: '16px',
-                    borderRadius: '6px',
-                    borderLeft: '2px solid rgba(255, 255, 255, 0.2)'
+                    marginBottom: '20px',
+                    background: 'rgba(255, 102, 99, 0.05)',
+                    padding: '20px',
+                    borderRadius: '8px',
+                    borderLeft: '3px solid var(--grapefruit-whisper)'
                   }}>
                     <h4 style={{
-                      fontSize: '12px',
-                      fontWeight: '600',
-                      color: 'rgba(255, 255, 255, 0.9)',
+                      fontSize: '14px',
+                      fontWeight: '700',
+                      color: 'var(--grapefruit-intelligence)',
                       textTransform: 'uppercase',
                       letterSpacing: '0.08em',
-                      marginBottom: '8px'
+                      marginBottom: '10px'
                     }}>
                       For Projects That Demand
                     </h4>
                     <p style={{
-                      fontSize: '14px',
-                      color: 'rgba(255, 255, 255, 0.8)',
-                      lineHeight: '1.6',
+                      fontSize: '16px',
+                      color: 'rgba(45, 45, 45, 0.9)',
+                      lineHeight: '1.8',
                       margin: 0
                     }}>
                       {service.demand}

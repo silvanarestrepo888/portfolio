@@ -13361,7 +13361,7 @@ h4, .text-h4 {
   background: linear-gradient(161.8deg, var(--grapefruit-intelligence) 0%, var(--grapefruit-impact) 100%);
   color: var(--vanilla-whisper);
   padding: 4rem 0 2rem;
-  margin-top: 6rem;
+  margin-top: 0; /* Removed 6rem margin to eliminate white space gap */
   position: relative;
   overflow: hidden;
 }
