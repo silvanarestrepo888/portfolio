@@ -10376,12 +10376,11 @@ h4, .text-h4 {
   display: flex;
   align-items: center;
   gap: 2rem;
-  padding: 3rem;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-  border-radius: 24px;
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(255, 255, 255, 0.05);
+  padding: 2rem; /* Minimal spacing only */
+  background: transparent !important; /* ELIMINATE DARK FRAME BACKGROUND */
+  border-radius: 0 !important; /* ELIMINATE ROUNDED FRAME */
+  box-shadow: none !important; /* ELIMINATE FRAME SHADOWS */
+  border: none !important;
   cursor: pointer;
   transition: all 0.4s ease;
   position: relative;
@@ -10389,20 +10388,15 @@ h4, .text-h4 {
 }
 
 .sophisticated-nav-project::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #ff6663 0%, #ff9999 100%);
+  /* ELIMINATE ACCENT BAR */
+  display: none !important;
 }
 
 .sophisticated-nav-project:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 
-    0 30px 80px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(255, 102, 99, 0.2);
+  /* FRAMELESS HOVER - SUBTLE LIFT ONLY */
+  transform: translateY(-4px) !important;
+  box-shadow: none !important;
+  background: transparent !important;
 }
 
 .sophisticated-nav-thumbnail {
@@ -14549,21 +14543,16 @@ img {
 }
 
 .service-amplification-item {
-  background: linear-gradient(145deg,
-    var(--vanilla-light) 0%,
-    var(--vanilla-warm) 50%,
-    var(--vanilla-pure) 100%);
-  border: 1px solid var(--grapefruit-subtle);
-  border-radius: 24px;
-  padding: 2rem;
+  background: transparent !important; /* ELIMINATE SERVICE CARD BACKGROUND FRAMES */
+  border: none !important; /* ELIMINATE SERVICE CARD BORDERS */
+  border-radius: 0 !important; /* ELIMINATE ROUNDED FRAME CORNERS */
+  padding: 2rem; /* Keep content spacing only */
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 
-    0 4px 20px var(--grapefruit-whisper),
-    0 2px 8px var(--grapefruit-subtle);
-  overflow: hidden;
+  box-shadow: none !important; /* ELIMINATE FRAME SHADOWS */
+  overflow: visible;
   position: relative;
-  backdrop-filter: blur(10px);
+  backdrop-filter: none !important; /* ELIMINATE BACKDROP FRAME EFFECTS */
 }
 
 .service-amplification-item.compact {
@@ -14576,15 +14565,10 @@ img {
   flex: 0 0 350px;
   min-width: 350px;
   max-width: 350px;
-  background: linear-gradient(145deg,
-    var(--vanilla-pure) 0%,
-    var(--vanilla-warm) 50%,
-    var(--vanilla-light) 100%);
-  border-color: var(--grapefruit-soft);
-  box-shadow: 
-    0 12px 48px var(--grapefruit-whisper),
-    0 6px 24px var(--grapefruit-subtle);
-  transform: translateY(-4px);
+  background: transparent !important; /* ELIMINATE SERVICE EXPANDED FRAME */
+  border: none !important; /* ELIMINATE SERVICE EXPANDED BORDER */
+  box-shadow: none !important; /* ELIMINATE SERVICE EXPANDED SHADOWS */
+  transform: translateY(-2px) !important; /* Minimal lift only */
 }
 
 .service-amplification-item.expanded .service-basic-content {
@@ -15639,11 +15623,35 @@ img[class*="project-"] {
   outline: none !important;
 }
 
-/* ONLY ALLOW CONTENT SPACING WHERE NEEDED */
+/* ENSURE TEXT READABILITY WITHOUT FRAMES */
 .balanced-content-section h3,
 .balanced-content-section p,
 .balanced-content-section .balanced-tags {
   padding: 0.5rem !important; /* Minimal content spacing only */
+  background: transparent !important;
+  border: none !important;
+}
+
+/* EXPERIENCE TEXT READABILITY */
+.experience-text-content h3,
+.experience-text-content p,
+.experience-year,
+.experience-role,
+.experience-company,
+.experience-description {
+  /* Ensure text is readable without background frames */
+  color: var(--vanilla-whisper) !important; /* High contrast on dark background */
+  text-shadow: none !important;
+  background: transparent !important;
+}
+
+/* SERVICE TEXT READABILITY */
+.service-number,
+.service-title,
+.service-description {
+  /* Ensure service text is readable without card frames */
+  color: var(--vanilla-whisper) !important; /* High contrast on grapefruit background */
+  background: transparent !important;
 }
 
 .section-projects-sophisticated .project-card-3d:hover,
@@ -15959,43 +15967,43 @@ img[class*="project-"] {
 /* Text Container - Architectural Precision */
 .experience-text-container {
   width: 320px;
-  background: var(--vanilla-whisper);
-  border: 1px solid var(--grapefruit-moment);
-  border-radius: 16px;
-  box-shadow: 
-    0 12px 40px var(--grapefruit-breath),
-    0 4px 16px var(--grapefruit-whisper);
-  backdrop-filter: blur(15px);
-  padding: 1.25rem;
-  backdrop-filter: blur(10px);
+  background: transparent !important; /* ELIMINATE WHITE FRAME BACKGROUND */
+  border: none !important; /* ELIMINATE FRAME BORDERS */
+  border-radius: 0 !important; /* ELIMINATE ROUNDED FRAME */
+  box-shadow: none !important; /* ELIMINATE FRAME SHADOWS */
+  backdrop-filter: none !important; /* ELIMINATE BACKDROP EFFECTS */
+  padding: 1.25rem; /* Keep content spacing only */
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .experience-text-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 102, 99, 0.1), transparent);
-  transition: left 0.6s ease;
+  /* ELIMINATE FRAME ACCENT EFFECT */
+  display: none !important;
 }
 
 .experience-text-container:hover::before {
-  left: 100%;
+  /* ELIMINATE FRAME HOVER EFFECT */
+  display: none !important;
 }
 
 .experience-text-container:hover {
-  width: 480px;
-  background: rgba(255, 248, 240, 0.08);
-  border-color: rgba(255, 102, 99, 0.3);
-  box-shadow: 
-    0 10px 40px rgba(0, 0, 0, 0.2),
-    0 0 20px rgba(255, 102, 99, 0.1);
+  /* FRAMELESS HOVER - NO FRAME EFFECTS */
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  transform: translateY(-2px) !important; /* Minimal lift only */
+}
+
+.experience-text-container:hover {
+  /* OVERRIDE DUPLICATE HOVER RULE - ELIMINATE ALL FRAMES */
+  width: 320px !important; /* Keep original width */
+  background: transparent !important; /* ELIMINATE BACKGROUND FRAME */
+  border: none !important; /* ELIMINATE BORDER FRAME */
+  box-shadow: none !important; /* ELIMINATE SHADOW FRAME */
+  transform: translateY(-2px) !important; /* Minimal lift only */
 }
 
 /* Text Content */
