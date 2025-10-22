@@ -11,7 +11,14 @@ import { SectionIndicator } from '../components/navigation/SectionIndicator';
 import { useParallax } from '../hooks/useScrollAnimation';
 import { InteractiveProjectCard } from '../components/projects/InteractiveProjectCard';
 import { SilvanaLoader } from '../components/ui/SilvanaLoader';
-import { ExperienceDesignIcon, ServiceDesignIcon, DigitalTransformationIcon } from '../components/icons/services';
+import { 
+  AcceleratedInnovationIcon,
+  ExperienceOrchestrationIcon,
+  IntelligentOperationsIcon,
+  TransformationFoundationsIcon,
+  StrategyConsultingIcon,
+  CustomerIntelligenceIcon
+} from '../components/icons/services';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -44,31 +51,55 @@ export default function Home() {
 
 
 
-  // ENHANCED SERVICES DATA - THREE MAIN CATEGORIES WITH ICONS
+  // SERVICES DATA - 100% COPY COMPLIANT WITH PROVIDED CONTENT
   const referenceServices = [
     {
       number: "01",
-      title: "Experience Design",
-      description: "Transform user journeys into memorable brand experiences through human-centered design thinking. I orchestrate comprehensive experience strategies that connect emotional resonance with business objectives, creating touchpoints that convert interactions into lasting relationships.",
-      provenExcellence: "Kayanee wellness platform—Saudi Arabia's first integrated phygital ecosystem serving women's holistic wellbeing journey",
-      demand: "Experiences that resonate deeply and drive sustainable engagement across all touchpoints.",
-      icon: ExperienceDesignIcon
+      title: "Accelerated Product Innovation",
+      subtitle: "From concept to market reach in half the time",
+      description: "Transform product visions into market reality through AI-powered rapid prototyping and validation. Implementing innovation sprints where data accelerates ideation, AI accelerates testing, and go-to-market strategies—turning months of development into weeks of strategic clarity.",
+      demand: "Speed to market without sacrificing strategic depth.",
+      icon: AcceleratedInnovationIcon
     },
     {
       number: "02", 
-      title: "Service Design",
-      description: "Blueprint end-to-end service ecosystems that seamlessly integrate people, processes, and technology. I design service architectures where every touchpoint is optimized for both operational efficiency and exceptional user experiences, transforming complex systems into intuitive journeys.",
-      provenExcellence: "CHiME Care for Johnson & Johnson—streamlined surgical patient management workflows enabling precision care while intelligent systems handle complexity",
-      demand: "Service systems that scale beautifully while maintaining human-centered care and operational excellence.",
-      icon: ServiceDesignIcon
+      title: "Experience Orchestration",
+      subtitle: "Harmonizing thousands of touchpoints across locations/channels/vendors into one resonant brand voice",
+      description: "Systems thinking applied to create unified experience architectures where daily interactions feel like one seamless conversation—whether digital, physical, or hybrid.",
+      demand: "Coherent brand experiences that scale without losing soul. Global reach with local resonance.",
+      icon: ExperienceOrchestrationIcon
     },
     {
       number: "03",
-      title: "Digital Transformation", 
-      description: "Accelerate organizational evolution through strategic technology integration and cultural transformation. I architect digital foundations that amplify human potential while building adaptive systems that evolve with market demands—turning digital complexity into competitive advantage.",
-      provenExcellence: "Parques Reunidos catalog harmonization—unified product taxonomy across 70 entertainment venues spanning three continents while preserving local venue authenticity",
-      demand: "Transformation that compounds intelligence, where every digital advancement strengthens the foundation for exponential growth.",
-      icon: DigitalTransformationIcon
+      title: "Intelligent Operations Architecture", 
+      subtitle: "Building AI-augmented teams that outperform traditional structures",
+      description: "Design agentic systems where AI specialists and human experts collaborate as unified intelligence. I help to architect operational ecosystems with embedded market monitoring, competitive intelligence, and automated research capabilities—creating self-optimizing organizations.",
+      demand: "Operations that think, adapt, and evolve. Intelligence is embedded in every process.",
+      icon: IntelligentOperationsIcon
+    },
+    {
+      number: "04",
+      title: "Transformation Foundations",
+      subtitle: "Engineering organizational evolution through scalable design foundations", 
+      description: "Design systems become organizational DNA. Every component strengthens the whole. Every decision accelerates the next. I collaborate to create modular, scalable frameworks —turning organizational complexity into competitive advantage.",
+      demand: "Transformation that compounds. Every change strengthens the foundation for the next leap.",
+      icon: TransformationFoundationsIcon
+    },
+    {
+      number: "05",
+      title: "Strategic Innovation Consulting",
+      subtitle: "Converting market disruption into systematic advantage",
+      description: "Navigate complexity with frameworks that transform uncertainty into opportunity. I blend behavioral economics, emerging technology foresight, and cultural intelligence to create innovation strategies that don't just respond to change—they create it.",
+      demand: "Innovation with precision. Strategies that move from boardroom to market with velocity.",
+      icon: StrategyConsultingIcon
+    },
+    {
+      number: "06",
+      title: "Customer Intelligence Platforms",
+      subtitle: "Turning customer behavior into a competitive advantage",
+      description: "Architecting intelligence systems that don't just track customer behavior—they anticipate it, I design platforms where every interaction feeds learning algorithms, creating self-improving experiences that evolve faster than market demands.",
+      demand: "Customer relationships that deepen with every interaction. Intelligence that scales intimacy.",
+      icon: CustomerIntelligenceIcon
     }
   ];
 
@@ -1031,7 +1062,7 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              Strategic consulting and design services that transform business challenges into competitive advantages through experience-driven innovation and human-centered design.
+              Meticulously architected solutions addressing demanding market realities and evolving client needs.
             </motion.p>
           </motion.div>
           
@@ -1056,6 +1087,7 @@ export default function Home() {
                     </div>
                     <div className="service-number">{service.number}</div>
                     <h3 className="service-title">{service.title}</h3>
+                    <p className="service-subtitle">{service.subtitle}</p>
                     <div className="service-hover-hint">Hover to explore</div>
                   </div>
                   
@@ -1065,17 +1097,12 @@ export default function Home() {
                       <div className="service-content-section">
                         <h4 className="content-title">Strategic Capability</h4>
                         <p className="content-description">{service.description}</p>
-                    </div>
-                    
-                      <div className="service-content-section">
-                        <h4 className="content-title">Proven Excellence</h4>
-                        <p className="content-description">{service.provenExcellence}</p>
-            </div>
-            
+                      </div>
+                      
                       <div className="service-content-section">
                         <h4 className="content-title">For projects that demand</h4>
                         <p className="content-description">{service.demand}</p>
-              </div>
+                      </div>
                     </div>
                   )}
                 </div>
