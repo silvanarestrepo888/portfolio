@@ -39,6 +39,28 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
   
+  // PHASE 7: Keyboard Navigation - ESC to Close Modal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && selectedProject !== null) {
+        setSelectedProject(null);
+      }
+    };
+    
+    if (selectedProject !== null) {
+      document.addEventListener('keydown', handleKeyDown);
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedProject]);
+  
   // Foundation Project Exploration System
   const [featuredProjectIndex, setFeaturedProjectIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -1285,23 +1307,67 @@ export default function Home() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
         >
-          {/* BREADCRUMB NAVIGATION SYSTEM */}
-          <div className="project-details-header">
-            <nav className="breadcrumb-architectural" aria-label="Project navigation">
-              <motion.button
-                onClick={() => setSelectedProject(null)}
-                className="breadcrumb-back typography-body"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                ← Back to Projects
-              </motion.button>
-              <span className="breadcrumb-separator">•</span>
-              <span className="breadcrumb-current typography-body">
+          {/* LANDOR-LEVEL NAVIGATION SYSTEM */}
+          {/* Prominent Back Button - Always Visible */}
+          <motion.button
+            onClick={() => setSelectedProject(null)}
+            className="project-back-button-landor"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: "0 12px 40px var(--grapefruit-soft)"
+            }}
+            whileTap={{ scale: 0.95 }}
+            aria-label="Back to Projects"
+          >
+            <svg 
+              width="20" 
+              height="20" 
+              viewBox="0 0 20 20" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path 
+                d="M12.5 15L7.5 10L12.5 5" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              />
+            </svg>
+            <span className="back-button-text">Back to Projects</span>
+          </motion.button>
+
+          {/* Sophisticated Breadcrumb - Secondary Navigation */}
+          <motion.div 
+            className="project-details-header-landor"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <nav className="breadcrumb-architectural-enhanced" aria-label="Project navigation">
+              <span className="breadcrumb-home">Portfolio</span>
+              <span className="breadcrumb-separator">→</span>
+              <span className="breadcrumb-section">Projects</span>
+              <span className="breadcrumb-separator">→</span>
+              <span className="breadcrumb-current-enhanced">
                 {selectedProject !== null ? projects[selectedProject].title : ''}
               </span>
             </nav>
-          </div>
+            
+            {/* Keyboard Hint */}
+            <motion.div 
+              className="keyboard-hint-landor"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              <kbd className="kbd-key">ESC</kbd>
+              <span className="kbd-text">to close</span>
+            </motion.div>
+          </motion.div>
 
           {/* HERO SECTION - Perfect Visual Exploration with Proper Spacing */}
           <div className="project-hero-section project-details-hero-section">
