@@ -490,13 +490,15 @@
 /* PREMIUM MICRO-INTERACTIONS */
 .luxury-hover-elevation {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /* REMOVE ELEVATION SHADOWS FOR FRAMELESS DESIGN */
+  box-shadow: none !important;
+  background: transparent !important;
 }
 
 .luxury-hover-elevation:hover {
-  transform: translateY(-2px);
-  box-shadow: 
-    0 10px 25px rgba(0, 0, 0, 0.1),
-    0 4px 10px rgba(0, 0, 0, 0.05);
+  transform: translateY(-8px); /* Subtle lift only */
+  box-shadow: none !important; /* NO FRAMES WHATSOEVER */
+  background: transparent !important;
 }
 
 .luxury-hover-scale {
@@ -8287,18 +8289,24 @@ h4, .text-h4 {
 }
 
 .hero-title-luxury-centered {
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-architectural-display);
   font-size: clamp(3.5rem, 9vw, 9rem);
-  font-weight: 300;
+  font-weight: 400; /* Stronger weight for visibility */
   line-height: 1.1;
   letter-spacing: -0.03em;
   margin: 0;
   text-align: center;
-  color: rgba(255, 255, 255, 0.95);
-  text-shadow: 0 6px 30px rgba(0, 0, 0, 0.8);
+  color: var(--grapefruit-intelligence) !important; /* Force visibility */
+  text-shadow: 
+    0 4px 20px var(--vanilla-whisper),
+    0 8px 40px rgba(255, 255, 255, 0.9),
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    0 12px 60px rgba(255, 255, 255, 0.6); /* QUADRUPLE shadow for maximum visibility */
   /* Single line centered layout */
   display: block;
   width: 100%;
+  z-index: 10; /* Force above all overlays */
+  position: relative;
 }
 
 .word-experience-luxury {
@@ -8835,32 +8843,50 @@ h4, .text-h4 {
 }
 
 .craft-highlight-luxury {
-  background: linear-gradient(120deg, var(--grapefruit) 0%, var(--grapefruit) 100%);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: left center;
-  color: var(--text-primary);
-  font-weight: 700;
-  font-size: 1.2em;
+  /* FIFTH TIME REQUEST - SOPHISTICATED DESIGN TREATMENT */
+  font-family: var(--font-architectural-display); /* Elegant serif */
+  font-size: 1.6em; /* Larger emphasis for impact */
+  font-weight: 400; /* Refined sophisticated weight */
+  font-style: italic; /* Elegant italics as requested */
+  color: var(--grapefruit-intelligence);
+  
+  /* Sophisticated background treatment */
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    var(--grapefruit-whisper) 15%,
+    var(--grapefruit-moment) 50%,
+    var(--grapefruit-whisper) 85%,
+    transparent 100%
+  );
+  
+  /* Elegant spacing and positioning */
+  padding: 0.4rem 1rem;
+  margin: 0 0.25rem;
+  border-radius: 12px;
+  letter-spacing: 0.015em;
+  
+  /* Sophisticated shadows and effects */
+  text-shadow: 0 2px 8px var(--vanilla-whisper);
+  border: 1px solid var(--grapefruit-whisper);
+  box-shadow: 
+    0 4px 16px var(--grapefruit-breath),
+    0 2px 8px var(--grapefruit-whisper);
+  
+  /* Subtle artistic positioning */
+  display: inline-block;
+  transform: rotate(-0.8deg); /* Artistic sophistication */
+  
+  /* Smooth sophisticated transition */
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
-  transition: all 0.6s ease;
-  padding: 4px 8px;
-  border-radius: 6px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 4px 12px rgba(255, 102, 99, 0.3);
 }
 
-.craft-highlight-luxury::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--grapefruit-primary);
-  opacity: 0.1;
-  border-radius: 4px;
-  z-index: -1;
+.craft-highlight-luxury:hover {
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 
+    0 6px 24px var(--grapefruit-moment),
+    0 3px 12px var(--grapefruit-whisper);
 }
 
 /* Responsive Design for Ultra-Luxury About */
@@ -10545,14 +10571,16 @@ h4, .text-h4 {
   align-items: center;
 }
 
-/* Balanced Image Section - 60% */
+/* Balanced Image Section - 60% - FRAMELESS */
 .balanced-image-section {
   position: relative;
   height: 100%;
   min-height: 60vh;
-  border-radius: 20px;
+  border-radius: 0; /* REMOVE ROUNDED FRAMES */
   overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: none; /* REMOVE ALL SHADOWS/FRAMES */
+  background: transparent;
+  border: none;
 }
 
 .balanced-image-container {
@@ -10561,8 +10589,10 @@ h4, .text-h4 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border: none; /* ENSURE NO BORDERS */
+  box-shadow: none; /* ENSURE NO SHADOWS */
   position: relative;
-  border-radius: 20px;
+  border-radius: 0; /* COMPLETELY FRAMELESS */
 }
 
 .balanced-overlay-tags {
@@ -15080,6 +15110,12 @@ img {
   cursor: pointer;
   position: relative;
   will-change: transform;
+  
+  /* FORCE FRAMELESS - NO VISUAL BARRIERS */
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .project-card-3d:hover {
@@ -15092,18 +15128,17 @@ img {
 
 /* SOPHISTICATED 3D SHADOWS */
 .project-card-shadow-3d {
-  box-shadow: 
-    0 calc(25px + var(--shadow-intensity, 0.2) * 30px) calc(80px + var(--shadow-intensity, 0.2) * 40px) rgba(0, 0, 0, var(--shadow-intensity, 0.2)),
-    0 calc(10px + var(--shadow-intensity, 0.2) * 15px) calc(40px + var(--shadow-intensity, 0.2) * 20px) rgba(255, 102, 99, 0.1),
-    0 calc(5px + var(--shadow-intensity, 0.2) * 10px) calc(20px + var(--shadow-intensity, 0.2) * 15px) rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* COMPLETELY FRAMELESS - NO SHADOWS NO FRAMES */
+  box-shadow: none !important;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: transparent !important;
+  border: none !important;
 }
 
 .project-card-shadow-3d:hover {
-  box-shadow: 
-    0 calc(35px + var(--shadow-intensity, 0.3) * 50px) calc(100px + var(--shadow-intensity, 0.3) * 60px) rgba(0, 0, 0, var(--shadow-intensity, 0.3)),
-    0 calc(15px + var(--shadow-intensity, 0.3) * 25px) calc(60px + var(--shadow-intensity, 0.3) * 40px) rgba(255, 102, 99, 0.15),
-    0 calc(8px + var(--shadow-intensity, 0.3) * 15px) calc(30px + var(--shadow-intensity, 0.3) * 25px) rgba(0, 0, 0, 0.15);
+  /* ONLY subtle elevation on hover - no frames */
+  box-shadow: 0 30px 80px var(--grapefruit-breath) !important;
+  transform: translateY(-8px);
 }
 
 /* 3D PARALLAX LAYERS */
@@ -15389,13 +15424,18 @@ img {
 /* Removed cluttered services overlay for clean energy */
 
 .section-services-sophisticated h2 {
-  color: var(--vanilla-whisper);
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  color: var(--vanilla-whisper) !important; /* Force high contrast visibility */
+  text-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow for readability */
+  font-weight: 400; /* Strengthen for visibility */
 }
 
 .section-services-sophisticated p {
-  color: var(--vanilla-foundation);
-  opacity: 0.95;
+  color: var(--vanilla-whisper) !important; /* Force high contrast */
+  opacity: 1; /* Full opacity for maximum visibility */
+  font-weight: 400; /* Strengthen for readability */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for definition */
 }
 
 .section-services-sophisticated .service-unified-card {
@@ -15463,17 +15503,46 @@ img {
   color: var(--grapefruit-rich);
 }
 
-/* ENHANCED PROJECT CARDS WITH SECTION COLORS */
-.section-projects-sophisticated .project-card-3d {
-  background: rgba(255, 248, 240, 0.05);
-  border: 1px solid rgba(255, 248, 240, 0.1);
+/* FINAL FRAMELESS OVERRIDE - COMPREHENSIVE REMOVAL */
+.balanced-layout-grid,
+.balanced-image-section,
+.balanced-image-container,
+.balanced-content-section {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-radius: 0 !important;
 }
 
-.section-projects-sophisticated .project-card-3d:hover {
-  background: rgba(255, 248, 240, 0.08);
-  box-shadow: 
-    0 25px 80px rgba(26, 26, 26, 0.4),
-    0 10px 40px rgba(255, 102, 99, 0.2);
+/* COMPREHENSIVE FRAMELESS PROJECT CARDS - NO EXCEPTIONS */
+.section-projects-sophisticated .project-card-3d,
+.project-card-3d,
+.balanced-project-card,
+.project-card-enhanced,
+.project-card-shadow-3d,
+.luxury-hover-elevation {
+  /* FORCE COMPLETE FRAME REMOVAL - USER'S REPEATED REQUEST */
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  backdrop-filter: none !important;
+  border-radius: 0 !important;
+}
+
+.section-projects-sophisticated .project-card-3d:hover,
+.project-card-3d:hover,
+.balanced-project-card:hover,
+.project-card-enhanced:hover,
+.project-card-shadow-3d:hover,
+.luxury-hover-elevation:hover {
+  /* FRAMELESS HOVER - ONLY SUBTLE ELEVATION */
+  background: transparent !important;
+  border: none !important;
+  box-shadow: 0 40px 100px var(--grapefruit-breath) !important;
+  transform: translateY(-12px);
+  outline: none !important;
 }
 
 /* SOPHISTICATED BUTTON STYLING */
@@ -15994,15 +16063,16 @@ img {
   object-fit: cover;
   object-position: center 20%; /* FACE-CENTERED positioning (not chest) */
   
-  /* Subtle background presence like Stella */
+  /* EXTREMELY DIFFUSE - Enhancement element only */
   filter: 
-    brightness(0.9) 
-    contrast(1.1)
-    saturate(0.8);
+    brightness(0.7) 
+    contrast(0.9)
+    saturate(0.6)
+    blur(0.5px); /* Subtle blur for diffusion */
   
-  /* Blend mode for sophistication */
+  /* Blend mode for extreme subtlety */
   mix-blend-mode: soft-light;
-  opacity: 0.4; /* Much more subtle like Stella's approach */
+  opacity: 0.15; /* MUCH more diffuse as requested */
   
   /* Performance optimization */
   will-change: transform, filter;
@@ -16017,9 +16087,10 @@ img {
   height: 100%;
   background: linear-gradient(
     135deg,
-    rgba(245, 245, 220, 0.8) 0%,    /* Stella-inspired vanilla overlay */
-    transparent 40%,                /* Face visibility zone */
-    rgba(245, 245, 220, 0.6) 100%   /* Professional sophisticated depth */
+    var(--vanilla-foundation) 0%,      /* Strong vanilla foundation */
+    rgba(245, 245, 220, 0.95) 30%,    /* Heavy vanilla coverage */
+    rgba(245, 245, 220, 0.7) 60%,     /* Text readability zone */
+    var(--vanilla-foundation) 100%    /* Complete vanilla foundation */
   );
   z-index: 4;
   pointer-events: none;
