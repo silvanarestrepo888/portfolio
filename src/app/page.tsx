@@ -588,7 +588,7 @@ export default function Home() {
             className="about-header-ultra-luxury"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.2 }}
+                transition={{ duration: 1.618, delay: 0.236 }} /* Golden ratio timing */
               >
             <div className="about-header-content">
               <span className="about-section-number">01</span>
@@ -597,7 +597,7 @@ export default function Home() {
                 className="about-title-ultra-luxury typography-h2"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.4 }}
+                transition={{ duration: 1.618, delay: 0.382 }} /* Fibonacci sequence: 0.236, 0.382... */
               >
                 About Me
               </motion.h2>
@@ -607,7 +607,7 @@ export default function Home() {
               className="about-description-ultra-luxury typography-body text-center max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.6 }}
+              transition={{ duration: 1.618, delay: 0.618 }} /* Golden ratio delay */
             >
               Two decades of transforming how global brands connect with human experiences
             </motion.p>
@@ -891,7 +891,8 @@ export default function Home() {
         className="experience-timeline-section"
         style={{ 
           minHeight: '100vh',
-          background: 'linear-gradient(161.8deg, rgba(255, 102, 99, 0.08) 0%, rgba(255, 102, 99, 0.15) 100%)'
+          background: '#FDFCF8', /* Direct vanilla hex - FORCED ACCESSIBILITY */
+          padding: '80px 0'
         }}
       >
         <div className="experience-timeline-container">
@@ -905,17 +906,18 @@ export default function Home() {
           >
               <span 
               className="section-number text-sm font-semibold tracking-wider uppercase block mb-4"
-              style={{ color: 'var(--grapefruit-pure)' }}
+              style={{ color: '#FF6663 !important' }} /* Direct grapefruit hex - FORCED */
               >
                 03
               </span>
-            <h2 className="typography-h2" style={{ color: 'rgba(45, 45, 45, 0.9)' }}>
+            <h2 className="typography-h2" style={{ color: '#FF6663 !important', fontSize: '44px !important' }}> {/* FORCED ACCESSIBILITY */}
                 Experience
               </h2>
             <p className="typography-body text-center max-w-3xl mx-auto" style={{ 
-              color: 'rgba(45, 45, 45, 0.8)',
+              color: '#FF6663 !important', /* FORCED grapefruit */
+              opacity: '0.8 !important',
               lineHeight: '1.4',
-              fontSize: '0.95rem',
+              fontSize: '16px !important', /* Enhanced size */
               margin: '0 auto'
             }}>
               Some of the <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>upscaling, reinventing, evolving,</span> and <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>reimagining</span> business, brands, and teams.
@@ -1029,10 +1031,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES SECTION - ESTABLISHED GRADIENT SYSTEM */}
+      {/* SERVICES SECTION - FORCED ACCESSIBILITY */}
       <section 
         id="services"
-        className="section-luxury section-services-sophisticated section-transition-sophisticated"
+        style={{
+          background: 'linear-gradient(161.8deg, #FF6663 0%, #E55A5A 100%)', /* FORCED grapefruit gradient */
+          padding: '80px 0 0',
+          minHeight: '80vh',
+          position: 'relative'
+        }}
       >
         <div className="container-foundation">
           <motion.div 
@@ -1046,14 +1053,16 @@ export default function Home() {
               <span 
                 className="text-foundation-sm font-foundation-accent block mb-phi-sm"
                 style={{
-                  color: 'var(--vanilla-whisper)' // White on grapefruit
+                  color: '#FFFFFF !important', /* FORCED white on grapefruit */
+                  textShadow: '0 1px 3px rgba(0, 0, 0, 0.4) !important' /* Enhanced definition */
                 }}
               >
                 04
               </span>
               <h2 className="typography-h2" style={{ 
-                color: 'var(--vanilla-whisper)', // White on grapefruit
-                textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' // Enhanced definition
+                color: '#FFFFFF !important', /* FORCED white */
+                textShadow: '0 2px 6px rgba(0, 0, 0, 0.4) !important', /* FORCED strong shadow */
+                fontSize: '44px !important' /* FORCED size */
               }}>
                 Services
               </h2>
@@ -1065,8 +1074,10 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.3 }}
               viewport={{ once: true }}
               style={{
-                color: 'var(--vanilla-whisper)', // White on grapefruit
-                opacity: 0.9
+                color: '#FFFFFF !important', /* FORCED white on grapefruit */
+                opacity: '0.9 !important',
+                textShadow: '0 1px 3px rgba(0, 0, 0, 0.3) !important', /* Enhanced definition */
+                fontSize: '16px !important' /* FORCED readable size */
               }}
             >
               Meticulously architected solutions addressing demanding market realities and evolving client needs.
@@ -1184,15 +1195,15 @@ export default function Home() {
                     // Contextual typography sizing
                     fontSize: `${24 + (service.title.length < 20 ? 4 : 0)}px`,
                     fontWeight: isSignatureService ? '500' : '400', // Enhanced weight for grapefruit background
-                    color: 'var(--vanilla-whisper)', // White text on grapefruit
+                    color: '#FFFFFF !important', /* FORCED white text */
                     lineHeight: service.title.includes('Intelligence') ? '1.1' : '1.2',
                     letterSpacing: '-0.02em', // Luxury tightness
-                    textShadow: '0 1px 2px rgba(255, 102, 99, 0.1)', // Subtle premium depth
+                    textShadow: '0 3px 8px rgba(0, 0, 0, 0.5) !important', /* FORCED strong black shadow for white text */
                     textRendering: 'optimizeLegibility'
                   }}
                   whileHover={{
                     letterSpacing: '-0.01em', // Elegant expansion
-                    textShadow: '0 2px 4px rgba(255, 102, 99, 0.2)',
+                    textShadow: '0 4px 10px rgba(0, 0, 0, 0.6) !important', /* Enhanced black shadow on hover */
                     transition: { duration: 0.4 }
                   }}
                 >
@@ -1264,7 +1275,7 @@ export default function Home() {
                       marginBottom: `${Math.round(24 * 1.618)}px`, // Golden ratio spacing
                       fontWeight: '400',
                       fontStyle: 'italic', // Editorial emphasis
-                      textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)', // Enhanced definition
+                      textShadow: '0 2px 6px rgba(0, 0, 0, 0.5) !important', /* FORCED strong shadow */
                       lineHeight: '1.618', // Golden ratio line spacing
                       textRendering: 'optimizeLegibility'
                     }}
@@ -1328,9 +1339,9 @@ export default function Home() {
                     <motion.p 
                       style={{
                         fontSize: isLongDescription ? '15px' : '16px', // Adaptive sizing
-                        color: 'var(--vanilla-whisper)', // White text on grapefruit
+                        color: '#FFFFFF !important', /* FORCED white text */
                         opacity: 0.9,
-                        textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)', // Enhanced definition
+                        textShadow: '0 2px 6px rgba(0, 0, 0, 0.5) !important', /* FORCED strong shadow */
                         lineHeight: isLongDescription ? '1.7' : '1.618', // Adaptive spacing
                         margin: 0,
                         fontWeight: '400',
@@ -1401,9 +1412,9 @@ export default function Home() {
                     <motion.p 
                       style={{
                         fontSize: '16px',
-                        color: 'var(--vanilla-whisper)', // White text on grapefruit
+                        color: '#FFFFFF !important', /* FORCED white text */
                         opacity: 0.9,
-                        textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)', // Enhanced definition
+                        textShadow: '0 2px 6px rgba(0, 0, 0, 0.5) !important', /* FORCED strong shadow */
                         lineHeight: '1.618', // Golden ratio line spacing
                         margin: 0,
                         fontWeight: '500', // Slightly stronger for emphasis
