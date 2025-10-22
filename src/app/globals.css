@@ -8904,40 +8904,41 @@ h4, .text-h4 {
 }
 
 .craft-highlight-luxury {
-  /* FIFTH TIME REQUEST - SIMPLE ELEGANT APPROACH THAT ACTUALLY WORKS */
-  font-family: "Playfair Display", serif !important;
-  font-size: 1.4em !important;
-  font-weight: 400 !important;
-  font-style: italic !important;
-  color: #FF6663 !important; /* Direct color - no variables */
+  /* CLEAN TYPOGRAPHY - USING ESTABLISHED FONT SYSTEM */
+  font-family: var(--font-architectural-body) !important; /* Inter font like rest of site */
+  font-size: 1.2em !important;
+  font-weight: 600 !important; /* Strong emphasis */
+  font-style: normal !important; /* Clean normal style */
+  color: #FF6663 !important;
   
-  /* SIMPLE elegant background */
-  background: rgba(255, 102, 99, 0.1) !important;
+  /* NO CONTAINER - CLEAN TEXT ONLY */
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
   
-  /* Clean elegant spacing */
-  padding: 0.3rem 0.8rem !important;
-  margin: 0 0.3rem !important;
-  border-radius: 8px !important;
-  letter-spacing: 0.02em !important;
-  
-  /* Simple elegant effects */
-  text-shadow: 0 2px 6px rgba(255, 255, 255, 0.8) !important;
-  border: 1px solid rgba(255, 102, 99, 0.2) !important;
-  box-shadow: 0 3px 12px rgba(255, 102, 99, 0.15) !important;
-  
-  /* Simple positioning */
-  display: inline-block !important;
+  /* Simple inline text */
+  display: inline !important;
   position: relative !important;
-  
-  /* Smooth transition */
-  transition: all 0.4s ease !important;
+  text-decoration: none !important;
 }
 
-.craft-highlight-luxury:hover {
-  /* SIMPLE hover effect */
-  background: rgba(255, 102, 99, 0.15) !important;
-  box-shadow: 0 4px 16px rgba(255, 102, 99, 0.2) !important;
-  transform: scale(1.02) !important;
+/* ANIMATED UNDERLINE EFFECT */
+.craft-highlight-luxury::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; /* Just below text */
+  left: 0;
+  width: 0%; /* Start invisible */
+  height: 2px;
+  background: #FF6663;
+  transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Trigger animation when element comes into view */
+.craft-highlight-luxury.animate-underline::after {
+  width: 100%; /* Animate to full width */
 }
 
 /* Responsive Design for Ultra-Luxury About */

@@ -700,9 +700,18 @@ export default function Home() {
             >
               &ldquo;The art of <motion.span 
                 className="craft-highlight-luxury"
-                initial={{ backgroundSize: "0% 100%" }}
-                whileInView={{ backgroundSize: "100% 100%" }}
-                transition={{ duration: 1.2, delay: 1.8, ease: "easeInOut" }}
+                initial={{ opacity: 0.7 }}
+                whileInView={{ 
+                  opacity: 1,
+                  transition: { duration: 0.6, delay: 1.8 }
+                }}
+                onViewportEnter={() => {
+                  // Add class to trigger underline animation
+                  setTimeout(() => {
+                    const element = document.querySelector('.craft-highlight-luxury');
+                    if (element) element.classList.add('animate-underline');
+                  }, 1800);
+                }}
               >MY CRAFT</motion.span> lies in listening to the unspoken, seeing the invisible, and touching the intangible essence of human desire&rdquo;
             </motion.blockquote>
           </motion.div>
