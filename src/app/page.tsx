@@ -1029,10 +1029,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES SECTION - Foundation Design */}
+      {/* COMPACT SERVICES ACCORDION - AWARD-WINNING DESIGN */}
       <section 
         id="services"
         className="section-luxury section-services-sophisticated section-transition-sophisticated"
+        style={{ minHeight: '80vh', maxHeight: '100vh' }}
       >
         <div className="container-foundation">
           <motion.div 
@@ -1066,54 +1067,54 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          {/* PROPER ACCORDION SERVICES */}
-          <div className="services-stack">
+          {/* COMPACT ACCORDION CONTAINER */}
+          <div className="services-compact-container">
             {referenceServices.map((service, index) => (
               <motion.div 
                 key={service.number}
-                className={`service-row ${expandedService === service.number ? 'expanded' : ''}`}
-                onMouseEnter={() => setExpandedService(service.number)}
-                onMouseLeave={() => setExpandedService(null)}
+                className={`service-compact-item ${expandedService === service.number ? 'expanded' : ''}`}
+                onClick={() => setExpandedService(expandedService === service.number ? null : service.number)}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 viewport={{ once: true }}
                 tabIndex={0}
+                role="button"
+                aria-expanded={expandedService === service.number}
+                aria-controls={`service-content-${service.number}`}
               >
-                {/* Compact Header Row */}
-                <div className="service-header-row">
-                  <span className="service-arrow">
-                    {expandedService === service.number ? '▿' : '▸'}
+                {/* COMPACT HEADER - Fixed 60px height */}
+                <div className="service-compact-header">
+                  <span className="service-number-compact">{service.number}</span>
+                  <h3 className="service-title-compact">{service.title}</h3>
+                  <span className="service-icon-compact">
+                    <service.icon />
                   </span>
-                  <span className="service-num">{service.number}</span>
-                  <h3 className="service-name">{service.title}</h3>
+                  <span className="service-arrow-compact">
+                    {expandedService === service.number ? '−' : '+'}
+                  </span>
                 </div>
                 
-                <div className="service-tagline">{service.subtitle}</div>
-                
-                {/* Expanded Content */}
+                {/* COMPACT EXPANDED CONTENT - Max 180px height */}
                 {expandedService === service.number && (
                   <motion.div 
-                    className="service-expanded"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    className="service-compact-content"
+                    id={`service-content-${service.number}`}
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
                   >
-                    <div className="capability-block">
-                      <h4>STRATEGIC CAPABILITY:</h4>
-                      <p>{service.description}</p>
-                    </div>
-                    <div className="demand-block">
-                      <h4>FOR PROJECTS THAT DEMAND:</h4>  
-                      <p>{service.demand}</p>
+                    <div className="service-content-grid">
+                      <div className="service-subtitle-compact">{service.subtitle}</div>
+                      <div className="service-description-compact">
+                        <strong>Strategic Capability:</strong> {service.description}
+                      </div>
+                      <div className="service-demand-compact">
+                        <strong>For Projects That Demand:</strong> {service.demand}
+                      </div>
                     </div>
                   </motion.div>
-                )}
-                
-                {/* Divider */}
-                {index < referenceServices.length - 1 && (
-                  <div className="service-divider"></div>
                 )}
               </motion.div>
             ))}
