@@ -15665,13 +15665,13 @@ img {
 
 .hero-photo-artistic-unified {
   object-fit: cover;
-  object-position: 65% center; /* Strategic positioning for text readability */
+  object-position: center center; /* Center the professional portrait */
   
-  /* Minimal filter for maximum visibility */
+  /* Clean professional look for portrait with white background */
   filter: 
-    brightness(1.1) 
-    contrast(1.05)
-    saturate(1.1);
+    brightness(1.0) 
+    contrast(1.1)
+    saturate(1.0);
   
   /* Normal blend mode for clear visibility */
   mix-blend-mode: normal;
@@ -15764,6 +15764,11 @@ img {
   position: relative;
   z-index: 2;
   display: block;
+  
+  /* Optimized for black & white desk photo */
+  filter: contrast(1.08) brightness(1.02) saturate(0.95);
+  object-fit: cover;
+  object-position: center center;
 }
 
 .about-photo-unified-harmony {
