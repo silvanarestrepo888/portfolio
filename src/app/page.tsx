@@ -1033,7 +1033,6 @@ export default function Home() {
       <section 
         id="services"
         className="section-luxury section-services-sophisticated section-transition-sophisticated"
-        style={{padding: '80px 20px 0'}}
       >
         <div className="container-foundation">
           <motion.div 
@@ -1083,8 +1082,8 @@ export default function Home() {
             <motion.div 
               key={service.number}
               style={{
-                // System-compliant subtle background
-                background: 'rgba(255, 255, 255, 0.1)', // Subtle white overlay on grapefruit
+                // System-compliant grapefruit background
+                background: 'rgba(255, 255, 255, 0.08)', // Minimal white overlay on grapefruit background
                 
                 // Architectural border system
                 border: '1px solid rgba(255, 102, 99, 0.1)',
