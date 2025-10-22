@@ -16919,13 +16919,13 @@ img[class*="project-"] {
   width: 3px;
   background: linear-gradient(
     to bottom,
-    #FF6663 0%, /* Direct grapefruit for visibility */
-    rgba(255, 102, 99, 0.8) 50%,
-    rgba(255, 102, 99, 0.6) 100%
+    rgba(45, 45, 45, 0.4) 0%, /* Dark line for light background */
+    rgba(45, 45, 45, 0.7) 50%,
+    rgba(45, 45, 45, 0.4) 100%
   );
   transform: translateX(-50%);
   border-radius: 2px;
-  box-shadow: 0 0 20px rgba(255, 102, 99, 0.4); /* Stronger glow for dark background */
+  box-shadow: 0 0 8px rgba(45, 45, 45, 0.1); /* Subtle shadow for light background */
 }
 
 .experience-timeline-progress {
@@ -16936,12 +16936,12 @@ img[class*="project-"] {
   height: 0%;
   background: linear-gradient(
     to bottom,
-    var(--coral-primary) 0%,
-    var(--coral-light) 100%
+    var(--grapefruit-intelligence) 0%,
+    var(--grapefruit-impact) 100%
   );
   border-radius: 2px;
   transition: height 0.3s ease;
-  box-shadow: 0 0 15px rgba(255, 102, 99, 0.5);
+  box-shadow: 0 0 8px rgba(255, 102, 99, 0.3); /* Adjusted for light background */
 }
 
 /* Timeline Content */
