@@ -29,7 +29,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   
   // Enhanced scroll animations
-  const parallaxTransform = useParallax(0.3);
+  const parallaxTransform = useParallax(0.2);
   
   // Loading sequence like Stella's approach
   useEffect(() => {
@@ -481,19 +481,19 @@ export default function Home() {
       <main id="main-content">
       <section 
         id="hero" 
-        className="hero-section-luxury section-hero-sophisticated section-transition-sophisticated"
+        className="hero-section-luxury section-hero-sophisticated section-transition-sophisticated hero-refined-award-winning"
         aria-labelledby="hero-title"
         aria-describedby="hero-description"
         role="banner"
       >
         <div className="hero-bg-unified parallax-container">
           {/* Artistic Photo Background Layer - Cohesive Integration */}
-          <div className="hero-photo-layer-unified">
+          <div className="hero-photo-layer-unified hero-photo-refined">
             <Image 
               src="/silvana-hero.jpg"
               alt="Silvana Restrepo, Principal Experience Architect, professional headshot in business attire with confident smile"
               fill
-              className="hero-photo-artistic-unified parallax-element gpu-accelerated"
+              className="hero-photo-artistic-unified parallax-element gpu-accelerated hero-photo-sophisticated"
               style={{ transform: parallaxTransform }}
               quality={100}
               priority
@@ -518,17 +518,17 @@ export default function Home() {
         <div className="hero-content-luxury">
           <motion.h1 
             id="hero-title"
-            className="hero-title-luxury-centered"
+            className="hero-title-luxury-centered hero-title-award-winning"
             initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             Experience Architect
           </motion.h1>
           
           {/* ELEGANT CTA BUTTONS - Small and Sophisticated */}
           <motion.div 
-            className="hero-cta-elegant"
+            className="hero-cta-elegant hero-cta-award-winning"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.8 }}

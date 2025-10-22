@@ -16667,4 +16667,176 @@ img[class*="project-"] {
 
 /* ========================================== */
 /* END PHASE 3C: UNIFIED COHESIVE SYSTEM */
+
+/* ========================================== */
+/* HERO SECTION - AWARD-WINNING REFINEMENTS */
+/* ========================================== */
+
+.hero-refined-award-winning {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Photo Treatment - Sophisticated Subtlety */
+.hero-photo-sophisticated {
+  opacity: 0.28 !important;
+  filter: blur(2px) saturate(0.85);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  mix-blend-mode: multiply;
+}
+
+.hero-photo-refined::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, transparent 30%, rgba(26, 26, 26, 0.15) 100%);
+  pointer-events: none;
+}
+
+/* Typography Excellence */
+.hero-title-award-winning {
+  font-size: clamp(3.5rem, 8vw, 7rem) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.015em !important;
+  line-height: 0.95 !important;
+  color: #FFFFFF !important;
+  text-shadow: 
+    0 2px 20px rgba(0,0,0,0.3),
+    0 1px 3px rgba(0,0,0,0.2) !important;
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* CTA Container Refinement */
+.hero-cta-award-winning {
+  display: flex;
+  gap: 24px;
+  margin-top: 48px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Button Architecture - Luxury Standards */
+.hero-cta-award-winning .hero-cta-button {
+  width: 180px;
+  height: 52px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.hero-cta-award-winning .hero-cta-button:first-child {
+  background: rgba(255, 102, 99, 0.15);
+  border: 1.5px solid rgba(255, 102, 99, 0.4);
+  color: #FFFFFF;
+}
+
+.hero-cta-award-winning .hero-cta-button:first-child:hover {
+  background: #FF6663;
+  border-color: #FF6663;
+  color: #FFFFFF;
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(255, 102, 99, 0.3);
+}
+
+.hero-cta-award-winning .hero-cta-button:last-child {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+}
+
+.hero-cta-award-winning .hero-cta-button:last-child:hover {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #2D2D2D;
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+/* Magnetic Cursor Effect */
+.hero-cta-award-winning .hero-cta-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, transparent 40%, rgba(255, 255, 255, 0.1) 100%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.hero-cta-award-winning .hero-cta-button:hover::before {
+  width: 120%;
+  height: 120%;
+}
+
+/* Responsive Refinements */
+@media (max-width: 768px) {
+  .hero-cta-award-winning {
+    gap: 16px;
+    margin-top: 32px;
+    flex-direction: column;
+  }
+  
+  .hero-cta-award-winning .hero-cta-button {
+    width: 200px;
+    height: 48px;
+  }
+  
+  .hero-title-award-winning {
+    text-shadow: 
+      0 1px 15px rgba(0,0,0,0.4),
+      0 1px 2px rgba(0,0,0,0.3) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-cta-award-winning {
+    margin-top: 24px;
+  }
+}
+
+/* Animation Performance Optimization */
+.hero-photo-sophisticated,
+.hero-cta-award-winning .hero-cta-button {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Accessibility Enhancements */
+.hero-cta-award-winning .hero-cta-button:focus-visible {
+  outline: 3px solid #FF6663;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 1px #FFFBEE;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo-sophisticated {
+    filter: none;
+    transition: none;
+  }
+  
+  .hero-cta-award-winning .hero-cta-button {
+    transition: none;
+  }
+  
+  .hero-cta-award-winning .hero-cta-button:hover {
+    transform: none;
+  }
+}
 /* ========================================== */
