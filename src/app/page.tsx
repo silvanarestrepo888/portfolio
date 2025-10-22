@@ -1029,88 +1029,159 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES SECTION - CLEAN FRESH START */}
-      <section 
-        id="services"
-        className="section-luxury section-services-sophisticated section-transition-sophisticated"
-      >
-        <div className="container-foundation">
-          <motion.div 
-            className="heading-desktop"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-            viewport={{ once: true }}
-          >
-            <div className="mb-phi-xl">
-              <span 
-                className="text-foundation-sm font-foundation-accent block mb-phi-sm"
-                style={{
-                  color: 'var(--grapefruit-intelligence)'
-                }}
-              >
-                04
-              </span>
-              <h2 className="typography-h2">
-                Services
-              </h2>
-            </div>
-            <motion.p 
-              className="typography-body text-center max-w-4xl mx-auto mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              Meticulously architected solutions addressing demanding market realities and evolving client needs.
-            </motion.p>
-          </motion.div>
+      {/* ULTRA-SIMPLE SERVICES - ZERO CSS CONFLICTS */}
+      <section id="services" style={{padding: '80px 20px', background: 'rgba(255, 102, 99, 0.95)'}}>
+        <div style={{maxWidth: '800px', margin: '0 auto'}}>
+          <h2 style={{
+            textAlign: 'center', 
+            marginBottom: '20px', 
+            color: 'white',
+            fontFamily: 'Playfair Display, serif',
+            fontSize: '44px',
+            fontWeight: '400'
+          }}>
+            Services
+          </h2>
           
-          {/* SIMPLE CLEAN ACCORDION */}
-          <div className="services-simple-accordion">
-            {referenceServices.map((service, index) => (
-              <motion.div 
-                key={service.number}
-                className={`service-item ${expandedService === service.number ? 'open' : 'closed'}`}
-                onClick={() => setExpandedService(expandedService === service.number ? null : service.number)}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                viewport={{ once: true }}
-                tabIndex={0}
-                role="button"
-                aria-expanded={expandedService === service.number}
-              >
-                <div className="service-header">
-                  <span className="service-number">{service.number}</span>
-                  <h3 className="service-title">{service.title}</h3>
-                  <span className="service-toggle">
-                    {expandedService === service.number ? '−' : '+'}
-                  </span>
-                </div>
+          <p style={{
+            textAlign: 'center', 
+            marginBottom: '40px', 
+            color: 'rgba(255, 255, 255, 0.9)',
+            fontSize: '16px',
+            maxWidth: '600px',
+            margin: '0 auto 40px auto',
+            lineHeight: '1.6'
+          }}>
+            Meticulously architected solutions addressing demanding market realities and evolving client needs.
+          </p>
+          
+          {referenceServices.map((service, index) => (
+            <div 
+              key={service.number}
+              style={{
+                border: '1px solid rgba(255, 255, 255, 0.3)',
+                borderRadius: '8px',
+                marginBottom: '12px',
+                background: 'rgba(255, 255, 255, 0.1)',
+                overflow: 'visible',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease'
+              }}
+              onClick={() => setExpandedService(expandedService === service.number ? null : service.number)}
+            >
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '20px',
+                padding: '20px 24px'
+              }}>
+                <span style={{
+                  fontSize: '12px',
+                  fontWeight: '600',
+                  color: '#ff6663',
+                  background: 'rgba(255, 255, 255, 0.2)',
+                  padding: '4px 8px',
+                  borderRadius: '4px',
+                  minWidth: '28px',
+                  textAlign: 'center'
+                }}>
+                  {service.number}
+                </span>
                 
-                {expandedService === service.number && (
-                  <motion.div 
-                    className="service-content"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  >
-                    <p className="service-subtitle">{service.subtitle}</p>
-                    <div className="service-description">
-                      <h4>Strategic Capability</h4>
-                      <p>{service.description}</p>
-                    </div>
-                    <div className="service-demand">
-                      <h4>For Projects That Demand</h4>
-                      <p>{service.demand}</p>
-                    </div>
-                  </motion.div>
-                )}
-              </motion.div>
-            ))}
-          </div>
+                <h3 style={{
+                  flex: 1,
+                  margin: 0,
+                  fontFamily: 'Playfair Display, serif',
+                  fontSize: '20px',
+                  fontWeight: '400',
+                  color: 'rgba(255, 255, 255, 0.95)',
+                  lineHeight: '1.2'
+                }}>
+                  {service.title}
+                </h3>
+                
+                <span style={{
+                  fontSize: '18px',
+                  fontWeight: '600',
+                  color: 'rgba(255, 255, 255, 0.8)',
+                  width: '24px',
+                  textAlign: 'center'
+                }}>
+                  {expandedService === service.number ? '−' : '+'}
+                </span>
+              </div>
+              
+              {expandedService === service.number && (
+                <div style={{
+                  padding: '0 24px 24px',
+                  borderTop: '1px solid rgba(255, 255, 255, 0.1)'
+                }}>
+                  <p style={{
+                    fontSize: '16px',
+                    color: 'rgba(255, 255, 255, 0.8)',
+                    marginBottom: '16px',
+                    fontWeight: '400'
+                  }}>
+                    {service.subtitle}
+                  </p>
+                  
+                  <div style={{
+                    marginBottom: '16px',
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    padding: '16px',
+                    borderRadius: '6px',
+                    borderLeft: '2px solid rgba(255, 255, 255, 0.2)'
+                  }}>
+                    <h4 style={{
+                      fontSize: '12px',
+                      fontWeight: '600',
+                      color: 'rgba(255, 255, 255, 0.9)',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.08em',
+                      marginBottom: '8px'
+                    }}>
+                      Strategic Capability
+                    </h4>
+                    <p style={{
+                      fontSize: '14px',
+                      color: 'rgba(255, 255, 255, 0.8)',
+                      lineHeight: '1.6',
+                      margin: 0
+                    }}>
+                      {service.description}
+                    </p>
+                  </div>
+                  
+                  <div style={{
+                    marginBottom: '16px',
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    padding: '16px',
+                    borderRadius: '6px',
+                    borderLeft: '2px solid rgba(255, 255, 255, 0.2)'
+                  }}>
+                    <h4 style={{
+                      fontSize: '12px',
+                      fontWeight: '600',
+                      color: 'rgba(255, 255, 255, 0.9)',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.08em',
+                      marginBottom: '8px'
+                    }}>
+                      For Projects That Demand
+                    </h4>
+                    <p style={{
+                      fontSize: '14px',
+                      color: 'rgba(255, 255, 255, 0.8)',
+                      lineHeight: '1.6',
+                      margin: 0
+                    }}>
+                      {service.demand}
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
