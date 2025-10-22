@@ -231,37 +231,6 @@ export function InteractiveProjectCard({
                 </div>
               </motion.div>
               
-              {/* Clean Action Buttons */}
-              <motion.div 
-                className="balanced-actions"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 + 0.8 }}
-              >
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onSelect(index);
-                  }}
-                  className="balanced-btn primary magnetic-button touch-friendly enhanced-focus gpu-accelerated"
-                  style={{ transform: 'translateZ(20px)' }}
-                >
-                  View Full Case Study
-                </button>
-                
-                {project.website && (
-                  <a 
-                    href={project.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="balanced-btn secondary magnetic-button touch-friendly enhanced-focus gpu-accelerated"
-                    style={{ transform: 'translateZ(20px)' }}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    Visit Website
-                  </a>
-                )}
-              </motion.div>
             </div>
           </div>
         </div>

@@ -1066,46 +1066,75 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          {/* SERVICES HOVER AMPLIFICATION SYSTEM */}
-          <div className="services-amplification-container">
-            <div className="services-amplification-grid">
+          {/* LUXURY SERVICES SECTION - HEAD OF DESIGN LEVEL */}
+          <div className="services-luxury-container">
+            <div className="services-luxury-grid">
               {referenceServices.map((service, index) => (
-                <div
+                <motion.div
                   key={service.number}
-                  className={`service-amplification-item ${expandedService === index ? 'expanded' : 'compact'}`}
-                  onMouseEnter={() => setExpandedService(index)}
-                  onMouseLeave={() => setExpandedService(null)}
+                  className="service-luxury-card"
+                  tabIndex={0}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: index * 0.1,
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                  }}
+                  viewport={{ once: true, margin: "-50px" }}
                 >
-                  {/* Basic Content - Always Visible */}
-                  <div className="service-basic-content">
-                    <div className="service-icon-container" style={{ marginBottom: '16px' }}>
+                  <div className="service-luxury-content">
+                    {/* Service Icon */}
+                    <div className="service-luxury-icon">
                       <service.icon 
-                        size={48} 
+                        size={56} 
                         color="#E55555" 
-                        animated={expandedService === index}
+                        animated={true}
                       />
                     </div>
-                    <div className="service-number">{service.number}</div>
-                    <h3 className="service-title">{service.title}</h3>
-                    <p className="service-subtitle">{service.subtitle}</p>
-                    <div className="service-hover-hint">Hover to explore</div>
-                  </div>
-                  
-                  {/* Detailed Content - Revealed on Hover */}
-                  {expandedService === index && (
-                    <div className="service-detailed-content">
-                      <div className="service-content-section">
-                        <h4 className="content-title">Strategic Capability</h4>
-                        <p className="content-description">{service.description}</p>
-                      </div>
-                      
-                      <div className="service-content-section">
-                        <h4 className="content-title">For projects that demand</h4>
-                        <p className="content-description">{service.demand}</p>
-                      </div>
+                    
+                    {/* Service Number */}
+                    <span className="service-luxury-number">{service.number}</span>
+                    
+                    {/* Service Title */}
+                    <h3 className="service-luxury-title">{service.title}</h3>
+                    
+                    {/* Service Subtitle */}
+                    <p className="service-luxury-subtitle">{service.subtitle}</p>
+                    
+                    {/* Strategic Capability */}
+                    <div style={{ marginBottom: '32px' }}>
+                      <h4 style={{ 
+                        fontFamily: 'Inter, sans-serif',
+                        fontSize: '0.875rem',
+                        fontWeight: '700',
+                        color: '#E55555',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.1em',
+                        marginBottom: '12px'
+                      }}>
+                        Strategic Capability
+                      </h4>
+                      <p className="service-luxury-description">{service.description}</p>
                     </div>
-                  )}
-                </div>
+                    
+                    {/* For projects that demand */}
+                    <div>
+                      <h4 style={{ 
+                        fontFamily: 'Inter, sans-serif',
+                        fontSize: '0.875rem',
+                        fontWeight: '700',
+                        color: '#E55555',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.1em',
+                        marginBottom: '12px'
+                      }}>
+                        For projects that demand
+                      </h4>
+                      <p className="service-luxury-demand">{service.demand}</p>
+                    </div>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>
