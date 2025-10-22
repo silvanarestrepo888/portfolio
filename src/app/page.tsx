@@ -103,8 +103,8 @@ export default function Home() {
     }
   ];
 
-  // Services hover expansion state - Hover Amplification System
-  const [expandedService, setExpandedService] = useState<number | null>(null);
+  // Services hover expansion state
+  const [expandedService, setExpandedService] = useState<string | null>(null);
   
   // Timeline progress state
   const [timelineProgress, setTimelineProgress] = useState(0);
@@ -1066,35 +1066,57 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          {/* RESTORE ORIGINAL SOPHISTICATED SERVICES LAYOUT */}
-          <div className="services-sophisticated-container">
-            <div className="services-sophisticated-layout">
+          {/* ACCORDION SERVICES USING YOUR DESIGN SYSTEM */}
+          <div className="services-accordion-container">
+            <div className="services-accordion-stack">
               {referenceServices.map((service, index) => (
                 <motion.div
                   key={service.number}
-                  className="service-sophisticated-item"
+                  className={`service-accordion-item ${expandedService === service.number ? 'expanded' : 'collapsed'}`}
+                  onMouseEnter={() => setExpandedService(service.number)}
+                  onMouseLeave={() => setExpandedService(null)}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
+                  tabIndex={0}
                 >
-                  <motion.h3 
-                    className="service-sophisticated-title"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
-                  >
-                    {service.title}
-                  </motion.h3>
+                  {/* Service Header - Always Visible */}
+                  <div className="service-accordion-header">
+                    <span className="accordion-arrow">
+                      {expandedService === service.number ? '▿' : '▸'}
+                    </span>
+                    <span className="service-number-accordion">{service.number}</span>
+                    <h3 className="typography-h3 service-title-accordion">{service.title}</h3>
+                  </div>
                   
-                  <motion.p 
-                    className="service-sophisticated-subtitle"
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
-                  >
-                    {service.subtitle}
-                  </motion.p>
+                  <p className="typography-body service-subtitle-accordion">{service.subtitle}</p>
+                  
+                  {/* Expandable Content - Revealed on Hover */}
+                  {expandedService === service.number && (
+                    <motion.div 
+                      className="service-accordion-content"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    >
+                      <div className="accordion-section">
+                        <h4 className="typography-caption accordion-label">STRATEGIC CAPABILITY:</h4>
+                        <p className="typography-body">{service.description}</p>
+                      </div>
+                      
+                      <div className="accordion-section">
+                        <h4 className="typography-caption accordion-label">FOR PROJECTS THAT DEMAND:</h4>
+                        <p className="typography-body">{service.demand}</p>
+                      </div>
+                    </motion.div>
+                  )}
+                  
+                  {/* Divider Line */}
+                  {index < referenceServices.length - 1 && (
+                    <div className="service-accordion-divider"></div>
+                  )}
                 </motion.div>
               ))}
             </div>
