@@ -11,6 +11,7 @@ import { SectionIndicator } from '../components/navigation/SectionIndicator';
 import { useParallax } from '../hooks/useScrollAnimation';
 import { InteractiveProjectCard } from '../components/projects/InteractiveProjectCard';
 import { SilvanaLoader } from '../components/ui/SilvanaLoader';
+import { ExperienceDesignIcon, ServiceDesignIcon, DigitalTransformationIcon } from '../components/icons/services';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -43,49 +44,31 @@ export default function Home() {
 
 
 
-  // SERVICES DATA - ORIGINAL COPY COMPLIANT - Enhanced Visual Treatment Only
+  // ENHANCED SERVICES DATA - THREE MAIN CATEGORIES WITH ICONS
   const referenceServices = [
     {
-      number: "00-1",
-      title: "Accelerated Product Innovation",
-      description: "Transform product visions into market reality through AI-powered rapid prototyping and validation. Implementing innovation sprints where data accelerates ideation, AI accelerates testing, and go-to-market strategies—turning months of development into weeks of strategic clarity.",
-      provenExcellence: "Augoor platform development—31,000+ developers, transforming static repositories into intelligent knowledge systems",
-      demand: "Speed to market without sacrificing strategic depth."
+      number: "01",
+      title: "Experience Design",
+      description: "Transform user journeys into memorable brand experiences through human-centered design thinking. I orchestrate comprehensive experience strategies that connect emotional resonance with business objectives, creating touchpoints that convert interactions into lasting relationships.",
+      provenExcellence: "Kayanee wellness platform—Saudi Arabia's first integrated phygital ecosystem serving women's holistic wellbeing journey",
+      demand: "Experiences that resonate deeply and drive sustainable engagement across all touchpoints.",
+      icon: ExperienceDesignIcon
     },
     {
-      number: "00-2", 
-      title: "Experience Orchestration",
-      description: "Harmonizing thousands of touchpoints across locations/channels/vendors into one resonant brand voice. Systems thinking applied to create unified experience architectures where daily interactions feel like one seamless conversation—whether digital, physical, or hybrid.",
-      provenExcellence: "Theme Park- Multiple Channels-One unified experience language",
-      demand: "Coherent brand experiences that scale without losing soul. Global reach with local resonance."
+      number: "02", 
+      title: "Service Design",
+      description: "Blueprint end-to-end service ecosystems that seamlessly integrate people, processes, and technology. I design service architectures where every touchpoint is optimized for both operational efficiency and exceptional user experiences, transforming complex systems into intuitive journeys.",
+      provenExcellence: "CHiME Care for Johnson & Johnson—streamlined surgical patient management workflows enabling precision care while intelligent systems handle complexity",
+      demand: "Service systems that scale beautifully while maintaining human-centered care and operational excellence.",
+      icon: ServiceDesignIcon
     },
     {
-      number: "00-3",
-      title: "Intelligent Operations Architecture", 
-      description: "Building AI-augmented teams that outperform traditional structures. Design agentic systems where AI specialists and human experts collaborate as unified intelligence. I help to architect operational ecosystems with embedded market monitoring, competitive intelligence, and automated research capabilities—creating self-optimizing organizations.",
-      provenExcellence: "Globant X initiatives—AI-human collaboration frameworks deployed across 31,000 team members",
-      demand: "Operations that think, adapt, and evolve. Intelligence is embedded in every process."
-    },
-    {
-      number: "00-4",
-      title: "Transformation Foundations",
-      description: "Engineering organizational evolution through scalable design foundations. Design systems become organizational DNA. Every component strengthens the whole. Every decision accelerates the next. I collaborate to create modular, scalable frameworks —turning organizational complexity into competitive advantage.",
-      provenExcellence: "Kayanee wellness platform—Saudi Arabia's first integrated phygital ecosystem.",
-      demand: "Transformation that compounds. Every change strengthens the foundation for the next leap."
-    },
-    {
-      number: "00-5",
-      title: "Strategic Innovation Consulting",
-      description: "Converting market disruption into systematic advantage. Navigate complexity with frameworks that transform uncertainty into opportunity. I blend behavioral economics, emerging technology foresight, and cultural intelligence to create innovation strategies that don't just respond to change—they create it.",
-      provenExcellence: "Centre for Fourth Industrial Revolution—governance frameworks adopted across global affiliate network",
-      demand: "Innovation with precision. Strategies that move from boardroom to market with velocity."
-    },
-    {
-      number: "00-6",
-      title: "Customer Intelligence Platforms",
-      description: "Turning customer behavior into a competitive advantage. Architecting intelligence systems that don't just track customer behavior—they anticipate it, I design platforms where every interaction feeds learning algorithms, creating self-improving experiences that evolve faster than market demands.",
-      provenExcellence: "32 retail destinations achieving 26% sales growth through behavior-driven experience design",
-      demand: "Customer relationships that deepen with every interaction. Intelligence that scales intimacy."
+      number: "03",
+      title: "Digital Transformation", 
+      description: "Accelerate organizational evolution through strategic technology integration and cultural transformation. I architect digital foundations that amplify human potential while building adaptive systems that evolve with market demands—turning digital complexity into competitive advantage.",
+      provenExcellence: "Parques Reunidos catalog harmonization—unified product taxonomy across 70 entertainment venues spanning three continents while preserving local venue authenticity",
+      demand: "Transformation that compounds intelligence, where every digital advancement strengthens the foundation for exponential growth.",
+      icon: DigitalTransformationIcon
     }
   ];
 
@@ -1064,6 +1047,13 @@ export default function Home() {
                 >
                   {/* Basic Content - Always Visible */}
                   <div className="service-basic-content">
+                    <div className="service-icon-container" style={{ marginBottom: '16px' }}>
+                      <service.icon 
+                        size={48} 
+                        color="#E55555" 
+                        animated={expandedService === index}
+                      />
+                    </div>
                     <div className="service-number">{service.number}</div>
                     <h3 className="service-title">{service.title}</h3>
                     <div className="service-hover-hint">Hover to explore</div>
