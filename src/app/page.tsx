@@ -29,7 +29,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   
   // Enhanced scroll animations
-  const parallaxTransform = useParallax(0.2);
+  const parallaxTransform = useParallax(0.3);
   
   // Loading sequence like Stella's approach
   useEffect(() => {
@@ -38,34 +38,6 @@ export default function Home() {
     }, 2500); // Sophisticated loading duration
     return () => clearTimeout(timer);
   }, []);
-  
-  // PHASE 7: Keyboard Navigation - ESC to Close Modal
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && selectedProject !== null) {
-        setSelectedProject(null);
-      }
-    };
-    
-    if (selectedProject !== null) {
-      document.addEventListener('keydown', handleKeyDown);
-      // Prevent body scroll when modal is open
-      document.body.style.overflow = 'hidden';
-      
-      // CRITICAL FIX: Scroll to top when project changes
-      const overlay = document.querySelector('.project-details-overlay');
-      if (overlay) {
-        overlay.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
-    };
-  }, [selectedProject]);
   
   // Foundation Project Exploration System
   const [featuredProjectIndex, setFeaturedProjectIndex] = useState(0);
@@ -132,7 +104,6 @@ export default function Home() {
   ];
 
   // Services hover expansion state
-  // Perfect Accordion - Expansion State
   const [expandedService, setExpandedService] = useState<string | null>(null);
   
   // Timeline progress state
@@ -510,19 +481,19 @@ export default function Home() {
       <main id="main-content">
       <section 
         id="hero" 
-        className="hero-section-luxury section-hero-sophisticated section-transition-sophisticated hero-refined-award-winning"
+        className="hero-section-luxury section-hero-sophisticated section-transition-sophisticated"
         aria-labelledby="hero-title"
         aria-describedby="hero-description"
         role="banner"
       >
         <div className="hero-bg-unified parallax-container">
           {/* Artistic Photo Background Layer - Cohesive Integration */}
-          <div className="hero-photo-layer-unified hero-photo-refined">
+          <div className="hero-photo-layer-unified">
             <Image 
               src="/silvana-hero.jpg"
               alt="Silvana Restrepo, Principal Experience Architect, professional headshot in business attire with confident smile"
               fill
-              className="hero-photo-artistic-unified parallax-element gpu-accelerated hero-photo-sophisticated"
+              className="hero-photo-artistic-unified parallax-element gpu-accelerated"
               style={{ transform: parallaxTransform }}
               quality={100}
               priority
@@ -547,40 +518,17 @@ export default function Home() {
         <div className="hero-content-luxury">
           <motion.h1 
             id="hero-title"
-            className="hero-title-luxury-centered hero-title-award-winning hero-title-split-sophisticated"
+            className="hero-title-luxury-centered"
             initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 1.2, delay: 0.3 }}
           >
-            <motion.span 
-              className="word-experience word-experience-tactile"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ 
-                duration: 0.8, 
-                delay: 0.5, 
-                ease: [0.25, 0.46, 0.45, 0.94] 
-              }}
-            >
-              Experience
-            </motion.span>
-            <motion.span 
-              className="word-architect word-architect-tactile"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ 
-                duration: 0.8, 
-                delay: 0.7, 
-                ease: [0.25, 0.46, 0.45, 0.94] 
-              }}
-            >
-              Architect
-            </motion.span>
+            Experience Architect
           </motion.h1>
           
           {/* ELEGANT CTA BUTTONS - Small and Sophisticated */}
           <motion.div 
-            className="hero-cta-elegant hero-cta-award-winning"
+            className="hero-cta-elegant"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.8 }}
@@ -1118,98 +1066,57 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          {/* PERFECT ACCORDION - FLAWLESS DESIGN & FUNCTIONALITY */}
-          <div className="services-accordion-perfection">
-            {referenceServices.map((service, index) => {
-              const isExpanded = expandedService === service.number;
-              
-              return (
-                <motion.div 
-                  key={service.number}
-                  className={`service-item-perfection ${isExpanded ? 'is-expanded' : ''}`}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.6, 
-                    delay: index * 0.1,
-                    ease: [0.25, 0.46, 0.45, 0.94]
-                  }}
-                  viewport={{ once: true }}
-                >
-                  {/* Accordion Header - Always Visible */}
-                  <button
-                    className="service-header-perfection"
-                    onClick={() => setExpandedService(isExpanded ? null : service.number)}
-                    aria-expanded={isExpanded}
-                  >
-                    {/* Left: Number Badge */}
-                    <div className="service-number-perfection">
-                      {service.number}
-                    </div>
-
-                    {/* Center: Title & Icon */}
-                    <div className="service-title-group">
-                      <div className="service-icon-perfection">
-                        <service.icon />
-                      </div>
-                      <div className="service-title-content">
-                        <h3 className="service-title-perfection">
-                          {service.title}
-                        </h3>
-                        <p className="service-subtitle-perfection">
-                          {service.subtitle}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Right: Expand Indicator */}
-                    <motion.div 
-                      className="service-expand-indicator"
-                      animate={{ 
-                        rotate: isExpanded ? 180 : 0
-                      }}
-                      transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    >
-                      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="16" cy="16" r="15" stroke="currentColor" strokeWidth="2"/>
-                        <path d="M10 14L16 20L22 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </motion.div>
-                  </button>
-
-                  {/* Accordion Content - Expandable */}
+          {/* PROPER ACCORDION SERVICES */}
+          <div className="services-stack">
+            {referenceServices.map((service, index) => (
+              <motion.div 
+                key={service.number}
+                className={`service-row ${expandedService === service.number ? 'expanded' : ''}`}
+                onMouseEnter={() => setExpandedService(service.number)}
+                onMouseLeave={() => setExpandedService(null)}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                viewport={{ once: true }}
+                tabIndex={0}
+              >
+                {/* Compact Header Row */}
+                <div className="service-header-row">
+                  <span className="service-arrow">
+                    {expandedService === service.number ? '▿' : '▸'}
+                  </span>
+                  <span className="service-num">{service.number}</span>
+                  <h3 className="service-name">{service.title}</h3>
+                </div>
+                
+                <div className="service-tagline">{service.subtitle}</div>
+                
+                {/* Expanded Content */}
+                {expandedService === service.number && (
                   <motion.div 
-                    className="service-content-perfection"
-                    initial={false}
-                    animate={{ 
-                      height: isExpanded ? 'auto' : 0,
-                      opacity: isExpanded ? 1 : 0
-                    }}
-                    transition={{ 
-                      duration: 0.4, 
-                      ease: [0.25, 0.46, 0.45, 0.94]
-                    }}
-                    style={{ overflow: 'hidden' }}
+                    className="service-expanded"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
                   >
-                    <div className="service-content-inner-perfection">
-                      {/* Description - Copy Compliant */}
-                      <div className="service-section-perfection">
-                        <p className="service-section-text-perfection">
-                          {service.description}
-                        </p>
-                      </div>
-
-                      {/* Demand - Copy Compliant */}
-                      <div className="service-section-perfection service-demand-box">
-                        <p className="service-section-text-perfection">
-                          {service.demand}
-                        </p>
-                      </div>
+                    <div className="capability-block">
+                      <h4>STRATEGIC CAPABILITY:</h4>
+                      <p>{service.description}</p>
+                    </div>
+                    <div className="demand-block">
+                      <h4>FOR PROJECTS THAT DEMAND:</h4>  
+                      <p>{service.demand}</p>
                     </div>
                   </motion.div>
-                </motion.div>
-              );
-            })}
+                )}
+                
+                {/* Divider */}
+                {index < referenceServices.length - 1 && (
+                  <div className="service-divider"></div>
+                )}
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -1296,84 +1203,22 @@ export default function Home() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
         >
-          {/* ULTRA-PROMINENT NAVIGATION - IMPOSSIBLE TO MISS */}
-          <div className="project-details-navigation-system">
-            {/* MASSIVE Back Button - Top Left */}
-            <motion.button
-              onClick={() => setSelectedProject(null)}
-              className="project-back-button-ultra"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-              whileHover={{ 
-                scale: 1.08,
-                boxShadow: "0 16px 60px var(--grapefruit-soft)"
-              }}
-              whileTap={{ scale: 0.95 }}
-              aria-label="Back to Projects"
-            >
-              <svg 
-                width="24" 
-                height="24" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
-                className="back-icon"
+          {/* BREADCRUMB NAVIGATION SYSTEM */}
+          <div className="project-details-header">
+            <nav className="breadcrumb-architectural" aria-label="Project navigation">
+              <motion.button
+                onClick={() => setSelectedProject(null)}
+                className="breadcrumb-back typography-body"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <path 
-                  d="M15 18L9 12L15 6" 
-                  stroke="currentColor" 
-                  strokeWidth="3" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span className="back-text">Back to Projects</span>
-            </motion.button>
-
-            {/* Close Button - Top Right */}
-            <motion.button
-              onClick={() => setSelectedProject(null)}
-              className="project-close-button-ultra"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-              whileHover={{ 
-                scale: 1.08,
-                rotate: 90
-              }}
-              whileTap={{ scale: 0.95 }}
-              aria-label="Close Project Details"
-            >
-              <svg 
-                width="28" 
-                height="28" 
-                viewBox="0 0 28 28" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path 
-                  d="M21 7L7 21M7 7L21 21" 
-                  stroke="currentColor" 
-                  strokeWidth="3" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </motion.button>
-            
-            {/* Project Title Bar - Center */}
-            <motion.div 
-              className="project-title-bar"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <span className="project-title-bar-text">
+                ← Back to Projects
+              </motion.button>
+              <span className="breadcrumb-separator">•</span>
+              <span className="breadcrumb-current typography-body">
                 {selectedProject !== null ? projects[selectedProject].title : ''}
               </span>
-              <kbd className="kbd-hint-inline">ESC</kbd>
-            </motion.div>
+            </nav>
           </div>
 
           {/* HERO SECTION - Perfect Visual Exploration with Proper Spacing */}
@@ -1670,6 +1515,27 @@ export default function Home() {
             </motion.div>
           </div>
           
+          {/* PROJECT DETAILS FOOTER - ARCHITECTURAL PRECISION */}
+          <footer className="project-details-footer-architectural">
+            <div className="footer-architectural-content">
+              <div className="footer-brand-architectural">
+                <h3 className="footer-brand-name typography-h3">silvana.</h3>
+                <p className="footer-brand-title typography-body">Principal Experience Architect</p>
+                <p className="footer-brand-description typography-caption">
+                  Transforming business challenges into strategic advantages through experience-driven innovation.
+                </p>
+              </div>
+              <div className="footer-contact-architectural">
+                <a href="mailto:silvanarestrepo888@gmail.com" className="footer-contact-link typography-caption">
+                  Contact
+                </a>
+                <a href="https://linkedin.com/in/silvanarestrepo" className="footer-contact-link typography-caption">
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </footer>
+                
           {/* SOPHISTICATED PROJECT NAVIGATION */}
           <div className="sophisticated-navigation-section">
             <motion.div 
@@ -1873,48 +1739,6 @@ export default function Home() {
                 projects[selectedProject].galleryImages.length : 0}
             </div>
           </motion.div>
-          
-          {/* REDESIGNED FOOTER - ALWAYS VISIBLE WITH BACK TO TOP */}
-          <footer className="project-details-footer-ultra">
-            <div className="footer-ultra-content">
-              {/* Back to Top Button */}
-              <motion.button
-                onClick={() => {
-                  const overlay = document.querySelector('.project-details-overlay');
-                  if (overlay) {
-                    overlay.scrollTo({ top: 0, behavior: 'smooth' });
-                  }
-                }}
-                className="back-to-top-button"
-                whileHover={{ scale: 1.05, y: -4 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <span>Back to Top</span>
-              </motion.button>
-              
-              <div className="footer-grid-ultra">
-                <div className="footer-brand-ultra">
-                  <h3 className="footer-brand-name typography-h3">silvana.</h3>
-                  <p className="footer-brand-title typography-body">Principal Experience Architect</p>
-                  <p className="footer-brand-description typography-caption">
-                    Transforming business challenges into strategic advantages through experience-driven innovation.
-                  </p>
-                </div>
-                
-                <div className="footer-contact-ultra">
-                  <a href="mailto:silvanarestrepo888@gmail.com" className="footer-contact-link typography-caption">
-                    Contact
-                  </a>
-                  <a href="https://linkedin.com/in/silvanarestrepo" className="footer-contact-link typography-caption">
-                    LinkedIn
-                  </a>
-                </div>
-              </div>
-            </div>
-          </footer>
         </motion.div>
       )}
 
