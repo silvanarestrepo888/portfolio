@@ -895,10 +895,10 @@ export default function Home() {
               >
                 03
               </span>
-            <h2 className="typography-h2" style={{ color: 'var(--vanilla-whisper)' }}>
+            <h2 className="typography-h2" style={{ color: '#FFFFFF' }}>
                 Experience
               </h2>
-            <p className="typography-body text-center max-w-4xl mx-auto" style={{ color: 'var(--vanilla-foundation)' }}>
+            <p className="typography-body text-center max-w-4xl mx-auto" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
               Some of the <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)' }}>upscaling</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)' }}>reinventing</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)' }}>evolving</span>, and <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)' }}>reimagining</span> business, brands, and teams.
             </p>
           </motion.div>

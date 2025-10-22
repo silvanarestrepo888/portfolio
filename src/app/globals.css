@@ -15498,11 +15498,15 @@ img {
 /* Removed cluttered experience overlay for clean authority */
 
 .section-experience-sophisticated h2 {
-  color: var(--grapefruit-rich);
+  color: #FFFFFF !important; /* Pure white for maximum contrast on dark background */
+  text-shadow: none !important;
+  font-weight: 500 !important;
 }
 
 .section-experience-sophisticated p {
-  color: var(--grapefruit-medium);
+  color: rgba(255, 255, 255, 0.9) !important; /* High contrast white */
+  text-shadow: none !important;
+  font-weight: 400 !important;
 }
 
 .section-experience-sophisticated .experience-layer-card {
@@ -15632,17 +15636,24 @@ img[class*="project-"] {
   border: none !important;
 }
 
-/* EXPERIENCE TEXT READABILITY */
+/* EXPERIENCE TEXT HIGH CONTRAST VISIBILITY */
 .experience-text-content h3,
 .experience-text-content p,
 .experience-year,
 .experience-role,
 .experience-company,
 .experience-description {
-  /* Ensure text is readable without background frames */
-  color: var(--vanilla-whisper) !important; /* High contrast on dark background */
-  text-shadow: none !important;
+  /* MAXIMUM CONTRAST FOR DARK BACKGROUND */
+  color: #FFFFFF !important; /* Pure white for maximum visibility */
+  text-shadow: none !important; /* Clean, no effects */
   background: transparent !important;
+  font-weight: 400 !important; /* Readable weight */
+}
+
+/* EXPERIENCE YEAR ACCENT */
+.experience-year {
+  color: #FF6663 !important; /* Grapefruit accent for visual hierarchy */
+  font-weight: 600 !important; /* Stronger for accent */
 }
 
 /* SERVICE TEXT READABILITY */
@@ -15889,13 +15900,13 @@ img[class*="project-"] {
   width: 3px;
   background: linear-gradient(
     to bottom,
-    var(--grapefruit-pure) 0%,
-    var(--grapefruit-medium) 50%,
-    var(--grapefruit-soft) 100%
+    #FF6663 0%, /* Direct grapefruit for visibility */
+    rgba(255, 102, 99, 0.8) 50%,
+    rgba(255, 102, 99, 0.6) 100%
   );
   transform: translateX(-50%);
   border-radius: 2px;
-  box-shadow: 0 0 20px rgba(255, 102, 99, 0.3);
+  box-shadow: 0 0 20px rgba(255, 102, 99, 0.4); /* Stronger glow for dark background */
 }
 
 .experience-timeline-progress {
@@ -15946,14 +15957,14 @@ img[class*="project-"] {
   top: 50%;
   width: 16px;
   height: 16px;
-  background: var(--coral-primary);
-  border: 3px solid var(--cream-primary);
+  background: #FF6663; /* Direct grapefruit for visibility */
+  border: 3px solid #FFFFFF; /* Pure white border for contrast */
   border-radius: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
   box-shadow: 
-    0 0 0 4px rgba(255, 102, 99, 0.2),
-    0 0 20px rgba(255, 102, 99, 0.4);
+    0 0 0 4px rgba(255, 102, 99, 0.3),
+    0 0 20px rgba(255, 102, 99, 0.5); /* Stronger glow for visibility */
   transition: all 0.3s ease;
 }
 
