@@ -51,6 +51,12 @@ export default function Home() {
       document.addEventListener('keydown', handleKeyDown);
       // Prevent body scroll when modal is open
       document.body.style.overflow = 'hidden';
+      
+      // CRITICAL FIX: Scroll to top when project changes
+      const overlay = document.querySelector('.project-details-overlay');
+      if (overlay) {
+        overlay.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     } else {
       document.body.style.overflow = 'unset';
     }

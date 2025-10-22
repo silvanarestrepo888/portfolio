@@ -9579,41 +9579,43 @@ h4, .text-h4 {
   pointer-events: auto; /* Re-enable clicks on actual buttons */
 }
 
-/* ULTRA BACK BUTTON - MASSIVE AND PROMINENT */
+/* ULTRA BACK BUTTON - IMPOSSIBLE TO MISS */
 .project-back-button-ultra {
   display: flex;
   align-items: center;
   gap: 1rem;
   padding: 1.25rem 2.5rem;
-  background: linear-gradient(135deg, 
-    var(--grapefruit-pure) 0%, 
-    var(--grapefruit-medium) 100%);
-  color: var(--vanilla-pure);
-  border: 2px solid var(--grapefruit-medium);
+  /* CRITICAL FIX: Solid grapefruit background with white text */
+  background: var(--grapefruit-pure);
+  color: #FFFFFF; /* Pure white for maximum contrast */
+  border: 3px solid var(--grapefruit-rich); /* Thicker border */
   border-radius: 4rem;
   font-family: 'Inter', sans-serif;
   font-size: 1.125rem;
-  font-weight: 700;
+  font-weight: 800; /* Extra bold */
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   box-shadow: 
-    0 12px 40px var(--grapefruit-soft),
-    0 0 0 1px rgba(255, 255, 255, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    0 12px 40px rgba(255, 102, 99, 0.6), /* Stronger shadow */
+    0 0 0 1px rgba(255, 255, 255, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  /* Extra emphasis */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .project-back-button-ultra:hover {
-  background: linear-gradient(135deg, 
-    var(--grapefruit-medium) 0%, 
-    var(--grapefruit-rich) 100%);
-  transform: translateX(-6px) translateY(-2px);
+  /* Even more prominent on hover */
+  background: var(--grapefruit-rich);
+  color: #FFFFFF;
+  transform: translateX(-6px) translateY(-2px) scale(1.05);
   box-shadow: 
-    0 20px 60px var(--grapefruit-soft),
-    0 0 0 2px var(--grapefruit-pure),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    0 20px 60px rgba(255, 102, 99, 0.8),
+    0 0 0 3px var(--grapefruit-pure),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
   border-color: var(--grapefruit-pure);
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
 }
 
 .project-back-button-ultra:active {
@@ -9623,15 +9625,22 @@ h4, .text-h4 {
 .back-icon {
   transition: transform 0.3s ease;
   flex-shrink: 0;
+  /* Ensure icon is white */
+  color: #FFFFFF;
+  stroke: #FFFFFF;
 }
 
 .project-back-button-ultra:hover .back-icon {
   transform: translateX(-4px);
+  /* Icon stays white on hover */
+  color: #FFFFFF;
+  stroke: #FFFFFF;
 }
 
 .back-text {
-  font-weight: 700;
+  font-weight: 800; /* Match button weight */
   white-space: nowrap;
+  color: #FFFFFF; /* Explicit white */
 }
 
 /* CLOSE BUTTON - TOP RIGHT */
