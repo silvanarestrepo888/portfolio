@@ -1029,11 +1029,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* COMPACT SERVICES ACCORDION - AWARD-WINNING DESIGN */}
+      {/* SERVICES SECTION - CLEAN FRESH START */}
       <section 
         id="services"
         className="section-luxury section-services-sophisticated section-transition-sophisticated"
-        style={{ minHeight: '80vh', maxHeight: '100vh' }}
       >
         <div className="container-foundation">
           <motion.div 
@@ -1067,12 +1066,12 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          {/* COMPACT ACCORDION CONTAINER */}
-          <div className="services-compact-container">
+          {/* SIMPLE CLEAN ACCORDION */}
+          <div className="services-simple-accordion">
             {referenceServices.map((service, index) => (
               <motion.div 
                 key={service.number}
-                className={`service-compact-item ${expandedService === service.number ? 'expanded' : ''}`}
+                className={`service-item ${expandedService === service.number ? 'open' : 'closed'}`}
                 onClick={() => setExpandedService(expandedService === service.number ? null : service.number)}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -1081,40 +1080,31 @@ export default function Home() {
                 tabIndex={0}
                 role="button"
                 aria-expanded={expandedService === service.number}
-                aria-controls={`service-content-${service.number}`}
               >
-                {/* COMPACT HEADER - Fixed 60px height */}
-                <div className="service-compact-header">
-                  <span className="service-number-compact">{service.number}</span>
-                  <h3 className="service-title-compact">{service.title}</h3>
-                  <span className="service-icon-compact">
-                    <service.icon />
-                  </span>
-                  <span className="service-arrow-compact">
+                <div className="service-header">
+                  <span className="service-number">{service.number}</span>
+                  <h3 className="service-title">{service.title}</h3>
+                  <span className="service-toggle">
                     {expandedService === service.number ? '−' : '+'}
                   </span>
                 </div>
                 
-                {/* COMPACT EXPANDED CONTENT - Max 180px height */}
                 {expandedService === service.number && (
                   <motion.div 
-                    className="service-compact-content"
-                    id={`service-content-${service.number}`}
+                    className="service-content"
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
                   >
-                    <div className="service-content-scrollable">
-                      <div className="service-subtitle-compact">{service.subtitle}</div>
-                      <div className="service-description-block">
-                        <div className="content-label">Strategic Capability</div>
-                        <div className="content-text">{service.description}</div>
-                      </div>
-                      <div className="service-demand-block">
-                        <div className="content-label">For Projects That Demand</div>
-                        <div className="content-text">{service.demand}</div>
-                      </div>
+                    <p className="service-subtitle">{service.subtitle}</p>
+                    <div className="service-description">
+                      <h4>Strategic Capability</h4>
+                      <p>{service.description}</p>
+                    </div>
+                    <div className="service-demand">
+                      <h4>For Projects That Demand</h4>
+                      <p>{service.demand}</p>
                     </div>
                   </motion.div>
                 )}

@@ -17927,330 +17927,179 @@ img[class*="project-"] {
 }
 
 /* ========================================== */
-/* COMPACT SERVICES ACCORDION - CRITICAL FIXES APPLIED */
+/* SERVICES SECTION - SIMPLE ELEGANT ACCORDION */
 /* ========================================== */
 
-/* Isolated Container - Fixes All Conflicts */
-.services-compact-container {
-  max-width: 900px;
+/* Simple Accordion Container - Natural Flow */
+.services-simple-accordion {
+  max-width: 800px;
   margin: 0 auto;
-  background: var(--vanilla-whisper); /* Isolated background */
-  border-radius: 12px;
-  padding: 24px; /* EXPLICIT spacing - no var() conflicts */
-  max-height: 85vh; /* Increased from 70vh to prevent cutting */
-  min-height: 400px; /* Ensure minimum usable space */
-  overflow-y: auto;
-  position: relative;
-  z-index: 10; /* Above section interference */
-  box-shadow: 0 4px 20px rgba(255, 102, 99, 0.08);
+  padding: 0 20px;
+  /* NO height restrictions - let content flow naturally */
 }
 
-/* Compact Service Item - Explicit Heights */
-.service-compact-item {
-  border: 1px solid var(--grapefruit-whisper);
+/* Service Item - Natural Sizing */
+.service-item {
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Work with section background */
   border-radius: 8px;
-  margin-bottom: 8px; /* EXPLICIT small spacing */
-  background: rgba(255, 255, 255, 0.9);
-  overflow: visible; /* Changed from hidden to prevent cutting */
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.1); /* Subtle background */
   cursor: pointer;
   transition: all 0.3s ease;
+  /* NO overflow restrictions */
 }
 
-/* Fixed Compact Header - EXACTLY 60px */
-.service-compact-header {
-  display: grid;
-  grid-template-columns: auto 1fr auto auto;
+.service-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.service-item.open {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Service Header - Natural Height */
+.service-header {
+  display: flex;
   align-items: center;
-  gap: 20px; /* Enhanced from 16px for better spacing */
-  padding: 18px 24px; /* Enhanced padding for premium feel */
-  height: 60px;
-  min-height: 60px;
-  max-height: 60px;
+  gap: 20px;
+  padding: 20px 24px;
+  /* NO fixed height - natural content flow */
 }
 
-/* Override Section Typography with High Specificity */
-.section-services-sophisticated .service-compact-item h3 {
-  font-family: var(--font-architectural-display) !important;
-  font-size: 18px !important; /* EXPLICIT size */
-  font-weight: 400 !important;
-  color: var(--grapefruit-intelligence) !important;
-  line-height: 1.2 !important;
-  margin: 0 !important;
-  text-shadow: none !important; /* Remove section interference */
-}
-
-.section-services-sophisticated .service-compact-item p,
-.section-services-sophisticated .service-compact-item div {
-  color: rgba(45, 45, 45, 0.9) !important; /* Override section white text */
-  text-shadow: none !important;
-  opacity: 1 !important;
-}
-
-/* Compact Typography - Explicit Sizes */
-.service-number-compact {
+/* Service Number */
+.service-number {
   font-family: var(--font-architectural-body);
-  font-size: 11px; /* EXPLICIT small size */
+  font-size: 12px;
   font-weight: 600;
   color: var(--grapefruit-intelligence);
-  background: var(--grapefruit-breath);
+  background: rgba(255, 255, 255, 0.2);
   padding: 4px 8px;
   border-radius: 4px;
   min-width: 28px;
   text-align: center;
 }
 
-.service-title-compact {
+/* Service Title - Working with section styling */
+.service-title {
   font-family: var(--font-architectural-display);
-  font-size: 22px !important; /* Enhanced from 18px */
-  font-weight: 500 !important; /* Enhanced weight */
-  color: var(--grapefruit-intelligence);
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.95); /* Work with section background */
   line-height: 1.2;
-  letter-spacing: -0.01em; /* Luxury spacing */
   margin: 0;
-  margin-bottom: 4px; /* Clear separation */
-  text-rendering: optimizeLegibility;
+  flex: 1;
 }
 
-.service-arrow-compact {
-  font-size: 16px; /* EXPLICIT size */
+/* Service Toggle */
+.service-toggle {
+  font-size: 18px;
   font-weight: 600;
-  color: var(--grapefruit-intelligence);
-  width: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  width: 24px;
   text-align: center;
   transition: transform 0.3s ease;
 }
 
-.service-compact-item.expanded .service-arrow-compact {
+.service-item.open .service-toggle {
   transform: rotate(45deg);
 }
 
-.service-icon-compact {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  color: var(--grapefruit-intelligence);
+/* Service Content - NO height restrictions */
+.service-content {
+  padding: 0 24px 24px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  /* NO max-height - let content flow naturally */
+  /* NO overflow restrictions */
 }
 
-/* Enhanced Expanded Content - No Cutting Issues */
-.service-compact-content {
-  border-top: 1px solid var(--grapefruit-whisper);
-  background: rgba(255, 255, 255, 0.95);
-  max-height: 240px; /* Increased from 160px to prevent cutting */
-  overflow-y: auto;
-  overflow-x: hidden; /* Prevent horizontal overflow only */
-  padding: 0; /* Remove padding to let content structure handle spacing */
-  border-radius: 0 0 8px 8px; /* Rounded bottom corners */
-  /* Smooth scrolling for better UX */
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 102, 99, 0.3) transparent;
+.service-subtitle {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 16px;
+  font-weight: 400;
 }
 
-/* Custom scrollbar for webkit browsers */
-.service-compact-content::-webkit-scrollbar {
-  width: 4px;
-}
-
-.service-compact-content::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.service-compact-content::-webkit-scrollbar-thumb {
-  background: rgba(255, 102, 99, 0.3);
-  border-radius: 2px;
-}
-
-/* Enhanced Content Structure - No Cutting */
-.service-content-scrollable {
-  display: flex;
-  flex-direction: column;
-  gap: 16px; /* Enhanced from 12px for breathing room */
-  padding: 20px 24px; /* Enhanced padding for premium feel */
-  max-height: none; /* Remove height restrictions */
-  overflow: visible; /* Ensure all content is visible */
-}
-
-/* Content Blocks - Better Organization */
-.service-description-block,
-.service-demand-block {
-  background: rgba(255, 255, 255, 0.6); /* Subtle background distinction */
-  padding: 12px 16px; /* Internal breathing room */
+.service-description,
+.service-demand {
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 16px;
   border-radius: 6px;
-  margin-bottom: 8px;
-  overflow: visible; /* Prevent text cutting */
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.service-description-block {
-  border-left: 3px solid var(--grapefruit-whisper); /* Elegant accent */
-}
-
-.service-demand-block {
-  background: rgba(255, 102, 99, 0.02); /* Very subtle grapefruit tint */
-  border-left: 3px solid var(--grapefruit-intelligence); /* Stronger accent */
-}
-
-/* Content Text - Optimal Readability */
-.content-text {
-  font-size: 13px !important;
-  color: rgba(45, 45, 45, 0.9) !important;
-  line-height: 1.6; /* Enhanced readability */
-  text-shadow: none !important;
-  text-rendering: optimizeLegibility;
-  overflow-wrap: break-word; /* Prevent horizontal cutting */
-  word-wrap: break-word; /* Browser compatibility */
-}
-
-.service-subtitle-compact {
-  font-size: 15px !important; /* Enhanced from 13px */
-  color: rgba(45, 45, 45, 0.7) !important; /* Softer than main title */
-  font-weight: 600; /* Enhanced emphasis */
-  margin-bottom: 12px; /* Enhanced separation */
-}
-
-/* Content Label for Organization */
-.content-label {
-  font-size: 11px; /* Small but readable */
-  font-weight: 700; /* Strong emphasis */
-  color: var(--grapefruit-intelligence);
+.service-description h4,
+.service-demand h4 {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
-/* Elegant Content Blocks */
-
-/* Enhanced Hover States - Sophisticated Interactions */
-.service-compact-item:hover {
-  border-color: var(--grapefruit-moment);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255, 102, 99, 0.1);
+.service-description p,
+.service-demand p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0;
 }
 
-.service-compact-item:hover .service-title-compact {
-  color: var(--grapefruit-intelligence);
-  transform: translateX(2px); /* Subtle movement */
-}
-
-.service-compact-item:hover .service-icon-compact {
-  transform: scale(1.1); /* Icon enhancement */
-}
-
-.service-compact-item.expanded {
-  border-color: var(--grapefruit-intelligence);
-  box-shadow: 0 6px 20px rgba(255, 102, 99, 0.15);
-}
-
-/* Focus States */
-.service-compact-item:focus-visible {
-  outline: 3px solid var(--grapefruit-intelligence);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 1px var(--vanilla-whisper);
-}
-
-/* Mobile - Enhanced Responsiveness */
+/* Responsive - Simple and clean */
 @media (max-width: 768px) {
-  .services-compact-container {
-    padding: 16px; /* EXPLICIT mobile spacing */
-    max-height: 90vh; /* Increased from 75vh for mobile */
-    min-height: 300px; /* Ensure minimum mobile space */
+  .services-simple-accordion {
+    padding: 0 16px;
   }
   
-  .service-compact-header {
-    height: 56px; /* Enhanced mobile height */
-    padding: 14px 18px; /* Enhanced mobile spacing */
-    gap: 14px; /* Enhanced mobile spacing */
+  .service-header {
+    padding: 16px 20px;
+    gap: 16px;
   }
   
-  .service-title-compact {
-    font-size: 18px !important; /* Enhanced mobile size */
+  .service-content {
+    padding: 0 20px 20px 20px;
   }
   
-  .service-compact-content {
-    max-height: 280px; /* Increased from 150px for mobile content */
-    padding: 12px 16px; /* EXPLICIT mobile spacing */
-    overflow-y: auto; /* Ensure mobile scrolling works */
-  }
-  
-  .service-content-scrollable {
-    padding: 16px 20px; /* Enhanced mobile padding */
-    gap: 14px; /* Enhanced mobile gap */
-  }
-  
-  .service-description-block,
-  .service-demand-block {
-    padding: 10px 14px; /* Mobile-optimized padding */
-    margin-bottom: 6px; /* Tighter mobile spacing */
+  .service-title {
+    font-size: 18px;
   }
 }
 
 @media (max-width: 480px) {
-  .services-compact-container {
-    padding: 12px; /* EXPLICIT small mobile spacing */
-    max-height: 95vh; /* Even more room on small screens */
+  .services-simple-accordion {
+    padding: 0 12px;
   }
   
-  .service-compact-header {
-    height: 48px; /* EXPLICIT small mobile height */
-    padding: 8px 12px; /* EXPLICIT small mobile spacing */
-    gap: 8px; /* EXPLICIT small mobile spacing */
+  .service-header {
+    padding: 12px 16px;
+    gap: 12px;
   }
   
-  .service-compact-content {
-    max-height: 300px; /* More room for small screen content */
-  }
-  
-  .service-content-scrollable {
-    padding: 12px 16px; /* Small mobile padding */
-    gap: 10px; /* Tighter mobile gap */
-  }
-  
-  .service-description-block,
-  .service-demand-block {
-    padding: 8px 12px; /* Small mobile padding */
-    margin-bottom: 4px; /* Tighter mobile spacing */
+  .service-content {
+    padding: 0 16px 16px 16px;
   }
 }
 
-/* High Contrast Mode */
-@media (prefers-contrast: high) {
-  .service-compact-item {
-    background: #FFFFFF !important;
-    border: 2px solid #000000 !important;
-  }
-  
-  .service-title-compact {
-    color: #CC0000 !important;
-  }
-  
-  .service-number-compact {
-    background: #000000 !important;
-    color: #FFFFFF !important;
-  }
-  
-  .service-arrow-compact {
-    color: #000000 !important;
-  }
+/* Accessibility */
+.service-item:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
 }
 
-/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
-  .service-compact-item,
-  .service-arrow-compact {
+  .service-item,
+  .service-toggle {
     transition: none !important;
   }
   
-  .service-compact-item:hover {
+  .service-item:hover {
     transform: none !important;
   }
-}
-
-/* Performance */
-.service-compact-item {
-  will-change: transform, box-shadow;
-  backface-visibility: hidden;
-  contain: layout style paint;
 }
 
 /* ========================================== */
