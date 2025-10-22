@@ -8309,6 +8309,67 @@ h4, .text-h4 {
   position: relative;
 }
 
+/* HERO CTA BUTTONS - ELEGANT AND SMALL */
+.hero-cta-elegant {
+  display: flex;
+  gap: 1.5rem; /* Mathematical spacing */
+  justify-content: center;
+  margin-top: 3rem; /* Elegant spacing from title */
+  opacity: 0.9; /* Subtle presence */
+}
+
+.hero-cta-button {
+  /* SMALL elegant size as requested */
+  padding: 0.75rem 1.5rem;
+  font-size: 14px; /* Small size */
+  font-family: var(--font-architectural-body);
+  font-weight: 400;
+  
+  /* Sophisticated styling */
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--grapefruit-intelligence);
+  border: 1px solid var(--grapefruit-whisper);
+  border-radius: 2rem;
+  
+  /* Subtle sophistication */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px var(--grapefruit-breath);
+  
+  /* Elegant transitions */
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  text-decoration: none;
+  
+  /* Accessibility compliance */
+  min-height: 44px; /* WCAG touch target */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-cta-button:hover {
+  background: var(--grapefruit-whisper);
+  color: var(--grapefruit-intelligence);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px var(--grapefruit-moment);
+  border-color: var(--grapefruit-moment);
+}
+
+/* Mobile optimization for CTA buttons */
+@media (max-width: 768px) {
+  .hero-cta-elegant {
+    flex-direction: column; /* Stack on mobile */
+    gap: 1rem;
+    align-items: center;
+    margin-top: 2rem; /* Tighter spacing on mobile */
+  }
+  
+  .hero-cta-button {
+    width: 180px; /* Consistent mobile width */
+    font-size: 13px; /* Slightly smaller on mobile */
+  }
+}
+
 .word-experience-luxury {
   display: block;
   font-style: italic;
@@ -16063,16 +16124,12 @@ img {
   object-fit: cover;
   object-position: center 20%; /* FACE-CENTERED positioning (not chest) */
   
-  /* EXTREMELY DIFFUSE - Enhancement element only */
-  filter: 
-    brightness(0.7) 
-    contrast(0.9)
-    saturate(0.6)
-    blur(0.5px); /* Subtle blur for diffusion */
+  /* SIMPLE VISIBLE APPROACH - Remove complex filters */
+  filter: brightness(1.0) contrast(1.1);
   
-  /* Blend mode for extreme subtlety */
-  mix-blend-mode: soft-light;
-  opacity: 0.15; /* MUCH more diffuse as requested */
+  /* NORMAL blend mode for clear visibility */
+  mix-blend-mode: normal;
+  opacity: 0.6; /* HIGHER for actual visibility */
   
   /* Performance optimization */
   will-change: transform, filter;
@@ -16087,12 +16144,12 @@ img {
   height: 100%;
   background: linear-gradient(
     135deg,
-    var(--vanilla-foundation) 0%,      /* Strong vanilla foundation */
-    rgba(245, 245, 220, 0.95) 30%,    /* Heavy vanilla coverage */
-    rgba(245, 245, 220, 0.7) 60%,     /* Text readability zone */
-    var(--vanilla-foundation) 100%    /* Complete vanilla foundation */
+    transparent 0%,                    /* Let photo show through */
+    rgba(245, 245, 220, 0.2) 40%,     /* MUCH lighter coverage */
+    rgba(245, 245, 220, 0.3) 70%,     /* Text readability zone only */
+    transparent 100%                  /* Let photo show through */
   );
-  z-index: 4;
+  z-index: 3; /* Lower than text but above photo */
   pointer-events: none;
 }
 

@@ -511,6 +511,46 @@ export default function Home() {
           >
             Experience Architect
           </motion.h1>
+          
+          {/* ELEGANT CTA BUTTONS - Small and Sophisticated */}
+          <motion.div 
+            className="hero-cta-elegant"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.8 }}
+          >
+            <motion.button
+              onClick={() => {
+                const projectsSection = document.getElementById('projects');
+                if (projectsSection) {
+                  projectsSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }
+              }}
+              className="hero-cta-button"
+              aria-label="Navigate to featured projects section"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 2.2 }}
+            >
+              Featured Projects
+            </motion.button>
+            
+            <motion.a
+              href="/CV-Silvana-Restrepo.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-cta-button"
+              aria-label="Open Silvana Restrepo's curriculum vitae in new tab"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 2.4 }}
+            >
+              My CV
+            </motion.a>
+          </motion.div>
         </div>
       </section>
 
