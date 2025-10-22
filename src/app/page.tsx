@@ -495,7 +495,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.4 }}
               >
-                The Journey
+                About Me
               </motion.h2>
                 </div>
             <motion.p 
@@ -612,7 +612,7 @@ export default function Home() {
                 initial={{ backgroundSize: "0% 100%" }}
                 whileInView={{ backgroundSize: "100% 100%" }}
                 transition={{ duration: 1.2, delay: 1.8, ease: "easeInOut" }}
-              >MY CRAFT</motion.span> lies in listening to the unspoken, seeing the invisible, and touching the intangible essence of human desire&rdquo;
+              >MY CRAFT</motion.span> lies in its refinement&rdquo;
             </motion.blockquote>
           </motion.div>
         </div>
@@ -1365,6 +1365,27 @@ export default function Home() {
               </div>
             </motion.div>
           </div>
+          
+          {/* PROJECT DETAILS FOOTER - ARCHITECTURAL PRECISION */}
+          <footer className="project-details-footer-architectural">
+            <div className="footer-architectural-content">
+              <div className="footer-brand-architectural">
+                <h3 className="footer-brand-name typography-h3">silvana.</h3>
+                <p className="footer-brand-title typography-body">Principal Experience Architect</p>
+                <p className="footer-brand-description typography-caption">
+                  Transforming business challenges into strategic advantages through experience-driven innovation.
+                </p>
+              </div>
+              <div className="footer-contact-architectural">
+                <a href="mailto:silvanarestrepo888@gmail.com" className="footer-contact-link typography-caption">
+                  Contact
+                </a>
+                <a href="https://linkedin.com/in/silvanarestrepo" className="footer-contact-link typography-caption">
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </footer>
                 
           {/* SOPHISTICATED PROJECT NAVIGATION */}
           <div className="sophisticated-navigation-section">

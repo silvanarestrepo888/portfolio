@@ -1,38 +1,112 @@
 @import "tailwindcss";
 
 /* ========================================== */
+/* SILVANA SIGNATURE LOADER - STELLA-INSPIRED */
+/* ========================================== */
+
+.silvana-loader-architectural {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.silvana-s-signature {
+  filter: drop-shadow(0 8px 32px var(--grapefruit-breath));
+}
+
+.silvana-loading-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--grapefruit-intelligence);
+  text-align: center;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+/* PROJECT DETAILS FOOTER - ARCHITECTURAL PRECISION */
+.project-details-footer-architectural {
+  background: var(--vanilla-foundation);
+  border-top: 1px solid var(--grapefruit-whisper);
+  padding: 3rem 2rem 2rem;
+  margin-top: 4rem;
+}
+
+.footer-architectural-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.footer-brand-architectural h3 {
+  color: var(--grapefruit-intelligence);
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand-architectural p {
+  color: var(--grapefruit-intelligence);
+  opacity: 0.8;
+  margin-bottom: 0.75rem;
+}
+
+.footer-contact-architectural {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-contact-link {
+  color: var(--grapefruit-intelligence);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.footer-contact-link:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* ========================================== */
 /* ULTRA-LUXURY TYPOGRAPHY SYSTEM - LANDOR STANDARDS */
 /* ========================================== */
 
 /* SOPHISTICATED COLOR PALETTE */
 :root {
-  /* SOPHISTICATED TWO-COLOR SYSTEM */
-  /* Primary: Grapefruit Variations */
-  --grapefruit-pure: #FF6663;
-  --grapefruit-rich: rgba(255, 102, 99, 0.9);
-  --grapefruit-medium: rgba(255, 102, 99, 0.7);
-  --grapefruit-soft: rgba(255, 102, 99, 0.3);
-  --grapefruit-subtle: rgba(255, 102, 99, 0.1);
-  --grapefruit-whisper: rgba(255, 102, 99, 0.05);
+  /* STELLA'S ARCHITECTURAL PRECISION - MATHEMATICAL COLOR SYSTEM */
+  /* Vanilla Architectural Foundation */
+  --vanilla-foundation: #F5F5DC;        /* Primary architectural base */
+  --vanilla-whisper: #FDFCF8;          /* Breathing elegance */
+  --vanilla-depth: #F0EDD4;            /* Architectural depth */
+  --vanilla-breath: #FFFEF9;           /* Subtle breathing space */
   
-  /* Secondary: Panna-Cotta-Vanilla Variations */
-  --vanilla-pure: #F5F5DC;
-  --vanilla-warm: #F8F6E8;
-  --vanilla-light: #FDFCF8;
-  --vanilla-rich: #F0EDD4;
-  --vanilla-deep: #EBE8C8;
-  --vanilla-whisper: #FFFEF9;
+  /* Grapefruit Strategic Intelligence */
+  --grapefruit-intelligence: #FF6663;   /* Bold impact moments */
+  --grapefruit-breath: rgba(255, 102, 99, 0.03); /* Invisible presence */
+  --grapefruit-whisper: rgba(255, 102, 99, 0.08); /* Subtle definition */
+  --grapefruit-moment: rgba(255, 102, 99, 0.15);  /* Strategic accents */
+  --grapefruit-impact: #E55A5A;        /* Bold statement moments */
   
-  /* Typography Scale - Golden Ratio */
-  --text-xs: 12px;      /* 0.75 × 16px */
-  --text-sm: 14px;      /* 0.875 × 16px */
-  --text-base: 16px;    /* Base */
-  --text-lg: 18px;      /* 1.125 × 16px */
-  --text-xl: 24px;      /* 1.5 × 16px */
-  --text-2xl: 32px;     /* 2 × 16px */
-  --text-3xl: 40px;     /* 2.5 × 16px */
-  --text-4xl: 48px;     /* 3 × 16px */
-  --text-5xl: 64px;     /* 4 × 16px */
+  /* ARCHITECTURAL TYPOGRAPHY SCALE - MATHEMATICAL PRECISION */
+  --type-xs: 12px;      /* Supporting details */
+  --type-sm: 14px;      /* Captions */
+  --type-base: 16px;    /* Body foundation */
+  --type-lg: 20px;      /* Emphasized body */
+  --type-xl: 26px;      /* Subheadings */
+  --type-2xl: 34px;     /* Section titles */
+  --type-3xl: 44px;     /* Page titles */
+  --type-4xl: 58px;     /* Hero statements */
+  
+  /* ARCHITECTURAL FONT FAMILIES */
+  --font-architectural-display: "Playfair Display", serif;
+  --font-architectural-body: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   
   /* Spacing System - Golden Ratio */
   --space-xs: 4px;      /* 0.5 × 8px */
@@ -44,12 +118,52 @@
   --space-3xl: 104px;   /* 13 × 8px */
 }
 
-/* LUXURY TYPOGRAPHY SYSTEM */
+/* ARCHITECTURAL TYPOGRAPHY SYSTEM - STELLA-INSPIRED PRECISION */
+
+/* Display Typography - Mathematical Elegance */
+.typography-h1,
+.typography-h2, 
+.typography-h3 {
+  font-family: var(--font-architectural-display);
+  color: var(--grapefruit-intelligence);
+  line-height: 1.2;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+.typography-h1 { font-size: var(--type-4xl); }
+.typography-h2 { font-size: var(--type-3xl); }
+.typography-h3 { font-size: var(--type-2xl); }
+
+/* Body Typography - Consistent Foundation */
+.typography-body {
+  font-family: var(--font-architectural-body);
+  font-size: var(--type-base);
+  color: var(--grapefruit-intelligence);
+  opacity: 0.9;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Caption Typography - Supporting Elements */
+.typography-caption {
+  font-family: var(--font-architectural-body);
+  font-size: var(--type-sm);
+  color: var(--grapefruit-intelligence);
+  opacity: 0.7;
+  line-height: 1.5;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Legacy Typography - Maintain Compatibility */
 .luxury-typography {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-architectural-body);
   font-weight: 400;
   line-height: 1.6;
-  color: var(--grapefruit-medium);
+  color: var(--grapefruit-intelligence);
+  opacity: 0.9;
 }
 
 /* HERO HEADLINES - 64px, Light Weight */
@@ -9796,11 +9910,15 @@ h4, .text-h4 {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Perfect 3-image symmetry */
-  gap: 2rem; /* 32px for luxury spacing */
+  grid-template-columns: repeat(3, 1fr); /* Architectural 3-image precision */
+  gap: calc(100vw / 61.8); /* Golden ratio spacing */
   max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 3rem 0;
+  
+  /* Stella-inspired invisible intelligence */
+  background: transparent;
+  border: none;
 }
 
 /* Mobile responsive for 3-image gallery */
@@ -10197,27 +10315,19 @@ h4, .text-h4 {
   position: relative;
   width: 100%;
   min-height: 80vh;
-  background: linear-gradient(135deg, 
-    var(--vanilla-pure) 0%, 
-    var(--vanilla-warm) 100%
-  );
-  backdrop-filter: blur(20px);
-  border: 2px solid var(--grapefruit-subtle);
-  border-radius: 32px;
+  background: transparent; /* Stella-inspired frameless approach */
+  border: none; /* No visual barriers */
+  border-radius: 0; /* Clean geometric edges */
   padding: 3rem;
-  box-shadow: 
-    0 25px 80px var(--grapefruit-whisper),
-    0 8px 32px var(--grapefruit-subtle);
-  transition: all 0.4s ease;
+  box-shadow: none; /* Invisible until interaction */
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   overflow: hidden;
 }
 
 .balanced-project-card:hover {
-  box-shadow: 
-    0 35px 100px var(--grapefruit-subtle),
-    0 12px 48px var(--grapefruit-soft);
-  border-color: var(--grapefruit-soft);
-  transform: translateY(-4px);
+  box-shadow: 0 40px 80px var(--grapefruit-breath); /* Stella-inspired subtle intelligence */
+  transform: translateY(-12px); /* Architectural precision lift */
+  background: rgba(255, 255, 255, 0.02); /* Invisible presence */
 }
 
 /* Clean Balanced Layout Grid - 60% Image / 40% Content */
@@ -14980,13 +15090,21 @@ img {
   --cream-cool: #F8F9FA;
   --cream-pure: #FFFFFF;
   
-  /* Section Gradients */
-  /* SOPHISTICATED TWO-COLOR BACKGROUND SYSTEM */
-  --hero-gradient: linear-gradient(135deg, var(--vanilla-light) 0%, var(--vanilla-pure) 100%);
-  --about-gradient: linear-gradient(135deg, var(--vanilla-pure) 0%, var(--vanilla-warm) 100%);
-  --projects-gradient: linear-gradient(135deg, var(--grapefruit-whisper) 0%, var(--vanilla-light) 100%);
-  --services-gradient: linear-gradient(135deg, var(--vanilla-warm) 0%, var(--grapefruit-whisper) 100%);
-  --experience-gradient: linear-gradient(135deg, var(--vanilla-whisper) 0%, var(--vanilla-pure) 100%);
+  /* STELLA'S ARCHITECTURAL PRECISION - MATHEMATICAL STORY PROGRESSION */
+  /* ACT 1: HERO - Gentle Mathematical Introduction */
+  --hero-gradient: linear-gradient(161.8deg, var(--vanilla-whisper) 0%, var(--vanilla-foundation) 100%);
+  
+  /* ACT 2: ABOUT - Professional Foundation */
+  --about-gradient: var(--vanilla-foundation); /* Pure, confident foundation */
+  
+  /* ACT 3: PROJECTS - Dynamic Sophistication */
+  --projects-gradient: linear-gradient(161.8deg, var(--vanilla-foundation) 0%, var(--grapefruit-whisper) 61.8%, var(--vanilla-depth) 100%);
+  
+  /* ACT 4: SERVICES - BOLD IMPACT MOMENT (Strategic Grapefruit) */
+  --services-gradient: linear-gradient(161.8deg, var(--grapefruit-intelligence) 0%, var(--grapefruit-impact) 100%);
+  
+  /* ACT 5: EXPERIENCE - Expertise Authority */
+  --experience-gradient: linear-gradient(161.8deg, var(--vanilla-depth) 0%, var(--vanilla-foundation) 61.8%, var(--vanilla-whisper) 100%);
 }
 
 /* HERO SECTION - Bold Confidence */
@@ -15066,11 +15184,13 @@ img {
 /* Removed cluttered services overlay for clean energy */
 
 .section-services-sophisticated h2 {
-  color: var(--grapefruit-rich);
+  color: var(--vanilla-whisper);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .section-services-sophisticated p {
-  color: var(--grapefruit-medium);
+  color: var(--vanilla-foundation);
+  opacity: 0.95;
 }
 
 .section-services-sophisticated .service-unified-card {
@@ -15444,14 +15564,16 @@ img {
     0 0 30px rgba(255, 102, 99, 0.6);
 }
 
-/* Text Container */
+/* Text Container - Architectural Precision */
 .experience-text-container {
   width: 320px;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(255, 102, 99, 0.15);
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(10px);
+  background: var(--vanilla-whisper);
+  border: 1px solid var(--grapefruit-moment);
+  border-radius: 16px;
+  box-shadow: 
+    0 12px 40px var(--grapefruit-breath),
+    0 4px 16px var(--grapefruit-whisper);
+  backdrop-filter: blur(15px);
   padding: 1.25rem;
   backdrop-filter: blur(10px);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -15665,13 +15787,13 @@ img {
 
 .hero-photo-artistic-unified {
   object-fit: cover;
-  object-position: center center; /* Center the professional portrait */
+  object-position: center 20%; /* FACE-CENTERED positioning (not chest) */
   
-  /* Clean professional look for portrait with white background */
+  /* Stella-inspired professional clarity */
   filter: 
-    brightness(1.0) 
+    brightness(1.05) 
     contrast(1.1)
-    saturate(1.0);
+    saturate(1.02);
   
   /* Normal blend mode for clear visibility */
   mix-blend-mode: normal;
@@ -15689,15 +15811,13 @@ img {
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    135deg, 
-    transparent 0%,
-    transparent 70%, 
-    var(--grapefruit-whisper) 100%
+    135deg,
+    rgba(0, 0, 0, 0.25) 0%,      /* Stella-inspired professional depth */
+    transparent 38.2%,           /* Golden ratio face clearance */
+    var(--grapefruit-breath) 100% /* Invisible intelligence */
   );
   z-index: 3;
   pointer-events: none;
-  mix-blend-mode: multiply;
-  opacity: 0.3;
 }
 
 .unified-gradient-foundation {
