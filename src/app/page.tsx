@@ -1105,15 +1105,15 @@ export default function Home() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
                   >
-                    <div className="service-content-grid">
+                    <div className="service-content-scrollable">
                       <div className="service-subtitle-compact">{service.subtitle}</div>
-                      <div className="service-description-compact">
+                      <div className="service-description-block">
                         <div className="content-label">Strategic Capability</div>
-                        {service.description}
+                        <div className="content-text">{service.description}</div>
                       </div>
-                      <div className="service-demand-compact">
+                      <div className="service-demand-block">
                         <div className="content-label">For Projects That Demand</div>
-                        {service.demand}
+                        <div className="content-text">{service.demand}</div>
                       </div>
                     </div>
                   </motion.div>
