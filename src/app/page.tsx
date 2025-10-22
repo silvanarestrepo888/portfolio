@@ -1066,74 +1066,35 @@ export default function Home() {
             </motion.p>
           </motion.div>
           
-          {/* LUXURY SERVICES SECTION - HEAD OF DESIGN LEVEL */}
-          <div className="services-luxury-container">
-            <div className="services-luxury-grid">
+          {/* RESTORE ORIGINAL SOPHISTICATED SERVICES LAYOUT */}
+          <div className="services-sophisticated-container">
+            <div className="services-sophisticated-layout">
               {referenceServices.map((service, index) => (
                 <motion.div
                   key={service.number}
-                  className="service-luxury-card"
-                  tabIndex={0}
+                  className="service-sophisticated-item"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.6, 
-                    delay: index * 0.1,
-                    ease: [0.25, 0.46, 0.45, 0.94]
-                  }}
-                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  viewport={{ once: true }}
                 >
-                  <div className="service-luxury-content">
-                    {/* Service Icon */}
-                    <div className="service-luxury-icon">
-                      <service.icon 
-                        size={56} 
-                        color="#E55555" 
-                        animated={true}
-                      />
-                    </div>
-                    
-                    {/* Service Number */}
-                    <span className="service-luxury-number">{service.number}</span>
-                    
-                    {/* Service Title */}
-                    <h3 className="service-luxury-title">{service.title}</h3>
-                    
-                    {/* Service Subtitle */}
-                    <p className="service-luxury-subtitle">{service.subtitle}</p>
-                    
-                    {/* Strategic Capability */}
-                    <div style={{ marginBottom: '32px' }}>
-                      <h4 style={{ 
-                        fontFamily: 'Inter, sans-serif',
-                        fontSize: '0.875rem',
-                        fontWeight: '700',
-                        color: '#E55555',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.1em',
-                        marginBottom: '12px'
-                      }}>
-                        Strategic Capability
-                      </h4>
-                      <p className="service-luxury-description">{service.description}</p>
-                    </div>
-                    
-                    {/* For projects that demand */}
-                    <div>
-                      <h4 style={{ 
-                        fontFamily: 'Inter, sans-serif',
-                        fontSize: '0.875rem',
-                        fontWeight: '700',
-                        color: '#E55555',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.1em',
-                        marginBottom: '12px'
-                      }}>
-                        For projects that demand
-                      </h4>
-                      <p className="service-luxury-demand">{service.demand}</p>
-                    </div>
-                  </div>
+                  <motion.h3 
+                    className="service-sophisticated-title"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
+                  >
+                    {service.title}
+                  </motion.h3>
+                  
+                  <motion.p 
+                    className="service-sophisticated-subtitle"
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
+                  >
+                    {service.subtitle}
+                  </motion.p>
                 </motion.div>
               ))}
             </div>

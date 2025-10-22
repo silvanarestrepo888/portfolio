@@ -14521,343 +14521,71 @@ img {
 }
 
 /* ========================================
-   LUXURY SERVICES SECTION - HEAD OF DESIGN LEVEL
+   RESTORED ORIGINAL SOPHISTICATED SERVICES LAYOUT
    ======================================== */
 
-.services-luxury-container {
+.services-sophisticated-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 80px 40px; /* Generous luxury spacing */
+  padding: 64px 40px;
 }
 
-.services-luxury-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 48px; /* 8pt grid: 6 × 8px = 48px - luxury spacing */
-  margin-top: 64px; /* 8pt grid: 8 × 8px = 64px */
-}
-
-/* LUXURY SERVICE CARD - SOPHISTICATED DESIGN */
-.service-luxury-card {
-  position: relative;
-  padding: 48px 32px; /* 8pt grid: 6 × 8px = 48px, 4 × 8px = 32px */
-  background: linear-gradient(145deg, 
-    rgba(255, 255, 255, 0.8) 0%, 
-    rgba(255, 251, 238, 0.9) 100%);
-  border-radius: 16px; /* 8pt grid: 2 × 8px = 16px */
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  border: 1px solid rgba(255, 102, 99, 0.1);
-  backdrop-filter: blur(20px);
-  overflow: hidden;
-}
-
-.service-luxury-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px; /* 8pt grid: 0.5 × 8px = 4px */
-  background: linear-gradient(90deg, #E55555 0%, #ff8a80 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.service-luxury-card:hover::before {
-  opacity: 1;
-}
-
-.service-luxury-card:hover {
-  transform: translateY(-8px); /* 8pt grid: 1 × 8px = 8px */
-  box-shadow: 
-    0 24px 48px rgba(255, 102, 99, 0.15),
-    0 8px 16px rgba(0, 0, 0, 0.08);
-  border-color: rgba(255, 102, 99, 0.2);
-}
-
-/* WCAG AA COMPLIANT FOCUS INDICATORS */
-.service-luxury-card:focus,
-.service-luxury-card:focus-visible {
-  outline: 2px solid #E55555 !important;
-  outline-offset: 4px;
-  box-shadow: 0 0 0 4px rgba(229, 85, 85, 0.2);
-}
-
-/* LUXURY SERVICE CONTENT LAYOUT */
-.service-luxury-content {
-  text-align: left; /* Professional left alignment */
-}
-
-/* SERVICE ICON CONTAINER - SOPHISTICATED PLACEMENT */
-.service-luxury-icon {
+.services-sophisticated-layout {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 24px; /* 8pt grid: 3 × 8px = 24px */
-  transition: transform 0.3s ease;
+  flex-wrap: wrap;
+  gap: 48px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 48px;
 }
 
-.service-luxury-card:hover .service-luxury-icon {
-  transform: scale(1.05);
+.service-sophisticated-item {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  text-align: center;
 }
 
-.service-detailed-content {
-  display: none;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 1.5rem;
-  height: 100%;
-  min-height: 300px;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0,0,0,0.2) transparent;
-  padding: 1rem 0;
-  opacity: 1;
-  visibility: visible;
-}
-
-/* LUXURY TYPOGRAPHY SYSTEM - HEAD OF DESIGN LEVEL */
-.service-luxury-number {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 0.875rem; /* 14px - 8pt grid compliant */
-  font-weight: 700;
-  color: #E55555; /* WCAG AA compliant coral */
-  margin-bottom: 16px; /* 8pt grid: 2 × 8px = 16px */
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  display: block;
-}
-
-.service-luxury-title {
+/* RESTORE ORIGINAL CORAL TYPOGRAPHY */
+.service-sophisticated-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1.75rem, 3vw, 2.25rem); /* Generous luxury sizing */
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 600;
-  color: #1a202c; /* Rich dark for luxury feel */
+  color: #ff6663; /* Original coral color */
   line-height: 1.2;
-  margin-bottom: 16px; /* 8pt grid: 2 × 8px = 16px */
-  letter-spacing: -0.02em; /* Sophisticated optical spacing */
+  margin-bottom: 24px;
+  text-align: center;
+  letter-spacing: -0.02em;
 }
 
-.service-luxury-subtitle {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 1rem; /* 16px - 8pt grid compliant */
+.service-sophisticated-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.125rem);
   font-weight: 400;
   color: #4a5568;
   line-height: 1.5;
-  margin-bottom: 32px; /* 8pt grid: 4 × 8px = 32px */
-  font-style: italic;
+  text-align: center;
   opacity: 0.9;
 }
 
-.service-luxury-description {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 0.9375rem; /* 15px - refined sizing */
-  font-weight: 400;
-  color: #2d3748;
-  line-height: 1.6;
-  margin-bottom: 24px; /* 8pt grid: 3 × 8px = 24px */
-}
-
-.service-luxury-demand {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 0.875rem; /* 14px - 8pt grid compliant */
-  font-weight: 500;
-  color: #E55555;
-  line-height: 1.5;
-  padding-left: 16px; /* 8pt grid: 2 × 8px = 16px */
-  border-left: 3px solid #E55555;
-  font-style: italic;
-}
-
-/* TEXT OVERLAY PROTECTION & ACCESSIBILITY */
-.service-hover-hint {
-  background: rgba(0, 0, 0, 0.8); /* High contrast dark overlay for accessibility */
-  color: #ffffff; /* Pure white for maximum contrast */
-  padding: 12px 24px; /* 8pt grid: 1.5 × 8px = 12px vertical, 3 × 8px = 24px horizontal */
-  border-radius: 8px; /* Reduced border radius for professional look */
-  font-size: 0.875rem; /* Consistent with section number typography */
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  animation: pulse 2s infinite;
-  
-  /* TOUCH TARGETS - 44px minimum for accessibility */
-  min-height: 44px;
-  min-width: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.service-amplification-item.expanded .service-hover-hint {
-  background: #E55555; /* WCAG AA compliant coral */
-  color: #ffffff;
-  animation: none;
-  border-color: #E55555;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 0.7; }
-  50% { opacity: 1; }
-}
-
-.service-content-section {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  animation: slideInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  margin-bottom: 1.5rem;
-  display: block !important;
-  visibility: visible !important;
-}
-
-.service-content-section:nth-child(1) { animation-delay: 0.1s; }
-.service-content-section:nth-child(2) { animation-delay: 0.2s; }
-.service-content-section:nth-child(3) { animation-delay: 0.3s; }
-
-@keyframes slideInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.content-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--grapefruit-primary);
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  position: relative;
-}
-
-.content-title::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 30px;
-  height: 2px;
-  background: var(--grapefruit-primary);
-  border-radius: 1px;
-}
-
-.content-description {
-  font-size: clamp(0.9rem, 1.8vw, 1rem);
-  line-height: 1.6;
-  color: #2d3748;
-  margin: 0 0 1rem 0;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  opacity: 1;
-  visibility: visible;
-  display: block;
-}
-
-/* LUXURY RESPONSIVE DESIGN - PROFESSIONAL BREAKPOINTS */
-@media (max-width: 1200px) {
-  .services-luxury-container {
-    padding: 64px 32px; /* 8pt grid: 8 × 8px = 64px, 4 × 8px = 32px */
-  }
-  
-  .services-luxury-grid {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 40px; /* 8pt grid: 5 × 8px = 40px */
-  }
-}
-
-/* TABLET BREAKPOINT */
+/* RESPONSIVE DESIGN FOR SOPHISTICATED SERVICES */
 @media (max-width: 768px) {
-  .services-luxury-container {
-    padding: 48px 24px; /* 8pt grid: 6 × 8px = 48px, 3 × 8px = 24px */
+  .services-sophisticated-layout {
+    flex-direction: column;
+    gap: 32px;
+    text-align: center;
   }
   
-  .services-luxury-grid {
-    grid-template-columns: 1fr;
-    gap: 32px; /* 8pt grid: 4 × 8px = 32px */
-    margin-top: 48px; /* 8pt grid: 6 × 8px = 48px */
+  .service-sophisticated-item {
+    min-width: 100%;
+    max-width: 100%;
   }
   
-  .service-luxury-card {
-    padding: 32px 24px; /* 8pt grid: 4 × 8px = 32px, 3 × 8px = 24px */
-  }
-  
-  .service-luxury-title {
-    font-size: clamp(1.5rem, 4vw, 1.75rem);
-  }
-  
-  .service-luxury-subtitle {
-    font-size: 0.9375rem; /* 15px */
+  .service-sophisticated-title {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
   }
 }
 
-/* MOBILE BREAKPOINT */
-@media (max-width: 480px) {
-  .services-luxury-container {
-    padding: 40px 16px; /* 8pt grid: 5 × 8px = 40px, 2 × 8px = 16px */
-  }
-  
-  .service-luxury-card {
-    padding: 24px 16px; /* 8pt grid: 3 × 8px = 24px, 2 × 8px = 16px */
-  }
-  
-  .service-luxury-title {
-    font-size: 1.5rem; /* 24px - 8pt grid compliant */
-  }
-  
-  .service-luxury-description {
-    font-size: 0.875rem; /* 14px - 8pt grid compliant */
-  }
-}
-
-/* Accessibility & Performance */
-.service-amplification-item:focus {
-  outline: 2px solid var(--grapefruit-primary);
-  outline-offset: 4px;
-}
-
-.service-amplification-item:focus-visible {
-  outline: 2px solid var(--grapefruit-primary);
-  outline-offset: 4px;
-}
-
-/* High Contrast Mode */
-@media (prefers-contrast: high) {
-  .service-amplification-item {
-    background: #000;
-    color: #fff;
-  }
-  
-  .service-amplification-item.expanded {
-    background: #fff;
-    color: #000;
-    border: 2px solid #000;
-  }
-}
-
-/* Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-  .service-amplification-item,
-  .service-content-section {
-    transition: none;
-    animation: none;
-  }
-}
-
-/* Print Styles */
-@media print {
-  .service-amplification-item {
-    background: #f5f5f5 !important;
-    color: #000 !important;
-    flex: 1 !important;
-  }
-  
-  .service-detailed-content {
-    display: block !important;
-  }
-}
 
 /* ========================================== */
 /* PHASE 2: VISUAL EXCELLENCE ENHANCEMENTS */
