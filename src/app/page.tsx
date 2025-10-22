@@ -1031,415 +1031,243 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES SECTION - ENTERPRISE ACCESSIBILITY COMPLIANCE */}
+      {/* SERVICES SECTION - WORKING ACCORDION */}
       <section 
         id="services"
-        className="section-luxury section-services-sophisticated section-transition-sophisticated"
         style={{
-          background: 'var(--vanilla-whisper)', /* WCAG AAA compliant vanilla background */
-          padding: '80px 0 0',
-          minHeight: '80vh',
-          position: 'relative'
+          background: 'var(--vanilla-whisper)',
+          padding: '80px 0',
+          minHeight: '100vh'
         }}
+        aria-labelledby="services-heading"
       >
-        <div className="container-foundation">
-          <motion.div 
-            className="heading-desktop"
+        <div style={{
+          maxWidth: '900px', 
+          margin: '0 auto', 
+          padding: '0 2rem'
+        }}>
+          {/* Section Header */}
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            style={{ 
+              textAlign: 'center', 
+              marginBottom: '4rem' 
+            }}
           >
-            <div className="mb-phi-xl">
-              <span 
-                className="text-foundation-sm font-foundation-accent block mb-phi-sm"
-                style={{
-                  color: 'var(--grapefruit-intelligence)' /* WCAG AAA compliant on vanilla */
-                }}
-              >
-                04
-              </span>
-              <h2 className="typography-h2" style={{ 
-                color: 'var(--grapefruit-intelligence)', /* WCAG AAA compliant */
-                fontSize: '68px' /* Mathematical: 42px × 1.618 */
-              }}>
-                Services
-              </h2>
-            </div>
-            <motion.p 
-              className="typography-body text-center max-w-4xl mx-auto mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              viewport={{ once: true }}
+            <span style={{
+              fontSize: '14px',
+              fontWeight: '600',
+              color: 'var(--grapefruit-intelligence)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.1em',
+              marginBottom: '1rem',
+              display: 'block'
+            }}>
+              04
+            </span>
+            <h2 
+              id="services-heading"
               style={{
-                color: 'var(--grapefruit-intelligence)', /* WCAG AAA compliant on vanilla */
-                opacity: 0.8,
-                fontSize: '26px' /* Mathematical: 16px × 1.618 */
+                fontSize: '68px',
+                fontFamily: 'var(--font-architectural-display)',
+                color: 'var(--grapefruit-intelligence)',
+                marginBottom: '1rem',
+                fontWeight: '400'
               }}
             >
+              Services
+            </h2>
+            <p style={{
+              fontSize: '20px',
+              fontFamily: 'var(--font-architectural-body)',
+              color: 'var(--grapefruit-intelligence)',
+              opacity: 0.8,
+              maxWidth: '600px',
+              margin: '0 auto',
+              lineHeight: '1.6'
+            }}>
               Meticulously architected solutions addressing demanding market realities and evolving client needs.
-            </motion.p>
+            </p>
           </motion.div>
           
-          <div style={{maxWidth: '800px', margin: '0 auto'}}>
-            {referenceServices.map((service, index) => {
-            const isSignatureService = ['01', '06'].includes(service.number);
-            const isLongDescription = service.description.length > 200;
-            
-            return (
-            <motion.div 
+          {/* Services Accordion */}
+          {referenceServices.map((service, index) => (
+            <motion.div
               key={service.number}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
               style={{
-                // Enterprise-compliant vanilla system
-                background: 'rgba(255, 255, 255, 0.9)', // Clean white cards on vanilla background
-                
-                // Architectural border system
-                border: '1px solid rgba(255, 102, 99, 0.1)',
-                borderTop: '3px solid var(--grapefruit-intelligence)', // Signature accent
+                border: '1px solid var(--grapefruit-intelligence)',
                 borderRadius: '12px',
-                
-                // Premium shadow system
-                boxShadow: `
-                  0 1px 3px rgba(0, 0, 0, 0.05),
-                  0 4px 12px rgba(255, 102, 99, 0.08),
-                  inset 0 1px 0 rgba(255, 255, 255, 0.8)
-                `,
-                
-                // Mathematical spacing (golden ratio)
-                marginBottom: `${Math.round(16 * 1.618)}px`,
-                
-                // Enhanced interaction
+                marginBottom: '1rem',
+                background: 'white',
                 cursor: 'pointer',
-                transition: 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                position: 'relative',
-                overflow: 'visible'
+                overflow: 'hidden',
+                boxShadow: '0 4px 6px rgba(255, 102, 99, 0.1)',
+                transition: 'all 0.3s ease'
+              }}
+              whileHover={{
+                boxShadow: '0 8px 25px rgba(255, 102, 99, 0.15)',
+                transform: 'translateY(-2px)'
               }}
               onClick={() => setExpandedService(expandedService === service.number ? null : service.number)}
-              onMouseEnter={() => {}}
-              whileHover={{
-                y: -4,
-                boxShadow: `
-                  0 8px 25px rgba(255, 102, 99, 0.15),
-                  0 2px 8px rgba(0, 0, 0, 0.1),
-                  inset 0 1px 0 rgba(255, 255, 255, 0.9)
-                `,
-                transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }
+              role="button"
+              aria-expanded={expandedService === service.number}
+              aria-controls={`service-content-${service.number}`}
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setExpandedService(expandedService === service.number ? null : service.number);
+                }
               }}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.8, 
-                delay: index * 0.1,
-                ease: [0.25, 0.46, 0.45, 0.94]
-              }}
-              viewport={{ once: true }}
             >
-              {/* Signature craft detail */}
+              {/* Accordion Header */}
               <div style={{
-                position: 'absolute',
-                top: 0,
-                left: '24px',
-                width: '2px',
-                height: '12px',
-                background: 'var(--grapefruit-intelligence)',
-                borderRadius: '1px'
-              }} />
-              
-              <motion.div 
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '24px', // Enhanced spacing
-                  padding: `${Math.round(20 * 1.618)}px 28px`, // Golden ratio padding
-                  position: 'relative'
-                }}
-                whileHover={{
-                  gap: '28px',
-                  transition: { duration: 0.4 }
-                }}
-              >
-                <motion.span 
-                  style={{
-                    fontSize: '11px',
-                    fontWeight: '700',
-                    color: 'white',
-                    background: 'var(--grapefruit-intelligence)',
-                    padding: '6px 10px',
-                    borderRadius: '6px',
-                    minWidth: '32px',
-                    textAlign: 'center',
-                    letterSpacing: '0.05em',
-                    textTransform: 'uppercase',
-                    // Premium material effect
-                    boxShadow: '0 2px 8px rgba(255, 102, 99, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-                    position: 'relative',
-                    zIndex: 2
-                  }}
-                  whileHover={{
-                    scale: 1.1,
-                    boxShadow: '0 4px 12px rgba(255, 102, 99, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
-                    transition: { duration: 0.3 }
-                  }}
-                >
+                padding: '2rem 2.5rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '1.5rem',
+                borderBottom: expandedService === service.number ? '1px solid var(--grapefruit-intelligence)' : 'none'
+              }}>
+                <span style={{
+                  fontSize: '12px',
+                  fontWeight: '700',
+                  color: 'white',
+                  background: 'var(--grapefruit-intelligence)',
+                  padding: '6px 10px',
+                  borderRadius: '6px',
+                  minWidth: '32px',
+                  textAlign: 'center',
+                  fontFamily: 'var(--font-architectural-body)'
+                }}>
                   {service.number}
-                </motion.span>
+                </span>
                 
-                <motion.h3 
-                  style={{
-                    flex: 1,
-                    margin: 0,
-                    fontFamily: 'Playfair Display, serif',
-                    // Contextual typography sizing
-                    fontSize: `${24 + (service.title.length < 20 ? 4 : 0)}px`,
-                    fontWeight: isSignatureService ? '500' : '400', // Enhanced weight for grapefruit background
-                    color: 'var(--grapefruit-intelligence)', /* WCAG AAA compliant on vanilla */
-                    lineHeight: service.title.includes('Intelligence') ? '1.1' : '1.2',
-                    letterSpacing: '-0.02em', // Luxury tightness
-                    textRendering: 'optimizeLegibility'
-                  }}
-                  whileHover={{
-                    letterSpacing: '-0.01em', // Elegant expansion
-                    textShadow: '0 2px 8px rgba(255, 102, 99, 0.3)', /* Elegant grapefruit glow on hover */
-                    transition: { duration: 0.4 }
-                  }}
-                >
+                <h3 style={{
+                  flex: 1,
+                  fontSize: '28px',
+                  fontFamily: 'var(--font-architectural-display)',
+                  color: 'var(--grapefruit-intelligence)',
+                  margin: 0,
+                  fontWeight: '400',
+                  lineHeight: '1.3'
+                }}>
                   {service.title}
-                </motion.h3>
+                </h3>
                 
                 <motion.span 
                   style={{
-                    fontSize: '18px',
-                    fontWeight: '300', // Elegant lightness
+                    fontSize: '24px',
                     color: 'var(--grapefruit-intelligence)',
-                    width: '32px',
-                    height: '32px',
-                    textAlign: 'center',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    borderRadius: '50%',
-                    background: 'rgba(255, 102, 99, 0.05)',
-                    border: '1px solid rgba(255, 102, 99, 0.1)',
-                    // Premium interaction indicator
-                    boxShadow: '0 1px 3px rgba(255, 102, 99, 0.1)'
-                  }}
-                  whileHover={{
-                    background: 'rgba(255, 102, 99, 0.1)',
-                    borderColor: 'var(--grapefruit-intelligence)',
-                    scale: 1.1,
-                    rotate: expandedService === service.number ? 0 : 90,
-                    transition: { duration: 0.3 }
+                    fontWeight: '300',
+                    minWidth: '24px',
+                    textAlign: 'center'
                   }}
                   animate={{
-                    rotate: expandedService === service.number ? 45 : 0,
-                    transition: { duration: 0.4 }
+                    rotate: expandedService === service.number ? 45 : 0
                   }}
+                  transition={{ duration: 0.3 }}
                 >
-                  {expandedService === service.number ? '−' : '+'}
+                  +
                 </motion.span>
-              </motion.div>
+              </div>
               
+              {/* Accordion Content */}
               {expandedService === service.number && (
-                <motion.div 
-                  style={{
-                    padding: `0 ${Math.round(28 * 1.618)}px ${Math.round(32 * 1.618)}px`, // Golden ratio padding
-                    borderTop: '1px solid var(--grapefruit-whisper)',
-                    background: 'rgba(255, 255, 255, 0.08)', // Subtle system-compliant background
-                    position: 'relative'
-                  }}
+                <motion.div
+                  id={`service-content-${service.number}`}
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: 'auto', opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  style={{ overflow: 'hidden' }}
                 >
-                  {/* Editorial accent line */}
                   <div style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: '28px',
-                    right: '28px',
-                    height: '1px',
-                    background: 'linear-gradient(90deg, transparent, var(--grapefruit-intelligence), transparent)',
-                    opacity: 0.3
-                  }} />
-                  
-                  <motion.p 
-                    style={{
-                      fontSize: '19px', // Enhanced from 18px
-                      color: 'var(--grapefruit-intelligence)', /* WCAG AAA compliant on vanilla */
-                      opacity: 0.8,
-                      marginBottom: `${Math.round(24 * 1.618)}px`, // Golden ratio spacing
-                      fontWeight: '400',
-                      fontStyle: 'italic', // Editorial emphasis
-                      lineHeight: '1.618', // Golden ratio line spacing
-                      textRendering: 'optimizeLegibility'
-                    }}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                  >
-                    {service.subtitle}
-                  </motion.p>
-                  
-                  {/* EDITORIAL-LEVEL CONTENT BLOCK - STRATEGIC CAPABILITY */}
-                  <motion.div 
-                    style={{
-                      marginBottom: `${Math.round(24 * 1.618)}px`, // Golden ratio spacing
-                      background: 'rgba(255, 255, 255, 0.08)', // System-compliant subtle background
-                      padding: `${Math.round(24 * 1.618)}px 28px`, // Golden ratio padding
-                      borderRadius: '12px',
-                      borderLeft: '4px solid var(--grapefruit-intelligence)', // Enhanced accent
-                      position: 'relative',
-                      // Premium shadow architecture
-                      boxShadow: `
-                        0 2px 8px rgba(255, 102, 99, 0.08),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.6)
-                      `,
-                      // Typography refinement
-                      fontFeatureSettings: '"kern" 1, "liga" 1',
-                      textRendering: 'optimizeLegibility'
-                    }}
-                    initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  >
-                    {/* Editorial number accent */}
-                    <div style={{
-                      position: 'absolute',
-                      top: '-1px',
-                      left: '-1px',
-                      width: '8px',
-                      height: '24px',
-                      background: 'var(--grapefruit-intelligence)',
-                      borderRadius: '0 4px 4px 0'
-                    }} />
+                    padding: '2rem 2.5rem',
+                    background: 'var(--grapefruit-whisper)'
+                  }}>
+                    <p style={{
+                      fontSize: '18px',
+                      fontFamily: 'var(--font-architectural-body)',
+                      color: 'var(--grapefruit-intelligence)',
+                      marginBottom: '2rem',
+                      fontStyle: 'italic',
+                      lineHeight: '1.6',
+                      opacity: 0.9
+                    }}>
+                      {service.subtitle}
+                    </p>
                     
-                    <motion.h4 
-                      style={{
-                        fontSize: '13px', // Refined sizing
-                        fontWeight: '800', // Editorial strength
+                    <div style={{
+                      marginBottom: '1.5rem',
+                      padding: '1.5rem',
+                      background: 'white',
+                      borderRadius: '8px',
+                      borderLeft: '4px solid var(--grapefruit-intelligence)',
+                      boxShadow: '0 2px 8px rgba(255, 102, 99, 0.1)'
+                    }}>
+                      <h4 style={{
+                        fontSize: '13px',
+                        fontFamily: 'var(--font-architectural-body)',
                         color: 'var(--grapefruit-intelligence)',
                         textTransform: 'uppercase',
-                        letterSpacing: '0.12em', // Enhanced tracking
-                        marginBottom: `${Math.round(12 * 1.618)}px`, // Golden ratio
-                        fontFamily: 'Inter, sans-serif' // Editorial sans-serif
-                      }}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.4, delay: 0.6 }}
-                    >
-                      Strategic Capability
-                    </motion.h4>
-                    
-                    <motion.p 
-                      style={{
-                        fontSize: isLongDescription ? '15px' : '16px', // Adaptive sizing
-                        color: 'var(--grapefruit-intelligence)', /* WCAG AAA compliant on vanilla */
-                        opacity: 0.9,
-                          lineHeight: isLongDescription ? '1.7' : '1.618', // Adaptive spacing
-                        margin: 0,
-                        fontWeight: '400',
-                        // Multi-column for long content (award-winning responsive typography)
-                        columns: isLongDescription ? '2' : '1',
-                        columnGap: isLongDescription ? '32px' : 'normal',
-                        textRendering: 'optimizeLegibility'
-                      }}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    >
-                      {service.description}
-                    </motion.p>
-                  </motion.div>
-                  
-                  {/* EDITORIAL-LEVEL CONTENT BLOCK - FOR PROJECTS THAT DEMAND */}
-                  <motion.div 
-                    style={{
-                      marginBottom: `${Math.round(24 * 1.618)}px`, // Golden ratio spacing
-                      background: 'rgba(255, 255, 255, 0.08)', // System-compliant subtle background
-                      padding: `${Math.round(24 * 1.618)}px 28px`, // Golden ratio padding
-                      borderRadius: '12px',
-                      borderLeft: '4px solid var(--grapefruit-intelligence)', // Enhanced accent
-                      position: 'relative',
-                      // Premium shadow architecture
-                      boxShadow: `
-                        0 2px 8px rgba(255, 102, 99, 0.08),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.6)
-                      `,
-                      // Typography refinement
-                      fontFeatureSettings: '"kern" 1, "liga" 1',
-                      textRendering: 'optimizeLegibility'
-                    }}
-                    initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 1.0, ease: [0.25, 0.46, 0.45, 0.94] }} // Later in sequence
-                  >
-                    {/* Signature accent detail for demand section */}
-                    <div style={{
-                      position: 'absolute',
-                      top: '16px',
-                      right: '16px',
-                      width: '4px',
-                      height: '4px',
-                      background: 'var(--grapefruit-intelligence)',
-                      borderRadius: '50%',
-                      opacity: 0.6
-                    }} />
-                    
-                    <motion.h4 
-                      style={{
-                        fontSize: '13px', // Refined sizing
-                        fontWeight: '800', // Editorial strength
-                        color: 'var(--grapefruit-intelligence)',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.12em', // Enhanced tracking
-                        marginBottom: `${Math.round(12 * 1.618)}px`, // Golden ratio
-                        fontFamily: 'Inter, sans-serif' // Editorial sans-serif
-                      }}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.4, delay: 1.2 }}
-                    >
-                      For Projects That Demand
-                    </motion.h4>
-                    
-                    <motion.p 
-                      style={{
+                        letterSpacing: '0.1em',
+                        marginBottom: '1rem',
+                        fontWeight: '700'
+                      }}>
+                        Strategic Capability
+                      </h4>
+                      <p style={{
                         fontSize: '16px',
-                        color: 'var(--grapefruit-intelligence)', /* WCAG AAA compliant on vanilla */
-                        opacity: 0.9,
-                          lineHeight: '1.618', // Golden ratio line spacing
+                        fontFamily: 'var(--font-architectural-body)',
+                        color: 'var(--grapefruit-intelligence)',
+                        lineHeight: '1.7',
+                        margin: 0
+                      }}>
+                        {service.description}
+                      </p>
+                    </div>
+                    
+                    <div style={{
+                      padding: '1.5rem',
+                      background: 'white',
+                      borderRadius: '8px',
+                      borderLeft: '4px solid var(--grapefruit-intelligence)',
+                      boxShadow: '0 2px 8px rgba(255, 102, 99, 0.1)'
+                    }}>
+                      <h4 style={{
+                        fontSize: '13px',
+                        fontFamily: 'var(--font-architectural-body)',
+                        color: 'var(--grapefruit-intelligence)',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.1em',
+                        marginBottom: '1rem',
+                        fontWeight: '700'
+                      }}>
+                        For Projects That Demand
+                      </h4>
+                      <p style={{
+                        fontSize: '16px',
+                        fontFamily: 'var(--font-architectural-body)',
+                        color: 'var(--grapefruit-intelligence)',
+                        lineHeight: '1.7',
                         margin: 0,
-                        fontWeight: '500', // Slightly stronger for emphasis
-                        textRendering: 'optimizeLegibility'
-                      }}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 1.4, ease: [0.25, 0.46, 0.45, 0.94] }} // Final reveal
-                    >
-                      {service.demand}
-                    </motion.p>
-                  </motion.div>
-                  
-                  {/* SIGNATURE CLOSING ACCENT LINE */}
-                  <motion.div 
-                    style={{
-                      height: '1px',
-                      background: 'linear-gradient(90deg, transparent, var(--grapefruit-intelligence), transparent)',
-                      opacity: 0.2, // Elegant on vanilla background
-                      margin: `${Math.round(16 * 1.618)}px 0 0 0` // Golden ratio top margin
-                    }}
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.8, delay: 1.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  />
+                        fontWeight: '500'
+                      }}>
+                        {service.demand}
+                      </p>
+                    </div>
+                  </div>
                 </motion.div>
               )}
             </motion.div>
-            );
-          })}
-          </div>
+          ))}
         </div>
       </section>
 

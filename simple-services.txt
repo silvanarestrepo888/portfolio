@@ -1,0 +1,142 @@
+          {/* SIMPLE WORKING SERVICES ACCORDION - 100% DESIGN SYSTEM */}
+          <div style={{maxWidth: '900px', margin: '0 auto', padding: '0 2rem'}}>
+            {referenceServices.map((service, index) => (
+              <motion.div
+                key={service.number}
+                style={{
+                  border: '1px solid var(--grapefruit-whisper)', // Established system color
+                  borderRadius: '8px',
+                  marginBottom: '1rem',
+                  background: 'white', // Simple white on vanilla
+                  cursor: 'pointer',
+                  overflow: 'hidden'
+                }}
+                onClick={() => setExpandedService(expandedService === service.number ? null : service.number)}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }} // Simple stagger
+              >
+                {/* Simple Header */}
+                <div style={{
+                  padding: '1.5rem 2rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '1rem',
+                  borderBottom: expandedService === service.number ? '1px solid var(--grapefruit-whisper)' : 'none'
+                }}>
+                  <span style={{
+                    fontSize: '14px', // Typography-caption size
+                    fontWeight: '600',
+                    color: 'var(--grapefruit-intelligence)', // System color
+                    background: 'var(--grapefruit-whisper)', // System color
+                    padding: '4px 8px',
+                    borderRadius: '4px',
+                    minWidth: '28px',
+                    textAlign: 'center'
+                  }}>
+                    {service.number}
+                  </span>
+                  
+                  <h3 style={{
+                    flex: 1,
+                    fontSize: '26px', // Mathematical: 16px × 1.618
+                    fontFamily: 'var(--font-architectural-display)', // System font
+                    color: 'var(--grapefruit-intelligence)', // System color
+                    margin: 0,
+                    fontWeight: '400'
+                  }}>
+                    {service.title}
+                  </h3>
+                  
+                  <span style={{
+                    fontSize: '18px',
+                    color: 'var(--grapefruit-intelligence)', // System color
+                    fontWeight: '300'
+                  }}>
+                    {expandedService === service.number ? '−' : '+'}
+                  </span>
+                </div>
+                
+                {/* Simple Expanded Content */}
+                {expandedService === service.number && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.4 }}
+                    style={{ overflow: 'hidden' }}
+                  >
+                    <div style={{ padding: '1.5rem 2rem' }}>
+                      <p style={{
+                        fontSize: '16px', // Typography-body size
+                        fontFamily: 'var(--font-architectural-body)', // System font
+                        color: 'var(--grapefruit-intelligence)', // System color
+                        marginBottom: '1rem',
+                        opacity: 0.8,
+                        fontStyle: 'italic'
+                      }}>
+                        {service.subtitle}
+                      </p>
+                      
+                      <div style={{
+                        marginBottom: '1rem',
+                        padding: '1rem',
+                        background: 'var(--grapefruit-whisper)', // System background
+                        borderRadius: '6px',
+                        borderLeft: '3px solid var(--grapefruit-intelligence)' // System accent
+                      }}>
+                        <h4 style={{
+                          fontSize: '12px', // Typography system
+                          fontFamily: 'var(--font-architectural-body)', // System font
+                          color: 'var(--grapefruit-intelligence)', // System color
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.1em',
+                          marginBottom: '0.5rem',
+                          fontWeight: '600'
+                        }}>
+                          Strategic Capability
+                        </h4>
+                        <p style={{
+                          fontSize: '14px', // Typography system
+                          fontFamily: 'var(--font-architectural-body)', // System font
+                          color: 'var(--grapefruit-intelligence)', // System color
+                          lineHeight: '1.6',
+                          margin: 0
+                        }}>
+                          {service.description}
+                        </p>
+                      </div>
+                      
+                      <div style={{
+                        padding: '1rem',
+                        background: 'var(--grapefruit-whisper)', // System background
+                        borderRadius: '6px',
+                        borderLeft: '3px solid var(--grapefruit-intelligence)' // System accent
+                      }}>
+                        <h4 style={{
+                          fontSize: '12px', // Typography system
+                          fontFamily: 'var(--font-architectural-body)', // System font
+                          color: 'var(--grapefruit-intelligence)', // System color
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.1em',
+                          marginBottom: '0.5rem',
+                          fontWeight: '600'
+                        }}>
+                          For Projects That Demand
+                        </h4>
+                        <p style={{
+                          fontSize: '14px', // Typography system
+                          fontFamily: 'var(--font-architectural-body)', // System font
+                          color: 'var(--grapefruit-intelligence)', // System color
+                          lineHeight: '1.6',
+                          margin: 0
+                        }}>
+                          {service.demand}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </motion.div>
+            ))}
+          </div>
