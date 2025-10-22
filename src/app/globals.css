@@ -8687,14 +8687,15 @@ h4, .text-h4 {
 }
 
 .philosophy-quote-ultra-luxury {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  font-weight: 300;
-  line-height: 1.5;
-  color: var(--text-primary);
+  font-family: var(--font-architectural-display);
+  font-size: var(--type-xl);
+  font-weight: 200;
+  line-height: 1.4;
+  color: var(--grapefruit-intelligence);
   margin: 0;
   font-style: italic;
   position: relative;
+  letter-spacing: -0.015em;
 }
 
 .craft-highlight-luxury {
@@ -12411,8 +12412,8 @@ h4, .text-h4 {
 /* ===== LANDOR STANDARDS FOOTER - ULTRA-LUXURY ===== */
 
 .footer-landor-standards {
-  background: linear-gradient(135deg, var(--grapefruit-primary) 0%, var(--grapefruit-secondary) 100%);
-  color: var(--panna-cotta-vanilla);
+  background: linear-gradient(161.8deg, var(--grapefruit-intelligence) 0%, var(--grapefruit-impact) 100%);
+  color: var(--vanilla-whisper);
   padding: 4rem 0 2rem;
   margin-top: 6rem;
   position: relative;
@@ -12426,8 +12427,8 @@ h4, .text-h4 {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--panna-cotta-vanilla), transparent);
-  opacity: 0.3;
+  background: linear-gradient(90deg, transparent, var(--vanilla-whisper), transparent);
+  opacity: 0.4;
 }
 
 .footer-container-landor {
@@ -15103,8 +15104,8 @@ img {
   /* ACT 4: SERVICES - BOLD IMPACT MOMENT (Strategic Grapefruit) */
   --services-gradient: linear-gradient(161.8deg, var(--grapefruit-intelligence) 0%, var(--grapefruit-impact) 100%);
   
-  /* ACT 5: EXPERIENCE - Expertise Authority */
-  --experience-gradient: linear-gradient(161.8deg, var(--vanilla-depth) 0%, var(--vanilla-foundation) 61.8%, var(--vanilla-whisper) 100%);
+  /* ACT 5: EXPERIENCE - Expertise Authority (Dark for High Contrast) */
+  --experience-gradient: linear-gradient(161.8deg, rgba(44, 44, 44, 0.95) 0%, rgba(44, 44, 44, 0.9) 61.8%, rgba(44, 44, 44, 0.85) 100%);
 }
 
 /* HERO SECTION - Bold Confidence */
@@ -15789,15 +15790,15 @@ img {
   object-fit: cover;
   object-position: center 20%; /* FACE-CENTERED positioning (not chest) */
   
-  /* Stella-inspired professional clarity */
+  /* Subtle background presence like Stella */
   filter: 
-    brightness(1.05) 
+    brightness(0.9) 
     contrast(1.1)
-    saturate(1.02);
+    saturate(0.8);
   
-  /* Normal blend mode for clear visibility */
-  mix-blend-mode: normal;
-  opacity: 1;
+  /* Blend mode for sophistication */
+  mix-blend-mode: soft-light;
+  opacity: 0.4; /* Much more subtle like Stella's approach */
   
   /* Performance optimization */
   will-change: transform, filter;
@@ -15812,11 +15813,11 @@ img {
   height: 100%;
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.25) 0%,      /* Stella-inspired professional depth */
-    transparent 38.2%,           /* Golden ratio face clearance */
-    var(--grapefruit-breath) 100% /* Invisible intelligence */
+    rgba(245, 245, 220, 0.8) 0%,    /* Stella-inspired vanilla overlay */
+    transparent 40%,                /* Face visibility zone */
+    rgba(245, 245, 220, 0.6) 100%   /* Professional sophisticated depth */
   );
-  z-index: 3;
+  z-index: 4;
   pointer-events: none;
 }
 
@@ -15851,21 +15852,17 @@ img {
 /* ABOUT PHOTO UNIFIED SOPHISTICATED SYSTEM */
 .about-photo-unified-sophisticated {
   position: relative;
-  border-radius: 24px; /* Consistent with hero curves */
+  border-radius: 20px; /* Clean floating edges */
   overflow: hidden;
   
-  /* Sophisticated two-color background */
-  background: linear-gradient(135deg, 
-    var(--vanilla-pure) 0%, 
-    var(--vanilla-warm) 100%);
+  /* REMOVE frame background - floating effect */
+  background: transparent;
   
-  padding: 12px; /* Generous, luxurious frame */
+  /* REMOVE frame padding - no visual barriers */
+  padding: 0;
   
-  /* Sophisticated two-color shadow system */
-  box-shadow: 
-    0 25px 60px var(--grapefruit-whisper),
-    0 8px 25px var(--grapefruit-subtle),
-    0 2px 8px var(--grapefruit-whisper);
+  /* Floating shadow only - like Stella's approach */
+  box-shadow: 0 20px 60px var(--grapefruit-breath);
   
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }

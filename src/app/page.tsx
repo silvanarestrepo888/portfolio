@@ -10,6 +10,7 @@ import { FloatingNavigation } from '../components/navigation/FloatingNavigation'
 import { SectionIndicator } from '../components/navigation/SectionIndicator';
 import { useParallax } from '../hooks/useScrollAnimation';
 import { InteractiveProjectCard } from '../components/projects/InteractiveProjectCard';
+import { SilvanaLoader } from '../components/ui/SilvanaLoader';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -17,9 +18,18 @@ export default function Home() {
   const [currentGalleryImage, setCurrentGalleryImage] = useState(0);
   const [galleryZoomOpen, setGalleryZoomOpen] = useState(false);
   const [heroImageZoom, setHeroImageZoom] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   
   // Enhanced scroll animations
   const parallaxTransform = useParallax(0.3);
+  
+  // Loading sequence like Stella's approach
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500); // Sophisticated loading duration
+    return () => clearTimeout(timer);
+  }, []);
   
   // Foundation Project Exploration System
   const [featuredProjectIndex, setFeaturedProjectIndex] = useState(0);
@@ -394,6 +404,9 @@ export default function Home() {
   return (
     <div className="min-h-screen" style={{backgroundColor: '#fffbee'}}>
       
+      {/* SILVANA SIGNATURE LOADER - STELLA-INSPIRED */}
+      {isLoading && <SilvanaLoader />}
+      
       {/* ACCESSIBILITY - Skip Navigation Links */}
       <a 
         href="#main-content"
@@ -612,7 +625,7 @@ export default function Home() {
                 initial={{ backgroundSize: "0% 100%" }}
                 whileInView={{ backgroundSize: "100% 100%" }}
                 transition={{ duration: 1.2, delay: 1.8, ease: "easeInOut" }}
-              >MY CRAFT</motion.span> lies in its refinement&rdquo;
+              >MY CRAFT</motion.span> lies in listening to the unspoken, seeing the invisible, and touching the intangible essence of human desire&rdquo;
             </motion.blockquote>
           </motion.div>
         </div>
@@ -782,11 +795,11 @@ export default function Home() {
               >
                 03
               </span>
-            <h2 className="typography-h2" style={{ color: 'var(--grapefruit-rich)' }}>
+            <h2 className="typography-h2" style={{ color: 'var(--vanilla-whisper)' }}>
                 Experience
               </h2>
-            <p className="typography-body text-center max-w-4xl mx-auto" style={{ color: 'var(--grapefruit-medium)' }}>
-              Some of the <span className="highlight-word" style={{ color: 'var(--grapefruit-pure)' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--grapefruit-pure)' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--grapefruit-pure)' }}>upscaling</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-pure)' }}>reinventing</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-pure)' }}>evolving</span>, and <span className="highlight-word" style={{ color: 'var(--grapefruit-pure)' }}>reimagining</span> business, brands, and teams.
+            <p className="typography-body text-center max-w-4xl mx-auto" style={{ color: 'var(--vanilla-foundation)' }}>
+              Some of the <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)' }}>upscaling</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)' }}>reinventing</span>, <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)' }}>evolving</span>, and <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)' }}>reimagining</span> business, brands, and teams.
             </p>
           </motion.div>
           
