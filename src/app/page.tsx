@@ -1515,26 +1515,48 @@ export default function Home() {
             </motion.div>
           </div>
           
-          {/* PROJECT DETAILS FOOTER - ARCHITECTURAL PRECISION */}
-          <footer className="project-details-footer-architectural">
-            <div className="footer-architectural-content">
-              <div className="footer-brand-architectural">
-                <h3 className="footer-brand-name typography-h3">silvana.</h3>
-                <p className="footer-brand-title typography-body">Principal Experience Architect</p>
-                <p className="footer-brand-description typography-caption">
-                  Transforming business challenges into strategic advantages through experience-driven innovation.
-                </p>
-              </div>
-              <div className="footer-contact-architectural">
-                <a href="mailto:silvanarestrepo888@gmail.com" className="footer-contact-link typography-caption">
-                  Contact
-                </a>
-                <a href="https://linkedin.com/in/silvanarestrepo" className="footer-contact-link typography-caption">
-                  LinkedIn
-                </a>
-              </div>
-            </div>
-          </footer>
+           {/* PROJECT DETAILS FOOTER - COPY COMPLIANT */}
+           <footer className="project-details-footer-architectural">
+             <div className="footer-architectural-content">
+               <div className="footer-brand-architectural">
+                 <h3 className="footer-brand-name typography-h3">silvana.</h3>
+                 <p className="footer-brand-title typography-body">Principal Experience Architect</p>
+                 <p className="footer-brand-description typography-caption">
+                   Transforming business challenges into strategic advantages through experience-driven innovation.
+                 </p>
+               </div>
+               <div className="footer-contact-architectural">
+                 <h4 className="footer-contact-title-architectural typography-body">Contact</h4>
+                 <div className="footer-contact-links-architectural">
+                   <a 
+                     href="mailto:silvanarestrepo888@gmail.com"
+                     className="footer-contact-link-architectural typography-caption"
+                   >
+                     <Mail size={16} />
+                     Contact
+                   </a>
+                   <a 
+                     href="https://linkedin.com/in/silvanarestrepo"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="footer-contact-link-architectural typography-caption"
+                   >
+                     <Linkedin size={16} />
+                     LinkedIn
+                   </a>
+                   <a 
+                     href="https://silvana.mmm.page/human-perspective"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="footer-contact-link-architectural typography-caption"
+                   >
+                     <ExternalLink size={16} />
+                     Portfolio
+                   </a>
+                 </div>
+               </div>
+             </div>
+           </footer>
                 
           {/* SOPHISTICATED PROJECT NAVIGATION */}
           <div className="sophisticated-navigation-section">

@@ -330,13 +330,35 @@
 
 .footer-contact-architectural {
   display: flex;
-  gap: 2rem;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.footer-contact-link {
+.footer-contact-title-architectural {
+  color: var(--grapefruit-intelligence);
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+}
+
+.footer-contact-links-architectural {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-contact-link-architectural {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   color: var(--grapefruit-intelligence);
   opacity: 0.8;
+  text-decoration: none;
   transition: all 0.3s ease;
+}
+
+.footer-contact-link-architectural:hover {
+  opacity: 1;
+  transform: translateX(4px);
 }
 
 .footer-contact-link:hover {
