@@ -386,6 +386,15 @@
   --grapefruit-moment: rgba(255, 102, 99, 0.15);  /* Strategic accents */
   --grapefruit-impact: #E55A5A;        /* Bold statement moments */
   
+  /* MISSING VARIABLES - CRISIS RESOLUTION */
+  --text-primary: var(--grapefruit-intelligence); /* Map to existing system */
+  --text-secondary: var(--grapefruit-intelligence); /* Map to existing system */
+  --grapefruit-rich: var(--grapefruit-intelligence); /* Map to existing system */
+  --grapefruit-medium: var(--grapefruit-intelligence); /* Map to existing system */
+  --grapefruit-pure: var(--grapefruit-intelligence); /* Map to existing system */
+  --grapefruit-primary: var(--grapefruit-intelligence); /* Map to existing system */
+  --coral: var(--grapefruit-intelligence); /* Map to existing system */
+  
   /* ARCHITECTURAL TYPOGRAPHY SCALE - MATHEMATICAL PRECISION */
   --type-xs: 12px;      /* Supporting details */
   --type-sm: 14px;      /* Captions */
@@ -8878,21 +8887,21 @@ h4, .text-h4 {
 }
 
 .about-title-ultra-luxury {
-  font-family: 'Playfair Display', serif;
-  font-size: 4.5rem;
+  font-family: var(--font-architectural-display); /* System font */
+  font-size: 68px; /* Mathematical: 42px × 1.618 = 68px */
   font-weight: 300;
   line-height: 1.1;
-  color: var(--text-primary);
-  margin-bottom: 0;
+  color: var(--grapefruit-intelligence); /* System color */
+  margin-bottom: 26px; /* Mathematical: 16px × 1.618 = 26px */
   letter-spacing: -0.02em;
 }
 
 .about-description-ultra-luxury {
-  font-size: 1.5rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
+  font-size: 26px; /* Mathematical: 16px × 1.618 = 26px */
+  line-height: 1.618; /* Golden ratio */
+  color: var(--grapefruit-intelligence); /* System color */
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 auto 42px auto; /* Mathematical bottom margin */
   font-weight: 300;
 }
 
@@ -8900,9 +8909,9 @@ h4, .text-h4 {
 .about-content-ultra-luxury {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 110px; /* Mathematical: 68px × 1.618 = 110px */
   align-items: center;
-  margin-bottom: 80px;
+  margin-bottom: 110px; /* Mathematical consistency */
 }
 
 /* Left Column - Text Content - Stella Petkova Style */
@@ -8918,21 +8927,21 @@ h4, .text-h4 {
 }
 
 .about-main-story {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: var(--text-primary);
+  font-size: 20px; /* Mathematical: var(--type-lg) */
+  line-height: 1.618; /* Golden ratio */
+  color: var(--grapefruit-intelligence); /* System color */
   font-weight: 300;
-  margin-bottom: 24px;
+  margin-bottom: 32px; /* Mathematical: 20px × 1.618 = 32px */
   text-align: left;
 }
 
 .about-welcome {
-  font-size: 1.3rem;
-  line-height: 1.6;
-  color: var(--text-primary);
+  font-size: 22px; /* Mathematical: 14px × 1.618 = 22px */
+  line-height: 1.618; /* Golden ratio */
+  color: var(--grapefruit-intelligence); /* System color */
   font-weight: 400;
   font-style: italic;
-  margin-top: 32px;
+  margin-top: 52px; /* Mathematical: 32px × 1.618 = 52px */
   text-align: left;
   position: relative;
 }
@@ -9901,21 +9910,21 @@ h4, .text-h4 {
 }
 
 .projects-title-award-winning {
-  font-family: 'Playfair Display', serif;
-  font-size: 4.5rem;
+  font-family: var(--font-architectural-display); /* System font */
+  font-size: 68px; /* Mathematical: 42px × 1.618 = 68px */
   font-weight: 300;
   line-height: 1.1;
-  color: var(--text-primary);
-  margin-bottom: 0;
+  color: var(--grapefruit-intelligence); /* System color */
+  margin-bottom: 26px; /* Mathematical: 16px × 1.618 = 26px */
   letter-spacing: -0.02em;
 }
 
 .projects-description-award-winning {
-  font-size: 1.5rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
+  font-size: 26px; /* Mathematical: 16px × 1.618 = 26px */
+  line-height: 1.618; /* Golden ratio */
+  color: var(--grapefruit-intelligence); /* System color */
   max-width: 800px;
-  margin: 0 auto 40px;
+  margin: 0 auto 68px; /* Mathematical: 42px × 1.618 = 68px */
   font-weight: 300;
 }
 

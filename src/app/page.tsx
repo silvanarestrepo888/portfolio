@@ -521,7 +521,7 @@ export default function Home() {
             className="hero-title-luxury-centered"
             initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.3 }}
+            transition={{ duration: 1.618, delay: 0.382 }} /* Mathematical precision */
           >
             Experience Architect
           </motion.h1>
@@ -531,7 +531,7 @@ export default function Home() {
             className="hero-cta-elegant"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.8 }}
+            transition={{ duration: 1.618, delay: 1.618 }} /* Pure golden ratio timing */
           >
             <motion.button
               onClick={() => {
@@ -547,7 +547,7 @@ export default function Home() {
               aria-label="Navigate to featured projects section"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 2.2 }}
+              transition={{ duration: 1.0, delay: 2.618 }} /* Mathematical progression */
             >
               Projects
             </motion.button>
@@ -560,7 +560,7 @@ export default function Home() {
               aria-label="Open Silvana Restrepo's curriculum vitae in new tab"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 2.4 }}
+              transition={{ duration: 1.0, delay: 3.236 }} /* Mathematical progression */
             >
               Executive CV
             </motion.a>
@@ -627,7 +627,7 @@ export default function Home() {
                   className="about-main-story"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 0.9 }}
+                  transition={{ duration: 1.618, delay: 1.0 }} /* Fibonacci sequence */
                 >
                   I believe the most compelling stories begin with curiosity—a spark that has carried me across continents, blending diverse perspectives from anthropology to business, from innovation to experience design, and from emerging technologies to business transformation.
                 </motion.p>
@@ -636,7 +636,7 @@ export default function Home() {
                   className="about-main-story"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 1.1 }}
+                  transition={{ duration: 1.618, delay: 1.272 }} /* Fibonacci: 1.0 + 0.272 */
                 >
                   Each endeavour brings me closer to my mission: connecting strategic business goals with the essence of the <span className="highlight-human-typography">#human perspective</span>.
                 </motion.p>
@@ -645,7 +645,7 @@ export default function Home() {
                   className="about-main-story"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 1.2 }}
+                  transition={{ duration: 1.618, delay: 1.618 }} /* Pure golden ratio */
                 >
                   Whether leading teams in retail innovation or pioneering Experience design for global brands, my passion remains: to reveal what lies beneath and transform it into tangible expansion.
                 </motion.p>
@@ -654,7 +654,7 @@ export default function Home() {
                   className="about-welcome"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, delay: 1.3 }}
+                  transition={{ duration: 1.618, delay: 2.0 }} /* Fibonacci sequence progression */
                 >
                   Welcome to my world—where strategy meets soul, and design becomes the universal language of possibility
                 </motion.p>
@@ -750,7 +750,7 @@ export default function Home() {
             className="projects-header-award-winning"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 1.618, ease: [0.236, 0.618, 0.382, 1.0] }} /* Mathematical easing */
             viewport={{ once: true }}
           >
             <div className="projects-header-content-award">
@@ -759,7 +759,7 @@ export default function Home() {
                 className="projects-title-award-winning typography-h2"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.2 }}
+                transition={{ duration: 1.618, delay: 0.236 }} /* Fibonacci sequence */
                 viewport={{ once: true }}
               >
                 Projects
@@ -770,7 +770,7 @@ export default function Home() {
               className="projects-description-award-winning typography-body text-center max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.4 }}
+              transition={{ duration: 1.618, delay: 0.382 }} /* Fibonacci sequence */
               viewport={{ once: true }}
             >
               A curated selection of projects that demonstrate my expertise in experience design, digital transformation, and business innovation across diverse industries and global markets.
