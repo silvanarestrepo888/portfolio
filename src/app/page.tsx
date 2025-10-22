@@ -883,7 +883,7 @@ export default function Home() {
         <div className="experience-timeline-container">
           {/* Section Header */}
           <motion.div 
-            className="experience-timeline-header text-center mb-16"
+            className="experience-timeline-header text-center mb-8"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
