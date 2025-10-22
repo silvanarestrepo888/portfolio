@@ -15670,16 +15670,21 @@ img[class*="project-"] {
   gap: 0.75rem; /* Compact gap between elements */
 }
 
-/* COMPACT MOBILE ADJUSTMENTS */
+/* ULTRA-COMPACT MOBILE ADJUSTMENTS */
 @media (max-width: 768px) {
   .experience-timeline-item {
-    margin-bottom: 0.75rem; /* Even more compact on mobile */
-    min-height: 50px; /* Smaller mobile height */
+    margin-bottom: 0.3rem; /* ULTRA-COMPACT: 0.75rem → 0.3rem for minimal scrolling */
+    min-height: 40px; /* ULTRA-COMPACT: 50px → 40px for maximum density */
   }
   
   .experience-text-container {
-    width: 250px; /* Narrower on mobile */
-    padding: 0.75rem; /* Smaller mobile padding */
+    width: 200px; /* ULTRA-COMPACT: 250px → 200px for maximum efficiency */
+    padding: 0.3rem; /* ULTRA-COMPACT: 0.75rem → 0.3rem for minimal spacing */
+  }
+  
+  .experience-timeline-section {
+    min-height: 50vh; /* MOBILE COMPACT: Reduce section height significantly */
+    padding: 1rem 0; /* MOBILE COMPACT: Minimal vertical padding */
   }
 }
 
@@ -15898,8 +15903,8 @@ img[class*="project-"] {
 
 .experience-timeline-section {
   position: relative;
-  min-height: 80vh; /* REDUCED: 100vh → 80vh for compactness */
-  padding: 2.5rem 0; /* REDUCED: 4rem → 2.5rem for less scrolling */
+  min-height: 65vh; /* AGGRESSIVE REDUCTION: 80vh → 65vh for maximum compactness */
+  padding: 1.5rem 0; /* AGGRESSIVE REDUCTION: 2.5rem → 1.5rem for minimal scrolling */
   overflow: hidden;
 }
 
@@ -15961,20 +15966,20 @@ img[class*="project-"] {
 
 .experience-timeline-item {
   position: relative;
-  margin-bottom: 1rem; /* REDUCED: 2rem → 1rem for compactness */
+  margin-bottom: 0.5rem; /* AGGRESSIVE REDUCTION: 1rem → 0.5rem for maximum compactness */
   display: flex;
   align-items: center;
-  min-height: 60px; /* REDUCED: 80px → 60px for efficiency */
+  min-height: 45px; /* AGGRESSIVE REDUCTION: 60px → 45px for maximum efficiency */
 }
 
 .timeline-left {
   justify-content: flex-end;
-  padding-right: 1.5rem; /* REDUCED: 2.5rem → 1.5rem for compactness */
+  padding-right: 1rem; /* AGGRESSIVE REDUCTION: 1.5rem → 1rem for maximum compactness */
 }
 
 .timeline-right {
   justify-content: flex-start;
-  padding-left: 1.5rem; /* REDUCED: 2.5rem → 1.5rem for compactness */
+  padding-left: 1rem; /* AGGRESSIVE REDUCTION: 1.5rem → 1rem for maximum compactness */
 }
 
 /* Timeline Node */
@@ -16004,13 +16009,13 @@ img[class*="project-"] {
 
 /* Text Container - Architectural Precision */
 .experience-text-container {
-  width: 280px; /* REDUCED: 320px → 280px for compactness */
+  width: 220px; /* AGGRESSIVE REDUCTION: 280px → 220px for maximum compactness */
   background: transparent !important; /* ELIMINATE WHITE FRAME BACKGROUND */
   border: none !important; /* ELIMINATE FRAME BORDERS */
   border-radius: 0 !important; /* ELIMINATE ROUNDED FRAME */
   box-shadow: none !important; /* ELIMINATE FRAME SHADOWS */
   backdrop-filter: none !important; /* ELIMINATE BACKDROP EFFECTS */
-  padding: 0.875rem; /* REDUCED: 1.25rem → 0.875rem for compactness */
+  padding: 0.4rem; /* AGGRESSIVE REDUCTION: 0.875rem → 0.4rem for maximum compactness */
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   position: relative;
@@ -16061,24 +16066,24 @@ img[class*="project-"] {
 }
 
 .experience-role {
-  font-size: 0.9rem; /* REDUCED: 1rem → 0.9rem for compactness */
+  font-size: 0.8rem; /* AGGRESSIVE REDUCTION: 0.9rem → 0.8rem for maximum compactness */
   font-weight: 600;
   color: #FFFFFF !important; /* High contrast white */
-  margin-bottom: 0.25rem; /* REDUCED: 0.4rem → 0.25rem for compactness */
-  line-height: 1.1; /* TIGHTER: 1.2 → 1.1 for vertical efficiency */
+  margin-bottom: 0.15rem; /* AGGRESSIVE REDUCTION: 0.25rem → 0.15rem */
+  line-height: 1.05; /* SUPER TIGHT: 1.1 → 1.05 for maximum efficiency */
 }
 
 .experience-company {
-  font-size: 0.75rem; /* REDUCED: 0.8rem → 0.75rem for compactness */
+  font-size: 0.7rem; /* AGGRESSIVE REDUCTION: 0.75rem → 0.7rem for maximum compactness */
   font-weight: 500;
   color: #FF6663 !important; /* Grapefruit accent for company names */
-  margin-bottom: 0.5rem; /* REDUCED: 0.8rem → 0.5rem for compactness */
+  margin-bottom: 0.3rem; /* AGGRESSIVE REDUCTION: 0.5rem → 0.3rem */
   font-style: italic;
 }
 
 .experience-description {
-  font-size: 0.75rem; /* REDUCED: 0.8rem → 0.75rem for compactness */
-  line-height: 1.3; /* TIGHTER: 1.5 → 1.3 for vertical efficiency */
+  font-size: 0.7rem; /* AGGRESSIVE REDUCTION: 0.75rem → 0.7rem for maximum compactness */
+  line-height: 1.2; /* TIGHTER: 1.3 → 1.2 for maximum efficiency */
   color: rgba(255, 255, 255, 0.85) !important; /* High contrast white */
   margin: 0;
 }
