@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Linkedin, Mail, ExternalLink } from 'lucide-react';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import Image from 'next/image';
 import { CustomCursor } from '../components/motion/CustomCursor';
 import { MagneticCursor } from '../components/ui/MagneticCursor';
@@ -41,41 +41,6 @@ export default function Home() {
 
   // Sophisticated navigation functions with elegant transitions
 
-
-  const goToProjectWithTransition = (index: number) => {
-    if (index === featuredProjectIndex) return;
-    setIsTransitioning(true);
-    setFeaturedProjectIndex(Math.min(index, Math.max(0, filteredProjects.length - 1)));
-    setTimeout(() => setIsTransitioning(false), 1200);
-  };
-
-  // Keyboard Navigation Support - Award-Winning Accessibility
-  useEffect(() => {
-    const handleKeyNavigation = (e: KeyboardEvent) => {
-      // Only handle if not typing in input fields
-      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
-      
-      switch (e.key) {
-        case 'ArrowLeft':
-          e.preventDefault();
-          const prevIndex = featuredProjectIndex === 0 ? filteredProjects.length - 1 : featuredProjectIndex - 1;
-          goToProjectWithTransition(prevIndex);
-          break;
-        case 'ArrowRight':
-          e.preventDefault();
-          const nextIndex = (featuredProjectIndex + 1) % filteredProjects.length;
-          goToProjectWithTransition(nextIndex);
-          break;
-        case 'Space':
-          e.preventDefault();
-          setIsAutoPlaying(!isAutoPlaying);
-          break;
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyNavigation);
-    return () => window.removeEventListener('keydown', handleKeyNavigation);
-  }, [featuredProjectIndex, filteredProjects.length, isAutoPlaying]);
 
 
   // SERVICES DATA - ORIGINAL COPY COMPLIANT - Enhanced Visual Treatment Only
@@ -341,7 +306,7 @@ export default function Home() {
     };
     
     return projectColorMoods[project.title as keyof typeof projectColorMoods] || 'project-charcoal-dominant';
-  }, [selectedProject]);
+  }, [selectedProject, projects]);
   
   const filteredProjects = selectedCategory === "ALL WORK" 
     ? projects 
@@ -349,6 +314,42 @@ export default function Home() {
         project.tech.some(t => t.includes(selectedCategory.replace(" DESIGN", "").replace(" STRATEGY", "").replace(" TRANSFORMATION", "").replace(" RESEARCH", "").replace(" OPS", ""))) ||
         (project.industryTags && project.industryTags.some(tag => tag.includes(selectedCategory)))
       );
+
+  // Sophisticated navigation functions - moved after filteredProjects declaration
+  const goToProjectWithTransition = useCallback((index: number) => {
+    if (index === featuredProjectIndex) return;
+    setIsTransitioning(true);
+    setFeaturedProjectIndex(Math.min(index, Math.max(0, filteredProjects.length - 1)));
+    setTimeout(() => setIsTransitioning(false), 1200);
+  }, [featuredProjectIndex, filteredProjects.length]);
+
+  // Keyboard Navigation Support - Award-Winning Accessibility (moved after filteredProjects)
+  useEffect(() => {
+    const handleKeyNavigation = (e: KeyboardEvent) => {
+      // Only handle if not typing in input fields
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      
+      switch (e.key) {
+        case 'ArrowLeft':
+          e.preventDefault();
+          const prevIndex = featuredProjectIndex === 0 ? filteredProjects.length - 1 : featuredProjectIndex - 1;
+          goToProjectWithTransition(prevIndex);
+          break;
+        case 'ArrowRight':
+          e.preventDefault();
+          const nextIndex = (featuredProjectIndex + 1) % filteredProjects.length;
+          goToProjectWithTransition(nextIndex);
+          break;
+        case 'Space':
+          e.preventDefault();
+          setIsAutoPlaying(!isAutoPlaying);
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyNavigation);
+    return () => window.removeEventListener('keydown', handleKeyNavigation);
+  }, [featuredProjectIndex, filteredProjects.length, isAutoPlaying, goToProjectWithTransition]);
 
   // Elegant Auto-carousel effect with sophisticated timing
   useEffect(() => {
@@ -467,13 +468,16 @@ export default function Home() {
       <section 
         id="hero" 
         className="hero-section-luxury section-hero-sophisticated section-transition-sophisticated"
+        aria-labelledby="hero-title"
+        aria-describedby="hero-description"
+        role="banner"
       >
         <div className="hero-bg-unified parallax-container">
           {/* Artistic Photo Background Layer - Cohesive Integration */}
           <div className="hero-photo-layer-unified">
             <Image 
               src="/silvana-hero.jpg"
-              alt="Silvana Restrepo - Principal Experience Architect"
+              alt="Silvana Restrepo, Principal Experience Architect, professional headshot in business attire with confident smile"
               fill
               className="hero-photo-artistic-unified parallax-element gpu-accelerated"
               style={{ transform: parallaxTransform }}
@@ -499,6 +503,7 @@ export default function Home() {
         {/* Content Over Photo */}
         <div className="hero-content-luxury">
           <motion.h1 
+            id="hero-title"
             className="hero-title-luxury-centered"
             initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -513,6 +518,9 @@ export default function Home() {
       <section 
         id="about" 
         className="about-section-ultra-luxury luxury-background-texture section-about-sophisticated section-transition-sophisticated"
+        aria-labelledby="about-heading"
+        aria-describedby="about-description"
+        role="main"
         style={{ 
           minHeight: '100vh',
           display: 'flex',
@@ -531,6 +539,7 @@ export default function Home() {
             <div className="about-header-content">
               <span className="about-section-number">01</span>
               <motion.h2 
+                id="about-heading"
                 className="about-title-ultra-luxury typography-h2"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -540,6 +549,7 @@ export default function Home() {
               </motion.h2>
                 </div>
             <motion.p 
+              id="about-description"
               className="about-description-ultra-luxury typography-body text-center max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -602,7 +612,7 @@ export default function Home() {
               <div className="about-photo-container about-photo-unified-sophisticated">
                 <Image
                   src="/silvana-about.jpg"
-              alt="Silvana Restrepo - Principal Experience Architect"
+              alt="Silvana Restrepo working at her desk, black and white professional photo showing her workspace and thoughtful expression"
               width={600}
               height={500}
               className="about-photo-perfect about-photo-cohesive"

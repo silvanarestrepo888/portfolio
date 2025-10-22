@@ -1,6 +1,134 @@
 @import "tailwindcss";
 
 /* ========================================== */
+/* ACCESSIBILITY FIRST - AWARD-WINNING COMPLIANCE */
+/* ========================================== */
+
+/* REDUCED MOTION SUPPORT - COMPREHENSIVE */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .parallax-element { 
+    transform: none !important; 
+  }
+  
+  .auto-play-indicator { 
+    animation: none !important; 
+  }
+  
+  .silvana-s-signature {
+    animation: none !important;
+  }
+  
+  /* Maintain functionality while respecting motion preferences */
+  .hero-photo-artistic-unified {
+    transform: none !important;
+  }
+}
+
+/* HIGH CONTRAST MODE SUPPORT */
+@media (prefers-contrast: high) {
+  :root {
+    --grapefruit-intelligence: #CC0000; /* Higher contrast red */
+    --vanilla-foundation: #FFFFFF; /* Pure white for maximum contrast */
+  }
+}
+
+/* FOCUS INDICATORS - WCAG AAA COMPLIANT */
+*:focus-visible {
+  outline: 3px solid var(--grapefruit-intelligence);
+  outline-offset: 2px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px var(--vanilla-whisper);
+}
+
+/* PERFORMANCE OPTIMIZATION - AWARD-WINNING STANDARDS */
+/* GPU Acceleration for animations */
+.gpu-accelerated {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize repaints and reflows */
+.parallax-element {
+  will-change: transform;
+  contain: layout style paint;
+}
+
+/* Critical rendering path optimization */
+.above-fold {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* Lazy loading optimization */
+.below-fold {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 800px;
+}
+
+/* CROSS-DEVICE EXCELLENCE - RESPONSIVE BREAKPOINTS */
+/* iPhone SE and small phones */
+@media (max-width: 375px) {
+  .navigation-floating {
+    padding: 0.75rem 1.5rem;
+    font-size: 13px;
+  }
+  
+  .hero-title-luxury-centered {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
+  
+  .about-content-ultra-luxury {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Standard mobile */
+@media (max-width: 768px) {
+  .navigation-floating {
+    padding: 0.8rem 2rem;
+  }
+  
+  .projects-3d-container {
+    transform: scale(0.95); /* Slight scale for mobile comfort */
+  }
+  
+  .experience-text-container {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+/* Tablet landscape */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .balanced-layout-grid {
+    grid-template-columns: 1.2fr 0.8fr; /* Optimize image/text ratio */
+  }
+}
+
+/* Desktop optimization */
+@media (min-width: 1441px) {
+  .hero-title-luxury-centered {
+    font-size: clamp(4rem, 6vw, 8rem);
+  }
+  
+  .about-container-ultra-luxury {
+    max-width: 1400px; /* Prevent excessive width */
+  }
+}
+
+/* ========================================== */
 /* SILVANA SIGNATURE LOADER - STELLA-INSPIRED */
 /* ========================================== */
 
