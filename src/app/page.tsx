@@ -1307,67 +1307,85 @@ export default function Home() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
         >
-          {/* LANDOR-LEVEL NAVIGATION SYSTEM */}
-          {/* Prominent Back Button - Always Visible */}
-          <motion.button
-            onClick={() => setSelectedProject(null)}
-            className="project-back-button-landor"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            whileHover={{ 
-              scale: 1.05,
-              boxShadow: "0 12px 40px var(--grapefruit-soft)"
-            }}
-            whileTap={{ scale: 0.95 }}
-            aria-label="Back to Projects"
-          >
-            <svg 
-              width="20" 
-              height="20" 
-              viewBox="0 0 20 20" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg"
+          {/* ULTRA-PROMINENT NAVIGATION - IMPOSSIBLE TO MISS */}
+          <div className="project-details-navigation-system">
+            {/* MASSIVE Back Button - Top Left */}
+            <motion.button
+              onClick={() => setSelectedProject(null)}
+              className="project-back-button-ultra"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+              whileHover={{ 
+                scale: 1.08,
+                boxShadow: "0 16px 60px var(--grapefruit-soft)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="Back to Projects"
             >
-              <path 
-                d="M12.5 15L7.5 10L12.5 5" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span className="back-button-text">Back to Projects</span>
-          </motion.button>
+              <svg 
+                width="24" 
+                height="24" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                className="back-icon"
+              >
+                <path 
+                  d="M15 18L9 12L15 6" 
+                  stroke="currentColor" 
+                  strokeWidth="3" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span className="back-text">Back to Projects</span>
+            </motion.button>
 
-          {/* Sophisticated Breadcrumb - Secondary Navigation */}
-          <motion.div 
-            className="project-details-header-landor"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <nav className="breadcrumb-architectural-enhanced" aria-label="Project navigation">
-              <span className="breadcrumb-home">Portfolio</span>
-              <span className="breadcrumb-separator">→</span>
-              <span className="breadcrumb-section">Projects</span>
-              <span className="breadcrumb-separator">→</span>
-              <span className="breadcrumb-current-enhanced">
+            {/* Close Button - Top Right */}
+            <motion.button
+              onClick={() => setSelectedProject(null)}
+              className="project-close-button-ultra"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+              whileHover={{ 
+                scale: 1.08,
+                rotate: 90
+              }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="Close Project Details"
+            >
+              <svg 
+                width="28" 
+                height="28" 
+                viewBox="0 0 28 28" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path 
+                  d="M21 7L7 21M7 7L21 21" 
+                  stroke="currentColor" 
+                  strokeWidth="3" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </motion.button>
+            
+            {/* Project Title Bar - Center */}
+            <motion.div 
+              className="project-title-bar"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <span className="project-title-bar-text">
                 {selectedProject !== null ? projects[selectedProject].title : ''}
               </span>
-            </nav>
-            
-            {/* Keyboard Hint */}
-            <motion.div 
-              className="keyboard-hint-landor"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-            >
-              <kbd className="kbd-key">ESC</kbd>
-              <span className="kbd-text">to close</span>
+              <kbd className="kbd-hint-inline">ESC</kbd>
             </motion.div>
-          </motion.div>
+          </div>
 
           {/* HERO SECTION - Perfect Visual Exploration with Proper Spacing */}
           <div className="project-hero-section project-details-hero-section">
@@ -1867,23 +1885,44 @@ export default function Home() {
             </div>
           </motion.div>
           
-          {/* PROJECT DETAILS FOOTER - ARCHITECTURAL PRECISION */}
-          <footer className="project-details-footer-architectural">
-            <div className="footer-architectural-content">
-              <div className="footer-brand-architectural">
-                <h3 className="footer-brand-name typography-h3">silvana.</h3>
-                <p className="footer-brand-title typography-body">Principal Experience Architect</p>
-                <p className="footer-brand-description typography-caption">
-                  Transforming business challenges into strategic advantages through experience-driven innovation.
-                </p>
-              </div>
-              <div className="footer-contact-architectural">
-                <a href="mailto:silvanarestrepo888@gmail.com" className="footer-contact-link typography-caption">
-                  Contact
-                </a>
-                <a href="https://linkedin.com/in/silvanarestrepo" className="footer-contact-link typography-caption">
-                  LinkedIn
-                </a>
+          {/* REDESIGNED FOOTER - ALWAYS VISIBLE WITH BACK TO TOP */}
+          <footer className="project-details-footer-ultra">
+            <div className="footer-ultra-content">
+              {/* Back to Top Button */}
+              <motion.button
+                onClick={() => {
+                  const overlay = document.querySelector('.project-details-overlay');
+                  if (overlay) {
+                    overlay.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
+                className="back-to-top-button"
+                whileHover={{ scale: 1.05, y: -4 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span>Back to Top</span>
+              </motion.button>
+              
+              <div className="footer-grid-ultra">
+                <div className="footer-brand-ultra">
+                  <h3 className="footer-brand-name typography-h3">silvana.</h3>
+                  <p className="footer-brand-title typography-body">Principal Experience Architect</p>
+                  <p className="footer-brand-description typography-caption">
+                    Transforming business challenges into strategic advantages through experience-driven innovation.
+                  </p>
+                </div>
+                
+                <div className="footer-contact-ultra">
+                  <a href="mailto:silvanarestrepo888@gmail.com" className="footer-contact-link typography-caption">
+                    Contact
+                  </a>
+                  <a href="https://linkedin.com/in/silvanarestrepo" className="footer-contact-link typography-caption">
+                    LinkedIn
+                  </a>
+                </div>
               </div>
             </div>
           </footer>
