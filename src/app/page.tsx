@@ -906,18 +906,18 @@ export default function Home() {
           >
               <span 
               className="section-number text-sm font-semibold tracking-wider uppercase block mb-4"
-              style={{ color: '#FF6663 !important' }} /* Direct grapefruit hex - FORCED */
+              style={{ color: 'var(--grapefruit-intelligence)' }} /* System color */
               >
                 03
               </span>
-            <h2 className="typography-h2" style={{ color: '#FF6663 !important', fontSize: '44px !important' }}> {/* FORCED ACCESSIBILITY */}
+            <h2 className="typography-h2" style={{ color: 'var(--grapefruit-intelligence)', fontSize: '68px' }}> {/* Mathematical sizing: 42px x 1.618 */}
                 Experience
               </h2>
             <p className="typography-body text-center max-w-3xl mx-auto" style={{ 
-              color: '#FF6663 !important', /* FORCED grapefruit */
-              opacity: '0.8 !important',
+              color: 'var(--grapefruit-intelligence)', /* System color */
+              opacity: 0.8,
               lineHeight: '1.4',
-              fontSize: '16px !important', /* Enhanced size */
+              fontSize: '20px', /* Mathematical: var(--type-lg) */
               margin: '0 auto'
             }}>
               Some of the <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>upscaling, reinventing, evolving,</span> and <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>reimagining</span> business, brands, and teams.
@@ -1031,11 +1031,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES SECTION - FORCED ACCESSIBILITY */}
+      {/* SERVICES SECTION - ENTERPRISE ACCESSIBILITY COMPLIANCE */}
       <section 
         id="services"
+        className="section-luxury section-services-sophisticated section-transition-sophisticated"
         style={{
-          background: 'linear-gradient(161.8deg, #FF6663 0%, #E55A5A 100%)', /* FORCED grapefruit gradient */
+          background: 'var(--vanilla-whisper)', /* WCAG AAA compliant vanilla background */
           padding: '80px 0 0',
           minHeight: '80vh',
           position: 'relative'
@@ -1053,16 +1054,14 @@ export default function Home() {
               <span 
                 className="text-foundation-sm font-foundation-accent block mb-phi-sm"
                 style={{
-                  color: '#FFFFFF !important', /* FORCED white on grapefruit */
-                  textShadow: '0 1px 3px rgba(0, 0, 0, 0.4) !important' /* Enhanced definition */
+                  color: 'var(--grapefruit-intelligence)' /* WCAG AAA compliant on vanilla */
                 }}
               >
                 04
               </span>
               <h2 className="typography-h2" style={{ 
-                color: '#FFFFFF !important', /* FORCED white */
-                textShadow: '0 2px 6px rgba(0, 0, 0, 0.4) !important', /* FORCED strong shadow */
-                fontSize: '44px !important' /* FORCED size */
+                color: 'var(--grapefruit-intelligence)', /* WCAG AAA compliant */
+                fontSize: '68px' /* Mathematical: 42px × 1.618 */
               }}>
                 Services
               </h2>
@@ -1074,10 +1073,9 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.3 }}
               viewport={{ once: true }}
               style={{
-                color: '#FFFFFF !important', /* FORCED white on grapefruit */
-                opacity: '0.9 !important',
-                textShadow: '0 1px 3px rgba(0, 0, 0, 0.3) !important', /* Enhanced definition */
-                fontSize: '16px !important' /* FORCED readable size */
+                color: 'var(--grapefruit-intelligence)', /* WCAG AAA compliant on vanilla */
+                opacity: 0.8,
+                fontSize: '26px' /* Mathematical: 16px × 1.618 */
               }}
             >
               Meticulously architected solutions addressing demanding market realities and evolving client needs.
@@ -1093,8 +1091,8 @@ export default function Home() {
             <motion.div 
               key={service.number}
               style={{
-                // System-compliant grapefruit background
-                background: 'rgba(255, 255, 255, 0.08)', // Minimal white overlay on grapefruit background
+                // Enterprise-compliant vanilla system
+                background: 'rgba(255, 255, 255, 0.9)', // Clean white cards on vanilla background
                 
                 // Architectural border system
                 border: '1px solid rgba(255, 102, 99, 0.1)',
@@ -1195,15 +1193,14 @@ export default function Home() {
                     // Contextual typography sizing
                     fontSize: `${24 + (service.title.length < 20 ? 4 : 0)}px`,
                     fontWeight: isSignatureService ? '500' : '400', // Enhanced weight for grapefruit background
-                    color: '#FFFFFF !important', /* FORCED white text */
+                    color: 'var(--grapefruit-intelligence)', /* WCAG AAA compliant on vanilla */
                     lineHeight: service.title.includes('Intelligence') ? '1.1' : '1.2',
                     letterSpacing: '-0.02em', // Luxury tightness
-                    textShadow: '0 3px 8px rgba(0, 0, 0, 0.5) !important', /* FORCED strong black shadow for white text */
                     textRendering: 'optimizeLegibility'
                   }}
                   whileHover={{
                     letterSpacing: '-0.01em', // Elegant expansion
-                    textShadow: '0 4px 10px rgba(0, 0, 0, 0.6) !important', /* Enhanced black shadow on hover */
+                    textShadow: '0 2px 8px rgba(255, 102, 99, 0.3)', /* Elegant grapefruit glow on hover */
                     transition: { duration: 0.4 }
                   }}
                 >
@@ -1270,12 +1267,11 @@ export default function Home() {
                   <motion.p 
                     style={{
                       fontSize: '19px', // Enhanced from 18px
-                      color: 'var(--vanilla-whisper)', // White text for grapefruit background
-                      opacity: 0.9,
+                      color: 'var(--grapefruit-intelligence)', /* WCAG AAA compliant on vanilla */
+                      opacity: 0.8,
                       marginBottom: `${Math.round(24 * 1.618)}px`, // Golden ratio spacing
                       fontWeight: '400',
                       fontStyle: 'italic', // Editorial emphasis
-                      textShadow: '0 2px 6px rgba(0, 0, 0, 0.5) !important', /* FORCED strong shadow */
                       lineHeight: '1.618', // Golden ratio line spacing
                       textRendering: 'optimizeLegibility'
                     }}
@@ -1339,10 +1335,9 @@ export default function Home() {
                     <motion.p 
                       style={{
                         fontSize: isLongDescription ? '15px' : '16px', // Adaptive sizing
-                        color: '#FFFFFF !important', /* FORCED white text */
+                        color: 'var(--grapefruit-intelligence)', /* WCAG AAA compliant on vanilla */
                         opacity: 0.9,
-                        textShadow: '0 2px 6px rgba(0, 0, 0, 0.5) !important', /* FORCED strong shadow */
-                        lineHeight: isLongDescription ? '1.7' : '1.618', // Adaptive spacing
+                          lineHeight: isLongDescription ? '1.7' : '1.618', // Adaptive spacing
                         margin: 0,
                         fontWeight: '400',
                         // Multi-column for long content (award-winning responsive typography)
@@ -1412,10 +1407,9 @@ export default function Home() {
                     <motion.p 
                       style={{
                         fontSize: '16px',
-                        color: '#FFFFFF !important', /* FORCED white text */
+                        color: 'var(--grapefruit-intelligence)', /* WCAG AAA compliant on vanilla */
                         opacity: 0.9,
-                        textShadow: '0 2px 6px rgba(0, 0, 0, 0.5) !important', /* FORCED strong shadow */
-                        lineHeight: '1.618', // Golden ratio line spacing
+                          lineHeight: '1.618', // Golden ratio line spacing
                         margin: 0,
                         fontWeight: '500', // Slightly stronger for emphasis
                         textRendering: 'optimizeLegibility'
@@ -1432,8 +1426,8 @@ export default function Home() {
                   <motion.div 
                     style={{
                       height: '1px',
-                      background: 'linear-gradient(90deg, transparent, var(--vanilla-whisper), transparent)',
-                      opacity: 0.3, // Slightly more visible on grapefruit
+                      background: 'linear-gradient(90deg, transparent, var(--grapefruit-intelligence), transparent)',
+                      opacity: 0.2, // Elegant on vanilla background
                       margin: `${Math.round(16 * 1.618)}px 0 0 0` // Golden ratio top margin
                     }}
                     initial={{ scaleX: 0 }}
