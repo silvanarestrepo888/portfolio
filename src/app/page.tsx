@@ -431,7 +431,7 @@ export default function Home() {
           {/* Artistic Photo Background Layer - Cohesive Integration */}
           <div className="hero-photo-layer-unified">
             <Image 
-              src="/silvana-hero.png"
+              src="/silvana-hero.jpg"
               alt="Silvana Restrepo - Principal Experience Architect"
               fill
               className="hero-photo-artistic-unified parallax-element gpu-accelerated"
@@ -560,7 +560,7 @@ export default function Home() {
             <div className="about-photo-column">
               <div className="about-photo-container about-photo-unified-sophisticated">
                 <Image
-                  src="/silvana-about.png"
+                  src="/silvana-about.jpg"
               alt="Silvana Restrepo - Principal Experience Architect"
               width={600}
               height={500}
