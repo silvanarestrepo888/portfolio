@@ -49,6 +49,34 @@ export default function Home() {
     setTimeout(() => setIsTransitioning(false), 1200);
   };
 
+  // Keyboard Navigation Support - Award-Winning Accessibility
+  useEffect(() => {
+    const handleKeyNavigation = (e: KeyboardEvent) => {
+      // Only handle if not typing in input fields
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      
+      switch (e.key) {
+        case 'ArrowLeft':
+          e.preventDefault();
+          const prevIndex = featuredProjectIndex === 0 ? filteredProjects.length - 1 : featuredProjectIndex - 1;
+          goToProjectWithTransition(prevIndex);
+          break;
+        case 'ArrowRight':
+          e.preventDefault();
+          const nextIndex = (featuredProjectIndex + 1) % filteredProjects.length;
+          goToProjectWithTransition(nextIndex);
+          break;
+        case 'Space':
+          e.preventDefault();
+          setIsAutoPlaying(!isAutoPlaying);
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyNavigation);
+    return () => window.removeEventListener('keydown', handleKeyNavigation);
+  }, [featuredProjectIndex, filteredProjects.length, isAutoPlaying]);
+
 
   // SERVICES DATA - ORIGINAL COPY COMPLIANT - Enhanced Visual Treatment Only
   const referenceServices = [
@@ -740,6 +768,19 @@ export default function Home() {
                         ))}
                       </div>
                   </div>
+                  
+                  {/* Keyboard Navigation Hints */}
+                  <motion.div 
+                    className="keyboard-navigation-hints"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 1.2 }}
+                    viewport={{ once: true }}
+                  >
+                    <span className="keyboard-hint typography-caption">
+                      Use ← → arrow keys to navigate • Space to pause
+                    </span>
+                  </motion.div>
             </motion.div>
             
             {/* 3D INTERACTIVE PROJECT CAROUSEL - AWARD-WINNING */}
@@ -1072,17 +1113,22 @@ export default function Home() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
         >
-          {/* ULTRA-LUXURY NAVIGATION HEADER */}
+          {/* BREADCRUMB NAVIGATION SYSTEM */}
           <div className="project-details-header">
-            {/* Back to Projects Button - Top Left */}
+            <nav className="breadcrumb-architectural" aria-label="Project navigation">
               <motion.button
                 onClick={() => setSelectedProject(null)}
-              className="back-button typography-body"
-              whileHover={{ scale: 1.05 }}
+                className="breadcrumb-back typography-body"
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-              ← Back to Projects
+                ← Back to Projects
               </motion.button>
+              <span className="breadcrumb-separator">•</span>
+              <span className="breadcrumb-current typography-body">
+                {selectedProject !== null ? projects[selectedProject].title : ''}
+              </span>
+            </nav>
           </div>
 
           {/* HERO SECTION - Perfect Visual Exploration with Proper Spacing */}
@@ -1261,7 +1307,7 @@ export default function Home() {
             >
               <h2 className="gallery-title typography-h3">Project Gallery</h2>
               <span className="gallery-count typography-caption">
-                3 Image Gallery
+                Gallery — 3 Images
               </span>
             </motion.div>
             <div className="gallery-grid">
