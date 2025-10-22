@@ -14532,15 +14532,15 @@ img {
 
 .services-amplification-grid {
   display: flex;
-  gap: 32px; /* 8pt grid: 4 × 8px = 32px consistent spacing */
+  gap: 16px; /* 8pt grid: 2 × 8px = 16px - reduced for 6 services */
   max-width: 100%;
   margin: 0 auto;
-  padding: 40px 32px; /* 8pt grid: 5 × 8px = 40px vertical, 4 × 8px = 32px horizontal */
-  min-height: 480px; /* 8pt grid: 60 × 8px = 480px */
+  padding: 40px 24px; /* 8pt grid: 5 × 8px = 40px vertical, 3 × 8px = 24px horizontal */
+  min-height: 500px; /* 8pt grid: 62.5 × 8px = 500px */
   overflow-x: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(0,0,0,0.2) transparent;
-  justify-content: center; /* Center align all service elements */
+  justify-content: flex-start; /* Allow horizontal scroll for 6 services */
   align-items: stretch; /* Equal height cards */
 }
 
@@ -14548,7 +14548,7 @@ img {
   background: transparent !important;
   border: none !important;
   border-radius: 0 !important;
-  padding: 32px; /* 8pt grid: 4 × 8px = 32px */
+  padding: 24px; /* 8pt grid: 3 × 8px = 24px - reduced for 6 services */
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   box-shadow: none !important;
@@ -14568,20 +14568,21 @@ img {
   box-shadow: 0 0 0 4px rgba(229, 85, 85, 0.2);
 }
 
+/* SERVICE SIZING - OPTIMIZED FOR 6 SERVICES */
 .service-amplification-item.compact {
-  flex: 0 0 180px;
-  min-width: 180px;
-  max-width: 180px;
+  flex: 0 0 200px; /* 8pt grid: 25 × 8px = 200px */
+  min-width: 200px;
+  max-width: 200px;
 }
 
 .service-amplification-item.expanded {
-  flex: 0 0 350px;
-  min-width: 350px;
-  max-width: 350px;
-  background: transparent !important; /* ELIMINATE SERVICE EXPANDED FRAME */
-  border: none !important; /* ELIMINATE SERVICE EXPANDED BORDER */
-  box-shadow: none !important; /* ELIMINATE SERVICE EXPANDED SHADOWS */
-  transform: translateY(-2px) !important; /* Minimal lift only */
+  flex: 0 0 400px; /* 8pt grid: 50 × 8px = 400px */
+  min-width: 400px;
+  max-width: 400px;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  transform: translateY(-4px) !important; /* Slightly more lift for 6 services */
 }
 
 .service-amplification-item.expanded .service-basic-content {
@@ -14769,30 +14770,53 @@ img {
   display: block;
 }
 
-/* ENHANCED RESPONSIVE DESIGN - MOBILE-FIRST APPROACH */
-@media (max-width: 1200px) {
+/* ENHANCED RESPONSIVE DESIGN - OPTIMIZED FOR 6 SERVICES */
+@media (max-width: 1400px) {
   .services-amplification-grid {
-    gap: 24px; /* 8pt grid: 3 × 8px = 24px */
-    padding: 32px 24px; /* 8pt grid spacing */
+    gap: 12px; /* 8pt grid: 1.5 × 8px = 12px */
+    padding: 32px 16px; /* 8pt grid spacing */
   }
   
   .service-amplification-item.compact {
-    flex: 0 0 200px; /* Improved touch targets */
-    min-width: 200px;
-    max-width: 200px;
+    flex: 0 0 180px; /* Smaller for 6 services on smaller screens */
+    min-width: 180px;
+    max-width: 180px;
   }
   
   .service-amplification-item.expanded {
-    flex: 0 0 320px;
-    min-width: 320px;
-    max-width: 320px;
+    flex: 0 0 360px;
+    min-width: 360px;
+    max-width: 360px;
   }
 }
 
-/* TABLET BREAKPOINT */
+/* TABLET BREAKPOINT - 2x3 GRID */
+@media (max-width: 1024px) {
+  .services-amplification-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px; /* 8pt grid: 2 × 8px = 16px */
+    padding: 32px 16px;
+  }
+  
+  .service-amplification-item.compact {
+    flex: 0 0 calc(50% - 8px); /* 2 columns with gap */
+    min-width: calc(50% - 8px);
+    max-width: calc(50% - 8px);
+  }
+  
+  .service-amplification-item.expanded {
+    flex: 0 0 calc(50% - 8px);
+    min-width: calc(50% - 8px);
+    max-width: calc(50% - 8px);
+  }
+}
+
+/* MOBILE BREAKPOINT - SINGLE COLUMN */
 @media (max-width: 768px) {
   .services-amplification-grid {
     flex-direction: column;
+    flex-wrap: nowrap;
     gap: 24px; /* 8pt grid: 3 × 8px = 24px */
     padding: 32px 16px; /* 8pt grid: 4 × 8px = 32px vertical, 2 × 8px = 16px horizontal */
   }
@@ -14809,12 +14833,21 @@ img {
     max-width: 100%;
   }
   
+  .service-detailed-content {
+    gap: 16px; /* 8pt grid: 2 × 8px = 16px */
+  }
+  
+  /* Mobile typography adjustments - 8pt grid compliant */
   .service-title {
-    font-size: 1.1rem;
+    font-size: 1.125rem; /* 8pt grid: 18px */
+  }
+  
+  .service-subtitle {
+    font-size: 0.75rem; /* 8pt grid: 12px */
   }
   
   .content-description {
-    font-size: 0.9rem;
+    font-size: 0.875rem; /* 8pt grid: 14px */
   }
 }
 
