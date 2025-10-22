@@ -231,6 +231,39 @@ export function InteractiveProjectCard({
                 </div>
               </motion.div>
               
+              {/* Project Details Button */}
+              <motion.div 
+                className="balanced-actions"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 + 0.8 }}
+              >
+                <motion.button
+                  className="balanced-btn primary project-details-btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onSelect(index);
+                  }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    y: -2
+                  }}
+                  whileTap={{ 
+                    scale: 0.95 
+                  }}
+                  style={{ transform: 'translateZ(20px)' }}
+                >
+                  View Details
+                  <motion.span 
+                    className="btn-arrow"
+                    animate={{ x: isHovered ? 4 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    →
+                  </motion.span>
+                </motion.button>
+              </motion.div>
+              
             </div>
           </div>
         </div>
