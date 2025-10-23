@@ -407,14 +407,14 @@
   --grapefruit-moment: rgba(255, 102, 99, 0.15);  /* Strategic accents */
   --grapefruit-impact: #E55A5A;        /* Bold statement moments */
   
-  /* MISSING VARIABLES - CRISIS RESOLUTION */
-  --text-primary: var(--grapefruit-intelligence); /* Map to existing system */
-  --text-secondary: var(--grapefruit-intelligence); /* Map to existing system */
-  --grapefruit-rich: var(--grapefruit-intelligence); /* Map to existing system */
-  --grapefruit-medium: var(--grapefruit-intelligence); /* Map to existing system */
-  --grapefruit-pure: var(--grapefruit-intelligence); /* Map to existing system */
-  --grapefruit-primary: var(--grapefruit-intelligence); /* Map to existing system */
-  --coral: var(--grapefruit-intelligence); /* Map to existing system */
+  /* ELEGANT CHARCOAL GRADIENT MAPPINGS - ROOT CAUSE FIX */
+  --text-primary: #4A5568; /* Warm charcoal for primary text */
+  --text-secondary: #718096; /* Sophisticated medium gray for secondary */
+  --grapefruit-rich: #4A5568; /* Map rich content to warm charcoal */
+  --grapefruit-medium: #718096; /* Map medium content to sophisticated gray */
+  --grapefruit-pure: var(--grapefruit-intelligence); /* PRESERVE for strategic accents */
+  --grapefruit-primary: var(--grapefruit-intelligence); /* PRESERVE for strategic accents */
+  --coral: var(--grapefruit-intelligence); /* PRESERVE for strategic accents */
   
   /* ARCHITECTURAL TYPOGRAPHY SCALE - MATHEMATICAL PRECISION */
   --type-xs: 12px;      /* Supporting details */
@@ -18262,7 +18262,7 @@ section#services .typography-body {
 
 /* Service cards remain vanilla for readability */
 section#services h3 {
-  color: var(--grapefruit-intelligence) !important;
+  color: #4A5568 !important; /* Warm charcoal for service titles */
 }
 
 /* Elegant scrollbar for services container */
