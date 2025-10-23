@@ -217,7 +217,7 @@ export function InteractiveProjectCard({
                     scale: 0.95 
                   }}
                 >
-                  View Case Study
+                  Explore Case
                   <motion.span 
                     className="btn-arrow"
                     animate={{ x: isHovered ? 4 : 0 }}
@@ -244,7 +244,7 @@ export function InteractiveProjectCard({
                       scale: 0.95 
                     }}
                   >
-                    Visit Client
+                    Client&apos;s Website
                     <motion.span 
                       className="btn-external-icon"
                       animate={{ x: isHovered ? 2 : 0, y: isHovered ? -2 : 0 }}

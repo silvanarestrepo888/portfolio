@@ -1346,22 +1346,48 @@ export default function Home() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
         >
-          {/* BREADCRUMB NAVIGATION SYSTEM */}
-          <div className="project-details-header">
-            <nav className="breadcrumb-architectural" aria-label="Project navigation">
-              <motion.button
-                onClick={() => setSelectedProject(null)}
-                className="breadcrumb-back typography-body"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                ← Back to Projects
-              </motion.button>
-              <span className="breadcrumb-separator">•</span>
-              <span className="breadcrumb-current typography-body">
+          {/* ULTRA-PROMINENT NAVIGATION SYSTEM */}
+          <div className="project-details-navigation-system">
+            <motion.button
+              onClick={() => setSelectedProject(null)}
+              className="project-back-button-ultra"
+              whileHover={{ scale: 1.05, x: -6 }}
+              whileTap={{ scale: 0.98 }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <span className="back-icon">←</span>
+              <span className="back-text">Back to Projects</span>
+            </motion.button>
+            
+            <motion.div 
+              className="project-title-bar"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <span className="project-title-bar-text">
                 {selectedProject !== null ? projects[selectedProject].title : ''}
               </span>
-            </nav>
+              <kbd className="kbd-hint">ESC</kbd>
+            </motion.div>
+            
+            <motion.button
+              onClick={() => setSelectedProject(null)}
+              className="project-close-button-ultra"
+              whileHover={{ scale: 1.1, rotate: 90 }}
+              whileTap={{ scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              aria-label="Close project details"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </motion.button>
           </div>
 
           {/* HERO SECTION - Perfect Visual Exploration with Proper Spacing */}
@@ -1453,9 +1479,22 @@ export default function Home() {
                   <h2 className="section-title typography-h3">Context</h2>
                 </div>
                 <div className="section-content">
-                  <p className="section-text typography-body">
-                      {projects[selectedProject].context}
+                  {projects[selectedProject].context.split('. ').reduce((acc: string[], sentence: string, index: number, array: string[]) => {
+                    // Group sentences into 3 roughly equal paragraphs
+                    const sentencesPerParagraph = Math.ceil(array.length / 3);
+                    const paragraphIndex = Math.floor(index / sentencesPerParagraph);
+                    
+                    if (!acc[paragraphIndex]) {
+                      acc[paragraphIndex] = '';
+                    }
+                    
+                    acc[paragraphIndex] += (acc[paragraphIndex] ? '. ' : '') + sentence;
+                    return acc;
+                  }, []).map((paragraph: string, index: number) => (
+                    <p key={index} className="section-text typography-body" style={{ marginBottom: index < 2 ? '1.5rem' : '0' }}>
+                      {paragraph}{paragraph.endsWith('.') ? '' : '.'}
                     </p>
+                  ))}
                 </div>
                   </motion.section>
                   
@@ -1472,9 +1511,22 @@ export default function Home() {
                   <h2 className="section-title typography-h3">Scope of the Project</h2>
                 </div>
                 <div className="section-content">
-                  <p className="section-text typography-body">
-                    {projects[selectedProject].scope}
-                  </p>
+                  {projects[selectedProject].scope.split('. ').reduce((acc: string[], sentence: string, index: number, array: string[]) => {
+                    // Group sentences into 3 roughly equal paragraphs
+                    const sentencesPerParagraph = Math.ceil(array.length / 3);
+                    const paragraphIndex = Math.floor(index / sentencesPerParagraph);
+                    
+                    if (!acc[paragraphIndex]) {
+                      acc[paragraphIndex] = '';
+                    }
+                    
+                    acc[paragraphIndex] += (acc[paragraphIndex] ? '. ' : '') + sentence;
+                    return acc;
+                  }, []).map((paragraph: string, index: number) => (
+                    <p key={index} className="section-text typography-body" style={{ marginBottom: index < 2 ? '1.5rem' : '0' }}>
+                      {paragraph}{paragraph.endsWith('.') ? '' : '.'}
+                    </p>
+                  ))}
                 </div>
                   </motion.section>
                   
@@ -1491,9 +1543,22 @@ export default function Home() {
                   <h2 className="section-title typography-h3">Impact</h2>
                 </div>
                 <div className="section-content">
-                  <p className="section-text typography-body">
-                      {projects[selectedProject].impact}
+                  {projects[selectedProject].impact.split('. ').reduce((acc: string[], sentence: string, index: number, array: string[]) => {
+                    // Group sentences into 3 roughly equal paragraphs
+                    const sentencesPerParagraph = Math.ceil(array.length / 3);
+                    const paragraphIndex = Math.floor(index / sentencesPerParagraph);
+                    
+                    if (!acc[paragraphIndex]) {
+                      acc[paragraphIndex] = '';
+                    }
+                    
+                    acc[paragraphIndex] += (acc[paragraphIndex] ? '. ' : '') + sentence;
+                    return acc;
+                  }, []).map((paragraph: string, index: number) => (
+                    <p key={index} className="section-text typography-body" style={{ marginBottom: index < 2 ? '1.5rem' : '0' }}>
+                      {paragraph}{paragraph.endsWith('.') ? '' : '.'}
                     </p>
+                  ))}
                 </div>
                   </motion.section>
                   
@@ -1544,33 +1609,8 @@ export default function Home() {
               </span>
             </motion.div>
             <div className="gallery-grid">
-              {/* Primary Image */}
-              <motion.div 
-                className="gallery-item primary"
-                initial={{ opacity: 0, scale: 0.8, y: 50 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true, margin: "-50px" }}
-                whileHover={{ scale: 1.01 }}
-                >
-                  <Image
-                    src={projects[selectedProject].image}
-                    alt={projects[selectedProject].title}
-                    width={1200}
-                    height={800}
-                    className="gallery-image-perfect"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      objectPosition: 'center'
-                    }}
-                    quality={95}
-                  />
-                </motion.div>
-                
-              {/* Secondary Images - Only First 2 for Symmetrical 3-Image Gallery */}
-              {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.slice(0, 2).map((image, index) => (
+              {/* Gallery Images - All 3 from galleryImages array */}
+              {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.slice(0, 3).map((image, index) => (
                 <motion.div 
                         key={index}
                   className="gallery-item"
@@ -1624,8 +1664,12 @@ export default function Home() {
                       onClick={() => {
                 const prevIndex = selectedProject === 0 ? projects.length - 1 : selectedProject - 1;
                 setSelectedProject(prevIndex);
+                // Scroll the modal overlay to top
                 setTimeout(() => {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  const overlay = document.querySelector('.project-details-overlay');
+                  if (overlay) {
+                    overlay.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
                 }, 100);
               }}
               whileHover={{ scale: 1.02, x: -10 }}
@@ -1656,8 +1700,12 @@ export default function Home() {
                       onClick={() => {
                 const nextIndex = (selectedProject + 1) % projects.length;
                 setSelectedProject(nextIndex);
+                // Scroll the modal overlay to top
                 setTimeout(() => {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  const overlay = document.querySelector('.project-details-overlay');
+                  if (overlay) {
+                    overlay.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
                 }, 100);
               }}
               whileHover={{ scale: 1.02, x: 10 }}
@@ -1691,14 +1739,14 @@ export default function Home() {
                  </p>
                </div>
                <div className="footer-contact-architectural">
-                 <h4 className="footer-contact-title-architectural typography-body">Contact</h4>
+                 <h4 className="footer-contact-title-architectural typography-body">contact</h4>
                  <div className="footer-contact-links-architectural">
                    <a 
                      href="mailto:silvanarestrepo888@gmail.com"
                      className="footer-contact-link-architectural typography-caption"
                    >
                      <Mail size={16} />
-                     Contact
+                     contact
                    </a>
                    <a 
                      href="https://linkedin.com/in/silvanarestrepo"
@@ -1707,7 +1755,7 @@ export default function Home() {
                      className="footer-contact-link-architectural typography-caption"
                    >
                      <Linkedin size={16} />
-                     LinkedIn
+                     linkedin
                    </a>
                    <a 
                      href="https://silvana.mmm.page/human-perspective"
@@ -1716,7 +1764,7 @@ export default function Home() {
                      className="footer-contact-link-architectural typography-caption"
                    >
                      <ExternalLink size={16} />
-                     Portfolio
+                     portfolio
                    </a>
                  </div>
                </div>

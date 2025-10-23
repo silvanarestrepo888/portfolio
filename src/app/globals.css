@@ -6253,15 +6253,15 @@ h4, .text-h4 {
 /* Enhanced Brand Logo */
 .nav-brand-enhanced {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.25rem; /* Reduced from 1.5rem */
   font-weight: 600;
   color: var(--grapefruit-pure);
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  min-height: 44px;
+  min-height: 40px; /* Reduced from 44px */
   display: flex;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.75rem; /* Reduced padding */
   border-radius: 1.5rem;
   /* Accessibility focus states */
   outline: none;
@@ -6282,15 +6282,15 @@ h4, .text-h4 {
 .nav-desktop-container {
   display: flex;
   align-items: center;
-  gap: 1.5rem; /* Systematic spacing between nav items */
+  gap: 1rem; /* Reduced gap to fit all items */
   flex-wrap: nowrap; /* Prevent wrapping */
-  padding: 0.25rem 0; /* Additional vertical breathing room */
+  padding: 0.2rem 0; /* Reduced vertical padding */
 }
 
-/* Enhanced Navigation Items - 44px Touch Targets */
+/* Enhanced Navigation Items - Compact */
 .nav-item-enhanced {
   position: relative;
-  padding: 0.875rem 1.25rem; /* Enhanced padding for 44px min height */
+  padding: 0.6rem 0.875rem; /* Reduced padding to save space */
   border-radius: 1.5rem;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
