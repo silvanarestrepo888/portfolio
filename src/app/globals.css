@@ -3154,6 +3154,30 @@ body {
 
 /* RESPONSIVE PROJECT SYSTEM - ENHANCED MOBILE */
 @media (max-width: 768px) {
+  /* Hide autoplay indicator on mobile for cleaner UX */
+  .auto-play-indicator {
+    display: none !important;
+  }
+  
+  /* Optimize carousel indicators spacing */
+  .sophisticated-carousel-indicators {
+    padding: 0 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .carousel-status {
+    gap: 1rem;
+  }
+  
+  .upcoming-projects-preview {
+    gap: 0.5rem;
+  }
+  
+  .upcoming-thumbnail {
+    width: 32px;
+    height: 32px;
+  }
+  
   /* Show expand button on mobile */
   .image-expand-btn {
     display: flex !important;
