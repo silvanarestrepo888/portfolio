@@ -18,6 +18,7 @@ import {
   StrategyConsultingIcon,
   CustomerIntelligenceIcon
 } from '../components/icons/services';
+import { ExperienceTimeline } from '../components/ui/ExperienceTimeline';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -891,11 +892,11 @@ export default function Home() {
               <span className="projects-section-number-award">03</span>
               <motion.h2 
                 className="projects-title-award-winning typography-h2"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.618, delay: 0.236 }}
-                viewport={{ once: true }}
-              >
+            viewport={{ once: true }}
+          >
                 services
               </motion.h2>
             </div>
@@ -922,7 +923,7 @@ export default function Home() {
             scrollBehavior: 'smooth'
           }}>
             {referenceServices.map((service, index) => (
-              <motion.div
+              <motion.div 
                 key={service.number}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -982,7 +983,7 @@ export default function Home() {
                   fontFamily: 'var(--font-architectural-body)'
                 }}>
                   {service.number}
-                </span>
+                  </span>
                 
                 <h3 style={{
                   flex: 1,
@@ -1016,7 +1017,7 @@ export default function Home() {
               
                 {/* SINGLE-SCREEN COMPACT CONTENT */}
                 {expandedService === service.number && (
-                  <motion.div
+                  <motion.div 
                     id={`service-content-${service.number}`}
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
@@ -1055,138 +1056,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* EXPERIENCE SECTION - Vertical Timeline - CALM REFLECTION BEFORE FOOTER */}
-      <section 
-        id="experience"
-        className="experience-timeline-section luxury-background-texture section-about-sophisticated"
-        style={{ 
-          minHeight: '100vh',
-          padding: '80px 0'
-        }}
-      >
-        <div className="experience-timeline-container">
-          {/* Section Header */}
-          <motion.div 
-            className="experience-timeline-header text-center mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-              <span 
-              className="section-number text-sm font-semibold tracking-wider uppercase block mb-4"
-              style={{ color: 'var(--grapefruit-intelligence)' }} /* System color */
-              >
-                04
-              </span>
-            <h2 className="typography-h2" style={{ color: '#4A5568', fontSize: '68px' }}> {/* Mathematical sizing: 42px x 1.618 - Elegant charcoal */}
-                Experience
-              </h2>
-            <p className="typography-body text-center max-w-3xl mx-auto" style={{ 
-              color: '#667080', /* Body text - refined dark gray */
-              opacity: 0.9,
-              lineHeight: '1.4',
-              fontSize: '20px', /* Mathematical: var(--type-lg) */
-              margin: '0 auto'
-            }}>
-              Some of the <span className="highlight-word" style={{ color: 'var(--coral-primary)', fontWeight: '600' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--coral-primary)', fontWeight: '600' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--coral-primary)', fontWeight: '600' }}>upscaling, reinventing, evolving,</span> and <span className="highlight-word" style={{ color: 'var(--coral-primary)', fontWeight: '600' }}>reimagining</span> business, brands, and teams.
-            </p>
-          </motion.div>
-          
-          {/* Vertical Alternating Timeline Experience Layout */}
-          <div className="experience-vertical-timeline">
-            {/* Central Timeline Line */}
-            <div className="experience-central-line"></div>
-            
-            {[
-              {
-                year: "2020—2025",
-                role: "Business Partner & Experience Architect", 
-                company: "Globant",
-                description: "Enterprise digital transformation for global brands"
-              },
-              {
-                year: "2019—2020",
-                role: "Ecosystem Engagement Leader",
-                company: "Centre for Fourth Industrial Revolution-WEF",
-                description: "Technology governance frameworks for industry"
-              },
-              {
-                year: "2018—2019", 
-                role: "Strategic Design Director",
-                company: "Designit a WIPRO Company",
-                description: "Regional operations scaling and design solutions"
-              },
-              {
-                year: "2016—2018",
-                role: "Marketing Director",
-                company: "Grupo Éxito",
-                description: "Retail experience innovation and partnerships"
-              },
-              {
-                year: "2013—2016",
-                role: "Business Intelligence Manager",
-                company: "Industrias HACEB", 
-                description: "Market segmentation transformation strategy"
-              },
-              {
-                year: "2012—2016",
-                role: "Independent Advisor",
-                company: "Independent",
-                description: "Consumer behavior analysis and innovation"
-              },
-              {
-                year: "2002—2011",
-                role: "Senior Marketing Analyst",
-                company: "TIGO-Millicom",
-                description: "Corporate expansion and M&A strategy"
-              }
-            ].map((experience, index) => (
-              <motion.div 
-                key={index} 
-                className={`experience-timeline-item ${index % 2 === 0 ? 'timeline-left' : 'timeline-right'}`}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ 
-                  opacity: 1, 
-                  y: 0,
-                  transition: { 
-                    duration: 0.8,
-                    delay: index * 0.1, // Staggered animation
-                    ease: [0.25, 0.46, 0.45, 0.94]
-                  }
-                }}
-                viewport={{ once: true }}
-              >
-                {/* Timeline Dot */}
-                <motion.div 
-                  className="experience-timeline-dot"
-                  initial={{ scale: 0 }}
-                  whileInView={{ 
-                    scale: 1,
-                    transition: { 
-                      duration: 0.4,
-                      delay: 0.2 + (index * 0.1),
-                      type: "spring",
-                      bounce: 0.4
-                    }
-                  }}
-                  viewport={{ once: true }}
-                />
-                
-                {/* Content Card */}
-                <div className="experience-card">
-                  <div className="experience-card-content">
-                    <span className="experience-year">{experience.year}</span>
-                    <h3 className="experience-role">{experience.role}</h3>
-                    <p className="experience-company">{experience.company}</p>
-                    <p className="experience-description">{experience.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* EXPERIENCE SECTION - Horizontal Auto-Scroll Timeline */}
+      <ExperienceTimeline />
 
       {/* LANDOR STANDARDS FOOTER - ULTRA-LUXURY */}
       <footer id="footer" className="footer-landor-standards">
