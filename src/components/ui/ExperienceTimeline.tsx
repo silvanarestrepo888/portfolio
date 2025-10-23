@@ -4,13 +4,13 @@ import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const experiences = [
-  { year: "2020—2025", role: "Business Partner & Experience Architect", company: "Globant" },
-  { year: "2019—2020", role: "Ecosystem Engagement Leader", company: "Centre for Fourth Industrial Revolution-WEF" },
-  { year: "2018—2019", role: "Strategic Design Director", company: "Designit a WIPRO Company" },
-  { year: "2016—2018", role: "Marketing Director", company: "Grupo Éxito" },
-  { year: "2013—2016", role: "Business Intelligence Manager", company: "Industrias HACEB" },
-  { year: "2012—2016", role: "Independent Advisor", company: "Independent" },
-  { year: "2002—2011", role: "Research & Strategy Director", company: "Napoleon Franco" }
+  { year: "2020–2025", role: "Business Partner & Experience Strategist", company: "Globant" },
+  { year: "2019–2020", role: "Ecosystem Engagement Leader", company: "Centre for Fourth Industrial Revolution-WEF" },
+  { year: "2018–2019", role: "Strategic Design Director", company: "Designit (Wipro)" },
+  { year: "2016–2018", role: "Marketing Director", company: "Real Estate Grupo Éxito" },
+  { year: "2013–2016", role: "Business Intelligence Manager", company: "Industrias HACEB" },
+  { year: "2012–2016", role: "Independent Advisor", company: "Independent" },
+  { year: "2002–2011", role: "Senior Marketing Analyst", company: "TIGO-Millicom" }
 ];
 
 export function ExperienceTimeline() {
@@ -21,13 +21,13 @@ export function ExperienceTimeline() {
     const track = trackRef.current;
     if (!track) return;
 
-    const scrollSpeed = 0.5; // Medium speed (pixels per frame)
+    const scrollSpeed = 1.2; // Faster speed (pixels per frame)
     let scrollPosition = 0;
     let animationId: number;
 
     // Calculate total width of one set of experiences
-    const cardWidth = 280; // Card width
-    const gap = 48; // 3rem gap
+    const cardWidth = 220; // Smaller card width
+    const gap = 40; // 2.5rem gap
     const totalWidth = experiences.length * (cardWidth + gap);
 
     const animate = () => {
@@ -116,6 +116,9 @@ export function ExperienceTimeline() {
 
         {/* Horizontal Scrolling Timeline */}
         <div className="experience-horizontal-scroll">
+          {/* Timeline Line */}
+          <div className="timeline-line-horizontal" />
+          
           <div className="timeline-track" ref={trackRef}>
             {infiniteExperiences.map((exp, i) => (
               <div key={i} className="timeline-item-horizontal">
