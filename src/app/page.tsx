@@ -1018,14 +1018,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES SECTION - WORKING ACCORDION */}
+      {/* SERVICES SECTION - GRAPEFRUIT BUSINESS CONFIDENCE */}
       <section 
         id="services"
-        style={{
-          background: 'var(--vanilla-whisper)',
-          padding: '80px 0',
-          minHeight: '100vh'
-        }}
+        className="section-luxury section-services-sophisticated section-transition-sophisticated"
         aria-labelledby="services-heading"
       >
         <div style={{
@@ -1045,12 +1041,12 @@ export default function Home() {
             }}
           >
             <span style={{
-              fontSize: '14px',
+              fontSize: 'var(--type-sm)', // Your system: 14px
               fontWeight: '600',
-              color: 'var(--grapefruit-intelligence)',
+              color: 'var(--vanilla-whisper)', // Cream on grapefruit
               textTransform: 'uppercase',
               letterSpacing: '0.1em',
-              marginBottom: '1rem',
+              marginBottom: 'var(--space-md)', // Your system: 16px
               display: 'block'
             }}>
               04
@@ -1058,23 +1054,23 @@ export default function Home() {
             <h2 
               id="services-heading"
               style={{
-                fontSize: '68px',
+                fontSize: 'var(--type-3xl)', // Your system: 44px
                 fontFamily: 'var(--font-architectural-display)',
-                color: 'var(--grapefruit-intelligence)',
-                marginBottom: '1rem',
-                fontWeight: '400'
+                color: 'var(--vanilla-whisper)', // Cream on grapefruit
+                marginBottom: 'var(--space-lg)', // Your system: 24px
+                fontWeight: '300' // Danish elegance
               }}
             >
               Services
             </h2>
             <p style={{
-              fontSize: '20px',
+              fontSize: 'var(--type-lg)', // Your system: 20px
               fontFamily: 'var(--font-architectural-body)',
-              color: 'var(--grapefruit-intelligence)',
-              opacity: 0.8,
+              color: 'var(--vanilla-whisper)', // Cream on grapefruit
+              opacity: 0.9,
               maxWidth: '600px',
               margin: '0 auto',
-              lineHeight: '1.6'
+              lineHeight: '1.618' // Golden ratio
             }}>
               Meticulously architected solutions addressing demanding market realities and evolving client needs.
             </p>
@@ -1089,18 +1085,25 @@ export default function Home() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               style={{
-                border: '1px solid var(--grapefruit-intelligence)',
-                borderRadius: '12px',
-                marginBottom: '1rem',
-                background: 'white',
+                // Cream cards on grapefruit background
+                background: 'var(--vanilla-whisper)', // Your cream system #FDFCF8
+                border: '1px solid var(--vanilla-foundation)', // Subtle vanilla border
+                borderLeft: '4px solid var(--vanilla-breath)', // Cream accent
+                borderRadius: 'var(--space-lg)', // Your system: 24px organic corners
+                marginBottom: 'var(--space-lg)', // Your system: 24px
+                padding: 'var(--space-xl) var(--space-2xl)', // Your system: 40px 64px
                 cursor: 'pointer',
                 overflow: 'hidden',
-                boxShadow: '0 4px 6px rgba(255, 102, 99, 0.1)',
-                transition: 'all 0.3s ease'
+                // Vanilla card depth on grapefruit (NO PINK):
+                boxShadow: '0 4px 12px var(--vanilla-depth), inset 0 1px 0 var(--vanilla-breath)',
+                transition: 'all 0.618s cubic-bezier(0.236, 0.618, 0.382, 1.0)' // Your mathematical timing
               }}
               whileHover={{
-                boxShadow: '0 8px 25px rgba(255, 102, 99, 0.15)',
-                transform: 'translateY(-2px)'
+                // Elegant cream card enhancement (NO PINK):
+                background: 'var(--vanilla-breath)', // Lighter cream on hover
+                borderColor: 'var(--vanilla-whisper)', // Subtle border shift
+                transform: 'translateY(-3px) scale(1.01)', // Your established interaction
+                boxShadow: '0 8px 20px var(--vanilla-depth), inset 0 1px 0 var(--vanilla-breath)'
               }}
               onClick={() => setExpandedService(expandedService === service.number ? null : service.number)}
               role="button"
@@ -1116,19 +1119,19 @@ export default function Home() {
             >
               {/* Accordion Header */}
               <div style={{
-                padding: '2rem 2.5rem',
+                padding: 'var(--space-xl) var(--space-2xl)', // Your system: 40px 64px
                 display: 'flex',
                 alignItems: 'center',
-                gap: '1.5rem',
-                borderBottom: expandedService === service.number ? '1px solid var(--grapefruit-intelligence)' : 'none'
+                gap: 'var(--space-lg)', // Your system: 24px
+                borderBottom: expandedService === service.number ? '1px solid var(--vanilla-depth)' : 'none' // Vanilla border
               }}>
                 <span style={{
-                  fontSize: '12px',
+                  fontSize: 'var(--type-xs)', // Your system: 12px
                   fontWeight: '700',
-                  color: 'white',
-                  background: 'var(--grapefruit-intelligence)',
-                  padding: '6px 10px',
-                  borderRadius: '6px',
+                  color: 'var(--vanilla-whisper)', // Cream text
+                  background: 'var(--grapefruit-intelligence)', // Grapefruit background
+                  padding: 'var(--space-sm) var(--space-md)', // Your system: 8px 16px
+                  borderRadius: 'var(--space-sm)', // Your system: 8px
                   minWidth: '32px',
                   textAlign: 'center',
                   fontFamily: 'var(--font-architectural-body)'
@@ -1138,22 +1141,23 @@ export default function Home() {
                 
                 <h3 style={{
                   flex: 1,
-                  fontSize: '28px',
+                  fontSize: 'var(--type-2xl)', // Your system: 34px
                   fontFamily: 'var(--font-architectural-display)',
-                  color: 'var(--grapefruit-intelligence)',
+                  color: 'var(--grapefruit-intelligence)', // Perfect contrast on cream
                   margin: 0,
-                  fontWeight: '400',
-                  lineHeight: '1.3'
+                  fontWeight: '300', // Danish elegance matching your about section
+                  letterSpacing: '-0.02em', // Your luxury spacing
+                  lineHeight: '1.1' // Your established ratio
                 }}>
                   {service.title}
                 </h3>
                 
                 <motion.span 
                   style={{
-                    fontSize: '24px',
-                    color: 'var(--grapefruit-intelligence)',
-                    fontWeight: '300',
-                    minWidth: '24px',
+                    fontSize: 'var(--type-lg)', // Your system: 20px
+                    color: 'var(--grapefruit-intelligence)', // Perfect contrast on cream
+                    fontWeight: '300', // Danish lightness
+                    minWidth: 'var(--space-lg)', // Your system: 24px
                     textAlign: 'center'
                   }}
                   animate={{
@@ -1176,45 +1180,46 @@ export default function Home() {
                   style={{ overflow: 'hidden' }}
                 >
                   <div style={{
-                    padding: '2rem 2.5rem',
-                    background: 'var(--grapefruit-whisper)'
+                    padding: 'var(--space-xl) var(--space-2xl)', // Your system: 40px 64px
+                    background: 'var(--vanilla-foundation)' // Natural cream background #F5F5DC
                   }}>
                     <p style={{
-                      fontSize: '18px',
+                      fontSize: 'var(--type-lg)', // Your system: 20px
                       fontFamily: 'var(--font-architectural-body)',
-                      color: 'var(--grapefruit-intelligence)',
-                      marginBottom: '2rem',
+                      color: 'var(--grapefruit-intelligence)', // Perfect contrast on cream
+                      marginBottom: 'var(--space-xl)', // Your system: 40px
                       fontStyle: 'italic',
-                      lineHeight: '1.6',
-                      opacity: 0.9
+                      lineHeight: '1.618', // Golden ratio
+                      opacity: 0.8
                     }}>
                       {service.subtitle}
                     </p>
                     
                     <div style={{
-                      marginBottom: '1.5rem',
-                      padding: '1.5rem',
-                      background: 'white',
-                      borderRadius: '8px',
-                      borderLeft: '4px solid var(--grapefruit-intelligence)',
-                      boxShadow: '0 2px 8px rgba(255, 102, 99, 0.1)'
+                      marginBottom: 'var(--space-lg)', // Your system: 24px
+                      padding: 'var(--space-lg) var(--space-xl)', // Your system: 24px 40px
+                      background: 'var(--vanilla-depth)', // Your architectural depth #F0EDD4
+                      borderRadius: 'var(--space-md)', // Your system: 16px
+                      borderLeft: '3px solid var(--grapefruit-intelligence)', // Minimal accent
+                      // Natural depth using vanilla system (NO PINK):
+                      boxShadow: 'inset 0 1px 0 var(--vanilla-breath)' // Subtle vanilla highlight
                     }}>
                       <h4 style={{
-                        fontSize: '13px',
+                        fontSize: 'var(--type-sm)', // Your system: 14px
                         fontFamily: 'var(--font-architectural-body)',
-                        color: 'var(--grapefruit-intelligence)',
+                        color: 'var(--grapefruit-intelligence)', // Perfect contrast
                         textTransform: 'uppercase',
                         letterSpacing: '0.1em',
-                        marginBottom: '1rem',
-                        fontWeight: '700'
+                        marginBottom: 'var(--space-md)', // Your system: 16px
+                        fontWeight: '600' // Your established strong weight
                       }}>
                         Strategic Capability
                       </h4>
                       <p style={{
-                        fontSize: '16px',
+                        fontSize: 'var(--type-base)', // Your system: 16px
                         fontFamily: 'var(--font-architectural-body)',
-                        color: 'var(--grapefruit-intelligence)',
-                        lineHeight: '1.7',
+                        color: 'var(--grapefruit-intelligence)', // System color
+                        lineHeight: '1.618', // Golden ratio
                         margin: 0
                       }}>
                         {service.description}
@@ -1222,30 +1227,31 @@ export default function Home() {
                     </div>
                     
                     <div style={{
-                      padding: '1.5rem',
-                      background: 'white',
-                      borderRadius: '8px',
-                      borderLeft: '4px solid var(--grapefruit-intelligence)',
-                      boxShadow: '0 2px 8px rgba(255, 102, 99, 0.1)'
+                      padding: 'var(--space-lg) var(--space-xl)', // Your system: 24px 40px
+                      background: 'var(--vanilla-depth)', // Your architectural depth #F0EDD4
+                      borderRadius: 'var(--space-md)', // Your system: 16px
+                      borderLeft: '3px solid var(--grapefruit-intelligence)', // Minimal accent
+                      // Natural vanilla depth (NO PINK):
+                      boxShadow: 'inset 0 1px 0 var(--vanilla-breath)' // Subtle vanilla highlight
                     }}>
                       <h4 style={{
-                        fontSize: '13px',
+                        fontSize: 'var(--type-sm)', // Your system: 14px
                         fontFamily: 'var(--font-architectural-body)',
-                        color: 'var(--grapefruit-intelligence)',
+                        color: 'var(--grapefruit-intelligence)', // Perfect contrast
                         textTransform: 'uppercase',
                         letterSpacing: '0.1em',
-                        marginBottom: '1rem',
-                        fontWeight: '700'
+                        marginBottom: 'var(--space-md)', // Your system: 16px
+                        fontWeight: '600' // Your established strong weight
                       }}>
                         For Projects That Demand
                       </h4>
                       <p style={{
-                        fontSize: '16px',
+                        fontSize: 'var(--type-base)', // Your system: 16px
                         fontFamily: 'var(--font-architectural-body)',
-                        color: 'var(--grapefruit-intelligence)',
-                        lineHeight: '1.7',
+                        color: 'var(--grapefruit-intelligence)', // System color
+                        lineHeight: '1.618', // Golden ratio
                         margin: 0,
-                        fontWeight: '500'
+                        fontWeight: '400' // Your established body weight
                       }}>
                         {service.demand}
                       </p>
