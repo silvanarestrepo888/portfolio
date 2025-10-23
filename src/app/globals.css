@@ -10608,28 +10608,28 @@ h4, .text-h4 {
   font-weight: 400;
 }
 
-/* PROJECT GALLERY */
+/* PROJECT GALLERY - Ultra-Clean Design */
 .project-gallery-section {
-  padding: 2rem; /* Reduced from 4rem */
+  padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  background: var(--vanilla-pure);
+  background: transparent; /* Clean, no interference */
 }
 
-/* TESTIMONIAL GALLERY */
+/* TESTIMONIAL GALLERY - Ultra-Clean Design */
 .testimonial-gallery-section {
-  padding: 2rem; /* Reduced from 4rem */
+  padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  background: var(--vanilla-pure);
+  background: transparent; /* Clean, no interference */
 }
 
 .gallery-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--vanilla-whisper); /* Design system breathing elegance */
   text-align: center;
-  margin-bottom: 3rem; /* 48px - 8px grid */
+  margin-bottom: 3rem;
   position: relative;
 }
 
@@ -10678,13 +10678,14 @@ h4, .text-h4 {
 
 .gallery-item {
   cursor: default;
-  border-radius: 16px;
+  border-radius: 8px; /* Clean, minimal */
   overflow: hidden;
-  box-shadow: 0 8px 32px var(--grapefruit-whisper);
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* NO box-shadow - ultra-clean approach */
+  transition: all 0.3s ease;
   position: relative;
-  background: var(--vanilla-pure);
+  background: transparent; /* Clean, no interference */
   max-height: 600px;
+  border: 1px solid rgba(253, 252, 248, 0.1); /* Subtle vanilla border */
 }
 
 .gallery-item.primary {
@@ -10692,7 +10693,9 @@ h4, .text-h4 {
 }
 
 .gallery-item:hover {
-  box-shadow: 0 12px 40px var(--grapefruit-breath);
+  /* Subtle hover without shadows */
+  border-color: rgba(253, 252, 248, 0.2);
+  /* NO box-shadow - ultra-clean approach */
 }
 
 .gallery-item-1 {
@@ -10708,8 +10711,9 @@ h4, .text-h4 {
 }
 
 .gallery-item:hover {
-  transform: translateY(-15px) scale(1.02);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  /* Minimal hover without shadows */
+  border-color: rgba(253, 252, 248, 0.2);
+  /* NO transform or shadows - ultra-clean */
 }
 
 .gallery-image {
@@ -12797,34 +12801,33 @@ h4, .text-h4 {
   gap: 2rem;
 }
 
-/* Content Section - Compact Cards */
+/* Content Section - Ultra-Luxury Clean Design */
 .content-section {
-  background: linear-gradient(135deg, 
-    var(--vanilla-pure) 0%, 
-    var(--vanilla-warm) 100%);
-  border: 1px solid var(--grapefruit-whisper);
-  border-radius: 16px;
-  padding: 1.5rem; /* Reduced from 2rem */
-  box-shadow: 0 4px 20px var(--grapefruit-breath);
+  background: transparent; /* Clean, no interference */
+  border: 1px solid rgba(253, 252, 248, 0.1); /* Subtle vanilla border */
+  border-radius: 8px; /* Clean, minimal */
+  padding: 2rem; /* Generous spacing */
+  /* NO box-shadow - ultra-clean approach */
   transition: all 0.3s ease;
   position: relative;
   height: fit-content;
 }
 
 .content-section:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px var(--grapefruit-subtle);
-  border-color: var(--grapefruit-soft);
+  /* Subtle hover without shadows */
+  border-color: rgba(253, 252, 248, 0.2);
+  background: rgba(253, 252, 248, 0.05); /* Subtle vanilla background */
+  /* NO transform or shadows - ultra-clean */
 }
 
 /* Section Header - Compact */
 .section-header {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem; /* Reduced from 2rem */
+  margin-bottom: 1rem;
   gap: 0.75rem;
   padding-bottom: 0.75rem;
-  border-bottom: 2px solid var(--grapefruit-whisper);
+  border-bottom: 1px solid rgba(253, 252, 248, 0.1); /* Subtle vanilla border */
 }
 
 .section-number {
@@ -12842,7 +12845,7 @@ h4, .text-h4 {
 
 .section-title {
   margin: 0;
-  color: var(--text-primary);
+  color: var(--vanilla-whisper); /* Design system breathing elegance */
 }
 
 /* ========================================
@@ -13621,13 +13624,14 @@ h4, .text-h4 {
   flex-direction: column;
   gap: 0.75rem;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent; /* Clean, no interference */
+  border-radius: 8px; /* Clean, minimal */
+  border: 1px solid rgba(253, 252, 248, 0.1); /* Subtle vanilla border */
+  /* NO box-shadow - ultra-clean approach */
 }
 
 .metadata-label {
-  color: var(--grapefruit-primary);
+  color: var(--vanilla-foundation); /* Design system architectural base */
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -16968,14 +16972,14 @@ img[class*="project-"] {
 }
 
 .project-details-content-sections {
-  background: var(--vanilla-pure);
-  color: var(--grapefruit-rich);
+  background: transparent; /* Clean, no interference */
+  color: var(--vanilla-whisper); /* Design system breathing elegance */
   position: relative;
   padding: 4rem 0;
 }
 
 .project-details-gallery-section {
-  background: linear-gradient(135deg, var(--vanilla-warm) 0%, var(--vanilla-pure) 100%);
+  background: transparent; /* Clean, no interference */
   position: relative;
   padding: 3rem 0;
 }
@@ -16992,14 +16996,14 @@ img[class*="project-"] {
 .project-coral-dominant .project-details-content-sections,
 .project-charcoal-dominant .project-details-content-sections,
 .project-cream-dominant .project-details-content-sections {
-  background: #374151; /* Consistent sophisticated charcoal */
+  background: transparent; /* Clean, no interference - overlay provides background */
   color: var(--vanilla-whisper); /* Design system breathing elegance */
 }
 
 .project-coral-dominant .project-details-hero-section,
 .project-charcoal-dominant .project-details-hero-section,
 .project-cream-dominant .project-details-hero-section {
-  background: linear-gradient(135deg, var(--cream-warm) 0%, rgba(255, 181, 179, 0.1) 100%);
+  background: transparent; /* Clean, no interference - overlay provides background */
 }
 
 /* REFINED SECTION TRANSITIONS */
@@ -17260,28 +17264,24 @@ img[class*="project-"] {
   outline-offset: 4px;
 }
 
-/* Experience Cards */
+/* Experience Cards - Ultra-Luxury Clean Design */
 .experience-card {
   width: 450px; /* Larger cards for better readability */
-  background: var(--vanilla-foundation);
-  border: 1px solid rgba(74, 85, 104, 0.1);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 
-    0 4px 16px rgba(74, 85, 104, 0.08),
-    0 2px 8px rgba(74, 85, 104, 0.04);
+  background: transparent; /* Clean, no interference */
+  border: 1px solid rgba(253, 252, 248, 0.1); /* Subtle vanilla border */
+  border-radius: 8px; /* Clean, minimal corners */
+  padding: 2rem; /* Generous spacing */
+  /* NO box-shadow - ultra-clean approach */
   transition: all 0.3s ease;
   position: relative;
   z-index: 2;
 }
 
 .experience-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 
-    0 8px 32px rgba(74, 85, 104, 0.12),
-    0 4px 16px rgba(74, 85, 104, 0.08),
-    0 0 0 1px rgba(255, 102, 99, 0.1);
-  background: var(--vanilla-breath);
+  /* Subtle hover without shadows */
+  border-color: rgba(253, 252, 248, 0.2);
+  background: rgba(253, 252, 248, 0.05); /* Subtle vanilla background */
+  /* NO transform or shadows - ultra-clean */
 }
 
 /* Card Content Layout */
