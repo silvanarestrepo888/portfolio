@@ -65,88 +65,157 @@ export function ExperienceTimeline() {
   return (
     <section 
       id="experience"
-      className="experience-timeline-section luxury-background-texture section-about-sophisticated"
-      style={{ 
-        minHeight: '80vh',
-        padding: '80px 0',
-        background: 'var(--vanilla-whisper)'
-      }}
+      className="experience-timeline-section-elevated luxury-background-texture section-experience-sophisticated"
     >
+      {/* Sophisticated Background Overlay */}
+      <div className="experience-overlay-system" />
+      <div className="experience-texture-overlay" />
+      <div className="experience-vignette" />
+      
       <div className="experience-timeline-container">
-        {/* Section Header */}
+        {/* Elevated Section Header with Cinematic Entrance */}
         <motion.div 
-          className="experience-timeline-header text-center mb-8"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          className="experience-timeline-header-elevated text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true }}
         >
-          <span 
-            className="section-number text-sm font-semibold tracking-wider uppercase block mb-4"
-            style={{ color: 'var(--grapefruit-intelligence)' }}
+          {/* Large Decorative Section Number */}
+          <motion.div
+            className="experience-section-number-large"
+            initial={{ opacity: 0, scale: 0.5, y: -30 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ 
+              duration: 1.0,
+              delay: 0.2,
+              type: "spring",
+              bounce: 0.4
+            }}
+            viewport={{ once: true }}
           >
             04
-          </span>
-          <h2 
-            className="typography-h2" 
-            style={{ 
-              color: '#4A5568', 
-              fontSize: '68px',
-              fontWeight: 300,
-              letterSpacing: '-0.02em',
-              lineHeight: 1.1,
-              marginBottom: '1rem'
-            }}
+          </motion.div>
+          
+          {/* Decorative Underline */}
+          <motion.div
+            className="experience-number-underline"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+          />
+          
+          {/* Section Title with Gradient */}
+          <motion.h2 
+            className="experience-title-elevated"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
           >
             Experience
-          </h2>
-          <p 
-            className="typography-body text-center max-w-3xl mx-auto" 
-            style={{ 
-              color: '#667080',
-              opacity: 0.9,
-              lineHeight: '1.4',
-              fontSize: '20px',
-              margin: '0 auto'
-            }}
+          </motion.h2>
+          
+          {/* Refined Description */}
+          <motion.p 
+            className="experience-description-elevated"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
           >
-            Some of the <span style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>hats</span> I have worn over more than <span style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>20 years</span> of non-stop, continuous <span style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>upscaling, reinventing, evolving,</span> and <span style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>reimagining</span> business, brands, and teams.
-          </p>
+            <span className="quote-mark">&ldquo;</span>
+            Some of the <span className="highlight-grapefruit">hats</span> I have worn over more than <span className="highlight-grapefruit">20 years</span> of non-stop, continuous <span className="highlight-grapefruit">upscaling, reinventing, evolving,</span> and <span className="highlight-grapefruit">reimagining</span> business, brands, and teams.
+            <span className="quote-mark">&rdquo;</span>
+          </motion.p>
         </motion.div>
 
-        {/* Horizontal Scrolling Timeline */}
-        <div className="experience-horizontal-scroll">
-          {/* Timeline Line */}
-          <div className="timeline-line-horizontal" />
+        {/* Horizontal Scrolling Timeline with Cinematic Entrance */}
+        <motion.div 
+          className="experience-horizontal-scroll"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.0, delay: 0.8 }}
+          viewport={{ once: true }}
+        >
+          {/* Animated Timeline Line with Shimmer */}
+          <motion.div 
+            className="timeline-line-horizontal"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 1.5, delay: 1.0, ease: [0.65, 0, 0.35, 1] }}
+            viewport={{ once: true }}
+          />
           
           <div className="timeline-track" ref={trackRef}>
             {infiniteExperiences.map((exp, i) => (
-              <div key={i} className="timeline-item-horizontal">
-                {/* Timeline Dot */}
-                <div className="timeline-dot-horizontal" />
+              <motion.div 
+                key={i} 
+                className="timeline-item-horizontal"
+                initial={{ opacity: 0, y: 60, scale: 0.85, rotateX: -10 }}
+                whileInView={{ 
+                  opacity: 1, 
+                  y: 0, 
+                  scale: 1, 
+                  rotateX: 0,
+                  transition: {
+                    duration: 0.8,
+                    delay: 1.2 + (i % experiences.length) * 0.08,
+                    ease: [0.34, 1.56, 0.64, 1]
+                  }
+                }}
+                viewport={{ once: true }}
+              >
+                {/* Animated Timeline Dot with Pulse */}
+                <motion.div 
+                  className="timeline-dot-horizontal timeline-dot-animated"
+                  initial={{ scale: 0 }}
+                  whileInView={{ 
+                    scale: 1,
+                    transition: {
+                      duration: 0.6,
+                      delay: 1.3 + (i % experiences.length) * 0.08,
+                      type: "spring",
+                      bounce: 0.6
+                    }
+                  }}
+                  viewport={{ once: true }}
+                />
                 
-                {/* Card */}
-                <div className="experience-card-compact">
+                {/* Enhanced Card with Hover Effects */}
+                <div className="experience-card-compact experience-card-elevated">
                   <div className="experience-year-compact">{exp.year}</div>
                   <div className="experience-company-compact">{exp.company}</div>
                   <div className="experience-role-compact">{exp.role}</div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        {/* Progress Indicator */}
-        <div className="timeline-progress-container">
-          <div className="timeline-progress-bar">
+        {/* Luxury Progress Indicator */}
+        <motion.div 
+          className="timeline-progress-container-elevated"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="progress-label-elevated">Journey Progress</div>
+          <div className="timeline-progress-bar-elevated">
             <div 
-              className="timeline-progress-fill"
+              className="timeline-progress-fill-elevated"
               style={{ width: `${progress}%` }}
             />
+            <div className="progress-shimmer" />
           </div>
-          <span className="timeline-progress-text">{Math.round(progress)}%</span>
-        </div>
+          <div className="progress-percentage-elevated">{Math.round(progress)}%</div>
+        </motion.div>
       </div>
+      
+      {/* Visual Bridge to Footer */}
+      <div className="experience-footer-bridge" />
     </section>
   );
 }

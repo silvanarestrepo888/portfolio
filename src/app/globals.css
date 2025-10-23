@@ -17378,6 +17378,158 @@ img[class*="project-"] {
 }
 
 /* =================================================================
+   10X ELEVATED EXPERIENCE SECTION - MUSEUM QUALITY
+   ================================================================= */
+
+/* Section Container with Unified Gradient */
+.experience-timeline-section-elevated {
+  min-height: 90vh;
+  padding: 120px 0 100px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    161.8deg,
+    var(--vanilla-foundation) 0%,
+    var(--grapefruit-whisper) 38.2%,
+    var(--vanilla-whisper) 61.8%,
+    var(--grapefruit-breath) 100%
+  );
+}
+
+/* Sophisticated Overlay System */
+.experience-overlay-system {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 20%,
+    rgba(255, 102, 99, 0.08) 0%,
+    transparent 50%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.experience-texture-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 102, 99, 0.01) 2px,
+      rgba(255, 102, 99, 0.01) 4px
+    );
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.experience-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(0, 0, 0, 0.03) 100%
+  );
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Timeline Container */
+.experience-timeline-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ELEVATED SECTION HEADER */
+.experience-timeline-header-elevated {
+  text-align: center;
+  margin-bottom: 5rem;
+  position: relative;
+}
+
+/* Large Decorative Section Number */
+.experience-section-number-large {
+  font-size: clamp(80px, 10vw, 120px);
+  font-weight: 300;
+  font-family: var(--font-architectural-display);
+  background: linear-gradient(
+    135deg,
+    var(--grapefruit-intelligence) 0%,
+    #FF8C89 50%,
+    var(--grapefruit-intelligence) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+  text-shadow: 0 4px 20px rgba(255, 102, 99, 0.2);
+  will-change: transform;
+}
+
+/* Decorative Underline */
+.experience-number-underline {
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--grapefruit-intelligence) 50%,
+    transparent 100%
+  );
+  margin: 0 auto 2rem;
+  border-radius: 2px;
+  transform-origin: center;
+}
+
+/* Elevated Title */
+.experience-title-elevated {
+  font-size: clamp(56px, 8vw, 80px);
+  font-weight: 300;
+  font-family: var(--font-architectural-display);
+  color: #2D3748;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Refined Description */
+.experience-description-elevated {
+  font-size: clamp(18px, 2vw, 22px);
+  color: #667080;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  font-weight: 400;
+  position: relative;
+  padding: 0 2rem;
+}
+
+.quote-mark {
+  font-size: 1.5em;
+  color: var(--grapefruit-intelligence);
+  opacity: 0.4;
+  font-weight: 300;
+  font-family: Georgia, serif;
+}
+
+.highlight-grapefruit {
+  color: var(--grapefruit-intelligence);
+  font-weight: 600;
+}
+
+/* =================================================================
    HORIZONTAL AUTO-SCROLL TIMELINE - ULTRA-LUXURY GRAPEFRUIT DESIGN
    ================================================================= */
 
@@ -17404,7 +17556,7 @@ img[class*="project-"] {
   );
 }
 
-/* Timeline Line - Horizontal */
+/* Timeline Line - Horizontal with Shimmer */
 .timeline-line-horizontal {
   position: absolute;
   top: 3rem;
@@ -17421,6 +17573,33 @@ img[class*="project-"] {
   );
   z-index: 1;
   pointer-events: none;
+  transform-origin: left;
+  overflow: hidden;
+}
+
+.timeline-line-horizontal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -200px;
+  width: 200px;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 102, 99, 0.5),
+    transparent
+  );
+  animation: lineShimmer 4s ease-in-out infinite;
+}
+
+@keyframes lineShimmer {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(100vw + 200px));
+  }
 }
 
 /* Track (animated container) */
@@ -17442,7 +17621,7 @@ img[class*="project-"] {
   gap: 1.5rem;
 }
 
-/* Timeline Dot */
+/* Timeline Dot with Ambient Pulse Animation */
 .timeline-dot-horizontal {
   width: 16px;
   height: 16px;
@@ -17454,6 +17633,26 @@ img[class*="project-"] {
     0 2px 8px rgba(255, 102, 99, 0.3);
   z-index: 10;
   flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.timeline-dot-animated {
+  animation: dotBreathePulse 3s ease-in-out infinite;
+}
+
+@keyframes dotBreathePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 
+      0 0 0 4px rgba(255, 102, 99, 0.15),
+      0 2px 8px rgba(255, 102, 99, 0.3);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 
+      0 0 0 8px rgba(255, 102, 99, 0.25),
+      0 4px 16px rgba(255, 102, 99, 0.4);
+  }
 }
 
 /* Ultra-Luxury Compact Card - BOLD GRAPEFRUIT BOXES */
@@ -17478,6 +17677,34 @@ img[class*="project-"] {
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   position: relative;
   overflow: hidden;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Enhanced Hover State */
+.experience-card-elevated:hover {
+  transform: translateY(-12px) translateZ(0) rotateY(2deg);
+  box-shadow: 
+    0 20px 60px rgba(255, 102, 99, 0.45),
+    0 10px 30px rgba(255, 102, 99, 0.35),
+    0 0 0 2px rgba(255, 255, 255, 0.25),
+    inset 0 2px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Floating Animation */
+.experience-card-elevated {
+  animation: cardFloat 4s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
 }
 
 .experience-card-compact::before {
@@ -17549,38 +17776,125 @@ img[class*="project-"] {
   z-index: 1;
 }
 
-/* Progress Indicator */
-.timeline-progress-container {
-  max-width: 600px;
-  margin: 2rem auto 0;
+/* Luxury Progress Indicator */
+.timeline-progress-container-elevated {
+  max-width: 700px;
+  margin: 4rem auto 0;
   text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 102, 99, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(255, 102, 99, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
-.timeline-progress-bar {
-  height: 4px;
+.progress-label-elevated {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4A5568;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.timeline-progress-bar-elevated {
+  height: 8px;
   background: rgba(74, 85, 104, 0.1);
-  border-radius: 2px;
+  border-radius: 10px;
   overflow: hidden;
   position: relative;
+  margin-bottom: 0.75rem;
 }
 
-.timeline-progress-fill {
-    height: 100%;
-  background: var(--grapefruit-intelligence);
-  transition: width 0.1s linear;
-  border-radius: 2px;
+.timeline-progress-fill-elevated {
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    var(--grapefruit-intelligence),
+    #FF8C89,
+    var(--grapefruit-intelligence)
+  );
+  transition: width 0.2s ease-out;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(255, 102, 99, 0.3);
 }
 
-.timeline-progress-text {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 0.875rem;
-  color: #667080;
-  font-weight: 600;
+.progress-shimmer {
+  position: absolute;
+  top: 0;
+  left: -100px;
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  animation: progressShimmer 2s ease-in-out infinite;
 }
 
-/* Responsive Mobile */
+@keyframes progressShimmer {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(800px);
+  }
+}
+
+.progress-percentage-elevated {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--grapefruit-intelligence);
+  letter-spacing: -0.01em;
+}
+
+/* Visual Bridge to Footer */
+.experience-footer-bridge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(245, 245, 220, 0.3) 50%,
+    var(--vanilla-foundation) 100%
+  );
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Responsive Mobile - Elevated Design */
 @media (max-width: 768px) {
+  .experience-timeline-section-elevated {
+    padding: 80px 0 60px;
+  }
+  
+  .experience-section-number-large {
+    font-size: 60px;
+  }
+  
+  .experience-title-elevated {
+    font-size: 48px;
+  }
+  
+  .experience-description-elevated {
+    font-size: 16px;
+    padding: 0 1rem;
+  }
+  
+  .experience-timeline-header-elevated {
+    margin-bottom: 3rem;
+  }
+  
   .experience-card-compact {
     width: 200px;
     padding: 1rem 0.875rem;
@@ -17609,6 +17923,16 @@ img[class*="project-"] {
   .timeline-dot-horizontal {
     width: 14px;
     height: 14px;
+  }
+  
+  .timeline-progress-container-elevated {
+    max-width: 90%;
+    padding: 1.5rem;
+    margin: 2rem auto 0;
+  }
+  
+  .progress-percentage-elevated {
+    font-size: 1.25rem;
   }
 }
 
