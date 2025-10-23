@@ -30,36 +30,14 @@ interface InteractiveProjectCardProps {
 export function InteractiveProjectCard({
   project,
   index,
-  isActive,
   onSelect,
   className = ''
 }: InteractiveProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
-  const [rotationX, setRotationX] = useState(0);
-  const [rotationY, setRotationY] = useState(0);
-
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-
-    const card = cardRef.current;
-    const rect = card.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-
-    // Calculate rotation based on mouse position (limited to ±15 degrees)
-    const maxRotation = 15;
-    const rotateX = Math.max(-maxRotation, Math.min(maxRotation, (e.clientY - centerY) / 10));
-    const rotateY = Math.max(-maxRotation, Math.min(maxRotation, (centerX - e.clientX) / 10));
-
-    setRotationX(rotateX);
-    setRotationY(rotateY);
-  }, []);
 
   const handleMouseLeave = useCallback(() => {
     setIsHovered(false);
-    setRotationX(0);
-    setRotationY(0);
   }, []);
 
   const handleMouseEnter = useCallback(() => {
@@ -70,44 +48,32 @@ export function InteractiveProjectCard({
     onSelect(index);
   }, [index, onSelect]);
 
-  // Calculate shadow intensity based on rotation
-  const shadowIntensity = Math.max(0.15, Math.min(0.4, (Math.abs(rotationX) + Math.abs(rotationY)) / 30));
-
   return (
     <motion.div
       ref={cardRef}
-      className={`project-card-3d enhanced-hover gpu-accelerated ${className}`}
-      style={{
-        '--rotation-x': `${rotationX}deg`,
-        '--rotation-y': `${rotationY}deg`,
-        '--shadow-intensity': shadowIntensity,
-        transform: `perspective(1000px) rotateX(${rotationX}deg) rotateY(${rotationY}deg) translateZ(${isHovered ? '20px' : '0px'})`,
-        transformStyle: 'preserve-3d'
-      } as React.CSSProperties}
-      initial={{ opacity: 0, y: 50, scale: 0.9 }}
+      className={`project-card-cinematic enhanced-hover gpu-accelerated ${className}`}
+      initial={{ opacity: 0, y: 20, scale: 0.98 }}
       animate={{ 
         opacity: 1, 
         y: 0, 
-        scale: isActive ? 1.02 : 1
+        scale: 1
       }}
       transition={{
-        duration: 0.8,
-        delay: index * 0.1,
-        type: "spring",
-        stiffness: 100,
-        damping: 20
+        duration: 1.2,
+        delay: index * 0.15,
+        ease: [0.25, 0.46, 0.45, 0.94] // Cinematic easing
       }}
-      onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
       whileHover={{
-        scale: 1.05,
-        transition: { duration: 0.3 }
+        y: -4,
+        scale: 1.01,
+        transition: { duration: 0.4, ease: "easeOut" }
       }}
       whileTap={{
-        scale: 0.98,
-        transition: { duration: 0.1 }
+        scale: 0.99,
+        transition: { duration: 0.15 }
       }}
     >
       <div className="balanced-project-card luxury-hover-elevation project-card-shadow-3d">
@@ -127,16 +93,15 @@ export function InteractiveProjectCard({
                   width: '100%',
                   height: '100%',
                   objectFit: 'contain',
-                  objectPosition: 'center',
-                  transform: `translateZ(10px)` // Subtle parallax effect
+                  objectPosition: 'center'
                 }}
                 quality={100}
                 priority={index < 2}
                 loading="eager"
               />
               
-              {/* Enhanced Tags with 3D effect */}
-              <div className="balanced-overlay-tags" style={{ transform: 'translateZ(15px)' }}>
+              {/* Enhanced Tags */}
+              <div className="balanced-overlay-tags">
                 <motion.span 
                   className="balanced-year-tag"
                   initial={{ opacity: 0, x: -20 }}
@@ -158,7 +123,7 @@ export function InteractiveProjectCard({
           </div>
           
           {/* Content Section - 40% (Perfect Balance) */}
-          <div className="balanced-content-section" style={{ transform: 'translateZ(5px)' }}>
+          <div className="balanced-content-section">
             <div className="balanced-content-inner">
               
               {/* Clean Project Header */}
@@ -251,7 +216,6 @@ export function InteractiveProjectCard({
                   whileTap={{ 
                     scale: 0.95 
                   }}
-                  style={{ transform: 'translateZ(20px)' }}
                 >
                   View Case Study
                   <motion.span 
@@ -279,7 +243,6 @@ export function InteractiveProjectCard({
                     whileTap={{ 
                       scale: 0.95 
                     }}
-                    style={{ transform: 'translateZ(20px)' }}
                   >
                     Visit Client
                     <motion.span 

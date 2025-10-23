@@ -1612,32 +1612,6 @@ export default function Home() {
                     ))}
             </div>
                   </div>
-                  
-          {/* CLIENT TESTIMONIAL - TEXT CONTAINER */}
-          <div className="testimonial-text-section">
-            <motion.div
-              className="testimonial-content"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="testimonial-title typography-h3">Client Testimonial</h3>
-              <div className="testimonial-quote-container">
-                <blockquote className="testimonial-quote typography-body">
-                  &ldquo;{selectedProject !== null ? projects[selectedProject].testimonial.quote : ''}&rdquo;
-                </blockquote>
-                <div className="testimonial-attribution">
-                  <p className="testimonial-author typography-caption">
-                    {selectedProject !== null ? projects[selectedProject].testimonial.author : ''}
-                  </p>
-                  <p className="testimonial-role typography-caption">
-                    {selectedProject !== null ? projects[selectedProject].testimonial.role : ''}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
           
           {/* SOPHISTICATED PROJECT NAVIGATION */}
           <div className="sophisticated-navigation-section">
