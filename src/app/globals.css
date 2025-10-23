@@ -3116,11 +3116,51 @@ body {
   transform: scale(0.95);
 }
 
+/* =================================================================
+   ANDROID-SPECIFIC OPTIMIZATIONS
+   ================================================================= */
+
+/* Android Chrome viewport fix */
+@supports (-webkit-touch-callout: none) {
+  /* iOS-specific styles (we'll override for Android below) */
+}
+
+/* Android-specific performance optimizations */
+@media (max-width: 768px) {
+  /* Force GPU acceleration on Android */
+  .balanced-image-perfect,
+  .lightbox-image-container,
+  .image-expand-btn {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  /* Android Chrome address bar compensation */
+  .project-details-overlay,
+  .image-lightbox-overlay {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
+  }
+  
+  /* Prevent Android zoom on focus */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+}
+
 /* RESPONSIVE PROJECT SYSTEM - ENHANCED MOBILE */
 @media (max-width: 768px) {
   /* Show expand button on mobile */
   .image-expand-btn {
-    display: flex;
+    display: flex !important;
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
   }
   
   .project-card-enhanced {
@@ -3135,16 +3175,22 @@ body {
     aspect-ratio: auto !important;
     height: auto !important;
     max-height: 50vh;
+    max-height: calc(var(--vh, 1vh) * 50);
     min-height: 280px;
     border-radius: 1.5rem 1.5rem 0 0;
     order: 1;
+    position: relative;
+    overflow: hidden;
   }
   
   .balanced-image-perfect {
     width: 100% !important;
     height: auto !important;
     max-height: 50vh;
+    max-height: calc(var(--vh, 1vh) * 50);
     object-fit: contain !important;
+    display: block;
+    pointer-events: none;
   }
   
   .balanced-layout-grid {
@@ -3320,6 +3366,69 @@ body {
   .project-details-overlay img {
     width: 100% !important;
     height: auto !important;
+  }
+  
+  /* ====================================================
+     ANDROID-SPECIFIC TOUCH OPTIMIZATIONS
+     ==================================================== */
+  
+  /* Remove tap highlight on Android */
+  * {
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+  }
+  
+  /* Android button active states */
+  .image-expand-btn:active,
+  .lightbox-close-btn:active,
+  .balanced-btn:active,
+  .back-to-projects-btn:active {
+    transform: scale(0.95) !important;
+    transition: transform 0.1s ease !important;
+  }
+  
+  /* Android scroll performance */
+  .project-details-overlay,
+  .experience-horizontal-scroll {
+    -webkit-overflow-scrolling: touch !important;
+    scroll-behavior: smooth !important;
+  }
+  
+  /* Android image rendering */
+  img {
+    image-rendering: -webkit-optimize-contrast !important;
+    image-rendering: crisp-edges !important;
+  }
+  
+  /* Android safe area for notch/camera */
+  .project-details-overlay {
+    padding-top: env(safe-area-inset-top) !important;
+    padding-bottom: env(safe-area-inset-bottom) !important;
+  }
+  
+  /* Android fullscreen lightbox */
+  .image-lightbox-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: calc(var(--vh, 1vh) * 100) !important;
+  }
+  
+  /* Android prevent double-tap zoom */
+  .balanced-image-perfect,
+  .lightbox-image-container img {
+    touch-action: pan-y pinch-zoom !important;
+  }
+  
+  /* Android text rendering */
+  body {
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
   }
 }
 

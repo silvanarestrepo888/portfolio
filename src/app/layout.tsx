@@ -116,9 +116,13 @@ export const metadata: Metadata = {
   }
 };
 
+// Android-optimized viewport configuration
 export const viewport = {
   width: "device-width",
   initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  viewportFit: "cover",
 };
 
 // Performance optimization for font loading
@@ -126,7 +130,9 @@ export function generateViewport() {
   return {
     width: "device-width",
     initialScale: 1,
-    maximumScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+    viewportFit: "cover",
   }
 }
 
