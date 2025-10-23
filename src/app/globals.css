@@ -399,6 +399,9 @@
   --vanilla-whisper: #FDFCF8;          /* Breathing elegance */
   --vanilla-depth: #F0EDD4;            /* Architectural depth */
   --vanilla-breath: #FFFEF9;           /* Subtle breathing space */
+  --vanilla-pure: #FFFEF9;             /* Map to breathing space for consistency */
+  --vanilla-warm: #F5F5DC;             /* Map to foundation for warmth */
+  --cream-warm: #F5F5DC;               /* Map to foundation for cream warmth */
   
   /* Grapefruit Strategic Intelligence */
   --grapefruit-intelligence: #FF6663;   /* Bold impact moments */
@@ -10585,7 +10588,7 @@ h4, .text-h4 {
 .section-title {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--vanilla-whisper) !important; /* Design system breathing elegance */
   margin-bottom: 1.5rem; /* 24px - 8px grid */
   padding-bottom: 0.75rem; /* 12px - 8px grid */
   border-bottom: 2px solid rgba(255, 102, 99, 0.3);
@@ -10600,7 +10603,7 @@ h4, .text-h4 {
 .section-text {
   font-size: 1.125rem;
   line-height: 1.8;
-  color: #4A5568; /* Warm charcoal for project details content */
+  color: var(--vanilla-whisper) !important; /* Design system breathing elegance */
   margin: 0;
   font-weight: 400;
 }
@@ -12751,7 +12754,7 @@ h4, .text-h4 {
 .project-title {
   font-size: clamp(2rem, 4vw, 3rem); /* Reduced */
   margin-bottom: 0.75rem; /* Reduced from 1.5rem */
-  color: var(--grapefruit-pure);
+  color: var(--vanilla-whisper) !important; /* Design system breathing elegance */
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.1;
@@ -12759,7 +12762,7 @@ h4, .text-h4 {
 
 .project-subtitle {
   font-size: clamp(1rem, 2vw, 1.25rem); /* Reduced */
-  color: var(--grapefruit-medium);
+  color: var(--vanilla-foundation) !important; /* Design system architectural base */
   font-weight: 400;
   line-height: 1.4; /* Tighter */
   max-width: 700px; /* Reduced from 800px */
@@ -12882,7 +12885,7 @@ h4, .text-h4 {
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 1.5rem;
-  color: #667080; /* Refined dark gray for testimonial text */
+  color: var(--vanilla-foundation) !important; /* Design system architectural base */
 }
 
 .testimonial-attribution {
@@ -12891,12 +12894,12 @@ h4, .text-h4 {
 
 .testimonial-author {
   font-weight: 600;
-  color: #4A5568; /* Warm charcoal for author names */
+  color: var(--vanilla-whisper) !important; /* Design system breathing elegance for emphasis */
   margin-bottom: 0.25rem;
 }
 
 .testimonial-role {
-  color: #718096; /* Sophisticated medium gray for roles */
+  color: var(--vanilla-foundation) !important; /* Design system architectural base */
   opacity: 0.8;
 }
 
@@ -13632,7 +13635,7 @@ h4, .text-h4 {
 }
 
 .metadata-value {
-  color: #4A5568; /* Warm charcoal for metadata */
+  color: var(--vanilla-breath) !important; /* Design system subtle breathing */
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.4;
@@ -16949,8 +16952,8 @@ img[class*="project-"] {
 
 /* PROJECT DETAILS SOPHISTICATED BACKGROUNDS */
 .project-details-overlay {
-  background: var(--charcoal-deep);
-  color: var(--cream-primary);
+  background: #374151; /* Medium sophisticated charcoal */
+  color: var(--vanilla-whisper); /* Design system breathing elegance */
   transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: fixed;
   inset: 0;
@@ -16982,15 +16985,15 @@ img[class*="project-"] {
 .project-coral-dominant .project-details-overlay,
 .project-charcoal-dominant .project-details-overlay,
 .project-cream-dominant .project-details-overlay {
-  background: linear-gradient(135deg, var(--vanilla-pure) 0%, var(--vanilla-warm) 100%);
-  color: var(--grapefruit-rich);
+  background: #374151; /* Consistent sophisticated charcoal */
+  color: var(--vanilla-whisper); /* Design system breathing elegance */
 }
 
 .project-coral-dominant .project-details-content-sections,
 .project-charcoal-dominant .project-details-content-sections,
 .project-cream-dominant .project-details-content-sections {
-  background: var(--vanilla-pure);
-  color: var(--grapefruit-rich);
+  background: #374151; /* Consistent sophisticated charcoal */
+  color: var(--vanilla-whisper); /* Design system breathing elegance */
 }
 
 .project-coral-dominant .project-details-hero-section,
