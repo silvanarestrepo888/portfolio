@@ -2981,22 +2981,182 @@ body {
   font-weight: 500;
 }
 
-/* RESPONSIVE PROJECT SYSTEM */
+/* =================================================================
+   PREMIUM LIGHTBOX MODAL - FULL IMAGE VIEW
+   ================================================================= */
+
+.image-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100001;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  color: #2D3748;
+}
+
+.lightbox-close-btn:hover {
+  background: var(--grapefruit-intelligence);
+  color: white;
+}
+
+.lightbox-image-container {
+  position: relative;
+  width: 90vw;
+  height: 80vh;
+  max-width: 1400px;
+  max-height: 900px;
+}
+
+.lightbox-info {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.lightbox-info h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: white;
+}
+
+.lightbox-info p {
+  font-size: 0.875rem;
+  margin: 0;
+  opacity: 0.9;
+  color: white;
+}
+
+/* Mobile Lightbox Adjustments */
 @media (max-width: 768px) {
+  .lightbox-image-container {
+    width: 95vw;
+    height: 70vh;
+  }
+  
+  .lightbox-close-btn {
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .lightbox-info {
+    bottom: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .lightbox-info h4 {
+    font-size: 1rem;
+  }
+  
+  .lightbox-info p {
+    font-size: 0.75rem;
+  }
+}
+
+/* Mobile Expand Button */
+.image-expand-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  color: #2D3748;
+}
+
+.image-expand-btn:hover {
+  background: var(--grapefruit-intelligence);
+  color: white;
+  transform: scale(1.1);
+}
+
+.image-expand-btn:active {
+  transform: scale(0.95);
+}
+
+/* RESPONSIVE PROJECT SYSTEM - ENHANCED MOBILE */
+@media (max-width: 768px) {
+  /* Show expand button on mobile */
+  .image-expand-btn {
+    display: flex;
+  }
+  
   .project-card-enhanced {
     grid-template-columns: 1fr !important;
     min-width: 90vw !important;
     height: auto !important;
   }
   
-  .project-image-section {
-    aspect-ratio: 16/10;
+  /* Auto-height for mobile - shows full image */
+  .project-image-section,
+  .balanced-image-section {
+    aspect-ratio: auto !important;
+    height: auto !important;
+    max-height: 50vh;
+    min-height: 280px;
     border-radius: 1.5rem 1.5rem 0 0;
+    order: 1;
   }
   
-  .project-content-section {
+  .balanced-image-perfect {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 50vh;
+    object-fit: contain !important;
+  }
+  
+  .balanced-layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  
+  .project-content-section,
+  .balanced-content-section {
     border-radius: 0 0 1.5rem 1.5rem;
     padding: var(--space-lg) !important;
+    order: 2;
   }
   
   .carousel-controls-luxury {
@@ -3008,6 +3168,158 @@ body {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
     padding: var(--space-md);
+  }
+  
+  /* ====================================================
+     PROJECT DETAILS PAGE - MOBILE RESPONSIVE FIXES
+     ==================================================== */
+  
+  .project-details-overlay {
+    padding: 0 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  
+  .project-details-content {
+    padding: 1rem !important;
+    min-height: auto !important;
+  }
+  
+  /* Hero Section - Mobile */
+  .enhanced-hero-section {
+    height: auto !important;
+    min-height: 50vh !important;
+    margin-top: 60px !important;
+    padding: 2rem 1rem !important;
+  }
+  
+  .project-title {
+    font-size: clamp(2rem, 8vw, 2.5rem) !important;
+    line-height: 1.2 !important;
+  }
+  
+  .project-subtitle {
+    font-size: clamp(1rem, 4vw, 1.25rem) !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* Content Sections - Mobile */
+  .asymmetric-content-sections {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding: 2rem 1rem !important;
+  }
+  
+  .content-section-large,
+  .content-section-medium,
+  .content-section-small {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    padding: 1.5rem !important;
+  }
+  
+  .content-section h3 {
+    font-size: 1.25rem !important;
+  }
+  
+  .content-section p,
+  .content-section li {
+    font-size: 0.9375rem !important;
+    line-height: 1.6 !important;
+  }
+  
+  /* Navigation Section - Mobile */
+  .sophisticated-navigation-section {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding: 2rem 1rem !important;
+  }
+  
+  .sophisticated-nav-project {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 1rem !important;
+    padding: 1.5rem !important;
+  }
+  
+  .sophisticated-nav-thumbnail {
+    width: 100px !important;
+    height: 100px !important;
+    margin: 0 auto !important;
+  }
+  
+  .sophisticated-nav-title {
+    font-size: 1.125rem !important;
+  }
+  
+  .sophisticated-nav-subtitle {
+    font-size: 0.875rem !important;
+  }
+  
+  /* Gallery Section - Mobile */
+  .project-gallery-section,
+  .testimonial-gallery-section {
+    padding: 2rem 1rem !important;
+  }
+  
+  .gallery-grid,
+  .testimonial-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  .gallery-item {
+    max-height: 400px !important;
+  }
+  
+  .gallery-title {
+    font-size: 1.75rem !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  /* Project Navigation - Mobile */
+  .project-navigation-clean {
+    padding: 1rem !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  /* Back Button - Mobile */
+  .back-to-projects-btn {
+    font-size: 0.875rem !important;
+    padding: 0.75rem 1.5rem !important;
+  }
+  
+  /* Testimonial Cards - Mobile */
+  .testimonial-card {
+    padding: 1.5rem !important;
+  }
+  
+  .testimonial-text {
+    font-size: 0.9375rem !important;
+  }
+  
+  /* Project Meta - Mobile */
+  .project-meta {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    align-items: flex-start !important;
+  }
+  
+  /* Ensure touch targets are large enough */
+  .project-navigation-clean button,
+  .sophisticated-nav-project {
+    min-height: 44px !important;
+    touch-action: manipulation !important;
+  }
+  
+  /* Fix any overflow issues */
+  .project-details-overlay * {
+    max-width: 100% !important;
+  }
+  
+  .project-details-overlay img {
+    width: 100% !important;
+    height: auto !important;
   }
 }
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 interface Project {
@@ -35,6 +35,7 @@ export function InteractiveProjectCard({
 }: InteractiveProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [isImageExpanded, setIsImageExpanded] = useState(false);
 
   const handleMouseLeave = useCallback(() => {
     setIsHovered(false);
@@ -99,6 +100,29 @@ export function InteractiveProjectCard({
                 priority={index < 2}
                 loading="eager"
               />
+              
+              {/* Mobile: Expand Image Button */}
+              <button
+                className="image-expand-btn"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsImageExpanded(true);
+                }}
+                aria-label="View full image"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                </svg>
+              </button>
               
               {/* Enhanced Tags */}
               <div className="balanced-overlay-tags">
@@ -260,6 +284,78 @@ export function InteractiveProjectCard({
           </div>
         </div>
       </div>
+      
+      {/* Premium Lightbox Modal for Full Image View */}
+      <AnimatePresence>
+        {isImageExpanded && (
+          <motion.div
+            className="image-lightbox-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => setIsImageExpanded(false)}
+          >
+            <motion.button
+              className="lightbox-close-btn"
+              onClick={() => setIsImageExpanded(false)}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ delay: 0.1 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label="Close full image view"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </motion.button>
+            
+            <motion.div
+              className="lightbox-image-container"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={project.image}
+                alt={`${project.title} - Full view`}
+                fill
+                style={{
+                  objectFit: 'contain',
+                  objectPosition: 'center'
+                }}
+                quality={100}
+                priority
+              />
+            </motion.div>
+            
+            <motion.div
+              className="lightbox-info"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ delay: 0.2 }}
+            >
+              <h4>{project.title}</h4>
+              <p>{project.client} • {project.year}</p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
