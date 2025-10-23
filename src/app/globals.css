@@ -17979,71 +17979,30 @@ img[class*="project-"] {
 }
 
 /* ========================================== */
-/* SERVICES SECTION - VISUAL ACCESSIBILITY OVERRIDE */
+/* SERVICES SECTION - GRAPEFRUIT BUSINESS CONFIDENCE */
+/* Strategic narrative: Vanilla-on-grapefruit sophistication */
 /* ========================================== */
 
-/* Override inline styles with accessible design - High Specificity */
-section#services {
-  background: var(--vanilla-warm) !important;
-  padding: 80px 0 !important;
-  min-height: auto !important;
+/* Ensure grapefruit background is not overridden */
+section#services.section-services-sophisticated {
+  background: var(--services-gradient) !important;
+  position: relative;
+  padding: 80px 0;
+  min-height: auto;
 }
 
-/* Section Number - Accessible */
-section#services span[class*="text-foundation"] {
-  color: var(--grapefruit-pure) !important;
-  text-shadow: none !important;
-}
-
-/* Section Title - High Contrast */
+/* Vanilla-on-grapefruit typography for strategic narrative */
 section#services h2 {
-  color: var(--grapefruit-intelligence) !important;
-  text-shadow: none !important;
-  font-size: clamp(2.5rem, 5vw, 3rem) !important;
+  color: var(--vanilla-whisper) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* Section Description - Readable Dark Text */
 section#services .typography-body {
-  color: rgba(45, 45, 45, 0.9) !important;
-  text-shadow: none !important;
-  opacity: 1 !important;
+  color: var(--vanilla-whisper) !important;
+  opacity: 0.9;
 }
 
-/* Service Cards - White Background for Contrast */
-section#services [style*="rgba(255, 255, 255, 0.08)"] {
-  background: #FFFFFF !important;
-}
-
-/* Service Titles - Dark Text on White */
+/* Service cards remain vanilla for readability */
 section#services h3 {
   color: var(--grapefruit-intelligence) !important;
-  text-shadow: none !important;
-}
-
-/* All Paragraph Text - Dark Grey */
-section#services p {
-  color: rgba(45, 45, 45, 0.9) !important;
-  text-shadow: none !important;
-}
-
-/* All H4 Headers - Grapefruit */
-section#services h4 {
-  color: var(--grapefruit-intelligence) !important;
-  text-shadow: none !important;
-}
-
-/* Mobile Readability */
-@media (max-width: 768px) {
-  section#services h2 {
-    font-size: 2rem !important;
-  }
-  
-  section#services h3 {
-    font-size: 1.25rem !important;
-  }
-  
-  section#services p {
-    font-size: 1rem !important;
-    line-height: 1.6 !important;
-  }
 }
