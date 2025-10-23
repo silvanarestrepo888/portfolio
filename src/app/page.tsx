@@ -1070,10 +1070,9 @@ export default function Home() {
       {/* EXPERIENCE SECTION - Vertical Timeline - CALM REFLECTION BEFORE FOOTER */}
       <section 
         id="experience"
-        className="experience-timeline-section"
+        className="experience-timeline-section luxury-background-texture section-about-sophisticated"
         style={{ 
           minHeight: '100vh',
-          background: 'var(--vanilla-whisper)', /* Design system sophistication */
           padding: '80px 0'
         }}
       >
@@ -1106,8 +1105,11 @@ export default function Home() {
             </p>
           </motion.div>
           
-          {/* Horizontal Timeline Experience Layout */}
-          <div className="experience-horizontal-timeline">
+          {/* Vertical Alternating Timeline Experience Layout */}
+          <div className="experience-vertical-timeline">
+            {/* Central Timeline Line */}
+            <div className="experience-central-line"></div>
+            
             {[
               {
                 year: "2020—2025",
@@ -1117,7 +1119,7 @@ export default function Home() {
               },
               {
                 year: "2019—2020",
-                role: "Senior Researcher",
+                role: "Ecosystem Engagement Leader",
                 company: "Centre for Fourth Industrial Revolution-WEF",
                 description: "Technology governance frameworks for industry"
               },
@@ -1154,7 +1156,7 @@ export default function Home() {
             ].map((experience, index) => (
               <motion.div 
                 key={index} 
-                className="experience-timeline-row"
+                className={`experience-timeline-item ${index % 2 === 0 ? 'timeline-left' : 'timeline-right'}`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ 
                   opacity: 1, 
@@ -1167,29 +1169,30 @@ export default function Home() {
                 }}
                 viewport={{ once: true }}
               >
-                <div className="experience-year-column">
-                  <span className="experience-year">{experience.year}</span>
-                </div>
-                <div className="experience-connector">
-                  <motion.div 
-                    className="experience-dot"
-                    initial={{ scale: 0 }}
-                    whileInView={{ 
-                      scale: 1,
-                      transition: { 
-                        duration: 0.4,
-                        delay: 0.2 + (index * 0.1),
-                        type: "spring",
-                        bounce: 0.4
-                      }
-                    }}
-                    viewport={{ once: true }}
-                  />
-                </div>
-                <div className="experience-content-column">
-                  <h3 className="experience-role">{experience.role}</h3>
-                  <p className="experience-company">{experience.company}</p>
-                  <p className="experience-description">{experience.description}</p>
+                {/* Timeline Dot */}
+                <motion.div 
+                  className="experience-timeline-dot"
+                  initial={{ scale: 0 }}
+                  whileInView={{ 
+                    scale: 1,
+                    transition: { 
+                      duration: 0.4,
+                      delay: 0.2 + (index * 0.1),
+                      type: "spring",
+                      bounce: 0.4
+                    }
+                  }}
+                  viewport={{ once: true }}
+                />
+                
+                {/* Content Card */}
+                <div className="experience-card">
+                  <div className="experience-card-content">
+                    <span className="experience-year">{experience.year}</span>
+                    <h3 className="experience-role">{experience.role}</h3>
+                    <p className="experience-company">{experience.company}</p>
+                    <p className="experience-description">{experience.description}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}
