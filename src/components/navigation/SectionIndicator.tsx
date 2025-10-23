@@ -14,8 +14,8 @@ export function SectionIndicator({ className = '' }: SectionIndicatorProps) {
     { id: 'hero', label: 'Home', icon: '○' },
     { id: 'about', label: 'About', icon: '◊' },
     { id: 'projects', label: 'Projects', icon: '□' },
-    { id: 'experience', label: 'Experience', icon: '△' },
-    { id: 'services', label: 'Services', icon: '◇' }
+    { id: 'services', label: 'Services', icon: '◇' },
+    { id: 'experience', label: 'Experience', icon: '△' }
   ];
 
   const handleSectionClick = (sectionId: string) => {

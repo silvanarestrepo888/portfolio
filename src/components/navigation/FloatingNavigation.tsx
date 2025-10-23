@@ -12,8 +12,8 @@ interface NavigationItem {
 const navigationItems: NavigationItem[] = [
   { name: 'About', number: '01', href: '#about' },
   { name: 'Projects', number: '02', href: '#projects' },
-  { name: 'Experience', number: '03', href: '#experience' },
-  { name: 'Services', number: '04', href: '#services' },
+  { name: 'Services', number: '03', href: '#services' },
+  { name: 'Experience', number: '04', href: '#experience' },
   { name: 'Contact Me', number: '05', href: '#footer' }
 ];
 

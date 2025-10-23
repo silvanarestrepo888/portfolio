@@ -872,152 +872,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* EXPERIENCE SECTION - Vertical Timeline */}
-      <section 
-        id="experience"
-        className="experience-timeline-section"
-        style={{ 
-          minHeight: '100vh',
-          background: '#FDFCF8', /* Direct vanilla hex - FORCED ACCESSIBILITY */
-          padding: '80px 0'
-        }}
-      >
-        <div className="experience-timeline-container">
-          {/* Section Header */}
-          <motion.div 
-            className="experience-timeline-header text-center mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-              <span 
-              className="section-number text-sm font-semibold tracking-wider uppercase block mb-4"
-              style={{ color: 'var(--grapefruit-intelligence)' }} /* System color */
-              >
-                03
-              </span>
-            <h2 className="typography-h2" style={{ color: 'var(--grapefruit-intelligence)', fontSize: '68px' }}> {/* Mathematical sizing: 42px x 1.618 */}
-                Experience
-              </h2>
-            <p className="typography-body text-center max-w-3xl mx-auto" style={{ 
-              color: 'var(--grapefruit-intelligence)', /* System color */
-              opacity: 0.8,
-              lineHeight: '1.4',
-              fontSize: '20px', /* Mathematical: var(--type-lg) */
-              margin: '0 auto'
-            }}>
-              Some of the <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>upscaling, reinventing, evolving,</span> and <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>reimagining</span> business, brands, and teams.
-            </p>
-          </motion.div>
-          
-          {/* Vertical Timeline */}
-          <div className="experience-timeline-wrapper">
-            {/* Timeline Line */}
-            <div className="experience-timeline-line">
-              <div 
-                className="experience-timeline-progress"
-                style={{ height: `${timelineProgress}%` }}
-              ></div>
-            </div>
-
-            {/* Timeline Content */}
-            <div className="experience-timeline-content">
-              {[
-                {
-                  year: "2020—2025",
-                  role: "Business Partner & Experience Architect", 
-                  company: "Globant",
-                  description: "I orchestrate enterprise-scale digital initiatives for global brands, translating their vision into practical roadmaps that support business goals. Contributed to architect physical-digital systems for healthcare, entertainment, hospitality, retail, Finance, and wellness teams, supporting faster value delivery."
-                },
-                {
-                  year: "2019—2020",
-                  role: "Senior Researcher",
-                  company: "Centre for Fourth Industrial Revolution-WEF",
-                  description: "I helped develop frameworks connecting technologies with governance approaches, supporting sustainable bridges between public policy and industry innovation."
-                },
-                {
-                  year: "2018—2019", 
-                  role: "Strategic Design Director",
-                  company: "Designit a WIPRO Company",
-                  description: "I led regional operations to scale market presence and transform business complexity into actionable design solutions."
-                },
-                {
-                  year: "2016—2018",
-                  role: "Marketing Director",
-                  company: "Grupo Éxito",
-                  description: "I transformed retail destinations into experiential ecosystems, orchestrating over 1,000 brand partnerships while driving entertainment-centric commerce innovation."
-                },
-                {
-                  year: "2013—2016",
-                  role: "Business Intelligence Manager",
-                  company: "Industrias HACEB", 
-                  description: "I reengineered market segmentation frameworks from production-centric to consumer-centric models, driving sales growth and operational efficiencies."
-                },
-                {
-                  year: "2012—2016",
-                  role: "Independent Advisor",
-                  company: "Independent",
-                  description: "I decoded emerging consumer behaviours for global enterprises, transforming abstract trend signals into implementable product innovation roadmaps."
-                },
-                {
-                  year: "2002—2011",
-                  role: "Senior Marketing Analyst",
-                  company: "TIGO-Millicom",
-                  description: "I supported corporate expansion through mergers and acquisitions, enhancing national competitive positioning while integrating diverse teams into the main brand."
-                }
-              ].map((experience, index) => (
-                <div key={index} className={`experience-timeline-item ${index % 2 === 0 ? 'timeline-left' : 'timeline-right'}`}>
-                  {/* Timeline Node */}
-                <motion.div 
-                    className="experience-timeline-node"
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileInView={{ 
-                      scale: 1, 
-                      opacity: 1,
-                      transition: { 
-                        duration: 0.6,
-                        delay: 0.2 + (index * 0.2),
-                        type: "spring",
-                        bounce: 0.6
-                      }
-                  }}
-                  viewport={{ once: true }}
-                  />
-
-                  {/* Text Container */}
-                <motion.div 
-                    className="experience-text-container"
-                  initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ 
-                      opacity: 1, 
-                      y: 0,
-                      transition: { 
-                        duration: 0.8,
-                        delay: 0.4 + (index * 0.2),
-                        ease: [0.25, 0.46, 0.45, 0.94]
-                      }
-                    }}
-                  viewport={{ once: true }}
-                    whileHover={{
-                      scale: 1.02,
-                      transition: { duration: 0.3 }
-                    }}
-                  >
-                    <div className="experience-text-content">
-                      <span className="experience-year">{experience.year}</span>
-                      <h3 className="experience-role">{experience.role}</h3>
-                      <p className="experience-company">{experience.company}</p>
-                      <p className="experience-description">{experience.description}</p>
-                  </div>
-                </motion.div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* SERVICES SECTION - GRAPEFRUIT BUSINESS CONFIDENCE */}
       <section 
         id="services"
@@ -1039,7 +893,7 @@ export default function Home() {
                   color: 'var(--vanilla-whisper)' // Cream on grapefruit
                 }}
               >
-                04
+                03
               </span>
               <h2 className="typography-h2" style={{ 
                 color: 'var(--vanilla-whisper)', // Cream on grapefruit
@@ -1203,6 +1057,152 @@ export default function Home() {
                 )}
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* EXPERIENCE SECTION - Vertical Timeline - CALM REFLECTION BEFORE FOOTER */}
+      <section 
+        id="experience"
+        className="experience-timeline-section"
+        style={{ 
+          minHeight: '100vh',
+          background: '#FDFCF8', /* Direct vanilla hex - FORCED ACCESSIBILITY */
+          padding: '80px 0'
+        }}
+      >
+        <div className="experience-timeline-container">
+          {/* Section Header */}
+          <motion.div 
+            className="experience-timeline-header text-center mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+              <span 
+              className="section-number text-sm font-semibold tracking-wider uppercase block mb-4"
+              style={{ color: 'var(--grapefruit-intelligence)' }} /* System color */
+              >
+                04
+              </span>
+            <h2 className="typography-h2" style={{ color: 'var(--grapefruit-intelligence)', fontSize: '68px' }}> {/* Mathematical sizing: 42px x 1.618 */}
+                Experience
+              </h2>
+            <p className="typography-body text-center max-w-3xl mx-auto" style={{ 
+              color: 'var(--grapefruit-intelligence)', /* System color */
+              opacity: 0.8,
+              lineHeight: '1.4',
+              fontSize: '20px', /* Mathematical: var(--type-lg) */
+              margin: '0 auto'
+            }}>
+              Some of the <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>upscaling, reinventing, evolving,</span> and <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>reimagining</span> business, brands, and teams.
+            </p>
+          </motion.div>
+          
+          {/* Vertical Timeline */}
+          <div className="experience-timeline-wrapper">
+            {/* Timeline Line */}
+            <div className="experience-timeline-line">
+              <div 
+                className="experience-timeline-progress"
+                style={{ height: `${timelineProgress}%` }}
+              ></div>
+            </div>
+
+            {/* Timeline Content */}
+            <div className="experience-timeline-content">
+              {[
+                {
+                  year: "2020—2025",
+                  role: "Business Partner & Experience Architect", 
+                  company: "Globant",
+                  description: "I orchestrate enterprise-scale digital initiatives for global brands, translating their vision into practical roadmaps that support business goals. Contributed to architect physical-digital systems for healthcare, entertainment, hospitality, retail, Finance, and wellness teams, supporting faster value delivery."
+                },
+                {
+                  year: "2019—2020",
+                  role: "Senior Researcher",
+                  company: "Centre for Fourth Industrial Revolution-WEF",
+                  description: "I helped develop frameworks connecting technologies with governance approaches, supporting sustainable bridges between public policy and industry innovation."
+                },
+                {
+                  year: "2018—2019", 
+                  role: "Strategic Design Director",
+                  company: "Designit a WIPRO Company",
+                  description: "I led regional operations to scale market presence and transform business complexity into actionable design solutions."
+                },
+                {
+                  year: "2016—2018",
+                  role: "Marketing Director",
+                  company: "Grupo Éxito",
+                  description: "I transformed retail destinations into experiential ecosystems, orchestrating over 1,000 brand partnerships while driving entertainment-centric commerce innovation."
+                },
+                {
+                  year: "2013—2016",
+                  role: "Business Intelligence Manager",
+                  company: "Industrias HACEB", 
+                  description: "I reengineered market segmentation frameworks from production-centric to consumer-centric models, driving sales growth and operational efficiencies."
+                },
+                {
+                  year: "2012—2016",
+                  role: "Independent Advisor",
+                  company: "Independent",
+                  description: "I decoded emerging consumer behaviours for global enterprises, transforming abstract trend signals into implementable product innovation roadmaps."
+                },
+                {
+                  year: "2002—2011",
+                  role: "Senior Marketing Analyst",
+                  company: "TIGO-Millicom",
+                  description: "I supported corporate expansion through mergers and acquisitions, enhancing national competitive positioning while integrating diverse teams into the main brand."
+                }
+              ].map((experience, index) => (
+                <div key={index} className={`experience-timeline-item ${index % 2 === 0 ? 'timeline-left' : 'timeline-right'}`}>
+                  {/* Timeline Node */}
+                <motion.div 
+                    className="experience-timeline-node"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{ 
+                      scale: 1, 
+                      opacity: 1,
+                      transition: { 
+                        duration: 0.6,
+                        delay: 0.2 + (index * 0.2),
+                        type: "spring",
+                        bounce: 0.6
+                      }
+                  }}
+                  viewport={{ once: true }}
+                  />
+
+                  {/* Text Container */}
+                <motion.div 
+                    className="experience-text-container"
+                  initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ 
+                      opacity: 1, 
+                      y: 0,
+                      transition: { 
+                        duration: 0.8,
+                        delay: 0.4 + (index * 0.2),
+                        ease: [0.25, 0.46, 0.45, 0.94]
+                      }
+                    }}
+                  viewport={{ once: true }}
+                    whileHover={{
+                      scale: 1.02,
+                      transition: { duration: 0.3 }
+                    }}
+                  >
+                    <div className="experience-text-content">
+                      <span className="experience-year">{experience.year}</span>
+                      <h3 className="experience-role">{experience.role}</h3>
+                      <p className="experience-company">{experience.company}</p>
+                      <p className="experience-description">{experience.description}</p>
+                  </div>
+                </motion.div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
