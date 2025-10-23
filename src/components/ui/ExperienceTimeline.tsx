@@ -77,14 +77,14 @@ export function ExperienceTimeline() {
       <div className="experience-infinite-container">
         
         {/* Top Row - Companies (Right to Left) */}
-        <div className="experience-loop-track" style={{ marginBottom: '3rem' }}>
+        <div className="experience-loop-track" style={{ marginBottom: '1.5rem' }}>
           <motion.div
             className="experience-loop-content"
             animate={{
               x: ["0%", "-100%"]
             }}
             transition={{
-              duration: 45, /* Slower, more luxurious */
+              duration: 70, /* Medium-fast tempo - Danish sophistication */
               repeat: Infinity,
               ease: "linear"
             }}
@@ -92,7 +92,7 @@ export function ExperienceTimeline() {
               display: 'flex',
               alignItems: 'center',
               whiteSpace: 'nowrap',
-              fontSize: 'clamp(2.5rem, 4vw, 4rem)',
+              fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', /* More elegant, Danish sizing */
               fontFamily: 'var(--font-architectural-display)',
               fontWeight: '300',
               color: 'var(--grapefruit-intelligence)',
@@ -104,9 +104,9 @@ export function ExperienceTimeline() {
                 {company}
                 <span 
                   style={{ 
-                    margin: '0 2rem',
+                    margin: '0 1rem', /* Closer spacing like Stella */
                     color: 'var(--grapefruit-intelligence)',
-                    fontSize: '0.6em'
+                    fontSize: '0.3em' /* Subtle elegance */
                   }}
                 >
                   ◆
@@ -124,7 +124,7 @@ export function ExperienceTimeline() {
               x: ["-100%", "0%"]
             }}
             transition={{
-              duration: 50, /* Slightly different speed for visual interest */
+              duration: 75, /* Slightly different speed for visual interest */
               repeat: Infinity,
               ease: "linear"
             }}
@@ -132,7 +132,7 @@ export function ExperienceTimeline() {
               display: 'flex',
               alignItems: 'center',
               whiteSpace: 'nowrap',
-              fontSize: 'clamp(2.5rem, 4vw, 4rem)',
+              fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', /* More elegant, Danish sizing */
               fontFamily: 'var(--font-architectural-display)',
               fontWeight: '300',
               color: 'var(--grapefruit-intelligence)',
@@ -144,9 +144,9 @@ export function ExperienceTimeline() {
                 {role}
                 <span 
                   style={{ 
-                    margin: '0 2rem',
+                    margin: '0 1rem', /* Closer spacing like Stella */
                     color: 'var(--grapefruit-intelligence)',
-                    fontSize: '0.6em'
+                    fontSize: '0.3em' /* Subtle elegance */
                   }}
                 >
                   ◇
