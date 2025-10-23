@@ -911,21 +911,34 @@ export default function Home() {
       >
         <div className="container-foundation">
           <motion.div 
-            className="section-header-foundation text-center"
+            className="projects-header-award-winning"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.618, ease: [0.236, 0.618, 0.382, 1.0] }}
             viewport={{ once: true }}
           >
-            <span className="section-number-foundation text-foundation">
-              03
-            </span>
-            <h2 className="section-title-foundation typography-h2">
-              services
-            </h2>
-            <p className="section-description-foundation typography-body">
+            <div className="projects-header-content-award">
+              <span className="projects-section-number-award">03</span>
+              <motion.h2 
+                className="projects-title-award-winning typography-h2"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.618, delay: 0.236 }}
+                viewport={{ once: true }}
+              >
+                services
+              </motion.h2>
+            </div>
+            
+            <motion.p 
+              className="projects-description-award-winning typography-body text-center max-w-4xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.618, delay: 0.382 }}
+              viewport={{ once: true }}
+            >
               Meticulously architected solutions addressing demanding market realities and evolving client needs.
-            </p>
+            </motion.p>
           </motion.div>
           
           {/* SINGLE-SCREEN SERVICES OVERVIEW - SCROLLABLE */}

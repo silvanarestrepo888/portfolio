@@ -9611,26 +9611,28 @@ h4, .text-h4 {
   pointer-events: auto; /* Re-enable clicks on actual buttons */
 }
 
-/* ULTRA BACK BUTTON - 50TH TIME FIX - IMPOSSIBLE TO MISS! */
+/* ULTRA BACK BUTTON - MAXIMUM VISIBILITY - 51ST FIX! */
 .project-back-button-ultra {
   display: flex !important;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.5rem 3rem !important; /* LARGER! */
-  /* CRITICAL FIX: BRIGHT RED GRAPEFRUIT with WHITE TEXT */
-  background: #FF6663 !important; /* Solid bright grapefruit */
-  color: #FFFFFF !important;
-  border: 5px solid #E63946 !important; /* THICKER darker border */
-  border-radius: 5rem;
-  font-family: 'Inter', sans-serif;
-  font-size: 1.25rem !important; /* LARGER text */
-  font-weight: 900 !important;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  text-transform: none !important;
-  letter-spacing: 0.02em !important;
-  position: relative !important;
-  z-index: 1000000 !important; /* MAXIMUM Z-INDEX */
+  align-items: center !important;
+  gap: 1.5rem !important;
+  padding: 1.75rem 3.5rem !important; /* EVEN LARGER! */
+  /* MAXIMUM CONTRAST: PURE BLACK TEXT ON BRIGHT RED */
+  background: #FF3333 !important; /* BRIGHTEST RED POSSIBLE */
+  color: #000000 !important; /* BLACK TEXT for maximum contrast */
+  border: 6px solid #000000 !important; /* BLACK border */
+  border-radius: 100px;
+  font-family: 'Inter', -apple-system, sans-serif !important;
+  font-size: 1.5rem !important; /* EVEN LARGER */
+  font-weight: 900 !important; /* BLACK WEIGHT */
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  text-transform: lowercase !important;
+  letter-spacing: 0.05em !important;
+  position: fixed !important; /* FIXED POSITION */
+  top: 2rem !important;
+  left: 2rem !important;
+  z-index: 9999999 !important; /* ABSOLUTE MAXIMUM Z-INDEX */
   box-shadow: 
     0 16px 48px rgba(255, 102, 99, 0.8) !important, /* Even stronger shadow */
     0 0 0 2px rgba(255, 255, 255, 1),
@@ -9663,10 +9665,11 @@ h4, .text-h4 {
 .back-icon {
   transition: transform 0.3s ease;
   flex-shrink: 0;
-  /* Ensure icon is white */
-  color: #FFFFFF !important;
-  stroke: #FFFFFF !important;
-  fill: #FFFFFF !important;
+  font-size: 2rem !important; /* LARGER ICON */
+  /* BLACK icon for maximum contrast on red */
+  color: #000000 !important;
+  stroke: #000000 !important;
+  fill: #000000 !important;
 }
 
 .project-back-button-ultra:hover .back-icon {
@@ -9678,10 +9681,12 @@ h4, .text-h4 {
 }
 
 .back-text {
-  font-weight: 900 !important; /* Maximum weight */
+  font-weight: 900 !important;
   white-space: nowrap;
-  color: #FFFFFF !important; /* Explicit white */
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+  font-size: 1.5rem !important; /* LARGER */
+  /* BLACK text for maximum contrast on red */
+  color: #000000 !important;
+  text-shadow: none !important;
 }
 
 /* CLOSE BUTTON - TOP RIGHT */
