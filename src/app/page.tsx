@@ -1235,36 +1235,44 @@ export default function Home() {
       <footer id="footer" className="footer-landor-standards">
         <div className="footer-container-landor">
           <div className="footer-content-landor">
-            {/* Brand Section - Enhanced */}
+            {/* Brand Section */}
             <div className="footer-brand-landor">
-              <h3 className="footer-brand-name-landor typography-h3">silvana.</h3>
-              <p className="footer-brand-title-landor typography-body">Principal Experience Architect</p>
+              <a 
+                href="https://silvana.mmm.page/human-perspective"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-brand-name-landor typography-h3"
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                silvana.
+              </a>
+              <p className="footer-brand-title-landor typography-body">Experience Architect</p>
               <p className="footer-brand-description-landor typography-caption">
                 Transforming business challenges into strategic advantages through experience-driven innovation.
               </p>
             </div>
             
-            {/* navigation section */}
+            {/* Navigation section */}
             <div className="footer-navigation-landor">
-              <h4 className="footer-nav-title-landor typography-body">navigation</h4>
+              <h4 className="footer-nav-title-landor typography-body">Navigation</h4>
               <div className="footer-nav-links-landor">
-                <a href="#about" className="footer-nav-link-landor typography-caption">about</a>
-                <a href="#projects" className="footer-nav-link-landor typography-caption">projects</a>
-                <a href="#services" className="footer-nav-link-landor typography-caption">services</a>
-                <a href="#experience" className="footer-nav-link-landor typography-caption">experience</a>
+                <a href="#about" className="footer-nav-link-landor typography-caption">About</a>
+                <a href="#projects" className="footer-nav-link-landor typography-caption">Projects</a>
+                <a href="#services" className="footer-nav-link-landor typography-caption">Services</a>
+                <a href="#experience" className="footer-nav-link-landor typography-caption">Experience</a>
               </div>
             </div>
             
-            {/* contact section */}
+            {/* Contact section */}
             <div className="footer-contact-landor">
-              <h4 className="footer-contact-title-landor typography-body">contact</h4>
+              <h4 className="footer-contact-title-landor typography-body">Contact</h4>
               <div className="footer-contact-links-landor">
               <a 
                 href="mailto:silvanarestrepo888@gmail.com"
                   className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
               >
                   <Mail size={16} />
-                contact
+                Contact
               </a>
               <a 
                 href="https://linkedin.com/in/silvanarestrepo"
@@ -1273,16 +1281,14 @@ export default function Home() {
                   className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
               >
                   <Linkedin size={16} />
-                linkedin
+                Linkedin
               </a>
               <a 
-                href="https://silvana.mmm.page/human-perspective"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#projects"
                   className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
               >
                   <ExternalLink size={16} />
-                portfolio
+                Projects
               </a>
               </div>
             </div>
@@ -1701,8 +1707,16 @@ export default function Home() {
                <div className="footer-content-landor">
                  {/* Brand Section */}
                  <div className="footer-brand-landor">
-                   <h3 className="footer-brand-name-landor typography-h3">silvana.</h3>
-                   <p className="footer-brand-title-landor typography-body">Principal Experience Architect</p>
+                   <a 
+                     href="https://silvana.mmm.page/human-perspective"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="footer-brand-name-landor typography-h3"
+                     style={{ textDecoration: 'none', color: 'inherit' }}
+                   >
+                     silvana.
+                   </a>
+                   <p className="footer-brand-title-landor typography-body">Experience Architect</p>
                    <p className="footer-brand-description-landor typography-caption">
                      Transforming business challenges into strategic advantages through experience-driven innovation.
                    </p>
@@ -1710,25 +1724,25 @@ export default function Home() {
                  
                  {/* Navigation Section */}
                  <div className="footer-navigation-landor">
-                   <h4 className="footer-nav-title-landor typography-body">navigation</h4>
+                   <h4 className="footer-nav-title-landor typography-body">Navigation</h4>
                    <div className="footer-nav-links-landor">
-                     <a href="#about" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">about</a>
-                     <a href="#projects" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">projects</a>
-                     <a href="#services" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">services</a>
-                     <a href="#experience" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">experience</a>
+                     <a href="#about" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">About</a>
+                     <a href="#projects" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">Projects</a>
+                     <a href="#services" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">Services</a>
+                     <a href="#experience" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">Experience</a>
                    </div>
                  </div>
                  
                  {/* Contact Section */}
                  <div className="footer-contact-landor">
-                   <h4 className="footer-contact-title-landor typography-body">contact</h4>
+                   <h4 className="footer-contact-title-landor typography-body">Contact</h4>
                    <div className="footer-contact-links-landor">
                      <a 
                        href="mailto:silvanarestrepo888@gmail.com"
                        className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
                      >
                        <Mail size={16} />
-                       contact
+                       Contact
                      </a>
                      <a 
                        href="https://linkedin.com/in/silvanarestrepo"
@@ -1737,16 +1751,15 @@ export default function Home() {
                        className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
                      >
                        <Linkedin size={16} />
-                       linkedin
+                       Linkedin
                      </a>
                      <a 
-                       href="https://silvana.mmm.page/human-perspective"
-                       target="_blank"
-                       rel="noopener noreferrer"
+                       href="#projects"
+                       onClick={() => setSelectedProject(null)}
                        className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
                      >
                        <ExternalLink size={16} />
-                       portfolio
+                       Projects
                      </a>
                    </div>
                  </div>
