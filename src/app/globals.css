@@ -17083,7 +17083,7 @@ img[class*="project-"] {
 .experience-timeline-header h2 {
   font-size: 68px; /* Mathematical sizing: matches other sections */
   font-family: var(--font-architectural-display);
-  color: var(--grapefruit-intelligence);
+  color: #4A5568; /* Warm charcoal for experience title */
   margin-bottom: var(--space-md); /* 16px */
   font-weight: 300; /* Danish elegance */
   letter-spacing: -0.02em;
@@ -17093,7 +17093,7 @@ img[class*="project-"] {
 .experience-timeline-header p {
   font-size: var(--type-lg); /* 20px */
   font-family: var(--font-architectural-body);
-  color: var(--grapefruit-intelligence);
+  color: #667080; /* Refined dark gray for experience description */
   opacity: 0.8;
   line-height: 1.4;
   max-width: 600px;
@@ -17357,17 +17357,7 @@ img[class*="project-"] {
   z-index: 2;
 }
 
-.experience-year {
-  display: block;
-  font-size: var(--type-sm); /* 14px */
-  font-weight: 600;
-  color: var(--grapefruit-intelligence); /* Design system primary text */
-  margin-bottom: var(--space-xs); /* 4px spacing for visibility */
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-family: var(--font-architectural-body);
-  line-height: 1.4; /* Better readability */
-}
+/* REMOVED: Duplicate experience-year rule - using new implementation above */
 
 /* REMOVED: Duplicate experience rules that override organic color hierarchy */
 
