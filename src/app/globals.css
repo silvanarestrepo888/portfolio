@@ -17248,36 +17248,7 @@ img[class*="project-"] {
   line-height: 1.4; /* Better readability */
 }
 
-.experience-role {
-  font-size: var(--type-base); /* 16px minimum for visibility */
-  font-weight: 600;
-  color: var(--grapefruit-intelligence); /* Design system primary text */
-  margin-bottom: var(--space-xs); /* 4px spacing for visibility */
-  line-height: 1.4; /* Better readability */
-  font-family: var(--font-architectural-display);
-  letter-spacing: -0.01em;
-  /* Remove text truncation for visibility */
-}
-
-.experience-company {
-  font-size: var(--type-base); /* 16px for visibility */
-  font-weight: 500;
-  color: var(--grapefruit-intelligence); /* Design system primary text */
-  margin-bottom: var(--space-xs); /* 4px spacing for visibility */
-  font-style: italic;
-  font-family: var(--font-architectural-body);
-  line-height: 1.4; /* Better readability */
-}
-
-.experience-description {
-  font-size: var(--type-base); /* 16px minimum for visibility */
-  line-height: 1.5; /* Optimal readability */
-  color: var(--grapefruit-intelligence); /* Design system primary text */
-  margin: 0;
-  font-family: var(--font-architectural-body);
-  font-weight: 400;
-  /* Remove text truncation for visibility */
-}
+/* REMOVED: Duplicate experience rules that override organic color hierarchy */
 
 /* DESIGN SYSTEM ANIMATIONS */
 @keyframes timelineDraw {

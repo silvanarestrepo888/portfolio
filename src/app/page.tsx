@@ -1092,17 +1092,17 @@ export default function Home() {
               >
                 04
               </span>
-            <h2 className="typography-h2" style={{ color: 'var(--charcoal-deep)', fontSize: '68px' }}> {/* Mathematical sizing: 42px x 1.618 - Sophisticated charcoal */}
+            <h2 className="typography-h2" style={{ color: '#8B6F47', fontSize: '68px' }}> {/* Mathematical sizing: 42px x 1.618 - Warm cognac */}
                 Experience
               </h2>
             <p className="typography-body text-center max-w-3xl mx-auto" style={{ 
-              color: 'var(--charcoal-primary)', /* Sophisticated charcoal */
-              opacity: 0.8,
+              color: '#9D8B7A', /* Soft mushroom - organic readability */
+              opacity: 0.9,
               lineHeight: '1.4',
               fontSize: '20px', /* Mathematical: var(--type-lg) */
               margin: '0 auto'
             }}>
-              Some of the <span className="highlight-word" style={{ color: 'var(--coral-primary)', fontWeight: '600' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--coral-primary)', fontWeight: '600' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--coral-primary)', fontWeight: '600' }}>upscaling, reinventing, evolving,</span> and <span className="highlight-word" style={{ color: 'var(--coral-primary)', fontWeight: '600' }}>reimagining</span> business, brands, and teams.
+              Some of the <span className="highlight-word" style={{ color: '#8B6F47', fontWeight: '600' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: '#8B6F47', fontWeight: '600' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: '#8B6F47', fontWeight: '600' }}>upscaling, reinventing, evolving,</span> and <span className="highlight-word" style={{ color: '#8B6F47', fontWeight: '600' }}>reimagining</span> business, brands, and teams.
             </p>
           </motion.div>
           
