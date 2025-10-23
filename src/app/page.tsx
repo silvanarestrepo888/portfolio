@@ -1002,7 +1002,7 @@ export default function Home() {
                   flex: 1,
                   fontSize: 'clamp(1.125rem, 2vw, 1.375rem)', // REDUCED: 18px → 22px (was 34px!)
                   fontFamily: 'var(--font-architectural-display)',
-                  color: 'var(--grapefruit-intelligence)',
+                  color: '#4A5568', /* Warm charcoal - sophisticated */
                   margin: 0,
                   fontWeight: '300', // Danish elegance matching your about section
                   letterSpacing: '-0.02em', // Your luxury spacing
@@ -1047,18 +1047,18 @@ export default function Home() {
                       <p style={{
                         fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)', // REDUCED: 14px → 15px (was 16px)
                         fontFamily: 'var(--font-architectural-body)',
-                        color: 'var(--grapefruit-intelligence)',
+                        color: '#667080', /* Refined dark gray for descriptions */
                         lineHeight: '1.5', // REDUCED: More compact
                         margin: 0
                       }}>
                         <em style={{
-                          color: 'var(--grapefruit-intelligence)', 
+                          color: '#718096', /* Sophisticated medium gray for subtitles */
                           fontWeight: '500'
                         }}>
                           {service.subtitle}
                         </em><br/>
-                        <strong style={{color: 'var(--grapefruit-intelligence)'}}>Strategic Capability:</strong> {service.description}<br/>
-                        <strong style={{color: 'var(--grapefruit-intelligence)'}}>For Projects That Demand:</strong> {service.demand}
+                        <strong style={{color: 'var(--coral-primary)'}}>Strategic Capability:</strong> {service.description}<br/>
+                        <strong style={{color: 'var(--coral-primary)'}}>For Projects That Demand:</strong> {service.demand}
                       </p>
                     </div>
                   </motion.div>

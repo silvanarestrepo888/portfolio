@@ -8949,7 +8949,7 @@ h4, .text-h4 {
 .about-main-story {
   font-size: 20px; /* Mathematical: var(--type-lg) */
   line-height: 1.618; /* Golden ratio */
-  color: var(--grapefruit-intelligence); /* System color */
+  color: #4A5568; /* Warm charcoal for main content */
   font-weight: 300;
   margin-bottom: 32px; /* Mathematical: 20px × 1.618 = 32px */
   text-align: left;
@@ -8958,7 +8958,7 @@ h4, .text-h4 {
 .about-welcome {
   font-size: 22px; /* Mathematical: 14px × 1.618 = 22px */
   line-height: 1.618; /* Golden ratio */
-  color: var(--grapefruit-intelligence); /* System color */
+  color: #718096; /* Sophisticated medium gray */
   font-weight: 400;
   font-style: italic;
   margin-top: 52px; /* Mathematical: 32px × 1.618 = 52px */
@@ -9935,7 +9935,7 @@ h4, .text-h4 {
 .projects-description-award-winning {
   font-size: 26px; /* Mathematical: 16px × 1.618 = 26px */
   line-height: 1.618; /* Golden ratio */
-  color: var(--grapefruit-intelligence); /* System color */
+  color: #667080; /* Refined dark gray for descriptions */
   max-width: 800px;
   margin: 0 auto 68px; /* Mathematical: 42px × 1.618 = 68px */
   font-weight: 300;
@@ -10600,7 +10600,7 @@ h4, .text-h4 {
 .section-text {
   font-size: 1.125rem;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.9);
+  color: #4A5568; /* Warm charcoal for project details content */
   margin: 0;
   font-weight: 400;
 }
@@ -12882,7 +12882,7 @@ h4, .text-h4 {
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 1.5rem;
-  color: var(--panna-cotta-vanilla);
+  color: #667080; /* Refined dark gray for testimonial text */
 }
 
 .testimonial-attribution {
@@ -12891,12 +12891,12 @@ h4, .text-h4 {
 
 .testimonial-author {
   font-weight: 600;
-  color: var(--grapefruit);
+  color: #4A5568; /* Warm charcoal for author names */
   margin-bottom: 0.25rem;
 }
 
 .testimonial-role {
-  color: var(--panna-cotta-vanilla);
+  color: #718096; /* Sophisticated medium gray for roles */
   opacity: 0.8;
 }
 
@@ -13448,7 +13448,7 @@ h4, .text-h4 {
 }
 
 .footer-brand-description-landor {
-  color: var(--panna-cotta-vanilla);
+  color: #718096; /* Sophisticated medium gray for footer description */
   opacity: 0.8;
   line-height: 1.5; /* Reduced from 1.6 */
   font-size: 0.8125rem; /* Reduced from 0.875rem */
@@ -13632,7 +13632,7 @@ h4, .text-h4 {
 }
 
 .metadata-value {
-  color: var(--text-primary);
+  color: #4A5568; /* Warm charcoal for metadata */
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.4;
