@@ -18085,7 +18085,44 @@ section#services.section-services-sophisticated {
   overflow-y: auto; /* Allow scroll if needed, but aim for single screen */
 }
 
-/* Vanilla-on-grapefruit typography for strategic narrative */
+/* Vanilla-on-grapefruit typography for strategic narrative - COMPLETE SYSTEM */
+section#services .section-header-foundation {
+  max-width: 1000px;
+  margin: 0 auto 3rem;
+  padding: 0 2rem;
+}
+
+section#services .section-number-foundation {
+  display: block;
+  font-size: var(--type-sm);
+  font-weight: 700;
+  color: var(--vanilla-whisper) !important;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--font-architectural-body);
+}
+
+section#services .section-title-foundation {
+  font-size: clamp(1.75rem, 3vw, 2rem) !important;
+  color: var(--vanilla-whisper) !important;
+  margin-bottom: 1rem !important;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+  font-family: var(--font-architectural-display);
+}
+
+section#services .section-description-foundation {
+  font-size: clamp(0.875rem, 1.5vw, 1rem) !important;
+  color: var(--vanilla-whisper) !important;
+  opacity: 0.9;
+  line-height: 1.5;
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: var(--font-architectural-body);
+}
+
 section#services h2 {
   color: var(--vanilla-whisper) !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
