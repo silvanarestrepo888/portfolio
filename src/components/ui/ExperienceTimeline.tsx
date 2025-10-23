@@ -77,7 +77,7 @@ export function ExperienceTimeline() {
       <div className="experience-infinite-container">
         
         {/* Top Row - Companies (Right to Left) */}
-        <div className="experience-loop-track" style={{ marginBottom: '1.5rem' }}>
+        <div className="experience-loop-track" style={{ marginBottom: '0.75rem' }}>
           <motion.div
             className="experience-loop-content"
             animate={{
@@ -94,9 +94,9 @@ export function ExperienceTimeline() {
               whiteSpace: 'nowrap',
               fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', /* More elegant, Danish sizing */
               fontFamily: 'var(--font-architectural-display)',
-              fontWeight: '300',
+              fontWeight: '400', /* More substantial, Danish sophistication */
               color: 'var(--grapefruit-intelligence)',
-              letterSpacing: '0.05em'
+              letterSpacing: '0.02em' /* Less edgy, more refined */
             }}
           >
             {infiniteCompanies.map((company, index) => (
@@ -134,9 +134,9 @@ export function ExperienceTimeline() {
               whiteSpace: 'nowrap',
               fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', /* More elegant, Danish sizing */
               fontFamily: 'var(--font-architectural-display)',
-              fontWeight: '300',
+              fontWeight: '400', /* More substantial, Danish sophistication */
               color: 'var(--grapefruit-intelligence)',
-              letterSpacing: '0.05em'
+              letterSpacing: '0.02em' /* Less edgy, more refined */
             }}
           >
             {infiniteRoles.map((role, index) => (
