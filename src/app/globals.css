@@ -18041,7 +18041,80 @@ img[class*="project-"] {
 }
 
 /* ========================================== */
-/* END VERTICAL TIMELINE EXPERIENCE SECTION */
+/* INFINITE LOOP EXPERIENCE SECTION - STELLA'S INSPIRATION */
+/* Ultra-Sophisticated Typography Animation */
+/* ========================================== */
+
+.experience-infinite-section {
+  position: relative;
+  background: var(--vanilla-foundation); /* Vanilla Panna Cotta */
+  overflow: hidden;
+  padding: 6rem 0;
+}
+
+.experience-infinite-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.experience-loop-track {
+  width: 200%; /* Extra width for seamless loop */
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.experience-loop-content {
+  /* GPU acceleration for smooth animation */
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  /* Ultra-sophisticated typography */
+  font-family: var(--font-architectural-display);
+  font-weight: 300; /* Danish elegance */
+  color: var(--grapefruit-intelligence);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Responsive Typography Scaling */
+@media (max-width: 768px) {
+  .experience-loop-content {
+    font-size: clamp(1.5rem, 6vw, 2.5rem) !important;
+  }
+  
+  .experience-infinite-container {
+    gap: 2rem;
+  }
+  
+  .experience-loop-track {
+    margin-bottom: 2rem !important;
+  }
+}
+
+/* Organic Accent Styling */
+.experience-organic-accent {
+  font-family: var(--font-architectural-body);
+  color: var(--grapefruit-intelligence);
+  opacity: 0.7;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Performance Optimization */
+.experience-infinite-section * {
+  contain: layout style paint;
+  transform: translateZ(0);
+}
+
+/* ========================================== */
+/* END INFINITE LOOP EXPERIENCE SECTION */
 /* ========================================== */
 
 /* ========================================== */
