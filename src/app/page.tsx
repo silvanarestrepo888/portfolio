@@ -1024,107 +1024,104 @@ export default function Home() {
         className="section-luxury section-services-sophisticated section-transition-sophisticated"
         aria-labelledby="services-heading"
       >
-        <div style={{
-          maxWidth: '900px', 
-          margin: '0 auto', 
-          padding: '0 2rem'
-        }}>
-          {/* Section Header */}
-          <motion.div
+        <div className="container-foundation">
+          <motion.div 
+            className="heading-desktop"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1.618, ease: [0.236, 0.618, 0.382, 1.0] }} // Your mathematical timing
             viewport={{ once: true }}
-            style={{ 
-              textAlign: 'center', 
-              marginBottom: '4rem' 
-            }}
           >
-            <span style={{
-              fontSize: 'var(--type-sm)', // Your system: 14px
-              fontWeight: '600',
-              color: 'var(--vanilla-whisper)', // Cream on grapefruit
-              textTransform: 'uppercase',
-              letterSpacing: '0.1em',
-              marginBottom: 'var(--space-md)', // Your system: 16px
-              display: 'block'
-            }}>
-              04
-            </span>
-            <h2 
-              id="services-heading"
-              style={{
-                fontSize: 'var(--type-3xl)', // Your system: 44px
-                fontFamily: 'var(--font-architectural-display)',
+            <div className="mb-phi-xl">
+              <span 
+                className="text-foundation-sm font-foundation-accent block mb-phi-sm"
+                style={{
+                  color: 'var(--vanilla-whisper)' // Cream on grapefruit
+                }}
+              >
+                04
+              </span>
+              <h2 className="typography-h2" style={{ 
                 color: 'var(--vanilla-whisper)', // Cream on grapefruit
-                marginBottom: 'var(--space-lg)', // Your system: 24px
-                fontWeight: '300' // Danish elegance
-              }}
-            >
-              Services
-            </h2>
-            <p style={{
-              fontSize: 'var(--type-lg)', // Your system: 20px
-              fontFamily: 'var(--font-architectural-body)',
-              color: 'var(--vanilla-whisper)', // Cream on grapefruit
-              opacity: 0.9,
-              maxWidth: '600px',
-              margin: '0 auto',
-              lineHeight: '1.618' // Golden ratio
-            }}>
-              Meticulously architected solutions addressing demanding market realities and evolving client needs.
-            </p>
-          </motion.div>
-          
-          {/* Services Accordion */}
-          {referenceServices.map((service, index) => (
-            <motion.div
-              key={service.number}
+                textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' // Essential definition
+              }}>
+                Services
+              </h2>
+            </div>
+            <motion.p 
+              className="typography-body text-center max-w-4xl mx-auto mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 1.618, delay: 0.382 }} // Mathematical progression
               viewport={{ once: true }}
               style={{
-                // Cream cards on grapefruit background
-                background: 'var(--vanilla-whisper)', // Your cream system #FDFCF8
-                border: '1px solid var(--vanilla-foundation)', // Subtle vanilla border
-                borderLeft: '4px solid var(--vanilla-breath)', // Cream accent
-                borderRadius: 'var(--space-lg)', // Your system: 24px organic corners
-                marginBottom: 'var(--space-lg)', // Your system: 24px
-                padding: 'var(--space-xl) var(--space-2xl)', // Your system: 40px 64px
-                cursor: 'pointer',
-                overflow: 'hidden',
-                // Vanilla card depth on grapefruit (NO PINK):
-                boxShadow: '0 4px 12px var(--vanilla-depth), inset 0 1px 0 var(--vanilla-breath)',
-                transition: 'all 0.618s cubic-bezier(0.236, 0.618, 0.382, 1.0)' // Your mathematical timing
-              }}
-              whileHover={{
-                // Elegant cream card enhancement (NO PINK):
-                background: 'var(--vanilla-breath)', // Lighter cream on hover
-                borderColor: 'var(--vanilla-whisper)', // Subtle border shift
-                transform: 'translateY(-3px) scale(1.01)', // Your established interaction
-                boxShadow: '0 8px 20px var(--vanilla-depth), inset 0 1px 0 var(--vanilla-breath)'
-              }}
-              onClick={() => setExpandedService(expandedService === service.number ? null : service.number)}
-              role="button"
-              aria-expanded={expandedService === service.number}
-              aria-controls={`service-content-${service.number}`}
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  setExpandedService(expandedService === service.number ? null : service.number);
-                }
+                color: 'var(--vanilla-whisper)', // Cream on grapefruit
+                opacity: 0.9
               }}
             >
-              {/* Accordion Header */}
-              <div style={{
-                padding: 'var(--space-xl) var(--space-2xl)', // Your system: 40px 64px
-                display: 'flex',
-                alignItems: 'center',
-                gap: 'var(--space-lg)', // Your system: 24px
-                borderBottom: expandedService === service.number ? '1px solid var(--vanilla-depth)' : 'none' // Vanilla border
-              }}>
+              Meticulously architected solutions addressing demanding market realities and evolving client needs.
+            </motion.p>
+          </motion.div>
+          
+          {/* SINGLE-SCREEN SERVICES OVERVIEW */}
+          <div style={{
+            maxWidth: '1000px',
+            margin: '0 auto',
+            padding: '0 var(--space-lg)', // Your system: 24px
+            maxHeight: '70vh', // Single screen constraint
+            overflow: 'visible'
+          }}>
+            {referenceServices.map((service, index) => (
+              <motion.div
+                key={service.number}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 1.618, 
+                  delay: index * 0.1, // Fibonacci stagger
+                  ease: [0.236, 0.618, 0.382, 1.0] // Your mathematical easing
+                }}
+                viewport={{ once: true }}
+                style={{
+                  // Cream cards on grapefruit - your proven accessible combination
+                  background: 'var(--vanilla-whisper)', // Your cream system #FDFCF8
+                  border: '1px solid var(--vanilla-foundation)', // Vanilla border system
+                  borderLeft: '3px solid var(--vanilla-breath)', // Minimal cream accent
+                  borderRadius: 'var(--space-md)', // Your system: 16px
+                  marginBottom: 'var(--space-sm)', // Compact: 8px
+                  padding: 'var(--space-md) var(--space-lg)', // Compact: 16px 24px
+                  cursor: 'pointer',
+                  overflow: 'hidden',
+                  // Vanilla system depth (NO PINK):
+                  boxShadow: '0 2px 6px var(--vanilla-depth), inset 0 1px 0 var(--vanilla-breath)',
+                  transition: 'all 0.618s cubic-bezier(0.236, 0.618, 0.382, 1.0)' // Your mathematical timing
+                }}
+                whileHover={{
+                  // Hero-level interaction sophistication:
+                  background: 'var(--vanilla-breath)', // Lighter cream enhancement
+                  borderColor: 'var(--vanilla-whisper)', // Subtle border shift
+                  transform: 'translateY(-2px) scale(1.01)', // Your hero interaction pattern
+                  boxShadow: '0 6px 15px var(--vanilla-depth), inset 0 1px 0 var(--vanilla-breath)' // Enhanced vanilla depth
+                }}
+                onClick={() => setExpandedService(expandedService === service.number ? null : service.number)}
+                role="button"
+                aria-expanded={expandedService === service.number}
+                aria-controls={`service-content-${service.number}`}
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setExpandedService(expandedService === service.number ? null : service.number);
+                  }
+                }}
+              >
+                {/* Compact Business Card Header */}
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 'var(--space-md)', // Your system: 16px - compact
+                  padding: 0 // No extra padding for compactness
+                }}>
                 <span style={{
                   fontSize: 'var(--type-xs)', // Your system: 12px
                   fontWeight: '700',
@@ -1169,98 +1166,44 @@ export default function Home() {
                 </motion.span>
               </div>
               
-              {/* Accordion Content */}
-              {expandedService === service.number && (
-                <motion.div
-                  id={`service-content-${service.number}`}
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  style={{ overflow: 'hidden' }}
-                >
-                  <div style={{
-                    padding: 'var(--space-xl) var(--space-2xl)', // Your system: 40px 64px
-                    background: 'var(--vanilla-foundation)' // Natural cream background #F5F5DC
-                  }}>
-                    <p style={{
-                      fontSize: 'var(--type-lg)', // Your system: 20px
-                      fontFamily: 'var(--font-architectural-body)',
-                      color: 'var(--grapefruit-intelligence)', // Perfect contrast on cream
-                      marginBottom: 'var(--space-xl)', // Your system: 40px
-                      fontStyle: 'italic',
-                      lineHeight: '1.618', // Golden ratio
-                      opacity: 0.8
-                    }}>
-                      {service.subtitle}
-                    </p>
-                    
+                {/* SINGLE-SCREEN COMPACT CONTENT */}
+                {expandedService === service.number && (
+                  <motion.div
+                    id={`service-content-${service.number}`}
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.618, ease: [0.236, 0.618, 0.382, 1.0] }} // Your mathematical timing
+                    style={{ overflow: 'hidden' }}
+                  >
                     <div style={{
-                      marginBottom: 'var(--space-lg)', // Your system: 24px
-                      padding: 'var(--space-lg) var(--space-xl)', // Your system: 24px 40px
-                      background: 'var(--vanilla-depth)', // Your architectural depth #F0EDD4
-                      borderRadius: 'var(--space-md)', // Your system: 16px
-                      borderLeft: '3px solid var(--grapefruit-intelligence)', // Minimal accent
-                      // Natural depth using vanilla system (NO PINK):
-                      boxShadow: 'inset 0 1px 0 var(--vanilla-breath)' // Subtle vanilla highlight
+                      padding: 'var(--space-md) var(--space-lg)', // Compact: 16px 24px
+                      borderTop: '1px solid var(--vanilla-foundation)', // Subtle vanilla border
+                      background: 'var(--vanilla-foundation)' // Your architectural base #F5F5DC
                     }}>
-                      <h4 style={{
-                        fontSize: 'var(--type-sm)', // Your system: 14px
-                        fontFamily: 'var(--font-architectural-body)',
-                        color: 'var(--grapefruit-intelligence)', // Perfect contrast
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.1em',
-                        marginBottom: 'var(--space-md)', // Your system: 16px
-                        fontWeight: '600' // Your established strong weight
-                      }}>
-                        Strategic Capability
-                      </h4>
+                      {/* Single Combined Content Block */}
                       <p style={{
                         fontSize: 'var(--type-base)', // Your system: 16px
                         fontFamily: 'var(--font-architectural-body)',
                         color: 'var(--grapefruit-intelligence)', // System color
-                        lineHeight: '1.618', // Golden ratio
+                        lineHeight: '1.6', // Readable compact
                         margin: 0
                       }}>
-                        {service.description}
+                        <em style={{
+                          color: 'var(--grapefruit-intelligence)', 
+                          fontWeight: '500'
+                        }}>
+                          {service.subtitle}
+                        </em><br/><br/>
+                        <strong style={{color: 'var(--grapefruit-intelligence)'}}>Strategic Capability:</strong> {service.description}<br/><br/>
+                        <strong style={{color: 'var(--grapefruit-intelligence)'}}>For Projects That Demand:</strong> {service.demand}
                       </p>
                     </div>
-                    
-                    <div style={{
-                      padding: 'var(--space-lg) var(--space-xl)', // Your system: 24px 40px
-                      background: 'var(--vanilla-depth)', // Your architectural depth #F0EDD4
-                      borderRadius: 'var(--space-md)', // Your system: 16px
-                      borderLeft: '3px solid var(--grapefruit-intelligence)', // Minimal accent
-                      // Natural vanilla depth (NO PINK):
-                      boxShadow: 'inset 0 1px 0 var(--vanilla-breath)' // Subtle vanilla highlight
-                    }}>
-                      <h4 style={{
-                        fontSize: 'var(--type-sm)', // Your system: 14px
-                        fontFamily: 'var(--font-architectural-body)',
-                        color: 'var(--grapefruit-intelligence)', // Perfect contrast
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.1em',
-                        marginBottom: 'var(--space-md)', // Your system: 16px
-                        fontWeight: '600' // Your established strong weight
-                      }}>
-                        For Projects That Demand
-                      </h4>
-                      <p style={{
-                        fontSize: 'var(--type-base)', // Your system: 16px
-                        fontFamily: 'var(--font-architectural-body)',
-                        color: 'var(--grapefruit-intelligence)', // System color
-                        lineHeight: '1.618', // Golden ratio
-                        margin: 0,
-                        fontWeight: '400' // Your established body weight
-                      }}>
-                        {service.demand}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-            </motion.div>
-          ))}
+                  </motion.div>
+                )}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
