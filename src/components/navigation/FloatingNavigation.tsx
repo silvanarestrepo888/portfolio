@@ -105,21 +105,15 @@ export function FloatingNavigation() {
       aria-label="Main navigation"
       role="navigation"
     >
-      {/* Brand Logo - Always Visible */}
+      {/* Brand Logo - Links to Blog/Portfolio */}
       <motion.a
-        href="#hero"
-        onClick={(e) => {
-          e.preventDefault();
-          // SSR guard - only run on client side
-          if (typeof window !== 'undefined') {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }
-        }}
+        href="https://silvana.mmm.page/human-perspective"
+        target="_blank"
+        rel="noopener noreferrer"
         className="nav-brand-enhanced luxury-navigation luxury-hover-scale luxury-hover-glow"
         whileHover={{ scale: 1.05 }}
-        onKeyDown={(e) => handleKeyDown(e, '#hero')}
         tabIndex={0}
-        aria-label="Return to top of page"
+        aria-label="Visit Silvana's blog and portfolio"
       >
         silvana.
       </motion.a>
