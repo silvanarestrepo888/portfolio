@@ -1696,57 +1696,72 @@ export default function Home() {
             </div>
           
            {/* PROJECT DETAILS FOOTER - EXACT MATCH TO MAIN FOOTER */}
-           <footer className="footer-landor-sophisticated">
-             <div className="footer-landor-container">
-               {/* Brand Section */}
-               <div className="footer-brand-landor">
-                 <h3 className="footer-brand-name-landor typography-h3">silvana.</h3>
-                 <p className="footer-brand-title-landor typography-body">Principal Experience Architect</p>
-                 <p className="footer-brand-description-landor typography-caption">
-                   Transforming business challenges into strategic advantages through experience-driven innovation.
-                 </p>
-               </div>
-               
-               {/* Navigation Section */}
-               <div className="footer-navigation-landor">
-                 <h4 className="footer-nav-title-landor typography-body">navigation</h4>
-                 <div className="footer-nav-links-landor">
-                   <button onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">back to projects</button>
-                   <a href="#about" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">about</a>
-                   <a href="#services" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">services</a>
-                   <a href="#experience" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">experience</a>
+           <footer className="footer-landor-standards">
+             <div className="footer-container-landor">
+               <div className="footer-content-landor">
+                 {/* Brand Section */}
+                 <div className="footer-brand-landor">
+                   <h3 className="footer-brand-name-landor typography-h3">silvana.</h3>
+                   <p className="footer-brand-title-landor typography-body">Principal Experience Architect</p>
+                   <p className="footer-brand-description-landor typography-caption">
+                     Transforming business challenges into strategic advantages through experience-driven innovation.
+                   </p>
+                 </div>
+                 
+                 {/* Navigation Section */}
+                 <div className="footer-navigation-landor">
+                   <h4 className="footer-nav-title-landor typography-body">navigation</h4>
+                   <div className="footer-nav-links-landor">
+                     <a href="#about" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">about</a>
+                     <a href="#projects" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">projects</a>
+                     <a href="#services" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">services</a>
+                     <a href="#experience" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">experience</a>
+                   </div>
+                 </div>
+                 
+                 {/* Contact Section */}
+                 <div className="footer-contact-landor">
+                   <h4 className="footer-contact-title-landor typography-body">contact</h4>
+                   <div className="footer-contact-links-landor">
+                     <a 
+                       href="mailto:silvanarestrepo888@gmail.com"
+                       className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
+                     >
+                       <Mail size={16} />
+                       contact
+                     </a>
+                     <a 
+                       href="https://linkedin.com/in/silvanarestrepo"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
+                     >
+                       <Linkedin size={16} />
+                       linkedin
+                     </a>
+                     <a 
+                       href="https://silvana.mmm.page/human-perspective"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
+                     >
+                       <ExternalLink size={16} />
+                       portfolio
+                     </a>
+                   </div>
                  </div>
                </div>
                
-               {/* Contact Section */}
-               <div className="footer-contact-landor">
-                 <h4 className="footer-contact-title-landor typography-body">contact</h4>
-                 <div className="footer-contact-links-landor">
-                   <a 
-                     href="mailto:silvanarestrepo888@gmail.com"
-                     className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
-                   >
-                     <Mail size={16} />
-                     contact
-                   </a>
-                   <a 
-                     href="https://linkedin.com/in/silvanarestrepo"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
-                   >
-                     <Linkedin size={16} />
-                     linkedin
-                   </a>
-                   <a 
-                     href="https://silvana.mmm.page/human-perspective"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
-                   >
-                     <ExternalLink size={16} />
-                     portfolio
-                   </a>
+               {/* Footer Bottom */}
+               <div className="footer-bottom-landor">
+                 <div className="footer-copyright-landor">
+                   <span className="footer-copyright-text-landor typography-caption">
+                     © 2025 Silvana Restrepo. All rights reserved.
+                   </span>
+                 </div>
+                 <div className="footer-legal-landor">
+                   <a href="#" className="footer-legal-link-landor typography-caption">Privacy Policy</a>
+                   <a href="#" className="footer-legal-link-landor typography-caption">Terms of Service</a>
                  </div>
                </div>
              </div>

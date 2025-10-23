@@ -9611,81 +9611,59 @@ h4, .text-h4 {
   pointer-events: auto; /* Re-enable clicks on actual buttons */
 }
 
-/* ULTRA BACK BUTTON - MAXIMUM VISIBILITY - 51ST FIX! */
+/* BACK BUTTON - COHESIVE WITH CAROUSEL BUTTON DESIGN */
 .project-back-button-ultra {
-  display: flex !important;
+  display: inline-flex !important;
   align-items: center !important;
-  gap: 1.5rem !important;
-  padding: 1.75rem 3.5rem !important; /* EVEN LARGER! */
-  /* MAXIMUM CONTRAST: PURE BLACK TEXT ON BRIGHT RED */
-  background: #FF3333 !important; /* BRIGHTEST RED POSSIBLE */
-  color: #000000 !important; /* BLACK TEXT for maximum contrast */
-  border: 6px solid #000000 !important; /* BLACK border */
-  border-radius: 100px;
-  font-family: 'Inter', -apple-system, sans-serif !important;
-  font-size: 1.5rem !important; /* EVEN LARGER */
-  font-weight: 900 !important; /* BLACK WEIGHT */
+  gap: 0.75rem !important;
+  padding: 1rem 2rem !important;
+  /* GRAPEFRUIT GRADIENT - MATCHING CAROUSEL PRIMARY BUTTON */
+  background: linear-gradient(135deg, var(--grapefruit-pure) 0%, var(--grapefruit-soft) 100%) !important;
+  color: #FFFFFF !important; /* White text on grapefruit */
+  border: none !important;
+  border-radius: 50px !important;
+  font-family: var(--font-architectural-body) !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
   cursor: pointer !important;
-  transition: all 0.3s ease !important;
-  text-transform: lowercase !important;
-  letter-spacing: 0.05em !important;
-  position: fixed !important; /* FIXED POSITION */
-  top: 2rem !important;
-  left: 2rem !important;
-  z-index: 9999999 !important; /* ABSOLUTE MAXIMUM Z-INDEX */
-  box-shadow: 
-    0 16px 48px rgba(255, 102, 99, 0.8) !important, /* Even stronger shadow */
-    0 0 0 2px rgba(255, 255, 255, 1),
-    inset 0 2px 0 rgba(255, 255, 255, 0.6);
-  text-transform: none; /* No uppercase */
-  letter-spacing: 0.02em;
-  /* Extra emphasis */
-  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4) !important;
-  position: relative;
-  z-index: 10000 !important; /* EVEN HIGHER */
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  text-transform: none !important;
+  letter-spacing: 0.01em !important;
+  z-index: 999999 !important;
+  box-shadow: 0 6px 24px var(--grapefruit-whisper) !important;
+  text-shadow: none !important;
 }
 
 .project-back-button-ultra:hover {
-  /* Even more prominent on hover */
-  background: var(--grapefruit-rich);
-  color: #FFFFFF;
-  transform: translateX(-6px) translateY(-2px) scale(1.05);
-  box-shadow: 
-    0 20px 60px rgba(255, 102, 99, 0.8),
-    0 0 0 3px var(--grapefruit-pure),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  border-color: var(--grapefruit-pure);
-  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+  /* MATCHING CAROUSEL BUTTON HOVER */
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 32px var(--grapefruit-breath) !important;
+  background: linear-gradient(135deg, var(--grapefruit-rich) 0%, var(--grapefruit-pure) 100%) !important;
 }
 
 .project-back-button-ultra:active {
-  transform: translateX(-4px) scale(0.98);
+  transform: scale(0.95) !important;
 }
 
 .back-icon {
   transition: transform 0.3s ease;
   flex-shrink: 0;
-  font-size: 2rem !important; /* LARGER ICON */
-  /* BLACK icon for maximum contrast on red */
-  color: #000000 !important;
-  stroke: #000000 !important;
-  fill: #000000 !important;
+  font-size: 1.25rem !important; /* Cohesive size */
+  /* WHITE icon matching carousel */
+  color: #FFFFFF !important;
+  stroke: none !important;
+  fill: none !important;
 }
 
 .project-back-button-ultra:hover .back-icon {
   transform: translateX(-4px);
-  /* Icon stays white on hover */
-  color: #FFFFFF !important;
-  stroke: #FFFFFF !important;
-  fill: #FFFFFF !important;
 }
 
 .back-text {
-  font-weight: 900 !important;
+  font-weight: 600 !important; /* Matching carousel */
   white-space: nowrap;
-  font-size: 1.5rem !important; /* LARGER */
-  /* BLACK text for maximum contrast on red */
-  color: #000000 !important;
+  font-size: 1rem !important; /* Matching carousel */
+  color: #FFFFFF !important; /* White text */
   text-shadow: none !important;
 }
 
