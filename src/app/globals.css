@@ -17084,10 +17084,10 @@ img[class*="project-"] {
 
 .experience-timeline-item {
   position: relative;
-  margin-bottom: var(--space-md); /* 16px between items for compactness */
+  margin-bottom: var(--space-lg); /* 24px between items for text visibility */
   display: flex;
   align-items: flex-start;
-  min-height: 90px; /* Compact height */
+  min-height: 140px; /* Adequate height for visible text */
 }
 
 /* ALTERNATING LEFT/RIGHT LAYOUT */
@@ -17132,21 +17132,21 @@ img[class*="project-"] {
   outline-offset: 4px;
 }
 
-/* COMPACT TEXT CONTAINERS - DESIGN SYSTEM COMPLIANT */
+/* VISIBLE TEXT CONTAINERS - DESIGN SYSTEM COMPLIANT */
 .experience-text-container {
-  width: 260px; /* Compact width for better proportions */
+  width: 280px; /* Adequate width for text visibility */
   background: var(--vanilla-foundation); /* Design system background */
   border: 1px solid var(--vanilla-depth); /* Design system border */
   border-radius: var(--space-sm); /* 8px rounded corners */
   box-shadow: 
     0 2px 8px rgba(0, 0, 0, 0.04),
     0 1px 4px rgba(0, 0, 0, 0.02);
-  padding: var(--space-sm); /* 8px internal padding for compactness */
+  padding: var(--space-md); /* 16px internal padding for text breathing room */
   transition: all 0.618s cubic-bezier(0.236, 0.618, 0.382, 1.0);
   cursor: pointer;
   position: relative;
-  overflow: hidden;
-  max-height: 80px; /* Constrain height */
+  overflow: visible; /* Allow content to show */
+  min-height: 120px; /* Adequate space for readable text */
 }
 
 .experience-text-container::before {
@@ -17163,7 +17163,7 @@ img[class*="project-"] {
 }
 
 .experience-text-container:hover {
-  width: 280px; /* Subtle expansion on hover */
+  width: 300px; /* Elegant expansion on hover */
   transform: translateY(-2px); /* Minimal lift */
   box-shadow: 
     0 4px 16px rgba(0, 0, 0, 0.08),
@@ -17192,46 +17192,42 @@ img[class*="project-"] {
   font-size: var(--type-sm); /* 14px */
   font-weight: 600;
   color: var(--grapefruit-intelligence); /* Design system primary text */
-  margin-bottom: 2px; /* Minimal spacing */
+  margin-bottom: var(--space-xs); /* 4px spacing for visibility */
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-family: var(--font-architectural-body);
-  line-height: 1.2;
+  line-height: 1.4; /* Better readability */
 }
 
 .experience-role {
-  font-size: var(--type-base); /* 16px for compactness */
+  font-size: var(--type-base); /* 16px minimum for visibility */
   font-weight: 600;
   color: var(--grapefruit-intelligence); /* Design system primary text */
-  margin-bottom: 1px; /* Minimal spacing */
-  line-height: 1.2;
+  margin-bottom: var(--space-xs); /* 4px spacing for visibility */
+  line-height: 1.4; /* Better readability */
   font-family: var(--font-architectural-display);
   letter-spacing: -0.01em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap; /* Single line for compactness */
+  /* Remove text truncation for visibility */
 }
 
 .experience-company {
-  font-size: var(--type-sm); /* 14px for compactness */
+  font-size: var(--type-base); /* 16px for visibility */
   font-weight: 500;
   color: var(--grapefruit-intelligence); /* Design system primary text */
-  margin-bottom: 2px; /* Minimal spacing */
+  margin-bottom: var(--space-xs); /* 4px spacing for visibility */
   font-style: italic;
   font-family: var(--font-architectural-body);
-  line-height: 1.2;
+  line-height: 1.4; /* Better readability */
 }
 
 .experience-description {
-  font-size: var(--type-sm); /* 14px for compactness */
-  line-height: 1.3; /* Compact but readable */
+  font-size: var(--type-base); /* 16px minimum for visibility */
+  line-height: 1.5; /* Optimal readability */
   color: var(--grapefruit-intelligence); /* Design system primary text */
   margin: 0;
   font-family: var(--font-architectural-body);
   font-weight: 400;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap; /* Single line for compactness */
+  /* Remove text truncation for visibility */
 }
 
 /* DESIGN SYSTEM ANIMATIONS */
