@@ -790,13 +790,12 @@ export default function Home() {
               viewport={{ once: true }}
             >
               {projectCategories.map((category) => (
-                <button
+                <span
                   key={category}
-                  onClick={() => setSelectedCategory(category)}
                   className="filter-tag-award-winning"
                 >
                   {category}
-                </button>
+                </span>
               ))}
             </motion.div>
           </motion.div>
