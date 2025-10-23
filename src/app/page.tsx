@@ -862,15 +862,15 @@ export default function Home() {
             
             {/* CINEMATIC CAROUSEL - SMOOTH RIGHT→LEFT FLOW */}
             <AnimatePresence mode="wait">
-              <motion.div 
-                className="projects-3d-container"
-                key={safeFeaturedProjectIndex}
+            <motion.div 
+              className="projects-3d-container"
+              key={safeFeaturedProjectIndex}
                 initial={{ 
                   opacity: 0, 
                   x: 100, // Enter from RIGHT
                   scale: 0.95
                 }}
-                animate={{ 
+              animate={{ 
                   opacity: 1, 
                   x: 0, 
                   scale: 1
@@ -879,24 +879,24 @@ export default function Home() {
                   opacity: 0, 
                   x: -100, // Exit to LEFT
                   scale: 0.95
-                }}
-                transition={{
+              }}
+              transition={{
                   duration: 1.2, // Smooth 1.2s cinematic transition
                   ease: [0.25, 0.46, 0.45, 0.94], // Cubic bezier for elegance
                   opacity: { duration: 0.8 },
                   scale: { duration: 1.0 }
-                }}
-                onHoverStart={() => setIsAutoPlaying(false)}
-                onHoverEnd={() => setIsAutoPlaying(true)}
-              >
-                <InteractiveProjectCard
-                  project={filteredProjects[safeFeaturedProjectIndex]}
-                  index={safeFeaturedProjectIndex}
-                  isActive={!isTransitioning}
-                  onSelect={setSelectedProject}
+              }}
+              onHoverStart={() => setIsAutoPlaying(false)}
+              onHoverEnd={() => setIsAutoPlaying(true)}
+            >
+              <InteractiveProjectCard
+                project={filteredProjects[safeFeaturedProjectIndex]}
+                index={safeFeaturedProjectIndex}
+                isActive={!isTransitioning}
+                onSelect={setSelectedProject}
                   className="project-card-cinematic-flow"
-                />
-              </motion.div>
+              />
+            </motion.div>
             </AnimatePresence>
             
             </motion.div>
@@ -928,12 +928,15 @@ export default function Home() {
             </p>
           </motion.div>
           
-          {/* SINGLE-SCREEN SERVICES OVERVIEW - FULL VIEWPORT */}
+          {/* SINGLE-SCREEN SERVICES OVERVIEW - SCROLLABLE */}
           <div style={{
-            maxWidth: '1200px', // Wider for better space usage
+            maxWidth: '1200px',
             margin: '0 auto',
             padding: '0 max(2rem, 5vw)',
-            overflow: 'visible'
+            maxHeight: '60vh', // Limit height to prevent off-screen cards
+            overflowY: 'auto', // Allow scrolling when cards expand
+            overflowX: 'hidden',
+            scrollBehavior: 'smooth'
           }}>
             {referenceServices.map((service, index) => (
               <motion.div
@@ -960,11 +963,10 @@ export default function Home() {
                   transition: 'all 0.618s cubic-bezier(0.236, 0.618, 0.382, 1.0)'
                 }}
                 whileHover={{
-                  // Hero-level interaction sophistication:
-                  background: 'var(--vanilla-breath)', // Lighter cream enhancement
-                  borderColor: 'var(--vanilla-whisper)', // Subtle border shift
-                  transform: 'translateY(-2px) scale(1.01)', // Your hero interaction pattern
-                  boxShadow: '0 6px 15px var(--vanilla-depth), inset 0 1px 0 var(--vanilla-breath)' // Enhanced vanilla depth
+                  // Subtle hover - NO scale to prevent layout shift
+                  background: 'var(--vanilla-breath)',
+                  borderColor: 'var(--vanilla-whisper)',
+                  boxShadow: '0 4px 12px var(--vanilla-depth), inset 0 1px 0 var(--vanilla-breath)'
                 }}
                 onClick={() => setExpandedService(expandedService === service.number ? null : service.number)}
                 role="button"

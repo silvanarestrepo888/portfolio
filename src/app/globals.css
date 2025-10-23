@@ -18137,3 +18137,23 @@ section#services .typography-body {
 section#services h3 {
   color: var(--grapefruit-intelligence) !important;
 }
+
+/* Elegant scrollbar for services container */
+section#services div[style*="overflowY"]::-webkit-scrollbar {
+  width: 8px;
+}
+
+section#services div[style*="overflowY"]::-webkit-scrollbar-track {
+  background: rgba(253, 252, 248, 0.2);
+  border-radius: 4px;
+}
+
+section#services div[style*="overflowY"]::-webkit-scrollbar-thumb {
+  background: var(--vanilla-whisper);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
+  background: var(--vanilla-foundation);
+}
