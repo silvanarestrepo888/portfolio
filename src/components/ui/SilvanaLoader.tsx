@@ -5,61 +5,70 @@ import { motion } from 'framer-motion';
 export function SilvanaLoader() {
   return (
     <motion.div 
-      className="silvana-loader-architectural"
-      initial={{ opacity: 0, scale: 0.8 }}
+      className="loader-overlay"
+      initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.8 }}
-      transition={{ duration: 0.8, ease: "easeInOut" }}
+      exit={{ opacity: 0, y: -100, scale: 1.05 }}
+      transition={{ 
+        duration: 0.5,
+        ease: "easeInOut"
+      }}
     >
       <motion.svg 
-        viewBox="0 0 120 120" 
-        className="silvana-s-signature"
-        width="80"
-        height="80"
+        viewBox="0 0 100 100" 
+        className="s-signature"
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
       >
-        {/* Silvana "S" with architectural precision */}
+        {/* Elegant Serif "S" - Signature Mark */}
         <motion.path
-          d="M30,35 Q60,15 90,35 Q60,55 90,75 Q60,95 30,75 Q60,55 30,35"
-          stroke="var(--grapefruit-intelligence)"
+          d="M 35,25 Q 60,15 75,30 Q 85,45 70,55 Q 55,60 55,65 Q 55,70 65,75 Q 75,80 70,90 Q 60,100 35,90"
+          stroke="var(--vanilla-whisper)"
           strokeWidth="3"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
           initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 1 }}
+          animate={{ 
+            pathLength: 1, 
+            opacity: 1,
+            fill: ["transparent", "transparent", "var(--vanilla-whisper)"]
+          }}
           transition={{ 
-            duration: 1.8, 
-            ease: "easeInOut",
-            delay: 0.3
+            pathLength: {
+              duration: 1.5, 
+              ease: [0.65, 0, 0.35, 1],
+              delay: 0.3
+            },
+            opacity: {
+              duration: 0.3,
+              delay: 0.3
+            },
+            fill: {
+              duration: 0.5,
+              delay: 1.8
+            }
           }}
         />
         
-        {/* Architectural accent dot */}
-        <motion.circle
-          cx="60"
-          cy="55"
-          r="2"
-          fill="var(--grapefruit-intelligence)"
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
+        {/* Subtle pulse after drawing completes */}
+        <motion.path
+          d="M 35,25 Q 60,15 75,30 Q 85,45 70,55 Q 55,60 55,65 Q 55,70 65,75 Q 75,80 70,90 Q 60,100 35,90"
+          stroke="none"
+          fill="var(--vanilla-whisper)"
+          initial={{ scale: 1, opacity: 0 }}
+          animate={{ 
+            scale: [1, 1.05, 1],
+            opacity: [0, 1, 1]
+          }}
           transition={{ 
-            duration: 0.6,
-            delay: 2.1,
-            type: "spring",
-            bounce: 0.6
+            duration: 0.5,
+            delay: 1.8,
+            ease: "easeInOut"
           }}
         />
       </motion.svg>
-      
-      {/* Loading text with sophistication */}
-      <motion.p 
-        className="silvana-loading-text"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.5 }}
-      >
-        Loading architectural precision...
-      </motion.p>
     </motion.div>
   );
 }

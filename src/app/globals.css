@@ -23,7 +23,11 @@
     animation: none !important; 
   }
   
-  .silvana-s-signature {
+  .s-signature path {
+    animation: none !important;
+  }
+  
+  .loader-overlay {
     animation: none !important;
   }
   
@@ -132,30 +136,47 @@
 /* SILVANA SIGNATURE LOADER - STELLA-INSPIRED */
 /* ========================================== */
 
-.silvana-loader-architectural {
+/* ===== MINIMALIST SIGNATURE LOADER - STELLA PETKOVA INSPIRED ===== */
+
+.loader-overlay {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
   z-index: 9999;
+  background: linear-gradient(
+    135deg,
+    var(--grapefruit-pure) 0%,
+    var(--grapefruit-soft) 100%
+  );
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  justify-content: center;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
-.silvana-s-signature {
-  filter: drop-shadow(0 8px 32px var(--grapefruit-breath));
+.s-signature {
+  width: clamp(80px, 15vw, 150px);
+  height: clamp(80px, 15vw, 150px);
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.1));
 }
 
-.silvana-loading-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--grapefruit-intelligence);
-  text-align: center;
-  letter-spacing: 0.05em;
-  opacity: 0.8;
+.s-signature path {
+  vector-effect: non-scaling-stroke;
+}
+
+/* Responsive sizing */
+@media (max-width: 768px) {
+  .s-signature {
+    width: clamp(60px, 20vw, 100px);
+    height: clamp(60px, 20vw, 100px);
+  }
+}
+
+@media (max-width: 480px) {
+  .s-signature {
+    width: 80px;
+    height: 80px;
+  }
 }
 
 /* PROJECT DETAILS BUTTON - SOPHISTICATED DESIGN */

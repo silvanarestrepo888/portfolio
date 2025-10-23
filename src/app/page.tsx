@@ -447,7 +447,9 @@ export default function Home() {
     <div className="min-h-screen" style={{backgroundColor: '#fffbee'}}>
       
       {/* SILVANA SIGNATURE LOADER - STELLA-INSPIRED */}
-      {isLoading && <SilvanaLoader />}
+      <AnimatePresence mode="wait">
+        {isLoading && <SilvanaLoader />}
+      </AnimatePresence>
       
       {/* ACCESSIBILITY - Skip Navigation Links */}
       <a 
