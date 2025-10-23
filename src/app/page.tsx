@@ -1146,43 +1146,43 @@ export default function Home() {
                   year: "2020—2025",
                   role: "Business Partner & Experience Architect", 
                   company: "Globant",
-                  description: "I orchestrate enterprise-scale digital initiatives for global brands, translating their vision into practical roadmaps that support business goals. Contributed to architect physical-digital systems for healthcare, entertainment, hospitality, retail, Finance, and wellness teams, supporting faster value delivery."
+                  description: "Enterprise digital transformation for global brands"
                 },
                 {
                   year: "2019—2020",
                   role: "Senior Researcher",
                   company: "Centre for Fourth Industrial Revolution-WEF",
-                  description: "I helped develop frameworks connecting technologies with governance approaches, supporting sustainable bridges between public policy and industry innovation."
+                  description: "Technology governance frameworks for industry"
                 },
                 {
                   year: "2018—2019", 
                   role: "Strategic Design Director",
                   company: "Designit a WIPRO Company",
-                  description: "I led regional operations to scale market presence and transform business complexity into actionable design solutions."
+                  description: "Regional operations scaling and design solutions"
                 },
                 {
                   year: "2016—2018",
                   role: "Marketing Director",
                   company: "Grupo Éxito",
-                  description: "I transformed retail destinations into experiential ecosystems, orchestrating over 1,000 brand partnerships while driving entertainment-centric commerce innovation."
+                  description: "Retail experience innovation and partnerships"
                 },
                 {
                   year: "2013—2016",
                   role: "Business Intelligence Manager",
                   company: "Industrias HACEB", 
-                  description: "I reengineered market segmentation frameworks from production-centric to consumer-centric models, driving sales growth and operational efficiencies."
+                  description: "Market segmentation transformation strategy"
                 },
                 {
                   year: "2012—2016",
                   role: "Independent Advisor",
                   company: "Independent",
-                  description: "I decoded emerging consumer behaviours for global enterprises, transforming abstract trend signals into implementable product innovation roadmaps."
+                  description: "Consumer behavior analysis and innovation"
                 },
                 {
                   year: "2002—2011",
                   role: "Senior Marketing Analyst",
                   company: "TIGO-Millicom",
-                  description: "I supported corporate expansion through mergers and acquisitions, enhancing national competitive positioning while integrating diverse teams into the main brand."
+                  description: "Corporate expansion and M&A strategy"
                 }
               ].map((experience, index) => (
                 <div key={index} className={`experience-timeline-item ${index % 2 === 0 ? 'timeline-left' : 'timeline-right'}`}>
