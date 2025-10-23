@@ -18078,12 +18078,14 @@ img[class*="project-"] {
 /* Strategic narrative: Vanilla-on-grapefruit sophistication */
 /* ========================================== */
 
-/* Ensure grapefruit background is not overridden */
+/* Ensure grapefruit background is not overridden - ULTRA COMPACT for single viewport */
 section#services.section-services-sophisticated {
   background: var(--services-gradient) !important;
   position: relative;
-  padding: 80px 0;
+  padding: 40px 0 50px 0; /* REDUCED: Top 40px, Bottom 50px for compact full viewport fit */
   min-height: auto;
+  max-height: 100vh; /* Ensure it fits in one viewport */
+  overflow-y: auto; /* Allow scroll if needed, but aim for single screen */
 }
 
 /* Vanilla-on-grapefruit typography for strategic narrative */

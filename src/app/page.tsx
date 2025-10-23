@@ -928,8 +928,8 @@ export default function Home() {
             </span>
             <h2 className="typography-h2" style={{ 
               color: 'var(--vanilla-whisper)',
-              fontSize: 'clamp(2.5rem, 5vw, 3rem)',
-              marginBottom: '1.5rem'
+              fontSize: 'clamp(1.75rem, 3vw, 2rem)', // REDUCED: 28px → 32px
+              marginBottom: '0.75rem' // REDUCED spacing
             }}>
               services
             </h2>
@@ -938,9 +938,9 @@ export default function Home() {
               style={{
                 color: 'var(--vanilla-whisper)',
                 opacity: 0.9,
-                fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-                lineHeight: '1.6',
-                maxWidth: '800px',
+                fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', // REDUCED: 14px → 16px
+                lineHeight: '1.5',
+                maxWidth: '700px',
                 margin: '0 auto'
               }}
             >
@@ -948,12 +948,12 @@ export default function Home() {
             </p>
           </motion.div>
           
-          {/* SINGLE-SCREEN SERVICES OVERVIEW */}
+          {/* SINGLE-SCREEN SERVICES OVERVIEW - FULL VIEWPORT */}
           <div style={{
-            maxWidth: '1000px',
+            maxWidth: '1200px', // Wider for better space usage
             margin: '0 auto',
-            padding: '0 2rem',
-            overflow: 'visible' // Allow full visibility
+            padding: '0 max(2rem, 5vw)',
+            overflow: 'visible'
           }}>
             {referenceServices.map((service, index) => (
               <motion.div
@@ -967,18 +967,17 @@ export default function Home() {
                 }}
                 viewport={{ once: true }}
                 style={{
-                  // Cream cards on grapefruit - your proven accessible combination
-                  background: 'var(--vanilla-whisper)', // Your cream system #FDFCF8
-                  border: '1px solid var(--vanilla-foundation)', // Vanilla border system
-                  borderLeft: '3px solid var(--vanilla-breath)', // Minimal cream accent
-                  borderRadius: 'var(--space-md)', // Your system: 16px
-                  marginBottom: 'var(--space-sm)', // Compact: 8px
-                  padding: 'var(--space-md) var(--space-lg)', // Compact: 16px 24px
+                  // Cream cards on grapefruit - ULTRA COMPACT
+                  background: 'var(--vanilla-whisper)',
+                  border: '1px solid var(--vanilla-foundation)',
+                  borderLeft: '3px solid var(--vanilla-breath)',
+                  borderRadius: '12px', // REDUCED from 16px
+                  marginBottom: '10px', // REDUCED: More compact spacing
+                  padding: '12px 20px', // REDUCED: Much more compact (was 16px 24px)
                   cursor: 'pointer',
                   overflow: 'hidden',
-                  // Vanilla system depth (NO PINK):
-                  boxShadow: '0 2px 6px var(--vanilla-depth), inset 0 1px 0 var(--vanilla-breath)',
-                  transition: 'all 0.618s cubic-bezier(0.236, 0.618, 0.382, 1.0)' // Your mathematical timing
+                  boxShadow: '0 1px 3px var(--vanilla-depth), inset 0 1px 0 var(--vanilla-breath)',
+                  transition: 'all 0.618s cubic-bezier(0.236, 0.618, 0.382, 1.0)'
                 }}
                 whileHover={{
                   // Hero-level interaction sophistication:
@@ -999,21 +998,21 @@ export default function Home() {
                   }
                 }}
               >
-                {/* Compact Business Card Header */}
+                {/* ULTRA COMPACT Header */}
                 <div style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: 'var(--space-md)', // Your system: 16px - compact
-                  padding: 0 // No extra padding for compactness
+                  gap: '12px', // REDUCED spacing
+                  padding: 0
                 }}>
                 <span style={{
-                  fontSize: 'var(--type-xs)', // Your system: 12px
+                  fontSize: '11px', // REDUCED from 12px
                   fontWeight: '700',
-                  color: 'var(--vanilla-whisper)', // Cream text
-                  background: 'var(--grapefruit-intelligence)', // Grapefruit background
-                  padding: 'var(--space-sm) var(--space-md)', // Your system: 8px 16px
-                  borderRadius: 'var(--space-sm)', // Your system: 8px
-                  minWidth: '32px',
+                  color: 'var(--vanilla-whisper)',
+                  background: 'var(--grapefruit-intelligence)',
+                  padding: '6px 12px', // REDUCED from 8px 16px
+                  borderRadius: '6px', // REDUCED from 8px
+                  minWidth: '28px', // REDUCED from 32px
                   textAlign: 'center',
                   fontFamily: 'var(--font-architectural-body)'
                 }}>
@@ -1022,9 +1021,9 @@ export default function Home() {
                 
                 <h3 style={{
                   flex: 1,
-                  fontSize: 'var(--type-2xl)', // Your system: 34px
+                  fontSize: 'clamp(1.125rem, 2vw, 1.375rem)', // REDUCED: 18px → 22px (was 34px!)
                   fontFamily: 'var(--font-architectural-display)',
-                  color: 'var(--grapefruit-intelligence)', // Perfect contrast on cream
+                  color: 'var(--grapefruit-intelligence)',
                   margin: 0,
                   fontWeight: '300', // Danish elegance matching your about section
                   letterSpacing: '-0.02em', // Your luxury spacing
@@ -1035,10 +1034,10 @@ export default function Home() {
                 
                 <motion.span 
                   style={{
-                    fontSize: 'var(--type-lg)', // Your system: 20px
-                    color: 'var(--grapefruit-intelligence)', // Perfect contrast on cream
-                    fontWeight: '300', // Danish lightness
-                    minWidth: 'var(--space-lg)', // Your system: 24px
+                    fontSize: '18px', // REDUCED from 20px
+                    color: 'var(--grapefruit-intelligence)',
+                    fontWeight: '300',
+                    minWidth: '20px', // REDUCED from 24px
                     textAlign: 'center'
                   }}
                   animate={{
@@ -1061,16 +1060,16 @@ export default function Home() {
                     style={{ overflow: 'hidden' }}
                   >
                     <div style={{
-                      padding: 'var(--space-md) var(--space-lg)', // Compact: 16px 24px
-                      borderTop: '1px solid var(--vanilla-foundation)', // Subtle vanilla border
-                      background: 'var(--vanilla-foundation)' // Your architectural base #F5F5DC
+                      padding: '12px 20px', // REDUCED: Ultra compact (was 16px 24px)
+                      borderTop: '1px solid var(--vanilla-foundation)',
+                      background: 'var(--vanilla-foundation)'
                     }}>
-                      {/* Single Combined Content Block */}
+                      {/* Single Combined Content Block - ULTRA COMPACT */}
                       <p style={{
-                        fontSize: 'var(--type-base)', // Your system: 16px
+                        fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)', // REDUCED: 14px → 15px (was 16px)
                         fontFamily: 'var(--font-architectural-body)',
-                        color: 'var(--grapefruit-intelligence)', // System color
-                        lineHeight: '1.6', // Readable compact
+                        color: 'var(--grapefruit-intelligence)',
+                        lineHeight: '1.5', // REDUCED: More compact
                         margin: 0
                       }}>
                         <em style={{
@@ -1078,8 +1077,8 @@ export default function Home() {
                           fontWeight: '500'
                         }}>
                           {service.subtitle}
-                        </em><br/><br/>
-                        <strong style={{color: 'var(--grapefruit-intelligence)'}}>Strategic Capability:</strong> {service.description}<br/><br/>
+                        </em><br/>
+                        <strong style={{color: 'var(--grapefruit-intelligence)'}}>Strategic Capability:</strong> {service.description}<br/>
                         <strong style={{color: 'var(--grapefruit-intelligence)'}}>For Projects That Demand:</strong> {service.demand}
                       </p>
                     </div>
