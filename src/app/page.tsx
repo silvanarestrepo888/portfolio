@@ -22,7 +22,7 @@ import { ExperienceTimeline } from '../components/ui/ExperienceTimeline';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
-  const [selectedCategory, setSelectedCategory] = useState("ALL WORK");
+  // REMOVED: selectedCategory state - filter tags are visual-only
   const [currentGalleryImage, setCurrentGalleryImage] = useState(0);
   const [galleryZoomOpen, setGalleryZoomOpen] = useState(false);
   const [heroImageZoom, setHeroImageZoom] = useState(false);
@@ -331,12 +331,8 @@ export default function Home() {
     return projectColorMoods[project.title as keyof typeof projectColorMoods] || 'project-charcoal-dominant';
   }, [selectedProject, projects]);
   
-  const filteredProjects = selectedCategory === "ALL WORK" 
-    ? projects 
-    : projects.filter(project => 
-        project.tech.some(t => t.includes(selectedCategory.replace(" DESIGN", "").replace(" STRATEGY", "").replace(" TRANSFORMATION", "").replace(" RESEARCH", "").replace(" OPS", ""))) ||
-        (project.industryTags && project.industryTags.some(tag => tag.includes(selectedCategory)))
-      );
+  // Always show all projects - filter tags are visual-only
+  const filteredProjects = projects;
 
   // Sophisticated navigation functions - moved after filteredProjects declaration
   const goToProjectWithTransition = useCallback((index: number) => {

@@ -10393,18 +10393,19 @@ h4, .text-h4 {
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.05em;
-  cursor: pointer;
+  /* NO cursor pointer - not clickable */
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   border: 1px solid rgba(255, 102, 99, 0.3);
   background: transparent;
   color: var(--grapefruit-primary);
 }
 
-.filter-tag-award-winning:hover {
+/* REMOVED: Hover effects - tags are visual-only, not clickable */
+/* .filter-tag-award-winning:hover {
   background: rgba(255, 102, 99, 0.1);
   border-color: var(--grapefruit-primary);
   transform: translateY(-2px);
-}
+} */
 
 .filter-tag-award-winning.active {
   background: var(--grapefruit-primary);
@@ -16933,10 +16934,11 @@ img {
   border: 1px solid var(--grapefruit-soft);
 }
 
-.section-projects-sophisticated .filter-tag-award-winning:hover {
+/* REMOVED: Section-specific hover effects - tags are visual-only, not clickable */
+/* .section-projects-sophisticated .filter-tag-award-winning:hover {
   background: var(--grapefruit-pure);
   color: var(--vanilla-pure);
-}
+} */
 
 /* SERVICES SECTION - Energetic Capability */
 .section-services-sophisticated {
