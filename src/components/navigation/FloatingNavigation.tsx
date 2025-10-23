@@ -10,11 +10,11 @@ interface NavigationItem {
 }
 
 const navigationItems: NavigationItem[] = [
-  { name: 'About', number: '01', href: '#about' },
-  { name: 'Projects', number: '02', href: '#projects' },
-  { name: 'Services', number: '03', href: '#services' },
-  { name: 'Experience', number: '04', href: '#experience' },
-  { name: 'Contact Me', number: '05', href: '#footer' }
+  { name: 'about', number: '01', href: '#about' },
+  { name: 'projects', number: '02', href: '#projects' },
+  { name: 'services', number: '03', href: '#services' },
+  { name: 'experience', number: '04', href: '#experience' },
+  { name: 'contact me', number: '05', href: '#footer' }
 ];
 
 export function FloatingNavigation() {

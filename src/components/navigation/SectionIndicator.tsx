@@ -11,11 +11,11 @@ export function SectionIndicator({ className = '' }: SectionIndicatorProps) {
   const { currentSection, sections, scrollProgress } = useSectionDetection();
 
   const sectionList = [
-    { id: 'hero', label: 'Home', icon: '○' },
-    { id: 'about', label: 'About', icon: '◊' },
-    { id: 'projects', label: 'Projects', icon: '□' },
-    { id: 'services', label: 'Services', icon: '◇' },
-    { id: 'experience', label: 'Experience', icon: '△' }
+    { id: 'hero', label: 'home', icon: '○' },
+    { id: 'about', label: 'about', icon: '◊' },
+    { id: 'projects', label: 'projects', icon: '□' },
+    { id: 'services', label: 'services', icon: '◇' },
+    { id: 'experience', label: 'experience', icon: '△' }
   ];
 
   const handleSectionClick = (sectionId: string) => {

@@ -880,50 +880,51 @@ export default function Home() {
       >
         <div className="container-foundation">
           <motion.div 
-            className="heading-desktop"
+            className="text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.618, ease: [0.236, 0.618, 0.382, 1.0] }} // Your mathematical timing
+            transition={{ duration: 1.618, ease: [0.236, 0.618, 0.382, 1.0] }}
             viewport={{ once: true }}
+            style={{
+              maxWidth: '1000px',
+              margin: '0 auto 4rem',
+              padding: '0 2rem'
+            }}
           >
-            <div className="mb-phi-xl">
-              <span 
-                className="text-foundation-sm font-foundation-accent block mb-phi-sm"
-                style={{
-                  color: 'var(--vanilla-whisper)' // Cream on grapefruit
-                }}
-              >
-                03
-              </span>
-              <h2 className="typography-h2" style={{ 
-                color: 'var(--vanilla-whisper)', // Cream on grapefruit
-                textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)' // Essential definition
-              }}>
-                Services
-              </h2>
-            </div>
-            <motion.p 
-              className="typography-body text-center max-w-4xl mx-auto mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.618, delay: 0.382 }} // Mathematical progression
-              viewport={{ once: true }}
+            <span 
+              className="section-number text-sm font-semibold tracking-wider uppercase block mb-4"
+              style={{ color: 'var(--vanilla-whisper)' }}
+            >
+              03
+            </span>
+            <h2 className="typography-h2" style={{ 
+              color: 'var(--vanilla-whisper)',
+              fontSize: 'clamp(2.5rem, 5vw, 3rem)',
+              marginBottom: '1.5rem'
+            }}>
+              services
+            </h2>
+            <p 
+              className="typography-body"
               style={{
-                color: 'var(--vanilla-whisper)', // Cream on grapefruit
-                opacity: 0.9
+                color: 'var(--vanilla-whisper)',
+                opacity: 0.9,
+                fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+                lineHeight: '1.6',
+                maxWidth: '800px',
+                margin: '0 auto'
               }}
             >
               Meticulously architected solutions addressing demanding market realities and evolving client needs.
-            </motion.p>
+            </p>
           </motion.div>
           
           {/* SINGLE-SCREEN SERVICES OVERVIEW */}
           <div style={{
             maxWidth: '1000px',
             margin: '0 auto',
-            padding: '0 var(--space-lg)', // Your system: 24px
-            maxHeight: '70vh', // Single screen constraint
-            overflow: 'visible'
+            padding: '0 2rem',
+            overflow: 'visible' // Allow full visibility
           }}>
             {referenceServices.map((service, index) => (
               <motion.div
@@ -1220,27 +1221,27 @@ export default function Home() {
               </p>
             </div>
             
-            {/* Navigation Section */}
+            {/* navigation section */}
             <div className="footer-navigation-landor">
-              <h4 className="footer-nav-title-landor typography-body">Navigation</h4>
+              <h4 className="footer-nav-title-landor typography-body">navigation</h4>
               <div className="footer-nav-links-landor">
-                <a href="#about" className="footer-nav-link-landor typography-caption">About</a>
-                <a href="#projects" className="footer-nav-link-landor typography-caption">Projects</a>
-                <a href="#experience" className="footer-nav-link-landor typography-caption">Experience</a>
-                <a href="#services" className="footer-nav-link-landor typography-caption">Services</a>
+                <a href="#about" className="footer-nav-link-landor typography-caption">about</a>
+                <a href="#projects" className="footer-nav-link-landor typography-caption">projects</a>
+                <a href="#services" className="footer-nav-link-landor typography-caption">services</a>
+                <a href="#experience" className="footer-nav-link-landor typography-caption">experience</a>
               </div>
             </div>
             
-            {/* Contact Section - Enhanced */}
+            {/* contact section */}
             <div className="footer-contact-landor">
-              <h4 className="footer-contact-title-landor typography-body">Contact</h4>
+              <h4 className="footer-contact-title-landor typography-body">contact</h4>
               <div className="footer-contact-links-landor">
               <a 
                 href="mailto:silvanarestrepo888@gmail.com"
                   className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
               >
                   <Mail size={16} />
-                Contact
+                contact
               </a>
               <a 
                 href="https://linkedin.com/in/silvanarestrepo"
@@ -1249,7 +1250,7 @@ export default function Home() {
                   className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
               >
                   <Linkedin size={16} />
-                LinkedIn
+                linkedin
               </a>
               <a 
                 href="https://silvana.mmm.page/human-perspective"
@@ -1258,7 +1259,7 @@ export default function Home() {
                   className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
               >
                   <ExternalLink size={16} />
-                Portfolio
+                portfolio
               </a>
               </div>
             </div>
@@ -1301,7 +1302,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <span className="back-icon">←</span>
-              <span className="back-text">Back to Projects</span>
+              <span className="back-text">back to projects</span>
             </motion.button>
             
             <motion.div 
@@ -1682,14 +1683,14 @@ export default function Home() {
                  </p>
                </div>
               <div className="footer-contact-architectural">
-                <h4 className="footer-contact-title-architectural typography-body">Contact</h4>
+                <h4 className="footer-contact-title-architectural typography-body">contact</h4>
                 <div className="footer-contact-links-architectural">
                   <a 
                     href="mailto:silvanarestrepo888@gmail.com"
                     className="footer-contact-link-architectural typography-caption"
                   >
                     <Mail size={16} />
-                    Contact
+                    contact
                   </a>
                   <a 
                     href="https://linkedin.com/in/silvanarestrepo"
@@ -1698,7 +1699,7 @@ export default function Home() {
                     className="footer-contact-link-architectural typography-caption"
                   >
                     <Linkedin size={16} />
-                    LinkedIn
+                    linkedin
                   </a>
                   <a 
                     href="https://silvana.mmm.page/human-perspective"
@@ -1707,7 +1708,7 @@ export default function Home() {
                     className="footer-contact-link-architectural typography-caption"
                   >
                     <ExternalLink size={16} />
-                    Portfolio
+                    portfolio
                   </a>
                 </div>
               </div>
