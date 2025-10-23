@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Linkedin, Mail, ExternalLink } from 'lucide-react';
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import Image from 'next/image';
@@ -861,41 +861,43 @@ export default function Home() {
             </motion.div>
             
             {/* CINEMATIC CAROUSEL - SMOOTH RIGHT→LEFT FLOW */}
-            <motion.div 
-              className="projects-3d-container"
-              key={safeFeaturedProjectIndex}
-              initial={{ 
-                opacity: 0, 
-                x: 100, // Enter from RIGHT
-                scale: 0.95
-              }}
-              animate={{ 
-                opacity: 1, 
-                x: 0, 
-                scale: 1
-              }}
-              exit={{ 
-                opacity: 0, 
-                x: -100, // Exit to LEFT
-                scale: 0.95
-              }}
-              transition={{
-                duration: 1.2, // Smooth 1.2s cinematic transition
-                ease: [0.25, 0.46, 0.45, 0.94], // Cubic bezier for elegance
-                opacity: { duration: 0.8 },
-                scale: { duration: 1.0 }
-              }}
-              onHoverStart={() => setIsAutoPlaying(false)}
-              onHoverEnd={() => setIsAutoPlaying(true)}
-            >
-              <InteractiveProjectCard
-                project={filteredProjects[safeFeaturedProjectIndex]}
-                index={safeFeaturedProjectIndex}
-                isActive={!isTransitioning}
-                onSelect={setSelectedProject}
-                className="project-card-cinematic-flow"
-              />
-            </motion.div>
+            <AnimatePresence mode="wait">
+              <motion.div 
+                className="projects-3d-container"
+                key={safeFeaturedProjectIndex}
+                initial={{ 
+                  opacity: 0, 
+                  x: 100, // Enter from RIGHT
+                  scale: 0.95
+                }}
+                animate={{ 
+                  opacity: 1, 
+                  x: 0, 
+                  scale: 1
+                }}
+                exit={{ 
+                  opacity: 0, 
+                  x: -100, // Exit to LEFT
+                  scale: 0.95
+                }}
+                transition={{
+                  duration: 1.2, // Smooth 1.2s cinematic transition
+                  ease: [0.25, 0.46, 0.45, 0.94], // Cubic bezier for elegance
+                  opacity: { duration: 0.8 },
+                  scale: { duration: 1.0 }
+                }}
+                onHoverStart={() => setIsAutoPlaying(false)}
+                onHoverEnd={() => setIsAutoPlaying(true)}
+              >
+                <InteractiveProjectCard
+                  project={filteredProjects[safeFeaturedProjectIndex]}
+                  index={safeFeaturedProjectIndex}
+                  isActive={!isTransitioning}
+                  onSelect={setSelectedProject}
+                  className="project-card-cinematic-flow"
+                />
+              </motion.div>
+            </AnimatePresence>
             
             </motion.div>
         </div>
@@ -909,41 +911,19 @@ export default function Home() {
       >
         <div className="container-foundation">
           <motion.div 
-            className="text-center"
+            className="section-header-foundation text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.618, ease: [0.236, 0.618, 0.382, 1.0] }}
             viewport={{ once: true }}
-            style={{
-              maxWidth: '1000px',
-              margin: '0 auto 4rem',
-              padding: '0 2rem'
-            }}
           >
-            <span 
-              className="section-number text-sm font-semibold tracking-wider uppercase block mb-4"
-              style={{ color: 'var(--vanilla-whisper)' }}
-            >
+            <span className="section-number-foundation text-foundation">
               03
             </span>
-            <h2 className="typography-h2" style={{ 
-              color: 'var(--vanilla-whisper)',
-              fontSize: 'clamp(1.75rem, 3vw, 2rem)', // REDUCED: 28px → 32px
-              marginBottom: '0.75rem' // REDUCED spacing
-            }}>
+            <h2 className="section-title-foundation typography-h2">
               services
             </h2>
-            <p 
-              className="typography-body"
-              style={{
-                color: 'var(--vanilla-whisper)',
-                opacity: 0.9,
-                fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', // REDUCED: 14px → 16px
-                lineHeight: '1.5',
-                maxWidth: '700px',
-                margin: '0 auto'
-              }}
-            >
+            <p className="section-description-foundation typography-body">
               Meticulously architected solutions addressing demanding market realities and evolving client needs.
             </p>
           </motion.div>
@@ -1700,46 +1680,60 @@ export default function Home() {
             </motion.div>
             </div>
           
-           {/* PROJECT DETAILS FOOTER - COPY COMPLIANT */}
-           <footer className="project-details-footer-architectural">
-             <div className="footer-architectural-content">
-               <div className="footer-brand-architectural">
-                 <h3 className="footer-brand-name typography-h3">silvana.</h3>
-                 <p className="footer-brand-title typography-body">Principal Experience Architect</p>
-                 <p className="footer-brand-description typography-caption">
+           {/* PROJECT DETAILS FOOTER - EXACT MATCH TO MAIN FOOTER */}
+           <footer className="footer-landor-sophisticated">
+             <div className="footer-landor-container">
+               {/* Brand Section */}
+               <div className="footer-brand-landor">
+                 <h3 className="footer-brand-name-landor typography-h3">silvana.</h3>
+                 <p className="footer-brand-title-landor typography-body">Principal Experience Architect</p>
+                 <p className="footer-brand-description-landor typography-caption">
                    Transforming business challenges into strategic advantages through experience-driven innovation.
                  </p>
                </div>
-              <div className="footer-contact-architectural">
-                <h4 className="footer-contact-title-architectural typography-body">contact</h4>
-                <div className="footer-contact-links-architectural">
-                  <a 
-                    href="mailto:silvanarestrepo888@gmail.com"
-                    className="footer-contact-link-architectural typography-caption"
-                  >
-                    <Mail size={16} />
-                    contact
-                  </a>
-                  <a 
-                    href="https://linkedin.com/in/silvanarestrepo"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="footer-contact-link-architectural typography-caption"
-                  >
-                    <Linkedin size={16} />
-                    linkedin
-                  </a>
-                  <a 
-                    href="https://silvana.mmm.page/human-perspective"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="footer-contact-link-architectural typography-caption"
-                  >
-                    <ExternalLink size={16} />
-                    portfolio
-                  </a>
-                </div>
-              </div>
+               
+               {/* Navigation Section */}
+               <div className="footer-navigation-landor">
+                 <h4 className="footer-nav-title-landor typography-body">navigation</h4>
+                 <div className="footer-nav-links-landor">
+                   <button onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">back to projects</button>
+                   <a href="#about" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">about</a>
+                   <a href="#services" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">services</a>
+                   <a href="#experience" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">experience</a>
+                 </div>
+               </div>
+               
+               {/* Contact Section */}
+               <div className="footer-contact-landor">
+                 <h4 className="footer-contact-title-landor typography-body">contact</h4>
+                 <div className="footer-contact-links-landor">
+                   <a 
+                     href="mailto:silvanarestrepo888@gmail.com"
+                     className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
+                   >
+                     <Mail size={16} />
+                     contact
+                   </a>
+                   <a 
+                     href="https://linkedin.com/in/silvanarestrepo"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
+                   >
+                     <Linkedin size={16} />
+                     linkedin
+                   </a>
+                   <a 
+                     href="https://silvana.mmm.page/human-perspective"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
+                   >
+                     <ExternalLink size={16} />
+                     portfolio
+                   </a>
+                 </div>
+               </div>
              </div>
            </footer>
         </motion.div>
