@@ -8490,24 +8490,23 @@ h4, .text-h4 {
 }
 
 .hero-cta-button {
-  /* SMALL elegant size as requested */
-  padding: 0.75rem 1.5rem;
-  font-size: 14px; /* Small size */
+  /* STANDARDIZED BUTTON SYSTEM - Matches .balanced-btn */
+  padding: 0.875rem 2rem;
+  font-size: 0.9375rem; /* 15px - consistent with project buttons */
   font-family: var(--font-architectural-body);
-  font-weight: 400;
+  font-weight: 600; /* Consistent weight */
   
-  /* Sophisticated styling */
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--grapefruit-intelligence);
-  border: 1px solid var(--grapefruit-whisper);
-  border-radius: 2rem;
+  /* Primary Button Styling - Matches .balanced-btn.primary */
+  background: linear-gradient(135deg, var(--grapefruit-pure) 0%, var(--grapefruit-soft) 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 50px; /* Pill shape - consistent */
   
-  /* Subtle sophistication */
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 16px var(--grapefruit-breath);
+  /* Shadow System */
+  box-shadow: 0 6px 24px var(--grapefruit-whisper);
   
   /* Elegant transitions */
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   text-decoration: none;
   
@@ -8519,11 +8518,10 @@ h4, .text-h4 {
 }
 
 .hero-cta-button:hover {
-  background: var(--grapefruit-whisper);
-  color: var(--grapefruit-intelligence);
+  background: linear-gradient(135deg, var(--grapefruit-rich) 0%, var(--grapefruit-pure) 100%);
+  color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px var(--grapefruit-moment);
-  border-color: var(--grapefruit-moment);
+  box-shadow: 0 10px 32px var(--grapefruit-breath);
 }
 
 /* Mobile optimization for CTA buttons */
@@ -8536,8 +8534,9 @@ h4, .text-h4 {
   }
   
   .hero-cta-button {
-    width: 180px; /* Consistent mobile width */
-    font-size: 13px; /* Slightly smaller on mobile */
+    width: 200px; /* Consistent mobile width */
+    padding: 0.875rem 1.5rem; /* Slightly reduced padding on mobile */
+    font-size: 0.875rem; /* 14px - slightly smaller but readable */
   }
 }
 
@@ -17091,12 +17090,13 @@ img[class*="project-"] {
 }
 
 /* REMOVED: Timeline line elements - replaced with grid system */
-/* .experience-timeline-line {
+/*
+.experience-timeline-line {
   position: absolute;
   left: 50%;
   top: 0;
   bottom: 0;
-  width: 3px; /* Clean, minimal width */
+  width: 3px;
   background: linear-gradient(
     to bottom,
     transparent 0%,
@@ -17106,7 +17106,7 @@ img[class*="project-"] {
   );
   transform: translateX(-50%);
   border-radius: 2px;
-  box-shadow: 0 0 8px rgba(255, 102, 99, 0.2); /* Subtle glow */
+  box-shadow: 0 0 8px rgba(255, 102, 99, 0.2);
 }
 
 .experience-timeline-progress {
@@ -17120,6 +17120,7 @@ img[class*="project-"] {
   transition: height 0.618s cubic-bezier(0.236, 0.618, 0.382, 1.0);
   box-shadow: 0 0 8px rgba(255, 102, 99, 0.3);
 }
+**/
 
 /* ALTERNATING TIMELINE CONTENT ARCHITECTURE */
 .experience-timeline-content {

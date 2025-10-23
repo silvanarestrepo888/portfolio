@@ -109,7 +109,8 @@ export default function Home() {
   
   // Timeline progress state - REMOVED: No longer using timeline
   
-  const projects = [
+  // Memoize projects array to prevent unnecessary re-renders
+  const projects = useMemo(() => [
     {
       title: "Kayanee",
       subtitle: "The First-of-Its-Kind Collective Saudi Wellness Experience Platform",
@@ -300,7 +301,7 @@ export default function Home() {
         role: "Qiddiya"
       }
     }
-  ];
+  ], []); // Empty dependency array - static data
 
   const projectCategories = ["ALL WORK", "EXPERIENCE DESIGN", "PRODUCT STRATEGY", "SERVICE DESIGN", "USER RESEARCH", "DESIGN OPS"];
   
