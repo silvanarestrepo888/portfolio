@@ -16703,27 +16703,46 @@ img[class*="project-"] {
   border: none !important;
 }
 
-/* EXPERIENCE TEXT HIGH CONTRAST VISIBILITY */
+/* SOPHISTICATED COLOR HIERARCHY - LANDOR STANDARDS */
 .experience-text-content h3,
-.experience-text-content p,
-.experience-year,
-.experience-role,
-.experience-company,
-.experience-description {
-  /* MAXIMUM CONTRAST FOR DARK BACKGROUND */
-  color: #FFFFFF !important; /* Pure white for maximum visibility */
-  text-shadow: none !important; /* Clean, no effects */
-  background: transparent !important;
-  font-weight: 400 !important; /* Readable weight */
+.experience-text-content p {
+  color: var(--charcoal-primary); /* Sophisticated body text */
+  text-shadow: none;
+  background: transparent;
+  font-weight: 400;
 }
 
-/* EXPERIENCE YEAR ACCENT */
+/* Individual Experience Element Styles - Sophisticated Hierarchy */
 .experience-year {
-  color: #FF6663 !important; /* Grapefruit accent for visual hierarchy */
-  font-weight: 600 !important; /* Stronger for accent */
-  font-size: 0.875rem !important; /* Compact year display */
-  margin-bottom: 0.25rem !important; /* Tight spacing */
+  color: var(--coral-primary); /* Strategic coral accent - refined */
+  font-weight: 600;
+  text-shadow: none;
+  background: transparent;
 }
+
+.experience-role {
+  color: var(--charcoal-deep); /* Sophisticated primary text */
+  font-weight: 600;
+  text-shadow: none;
+  background: transparent;
+}
+
+.experience-company {
+  color: var(--charcoal-medium); /* Refined secondary text */
+  font-weight: 500;
+  text-shadow: none;
+  background: transparent;
+}
+
+.experience-description {
+  color: var(--charcoal-primary); /* Sophisticated body text */
+  font-weight: 400;
+  text-shadow: none;
+  background: transparent;
+  opacity: 0.85; /* Subtle hierarchy through opacity */
+}
+
+/* EXPERIENCE YEAR ACCENT - MOVED TO SOPHISTICATED HIERARCHY ABOVE */
 
 /* ADDITIONAL COMPACTNESS OPTIMIZATIONS */
 .experience-text-content {
@@ -17117,7 +17136,7 @@ img[class*="project-"] {
 
 /* VISIBLE TEXT CONTAINERS - DESIGN SYSTEM COMPLIANT */
 .experience-text-container {
-  width: 280px; /* Adequate width for text visibility */
+  width: 400px; /* Enhanced width for sophisticated readability */
   background: var(--vanilla-foundation); /* Design system background */
   border: 1px solid var(--vanilla-depth); /* Design system border */
   border-radius: var(--space-sm); /* 8px rounded corners */
@@ -17146,7 +17165,7 @@ img[class*="project-"] {
 }
 
 .experience-text-container:hover {
-  width: 300px; /* Elegant expansion on hover */
+  width: 420px; /* Refined expansion on hover */
   transform: translateY(-2px); /* Minimal lift */
   box-shadow: 
     0 4px 16px rgba(0, 0, 0, 0.08),

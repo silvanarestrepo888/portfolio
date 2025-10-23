@@ -1091,7 +1091,7 @@ export default function Home() {
         className="experience-timeline-section"
         style={{ 
           minHeight: '100vh',
-          background: '#FDFCF8', /* Direct vanilla hex - FORCED ACCESSIBILITY */
+          background: 'var(--vanilla-whisper)', /* Design system sophistication */
           padding: '80px 0'
         }}
       >
@@ -1110,17 +1110,17 @@ export default function Home() {
               >
                 04
               </span>
-            <h2 className="typography-h2" style={{ color: 'var(--grapefruit-intelligence)', fontSize: '68px' }}> {/* Mathematical sizing: 42px x 1.618 */}
+            <h2 className="typography-h2" style={{ color: 'var(--charcoal-deep)', fontSize: '68px' }}> {/* Mathematical sizing: 42px x 1.618 - Sophisticated charcoal */}
                 Experience
               </h2>
             <p className="typography-body text-center max-w-3xl mx-auto" style={{ 
-              color: 'var(--grapefruit-intelligence)', /* System color */
+              color: 'var(--charcoal-primary)', /* Sophisticated charcoal */
               opacity: 0.8,
               lineHeight: '1.4',
               fontSize: '20px', /* Mathematical: var(--type-lg) */
               margin: '0 auto'
             }}>
-              Some of the <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>upscaling, reinventing, evolving,</span> and <span className="highlight-word" style={{ color: 'var(--grapefruit-intelligence)', fontWeight: '600' }}>reimagining</span> business, brands, and teams.
+              Some of the <span className="highlight-word" style={{ color: 'var(--coral-primary)', fontWeight: '600' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--coral-primary)', fontWeight: '600' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--coral-primary)', fontWeight: '600' }}>upscaling, reinventing, evolving,</span> and <span className="highlight-word" style={{ color: 'var(--coral-primary)', fontWeight: '600' }}>reimagining</span> business, brands, and teams.
             </p>
           </motion.div>
           
