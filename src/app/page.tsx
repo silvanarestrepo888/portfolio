@@ -10,7 +10,6 @@ import { FloatingNavigation } from '../components/navigation/FloatingNavigation'
 import { SectionIndicator } from '../components/navigation/SectionIndicator';
 import { useParallax } from '../hooks/useScrollAnimation';
 import { InteractiveProjectCard } from '../components/projects/InteractiveProjectCard';
-import { SilvanaLoader } from '../components/ui/SilvanaLoader';
 import { 
   AcceleratedInnovationIcon,
   ExperienceOrchestrationIcon,
@@ -26,18 +25,9 @@ export default function Home() {
   const [currentGalleryImage, setCurrentGalleryImage] = useState(0);
   const [galleryZoomOpen, setGalleryZoomOpen] = useState(false);
   const [heroImageZoom, setHeroImageZoom] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   
   // Enhanced scroll animations
   const parallaxTransform = useParallax(0.3);
-  
-  // Loading sequence like Stella's approach
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2500); // Sophisticated loading duration
-    return () => clearTimeout(timer);
-  }, []);
   
   // Foundation Project Exploration System
   const [featuredProjectIndex, setFeaturedProjectIndex] = useState(0);
@@ -446,10 +436,6 @@ export default function Home() {
   return (
     <div className="min-h-screen" style={{backgroundColor: '#fffbee'}}>
       
-      {/* SILVANA SIGNATURE LOADER - STELLA-INSPIRED */}
-      <AnimatePresence mode="wait">
-        {isLoading && <SilvanaLoader />}
-      </AnimatePresence>
       
       {/* ACCESSIBILITY - Skip Navigation Links */}
       <a 

@@ -5931,7 +5931,7 @@ a:focus-visible {
   
   body {
     background: var(--vanilla-whisper) !important; /* System color */
-    color: var(--grapefruit-intelligence) !important; /* System color */
+    color: #4A5568 !important; /* Warm charcoal for body text */
   }
 }
 
@@ -8911,7 +8911,7 @@ h4, .text-h4 {
   font-size: 68px; /* Mathematical: 42px × 1.618 = 68px */
   font-weight: 300;
   line-height: 1.1;
-  color: var(--grapefruit-intelligence); /* System color */
+  color: #4A5568; /* Warm charcoal for about title */
   margin-bottom: 26px; /* Mathematical: 16px × 1.618 = 26px */
   letter-spacing: -0.02em;
 }
@@ -8919,7 +8919,7 @@ h4, .text-h4 {
 .about-description-ultra-luxury {
   font-size: 26px; /* Mathematical: 16px × 1.618 = 26px */
   line-height: 1.618; /* Golden ratio */
-  color: var(--grapefruit-intelligence); /* System color */
+  color: #667080; /* Refined dark gray for about description */
   max-width: 800px;
   margin: 0 auto 42px auto; /* Mathematical bottom margin */
   font-weight: 300;
@@ -9927,7 +9927,7 @@ h4, .text-h4 {
   font-size: 68px; /* Mathematical: 42px × 1.618 = 68px */
   font-weight: 300;
   line-height: 1.1;
-  color: var(--grapefruit-intelligence); /* System color */
+  color: #4A5568; /* Warm charcoal for projects title */
   margin-bottom: 26px; /* Mathematical: 16px × 1.618 = 26px */
   letter-spacing: -0.02em;
 }
@@ -11160,7 +11160,7 @@ h4, .text-h4 {
 .balanced-title {
   font-size: 3rem;
   font-weight: 600;
-  color: var(--grapefruit-intelligence) !important; /* Grapefruit system color */
+  color: #4A5568 !important; /* Warm charcoal for project titles */
   margin: 0 0 1rem 0;
   line-height: 1.2;
   letter-spacing: -0.01em;
@@ -11195,14 +11195,14 @@ h4, .text-h4 {
 .balanced-subtitle {
   font-size: 1.125rem;
   font-weight: 600;
-  color: var(--grapefruit-intelligence) !important; /* Grapefruit system color */
+  color: #718096 !important; /* Sophisticated medium gray for subtitles */
   margin: 0 0 1rem 0;
   line-height: 1.4;
 }
 
 .balanced-description-text {
   font-size: 1rem;
-  color: var(--grapefruit-intelligence) !important; /* Grapefruit system color */
+  color: #667080 !important; /* Refined dark gray for descriptions */
   line-height: 1.6;
   margin: 0;
   font-weight: 400;
@@ -14043,13 +14043,13 @@ h4, .text-h4 {
   .capability-title,
   .excellence-title,
   .demand-title {
-    color: var(--grapefruit-intelligence) !important; /* System color instead of black */
+    color: #4A5568 !important; /* Warm charcoal for service titles */
   }
   
   .capability-description,
   .excellence-description,
   .demand-description {
-    color: var(--grapefruit-intelligence) !important; /* System color instead of black */
+    color: #667080 !important; /* Refined dark gray for service descriptions */
   }
 }
 
@@ -14093,7 +14093,7 @@ h4, .text-h4 {
 @media print {
   .service-grapefruit-container {
     background: var(--vanilla-whisper) !important; /* System color */
-    color: var(--grapefruit-intelligence) !important; /* System color */
+    color: #4A5568 !important; /* Warm charcoal for print */
     box-shadow: none !important;
   }
   
@@ -14102,7 +14102,7 @@ h4, .text-h4 {
     opacity: 1 !important;
     transform: none !important;
     background: var(--vanilla-whisper) !important; /* System color */
-    color: var(--grapefruit-intelligence) !important; /* System color */
+    color: #4A5568 !important; /* Warm charcoal for print */
   }
 }
 
