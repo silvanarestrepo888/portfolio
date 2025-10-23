@@ -43,6 +43,7 @@ export default function Home() {
   const [featuredProjectIndex, setFeaturedProjectIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   
   
 
@@ -365,22 +366,38 @@ export default function Home() {
     return () => window.removeEventListener('keydown', handleKeyNavigation);
   }, [featuredProjectIndex, filteredProjects.length, isAutoPlaying, goToProjectWithTransition]);
 
-  // Elegant Auto-carousel effect with sophisticated timing
+  // Detect prefers-reduced-motion for accessibility
   useEffect(() => {
-    if (!isAutoPlaying || filteredProjects.length <= 1) return;
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+    
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches);
+      if (e.matches) {
+        setIsAutoPlaying(false); // Disable autoplay for reduced motion
+      }
+    };
+    
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  // Cinematic Auto-carousel with Smooth Right→Left Flow
+  useEffect(() => {
+    if (!isAutoPlaying || filteredProjects.length <= 1 || prefersReducedMotion) return;
 
     const interval = setInterval(() => {
       setFeaturedProjectIndex(prev => {
         const nextIndex = prev === filteredProjects.length - 1 ? 0 : prev + 1;
         setIsTransitioning(true);
-        // Faster transition for cinematic feel
-        setTimeout(() => setIsTransitioning(false), 800);
+        // Smooth 1.2s cinematic transition
+        setTimeout(() => setIsTransitioning(false), 1200);
         return nextIndex;
       });
-    }, 3000); // Auto-advance every 3 seconds for faster, more cinematic experience
+    }, 4000); // 4 seconds per slide - luxurious, exploratory pace
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying, filteredProjects.length]);
+  }, [isAutoPlaying, filteredProjects.length, prefersReducedMotion]);
 
   // Scroll effect for parallax and progressive disclosure
   useEffect(() => {
@@ -843,18 +860,30 @@ export default function Home() {
                   </div>
             </motion.div>
             
-            {/* 3D INTERACTIVE PROJECT CAROUSEL - AWARD-WINNING */}
+            {/* CINEMATIC CAROUSEL - SMOOTH RIGHT→LEFT FLOW */}
             <motion.div 
               className="projects-3d-container"
               key={safeFeaturedProjectIndex}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ 
+                opacity: 0, 
+                x: 100, // Enter from RIGHT
+                scale: 0.95
+              }}
               animate={{ 
-                opacity: isTransitioning ? 0.95 : 1, 
-                y: 0
+                opacity: 1, 
+                x: 0, 
+                scale: 1
+              }}
+              exit={{ 
+                opacity: 0, 
+                x: -100, // Exit to LEFT
+                scale: 0.95
               }}
               transition={{
-                duration: isTransitioning ? 0.6 : 1.0, 
-                ease: [0.25, 0.46, 0.45, 0.94]
+                duration: 1.2, // Smooth 1.2s cinematic transition
+                ease: [0.25, 0.46, 0.45, 0.94], // Cubic bezier for elegance
+                opacity: { duration: 0.8 },
+                scale: { duration: 1.0 }
               }}
               onHoverStart={() => setIsAutoPlaying(false)}
               onHoverEnd={() => setIsAutoPlaying(true)}
@@ -864,7 +893,7 @@ export default function Home() {
                 index={safeFeaturedProjectIndex}
                 isActive={!isTransitioning}
                 onSelect={setSelectedProject}
-                className="project-card-3d-enter"
+                className="project-card-cinematic-flow"
               />
             </motion.div>
             
@@ -1292,8 +1321,8 @@ export default function Home() {
         >
           {/* ULTRA-PROMINENT NAVIGATION SYSTEM */}
           <div className="project-details-navigation-system">
-            <motion.button
-              onClick={() => setSelectedProject(null)}
+              <motion.button
+                onClick={() => setSelectedProject(null)}
               className="project-back-button-ultra"
               whileHover={{ scale: 1.05, x: -6 }}
               whileTap={{ scale: 0.98 }}
@@ -1303,7 +1332,7 @@ export default function Home() {
             >
               <span className="back-icon">←</span>
               <span className="back-text">back to projects</span>
-            </motion.button>
+              </motion.button>
             
             <motion.div 
               className="project-title-bar"
@@ -1596,7 +1625,7 @@ export default function Home() {
                     ))}
             </div>
                   </div>
-          
+                
           {/* SOPHISTICATED PROJECT NAVIGATION */}
           <div className="sophisticated-navigation-section">
             <motion.div 

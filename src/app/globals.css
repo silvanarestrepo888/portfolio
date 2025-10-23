@@ -16264,6 +16264,11 @@ img {
 .projects-3d-container {
   perspective: 1200px;
   perspective-origin: center center;
+  /* Cinematic Carousel: GPU Acceleration for Smooth 60fps */
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ENHANCED MAGNETIC BUTTONS FOR 3D */
