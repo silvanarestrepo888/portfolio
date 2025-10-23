@@ -231,7 +231,7 @@ export function InteractiveProjectCard({
                 </div>
               </motion.div>
               
-              {/* Project Details Button */}
+              {/* Project Action Buttons */}
               <motion.div 
                 className="balanced-actions"
                 initial={{ opacity: 0, y: 20 }}
@@ -239,7 +239,7 @@ export function InteractiveProjectCard({
                 transition={{ delay: index * 0.1 + 0.8 }}
               >
                 <motion.button
-                  className="balanced-btn primary project-details-btn"
+                  className="balanced-btn primary project-case-study-btn"
                   onClick={(e) => {
                     e.stopPropagation();
                     onSelect(index);
@@ -253,7 +253,7 @@ export function InteractiveProjectCard({
                   }}
                   style={{ transform: 'translateZ(20px)' }}
                 >
-                  View Details
+                  View Case Study
                   <motion.span 
                     className="btn-arrow"
                     animate={{ x: isHovered ? 4 : 0 }}
@@ -262,6 +262,35 @@ export function InteractiveProjectCard({
                     →
                   </motion.span>
                 </motion.button>
+                
+                {project.website && (
+                  <motion.a
+                    href={project.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="balanced-btn secondary project-website-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
+                    whileHover={{ 
+                      scale: 1.05,
+                      y: -2
+                    }}
+                    whileTap={{ 
+                      scale: 0.95 
+                    }}
+                    style={{ transform: 'translateZ(20px)' }}
+                  >
+                    Visit Client
+                    <motion.span 
+                      className="btn-external-icon"
+                      animate={{ x: isHovered ? 2 : 0, y: isHovered ? -2 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      ↗
+                    </motion.span>
+                  </motion.a>
+                )}
               </motion.div>
               
             </div>

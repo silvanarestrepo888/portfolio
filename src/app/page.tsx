@@ -841,19 +841,6 @@ export default function Home() {
                         ))}
                       </div>
                   </div>
-                  
-                  {/* Keyboard Navigation Hints */}
-                  <motion.div 
-                    className="keyboard-navigation-hints"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 1.2 }}
-                    viewport={{ once: true }}
-                  >
-                    <span className="keyboard-hint typography-caption">
-                      Use ← → arrow keys to navigate • Space to pause
-                    </span>
-                  </motion.div>
             </motion.div>
             
             {/* 3D INTERACTIVE PROJECT CAROUSEL - AWARD-WINNING */}
@@ -1558,19 +1545,13 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true, margin: "-50px" }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  console.log('Hero image clicked');
-                  setHeroImageZoom(true);
-                }}
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.01 }}
                 >
                   <Image
                     src={projects[selectedProject].image}
                     alt={projects[selectedProject].title}
-                    width={600}
-                    height={400}
+                    width={1200}
+                    height={800}
                     className="gallery-image-perfect"
                     style={{
                       width: '100%',
@@ -1578,11 +1559,8 @@ export default function Home() {
                       objectFit: 'cover',
                       objectPosition: 'center'
                     }}
-                    quality={100}
+                    quality={95}
                   />
-                <div className="gallery-overlay">
-                  <span className="zoom-text typography-caption">Click to explore</span>
-                </div>
                 </motion.div>
                 
               {/* Secondary Images - Only First 2 for Symmetrical 3-Image Gallery */}
@@ -1599,20 +1577,13 @@ export default function Home() {
                     stiffness: 100
                   }}
                   viewport={{ once: true, margin: "-50px" }}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          console.log('Gallery image clicked:', index);
-                          setCurrentGalleryImage(index);
-                          setGalleryZoomOpen(true);
-                        }}
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: 1.01 }}
                       >
                         <Image
                           src={image}
                           alt={`${projects[selectedProject].title} - Image ${index + 2}`}
-                          width={600}
-                          height={400}
+                          width={1200}
+                          height={800}
                           className="gallery-image-perfect"
                           style={{
                             width: '100%',
@@ -1620,7 +1591,7 @@ export default function Home() {
                             objectFit: 'cover',
                             objectPosition: 'center'
                           }}
-                          quality={100}
+                          quality={95}
                           onError={(e) => {
                             console.log('Gallery thumbnail load error:', image);
                             // Graceful fallback for gallery images
@@ -1631,9 +1602,6 @@ export default function Home() {
                             console.log('Gallery thumbnail loaded successfully:', image);
                           }}
                         />
-                  <div className="gallery-overlay">
-                    <span className="zoom-text typography-caption">Click to explore</span>
-                  </div>
                 </motion.div>
                     ))}
             </div>
@@ -1665,49 +1633,6 @@ export default function Home() {
             </motion.div>
           </div>
           
-           {/* PROJECT DETAILS FOOTER - COPY COMPLIANT */}
-           <footer className="project-details-footer-architectural">
-             <div className="footer-architectural-content">
-               <div className="footer-brand-architectural">
-                 <h3 className="footer-brand-name typography-h3">silvana.</h3>
-                 <p className="footer-brand-title typography-body">Principal Experience Architect</p>
-                 <p className="footer-brand-description typography-caption">
-                   Transforming business challenges into strategic advantages through experience-driven innovation.
-                 </p>
-               </div>
-               <div className="footer-contact-architectural">
-                 <h4 className="footer-contact-title-architectural typography-body">Contact</h4>
-                 <div className="footer-contact-links-architectural">
-                   <a 
-                     href="mailto:silvanarestrepo888@gmail.com"
-                     className="footer-contact-link-architectural typography-caption"
-                   >
-                     <Mail size={16} />
-                     Contact
-                   </a>
-                   <a 
-                     href="https://linkedin.com/in/silvanarestrepo"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     className="footer-contact-link-architectural typography-caption"
-                   >
-                     <Linkedin size={16} />
-                     LinkedIn
-                   </a>
-                   <a 
-                     href="https://silvana.mmm.page/human-perspective"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     className="footer-contact-link-architectural typography-caption"
-                   >
-                     <ExternalLink size={16} />
-                     Portfolio
-                   </a>
-                 </div>
-               </div>
-             </div>
-           </footer>
-                
           {/* SOPHISTICATED PROJECT NAVIGATION */}
           <div className="sophisticated-navigation-section">
             <motion.div 
@@ -1774,6 +1699,49 @@ export default function Home() {
                 </div>
             </motion.div>
             </div>
+          
+           {/* PROJECT DETAILS FOOTER - COPY COMPLIANT */}
+           <footer className="project-details-footer-architectural">
+             <div className="footer-architectural-content">
+               <div className="footer-brand-architectural">
+                 <h3 className="footer-brand-name typography-h3">silvana.</h3>
+                 <p className="footer-brand-title typography-body">Principal Experience Architect</p>
+                 <p className="footer-brand-description typography-caption">
+                   Transforming business challenges into strategic advantages through experience-driven innovation.
+                 </p>
+               </div>
+               <div className="footer-contact-architectural">
+                 <h4 className="footer-contact-title-architectural typography-body">Contact</h4>
+                 <div className="footer-contact-links-architectural">
+                   <a 
+                     href="mailto:silvanarestrepo888@gmail.com"
+                     className="footer-contact-link-architectural typography-caption"
+                   >
+                     <Mail size={16} />
+                     Contact
+                   </a>
+                   <a 
+                     href="https://linkedin.com/in/silvanarestrepo"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="footer-contact-link-architectural typography-caption"
+                   >
+                     <Linkedin size={16} />
+                     LinkedIn
+                   </a>
+                   <a 
+                     href="https://silvana.mmm.page/human-perspective"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="footer-contact-link-architectural typography-caption"
+                   >
+                     <ExternalLink size={16} />
+                     Portfolio
+                   </a>
+                 </div>
+               </div>
+             </div>
+           </footer>
         </motion.div>
       )}
 
