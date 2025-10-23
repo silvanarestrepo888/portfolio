@@ -1237,7 +1237,7 @@ export default function Home() {
                 href="mailto:silvanarestrepo888@gmail.com"
                   className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
               >
-                  <Mail size={16} />
+                  <Mail size={14} />
                 Contact
               </a>
               <a 
@@ -1246,14 +1246,14 @@ export default function Home() {
                 rel="noopener noreferrer"
                   className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
               >
-                  <Linkedin size={16} />
+                  <Linkedin size={14} />
                 Linkedin
               </a>
               <a 
                 href="#projects"
                   className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
               >
-                  <ExternalLink size={16} />
+                  <ExternalLink size={14} />
                 Projects
               </a>
               </div>
@@ -1703,30 +1703,30 @@ export default function Home() {
                  <div className="footer-contact-landor">
                    <h4 className="footer-contact-title-landor typography-body">Contact</h4>
                    <div className="footer-contact-links-landor">
-                     <a 
-                       href="mailto:silvanarestrepo888@gmail.com"
-                       className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
-                     >
-                       <Mail size={16} />
-                       Contact
-                     </a>
-                     <a 
-                       href="https://linkedin.com/in/silvanarestrepo"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
-                     >
-                       <Linkedin size={16} />
-                       Linkedin
-                     </a>
-                     <a 
-                       href="#projects"
-                       onClick={() => setSelectedProject(null)}
-                       className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
-                     >
-                       <ExternalLink size={16} />
-                       Projects
-                     </a>
+                    <a 
+                      href="mailto:silvanarestrepo888@gmail.com"
+                      className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
+                    >
+                      <Mail size={14} />
+                      Contact
+                    </a>
+                    <a 
+                      href="https://linkedin.com/in/silvanarestrepo"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
+                    >
+                      <Linkedin size={14} />
+                      Linkedin
+                    </a>
+                    <a 
+                      href="#projects"
+                      onClick={() => setSelectedProject(null)}
+                      className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
+                    >
+                      <ExternalLink size={14} />
+                      Projects
+                    </a>
                    </div>
                  </div>
                </div>
