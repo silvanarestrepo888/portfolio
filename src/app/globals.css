@@ -17456,27 +17456,26 @@ img[class*="project-"] {
   flex-shrink: 0;
 }
 
-/* Ultra-Luxury Compact Card - Grapefruit Accent */
+/* Ultra-Luxury Compact Card - BOLD GRAPEFRUIT BOXES */
 .experience-card-compact {
   width: 220px;
   padding: 1.25rem 1rem;
   background: linear-gradient(
     135deg,
-    rgba(255, 102, 99, 0.02) 0%,
-    rgba(255, 255, 255, 0.98) 50%,
-    rgba(255, 102, 99, 0.02) 100%
+    var(--grapefruit-intelligence) 0%,
+    #FF8C89 50%,
+    var(--grapefruit-intelligence) 100%
   );
-  border: 1px solid rgba(255, 102, 99, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 16px;
   text-align: center;
   box-shadow: 
-    0 8px 32px rgba(255, 102, 99, 0.08),
-    0 4px 16px rgba(255, 102, 99, 0.05),
-    0 0 0 1px rgba(255, 102, 99, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    0 12px 40px rgba(255, 102, 99, 0.35),
+    0 6px 20px rgba(255, 102, 99, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   position: relative;
   overflow: hidden;
 }
@@ -17487,46 +17486,67 @@ img[class*="project-"] {
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
+  height: 1px;
   background: linear-gradient(
     to right,
     transparent 0%,
-    var(--grapefruit-intelligence) 50%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 100%
+  );
+  opacity: 0.8;
+}
+
+.experience-card-compact::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 50%,
     transparent 100%
   );
   opacity: 0.5;
 }
 
-/* Card Typography - Charcoal System with Grapefruit Accents */
+/* Card Typography - VANILLA ON GRAPEFRUIT (Inverted Luxury) */
 .experience-year-compact {
   font-size: 0.75rem;
-  color: var(--grapefruit-intelligence);
+  color: rgba(255, 255, 255, 0.95);
   font-weight: 700;
   margin-bottom: 0.625rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  opacity: 0.9;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
 }
 
 .experience-company-compact {
   font-size: 1.125rem;
-  color: #2D3748;
-  font-weight: 700;
+  color: var(--vanilla-foundation);
+  font-weight: 800;
   margin-bottom: 0.5rem;
   letter-spacing: -0.01em;
   line-height: 1.2;
-  background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.15),
+    0 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
 }
 
 .experience-role-compact {
   font-size: 0.8125rem;
-  color: #667080;
+  color: rgba(255, 255, 255, 0.92);
   font-weight: 500;
   line-height: 1.3;
-  opacity: 0.9;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
 }
 
 /* Progress Indicator */
