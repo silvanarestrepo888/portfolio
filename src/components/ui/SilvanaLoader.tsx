@@ -23,9 +23,9 @@ export function SilvanaLoader() {
       >
         {/* Elegant Serif "S" - Signature Mark */}
         <motion.path
-          d="M 70,25 Q 50,15 30,25 Q 20,35 30,45 Q 45,52 60,50 Q 75,48 70,60 Q 65,72 50,75 Q 30,78 20,70"
+          d="M 65,20 C 55,15 40,15 30,22 C 20,29 20,40 30,47 C 40,54 55,54 60,50 C 62,48 62,52 60,54 C 55,59 40,65 28,72 C 20,77 15,82 20,85"
           stroke="var(--vanilla-whisper)"
-          strokeWidth="3"
+          strokeWidth="3.5"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"

@@ -339,12 +339,12 @@
 }
 
 .footer-brand-architectural h3 {
-  color: var(--grapefruit-intelligence);
+  color: #4A5568; /* Warm charcoal for footer brand */
   margin-bottom: 0.5rem;
 }
 
 .footer-brand-architectural p {
-  color: var(--grapefruit-intelligence);
+  color: #718096; /* Sophisticated medium gray for footer description */
   opacity: 0.8;
   margin-bottom: 0.75rem;
 }
@@ -356,7 +356,7 @@
 }
 
 .footer-contact-title-architectural {
-  color: var(--grapefruit-intelligence);
+  color: #4A5568; /* Warm charcoal for contact titles */
   margin: 0 0 0.5rem 0;
   font-weight: 500;
 }
@@ -371,7 +371,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--grapefruit-intelligence);
+  color: #667080; /* Refined dark gray for contact links */
   opacity: 0.8;
   text-decoration: none;
   transition: all 0.3s ease;
