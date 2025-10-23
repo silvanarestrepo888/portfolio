@@ -16730,7 +16730,7 @@ img[class*="project-"] {
   font-weight: 400;
 }
 
-/* ORGANIC WARM HIERARCHY - DANISH LUXURY */
+/* ELEGANT CHARCOAL GRADIENTS - SOPHISTICATED HIERARCHY */
 .experience-year {
   color: var(--coral-primary); /* Strategic coral accent */
   font-size: 0.8125rem; /* 13px */
@@ -16745,7 +16745,7 @@ img[class*="project-"] {
 }
 
 .experience-role {
-  color: #8B6F47; /* Warm cognac - Danish luxury */
+  color: #4A5568; /* Primary text - warm charcoal (not harsh black) */
   font-size: 1.125rem; /* 18px - prominent but refined */
   font-weight: 600;
   margin-bottom: 0.25rem;
@@ -16753,7 +16753,7 @@ img[class*="project-"] {
 }
 
 .experience-company {
-  color: #A0846D; /* Muted taupe - elegant secondary */
+  color: #718096; /* Secondary text - sophisticated medium gray */
   font-size: 1rem; /* 16px */
   font-weight: 500;
   font-style: italic;
@@ -16762,7 +16762,7 @@ img[class*="project-"] {
 }
 
 .experience-description {
-  color: #9D8B7A; /* Soft mushroom - organic readability */
+  color: #667080; /* Body text - refined dark gray */
   font-size: 0.875rem; /* 14px */
   font-weight: 400;
   line-height: 1.5;
@@ -17079,33 +17079,35 @@ img[class*="project-"] {
   margin: 0 auto;
 }
 
-/* HORIZONTAL GRID ARCHITECTURE - REPLACED TIMELINE */
-.experience-grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+/* HORIZONTAL TIMELINE ARCHITECTURE - ELEGANT & SPACE EFFICIENT */
+.experience-horizontal-timeline {
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto 0;
   width: 100%;
-  margin-top: 2rem;
 }
 
-/* Responsive Grid Breakpoints */
-@media (min-width: 1200px) {
-  .experience-grid-container {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
-  }
+.experience-timeline-row {
+  display: grid;
+  grid-template-columns: 140px 60px 1fr;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(74, 85, 104, 0.1);
+  transition: all 0.3s ease;
 }
 
-@media (min-width: 768px) and (max-width: 1199px) {
-  .experience-grid-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
-  }
+.experience-timeline-row:last-child {
+  border-bottom: none;
 }
 
-@media (max-width: 767px) {
-  .experience-grid-container {
-    grid-template-columns: 1fr; /* 1 column on mobile */
-    gap: 1rem;
-  }
+.experience-timeline-row:hover {
+  background: rgba(74, 85, 104, 0.02);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 0 -1.5rem;
 }
 
 /* REMOVED: Timeline line elements - replaced with grid system */
@@ -17198,24 +17200,43 @@ img[class*="project-"] {
   outline-offset: 4px;
 }
 
-/* ORGANIC LUXURY EXPERIENCE CARDS */
-.experience-card-optimized {
-  width: 100%; /* Full grid cell utilization */
-  background: var(--vanilla-foundation); /* Design system background */
-  border: 1px solid var(--vanilla-depth); /* Design system border */
-  border-radius: 12px; /* More refined corners */
-  box-shadow: 
-    0 4px 16px rgba(139, 111, 71, 0.08), /* Warm shadow using cognac color */
-    0 1px 4px rgba(139, 111, 71, 0.04);
-  padding: 1.5rem; /* Generous internal padding */
-  transition: all 0.618s cubic-bezier(0.236, 0.618, 0.382, 1.0);
-  cursor: pointer;
+/* TIMELINE COMPONENTS */
+.experience-year-column {
+  text-align: right;
+  padding-top: 0.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem; /* Consistent internal spacing */
+  align-items: flex-end;
+}
+
+.experience-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
-  overflow: visible; /* Allow content to show */
-  min-height: 120px; /* Adequate space for readable text */
+  padding-top: 0.5rem;
+}
+
+.experience-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--coral-primary);
+  border-radius: 50%;
+  border: 2px solid var(--vanilla-whisper);
+  box-shadow: 0 0 0 2px rgba(255, 102, 99, 0.1);
+  transition: all 0.3s ease;
+}
+
+.experience-timeline-row:hover .experience-dot {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 4px rgba(255, 102, 99, 0.2);
+}
+
+.experience-content-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 80px;
 }
 
 .experience-text-container::before {
@@ -17231,13 +17252,33 @@ img[class*="project-"] {
   transition: transform 0.618s cubic-bezier(0.236, 0.618, 0.382, 1.0);
 }
 
-.experience-card-optimized:hover {
-  transform: translateY(-4px); /* Elegant lift */
-  box-shadow: 
-    0 8px 32px rgba(139, 111, 71, 0.12), /* Enhanced warm shadow */
-    0 4px 16px rgba(139, 111, 71, 0.08),
-    0 0 0 1px rgba(255, 102, 99, 0.1); /* Subtle coral accent */
-  background: var(--vanilla-breath);
+/* RESPONSIVE TIMELINE BREAKPOINTS */
+@media (max-width: 768px) {
+  .experience-timeline-row {
+    grid-template-columns: 100px 40px 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+  
+  .experience-timeline-row:hover {
+    margin: 0 -1rem;
+    padding: 1rem;
+  }
+  
+  .experience-year-column {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-timeline-row {
+    grid-template-columns: 80px 30px 1fr;
+    gap: 0.75rem;
+  }
+  
+  .experience-horizontal-timeline {
+    margin: 1rem auto 0;
+  }
 }
 
 .experience-text-container:hover::before {

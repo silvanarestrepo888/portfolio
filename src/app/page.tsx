@@ -1092,22 +1092,22 @@ export default function Home() {
               >
                 04
               </span>
-            <h2 className="typography-h2" style={{ color: '#8B6F47', fontSize: '68px' }}> {/* Mathematical sizing: 42px x 1.618 - Warm cognac */}
+            <h2 className="typography-h2" style={{ color: '#4A5568', fontSize: '68px' }}> {/* Mathematical sizing: 42px x 1.618 - Elegant charcoal */}
                 Experience
               </h2>
             <p className="typography-body text-center max-w-3xl mx-auto" style={{ 
-              color: '#9D8B7A', /* Soft mushroom - organic readability */
+              color: '#667080', /* Body text - refined dark gray */
               opacity: 0.9,
               lineHeight: '1.4',
               fontSize: '20px', /* Mathematical: var(--type-lg) */
               margin: '0 auto'
             }}>
-              Some of the <span className="highlight-word" style={{ color: '#8B6F47', fontWeight: '600' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: '#8B6F47', fontWeight: '600' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: '#8B6F47', fontWeight: '600' }}>upscaling, reinventing, evolving,</span> and <span className="highlight-word" style={{ color: '#8B6F47', fontWeight: '600' }}>reimagining</span> business, brands, and teams.
+              Some of the <span className="highlight-word" style={{ color: 'var(--coral-primary)', fontWeight: '600' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--coral-primary)', fontWeight: '600' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--coral-primary)', fontWeight: '600' }}>upscaling, reinventing, evolving,</span> and <span className="highlight-word" style={{ color: 'var(--coral-primary)', fontWeight: '600' }}>reimagining</span> business, brands, and teams.
             </p>
           </motion.div>
           
-          {/* Horizontal Grid Experience Layout */}
-          <div className="experience-grid-container">
+          {/* Horizontal Timeline Experience Layout */}
+          <div className="experience-horizontal-timeline">
             {[
               {
                 year: "2020—2025",
@@ -1154,7 +1154,7 @@ export default function Home() {
             ].map((experience, index) => (
               <motion.div 
                 key={index} 
-                className="experience-card-optimized"
+                className="experience-timeline-row"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ 
                   opacity: 1, 
@@ -1166,19 +1166,31 @@ export default function Home() {
                   }
                 }}
                 viewport={{ once: true }}
-                whileHover={{
-                  y: -4,
-                  transition: { duration: 0.3 }
-                }}
               >
-                <div className="experience-header">
+                <div className="experience-year-column">
                   <span className="experience-year">{experience.year}</span>
-                  <div className="experience-primary">
-                    <h3 className="experience-role">{experience.role}</h3>
-                    <p className="experience-company">{experience.company}</p>
-                  </div>
                 </div>
-                <p className="experience-description">{experience.description}</p>
+                <div className="experience-connector">
+                  <motion.div 
+                    className="experience-dot"
+                    initial={{ scale: 0 }}
+                    whileInView={{ 
+                      scale: 1,
+                      transition: { 
+                        duration: 0.4,
+                        delay: 0.2 + (index * 0.1),
+                        type: "spring",
+                        bounce: 0.4
+                      }
+                    }}
+                    viewport={{ once: true }}
+                  />
+                </div>
+                <div className="experience-content-column">
+                  <h3 className="experience-role">{experience.role}</h3>
+                  <p className="experience-company">{experience.company}</p>
+                  <p className="experience-description">{experience.description}</p>
+                </div>
               </motion.div>
             ))}
           </div>
