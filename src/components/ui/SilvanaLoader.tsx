@@ -23,7 +23,7 @@ export function SilvanaLoader() {
       >
         {/* Elegant Serif "S" - Signature Mark */}
         <motion.path
-          d="M 35,25 Q 60,15 75,30 Q 85,45 70,55 Q 55,60 55,65 Q 55,70 65,75 Q 75,80 70,90 Q 60,100 35,90"
+          d="M 70,25 Q 50,15 30,25 Q 20,35 30,45 Q 45,52 60,50 Q 75,48 70,60 Q 65,72 50,75 Q 30,78 20,70"
           stroke="var(--vanilla-whisper)"
           strokeWidth="3"
           fill="none"
@@ -32,8 +32,7 @@ export function SilvanaLoader() {
           initial={{ pathLength: 0, opacity: 0 }}
           animate={{ 
             pathLength: 1, 
-            opacity: 1,
-            fill: ["transparent", "transparent", "var(--vanilla-whisper)"]
+            opacity: 1
           }}
           transition={{ 
             pathLength: {
@@ -44,28 +43,7 @@ export function SilvanaLoader() {
             opacity: {
               duration: 0.3,
               delay: 0.3
-            },
-            fill: {
-              duration: 0.5,
-              delay: 1.8
             }
-          }}
-        />
-        
-        {/* Subtle pulse after drawing completes */}
-        <motion.path
-          d="M 35,25 Q 60,15 75,30 Q 85,45 70,55 Q 55,60 55,65 Q 55,70 65,75 Q 75,80 70,90 Q 60,100 35,90"
-          stroke="none"
-          fill="var(--vanilla-whisper)"
-          initial={{ scale: 1, opacity: 0 }}
-          animate={{ 
-            scale: [1, 1.05, 1],
-            opacity: [0, 1, 1]
-          }}
-          transition={{ 
-            duration: 0.5,
-            delay: 1.8,
-            ease: "easeInOut"
           }}
         />
       </motion.svg>
