@@ -16712,34 +16712,58 @@ img[class*="project-"] {
   font-weight: 400;
 }
 
-/* Individual Experience Element Styles - Sophisticated Hierarchy */
+/* ORGANIC WARM HIERARCHY - DANISH LUXURY */
 .experience-year {
-  color: var(--coral-primary); /* Strategic coral accent - refined */
+  color: var(--coral-primary); /* Strategic coral accent */
+  font-size: 0.8125rem; /* 13px */
   font-weight: 600;
-  text-shadow: none;
-  background: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(255, 102, 99, 0.08);
+  border-radius: 20px;
 }
 
 .experience-role {
-  color: var(--charcoal-deep); /* Sophisticated primary text */
+  color: #8B6F47; /* Warm cognac - Danish luxury */
+  font-size: 1.125rem; /* 18px - prominent but refined */
   font-weight: 600;
-  text-shadow: none;
-  background: transparent;
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
 }
 
 .experience-company {
-  color: var(--charcoal-medium); /* Refined secondary text */
+  color: #A0846D; /* Muted taupe - elegant secondary */
+  font-size: 1rem; /* 16px */
   font-weight: 500;
-  text-shadow: none;
-  background: transparent;
+  font-style: italic;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
 }
 
 .experience-description {
-  color: var(--charcoal-primary); /* Sophisticated body text */
+  color: #9D8B7A; /* Soft mushroom - organic readability */
+  font-size: 0.875rem; /* 14px */
   font-weight: 400;
-  text-shadow: none;
-  background: transparent;
-  opacity: 0.85; /* Subtle hierarchy through opacity */
+  line-height: 1.5;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* CARD STRUCTURE ELEMENTS */
+.experience-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.experience-primary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 /* EXPERIENCE YEAR ACCENT - MOVED TO SOPHISTICATED HIERARCHY ABOVE */
@@ -16983,29 +17007,28 @@ img[class*="project-"] {
 /* ========================================== */
 
 /* ========================================== */
-/* DESIGN SYSTEM COMPLIANT TIMELINE - COHESIVE STORY */
-/* Alternating Layout + Visual Accessibility + 2-Scroll Experience */
+/* HORIZONTAL GRID EXPERIENCE SECTION - DANISH LUXURY */
+/* Maximum Space Utilization + Organic Warm Hierarchy */
 /* ========================================== */
 
 .experience-timeline-section {
   position: relative;
-  min-height: 80vh; /* Optimized for 2-scroll experience */
-  padding: var(--space-lg) 0; /* 24px top/bottom for compactness */
+  min-height: auto; /* Content-driven height */
+  padding: 4rem 0; /* Generous but efficient spacing */
   background: var(--vanilla-whisper); /* Design system background */
-  overflow: hidden;
 }
 
 .experience-timeline-container {
-  max-width: 1000px; /* Reduced for compact timeline */
+  max-width: 1400px; /* Full utilization instead of 1000px */
   margin: 0 auto;
-  padding: 0 var(--space-lg); /* Consistent 24px horizontal padding */
+  padding: 0 2rem; /* Horizontal breathing room */
   position: relative;
 }
 
 /* SECTION HEADER - MATCHING OTHER SECTIONS EXACTLY */
 .experience-timeline-header {
   text-align: center;
-  margin-bottom: var(--space-lg); /* 24px for compactness */
+  margin-bottom: 3rem; /* Ample space before content */
 }
 
 .experience-timeline-header .section-number {
@@ -17038,16 +17061,37 @@ img[class*="project-"] {
   margin: 0 auto;
 }
 
-.experience-timeline-wrapper {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 50vh; /* Compact for 2-scroll experience */
+/* HORIZONTAL GRID ARCHITECTURE - REPLACED TIMELINE */
+.experience-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  margin-top: 2rem;
 }
 
-/* PREMIUM TIMELINE LINE - DESIGN SYSTEM COMPLIANT */
-.experience-timeline-line {
+/* Responsive Grid Breakpoints */
+@media (min-width: 1200px) {
+  .experience-grid-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .experience-grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+  }
+}
+
+@media (max-width: 767px) {
+  .experience-grid-container {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+    gap: 1rem;
+  }
+}
+
+/* REMOVED: Timeline line elements - replaced with grid system */
+/* .experience-timeline-line {
   position: absolute;
   left: 50%;
   top: 0;
@@ -17134,18 +17178,21 @@ img[class*="project-"] {
   outline-offset: 4px;
 }
 
-/* VISIBLE TEXT CONTAINERS - DESIGN SYSTEM COMPLIANT */
-.experience-text-container {
-  width: 400px; /* Enhanced width for sophisticated readability */
+/* ORGANIC LUXURY EXPERIENCE CARDS */
+.experience-card-optimized {
+  width: 100%; /* Full grid cell utilization */
   background: var(--vanilla-foundation); /* Design system background */
   border: 1px solid var(--vanilla-depth); /* Design system border */
-  border-radius: var(--space-sm); /* 8px rounded corners */
+  border-radius: 12px; /* More refined corners */
   box-shadow: 
-    0 2px 8px rgba(0, 0, 0, 0.04),
-    0 1px 4px rgba(0, 0, 0, 0.02);
-  padding: var(--space-md); /* 16px internal padding for text breathing room */
+    0 4px 16px rgba(139, 111, 71, 0.08), /* Warm shadow using cognac color */
+    0 1px 4px rgba(139, 111, 71, 0.04);
+  padding: 1.5rem; /* Generous internal padding */
   transition: all 0.618s cubic-bezier(0.236, 0.618, 0.382, 1.0);
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Consistent internal spacing */
   position: relative;
   overflow: visible; /* Allow content to show */
   min-height: 120px; /* Adequate space for readable text */
@@ -17164,13 +17211,12 @@ img[class*="project-"] {
   transition: transform 0.618s cubic-bezier(0.236, 0.618, 0.382, 1.0);
 }
 
-.experience-text-container:hover {
-  width: 420px; /* Refined expansion on hover */
-  transform: translateY(-2px); /* Minimal lift */
+.experience-card-optimized:hover {
+  transform: translateY(-4px); /* Elegant lift */
   box-shadow: 
-    0 4px 16px rgba(0, 0, 0, 0.08),
-    0 2px 8px rgba(0, 0, 0, 0.04),
-    0 0 0 1px rgba(255, 102, 99, 0.1);
+    0 8px 32px rgba(139, 111, 71, 0.12), /* Enhanced warm shadow */
+    0 4px 16px rgba(139, 111, 71, 0.08),
+    0 0 0 1px rgba(255, 102, 99, 0.1); /* Subtle coral accent */
   background: var(--vanilla-breath);
 }
 
