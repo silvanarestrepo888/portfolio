@@ -19837,5 +19837,57 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 }
 
 /* ========================================== */
+/* PROMINENT CAROUSEL NAVIGATION CONTROLS */
+/* Intuitive Manual Navigation + Play/Pause */
+/* ========================================== */
+
+.carousel-navigation-prominent {
+  /* Center-aligned navigation controls */
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.carousel-nav-button {
+  /* Professional navigation buttons */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 102, 99, 0.3);
+}
+
+.carousel-nav-button:hover {
+  box-shadow: 0 6px 20px rgba(255, 102, 99, 0.4);
+  transform: translateY(-1px);
+}
+
+.carousel-play-pause {
+  /* Dynamic play/pause styling */
+  transition: all 0.3s ease;
+  min-width: 100px;
+  justify-content: center;
+}
+
+.carousel-play-pause:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive navigation */
+@media (max-width: 768px) {
+  .carousel-navigation-prominent {
+    flex-direction: column;
+    gap: 1rem !important;
+  }
+  
+  .carousel-nav-button {
+    width: 100%;
+    max-width: 200px;
+    justify-content: center;
+  }
+  
+  .carousel-play-pause {
+    order: -1; /* Show play/pause first on mobile */
+  }
+}
+
+/* ========================================== */
 /* END CINEMATIC PROJECT IMAGERY */
 /* ========================================== */

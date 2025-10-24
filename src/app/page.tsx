@@ -435,7 +435,7 @@ export default function Home() {
         setTimeout(() => setIsTransitioning(false), 1200);
         return nextIndex;
       });
-    }, 4000); // 4 seconds per slide - luxurious, exploratory pace
+    }, 3000); // 3 seconds per slide - more engaging pace
 
     return () => clearInterval(interval);
   }, [isAutoPlaying, filteredProjects.length, prefersReducedMotion]);
@@ -833,43 +833,120 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            {/* Sophisticated Carousel Indicators */}
+            {/* PROMINENT MANUAL NAVIGATION CONTROLS */}
             <motion.div 
-              className="sophisticated-carousel-indicators"
+              className="carousel-navigation-prominent"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.0 }}
               viewport={{ once: true }}
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '2rem',
+                marginBottom: '2rem'
+              }}
             >
-              <div className="carousel-status">
-                <div className="auto-play-indicator">
-                  <div className={`auto-play-dot ${isAutoPlaying ? 'playing' : 'paused'}`}></div>
-                  <span className="auto-play-text">
-                    {isAutoPlaying ? 'Auto-playing' : 'Paused'}
-                  </span>
+              {/* Previous Button */}
+              <motion.button
+                onClick={() => {
+                  const prevIndex = safeFeaturedProjectIndex === 0 
+                    ? filteredProjects.length - 1 
+                    : safeFeaturedProjectIndex - 1;
+                  goToProjectWithTransition(prevIndex);
+                  setIsAutoPlaying(false);
+                }}
+                className="carousel-nav-button"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  padding: '12px 20px',
+                  background: 'var(--grapefruit-intelligence)',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '50px',
+                  fontSize: '0.875rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-architectural-body)'
+                }}
+                whileHover={{ 
+                  scale: 1.05,
+                  backgroundColor: '#E55A5A'
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                ← Previous
+              </motion.button>
+
+              {/* Play/Pause Control */}
+              <motion.button
+                onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+                className="carousel-play-pause"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  padding: '10px 16px',
+                  background: isAutoPlaying ? 'rgba(255, 102, 99, 0.1)' : 'rgba(74, 85, 104, 0.1)',
+                  color: isAutoPlaying ? 'var(--grapefruit-intelligence)' : '#4A5568',
+                  border: `1px solid ${isAutoPlaying ? 'var(--grapefruit-intelligence)' : '#4A5568'}`,
+                  borderRadius: '50px',
+                  fontSize: '0.875rem',
+                  fontWeight: '500',
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-architectural-body)'
+                }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {isAutoPlaying ? '⏸ Pause' : '▶ Play'}
+              </motion.button>
+              
+              {/* Project Counter */}
+              <div 
+                style={{
+                  color: '#4A5568',
+                  fontSize: '0.875rem',
+                  fontWeight: '500',
+                  fontFamily: 'var(--font-architectural-body)'
+                }}
+              >
+                {safeFeaturedProjectIndex + 1} / {filteredProjects.length}
               </div>
-                
-                <div className="project-counter">
-                  <span className="current-project">{safeFeaturedProjectIndex + 1}</span>
-                  <span className="divider">/</span>
-                  <span className="total-projects">{filteredProjects.length}</span>
-                    </div>
-                  </div>
-                  
-              {/* Upcoming Projects Preview */}
-              <div className="upcoming-projects-preview">
-                <div className="upcoming-label">Coming Up</div>
-                <div className="upcoming-thumbnails">
-                  {filteredProjects.slice(safeFeaturedProjectIndex + 1, safeFeaturedProjectIndex + 4).map((project, index) => (
-                    <div 
-                      key={`upcoming-${index}`}
-                      className="upcoming-thumbnail"
-                      style={{ backgroundImage: `url(${project.image})` }}
-                      onClick={() => goToProjectWithTransition(safeFeaturedProjectIndex + index + 1)}
-                    />
-                        ))}
-                      </div>
-                  </div>
+
+              {/* Next Button */}
+              <motion.button
+                onClick={() => {
+                  const nextIndex = (safeFeaturedProjectIndex + 1) % filteredProjects.length;
+                  goToProjectWithTransition(nextIndex);
+                  setIsAutoPlaying(false);
+                }}
+                className="carousel-nav-button"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  padding: '12px 20px',
+                  background: 'var(--grapefruit-intelligence)',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '50px',
+                  fontSize: '0.875rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-architectural-body)'
+                }}
+                whileHover={{ 
+                  scale: 1.05,
+                  backgroundColor: '#E55A5A'
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Next →
+              </motion.button>
             </motion.div>
             
             {/* CINEMATIC CAROUSEL - SMOOTH RIGHT→LEFT FLOW */}

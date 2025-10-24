@@ -124,16 +124,16 @@ export function InteractiveProjectCard({
             }}
           >
             <div className="cinematic-image-layers">
-              {/* Main Project Image with Ken Burns Effect */}
+              {/* Main Project Image with Enhanced Ken Burns Effect */}
               <motion.div
                 className="cinematic-main-image"
                 animate={{
-                  scale: [1, 1.02, 1],
-                  x: [0, 3, 0],
-                  y: [0, -2, 0]
+                  scale: [1, 1.05, 1],
+                  x: [0, 8, 0],
+                  y: [0, -5, 0]
                 }}
                 transition={{
-                  duration: 8,
+                  duration: 4, /* Faster, more engaging */
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
@@ -147,7 +147,7 @@ export function InteractiveProjectCard({
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover"
+                  className="object-contain" /* Shows full image without cropping */
                   style={{
                     objectPosition: 'center',
                     filter: 'contrast(1.05) saturate(1.1)'
@@ -176,7 +176,7 @@ export function InteractiveProjectCard({
                       src={project.galleryImages[galleryIndex] || project.secondaryImage}
                       alt={`${project.title} - Gallery preview ${galleryIndex + 1}`}
                       fill
-                      className="object-cover"
+                      className="object-contain" /* Better fitting for gallery preview too */
                       style={{
                         objectPosition: 'center'
                       }}
