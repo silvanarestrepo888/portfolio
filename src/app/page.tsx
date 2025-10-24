@@ -19,7 +19,6 @@ import {
   CustomerIntelligenceIcon
 } from '../components/icons/services';
 import { ExperienceTimeline } from '../components/ui/ExperienceTimeline';
-import { SilvanaLoader } from '../components/ui/SilvanaLoader';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -27,7 +26,6 @@ export default function Home() {
   const [currentGalleryImage, setCurrentGalleryImage] = useState(0);
   const [galleryZoomOpen, setGalleryZoomOpen] = useState(false);
   const [heroImageZoom, setHeroImageZoom] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   
   // Android viewport height fix
   useEffect(() => {
@@ -44,14 +42,6 @@ export default function Home() {
       window.removeEventListener('resize', setVH);
       window.removeEventListener('orientationchange', setVH);
     };
-  }, []);
-  
-  // Stella-inspired loading sequence - FAST
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1200); // 1.2 seconds - fast, not making users wait
-    return () => clearTimeout(timer);
   }, []);
   
   // Enhanced scroll animations
@@ -459,9 +449,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen" style={{backgroundColor: '#fffbee'}}>
-      
-      {/* STELLA-INSPIRED SIGNATURE LOADER */}
-      {isLoading && <SilvanaLoader />}
       
       {/* ACCESSIBILITY - Skip Navigation Links */}
       <a 
