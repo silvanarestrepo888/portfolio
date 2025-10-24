@@ -2,26 +2,26 @@
 
 import { motion } from 'framer-motion';
 
-// Pure company names - ultra-clean
+// Sophisticated company names - elegant normal case
 const companies = [
-  "GLOBANT",
-  "CENTRE FOR FOURTH INDUSTRIAL REVOLUTION-WEF", 
-  "DESIGNIT A WIPRO COMPANY",
-  "GRUPO ÉXITO",
-  "INDUSTRIAS HACEB",
-  "INDEPENDENT",
-  "TIGO-MILLICOM"
+  "Globant",
+  "Centre for Fourth Industrial Revolution-WEF", 
+  "Designit a Wipro Company",
+  "Grupo Éxito",
+  "Industrias HACEB",
+  "Independent",
+  "TIGO-Millicom"
 ];
 
-// Pure role titles - ultra-clean
+// Sophisticated role titles - elegant normal case
 const roles = [
-  "BUSINESS PARTNER & EXPERIENCE ARCHITECT",
-  "ECOSYSTEM ENGAGEMENT LEADER", 
-  "STRATEGIC DESIGN DIRECTOR",
-  "MARKETING DIRECTOR",
-  "BUSINESS INTELLIGENCE MANAGER",
-  "INDEPENDENT ADVISOR",
-  "SENIOR MARKETING ANALYST"
+  "Business Partner & Experience Architect",
+  "Ecosystem Engagement Leader", 
+  "Strategic Design Director",
+  "Marketing Director",
+  "Business Intelligence Manager",
+  "Independent Advisor",
+  "Senior Marketing Analyst"
 ];
 
 export function ExperienceTimeline() {
@@ -32,12 +32,15 @@ export function ExperienceTimeline() {
   return (
     <section 
       id="experience"
-      className="experience-infinite-section"
+      className="experience-infinite-section luxury-background-texture section-about-sophisticated section-transition-sophisticated"
       style={{
-        background: 'var(--vanilla-foundation)', /* Vanilla Panna Cotta */
         padding: '6rem 0',
         overflow: 'hidden',
-        position: 'relative'
+        position: 'relative',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
       }}
     >
       {/* Section Header - Consistent with other sections */}
@@ -69,14 +72,17 @@ export function ExperienceTimeline() {
           viewport={{ once: true }}
           style={{ marginBottom: '4rem' }}
         >
-          Two decades of transforming global brands through strategic partnerships and innovative solutions.
+          Some of the <span className="highlight-word" style={{ color: 'var(--coral-primary)', fontWeight: '600' }}>hats</span> I have worn over more than <span className="highlight-word" style={{ color: 'var(--coral-primary)', fontWeight: '600' }}>20 years</span> of non-stop, continuous <span className="highlight-word" style={{ color: 'var(--coral-primary)', fontWeight: '600' }}>upscaling, reinventing, evolving,</span> and <span className="highlight-word" style={{ color: 'var(--coral-primary)', fontWeight: '600' }}>reimagining</span> business, brands, and teams.
         </motion.p>
       </motion.div>
 
-      {/* Infinite Loop Typography - Stella's Inspiration */}
-      <div className="experience-infinite-container">
+      {/* Sophisticated Container Frame - Integrated Design */}
+      <div className="experience-integrated-frame">
         
-        {/* Top Row - Companies (Right to Left) */}
+        {/* Infinite Loop Typography - Stella's Inspiration */}
+        <div className="experience-infinite-container">
+          
+          {/* Top Row - Companies (Right to Left) */}
         <div className="experience-loop-track" style={{ marginBottom: '0.75rem' }}>
           <motion.div
             className="experience-loop-content"
@@ -92,7 +98,7 @@ export function ExperienceTimeline() {
               display: 'flex',
               alignItems: 'center',
               whiteSpace: 'nowrap',
-              fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', /* More elegant, Danish sizing */
+              fontSize: 'clamp(1.2rem, 2.5vw, 2rem)', /* Integrated, balanced sizing */
               fontFamily: 'var(--font-architectural-display)',
               fontWeight: '400', /* More substantial, Danish sophistication */
               color: 'var(--grapefruit-intelligence)',
@@ -132,7 +138,7 @@ export function ExperienceTimeline() {
               display: 'flex',
               alignItems: 'center',
               whiteSpace: 'nowrap',
-              fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', /* More elegant, Danish sizing */
+              fontSize: 'clamp(1.2rem, 2.5vw, 2rem)', /* Integrated, balanced sizing */
               fontFamily: 'var(--font-architectural-display)',
               fontWeight: '400', /* More substantial, Danish sophistication */
               color: 'var(--grapefruit-intelligence)',
@@ -156,8 +162,9 @@ export function ExperienceTimeline() {
           </motion.div>
         </div>
       </div>
+      </div>
 
-      {/* Organic Element - Bottom Accent */}
+      {/* Sophisticated Integration Accent */}
       <motion.div 
         className="experience-organic-accent"
         initial={{ opacity: 0, y: 20 }}
@@ -166,15 +173,11 @@ export function ExperienceTimeline() {
         viewport={{ once: true }}
         style={{
           textAlign: 'center',
-          marginTop: '4rem',
-          fontSize: '0.875rem',
-          fontFamily: 'var(--font-architectural-body)',
-          color: 'var(--grapefruit-intelligence)',
-          opacity: 0.7,
-          letterSpacing: '0.1em'
+          marginTop: '3rem',
+          fontSize: '0.875rem'
         }}
       >
-        ∞ CONTINUOUS EVOLUTION ∞
+        Two decades of continuous evolution
       </motion.div>
     </section>
   );

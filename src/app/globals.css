@@ -18542,9 +18542,21 @@ img[class*="project-"] {
 
 .experience-infinite-section {
   position: relative;
-  background: var(--vanilla-foundation); /* Vanilla Panna Cotta */
+  /* Background now handled by luxury-background-texture class */
   overflow: hidden;
   padding: 6rem 0;
+}
+
+/* Sophisticated Container Frame - Integrated Design */
+.experience-integrated-frame {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem;
+  background: rgba(253, 252, 248, 0.05); /* Subtle vanilla overlay */
+  border: 1px solid rgba(253, 252, 248, 0.1); /* Elegant border */
+  border-radius: 12px; /* Sophisticated corners */
+  /* NO box-shadow - ultra-clean approach */
+  position: relative;
 }
 
 .experience-infinite-container {
@@ -18572,16 +18584,16 @@ img[class*="project-"] {
   transform: translateZ(0);
   /* Ultra-sophisticated typography */
   font-family: var(--font-architectural-display);
-  font-weight: 300; /* Danish elegance */
+  font-weight: 400; /* More substantial, Danish sophistication */
   color: var(--grapefruit-intelligence);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em; /* Less edgy, more refined */
+  /* NO text-transform - elegant normal case */
 }
 
 /* Responsive Typography Scaling */
 @media (max-width: 768px) {
   .experience-loop-content {
-    font-size: clamp(1.5rem, 6vw, 2.5rem) !important;
+    font-size: clamp(1rem, 4vw, 1.5rem) !important; /* Balanced mobile sizing */
   }
   
   .experience-infinite-container {
@@ -18591,15 +18603,23 @@ img[class*="project-"] {
   .experience-loop-track {
     margin-bottom: 2rem !important;
   }
+  
+  .experience-integrated-frame {
+    margin: 0 1rem;
+    padding: 2rem;
+    max-width: calc(100vw - 2rem);
+  }
 }
 
-/* Organic Accent Styling */
+/* Sophisticated Accent Styling - Integrated */
 .experience-organic-accent {
   font-family: var(--font-architectural-body);
   color: var(--grapefruit-intelligence);
-  opacity: 0.7;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  opacity: 0.6;
+  letter-spacing: 0.05em;
+  font-weight: 300;
+  font-style: italic;
+  /* NO text-transform - elegant sophistication */
 }
 
 /* Performance Optimization */
