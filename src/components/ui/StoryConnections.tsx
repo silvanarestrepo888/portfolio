@@ -4,257 +4,113 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 export function StoryConnections() {
-  const [activeConnection, setActiveConnection] = useState<string | null>(null);
+  const [activeConnection, setActiveConnection] = useState<string | null>('test'); // Start with test value
 
   useEffect(() => {
     const handleScroll = () => {
       const windowHeight = window.innerHeight;
+      const scrollY = window.scrollY;
       
-      // Detect section transitions for connection lines
-      const sections = ['hero', 'about', 'projects', 'services', 'experience'];
-      let currentConnection = null;
+      // Simple scroll-based detection
+      const scrollRatio = scrollY / windowHeight;
       
-      sections.forEach((sectionId, index) => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          const sectionMiddle = rect.top + rect.height / 2;
-          
-          // Trigger connection when section is in middle of viewport
-          if (sectionMiddle > windowHeight * 0.4 && sectionMiddle < windowHeight * 0.6) {
-            if (index > 0) {
-              const prevSection = sections[index - 1];
-              currentConnection = `${prevSection}-to-${sectionId}`;
-            }
-          }
-        }
-      });
-      
-      setActiveConnection(currentConnection);
-    };
-
-    // Add scroll listener with throttling for performance
-    let ticking = false;
-    const throttledScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
-        });
-        ticking = true;
+      if (scrollRatio > 0.5 && scrollRatio < 1.2) {
+        setActiveConnection('hero-to-about');
+      } else if (scrollRatio > 1.5 && scrollRatio < 2.2) {
+        setActiveConnection('about-to-projects');
+      } else if (scrollRatio > 2.5 && scrollRatio < 3.2) {
+        setActiveConnection('projects-to-services');
+      } else if (scrollRatio > 3.5 && scrollRatio < 4.2) {
+        setActiveConnection('services-to-experience');
+      } else {
+        setActiveConnection(null);
       }
     };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial check
     
-    window.addEventListener('scroll', throttledScroll, { passive: true });
-    
-    return () => {
-      window.removeEventListener('scroll', throttledScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <div 
-      className="story-connections-overlay"
       style={{
         position: 'fixed',
         inset: 0,
-        pointerEvents: 'none', // Don't interfere with existing interactions
-        zIndex: 5, // Below navigation but above content
+        pointerEvents: 'none',
+        zIndex: 50, // Higher z-index to ensure visibility
         overflow: 'hidden'
       }}
     >
-      {/* Connection: Hero → About */}
-      <motion.svg
-        className="connection-line hero-to-about"
+      {/* Always visible test element to verify component is rendering */}
+      <div
         style={{
           position: 'absolute',
-          top: '50%',
-          left: '20%',
-          width: '300px',
-          height: '200px',
-          opacity: activeConnection === 'hero-to-about' ? 1 : 0,
-          transition: 'opacity 0.8s ease'
+          top: '20px',
+          right: '20px',
+          padding: '10px',
+          background: 'rgba(255, 102, 99, 0.9)',
+          color: 'white',
+          borderRadius: '8px',
+          fontSize: '12px',
+          fontWeight: 'bold',
+          zIndex: 100
         }}
-        viewBox="0 0 300 200"
       >
-        <motion.path
-          d="M 50,100 Q 150,50 250,100"
-          stroke="#4A5568"
-          strokeWidth="1"
-          fill="none"
-          strokeDasharray="3,3"
-          initial={{ pathLength: 0 }}
-          animate={{ 
-            pathLength: activeConnection === 'hero-to-about' ? 1 : 0 
-          }}
-          transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-        />
-        
-        {/* Subtle connection text */}
-        <motion.text
-          x="150"
-          y="60"
-          textAnchor="middle"
-          style={{
-            fontSize: '0.75rem',
-            fontFamily: 'var(--font-architectural-body)',
-            color: '#4A5568',
-            opacity: 0.6,
-            fontStyle: 'italic'
-          }}
-          initial={{ opacity: 0 }}
-          animate={{ 
-            opacity: activeConnection === 'hero-to-about' ? 0.6 : 0 
-          }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          The spark of curiosity becomes...
-        </motion.text>
-      </motion.svg>
+        DEBUG: {activeConnection || 'No Connection'}
+      </div>
 
-      {/* Connection: About → Projects */}
-      <motion.svg
-        className="connection-line about-to-projects"
-        style={{
-          position: 'absolute',
-          top: '50%',
-          right: '20%',
-          width: '300px',
-          height: '200px',
-          opacity: activeConnection === 'about-to-projects' ? 1 : 0,
-          transition: 'opacity 0.8s ease'
-        }}
-        viewBox="0 0 300 200"
-      >
-        <motion.path
-          d="M 50,100 Q 150,150 250,100"
-          stroke="#4A5568"
-          strokeWidth="1"
-          fill="none"
-          strokeDasharray="3,3"
-          initial={{ pathLength: 0 }}
-          animate={{ 
-            pathLength: activeConnection === 'about-to-projects' ? 1 : 0 
+      {/* Simple visible connection line that should definitely appear */}
+      {activeConnection && (
+        <motion.div
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '400px',
+            height: '3px',
+            background: 'linear-gradient(to right, #4A5568, transparent, #4A5568)',
+            transformOrigin: 'center',
           }}
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 0.8 }}
+          exit={{ scaleX: 0, opacity: 0 }}
           transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
         />
-        
-        <motion.text
-          x="150"
-          y="140"
-          textAnchor="middle"
+      )}
+      
+      {/* Connection text overlay */}
+      {activeConnection && (
+        <motion.div
           style={{
-            fontSize: '0.75rem',
-            fontFamily: 'var(--font-architectural-body)',
+            position: 'absolute',
+            top: '48%',
+            left: '50%',
+            transform: 'translateX(-50%)',
             color: '#4A5568',
-            opacity: 0.6,
-            fontStyle: 'italic'
+            fontSize: '0.875rem',
+            fontStyle: 'italic',
+            fontFamily: 'var(--font-architectural-body)',
+            textAlign: 'center',
+            whiteSpace: 'nowrap',
+            background: 'rgba(255, 255, 255, 0.9)',
+            padding: '4px 12px',
+            borderRadius: '20px',
+            border: '1px solid rgba(74, 85, 104, 0.2)'
           }}
-          initial={{ opacity: 0 }}
-          animate={{ 
-            opacity: activeConnection === 'about-to-projects' ? 0.6 : 0 
-          }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          ...strategic expertise across...
-        </motion.text>
-      </motion.svg>
-
-      {/* Connection: Projects → Services */}
-      <motion.svg
-        className="connection-line projects-to-services"
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: '30%',
-          width: '400px',
-          height: '150px',
-          opacity: activeConnection === 'projects-to-services' ? 1 : 0,
-          transition: 'opacity 0.8s ease'
-        }}
-        viewBox="0 0 400 150"
-      >
-        <motion.path
-          d="M 50,75 Q 200,25 350,75"
-          stroke="#4A5568"
-          strokeWidth="1"
-          fill="none"
-          strokeDasharray="3,3"
-          initial={{ pathLength: 0 }}
-          animate={{ 
-            pathLength: activeConnection === 'projects-to-services' ? 1 : 0 
-          }}
-          transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-        />
-        
-        <motion.text
-          x="200"
-          y="40"
-          textAnchor="middle"
-          style={{
-            fontSize: '0.75rem',
-            fontFamily: 'var(--font-architectural-body)',
-            color: '#4A5568',
-            opacity: 0.6,
-            fontStyle: 'italic'
-          }}
-          initial={{ opacity: 0 }}
-          animate={{ 
-            opacity: activeConnection === 'projects-to-services' ? 0.6 : 0 
-          }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          ...crystallized into...
-        </motion.text>
-      </motion.svg>
-
-      {/* Connection: Services → Experience */}
-      <motion.svg
-        className="connection-line services-to-experience"
-        style={{
-          position: 'absolute',
-          top: '50%',
-          right: '25%',
-          width: '350px',
-          height: '180px',
-          opacity: activeConnection === 'services-to-experience' ? 1 : 0,
-          transition: 'opacity 0.8s ease'
-        }}
-        viewBox="0 0 350 180"
-      >
-        <motion.path
-          d="M 50,90 Q 175,30 300,90"
-          stroke="#4A5568"
-          strokeWidth="1"
-          fill="none"
-          strokeDasharray="3,3"
-          initial={{ pathLength: 0 }}
-          animate={{ 
-            pathLength: activeConnection === 'services-to-experience' ? 1 : 0 
-          }}
-          transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-        />
-        
-        <motion.text
-          x="175"
-          y="45"
-          textAnchor="middle"
-          style={{
-            fontSize: '0.75rem',
-            fontFamily: 'var(--font-architectural-body)',
-            color: '#4A5568',
-            opacity: 0.6,
-            fontStyle: 'italic'
-          }}
-          initial={{ opacity: 0 }}
-          animate={{ 
-            opacity: activeConnection === 'services-to-experience' ? 0.6 : 0 
-          }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          ...two decades of...
-        </motion.text>
-      </motion.svg>
+          {activeConnection === 'hero-to-about' && 'The spark of curiosity becomes...'}
+          {activeConnection === 'about-to-projects' && '...strategic expertise across...'}
+          {activeConnection === 'projects-to-services' && '...crystallized into...'}
+          {activeConnection === 'services-to-experience' && '...two decades of...'}
+        </motion.div>
+      )}
     </div>
   );
 }
