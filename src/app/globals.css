@@ -19760,3 +19760,88 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb {
 section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   background: var(--vanilla-foundation);
 }
+
+/* ========================================== */
+/* ALWAYS-MOVING PROJECT CAROUSEL - ELEVATION 1 */
+/* Cinematic Infinite Movement + Impact Micro-interactions */
+/* ========================================== */
+
+.projects-infinite-carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.projects-infinite-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  /* GPU acceleration for smooth movement */
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.project-card-moving {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(253, 252, 248, 0.1);
+  transition: all 0.3s ease;
+  /* Clean design - no box shadows */
+}
+
+.project-card-moving:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 102, 99, 0.2);
+  /* Subtle hover without shadows */
+}
+
+/* Impact Micro-interactions Styling */
+.project-impact-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid rgba(255, 102, 99, 0.3);
+}
+
+.impact-metric-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.impact-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+}
+
+.impact-value {
+  color: var(--grapefruit-intelligence);
+  font-weight: 600;
+  text-align: right;
+}
+
+/* Elegant Status Indicator */
+.carousel-status-elegant {
+  font-family: var(--font-architectural-body);
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive Carousel */
+@media (max-width: 768px) {
+  .project-card-moving {
+    width: 300px !important;
+    height: 400px !important;
+    margin-right: 2rem !important;
+  }
+}
+
+/* ========================================== */
+/* END ALWAYS-MOVING PROJECT CAROUSEL */
+/* ========================================== */
