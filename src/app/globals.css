@@ -45,12 +45,15 @@
   }
 }
 
-/* FOCUS INDICATORS - WCAG AAA COMPLIANT */
+/* FOCUS INDICATORS - WCAG AAA COMPLIANT + AWARD-WINNING BEAUTY */
 *:focus-visible {
   outline: 3px solid var(--grapefruit-intelligence);
-  outline-offset: 2px;
-  border-radius: 4px;
-  box-shadow: 0 0 0 1px var(--vanilla-whisper);
+  outline-offset: 4px;  /* More breathing room - award-winning */
+  border-radius: 8px;   /* Smoother corners */
+  box-shadow: 
+    0 0 0 6px rgba(255, 102, 99, 0.1),      /* Soft glow halo */
+    0 4px 12px rgba(255, 102, 99, 0.15);    /* Elevated presence */
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 /* PERFORMANCE OPTIMIZATION - AWARD-WINNING STANDARDS */
@@ -439,32 +442,46 @@
 .typography-h2, 
 .typography-h3 {
   font-family: var(--font-architectural-display);
-  color: var(--grapefruit-intelligence);
   line-height: 1.2;
   font-weight: 300;
   letter-spacing: -0.02em;
 }
 
-.typography-h1 { font-size: var(--type-4xl); }
-.typography-h2 { font-size: var(--type-3xl); }
-.typography-h3 { font-size: var(--type-2xl); }
+/* AWARD-WINNING: Graduated Color Hierarchy for Maximum Visual Impact */
+.typography-h1 { 
+  font-size: var(--type-4xl); 
+  color: var(--grapefruit-intelligence); /* Maximum impact - pure grapefruit */
+  letter-spacing: -0.03em; /* More dramatic for hero moments */
+}
+
+.typography-h2 { 
+  font-size: var(--type-3xl); 
+  color: #4A5568; /* Warm charcoal - sophisticated authority */
+  font-weight: 400; /* Slightly heavier for visual presence */
+}
+
+.typography-h3 { 
+  font-size: var(--type-2xl); 
+  color: #718096; /* Sophisticated gray - supporting elegance */
+  font-weight: 400; /* Medium weight for clarity */
+}
 
 /* Body Typography - Consistent Foundation */
 .typography-body {
   font-family: var(--font-architectural-body);
   font-size: var(--type-base);
-  color: var(--grapefruit-intelligence);
-  opacity: 0.9;
+  color: #667080; /* AWARD-WINNING: Refined dark gray for perfect readability */
   line-height: 1.6;
   font-weight: 400;
+  letter-spacing: 0.005em; /* Subtle breathing for elegance */
 }
 
 /* Caption Typography - Supporting Elements */
 .typography-caption {
   font-family: var(--font-architectural-body);
   font-size: var(--type-sm);
-  color: var(--grapefruit-intelligence);
-  opacity: 0.7;
+  color: #718096; /* Sophisticated medium gray for supporting text */
+  opacity: 0.85; /* Slightly more visible for accessibility */
   line-height: 1.5;
   font-weight: 400;
   text-transform: none;
@@ -578,6 +595,247 @@
 }
 
 /* ========================================== */
+/* AWARD-WINNING VISUAL ENHANCEMENTS */
+/* ========================================== */
+
+/* SOPHISTICATED IMAGE TREATMENT - About Section Photo */
+.about-photo-perfect {
+  border-radius: 24px !important; /* Larger for premium feel */
+  box-shadow: 
+    0 32px 64px rgba(74, 85, 104, 0.12),     /* Deep charcoal shadow */
+    0 16px 32px rgba(74, 85, 104, 0.08),     /* Mid-tone depth */
+    inset 0 1px 0 rgba(255,255,255,0.1) !important;  /* Subtle inner glow */
+  border: 1px solid rgba(255, 102, 99, 0.08) !important;  /* Invisible grapefruit kiss */
+  filter: 
+    contrast(1.05)      /* Slight richness */
+    saturate(0.95)      /* Elegant desaturation */
+    brightness(0.98);   /* Sophisticated depth */
+  transition: all 0.618s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.about-photo-perfect:hover {
+  transform: scale(1.01);
+  box-shadow: 
+    0 40px 80px rgba(74, 85, 104, 0.15),
+    0 20px 40px rgba(74, 85, 104, 0.10),
+    inset 0 1px 0 rgba(255,255,255,0.15) !important;
+  filter: 
+    contrast(1.08)
+    saturate(1.0)
+    brightness(1.0);
+}
+
+/* EDITORIAL PROJECT CARD SHADOWS */
+.project-card-cinematic-flow {
+  box-shadow: 
+    0 48px 96px rgba(74, 85, 104, 0.12),
+    0 24px 48px rgba(74, 85, 104, 0.08),
+    0 12px 24px rgba(74, 85, 104, 0.06) !important;
+  border: 2px solid rgba(255, 102, 99, 0.05) !important;
+  border-radius: 20px !important;
+  transition: all 0.618s cubic-bezier(0.23, 1, 0.32, 1) !important;
+}
+
+.project-card-cinematic-flow:hover {
+  transform: translateY(-8px) scale(1.01) !important;
+  box-shadow: 
+    0 64px 128px rgba(255, 102, 99, 0.15),
+    0 32px 64px rgba(255, 102, 99, 0.10),
+    0 16px 32px rgba(255, 102, 99, 0.08),
+    0 0 24px rgba(255, 102, 99, 0.06) !important; /* Grapefruit glow */
+  border-color: rgba(255, 102, 99, 0.15) !important;
+  filter: brightness(1.02) saturate(1.05);
+}
+
+/* GALLERY IMAGE SOPHISTICATION */
+.gallery-image-perfect {
+  border-radius: 16px;
+  box-shadow: 
+    0 24px 48px rgba(74, 85, 104, 0.10),
+    0 12px 24px rgba(74, 85, 104, 0.06);
+  border: 1px solid rgba(255, 102, 99, 0.05);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.gallery-image-perfect:hover {
+  transform: scale(1.02);
+  box-shadow: 
+    0 32px 64px rgba(255, 102, 99, 0.12),
+    0 16px 32px rgba(255, 102, 99, 0.08);
+  border-color: rgba(255, 102, 99, 0.12);
+}
+
+/* AWARD-WINNING SECTION NUMBER TREATMENT */
+.about-section-number,
+.projects-section-number-award,
+.section-number {
+  font-family: var(--font-architectural-body);
+  font-weight: 700;
+  letter-spacing: 0.15em; /* Architectural precision */
+  color: rgba(255, 102, 99, 0.3); /* Subtle grapefruit whisper */
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+/* AWARD-WINNING BUTTON VISUAL DNA - Unified System */
+.hero-cta-button {
+  /* Enhanced with award-winning shadow system */
+  box-shadow: 
+    0 8px 24px rgba(255, 102, 99, 0.25),
+    0 4px 12px rgba(255, 102, 99, 0.15) !important;
+  border: none !important;
+}
+
+.hero-cta-button:hover {
+  box-shadow: 
+    0 12px 32px rgba(255, 102, 99, 0.35),
+    0 6px 16px rgba(255, 102, 99, 0.20),
+    0 0 24px rgba(255, 102, 99, 0.10) !important; /* Grapefruit glow */
+  transform: translateY(-4px) scale(1.01) !important;
+  filter: brightness(1.08) saturate(1.05);
+}
+
+/* AWARD-WINNING SERVICE CARD ENHANCEMENTS */
+.section-luxury .motion\\.div,
+[style*="background: var(--vanilla-whisper)"] {
+  transition: all 0.618s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Add breathing space for service cards */
+.section-luxury [role="button"] {
+  margin-bottom: 16px !important; /* More breathing room */
+  padding: 20px 24px !important; /* Increased from 12px 20px */
+}
+
+/* Enhanced service number badges */
+.section-luxury [role="button"] span[style*="padding: 6px 12px"] {
+  box-shadow: 0 2px 8px rgba(255, 102, 99, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* WHITE SPACE MASTERY - Visual Breathing */
+.about-container-ultra-luxury,
+.projects-container-award-winning,
+.container-foundation {
+  padding-left: max(40px, 5vw) !important;
+  padding-right: max(40px, 5vw) !important;
+}
+
+/* Typography white space perfection */
+.about-main-story {
+  margin-bottom: 24px; /* Visual rhythm between paragraphs */
+}
+
+.about-main-story:last-of-type {
+  margin-bottom: 32px; /* Slightly more before quote */
+}
+
+/* AWARD-WINNING: Scroll-in animations with blur */
+[class*="content-section"],
+[class*="about-text-content"],
+[class*="projects-carousel"] {
+  animation: award-winning-reveal 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes award-winning-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* AWARD-WINNING: Carousel Indicator Visual Refinement */
+.sophisticated-carousel-indicators .auto-play-dot {
+  width: 16px;  /* Increased from default for better visibility */
+  height: 16px;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 2px 8px rgba(255, 102, 99, 0.15);
+}
+
+.sophisticated-carousel-indicators .auto-play-dot.playing {
+  animation: subtle-pulse 2s ease-in-out infinite;
+  box-shadow: 
+    0 0 12px rgba(255, 102, 99, 0.4),
+    0 2px 8px rgba(255, 102, 99, 0.2);
+}
+
+@keyframes subtle-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.9;
+  }
+}
+
+/* AWARD-WINNING: Footer Brand Name Enhancement */
+.footer-brand-name-landor {
+  font-size: 2.5rem; /* Increased for more presence */
+  transition: all 0.3s ease;
+}
+
+.footer-brand-name-landor:hover {
+  transform: translateY(-1px);
+  text-shadow: 0 4px 12px rgba(255, 102, 99, 0.2);
+}
+
+/* AWARD-WINNING: Project Detail Hero Image Enhancement */
+.hero-image-perfect {
+  box-shadow: 
+    0 32px 64px rgba(74, 85, 104, 0.12),
+    0 16px 32px rgba(74, 85, 104, 0.08);
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* AWARD-WINNING: Project Tag Visual Treatment */
+.project-tag {
+  background: rgba(245, 245, 220, 0.6) !important; /* vanilla-foundation */
+  border: 1px solid rgba(255, 102, 99, 0.15) !important;
+  box-shadow: 0 2px 6px rgba(74, 85, 104, 0.06) !important;
+  transition: all 0.3s ease !important;
+}
+
+.project-tag:hover {
+  background: rgba(255, 102, 99, 0.08) !important;
+  border-color: rgba(255, 102, 99, 0.25) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* AWARD-WINNING: Section Title Visual Enhancement */
+.projects-title-award-winning,
+.about-title-ultra-luxury {
+  position: relative;
+  display: inline-block;
+}
+
+/* Subtle underline accent for section titles */
+.projects-title-award-winning::after,
+.about-title-ultra-luxury::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 102, 99, 0.6) 50%, 
+    transparent 100%);
+}
+
+/* ========================================== */
 /* VISUAL SOPHISTICATION SYSTEM - LANDOR STANDARDS */
 /* ========================================== */
 
@@ -609,10 +867,12 @@
 /* SOPHISTICATED SECTION BACKGROUNDS */
 .about-section-ultra-luxury {
   background: linear-gradient(135deg, 
-    var(--white-bones) 0%, 
-    var(--stone) 100%
+    #FDFCF8 0%,      /* vanilla-whisper */
+    #F5F5DC 100%     /* vanilla-foundation */
   );
   position: relative;
+  padding-top: 180px;     /* AWARD-WINNING: Visual stability */
+  padding-bottom: 200px;  /* Asymmetric flow creates forward momentum */
 }
 
 .about-section-ultra-luxury::before {
@@ -623,18 +883,21 @@
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 10% 20%, rgba(255, 102, 99, 0.02) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(255, 102, 99, 0.015) 0%, transparent 40%);
+    radial-gradient(circle at 15% 85%, rgba(255, 102, 99, 0.02) 0%, transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(255, 102, 99, 0.015) 0%, transparent 45%);
   pointer-events: none;
-  z-index: 10; /* Sophisticated layering */
+  z-index: 1;
 }
 
+/* AWARD-WINNING: Projects Section with Dramatic Charcoal Background */
 .projects-section-award-winning {
   background: linear-gradient(135deg, 
-    var(--stone) 0%, 
-    var(--white-bones) 100%
+    #F5F5DC 0%,      /* vanilla-foundation - keep light for contrast */
+    #FDFCF8 100%     /* vanilla-whisper */
   );
   position: relative;
+  padding-top: 180px;
+  padding-bottom: 200px;
 }
 
 .projects-section-award-winning::before {
@@ -645,10 +908,10 @@
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 30% 70%, rgba(255, 102, 99, 0.025) 0%, transparent 50%),
-    radial-gradient(circle at 70% 30%, rgba(255, 102, 99, 0.02) 0%, transparent 50%);
+    radial-gradient(circle at 30% 70%, rgba(255, 102, 99, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(255, 102, 99, 0.025) 0%, transparent 50%);
   pointer-events: none;
-  z-index: 10; /* Sophisticated layering */
+  z-index: 1;
 }
 
 .experience-architecture-container {
@@ -699,10 +962,14 @@
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Sophisticated easing */
 }
 
+/* AWARD-WINNING: Enhanced glow with multi-dimensional feedback */
 .luxury-hover-glow:hover {
   box-shadow: 
-    0 0 20px rgba(255, 102, 99, 0.15),
-    0 0 40px rgba(255, 102, 99, 0.1);
+    0 0 24px rgba(255, 102, 99, 0.20),
+    0 0 48px rgba(255, 102, 99, 0.12),
+    0 4px 16px rgba(255, 102, 99, 0.15);
+  transform: translateY(-2px);
+  filter: brightness(1.05);
 }
 
 /* SOPHISTICATED SHADOWS */
@@ -10406,11 +10673,12 @@ h4, .text-h4 {
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.05em;
-  /* NO cursor pointer - not clickable */
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  border: 1px solid rgba(255, 102, 99, 0.3);
-  background: transparent;
-  color: var(--grapefruit-primary);
+  border: 1px solid rgba(255, 102, 99, 0.2);
+  /* AWARD-WINNING: Subtle background for depth */
+  background: rgba(245, 245, 220, 0.5); /* vanilla-foundation with transparency */
+  color: #718096; /* Sophisticated gray */
+  box-shadow: 0 2px 8px rgba(74, 85, 104, 0.06);
 }
 
 /* REMOVED: Hover effects - tags are visual-only, not clickable */
@@ -13309,10 +13577,22 @@ h4, .text-h4 {
 /* Testimonial Container */
 .testimonial-container {
   background: rgba(255, 255, 255, 0.05);
-  padding: 2rem;
-  border-radius: 12px;
+  padding: 2.5rem;
+  border-radius: 16px; /* AWARD-WINNING: Larger radius for premium feel */
   border-left: 4px solid var(--grapefruit);
   margin-top: 1rem;
+  box-shadow: 
+    0 16px 32px rgba(74, 85, 104, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05); /* Subtle inner glow */
+  backdrop-filter: blur(12px);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.testimonial-container:hover {
+  box-shadow: 
+    0 24px 48px rgba(74, 85, 104, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
 }
 
 .testimonial-quote {
@@ -13320,7 +13600,8 @@ h4, .text-h4 {
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 1.5rem;
-  color: var(--vanilla-foundation) !important; /* Design system architectural base */
+  color: var(--vanilla-foundation) !important;
+  letter-spacing: 0.01em; /* Subtle breathing for elegance */
 }
 
 .testimonial-attribution {
@@ -13915,13 +14196,31 @@ h4, .text-h4 {
   opacity: 0.8;
   text-decoration: none;
   transition: all 0.3s ease;
-  font-size: 0.8125rem; /* Reduced from 0.875rem */
+  font-size: 0.8125rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* AWARD-WINNING: Sophisticated underline animation */
+.footer-nav-link-landor::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--grapefruit-intelligence);
+  transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .footer-nav-link-landor:hover {
   opacity: 1;
   color: var(--panna-cotta-vanilla);
-  transform: translateX(4px);
+  transform: translateX(2px);
+}
+
+.footer-nav-link-landor:hover::after {
+  width: 100%;
 }
 
 .footer-contact-landor {
@@ -13961,10 +14260,16 @@ h4, .text-h4 {
   stroke-width: 2px; /* Ensure icons are visible */
 }
 
+/* AWARD-WINNING: Enhanced hover with glow */
 .footer-contact-link-landor:hover {
   opacity: 1;
   color: var(--panna-cotta-vanilla);
-  transform: translateX(4px);
+  transform: translateX(2px);
+  text-shadow: 0 0 12px rgba(255, 102, 99, 0.3);
+}
+
+.footer-contact-link-landor:hover svg {
+  filter: drop-shadow(0 0 8px rgba(255, 102, 99, 0.4));
 }
 
 .footer-bottom-landor {
