@@ -138,15 +138,28 @@
 
 /* ===== MINIMALIST SIGNATURE LOADER - STELLA PETKOVA INSPIRED ===== */
 
+/* STELLA-INSPIRED LUXURY LOADER */
+.silvana-loader-luxury {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--vanilla-foundation); /* Panna cotta luxury background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  /* GPU acceleration */
+  transform: translateZ(0);
+}
+
 .loader-overlay {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: linear-gradient(
-    135deg,
-    var(--grapefruit-pure) 0%,
-    var(--grapefruit-soft) 100%
-  );
+  background: var(--vanilla-foundation); /* Updated to match new design */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -154,14 +167,52 @@
   backface-visibility: hidden;
 }
 
+/* STELLA-INSPIRED S MONOGRAM STYLING */
 .s-signature {
   width: clamp(80px, 15vw, 150px);
   height: clamp(80px, 15vw, 150px);
-  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.1));
+  /* NO drop-shadow - ultra-clean approach */
 }
 
 .s-signature path {
   vector-effect: non-scaling-stroke;
+}
+
+/* Burst Animation Container */
+.stella-s-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+/* Burst Lines Styling */
+.stella-burst-line {
+  stroke: #4A5568; /* Charcoal color */
+  stroke-width: 1;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Sophisticated Brand Text */
+.loader-brand-text {
+  font-family: var(--font-architectural-display);
+  font-weight: 300;
+  color: #4A5568; /* Charcoal color */
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+  font-size: 1.125rem;
+}
+
+.loader-brand-dot {
+  color: var(--grapefruit-intelligence); /* Strategic coral accent */
+}
+
+/* Pulse Ring Effect */
+.loader-pulse-ring {
+  position: absolute;
+  border: 1px solid #4A5568;
+  border-radius: 50%;
+  opacity: 0.3;
 }
 
 /* Responsive sizing */
