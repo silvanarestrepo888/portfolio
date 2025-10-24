@@ -19,6 +19,7 @@ import {
   CustomerIntelligenceIcon
 } from '../components/icons/services';
 import { ExperienceTimeline } from '../components/ui/ExperienceTimeline';
+import { StoryConnections } from '../components/ui/StoryConnections';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -479,6 +480,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen" style={{backgroundColor: '#fffbee'}}>
+      
+      {/* ELEVATION 2: CONTEXTUAL STORYTELLING LAYERS */}
+      <StoryConnections />
       
       {/* ACCESSIBILITY - Skip Navigation Links */}
       <a 
