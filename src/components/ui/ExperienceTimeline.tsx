@@ -9,7 +9,6 @@ const companies = [
   "Designit a Wipro Company",
   "Grupo Éxito a Casino Company",
   "Industrias HACEB",
-  "Independent",
   "TIGO-Millicom"
 ];
 
