@@ -36,7 +36,6 @@ export function InteractiveProjectCard({
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isImageExpanded, setIsImageExpanded] = useState(false);
-  const [galleryIndex, setGalleryIndex] = useState(0);
   
   // Cinematic aspect ratios for different project types
   const getAspectRatio = (projectTitle: string) => {
@@ -54,28 +53,10 @@ export function InteractiveProjectCard({
 
   const handleMouseEnter = useCallback(() => {
     setIsHovered(true);
-    // Start gallery preview cycle
-    const interval = setInterval(() => {
-      setGalleryIndex(prev => (prev + 1) % Math.min(project.galleryImages.length, 3));
-    }, 1500); // Change image every 1.5s
-    
-    // Store interval for cleanup
-    if (cardRef.current) {
-      (cardRef.current as HTMLElement).setAttribute('data-gallery-interval', interval.toString());
-    }
-  }, [project.galleryImages.length]);
+  }, []);
   
   const handleMouseLeave = useCallback(() => {
     setIsHovered(false);
-    setGalleryIndex(0); // Reset to first image
-    
-    // Clear gallery interval
-    if (cardRef.current) {
-      const intervalStr = (cardRef.current as HTMLElement).getAttribute('data-gallery-interval');
-      if (intervalStr) {
-        clearInterval(parseInt(intervalStr));
-      }
-    }
   }, []);
 
   const handleClick = useCallback(() => {
@@ -157,60 +138,7 @@ export function InteractiveProjectCard({
                 />
               </motion.div>
 
-              {/* Gallery Preview on Hover */}
-              <AnimatePresence>
-                {isHovered && project.galleryImages.length > 0 && (
-                  <motion.div
-                    className="gallery-preview-overlay"
-                    style={{
-                      position: 'absolute',
-                      inset: 0,
-                      zIndex: 2
-                    }}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <Image
-                      src={project.galleryImages[galleryIndex] || project.secondaryImage}
-                      alt={`${project.title} - Gallery preview ${galleryIndex + 1}`}
-                      fill
-                      className="object-contain" /* Better fitting for gallery preview too */
-                      style={{
-                        objectPosition: 'center'
-                      }}
-                      quality={95}
-                    />
-                    
-                    {/* Gallery indicator dots */}
-                    <div
-                      style={{
-                        position: 'absolute',
-                        bottom: '12px',
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        display: 'flex',
-                        gap: '4px'
-                      }}
-                    >
-                      {project.galleryImages.slice(0, 3).map((_, i) => (
-                        <div
-                          key={i}
-                          style={{
-                            width: '6px',
-                            height: '6px',
-                            borderRadius: '50%',
-                            background: galleryIndex === i 
-                              ? 'rgba(255, 255, 255, 0.9)' 
-                              : 'rgba(255, 255, 255, 0.4)'
-                          }}
-                        />
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              {/* REMOVED: Gallery preview on hover - focusing on cleaner presentation */}
 
               {/* Sophisticated Image Overlays */}
               <div className="cinematic-overlay-system">

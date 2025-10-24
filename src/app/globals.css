@@ -19870,6 +19870,26 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Prominent Next Project Button */
+.next-project-prominent {
+  /* Enhanced prominence for Next Project button */
+  position: relative;
+  overflow: hidden;
+}
+
+.next-project-prominent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.next-project-prominent:hover::before {
+  opacity: 1;
+}
+
 /* Responsive navigation */
 @media (max-width: 768px) {
   .carousel-navigation-prominent {

@@ -848,7 +848,7 @@ export default function Home() {
                 marginBottom: '2rem'
               }}
             >
-              {/* Previous Button */}
+              {/* Previous Project Button */}
               <motion.button
                 onClick={() => {
                   const prevIndex = safeFeaturedProjectIndex === 0 
@@ -861,24 +861,26 @@ export default function Home() {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '12px 20px',
-                  background: 'var(--grapefruit-intelligence)',
-                  color: 'white',
-                  border: 'none',
+                  gap: '0.75rem',
+                  padding: '14px 24px',
+                  background: 'rgba(74, 85, 104, 0.1)',
+                  color: '#4A5568',
+                  border: '2px solid #4A5568',
                   borderRadius: '50px',
-                  fontSize: '0.875rem',
-                  fontWeight: '600',
+                  fontSize: '0.9rem',
+                  fontWeight: '500',
                   cursor: 'pointer',
-                  fontFamily: 'var(--font-architectural-body)'
+                  fontFamily: 'var(--font-architectural-body)',
+                  letterSpacing: '0.02em'
                 }}
                 whileHover={{ 
                   scale: 1.05,
-                  backgroundColor: '#E55A5A'
+                  backgroundColor: '#4A5568',
+                  color: 'white'
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                ← Previous
+                ← Previous Project
               </motion.button>
 
               {/* Play/Pause Control */}
@@ -917,35 +919,40 @@ export default function Home() {
                 {safeFeaturedProjectIndex + 1} / {filteredProjects.length}
               </div>
 
-              {/* Next Button */}
+              {/* Next Project Button - PROMINENT AND CLEAR */}
               <motion.button
                 onClick={() => {
                   const nextIndex = (safeFeaturedProjectIndex + 1) % filteredProjects.length;
                   goToProjectWithTransition(nextIndex);
                   setIsAutoPlaying(false);
                 }}
-                className="carousel-nav-button"
+                className="carousel-nav-button next-project-prominent"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '12px 20px',
+                  gap: '0.75rem',
+                  padding: '16px 28px',
                   background: 'var(--grapefruit-intelligence)',
                   color: 'white',
-                  border: 'none',
+                  border: '2px solid var(--grapefruit-intelligence)',
                   borderRadius: '50px',
-                  fontSize: '0.875rem',
+                  fontSize: '1rem',
                   fontWeight: '600',
                   cursor: 'pointer',
-                  fontFamily: 'var(--font-architectural-body)'
+                  fontFamily: 'var(--font-architectural-body)',
+                  letterSpacing: '0.02em',
+                  textTransform: 'none',
+                  boxShadow: '0 4px 16px rgba(255, 102, 99, 0.3)'
                 }}
                 whileHover={{ 
-                  scale: 1.05,
-                  backgroundColor: '#E55A5A'
+                  scale: 1.08,
+                  backgroundColor: '#E55A5A',
+                  boxShadow: '0 6px 24px rgba(255, 102, 99, 0.4)',
+                  y: -2
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Next →
+                Next Project →
               </motion.button>
             </motion.div>
             
