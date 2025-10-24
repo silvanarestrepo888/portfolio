@@ -1,14 +1,15 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Linkedin, Mail, ExternalLink } from 'lucide-react';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import Image from 'next/image';
 import { CustomCursor } from '../components/motion/CustomCursor';
 import { MagneticCursor } from '../components/ui/MagneticCursor';
 import { FloatingNavigation } from '../components/navigation/FloatingNavigation';
 import { SectionIndicator } from '../components/navigation/SectionIndicator';
 import { useParallax } from '../hooks/useScrollAnimation';
+import { InteractiveProjectCard } from '../components/projects/InteractiveProjectCard';
 import { 
   AcceleratedInnovationIcon,
   ExperienceOrchestrationIcon,
@@ -46,7 +47,11 @@ export default function Home() {
   // Enhanced scroll animations
   const parallaxTransform = useParallax(0.3);
   
-  // REMOVED: Static carousel state - now using infinite movement
+  // Foundation Project Exploration System
+  const [featuredProjectIndex, setFeaturedProjectIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   
   
 
@@ -364,7 +369,74 @@ export default function Home() {
   // Always show all projects - filter tags are visual-only
   const filteredProjects = projects;
 
-  // REMOVED: Static carousel navigation functions - now using infinite movement
+  // Sophisticated navigation functions - moved after filteredProjects declaration
+  const goToProjectWithTransition = useCallback((index: number) => {
+    if (index === featuredProjectIndex) return;
+    setIsTransitioning(true);
+    setFeaturedProjectIndex(Math.min(index, Math.max(0, filteredProjects.length - 1)));
+    setTimeout(() => setIsTransitioning(false), 1200);
+  }, [featuredProjectIndex, filteredProjects.length]);
+
+  // Keyboard Navigation Support - Award-Winning Accessibility (moved after filteredProjects)
+  useEffect(() => {
+    const handleKeyNavigation = (e: KeyboardEvent) => {
+      // Only handle if not typing in input fields
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      
+      switch (e.key) {
+        case 'ArrowLeft':
+          e.preventDefault();
+          const prevIndex = featuredProjectIndex === 0 ? filteredProjects.length - 1 : featuredProjectIndex - 1;
+          goToProjectWithTransition(prevIndex);
+          break;
+        case 'ArrowRight':
+          e.preventDefault();
+          const nextIndex = (featuredProjectIndex + 1) % filteredProjects.length;
+          goToProjectWithTransition(nextIndex);
+          break;
+        case 'Space':
+          e.preventDefault();
+          setIsAutoPlaying(!isAutoPlaying);
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyNavigation);
+    return () => window.removeEventListener('keydown', handleKeyNavigation);
+  }, [featuredProjectIndex, filteredProjects.length, isAutoPlaying, goToProjectWithTransition]);
+
+  // Detect prefers-reduced-motion for accessibility
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+    
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches);
+      if (e.matches) {
+        setIsAutoPlaying(false); // Disable autoplay for reduced motion
+      }
+    };
+    
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  // Cinematic Auto-carousel with Smooth Right→Left Flow
+  useEffect(() => {
+    if (!isAutoPlaying || filteredProjects.length <= 1 || prefersReducedMotion) return;
+
+    const interval = setInterval(() => {
+      setFeaturedProjectIndex(prev => {
+        const nextIndex = prev === filteredProjects.length - 1 ? 0 : prev + 1;
+        setIsTransitioning(true);
+        // Smooth 1.2s cinematic transition
+        setTimeout(() => setIsTransitioning(false), 1200);
+        return nextIndex;
+      });
+    }, 4000); // 4 seconds per slide - luxurious, exploratory pace
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, filteredProjects.length, prefersReducedMotion]);
 
 
   // Award-Winning Scroll-Triggered Section Detection
@@ -400,7 +472,8 @@ export default function Home() {
 
 
 
-  // REMOVED: Static carousel index management - now using infinite movement
+  // Ensure featuredProjectIndex is within bounds
+  const safeFeaturedProjectIndex = Math.min(featuredProjectIndex, Math.max(0, filteredProjects.length - 1));
 
   return (
     <div className="min-h-screen" style={{backgroundColor: '#fffbee'}}>
@@ -758,142 +831,83 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            {/* ALWAYS-MOVING INFINITE PROJECT CAROUSEL - CINEMATIC */}
-            <div className="projects-infinite-carousel-container">
-              <motion.div
-                className="projects-infinite-track"
-                animate={{
-                  x: ["0%", "-100%"]
-                }}
-                transition={{
-                  duration: 60, /* Slow, sophisticated movement */
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-              >
-                {/* Triple projects for seamless infinite loop */}
-                {[...filteredProjects, ...filteredProjects, ...filteredProjects].map((project, index) => (
-                  <motion.div
-                    key={`${project.title}-${index}`}
-                    className="project-card-moving"
-                    style={{
-                      width: '400px',
-                      height: '500px',
-                      marginRight: '3rem',
-                      flexShrink: 0,
-                      position: 'relative',
-                      borderRadius: '16px',
-                      overflow: 'hidden',
-                      cursor: 'pointer'
-                    }}
-                    whileHover="hover"
-                    onClick={() => {
-                      setSelectedProject(index % filteredProjects.length);
-                    }}
-                  >
-                    {/* Project Background Image */}
-                    <Image
-                      src={project.image}
-                      alt={`${project.title} - Moving carousel showcase`}
-                      fill
-                      className="object-cover"
-                      quality={95}
-                      sizes="400px"
-                    />
-                    
-                    {/* Gradient Overlay for Text Readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                    
-                    {/* Project Content */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                      <motion.h3 
-                        className="text-2xl font-semibold mb-2"
-                        variants={{
-                          hover: { y: -5, transition: { duration: 0.3 } }
-                        }}
-                      >
-                        {project.title}
-                      </motion.h3>
-                      
-                      <motion.p 
-                        className="text-lg opacity-90 mb-4"
-                        variants={{
-                          hover: { opacity: 1, transition: { duration: 0.3 } }
-                        }}
-                      >
-                        {project.client}
-                      </motion.p>
-                      
-                      {/* IMPACT MICRO-INTERACTIONS - ELEVATION 1 */}
-                      <motion.div
-                        className="project-impact-metrics"
-                        initial={{ opacity: 0, y: 20 }}
-                        variants={{
-                          hover: { 
-                            opacity: 1, 
-                            y: 0,
-                            transition: { duration: 0.4, staggerChildren: 0.1 }
-                          }
-                        }}
-                      >
-                        <motion.div 
-                          className="impact-metric-item"
-                          variants={{
-                            hover: { opacity: 1, y: 0, transition: { duration: 0.2 } }
-                          }}
-                        >
-                          <span className="impact-label">Scale:</span>
-                          <span className="impact-value">{project.impactMetrics.scale}</span>
-                        </motion.div>
-                        
-                        <motion.div 
-                          className="impact-metric-item"
-                          variants={{
-                            hover: { opacity: 1, y: 0, transition: { duration: 0.2, delay: 0.1 } }
-                          }}
-                        >
-                          <span className="impact-label">Reach:</span>
-                          <span className="impact-value">{project.impactMetrics.reach}</span>
-                        </motion.div>
-                        
-                        <motion.div 
-                          className="impact-metric-item"
-                          variants={{
-                            hover: { opacity: 1, y: 0, transition: { duration: 0.2, delay: 0.2 } }
-                          }}
-                        >
-                          <span className="impact-label">Impact:</span>
-                          <span className="impact-value">{project.impactMetrics.transformation}</span>
-                        </motion.div>
-                      </motion.div>
-                      
-                      {/* Project Year Badge */}
-                      <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium">
-                        {project.year}
-                      </div>
+            {/* Sophisticated Carousel Indicators */}
+            <motion.div 
+              className="sophisticated-carousel-indicators"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+              viewport={{ once: true }}
+            >
+              <div className="carousel-status">
+                <div className="auto-play-indicator">
+                  <div className={`auto-play-dot ${isAutoPlaying ? 'playing' : 'paused'}`}></div>
+                  <span className="auto-play-text">
+                    {isAutoPlaying ? 'Auto-playing' : 'Paused'}
+                  </span>
+              </div>
+                
+                <div className="project-counter">
+                  <span className="current-project">{safeFeaturedProjectIndex + 1}</span>
+                  <span className="divider">/</span>
+                  <span className="total-projects">{filteredProjects.length}</span>
                     </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-              
-              {/* Elegant Status Indicator */}
-              <motion.div 
-                className="carousel-status-elegant"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.0 }}
-                viewport={{ once: true }}
-                style={{
-                  textAlign: 'center',
-                  marginTop: '2rem',
-                  fontSize: '0.875rem',
-                  color: 'var(--grapefruit-intelligence)',
-                  opacity: 0.7
+                  </div>
+                  
+              {/* Upcoming Projects Preview */}
+              <div className="upcoming-projects-preview">
+                <div className="upcoming-label">Coming Up</div>
+                <div className="upcoming-thumbnails">
+                  {filteredProjects.slice(safeFeaturedProjectIndex + 1, safeFeaturedProjectIndex + 4).map((project, index) => (
+                    <div 
+                      key={`upcoming-${index}`}
+                      className="upcoming-thumbnail"
+                      style={{ backgroundImage: `url(${project.image})` }}
+                      onClick={() => goToProjectWithTransition(safeFeaturedProjectIndex + index + 1)}
+                    />
+                        ))}
+                      </div>
+                  </div>
+            </motion.div>
+            
+            {/* CINEMATIC CAROUSEL - SMOOTH RIGHT→LEFT FLOW */}
+            <AnimatePresence mode="wait">
+            <motion.div 
+              className="projects-3d-container"
+              key={safeFeaturedProjectIndex}
+                initial={{ 
+                  opacity: 0, 
+                  x: 100, // Enter from RIGHT
+                  scale: 0.95
                 }}
-              >
-                ∞ Always moving • Hover to explore impact • Click to dive deep
-              </motion.div>
-            </div>
+              animate={{ 
+                  opacity: 1, 
+                  x: 0, 
+                  scale: 1
+                }}
+                exit={{ 
+                  opacity: 0, 
+                  x: -100, // Exit to LEFT
+                  scale: 0.95
+              }}
+              transition={{
+                  duration: 1.2, // Smooth 1.2s cinematic transition
+                  ease: [0.25, 0.46, 0.45, 0.94], // Cubic bezier for elegance
+                  opacity: { duration: 0.8 },
+                  scale: { duration: 1.0 }
+              }}
+              onHoverStart={() => setIsAutoPlaying(false)}
+              onHoverEnd={() => setIsAutoPlaying(true)}
+            >
+              <InteractiveProjectCard
+                project={filteredProjects[safeFeaturedProjectIndex]}
+                index={safeFeaturedProjectIndex}
+                isActive={!isTransitioning}
+                onSelect={setSelectedProject}
+                  className="project-card-cinematic-flow"
+              />
+            </motion.div>
+            </AnimatePresence>
             
             </motion.div>
         </div>
