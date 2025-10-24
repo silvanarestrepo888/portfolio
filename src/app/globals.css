@@ -19769,20 +19769,22 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 .cinematic-container {
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 0; /* NO border radius - ultra-clean */
+  background: transparent !important; /* NO gray background */
+  border: none !important; /* NO borders */
+  box-shadow: none !important; /* NO shadows */
 }
 
 .cinematic-image-layers {
   position: relative;
   width: 100%;
   height: 100%;
+  background: transparent !important; /* NO gray background */
 }
 
-.cinematic-main-image {
-  /* GPU acceleration for smooth Ken Burns effect */
-  will-change: transform;
-  backface-visibility: hidden;
-  transform: translateZ(0);
+.cinematic-main-image-static {
+  /* Ultra-clean static image presentation */
+  background: transparent !important; /* NO gray background */
 }
 
 .gallery-preview-overlay {
@@ -19906,6 +19908,21 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   .carousel-play-pause {
     order: -1; /* Show play/pause first on mobile */
   }
+}
+
+/* ULTRA-CLEAN FRAME ELIMINATION */
+.cinematic-container,
+.cinematic-image-layers,
+.cinematic-main-image-static,
+.balanced-image-section,
+.balanced-image-container {
+  /* NUCLEAR OVERRIDE: Remove any gray backgrounds or frames */
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  backdrop-filter: none !important;
 }
 
 /* ========================================== */

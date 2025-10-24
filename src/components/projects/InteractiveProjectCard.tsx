@@ -95,33 +95,27 @@ export function InteractiveProjectCard({
         {/* Clean Balanced Layout: 60% Image / 40% Content */}
         <div className="balanced-layout-grid">
           
-          {/* CINEMATIC IMAGE SECTION - Award-Winning Enhancement */}
+          {/* ULTRA-CLEAN IMAGE SECTION - No Frames, Pure Sophistication */}
           <div 
             className="balanced-image-section cinematic-container"
             style={{
               aspectRatio: getAspectRatio(project.title),
               overflow: 'hidden',
-              position: 'relative'
+              position: 'relative',
+              background: 'transparent', /* NO gray background */
+              border: 'none', /* NO borders */
+              boxShadow: 'none' /* NO shadows */
             }}
           >
             <div className="cinematic-image-layers">
-              {/* Main Project Image with Enhanced Ken Burns Effect */}
-              <motion.div
-                className="cinematic-main-image"
-                animate={{
-                  scale: [1, 1.05, 1],
-                  x: [0, 8, 0],
-                  y: [0, -5, 0]
-                }}
-                transition={{
-                  duration: 4, /* Faster, more engaging */
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
+              {/* Ultra-Luxurious Static Image - Pure Minimalism */}
+              <div
+                className="cinematic-main-image-static"
                 style={{
                   position: 'absolute',
                   inset: 0,
-                  zIndex: 1
+                  zIndex: 1,
+                  background: 'transparent'
                 }}
               >
                 <Image
@@ -131,44 +125,17 @@ export function InteractiveProjectCard({
                   className="object-contain" /* Shows full image without cropping */
                   style={{
                     objectPosition: 'center',
-                    filter: 'contrast(1.05) saturate(1.1)'
+                    filter: 'contrast(1.02) saturate(1.05)', /* Subtle enhancement */
+                    background: 'transparent'
                   }}
                   quality={100}
                   priority={index < 2}
                 />
-              </motion.div>
+              </div>
 
               {/* REMOVED: Gallery preview on hover - focusing on cleaner presentation */}
 
-              {/* Sophisticated Image Overlays */}
-              <div className="cinematic-overlay-system">
-                {/* Elegant gradient for text readability */}
-                <motion.div
-                  className="gradient-sophistication"
-                  style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background: 'linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.05) 100%)',
-                    zIndex: 3
-                  }}
-                  animate={{
-                    background: isHovered 
-                      ? 'linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.1) 100%)'
-                      : 'linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.05) 100%)'
-                  }}
-                  transition={{ duration: 0.3 }}
-                />
-                
-                {/* Subtle vignette effect */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background: 'radial-gradient(circle at center, transparent 60%, rgba(0, 0, 0, 0.03) 100%)',
-                    zIndex: 4
-                  }}
-                />
-              </div>
+              {/* REMOVED: Image overlays - pure, clean presentation */}
               
               {/* Cinematic Tags - Positioned over image layers */}
               <div 
