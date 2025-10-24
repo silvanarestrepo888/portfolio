@@ -842,6 +842,41 @@ export default function Home() {
                   </div>
             </motion.div>
             
+            {/* MANUAL NAVIGATION CONTROLS - AWARD-WINNING */}
+            <motion.div 
+              className="carousel-manual-controls-landor"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.1 }}
+              viewport={{ once: true }}
+            >
+              <button
+                onClick={() => {
+                  const prevIndex = (safeFeaturedProjectIndex - 1 + filteredProjects.length) % filteredProjects.length;
+                  goToProjectWithTransition(prevIndex);
+                  setIsAutoPlaying(false);
+                }}
+                className="carousel-nav-btn-landor carousel-prev-landor"
+                aria-label="Previous project"
+              >
+                <span className="nav-arrow">←</span>
+                <span className="nav-label">Previous</span>
+              </button>
+              
+              <button
+                onClick={() => {
+                  const nextIndex = (safeFeaturedProjectIndex + 1) % filteredProjects.length;
+                  goToProjectWithTransition(nextIndex);
+                  setIsAutoPlaying(false);
+                }}
+                className="carousel-nav-btn-landor carousel-next-landor"
+                aria-label="Next project"
+              >
+                <span className="nav-label">Next</span>
+                <span className="nav-arrow">→</span>
+              </button>
+            </motion.div>
+            
             {/* CINEMATIC CAROUSEL - SMOOTH RIGHT→LEFT FLOW */}
             <AnimatePresence mode="wait">
             <motion.div 
@@ -945,23 +980,23 @@ export default function Home() {
                 }}
                 viewport={{ once: true }}
                 style={{
-                  // Cream cards on grapefruit - ULTRA COMPACT
-                  background: 'var(--vanilla-whisper)',
-                  border: '1px solid var(--vanilla-foundation)',
-                  borderLeft: '3px solid var(--vanilla-breath)',
-                  borderRadius: '12px', // REDUCED from 16px
-                  marginBottom: '10px', // REDUCED: More compact spacing
-                  padding: '12px 20px', // REDUCED: Much more compact (was 16px 24px)
+                  // FIXED: Transparent backgrounds for visual sophistication
+                  background: 'rgba(255, 255, 255, 0.03)', // Barely visible - lets section background breathe
+                  border: '1px solid rgba(255, 102, 99, 0.12)',
+                  borderLeft: '3px solid var(--grapefruit-intelligence)',
+                  borderRadius: '16px',
+                  marginBottom: '16px', // Breathing room
+                  padding: '20px 24px',
                   cursor: 'pointer',
                   overflow: 'hidden',
-                  boxShadow: '0 1px 3px var(--vanilla-depth), inset 0 1px 0 var(--vanilla-breath)',
+                  boxShadow: '0 2px 8px rgba(255, 102, 99, 0.08)',
                   transition: 'all 0.618s cubic-bezier(0.236, 0.618, 0.382, 1.0)'
                 }}
                 whileHover={{
-                  // Subtle hover - NO scale to prevent layout shift
-                  background: 'var(--vanilla-breath)',
-                  borderColor: 'var(--vanilla-whisper)',
-                  boxShadow: '0 4px 12px var(--vanilla-depth), inset 0 1px 0 var(--vanilla-breath)'
+                  background: 'rgba(255, 255, 255, 0.06)',
+                  borderColor: 'rgba(255, 102, 99, 0.24)',
+                  boxShadow: '0 8px 24px rgba(255, 102, 99, 0.16)',
+                  transform: 'translateY(-2px)'
                 }}
                 onClick={() => setExpandedService(expandedService === service.number ? null : service.number)}
                 role="button"
@@ -1037,9 +1072,9 @@ export default function Home() {
                     style={{ overflow: 'hidden' }}
                   >
                     <div style={{
-                      padding: '12px 20px', // REDUCED: Ultra compact (was 16px 24px)
-                      borderTop: '1px solid var(--vanilla-foundation)',
-                      background: 'var(--vanilla-foundation)'
+                      padding: '20px 24px',
+                      borderTop: '1px solid rgba(255, 102, 99, 0.12)',
+                      background: 'rgba(255, 255, 255, 0.02)' // FIXED: Subtle background
                     }}>
                       {/* Single Combined Content Block - ULTRA COMPACT */}
                       <p style={{
