@@ -8,102 +8,72 @@ export function SilvanaLoader() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.2 }}
       style={{
         position: 'fixed',
         inset: 0,
-        background: 'var(--vanilla-foundation)', /* Your color system background */
+        background: '#374151', /* Charcoal background */
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         zIndex: 10000
       }}
     >
-      {/* Exact Recreation of Stella's "S" with Burst Pattern */}
+      {/* Stella's Exact "S" - 30% Viewport */}
       <motion.svg
-        viewBox="0 0 200 200"
-        style={{ width: '200px', height: '200px' }}
-        initial={{ opacity: 0, scale: 0.8 }}
+        viewBox="0 0 100 100"
+        style={{ 
+          width: '30vw', 
+          height: '30vw',
+          maxWidth: '300px',
+          maxHeight: '300px',
+          minWidth: '200px',
+          minHeight: '200px'
+        }}
+        initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: 0.3 }}
       >
-        {/* Exact recreation of Stella's "S" letterform */}
+        {/* Stroke-by-stroke S drawing - SUPER FAST */}
         <motion.path
-          d="M 60,40 C 50,30 35,30 30,40 C 25,50 30,55 40,60 L 80,75 C 90,80 95,85 90,95 C 85,105 70,110 60,105 C 50,100 45,95 50,90"
-          stroke="#4A5568" /* Your sophisticated charcoal */
-          strokeWidth="3"
+          d="M 25,20 C 35,15 50,15 65,20 C 75,25 75,35 65,40 L 35,55 C 25,60 25,70 35,75 C 50,80 65,80 75,75"
+          stroke="#FDFCF8" /* Vanilla whisper on charcoal */
+          strokeWidth="2.5"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{
-            duration: 1.5,
-            ease: [0.25, 0.46, 0.45, 0.94],
-            delay: 0.3
+            duration: 0.8, /* Super fast - not making users wait */
+            ease: "easeInOut"
           }}
         />
 
-        {/* Stella's Exact Burst Pattern - Precise Mathematical Recreation */}
+        {/* Stella's Burst Lines - ALL APPEAR AT ONCE (NOT ANIMATED INDIVIDUALLY) */}
         {Array.from({ length: 24 }, (_, i) => {
-          // Mathematical precision matching Stella's burst placement
-          const angle = (i * 15) * (Math.PI / 180); // 15-degree intervals exactly
-          const baseX = 70; // Center point of S letterform
-          const baseY = 70;
-          const innerRadius = 25; // Inner burst radius
-          const outerRadius = 60; // Outer burst radius
+          // Mathematical burst pattern exactly like Stella
+          const angle = (i * 15) * (Math.PI / 180);
+          const centerX = 50;
+          const centerY = 50;
+          const innerRadius = 20;
+          const outerRadius = 40;
           
           return (
             <motion.line
               key={i}
-              x1={baseX + Math.cos(angle) * innerRadius}
-              y1={baseY + Math.sin(angle) * innerRadius}
-              x2={baseX + Math.cos(angle) * outerRadius}
-              y2={baseY + Math.sin(angle) * outerRadius}
-              stroke="#4A5568" /* Your sophisticated charcoal */
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ 
-                pathLength: 1,
-                opacity: [0, 1, 0.8]
-              }}
-              transition={{
-                duration: 0.6,
-                delay: 1.8 + (i * 0.02), // Staggered burst animation exactly like Stella
-                ease: [0.25, 0.46, 0.45, 0.94]
-              }}
-            />
-          );
-        })}
-
-        {/* Additional burst lines for S curve details - Stella's precision */}
-        {Array.from({ length: 12 }, (_, i) => {
-          const angle = (i * 30) * (Math.PI / 180); // Different angle pattern for S curves
-          const baseX = 50; // Upper curve burst point
-          const baseY = 50;
-          const innerRadius = 20;
-          const outerRadius = 45;
-          
-          return (
-            <motion.line
-              key={`curve-${i}`}
-              x1={baseX + Math.cos(angle) * innerRadius}
-              y1={baseY + Math.sin(angle) * innerRadius}
-              x2={baseX + Math.cos(angle) * outerRadius}
-              y2={baseY + Math.sin(angle) * outerRadius}
-              stroke="#4A5568" /* Your sophisticated charcoal */
+              x1={centerX + Math.cos(angle) * innerRadius}
+              y1={centerY + Math.sin(angle) * innerRadius}
+              x2={centerX + Math.cos(angle) * outerRadius}
+              y2={centerY + Math.sin(angle) * outerRadius}
+              stroke="#FDFCF8" /* Vanilla whisper on charcoal */
               strokeWidth="1"
               strokeLinecap="round"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ 
-                pathLength: 1,
-                opacity: [0, 0.8, 0.6]
-              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{
-                duration: 0.5,
-                delay: 2.2 + (i * 0.03), // Second wave animation
-                ease: [0.25, 0.46, 0.45, 0.94]
+                duration: 0.2, /* ALL appear instantly together */
+                delay: 0.8 /* Right after S completes */
               }}
             />
           );

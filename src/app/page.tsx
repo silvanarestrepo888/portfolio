@@ -46,11 +46,11 @@ export default function Home() {
     };
   }, []);
   
-  // Stella-inspired loading sequence
+  // Stella-inspired loading sequence - FAST
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000); // 3 seconds for sophisticated loading experience
+    }, 1200); // 1.2 seconds - fast, not making users wait
     return () => clearTimeout(timer);
   }, []);
   

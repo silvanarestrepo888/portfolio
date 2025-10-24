@@ -7,7 +7,7 @@ const companies = [
   "Globant",
   "Centre for Fourth Industrial Revolution-WEF", 
   "Designit a Wipro Company",
-  "Grupo Éxito",
+  "Grupo Éxito a Casino Company",
   "Industrias HACEB",
   "Independent",
   "TIGO-Millicom"
@@ -18,10 +18,9 @@ const roles = [
   "Business Partner & Experience Architect",
   "Ecosystem Engagement Leader", 
   "Strategic Design Director",
+  "Tech Manager, Product Direction",
   "Marketing Director",
-  "Business Intelligence Manager",
-  "Independent Advisor",
-  "Senior Marketing Analyst"
+  "Business Intelligence Manager"
 ];
 
 export function ExperienceTimeline() {
