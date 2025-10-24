@@ -53,6 +53,9 @@ export default function Home() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   
+  // Services hover expansion state
+  const [expandedService, setExpandedService] = useState<string | null>(null);
+  
   
 
 
@@ -973,22 +976,22 @@ export default function Home() {
                 }}
                 viewport={{ once: true }}
                 style={{
-                  // FIXED: Transparent backgrounds for visual sophistication
-                  background: 'rgba(255, 255, 255, 0.03)', // Barely visible - lets section background breathe
-                  border: '1px solid rgba(255, 102, 99, 0.12)',
-                  borderLeft: '3px solid var(--grapefruit-intelligence)',
+                  // ACCESSIBILITY: Better contrast overlay for text readability
+                  background: 'rgba(0, 0, 0, 0.1)', // Subtle dark overlay for better text contrast
+                  border: '1px solid rgba(253, 252, 248, 0.2)',
+                  borderLeft: '3px solid var(--vanilla-whisper)',
                   borderRadius: '16px',
                   marginBottom: '16px', // Breathing room
                   padding: '20px 24px',
                   cursor: 'pointer',
                   overflow: 'hidden',
-                  boxShadow: '0 2px 8px rgba(255, 102, 99, 0.08)',
+                  /* NO box-shadow - ultra-clean approach */
                   transition: 'all 0.618s cubic-bezier(0.236, 0.618, 0.382, 1.0)'
                 }}
                 whileHover={{
-                  background: 'rgba(255, 255, 255, 0.06)',
-                  borderColor: 'rgba(255, 102, 99, 0.24)',
-                  boxShadow: '0 8px 24px rgba(255, 102, 99, 0.16)',
+                  background: 'rgba(0, 0, 0, 0.2)', // Stronger contrast on hover
+                  borderColor: 'rgba(253, 252, 248, 0.3)',
+                  /* NO box-shadow - ultra-clean approach */
                   transform: 'translateY(-2px)'
                 }}
                 onClick={() => setExpandedService(expandedService === service.number ? null : service.number)}
@@ -1028,7 +1031,7 @@ export default function Home() {
                   flex: 1,
                   fontSize: 'clamp(1.125rem, 2vw, 1.375rem)', // REDUCED: 18px → 22px (was 34px!)
                   fontFamily: 'var(--font-architectural-display)',
-                  color: '#4A5568', /* Warm charcoal - sophisticated */
+                  color: 'var(--vanilla-whisper)', /* Design system breathing elegance on grapefruit */
                   margin: 0,
                   fontWeight: '300', // Danish elegance matching your about section
                   letterSpacing: '-0.02em', // Your luxury spacing
@@ -1066,25 +1069,25 @@ export default function Home() {
                   >
                     <div style={{
                       padding: '20px 24px',
-                      borderTop: '1px solid rgba(255, 102, 99, 0.12)',
-                      background: 'rgba(255, 255, 255, 0.02)' // FIXED: Subtle background
+                      borderTop: '1px solid rgba(253, 252, 248, 0.2)',
+                      background: 'rgba(0, 0, 0, 0.15)' // Better contrast overlay for text readability
                     }}>
                       {/* Single Combined Content Block - ULTRA COMPACT */}
                       <p style={{
                         fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)', // REDUCED: 14px → 15px (was 16px)
                         fontFamily: 'var(--font-architectural-body)',
-                        color: '#667080', /* Refined dark gray for descriptions */
+                        color: 'var(--vanilla-breath)', /* Design system subtle breathing on grapefruit */
                         lineHeight: '1.5', // REDUCED: More compact
                         margin: 0
                       }}>
                         <em style={{
-                          color: '#718096', /* Sophisticated medium gray for subtitles */
+                          color: 'var(--vanilla-foundation)', /* Design system architectural base on grapefruit */
                           fontWeight: '500'
                         }}>
                           {service.subtitle}
                         </em><br/>
-                        <strong style={{color: 'var(--coral-primary)'}}>Strategic Capability:</strong> {service.description}<br/>
-                        <strong style={{color: 'var(--coral-primary)'}}>For Projects That Demand:</strong> {service.demand}
+                        <strong style={{color: 'var(--vanilla-whisper)'}}>Strategic Capability:</strong> {service.description}<br/>
+                        <strong style={{color: 'var(--vanilla-whisper)'}}>For Projects That Demand:</strong> {service.demand}
                       </p>
                     </div>
                   </motion.div>

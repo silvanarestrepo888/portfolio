@@ -19736,9 +19736,9 @@ section#services .typography-body {
   opacity: 0.9;
 }
 
-/* Service cards remain vanilla for readability */
+/* Service cards remain vanilla for readability on grapefruit background */
 section#services h3 {
-  color: #4A5568 !important; /* Warm charcoal for service titles */
+  color: var(--vanilla-whisper) !important; /* Design system breathing elegance on grapefruit */
 }
 
 /* Elegant scrollbar for services container */
