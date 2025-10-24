@@ -115,8 +115,7 @@ export default function Home() {
     }
   ];
 
-  // Services hover expansion state
-  const [expandedService, setExpandedService] = useState<string | null>(null);
+  // REMOVED: Duplicate expandedService state - already declared above
   
   // Timeline progress state - REMOVED: No longer using timeline
   
