@@ -17,6 +17,11 @@ interface Project {
   image: string;
   secondaryImage: string;
   galleryImages: string[];
+  testimonial: {
+    quote: string;
+    author: string;
+    role: string;
+  };
 }
 
 interface InteractiveProjectCardProps {
@@ -217,6 +222,75 @@ export function InteractiveProjectCard({
                       {capability}
                     </motion.span>
                   ))}
+                </div>
+              </motion.div>
+              
+              {/* EYE-CATCHING TESTIMONIAL - USING YOUR EXISTING COPY */}
+              <motion.div 
+                className="project-testimonial-prominent"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 + 0.7 }}
+                style={{
+                  background: 'rgba(255, 102, 99, 0.08)',
+                  border: '1px solid rgba(255, 102, 99, 0.2)',
+                  borderRadius: '12px',
+                  padding: '1rem',
+                  margin: '1rem 0',
+                  position: 'relative'
+                }}
+              >
+                {/* Elegant quotation mark */}
+                <div 
+                  style={{
+                    position: 'absolute',
+                    top: '-8px',
+                    left: '12px',
+                    background: 'var(--grapefruit-intelligence)',
+                    color: 'white',
+                    width: '24px',
+                    height: '24px',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '14px',
+                    fontWeight: 'bold'
+                  }}
+                >
+                  &ldquo;
+                </div>
+                
+                {/* Testimonial Quote - Eye-catching */}
+                <p 
+                  style={{
+                    fontSize: '0.875rem',
+                    fontStyle: 'italic',
+                    color: '#4A5568',
+                    marginBottom: '0.5rem',
+                    lineHeight: '1.4',
+                    fontFamily: 'var(--font-architectural-body)'
+                  }}
+                >
+                  {project.testimonial.quote.length > 80 
+                    ? `${project.testimonial.quote.substring(0, 80)}...`
+                    : project.testimonial.quote
+                  }
+                </p>
+                
+                {/* Credibility - Author & Role */}
+                <div 
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    fontSize: '0.75rem',
+                    color: '#718096',
+                    fontWeight: '500'
+                  }}
+                >
+                  <span>{project.testimonial.author}</span>
+                  <span style={{ fontStyle: 'italic' }}>{project.testimonial.role}</span>
                 </div>
               </motion.div>
               
