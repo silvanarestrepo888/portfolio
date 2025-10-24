@@ -17,11 +17,6 @@ interface Project {
   image: string;
   secondaryImage: string;
   galleryImages: string[];
-  testimonial: {
-    quote: string;
-    author: string;
-    role: string;
-  };
 }
 
 interface InteractiveProjectCardProps {
@@ -41,13 +36,46 @@ export function InteractiveProjectCard({
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isImageExpanded, setIsImageExpanded] = useState(false);
-
-  const handleMouseLeave = useCallback(() => {
-    setIsHovered(false);
-  }, []);
+  const [galleryIndex, setGalleryIndex] = useState(0);
+  
+  // Cinematic aspect ratios for different project types
+  const getAspectRatio = (projectTitle: string) => {
+    const ratios: { [key: string]: string } = {
+      'Kayanee': '16:10',        // Wellness - wide cinematic
+      'Augoor': '4:3',           // Software - square tech
+      'Chime Care J&J': '3:2',   // Healthcare - classic
+      'Nomade Tulum': '16:9',    // Hospitality - cinematic wide
+      'Danone Digital Transformation': '4:3', // Corporate - square
+      'Parques Reunidos': '16:9', // Entertainment - wide
+      'Flagship Entertainment Destination, KSA': '16:9' // Entertainment - wide
+    };
+    return ratios[projectTitle] || '4:3';
+  };
 
   const handleMouseEnter = useCallback(() => {
     setIsHovered(true);
+    // Start gallery preview cycle
+    const interval = setInterval(() => {
+      setGalleryIndex(prev => (prev + 1) % Math.min(project.galleryImages.length, 3));
+    }, 1500); // Change image every 1.5s
+    
+    // Store interval for cleanup
+    if (cardRef.current) {
+      (cardRef.current as HTMLElement).setAttribute('data-gallery-interval', interval.toString());
+    }
+  }, [project.galleryImages.length]);
+  
+  const handleMouseLeave = useCallback(() => {
+    setIsHovered(false);
+    setGalleryIndex(0); // Reset to first image
+    
+    // Clear gallery interval
+    if (cardRef.current) {
+      const intervalStr = (cardRef.current as HTMLElement).getAttribute('data-gallery-interval');
+      if (intervalStr) {
+        clearInterval(parseInt(intervalStr));
+      }
+    }
   }, []);
 
   const handleClick = useCallback(() => {
@@ -86,25 +114,183 @@ export function InteractiveProjectCard({
         {/* Clean Balanced Layout: 60% Image / 40% Content */}
         <div className="balanced-layout-grid">
           
-          {/* Image Section - 60% (Perfect Balance) */}
-          <div className="balanced-image-section">
-            <div className="balanced-image-container">
-              <Image
-                src={project.image}
-                alt={project.title}
-                width={800}
-                height={600}
-                className="balanced-image-perfect gpu-accelerated"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'contain',
-                  objectPosition: 'center'
+          {/* CINEMATIC IMAGE SECTION - Award-Winning Enhancement */}
+          <div 
+            className="balanced-image-section cinematic-container"
+            style={{
+              aspectRatio: getAspectRatio(project.title),
+              overflow: 'hidden',
+              position: 'relative'
+            }}
+          >
+            <div className="cinematic-image-layers">
+              {/* Main Project Image with Ken Burns Effect */}
+              <motion.div
+                className="cinematic-main-image"
+                animate={{
+                  scale: [1, 1.02, 1],
+                  x: [0, 3, 0],
+                  y: [0, -2, 0]
                 }}
-                quality={100}
-                priority={index < 2}
-                loading="eager"
-              />
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  zIndex: 1
+                }}
+              >
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                  style={{
+                    objectPosition: 'center',
+                    filter: 'contrast(1.05) saturate(1.1)'
+                  }}
+                  quality={100}
+                  priority={index < 2}
+                />
+              </motion.div>
+
+              {/* Gallery Preview on Hover */}
+              <AnimatePresence>
+                {isHovered && project.galleryImages.length > 0 && (
+                  <motion.div
+                    className="gallery-preview-overlay"
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      zIndex: 2
+                    }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <Image
+                      src={project.galleryImages[galleryIndex] || project.secondaryImage}
+                      alt={`${project.title} - Gallery preview ${galleryIndex + 1}`}
+                      fill
+                      className="object-cover"
+                      style={{
+                        objectPosition: 'center'
+                      }}
+                      quality={95}
+                    />
+                    
+                    {/* Gallery indicator dots */}
+                    <div
+                      style={{
+                        position: 'absolute',
+                        bottom: '12px',
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        display: 'flex',
+                        gap: '4px'
+                      }}
+                    >
+                      {project.galleryImages.slice(0, 3).map((_, i) => (
+                        <div
+                          key={i}
+                          style={{
+                            width: '6px',
+                            height: '6px',
+                            borderRadius: '50%',
+                            background: galleryIndex === i 
+                              ? 'rgba(255, 255, 255, 0.9)' 
+                              : 'rgba(255, 255, 255, 0.4)'
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Sophisticated Image Overlays */}
+              <div className="cinematic-overlay-system">
+                {/* Elegant gradient for text readability */}
+                <motion.div
+                  className="gradient-sophistication"
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.05) 100%)',
+                    zIndex: 3
+                  }}
+                  animate={{
+                    background: isHovered 
+                      ? 'linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.1) 100%)'
+                      : 'linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.05) 100%)'
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+                
+                {/* Subtle vignette effect */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'radial-gradient(circle at center, transparent 60%, rgba(0, 0, 0, 0.03) 100%)',
+                    zIndex: 4
+                  }}
+                />
+              </div>
+              
+              {/* Cinematic Tags - Positioned over image layers */}
+              <div 
+                className="balanced-overlay-tags cinematic-tags"
+                style={{
+                  position: 'absolute',
+                  top: '16px',
+                  right: '16px',
+                  zIndex: 5,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '8px',
+                  alignItems: 'flex-end'
+                }}
+              >
+                <motion.span 
+                  className="balanced-year-tag cinematic-tag"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 + 0.3 }}
+                  style={{
+                    background: 'rgba(0, 0, 0, 0.7)',
+                    color: 'white',
+                    padding: '4px 8px',
+                    borderRadius: '4px',
+                    fontSize: '0.75rem',
+                    fontWeight: '500',
+                    backdropFilter: 'blur(10px)'
+                  }}
+                >
+                  {project.year}
+                </motion.span>
+                <motion.span 
+                  className="balanced-category-tag cinematic-tag"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 + 0.4 }}
+                  style={{
+                    background: 'rgba(255, 102, 99, 0.9)',
+                    color: 'white',
+                    padding: '4px 8px',
+                    borderRadius: '4px',
+                    fontSize: '0.75rem',
+                    fontWeight: '500',
+                    backdropFilter: 'blur(10px)'
+                  }}
+                >
+                  {project.category}
+                </motion.span>
+              </div>
               
               {/* Mobile: Expand Image Button */}
               <button
@@ -114,6 +300,12 @@ export function InteractiveProjectCard({
                   setIsImageExpanded(true);
                 }}
                 aria-label="View full image"
+                style={{
+                  position: 'absolute',
+                  bottom: '16px',
+                  right: '16px',
+                  zIndex: 5
+                }}
               >
                 <svg
                   width="20"
@@ -128,26 +320,6 @@ export function InteractiveProjectCard({
                   <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
                 </svg>
               </button>
-              
-              {/* Enhanced Tags */}
-              <div className="balanced-overlay-tags">
-                <motion.span 
-                  className="balanced-year-tag"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 + 0.3 }}
-                >
-                  {project.year}
-                </motion.span>
-                <motion.span 
-                  className="balanced-category-tag"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 + 0.4 }}
-                >
-                  {project.category}
-                </motion.span>
-              </div>
             </div>
           </div>
           
@@ -222,75 +394,6 @@ export function InteractiveProjectCard({
                       {capability}
                     </motion.span>
                   ))}
-                </div>
-              </motion.div>
-              
-              {/* EYE-CATCHING TESTIMONIAL - USING YOUR EXISTING COPY */}
-              <motion.div 
-                className="project-testimonial-prominent"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 + 0.7 }}
-                style={{
-                  background: 'rgba(255, 102, 99, 0.08)',
-                  border: '1px solid rgba(255, 102, 99, 0.2)',
-                  borderRadius: '12px',
-                  padding: '1rem',
-                  margin: '1rem 0',
-                  position: 'relative'
-                }}
-              >
-                {/* Elegant quotation mark */}
-                <div 
-                  style={{
-                    position: 'absolute',
-                    top: '-8px',
-                    left: '12px',
-                    background: 'var(--grapefruit-intelligence)',
-                    color: 'white',
-                    width: '24px',
-                    height: '24px',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '14px',
-                    fontWeight: 'bold'
-                  }}
-                >
-                  &ldquo;
-                </div>
-                
-                {/* Testimonial Quote - Eye-catching */}
-                <p 
-                  style={{
-                    fontSize: '0.875rem',
-                    fontStyle: 'italic',
-                    color: '#4A5568',
-                    marginBottom: '0.5rem',
-                    lineHeight: '1.4',
-                    fontFamily: 'var(--font-architectural-body)'
-                  }}
-                >
-                  {project.testimonial.quote.length > 80 
-                    ? `${project.testimonial.quote.substring(0, 80)}...`
-                    : project.testimonial.quote
-                  }
-                </p>
-                
-                {/* Credibility - Author & Role */}
-                <div 
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    fontSize: '0.75rem',
-                    color: '#718096',
-                    fontWeight: '500'
-                  }}
-                >
-                  <span>{project.testimonial.author}</span>
-                  <span style={{ fontStyle: 'italic' }}>{project.testimonial.role}</span>
                 </div>
               </motion.div>
               

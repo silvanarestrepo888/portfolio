@@ -19761,4 +19761,81 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   background: var(--vanilla-foundation);
 }
 
-/* REMOVED: Storytelling connections - focusing on impactful project presentation instead */
+/* ========================================== */
+/* CINEMATIC PROJECT IMAGERY - AWARD-WINNING ENHANCEMENT */
+/* Sophisticated Visual Presentation */
+/* ========================================== */
+
+.cinematic-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.cinematic-image-layers {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.cinematic-main-image {
+  /* GPU acceleration for smooth Ken Burns effect */
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.gallery-preview-overlay {
+  /* Smooth gallery transitions */
+  backdrop-filter: blur(1px);
+}
+
+.cinematic-overlay-system {
+  /* Sophisticated layering system */
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.gradient-sophistication {
+  /* Dynamic gradient that responds to interaction */
+  transition: background 0.3s ease;
+}
+
+.cinematic-tags {
+  /* Enhanced tag positioning for cinematic layout */
+  backdrop-filter: blur(10px);
+}
+
+.cinematic-tag {
+  /* Professional tag styling */
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cinematic-tag:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive cinematic adjustments */
+@media (max-width: 768px) {
+  .cinematic-container {
+    border-radius: 8px;
+  }
+  
+  .cinematic-tags {
+    top: 12px;
+    right: 12px;
+    gap: 6px;
+  }
+  
+  .cinematic-tag {
+    font-size: 0.6875rem !important;
+    padding: 3px 6px !important;
+  }
+}
+
+/* ========================================== */
+/* END CINEMATIC PROJECT IMAGERY */
+/* ========================================== */
