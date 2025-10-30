@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useCallback } from 'react';
+import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
@@ -36,6 +37,13 @@ export function InteractiveProjectCard({
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isImageExpanded, setIsImageExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const update = () => setIsMobile(window.innerWidth <= 640);
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
   
   // Cinematic aspect ratios for different project types
   const getAspectRatio = (projectTitle: string) => {
@@ -93,13 +101,14 @@ export function InteractiveProjectCard({
     >
       <div className="balanced-project-card luxury-hover-elevation project-card-shadow-3d">
         {/* Clean Balanced Layout: 60% Image / 40% Content */}
-        <div className="balanced-layout-grid">
+        <div className="balanced-layout-grid" style={{ display: isMobile ? 'block' as const : undefined }}>
           
           {/* ULTRA-CLEAN IMAGE SECTION - No Frames, Pure Sophistication */}
           <div 
             className="balanced-image-section cinematic-container"
             style={{
-              aspectRatio: getAspectRatio(project.title),
+              aspectRatio: isMobile ? undefined : getAspectRatio(project.title),
+              height: isMobile ? '62vh' : undefined,
               overflow: 'hidden',
               position: 'relative',
               background: 'transparent', /* NO gray background */
@@ -122,7 +131,7 @@ export function InteractiveProjectCard({
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-contain" /* Shows full image without cropping */
+                  className={isMobile ? 'object-cover' : 'object-contain'} /* Mobile: fill to feel immersive */
                   style={{
                     objectPosition: 'center',
                     filter: 'contrast(1.02) saturate(1.05)', /* Subtle enhancement */
@@ -130,6 +139,7 @@ export function InteractiveProjectCard({
                   }}
                   quality={100}
                   priority={index < 2}
+                  sizes={isMobile ? '100vw' : '(max-width: 1200px) 80vw, 1200px'}
                 />
               </div>
 
@@ -142,8 +152,8 @@ export function InteractiveProjectCard({
                 className="balanced-overlay-tags cinematic-tags"
                 style={{
                   position: 'absolute',
-                  top: '16px',
-                  right: '16px',
+                  top: isMobile ? '12px' : '16px',
+                  right: isMobile ? '12px' : '16px',
                   zIndex: 5,
                   display: 'flex',
                   flexDirection: 'column',
@@ -159,9 +169,9 @@ export function InteractiveProjectCard({
                   style={{
                     background: 'rgba(0, 0, 0, 0.7)',
                     color: 'white',
-                    padding: '4px 8px',
+                    padding: isMobile ? '3px 6px' : '4px 8px',
                     borderRadius: '4px',
-                    fontSize: '0.75rem',
+                    fontSize: isMobile ? '0.7rem' : '0.75rem',
                     fontWeight: '500',
                     backdropFilter: 'blur(10px)'
                   }}
@@ -176,9 +186,9 @@ export function InteractiveProjectCard({
                   style={{
                     background: 'rgba(255, 102, 99, 0.9)',
                     color: 'white',
-                    padding: '4px 8px',
+                    padding: isMobile ? '3px 6px' : '4px 8px',
                     borderRadius: '4px',
-                    fontSize: '0.75rem',
+                    fontSize: isMobile ? '0.7rem' : '0.75rem',
                     fontWeight: '500',
                     backdropFilter: 'blur(10px)'
                   }}
@@ -197,8 +207,8 @@ export function InteractiveProjectCard({
                 aria-label="View full image"
                 style={{
                   position: 'absolute',
-                  bottom: '16px',
-                  right: '16px',
+                  bottom: isMobile ? '12px' : '16px',
+                  right: isMobile ? '12px' : '16px',
                   zIndex: 5
                 }}
               >
@@ -219,7 +229,7 @@ export function InteractiveProjectCard({
           </div>
           
           {/* Content Section - 40% (Perfect Balance) */}
-          <div className="balanced-content-section">
+          <div className="balanced-content-section" style={{ paddingTop: isMobile ? '12px' : undefined }}>
             <div className="balanced-content-inner">
               
               {/* Clean Project Header */}
@@ -264,33 +274,36 @@ export function InteractiveProjectCard({
                 <p className="balanced-subtitle">
                   {project.subtitle}
                 </p>
-                
-                <p className="balanced-description-text">
-                  {project.description}
-                </p>
+                {!isMobile && (
+                  <p className="balanced-description-text">
+                    {project.description}
+                  </p>
+                )}
               </motion.div>
               
               {/* Clean Capability Tags */}
-              <motion.div 
-                className="balanced-capabilities"
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 + 0.6 }}
-              >
-                <div className="balanced-tags">
-                  {project.tech.slice(0, 3).map((capability, tagIndex) => (
-                    <motion.span 
-                      key={capability} 
-                      className="balanced-tag"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.1 + 0.7 + tagIndex * 0.1 }}
-                    >
-                      {capability}
-                    </motion.span>
-                  ))}
-                </div>
-              </motion.div>
+              {!isMobile && (
+                <motion.div 
+                  className="balanced-capabilities"
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 + 0.6 }}
+                >
+                  <div className="balanced-tags">
+                    {project.tech.slice(0, 3).map((capability, tagIndex) => (
+                      <motion.span 
+                        key={capability} 
+                        className="balanced-tag"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: index * 0.1 + 0.7 + tagIndex * 0.1 }}
+                      >
+                        {capability}
+                      </motion.span>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
               
               {/* Project Action Buttons */}
               <motion.div 
