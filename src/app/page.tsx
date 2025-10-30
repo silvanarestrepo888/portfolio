@@ -52,6 +52,13 @@ export default function Home() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const update = () => setIsMobile(window.innerWidth <= 640);
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
   
   // Services hover expansion state
   const [expandedService, setExpandedService] = useState<string | null>(null);
@@ -496,9 +503,9 @@ export default function Home() {
         Skip to about section
       </a>
       
-      {/* AWWWARDS MAGNETIC CURSOR SYSTEM */}
-      <MagneticCursor />
-      <CustomCursor />
+      {/* AWWWARDS MAGNETIC CURSOR SYSTEM (hidden on mobile) */}
+      {!isMobile && <MagneticCursor />}
+      {!isMobile && <CustomCursor />}
       
       {/* AWWWARDS FLOATING NAVIGATION SYSTEM */}
       <FloatingNavigation />
@@ -551,7 +558,7 @@ export default function Home() {
             className="hero-title-luxury-centered"
             initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.618, delay: 0.382 }} /* Mathematical precision */
+            transition={{ duration: isMobile ? 0.6 : 1.618, delay: isMobile ? 0.12 : 0.382 }} /* Faster on mobile */
           >
             Experience Architect
           </motion.h1>
@@ -561,7 +568,7 @@ export default function Home() {
             className="hero-cta-elegant"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.618, delay: 1.618 }} /* Pure golden ratio timing */
+            transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.24 : 1.618 }}
           >
             <motion.button
               onClick={() => {
@@ -577,7 +584,7 @@ export default function Home() {
               aria-label="Navigate to featured projects section"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.0, delay: 2.618 }} /* Mathematical progression */
+              transition={{ duration: isMobile ? 0.4 : 1.0, delay: isMobile ? 0.36 : 2.618 }} /* Mathematical progression */
             >
               Projects
             </motion.button>
@@ -590,7 +597,7 @@ export default function Home() {
               aria-label="Open Silvana Restrepo's curriculum vitae in new tab"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.0, delay: 3.236 }} /* Mathematical progression */
+              transition={{ duration: isMobile ? 0.4 : 1.0, delay: isMobile ? 0.48 : 3.236 }} /* Mathematical progression */
             >
               Executive CV
             </motion.a>
@@ -612,13 +619,13 @@ export default function Home() {
         }}
       >
         {/* Background interference elements removed for clean design */}
-        <div className="about-container-ultra-luxury">
+        <div className="about-container-ultra-luxury" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 max(2rem, 5vw)' }}>
           {/* Ultra-Luxury Section Header - Perfectly Centered */}
               <motion.header
             className="about-header-ultra-luxury"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.618, delay: 0.236 }} /* Golden ratio timing */
+            transition={{ duration: isMobile ? 0.6 : 1.618, delay: isMobile ? 0.1 : 0.236 }}
               >
             <div className="about-header-content">
               <span className="about-section-number">01</span>
@@ -627,7 +634,7 @@ export default function Home() {
                 className="about-title-ultra-luxury typography-h2"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.618, delay: 0.382 }} /* Fibonacci sequence: 0.236, 0.382... */
+                transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.16 : 0.382 }}
               >
                 About Me
               </motion.h2>
@@ -637,7 +644,7 @@ export default function Home() {
               className="about-description-ultra-luxury typography-body text-center max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.618, delay: 0.618 }} /* Golden ratio delay */
+              transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.2 : 0.618 }}
             >
               Two decades of transforming how global brands connect with human experiences
             </motion.p>
@@ -648,7 +655,7 @@ export default function Home() {
             className="about-content-ultra-luxury"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8 }}
+            transition={{ duration: isMobile ? 0.5 : 1, delay: isMobile ? 0.2 : 0.8 }}
           >
             {/* Left Column - Your Exact Content */}
             <div className="about-text-column">
@@ -657,7 +664,7 @@ export default function Home() {
                   className="about-main-story"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1.618, delay: 1.0 }} /* Fibonacci sequence */
+                  transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.24 : 1.0 }}
                 >
                   I believe the most compelling stories begin with curiosity—a spark that has carried me across continents, blending diverse perspectives from anthropology to business, from innovation to experience design, and from emerging technologies to business transformation.
                 </motion.p>
@@ -666,7 +673,7 @@ export default function Home() {
                   className="about-main-story"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1.618, delay: 1.272 }} /* Fibonacci: 1.0 + 0.272 */
+                  transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.28 : 1.272 }}
                 >
                   Each endeavour brings me closer to my mission: connecting strategic business goals with the essence of the <span className="highlight-human-typography">#human perspective</span>.
                 </motion.p>
@@ -675,7 +682,7 @@ export default function Home() {
                   className="about-main-story"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1.618, delay: 1.618 }} /* Pure golden ratio */
+                  transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.32 : 1.618 }}
                 >
                   Whether leading teams in retail innovation or pioneering Experience design for global brands, my passion remains: to reveal what lies beneath and transform it into tangible expansion.
                 </motion.p>
@@ -684,7 +691,7 @@ export default function Home() {
                   className="about-welcome"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1.618, delay: 2.0 }} /* Fibonacci sequence progression */
+                  transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.36 : 2.0 }}
                 >
                   Welcome to my world—where strategy meets soul, and design becomes the universal language of possibility
                 </motion.p>
@@ -734,27 +741,27 @@ export default function Home() {
             className="about-philosophy-ultra-luxury"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.4 }}
+            transition={{ duration: isMobile ? 0.6 : 1.5, delay: isMobile ? 0.28 : 1.6 }}
           >
             <motion.blockquote 
               className="philosophy-quote-ultra-luxury"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ duration: 1.5, delay: 1.6 }}
+              transition={{ duration: isMobile ? 0.6 : 1.5, delay: isMobile ? 0.28 : 1.6 }}
             >
               &ldquo;The art of <motion.span 
                 className="craft-highlight-luxury"
                 initial={{ opacity: 0.7 }}
                 whileInView={{ 
                   opacity: 1,
-                  transition: { duration: 0.6, delay: 1.8 }
+                  transition: { duration: isMobile ? 0.3 : 0.6, delay: isMobile ? 0.3 : 1.8 }
                 }}
                 onViewportEnter={() => {
                   // Add class to trigger underline animation
                   setTimeout(() => {
                     const element = document.querySelector('.craft-highlight-luxury');
                     if (element) element.classList.add('animate-underline');
-                  }, 1800);
+                  }, isMobile ? 300 : 1800);
                 }}
               >MY CRAFT</motion.span> lies in listening to the unspoken, seeing the invisible, and touching the intangible essence of human desire&rdquo;
             </motion.blockquote>
@@ -774,13 +781,13 @@ export default function Home() {
         }}
       >
         {/* Background interference elements removed for clean design */}
-        <div className="projects-container-award-winning">
+        <div className="projects-container-award-winning" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 max(2rem, 5vw)' }}>
           {/* Award-Winning Section Header with Sophisticated Spacing */}
           <motion.div 
             className="projects-header-award-winning"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.618, ease: [0.236, 0.618, 0.382, 1.0] }} /* Mathematical easing */
+            transition={{ duration: isMobile ? 0.6 : 1.618, ease: [0.236, 0.618, 0.382, 1.0] }}
             viewport={{ once: true }}
           >
             <div className="projects-header-content-award">
@@ -789,7 +796,7 @@ export default function Home() {
                 className="projects-title-award-winning typography-h2"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.618, delay: 0.236 }} /* Fibonacci sequence */
+                transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.1 : 0.236 }}
                 viewport={{ once: true }}
               >
                 Projects
@@ -800,7 +807,7 @@ export default function Home() {
               className="projects-description-award-winning typography-body text-center max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.618, delay: 0.382 }} /* Fibonacci sequence */
+              transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.16 : 0.382 }}
               viewport={{ once: true }}
             >
               A curated selection of projects that demonstrate my expertise in experience design, digital transformation, and business innovation across diverse industries and global markets.
@@ -838,13 +845,13 @@ export default function Home() {
               className="carousel-navigation-prominent"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.0 }}
+              transition={{ duration: isMobile ? 0.4 : 0.8, delay: isMobile ? 0.2 : 1.0 }}
               viewport={{ once: true }}
               style={{
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                gap: '2rem',
+                gap: isMobile ? '1rem' : '2rem',
                 marginBottom: '2rem'
               }}
             >
@@ -888,7 +895,7 @@ export default function Home() {
                 onClick={() => setIsAutoPlaying(!isAutoPlaying)}
                 className="carousel-play-pause"
                 style={{
-                  display: 'flex',
+                  display: isMobile ? 'none' : 'flex',
                   alignItems: 'center',
                   gap: '0.5rem',
                   padding: '10px 16px',
@@ -932,9 +939,9 @@ export default function Home() {
                   alignItems: 'center',
                   gap: '0.75rem',
                   padding: '16px 28px',
-                  background: 'var(--grapefruit-intelligence)',
+                  background: isMobile ? '#4A5568' : 'var(--grapefruit-intelligence)',
                   color: 'white',
-                  border: '2px solid var(--grapefruit-intelligence)',
+                  border: `2px solid ${isMobile ? '#4A5568' : 'var(--grapefruit-intelligence)'}`,
                   borderRadius: '50px',
                   fontSize: '1rem',
                   fontWeight: '600',
@@ -942,12 +949,12 @@ export default function Home() {
                   fontFamily: 'var(--font-architectural-body)',
                   letterSpacing: '0.02em',
                   textTransform: 'none',
-                  boxShadow: '0 4px 16px rgba(255, 102, 99, 0.3)'
+                  boxShadow: isMobile ? '0 4px 16px rgba(74, 85, 104, 0.25)' : '0 4px 16px rgba(255, 102, 99, 0.3)'
                 }}
                 whileHover={{ 
                   scale: 1.08,
-                  backgroundColor: '#E55A5A',
-                  boxShadow: '0 6px 24px rgba(255, 102, 99, 0.4)',
+                  backgroundColor: isMobile ? '#2D3748' : '#E55A5A',
+                  boxShadow: isMobile ? '0 6px 24px rgba(74, 85, 104, 0.35)' : '0 6px 24px rgba(255, 102, 99, 0.4)',
                   y: -2
                 }}
                 whileTap={{ scale: 0.95 }}
@@ -955,6 +962,13 @@ export default function Home() {
                 Next Project →
               </motion.button>
             </motion.div>
+            
+            {/* Mobile swipe hint */}
+            {isMobile && (
+              <div style={{ textAlign: 'center', color: '#4A5568', fontSize: '0.8125rem', marginBottom: '0.5rem' }}>
+                Swipe to browse projects
+              </div>
+            )}
             
             {/* CINEMATIC CAROUSEL - SMOOTH RIGHT→LEFT FLOW */}
             <AnimatePresence mode="wait">
@@ -977,10 +991,10 @@ export default function Home() {
                   scale: 0.95
               }}
               transition={{
-                  duration: 1.2, // Smooth 1.2s cinematic transition
+                  duration: isMobile ? 0.6 : 1.2,
                   ease: [0.25, 0.46, 0.45, 0.94], // Cubic bezier for elegance
-                  opacity: { duration: 0.8 },
-                  scale: { duration: 1.0 }
+                  opacity: { duration: isMobile ? 0.4 : 0.8 },
+                  scale: { duration: isMobile ? 0.5 : 1.0 }
               }}
               onHoverStart={() => setIsAutoPlaying(false)}
               onHoverEnd={() => setIsAutoPlaying(true)}
@@ -1005,12 +1019,12 @@ export default function Home() {
         className="section-luxury section-services-sophisticated section-transition-sophisticated"
         aria-labelledby="services-heading"
       >
-        <div className="container-foundation">
+        <div className="container-foundation" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 max(2rem, 5vw)' }}>
           <motion.div 
             className="projects-header-award-winning"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.618, ease: [0.236, 0.618, 0.382, 1.0] }}
+            transition={{ duration: isMobile ? 0.6 : 1.618, ease: [0.236, 0.618, 0.382, 1.0] }}
             viewport={{ once: true }}
           >
             <div className="projects-header-content-award">
@@ -1019,7 +1033,7 @@ export default function Home() {
                 className="projects-title-award-winning typography-h2"
                   initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.618, delay: 0.236 }}
+                transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.1 : 0.236 }}
             viewport={{ once: true }}
           >
                 services
@@ -1030,7 +1044,7 @@ export default function Home() {
               className="projects-description-award-winning typography-body text-center max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.618, delay: 0.382 }}
+              transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.16 : 0.382 }}
               viewport={{ once: true }}
             >
               Meticulously architected solutions addressing demanding market realities and evolving client needs.
@@ -1309,7 +1323,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.4 }}
               aria-label="Close project details"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg width={isMobile ? 32 : 24} height={isMobile ? 32 : 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>

@@ -131,7 +131,7 @@ export function InteractiveProjectCard({
                   src={project.image}
                   alt={project.title}
                   fill
-                  className={isMobile ? 'object-cover' : 'object-contain'} /* Mobile: fill to feel immersive */
+                  className={isMobile ? 'object-cover' : 'object-contain'} /* Mobile: immersive */
                   style={{
                     objectPosition: 'center',
                     filter: 'contrast(1.02) saturate(1.05)', /* Subtle enhancement */
@@ -184,12 +184,13 @@ export function InteractiveProjectCard({
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 + 0.4 }}
                   style={{
-                    background: 'rgba(255, 102, 99, 0.9)',
+                    background: 'rgba(0, 0, 0, 0.7)',
                     color: 'white',
                     padding: isMobile ? '3px 6px' : '4px 8px',
                     borderRadius: '4px',
                     fontSize: isMobile ? '0.7rem' : '0.75rem',
                     fontWeight: '500',
+                    border: '1px solid rgba(255, 102, 99, 0.6)', /* subtle brand accent */
                     backdropFilter: 'blur(10px)'
                   }}
                 >
@@ -271,7 +272,12 @@ export function InteractiveProjectCard({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 + 0.5 }}
               >
-                <p className="balanced-subtitle">
+                <p className="balanced-subtitle" style={isMobile ? {
+                  display: '-webkit-box',
+                  WebkitLineClamp: 2,
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden'
+                } : undefined}>
                   {project.subtitle}
                 </p>
                 {!isMobile && (
