@@ -10,6 +10,7 @@ import { FloatingNavigation } from '../components/navigation/FloatingNavigation'
 import { SectionIndicator } from '../components/navigation/SectionIndicator';
 import { useParallax } from '../hooks/useScrollAnimation';
 import { InteractiveProjectCard } from '../components/projects/InteractiveProjectCard';
+import { ProjectSnippetGrid } from '../components/projects/ProjectSnippetGrid';
 import { 
   AcceleratedInnovationIcon,
   ExperienceOrchestrationIcon,
@@ -352,6 +353,55 @@ export default function Home() {
         author: "Project Stakeholder",
         role: "Qiddiya"
       }
+    }
+  ], []); // Empty dependency array - static data
+
+  // SNIPPET PROJECTS DATA - Additional Work Across Diverse Sectors
+  const snippetProjects = useMemo(() => [
+    {
+      id: 'c4ir-colombia',
+      title: 'Policy Innovation for Emerging Technologies',
+      industry: 'Government & Public Policy',
+      serviceType: 'Strategic Framework Design',
+      website: 'https://centres.weforum.org/centre-for-frontier-technologies-and-innovation/network',
+      image: '/projects/snippets/c4ir-colombia.png',
+      emailSubject: 'Inquiry about Policy Innovation for Emerging Technologies - Government & Public Policy Project'
+    },
+    {
+      id: 'wef-designit',
+      title: 'Industrial IoT Governance Models',
+      industry: 'Technology Policy & Innovation',
+      serviceType: 'Cross-Sector Partnership Design',
+      website: 'https://www.designit.com/',
+      image: '/projects/snippets/wef-designit.png',
+      emailSubject: 'Inquiry about Industrial IoT Governance Models - Technology Policy & Innovation Project'
+    },
+    {
+      id: 'viva-malls',
+      title: 'Phygital Retail Revolution',
+      industry: 'Retail & Real Estate',
+      serviceType: 'Experience Architecture',
+      website: 'https://ccviva.com/',
+      image: '/projects/snippets/viva-malls.png',
+      emailSubject: 'Inquiry about Phygital Retail Revolution - Retail & Real Estate Project'
+    },
+    {
+      id: 'grupo-exito',
+      title: 'Retail Experience Ecosystem',
+      industry: 'Retail & Consumer Goods',
+      serviceType: 'Service Design',
+      website: 'https://www.grupoexito.com.co/es',
+      image: '/projects/snippets/grupo-exito.png',
+      emailSubject: 'Inquiry about Retail Experience Ecosystem - Retail & Consumer Goods Project'
+    },
+    {
+      id: 'tigo-millicom',
+      title: 'Telecom Customer Intelligence Platform',
+      industry: 'Telecommunications',
+      serviceType: 'Product Direction',
+      website: 'https://www.tigo.com.co/',
+      image: '/projects/snippets/tigo-millicom.png',
+      emailSubject: 'Inquiry about Telecom Customer Intelligence Platform - Telecommunications Project'
     }
   ], []); // Empty dependency array - static data
 
@@ -1010,6 +1060,51 @@ export default function Home() {
             </AnimatePresence>
             
             </motion.div>
+        </div>
+      </section>
+
+      {/* PROJECT SNIPPETS SECTION - ADDITIONAL WORK */}
+      <section 
+        id="project-snippets" 
+        className="snippet-section section-transition-sophisticated"
+        aria-labelledby="snippets-heading"
+      >
+        <div className="snippet-container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 max(2rem, 5vw)' }}>
+          {/* Snippet Section Header */}
+          <motion.div 
+            className="snippet-header"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: isMobile ? 0.6 : 1.618, ease: [0.236, 0.618, 0.382, 1.0] }}
+            viewport={{ once: true }}
+          >
+            <div className="snippet-header-content">
+              <span className="snippet-section-number">03b</span>
+              <motion.h2 
+                id="snippets-heading"
+                className="snippet-title typography-h2"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.1 : 0.236 }}
+                viewport={{ once: true }}
+              >
+                Project Snippets
+              </motion.h2>
+            </div>
+            
+            <motion.p 
+              className="snippet-description typography-body text-center max-w-4xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.16 : 0.382 }}
+              viewport={{ once: true }}
+            >
+              Quick glimpses into diverse work across sectors
+            </motion.p>
+          </motion.div>
+          
+          {/* Snippet Projects Grid */}
+          <ProjectSnippetGrid projects={snippetProjects} />
         </div>
       </section>
 
