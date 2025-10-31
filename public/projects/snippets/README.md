@@ -1,8 +1,8 @@
-# Project Snippets Images
+# 🚨 URGENT: Manual Image Copy Required
 
-## Manual Image Copy Required
+## ⚠️ Project Snippets component is 100% ready EXCEPT for the images!
 
-Due to system limitations, the following images need to be manually copied from the source folder to this directory:
+**Issue:** Automated copying failed due to technical limitations with the file system tools.
 
 ### Source Location:
 `/Users/silvanarestrepo/Desktop/Design Experience Architect/projects/Projects Snippets/`

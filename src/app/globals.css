@@ -19984,11 +19984,11 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   margin: 0;
 }
 
-/* Grid Layout */
+/* Grid Layout - Award-Winning Single Row */
 .snippet-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(5, 1fr); /* Always 5 equal columns */
+  gap: clamp(8px, 2vw, 24px); /* Responsive gap scaling */
   max-width: 1200px;
   margin: 0 auto;
   padding: 0;
@@ -20007,11 +20007,11 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   transform: scale(1.015); /* Subtle scale */
 }
 
-/* Image Container */
+/* Image Container - Responsive Scaling */
 .snippet-image-container {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: clamp(120px, 15vw, 200px); /* Proportional height scaling */
   overflow: hidden;
   border-radius: 12px 12px 0 0;
 }
@@ -20037,7 +20037,7 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   justify-content: center;
 }
 
-/* Project Title - Centered */
+/* Project Title - Centered & Award-Winning Responsive */
 .snippet-title-centered {
   position: absolute;
   top: 50%;
@@ -20045,28 +20045,28 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   transform: translate(-50%, -50%);
   color: white;
   text-align: center;
-  max-width: 200px;
-  font-size: clamp(1rem, 2vw, 1.125rem);
+  max-width: 90%; /* Use more of card width for smaller screens */
+  font-size: clamp(0.75rem, 1.8vw, 1.125rem); /* More aggressive scaling */
   font-family: var(--font-architectural-display);
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.1; /* Tighter line height for smaller cards */
   text-shadow: 0 2px 8px rgba(0,0,0,0.6);
   margin: 0;
-  padding: 0 8px;
+  padding: 0 clamp(4px, 1vw, 8px); /* Responsive padding */
 }
 
-/* CTA Button - Bottom Right */
+/* CTA Button - Bottom Right & Responsive */
 .snippet-cta-bottom-right {
   position: absolute;
-  bottom: 12px;
-  right: 12px;
-  width: 50px;
-  height: 28px;
+  bottom: clamp(6px, 1.5vw, 12px);
+  right: clamp(6px, 1.5vw, 12px);
+  width: clamp(35px, 6vw, 50px); /* Responsive button width */
+  height: clamp(20px, 4vw, 28px); /* Responsive button height */
   background: var(--grapefruit-intelligence);
   color: white;
   border: none;
-  border-radius: 5px;
-  font-size: 0.6875rem;
+  border-radius: clamp(3px, 0.8vw, 5px);
+  font-size: clamp(0.5rem, 1vw, 0.6875rem); /* Responsive font size */
   font-weight: 600;
   font-family: var(--font-architectural-body);
   cursor: pointer;
@@ -20080,94 +20080,48 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   transform: scale(1.05);
 }
 
-/* Info Section Below Image */
+/* Info Section Below Image - Responsive */
 .snippet-info {
   background: rgba(255,251,238,0.8);
   border: 1px solid rgba(74,85,104,0.1);
   border-radius: 0 0 12px 12px;
-  padding: 16px 12px;
-  height: 60px;
+  padding: clamp(8px, 2vw, 16px) clamp(6px, 1.5vw, 12px); /* Responsive padding */
+  height: clamp(40px, 8vw, 60px); /* Responsive height */
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: clamp(4px, 1vw, 8px); /* Responsive gap */
   text-align: center;
 }
 
 .snippet-industry {
-  font-size: 0.875rem;
+  font-size: clamp(0.625rem, 1.2vw, 0.875rem); /* Responsive industry text */
   font-weight: 500;
   color: #4A5568;
   font-family: var(--font-architectural-body);
 }
 
 .snippet-separator {
-  font-size: 0.875rem;
+  font-size: clamp(0.625rem, 1.2vw, 0.875rem); /* Responsive separator */
   color: #718096;
-  margin: 0 4px;
+  margin: 0 clamp(2px, 0.5vw, 4px); /* Responsive margin */
 }
 
 .snippet-service {
-  font-size: 0.875rem;
+  font-size: clamp(0.625rem, 1.2vw, 0.875rem); /* Responsive service text */
   font-weight: 400;
   color: #718096;
   font-family: var(--font-architectural-body);
 }
 
-/* Responsive Design */
+/* Award-Winning Responsive Foundation */
 @media (max-width: 768px) {
-  .snippet-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-  
   .snippet-card {
-    min-width: 0; /* Allow cards to shrink */
-  }
-  
-  .snippet-image-container {
-    height: 160px; /* Smaller on mobile */
-  }
-  
-  .snippet-title-centered {
-    font-size: 0.875rem;
-    max-width: 160px;
-  }
-  
-  .snippet-cta-bottom-right {
-    width: 45px;
-    height: 26px;
-    font-size: 0.625rem;
-    bottom: 10px;
-    right: 10px;
-  }
-  
-  .snippet-info {
-    padding: 12px 8px;
-    height: 50px;
-  }
-  
-  .snippet-industry,
-  .snippet-service {
-    font-size: 0.75rem;
+    min-width: 0; /* Allow cards to shrink gracefully */
   }
 }
 
-@media (max-width: 480px) {
-  .snippet-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .snippet-image-container {
-    height: 180px;
-  }
-  
-  .snippet-title-centered {
-    font-size: 1rem;
-    max-width: 200px;
-  }
-}
+/* No additional mobile overrides needed - clamp() handles all responsiveness */
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {

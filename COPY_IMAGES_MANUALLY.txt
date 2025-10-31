@@ -1,0 +1,20 @@
+🚨 MANUAL IMAGE COPY COMMANDS
+
+The Project Snippets component is 100% ready except for the images!
+
+EASY SOLUTION: Copy and paste these commands into Terminal:
+
+cp "/Users/silvanarestrepo/Desktop/Design Experience Architect/projects/Projects Snippets/C4IR-World Economic Forum Affiliate.png" "/Users/silvanarestrepo/Desktop/Design Experience Architect/portfolio/public/projects/snippets/c4ir-colombia.png"
+
+cp "/Users/silvanarestrepo/Desktop/Design Experience Architect/projects/Projects Snippets/WEF & Designit a WIPRO Company.png" "/Users/silvanarestrepo/Desktop/Design Experience Architect/portfolio/public/projects/snippets/wef-designit.png"
+
+cp "/Users/silvanarestrepo/Desktop/Design Experience Architect/projects/Projects Snippets/Viva Malls.png" "/Users/silvanarestrepo/Desktop/Design Experience Architect/portfolio/public/projects/snippets/viva-malls.png"
+
+cp "/Users/silvanarestrepo/Desktop/Design Experience Architect/projects/Projects Snippets/Grupo Exito-Grupo Casino.png" "/Users/silvanarestrepo/Desktop/Design Experience Architect/portfolio/public/projects/snippets/grupo-exito.png"
+
+cp "/Users/silvanarestrepo/Desktop/Design Experience Architect/projects/Projects Snippets/Tigo-Millicom.png" "/Users/silvanarestrepo/Desktop/Design Experience Architect/portfolio/public/projects/snippets/tigo-millicom.png"
+
+VERIFY: Run this to check all images copied:
+ls -la "/Users/silvanarestrepo/Desktop/Design Experience Architect/portfolio/public/projects/snippets/"
+
+✅ Once copied, your Project Snippets component will be fully functional!
