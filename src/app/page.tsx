@@ -1072,17 +1072,17 @@ export default function Home() {
         <div className="snippet-container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 max(2rem, 5vw)' }}>
           {/* Snippet Section Header */}
           <motion.div 
-            className="snippet-header"
+            className="projects-header-award-winning"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: isMobile ? 0.6 : 1.618, ease: [0.236, 0.618, 0.382, 1.0] }}
             viewport={{ once: true }}
           >
-            <div className="snippet-header-content">
-              <span className="snippet-section-number">03b</span>
+            <div className="projects-header-content-award">
+              <span className="projects-section-number-award">03b</span>
               <motion.h2 
                 id="snippets-heading"
-                className="snippet-title typography-h2"
+                className="projects-title-award-winning typography-h2"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.1 : 0.236 }}
@@ -1093,7 +1093,7 @@ export default function Home() {
             </div>
             
             <motion.p 
-              className="snippet-description typography-body text-center max-w-4xl mx-auto"
+              className="projects-description-award-winning typography-body text-center max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.16 : 0.382 }}
