@@ -20083,8 +20083,8 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+  pointer-events: none; /* Allow image clicks through */
   z-index: 2;
-  pointer-events: none; /* Allow clicks through except button */
 }
 
 /* Project Title Section - New location outside image */
@@ -20340,7 +20340,7 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
    ENHANCED SERVICES ACCORDION STYLES
    ====================================== */
 
-/* Enhanced accordion content container */
+/* Enhanced accordion content container - Harmonious Layout */
 .service-enhanced-content {
   padding: var(--space-lg) var(--space-lg) var(--space-md); /* Golden ratio spacing */
   border-top: 1px solid rgba(253, 252, 248, 0.3);
@@ -20350,6 +20350,10 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   );
   border-radius: 0 0 12px 12px;
   margin-top: var(--space-sm);
+  text-align: center; /* Harmonious center alignment */
+  max-width: 900px; /* Optimal content width */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Service subtitle section */
@@ -20392,17 +20396,28 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   font-size: clamp(0.9rem, 1.4vw, 1rem);
   line-height: 1.7;
   color: #2D3748;
-  margin: 0;
-  text-align: left;
+  margin: 0 auto; /* Center alignment */
+  text-align: center; /* Harmonious center alignment */
+  max-width: 700px; /* Optimal reading width */
 }
 
-/* Demand section */
+/* Demand section - Elegant Design System Colors */
 .service-demand-section {
   margin-bottom: var(--space-md);
-  padding: var(--space-sm) var(--space-md);
-  background: rgba(255, 102, 99, 0.05);
-  border-radius: 8px;
-  border-left: 3px solid var(--grapefruit-intelligence);
+  padding: var(--space-md) var(--space-lg);
+  background: linear-gradient(135deg, 
+    rgba(255, 251, 238, 0.8) 0%,
+    rgba(253, 252, 248, 0.9) 100%
+  ); /* Elegant vanilla gradient */
+  border-radius: 12px; /* Softer, more elegant corners */
+  border: 1px solid rgba(74, 85, 104, 0.15); /* Sophisticated charcoal border */
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 2px 8px rgba(74, 85, 104, 0.05); /* Subtle depth */
+  text-align: center; /* Harmonious alignment */
+  max-width: 600px; /* Optimal width */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .service-demand-enhanced {
@@ -20413,6 +20428,7 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   margin: 0;
   font-weight: 500;
   font-style: italic;
+  text-align: center; /* Harmonious center alignment */
 }
 
 /* CTA section */

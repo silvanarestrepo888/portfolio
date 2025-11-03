@@ -23,13 +23,16 @@ interface ProjectSnippetCardProps {
 export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project, index }) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
-  const handleEmailClick = () => {
+  const handleEmailClick = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent triggering image lightbox
     const subject = `Inquiry about ${project.title} - ${project.industry} Project`;
     const body = `Hi Silvana, I noticed your work on "${project.title}" in the ${project.industry} sector. I'd like to discuss how your ${project.serviceType} expertise might apply to my project. Could we schedule a conversation?`;
     window.location.href = `mailto:silvanarestrepo888@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
-  const handleImageClick = () => {
+  const handleImageClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    console.log('Image clicked for lightbox:', project.title); // Debug logging
     setLightboxOpen(true);
   };
 
@@ -44,8 +47,8 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
     >
       <div 
         className="snippet-image-container"
-        onClick={handleImageClick}
-        style={{ cursor: 'zoom-in' }}
+        onClick={(e) => handleImageClick(e)}
+        style={{ cursor: 'zoom-in', position: 'relative', zIndex: 1 }}
         data-cursor="image"
       >
         <Image
@@ -71,7 +74,7 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            background: 'rgba(0, 0, 0, 0.8)',
+            background: 'rgba(45, 55, 72, 0.8)', /* Charcoal from design system */
             backdropFilter: 'blur(10px)',
             color: 'white',
             padding: '8px 16px',
@@ -89,7 +92,7 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
         <div className="snippet-overlay">
           <motion.button 
             className="snippet-cta-bottom-right"
-            onClick={handleEmailClick}
+            onClick={(e) => handleEmailClick(e)}
             whileHover={{ scale: 1.05, backgroundColor: '#E55A5A' }}
             whileTap={{ scale: 0.95 }}
             aria-label={`Contact about ${project.title} project`}

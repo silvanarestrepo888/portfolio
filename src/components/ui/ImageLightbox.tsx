@@ -53,7 +53,7 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'rgba(0, 0, 0, 0.95)',
+          background: 'rgba(45, 55, 72, 0.95)', /* Charcoal from design system */
           backdropFilter: 'blur(20px)',
           zIndex: 9999,
           display: 'flex',
@@ -88,7 +88,7 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
             maxHeight: '80vh',
             borderRadius: '16px',
             overflow: 'hidden',
-            boxShadow: '0 25px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)'
+            boxShadow: '0 25px 60px rgba(45, 55, 72, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)' /* Charcoal shadow */
           }}>
             <Image
               src={image}
@@ -116,7 +116,7 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
                 right: '16px',
                 width: '44px',
                 height: '44px',
-                background: 'rgba(0, 0, 0, 0.8)',
+                background: 'rgba(45, 55, 72, 0.8)', /* Charcoal from design system */
                 backdropFilter: 'blur(10px)',
                 border: '1px solid rgba(255, 255, 255, 0.2)',
                 borderRadius: '50%',
