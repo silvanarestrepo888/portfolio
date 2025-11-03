@@ -980,7 +980,7 @@ export default function Home() {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                gap: isMobile ? '1rem' : '2rem',
+                gap: 'clamp(1rem, 3vw, 2rem)', /* Responsive gap scaling */
                 marginBottom: '2rem'
               }}
             >
@@ -994,25 +994,29 @@ export default function Home() {
                   setIsAutoPlaying(false);
                 }}
                 className="carousel-nav-button"
+                data-cursor="button"
+                aria-label="Navigate to previous project"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   gap: '0.75rem',
-                  padding: '14px 24px',
-                  background: 'rgba(74, 85, 104, 0.1)',
-                  color: '#4A5568',
+                  padding: '16px 28px',
+                  background: 'rgba(74, 85, 104, 0.8)', /* Stronger background for visibility */
+                  color: 'white', /* White text for better contrast */
                   border: '2px solid #4A5568',
                   borderRadius: '50px',
-                  fontSize: '0.9rem',
-                  fontWeight: '500',
+                  fontSize: '1rem', /* Matching Next button */
+                  fontWeight: '600', /* Matching Next button */
                   cursor: 'pointer',
                   fontFamily: 'var(--font-architectural-body)',
-                  letterSpacing: '0.02em'
+                  letterSpacing: '0.02em',
+                  boxShadow: '0 4px 16px rgba(74, 85, 104, 0.25)' /* Matching prominence */
                 }}
                 whileHover={{ 
-                  scale: 1.05,
-                  backgroundColor: '#4A5568',
-                  color: 'white'
+                  scale: 1.08,
+                  backgroundColor: '#2D3748', /* Darker charcoal on hover */
+                  boxShadow: '0 6px 24px rgba(74, 85, 104, 0.35)',
+                  y: -2
                 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -1023,6 +1027,8 @@ export default function Home() {
               <motion.button
                 onClick={() => setIsAutoPlaying(!isAutoPlaying)}
                 className="carousel-play-pause"
+                data-cursor="button"
+                aria-label={isAutoPlaying ? 'Pause automatic carousel' : 'Start automatic carousel'}
                 style={{
                   display: isMobile ? 'none' : 'flex',
                   alignItems: 'center',
@@ -1063,6 +1069,8 @@ export default function Home() {
                   setIsAutoPlaying(false);
                 }}
                 className="carousel-nav-button next-project-prominent"
+                data-cursor="button"
+                aria-label="Navigate to next project"
                 style={{
                   display: 'flex',
                   alignItems: 'center',

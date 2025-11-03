@@ -19908,21 +19908,45 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   opacity: 1;
 }
 
-/* Responsive navigation */
-@media (max-width: 768px) {
+/* Responsive navigation - Optimized for Better Space Utilization */
+@media (max-width: 480px) {
   .carousel-navigation-prominent {
-    flex-direction: column;
-    gap: 1rem !important;
+    flex-direction: row !important; /* Keep horizontal even on mobile */
+    gap: 0.75rem !important; /* Tighter spacing on small screens */
+    flex-wrap: wrap; /* Allow wrapping if absolutely necessary */
   }
   
   .carousel-nav-button {
-    width: 100%;
-    max-width: 200px;
+    flex: 1; /* Equal width distribution */
+    min-width: 120px; /* Minimum readable width */
+    max-width: 140px; /* Prevent too wide on small screens */
     justify-content: center;
+    padding: 12px 16px !important; /* Smaller padding for mobile */
+    font-size: 0.875rem !important; /* Smaller text for mobile */
+  }
+  
+  /* Hide play/pause control on very small screens to save space */
+  .carousel-play-pause {
+    display: none !important;
+  }
+}
+
+/* Tablet optimization - Keep horizontal layout where space permits */
+@media (min-width: 481px) and (max-width: 768px) {
+  .carousel-navigation-prominent {
+    flex-direction: row !important; /* Force horizontal on tablet */
+    gap: 1.5rem !important; /* Balanced spacing */
+  }
+  
+  .carousel-nav-button {
+    flex: 0 1 auto; /* Don't force equal width on tablet */
+    min-width: 140px; /* Comfortable button width */
+    padding: 14px 20px !important; /* Tablet-optimized padding */
   }
   
   .carousel-play-pause {
-    order: -1; /* Show play/pause first on mobile */
+    display: flex !important; /* Show on tablet */
+    min-width: 100px; /* Reasonable width */
   }
 }
 
