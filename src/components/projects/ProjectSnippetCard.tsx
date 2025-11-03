@@ -49,12 +49,9 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
           }}
           quality={90}
         />
-        {/* Dark overlay to clean contaminated images */}
-        <div className="snippet-overlay-dark"></div>
+        {/* Light overlay - minimal, only to hide contamination artifacts */}
+        <div className="snippet-overlay-light"></div>
         <div className="snippet-overlay">
-          <div className="snippet-title-backdrop">
-            <h3 className="snippet-title-centered">{project.title}</h3>
-          </div>
           <motion.button 
             className="snippet-cta-bottom-right"
             onClick={handleEmailClick}
@@ -65,6 +62,10 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
             Ask Me
           </motion.button>
         </div>
+      </div>
+      {/* Project Title - Now outside image for better visibility */}
+      <div className="snippet-title-section">
+        <h3 className="snippet-title-text">{project.title}</h3>
       </div>
       <div className="snippet-info">
         <span className="snippet-industry">{project.industry}</span>

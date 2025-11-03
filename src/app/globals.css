@@ -20013,51 +20013,45 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 .snippet-image-container {
   position: relative;
   width: 100%;
-  height: clamp(120px, 15vw, 200px); /* Proportional height scaling */
+  height: clamp(140px, 18vw, 220px); /* Slightly taller now that title is outside */
   overflow: hidden;
   border-radius: 12px 12px 0 0;
 }
 
 .snippet-image {
-  transition: transform 0.3s ease-out, filter 0.3s ease-out;
-  filter: brightness(0.7) contrast(1.1) saturate(0.9); /* Reduce visual noise and contamination */
-  will-change: transform, filter; /* Optimize for smooth transitions */
+  transition: transform 0.3s ease-out;
+  will-change: transform; /* Optimize for smooth transitions */
+  /* No filters - let images show through clearly */
 }
 
 .snippet-card:hover .snippet-image {
   transform: scale(1.02);
-  filter: brightness(0.75) contrast(1.1) saturate(0.9);
 }
 
-/* Dark overlay to hide image contamination - uniform coverage with vignette */
-.snippet-overlay-dark {
+/* Light overlay - minimal, only to mask contamination artifacts */
+.snippet-overlay-light {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(0, 0, 0, 0.6) 50%,
-      rgba(0, 0, 0, 0.7) 100%
-    ),
-    radial-gradient(
-      ellipse at center,
-      transparent 30%,
-      rgba(0, 0, 0, 0.3) 100%
-    ); /* Subtle vignette effect */
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.15) 85%,
+    rgba(0, 0, 0, 0.2) 100%
+  ); /* Subtle gradient only at bottom for button area */
   pointer-events: none; /* Allow clicks through to button */
   z-index: 1;
   transition: opacity 0.3s ease-out;
 }
 
-.snippet-card:hover .snippet-overlay-dark {
-  opacity: 0.85; /* Slightly lighter on hover to reveal more image */
+.snippet-card:hover .snippet-overlay-light {
+  opacity: 0.8; /* Even lighter on hover */
 }
 
-/* Overlay for Text Readability */
+/* Overlay - Now only for button positioning */
 .snippet-overlay {
   position: absolute;
   top: 0;
@@ -20065,40 +20059,42 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   right: 0;
   bottom: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: flex-end;
   z-index: 2;
+  pointer-events: none; /* Allow clicks through except button */
 }
 
-/* Title backdrop for better readability */
-.snippet-title-backdrop {
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px) saturate(180%);
-  padding: clamp(10px, 2.2vw, 14px) clamp(14px, 2.8vw, 18px);
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 0 0.5px rgba(255, 255, 255, 0.1);
-  max-width: 85%;
-  transition: all 0.3s ease-out;
-}
-
-.snippet-card:hover .snippet-title-backdrop {
-  background: rgba(0, 0, 0, 0.65);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 0 0.5px rgba(255, 255, 255, 0.15);
-}
-
-/* Project Title - Centered & Award-Winning Responsive */
-.snippet-title-centered {
-  position: relative;
-  color: white;
+/* Project Title Section - New location outside image */
+.snippet-title-section {
+  padding: clamp(12px, 2.5vw, 18px) clamp(10px, 2vw, 16px);
+  background: rgba(255, 251, 238, 0.98);
+  border-left: 1px solid rgba(74, 85, 104, 0.08);
+  border-right: 1px solid rgba(74, 85, 104, 0.08);
+  border-top: 1px solid rgba(74, 85, 104, 0.08);
   text-align: center;
-  width: 100%;
-  font-size: clamp(0.75rem, 1.8vw, 1.125rem); /* More aggressive scaling */
+  transition: background-color 0.3s ease-out, border-color 0.3s ease-out;
+  /* Smooth visual connection between image and title */
+}
+
+.snippet-card:hover .snippet-title-section {
+  background: rgba(255, 251, 238, 1);
+  border-left-color: rgba(74, 85, 104, 0.12);
+  border-right-color: rgba(74, 85, 104, 0.12);
+  border-top-color: rgba(74, 85, 104, 0.12);
+}
+
+/* Project Title Text - Clean, prominent typography */
+.snippet-title-text {
+  color: var(--charcoal-confidence);
+  font-size: clamp(0.875rem, 2vw, 1.125rem);
   font-family: var(--font-architectural-display);
   font-weight: 400;
-  line-height: 1.3; /* Slightly more breathing room */
-  text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 /* CTA Button - Bottom Right & Responsive with Stronger Backdrop */
@@ -20120,6 +20116,7 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   backdrop-filter: blur(6px);
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset; /* Stronger shadow for visibility */
   z-index: 3; /* Ensure button is above all overlays */
+  pointer-events: auto; /* Enable button clicks */
 }
 
 .snippet-cta-bottom-right:hover {
@@ -20147,6 +20144,9 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 .snippet-card:hover .snippet-info {
   background: rgba(255, 251, 238, 1); /* Fully opaque on hover */
   border-color: rgba(74, 85, 104, 0.12); /* Slightly more visible border */
+  border-left-color: rgba(74, 85, 104, 0.12);
+  border-right-color: rgba(74, 85, 104, 0.12);
+  border-bottom-color: rgba(74, 85, 104, 0.12);
 }
 
 .snippet-industry {
@@ -20182,24 +20182,12 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
     gap: clamp(12px, 4vw, 20px); /* Tighter spacing on mobile */
   }
   
-  .snippet-title-backdrop {
-    max-width: 90%; /* More width on mobile */
-    padding: clamp(8px, 2vw, 10px) clamp(10px, 2.5vw, 14px);
+  .snippet-title-section {
+    padding: clamp(10px, 2.2vw, 16px) clamp(8px, 1.8vw, 14px);
   }
   
-  .snippet-overlay-dark {
-    background: 
-      linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.55) 0%,
-        rgba(0, 0, 0, 0.65) 50%,
-        rgba(0, 0, 0, 0.75) 100%
-      ),
-      radial-gradient(
-        ellipse at center,
-        transparent 25%,
-        rgba(0, 0, 0, 0.35) 100%
-      ); /* Stronger overlay on mobile for better text readability */
+  .snippet-title-text {
+    font-size: clamp(0.8125rem, 1.9vw, 1rem);
   }
 }
 
@@ -20209,7 +20197,11 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   }
   
   .snippet-image-container {
-    height: clamp(100px, 20vw, 160px); /* Slightly shorter on mobile */
+    height: clamp(120px, 22vw, 180px); /* Adjusted for mobile */
+  }
+  
+  .snippet-title-section {
+    padding: clamp(8px, 2vw, 14px) clamp(6px, 1.5vw, 12px);
   }
 }
 
