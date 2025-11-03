@@ -516,7 +516,11 @@ export default function Home() {
         if (entry.isIntersecting) {
           // Add sophisticated section entrance effects
           entry.target.classList.add('section-in-view');
-          entry.target.style.setProperty('--section-progress', progress.toString());
+          
+          // TypeScript-safe style property access
+          if (entry.target instanceof HTMLElement) {
+            entry.target.style.setProperty('--section-progress', progress.toString());
+          }
           
           // Update global section state for color transitions
           if (progress > 0.5) {
@@ -1262,6 +1266,7 @@ export default function Home() {
                   transform: 'translateY(-2px)'
                 }}
                 onClick={() => setExpandedService(expandedService === service.number ? null : service.number)}
+                data-cursor="button"
                 role="button"
                 aria-expanded={expandedService === service.number}
                 aria-controls={`service-content-${service.number}`}
@@ -1334,28 +1339,51 @@ export default function Home() {
                     transition={{ duration: 0.618, ease: [0.236, 0.618, 0.382, 1.0] }} // Your mathematical timing
                     style={{ overflow: 'hidden' }}
                   >
-                    <div style={{
-                      padding: '20px 24px',
-                      borderTop: '1px solid rgba(253, 252, 248, 0.2)',
-                      background: 'rgba(0, 0, 0, 0.15)' // Better contrast overlay for text readability
-                    }}>
-                      {/* Single Combined Content Block - ULTRA COMPACT */}
-                      <p style={{
-                        fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)', // REDUCED: 14px → 15px (was 16px)
-                        fontFamily: 'var(--font-architectural-body)',
-                        color: 'var(--vanilla-breath)', /* Design system subtle breathing on grapefruit */
-                        lineHeight: '1.5', // REDUCED: More compact
-                        margin: 0
-                      }}>
-                        <em style={{
-                          color: 'var(--vanilla-foundation)', /* Design system architectural base on grapefruit */
-                          fontWeight: '500'
-                        }}>
+                    <div className="service-enhanced-content">
+                      {/* Service Subtitle - Prominent Display */}
+                      <div className="service-subtitle-section">
+                        <em className="service-subtitle-enhanced">
                           {service.subtitle}
-                        </em><br/>
-                        <strong style={{color: 'var(--vanilla-whisper)'}}>Strategic Capability:</strong> {service.description}<br/>
-                        <strong style={{color: 'var(--vanilla-whisper)'}}>For Projects That Demand:</strong> {service.demand}
-                      </p>
+                        </em>
+                      </div>
+                      
+                      {/* Strategic Capability Section */}
+                      <div className="service-capability-section">
+                        <h4 className="service-section-label">Strategic Capability</h4>
+                        <p className="service-description-enhanced">
+                          {service.description}
+                        </p>
+                      </div>
+                      
+                      {/* Project Demand Section */}
+                      <div className="service-demand-section">
+                        <h4 className="service-section-label">For Projects That Demand</h4>
+                        <p className="service-demand-enhanced">
+                          {service.demand}
+                        </p>
+                      </div>
+                      
+                      {/* Call to Action */}
+                      <div className="service-cta-section">
+                        <motion.button
+                          className="service-cta-button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            const subject = `Inquiry about ${service.title} - Service Discussion`;
+                            const body = `Hi Silvana, I'm interested in learning more about your "${service.title}" service. Could we schedule a conversation to discuss how this might apply to my project?`;
+                            window.location.href = `mailto:silvanarestrepo888@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                          }}
+                          whileHover={{ 
+                            scale: 1.02,
+                            backgroundColor: '#E55A5A',
+                            transition: { duration: 0.2 }
+                          }}
+                          whileTap={{ scale: 0.98 }}
+                          data-cursor="button"
+                        >
+                          Ask About This Service →
+                        </motion.button>
+                      </div>
                     </div>
                   </motion.div>
                 )}

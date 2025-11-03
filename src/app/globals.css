@@ -20335,3 +20335,129 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 [data-cursor="text"] {
   cursor: none;
 }
+
+/* ======================================
+   ENHANCED SERVICES ACCORDION STYLES
+   ====================================== */
+
+/* Enhanced accordion content container */
+.service-enhanced-content {
+  padding: var(--space-lg) var(--space-lg) var(--space-md); /* Golden ratio spacing */
+  border-top: 1px solid rgba(253, 252, 248, 0.3);
+  background: linear-gradient(135deg, 
+    rgba(255, 251, 238, 0.95) 0%,
+    rgba(255, 251, 238, 0.98) 100%
+  );
+  border-radius: 0 0 12px 12px;
+  margin-top: var(--space-sm);
+}
+
+/* Service subtitle section */
+.service-subtitle-section {
+  margin-bottom: var(--space-md);
+  text-align: center;
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid rgba(74, 85, 104, 0.1);
+}
+
+.service-subtitle-enhanced {
+  font-family: var(--font-architectural-display);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--grapefruit-intelligence);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+/* Section labels */
+.service-section-label {
+  font-family: var(--font-architectural-body);
+  font-size: clamp(0.875rem, 1.2vw, 0.95rem);
+  font-weight: 600;
+  color: #4A5568;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-sm);
+  margin-top: 0;
+}
+
+/* Capability section */
+.service-capability-section {
+  margin-bottom: var(--space-md);
+}
+
+.service-description-enhanced {
+  font-family: var(--font-architectural-body);
+  font-size: clamp(0.9rem, 1.4vw, 1rem);
+  line-height: 1.7;
+  color: #2D3748;
+  margin: 0;
+  text-align: left;
+}
+
+/* Demand section */
+.service-demand-section {
+  margin-bottom: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(255, 102, 99, 0.05);
+  border-radius: 8px;
+  border-left: 3px solid var(--grapefruit-intelligence);
+}
+
+.service-demand-enhanced {
+  font-family: var(--font-architectural-body);
+  font-size: clamp(0.875rem, 1.3vw, 0.95rem);
+  line-height: 1.6;
+  color: #4A5568;
+  margin: 0;
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* CTA section */
+.service-cta-section {
+  text-align: center;
+  padding-top: var(--space-sm);
+  border-top: 1px solid rgba(74, 85, 104, 0.1);
+}
+
+.service-cta-button {
+  background: var(--grapefruit-intelligence);
+  color: white;
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 24px;
+  font-family: var(--font-architectural-body);
+  font-size: clamp(0.875rem, 1.2vw, 0.95rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--duration-base) var(--ease-landor);
+  box-shadow: 0 4px 16px rgba(255, 102, 99, 0.2);
+}
+
+.service-cta-button:hover {
+  box-shadow: 0 6px 20px rgba(255, 102, 99, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Responsive accordion enhancements */
+@media (max-width: 768px) {
+  .service-enhanced-content {
+    padding: var(--space-md);
+  }
+  
+  .service-subtitle-enhanced {
+    font-size: 1rem;
+  }
+  
+  .service-description-enhanced,
+  .service-demand-enhanced {
+    font-size: 0.875rem;
+  }
+  
+  .service-cta-button {
+    font-size: 0.875rem;
+    padding: 12px 20px;
+  }
+}
