@@ -14,6 +14,7 @@ export function SectionIndicator({ className = '' }: SectionIndicatorProps) {
     { id: 'hero', label: 'home', icon: '○' },
     { id: 'about', label: 'about', icon: '◊' },
     { id: 'projects', label: 'projects', icon: '□' },
+    { id: 'project-snippets', label: 'snippets', icon: '◈' },
     { id: 'services', label: 'services', icon: '◇' },
     { id: 'experience', label: 'experience', icon: '△' }
   ];
@@ -83,8 +84,8 @@ export function SectionIndicator({ className = '' }: SectionIndicatorProps) {
                 opacity: isVisible ? 1 : 0.5
               }}
               transition={{
-                duration: 0.3,
-                ease: 'easeInOut'
+                duration: 0.382, // Golden ratio timing
+                ease: [0.25, 0.46, 0.45, 0.94] // Landor easing
               }}
               style={{
                 width: '12px',
@@ -183,7 +184,7 @@ export function SectionIndicator({ className = '' }: SectionIndicatorProps) {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 0.8, y: 0 }}
         exit={{ opacity: 0, y: -10 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.382, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         {currentSection}
       </motion.div>

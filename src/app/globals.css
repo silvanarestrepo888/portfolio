@@ -452,6 +452,11 @@
   font-size: var(--type-4xl); 
   color: var(--grapefruit-intelligence); /* Maximum impact - pure grapefruit */
   letter-spacing: -0.03em; /* More dramatic for hero moments */
+  transition: font-weight var(--duration-base) var(--ease-landor); /* Dynamic weight transitions */
+}
+
+.typography-h1:hover {
+  font-weight: 400; /* Weight increase on interaction */
 }
 
 .typography-h2 { 
@@ -3515,7 +3520,7 @@ body {
   .enhanced-hero-section {
     height: auto !important;
     min-height: 50vh !important;
-    margin-top: 60px !important;
+    margin-top: var(--space-lg) !important; /* Golden ratio consistency */
     padding: 2rem 1rem !important;
   }
   
@@ -5361,14 +5366,25 @@ body {
 /* FOUNDATION INTERACTION SYSTEM - CONSISTENCY */
 /* ========================================== */
 
-/* STANDARDIZED TIMING & EASING */
+/* AWARD-WINNING TIMING & EASING - LANDOR STANDARDS */
 :root {
+  /* Mathematical timing progression based on Golden Ratio */
   --duration-instant: 0.1s;
-  --duration-fast: 0.15s;
-  --duration-normal: 0.3s;
-  --duration-slow: 0.6s;
+  --duration-fast: 0.2s;
+  --duration-base: 0.382s;     /* Golden ratio derived */
+  --duration-normal: 0.618s;   /* Golden ratio φ */
+  --duration-slow: 1s;         /* Golden ratio φ * 1.618 */
+  --duration-cinematic: 1.618s; /* Pure Golden ratio */
   
-  --ease-foundation: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* Landor-Quality Easing Functions */
+  --ease-landor: cubic-bezier(0.25, 0.46, 0.45, 0.94);        /* Sophisticated default */
+  --ease-back-out: cubic-bezier(0.34, 1.56, 0.64, 1);         /* Playful bounce */
+  --ease-anticipate: cubic-bezier(0.68, -0.55, 0.265, 1.55);  /* Anticipatory motion */
+  --ease-silk: cubic-bezier(0.445, 0.05, 0.55, 0.95);         /* Ultra-smooth */
+  --ease-bounce: cubic-bezier(0.68, -0.6, 0.32, 1.6);         /* Energetic bounce */
+  
+  /* Legacy support (keeping existing for backwards compatibility) */
+  --ease-foundation: var(--ease-landor);
   --ease-enter: cubic-bezier(0.215, 0.61, 0.355, 1);
   --ease-exit: cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
@@ -10698,7 +10714,7 @@ h4, .text-h4 {
 /* Award-Winning Project Carousel with Organic Flow */
 .projects-carousel-award-winning {
   position: relative;
-  margin-top: 60px;
+  margin-top: var(--space-lg); /* Golden ratio spacing consistency */
 }
 
 /* Sophisticated Navigation Controls with Perfect Spacing */
@@ -11171,7 +11187,7 @@ h4, .text-h4 {
 .fixed-hero-section {
   width: 100%;
   height: 80vh;
-  margin-top: 80px;
+  margin-top: var(--space-xl); /* Golden ratio spacing */
   position: relative;
   overflow: hidden;
   display: flex;
@@ -12861,7 +12877,7 @@ h4, .text-h4 {
 
 /* Award-Winning Featured Project with Golden Ratio Layout */
 .featured-project-award-winning {
-  margin-bottom: 60px;
+  margin-bottom: var(--space-lg); /* Golden ratio spacing */
 }
 
 .project-card-award-winning {
@@ -13889,8 +13905,8 @@ h4, .text-h4 {
 .project-details-footer {
   background: var(--grapefruit-primary);
   color: var(--panna-cotta-vanilla);
-  padding: 60px 0;
-  margin-top: 80px;
+  padding: var(--space-lg) 0; /* Golden ratio vertical padding */
+  margin-top: var(--space-xl); /* Golden ratio spacing */
 }
 
 .footer-content {
@@ -19935,8 +19951,8 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 
 /* Section Layout */
 .snippet-section {
-  margin-top: 60px; /* Reduced hierarchy compared to main sections */
-  margin-bottom: 80px;
+  margin-top: var(--space-lg); /* Golden ratio spacing - φ³ */
+  margin-bottom: var(--space-lg); /* Consistent with spacing system */
   position: relative;
 }
 
@@ -19998,7 +20014,7 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 .snippet-card {
   border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.25s ease-out, box-shadow 0.3s ease-out; /* Faster, gentler than main cards */
+  transition: all var(--duration-base) var(--ease-landor); /* Award-winning Landor easing */
   cursor: pointer;
   background: transparent;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
@@ -20017,6 +20033,11 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   aspect-ratio: 16/10; /* Maintain consistent aspect ratio */
   overflow: hidden;
   border-radius: 12px 12px 0 0;
+  cursor: zoom-in;
+}
+
+.snippet-image-container:hover .snippet-expand-hint {
+  opacity: 1 !important;
 }
 
 .snippet-image {
@@ -20113,16 +20134,41 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   font-weight: 600;
   font-family: var(--font-architectural-body);
   cursor: pointer;
-  transition: all 0.2s ease-out;
+  transition: all var(--duration-base) var(--ease-landor); /* Sophisticated timing */
   backdrop-filter: blur(6px);
+  overflow: hidden;
+  transform: translateZ(0); /* GPU acceleration */
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset; /* Stronger shadow for visibility */
   z-index: 3; /* Ensure button is above all overlays */
   pointer-events: auto; /* Enable button clicks */
 }
 
+/* Sophisticated button micro-animation */
+.snippet-cta-bottom-right::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width var(--duration-fast) var(--ease-anticipate),
+              height var(--duration-fast) var(--ease-anticipate);
+  z-index: -1;
+}
+
+.snippet-cta-bottom-right:hover::before {
+  width: 200%;
+  height: 200%;
+}
+
 .snippet-cta-bottom-right:hover {
   background: #E55A5A;
-  transform: scale(1.05);
+  transform: translateY(-1px) scale(1.02); /* Lift and scale */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+  transition: all var(--duration-fast) var(--ease-back-out);
 }
 
 /* Info Section Below Image - Cleaner & More Spacious */
@@ -20228,4 +20274,64 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 .snippet-card:focus-within {
   outline: 2px solid rgba(255, 102, 99, 0.5);
   outline-offset: 4px;
+}
+
+/* ======================================
+   AWARD-WINNING CUSTOM CURSOR SYSTEM
+   ====================================== */
+
+/* Hide default cursor on desktop */
+@media (min-width: 769px) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Custom cursor element */
+.award-winning-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: var(--grapefruit-intelligence);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: all var(--duration-fast) var(--ease-landor);
+  transform: translate(-50%, -50%);
+  left: var(--cursor-x, 0);
+  top: var(--cursor-y, 0);
+}
+
+/* Cursor state variations */
+.award-winning-cursor.cursor-button {
+  transform: translate(-50%, -50%) scale(2);
+  background: transparent;
+  border: 2px solid var(--grapefruit-intelligence);
+  mix-blend-mode: normal;
+}
+
+.award-winning-cursor.cursor-image {
+  transform: translate(-50%, -50%) scale(1.5);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+  mix-blend-mode: normal;
+}
+
+.award-winning-cursor.cursor-text {
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0.8;
+}
+
+/* Interactive elements get cursor data attributes */
+[data-cursor="button"] {
+  cursor: none;
+}
+
+[data-cursor="image"] {
+  cursor: none;
+}
+
+[data-cursor="text"] {
+  cursor: none;
 }

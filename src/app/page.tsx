@@ -498,38 +498,105 @@ export default function Home() {
   }, [isAutoPlaying, filteredProjects.length, prefersReducedMotion]);
 
 
-  // Award-Winning Scroll-Triggered Section Detection
+  // Award-Winning Section Transition Orchestration
   useEffect(() => {
-    const handleSectionScroll = () => {
-      const sections = ['hero', 'about', 'projects', 'experience', 'services'];
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
-      
-      sections.forEach((sectionId) => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          const sectionTop = window.scrollY + rect.top;
-          const sectionBottom = sectionTop + rect.height;
-          
-          if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
-            document.documentElement.className = `scroll-section-${sectionId}`;
-          }
-        }
-      });
+    const sections = ['hero', 'about', 'projects', 'project-snippets', 'services', 'experience'];
+    
+    // Enhanced intersection observer for smooth transitions
+    const observerOptions = {
+      threshold: [0, 0.1, 0.5, 0.9],
+      rootMargin: '-10% 0px -10% 0px'
     };
 
-    // handleTimelineProgress removed - no longer using timeline
-    
-    window.addEventListener('scroll', handleSectionScroll);
-    handleSectionScroll(); // Initial check
-    
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const sectionId = entry.target.id;
+        const progress = Math.min(Math.max(entry.intersectionRatio, 0), 1);
+        
+        if (entry.isIntersecting) {
+          // Add sophisticated section entrance effects
+          entry.target.classList.add('section-in-view');
+          entry.target.style.setProperty('--section-progress', progress.toString());
+          
+          // Update global section state for color transitions
+          if (progress > 0.5) {
+            document.documentElement.className = `scroll-section-${sectionId}`;
+            document.documentElement.style.setProperty('--current-section', sectionId);
+          }
+          
+          // Preload next section assets
+          const currentIndex = sections.indexOf(sectionId);
+          const nextSection = sections[currentIndex + 1];
+          if (nextSection && progress > 0.8) {
+            const nextElement = document.getElementById(nextSection);
+            if (nextElement) {
+              nextElement.classList.add('section-preload');
+            }
+          }
+        } else {
+          entry.target.classList.remove('section-in-view');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all major sections
+    sections.forEach(sectionId => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        sectionObserver.observe(section);
+      }
+    });
+
     return () => {
-      window.removeEventListener('scroll', handleSectionScroll);
+      sectionObserver.disconnect();
     };
   }, []);
 
+  // Award-Winning Context-Aware Cursor System
+  useEffect(() => {
+    if (isMobile) return;
+    
+    const cursor = document.getElementById('award-winning-cursor');
+    if (!cursor) return;
 
+    const updateCursor = (e: MouseEvent) => {
+      const x = e.clientX;
+      const y = e.clientY;
+      cursor.style.setProperty('--cursor-x', `${x}px`);
+      cursor.style.setProperty('--cursor-y', `${y}px`);
+      
+      // Context-aware cursor behavior
+      const target = e.target as HTMLElement;
+      const isButton = target.closest('button, [role="button"], a, .snippet-cta-bottom-right');
+      const isImage = target.closest('.snippet-image-container, .project-card, .gallery-item');
+      
+      cursor.className = 'award-winning-cursor';
+      
+      if (isButton) {
+        cursor.classList.add('cursor-button');
+      } else if (isImage) {
+        cursor.classList.add('cursor-image');
+      }
+    };
 
+    const handleMouseLeave = () => {
+      cursor.style.opacity = '0';
+    };
+
+    const handleMouseEnter = () => {
+      cursor.style.opacity = '1';
+    };
+
+    document.addEventListener('mousemove', updateCursor);
+    document.addEventListener('mouseleave', handleMouseLeave);
+    document.addEventListener('mouseenter', handleMouseEnter);
+
+    return () => {
+      document.removeEventListener('mousemove', updateCursor);
+      document.removeEventListener('mouseleave', handleMouseLeave);
+      document.removeEventListener('mouseenter', handleMouseEnter);
+    };
+  }, [isMobile]);
 
   // Ensure featuredProjectIndex is within bounds
   const safeFeaturedProjectIndex = Math.min(featuredProjectIndex, Math.max(0, filteredProjects.length - 1));
@@ -556,6 +623,14 @@ export default function Home() {
       {/* AWWWARDS MAGNETIC CURSOR SYSTEM (hidden on mobile) */}
       {!isMobile && <MagneticCursor />}
       {!isMobile && <CustomCursor />}
+      
+      {/* Award-Winning Context-Aware Cursor */}
+      {!isMobile && (
+        <div 
+          className="award-winning-cursor"
+          id="award-winning-cursor"
+        />
+      )}
       
       {/* AWWWARDS FLOATING NAVIGATION SYSTEM */}
       <FloatingNavigation />
