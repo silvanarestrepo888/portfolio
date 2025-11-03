@@ -44,7 +44,7 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
           style={{
             width: '100%',
             height: '100%',
-            objectFit: 'cover',
+            objectFit: 'contain',
             objectPosition: 'center'
           }}
           quality={90}

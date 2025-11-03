@@ -362,7 +362,7 @@ export default function Home() {
       id: 'c4ir-colombia',
       title: 'Policy Innovation for Emerging Technologies',
       industry: 'Government & Public Policy',
-      serviceType: 'Strategic Framework Design',
+      serviceType: 'Strategic Framework Design | Stakeholder Orchestration',
       website: 'https://centres.weforum.org/centre-for-frontier-technologies-and-innovation/network',
       image: '/projects/snippets/c4ir-colombia.png',
       emailSubject: 'Inquiry about Policy Innovation for Emerging Technologies - Government & Public Policy Project'
@@ -371,7 +371,7 @@ export default function Home() {
       id: 'wef-designit',
       title: 'Industrial IoT Governance Models',
       industry: 'Technology Policy & Innovation',
-      serviceType: 'Cross-Sector Partnership Design',
+      serviceType: 'Cross-Sector Partnership Design | Strategic Advisory',
       website: 'https://www.designit.com/',
       image: '/projects/snippets/wef-designit.png',
       emailSubject: 'Inquiry about Industrial IoT Governance Models - Technology Policy & Innovation Project'
@@ -380,7 +380,7 @@ export default function Home() {
       id: 'viva-malls',
       title: 'Phygital Retail Revolution',
       industry: 'Retail & Real Estate',
-      serviceType: 'Experience Architecture',
+      serviceType: 'Experience Architecture | Digital Transformation',
       website: 'https://ccviva.com/',
       image: '/projects/snippets/viva-malls.png',
       emailSubject: 'Inquiry about Phygital Retail Revolution - Retail & Real Estate Project'
@@ -389,7 +389,7 @@ export default function Home() {
       id: 'grupo-exito',
       title: 'Retail Experience Ecosystem',
       industry: 'Retail & Consumer Goods',
-      serviceType: 'Service Design',
+      serviceType: 'Service Design | Organizational Transformation',
       website: 'https://www.grupoexito.com.co/es',
       image: '/projects/snippets/grupo-exito.png',
       emailSubject: 'Inquiry about Retail Experience Ecosystem - Retail & Consumer Goods Project'
@@ -398,7 +398,7 @@ export default function Home() {
       id: 'tigo-millicom',
       title: 'Telecom Customer Intelligence Platform',
       industry: 'Telecommunications',
-      serviceType: 'Product Direction',
+      serviceType: 'Product Direction| Market Expansion Strategy',
       website: 'https://www.tigo.com.co/',
       image: '/projects/snippets/tigo-millicom.png',
       emailSubject: 'Inquiry about Telecom Customer Intelligence Platform - Telecommunications Project'

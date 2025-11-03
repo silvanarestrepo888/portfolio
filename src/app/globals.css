@@ -20009,11 +20009,12 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12); /* Enhanced shadow on hover */
 }
 
-/* Image Container - Responsive Scaling */
+/* Image Container - Optimized for Perfect Fit */
 .snippet-image-container {
   position: relative;
   width: 100%;
-  height: clamp(140px, 18vw, 220px); /* Slightly taller now that title is outside */
+  height: clamp(140px, 18vw, 240px); /* Increased max height for better proportions */
+  aspect-ratio: 16/10; /* Maintain consistent aspect ratio */
   overflow: hidden;
   border-radius: 12px 12px 0 0;
 }
@@ -20131,7 +20132,7 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   border-top: none;
   border-radius: 0 0 12px 12px;
   padding: clamp(12px, 2.5vw, 18px) clamp(10px, 2vw, 16px); /* Increased padding for breathing room */
-  min-height: clamp(48px, 9vw, 64px); /* Slightly taller for better readability */
+  min-height: clamp(52px, 10vw, 68px); /* Increased for longer service types */
   display: flex;
   align-items: center;
   justify-content: center;
