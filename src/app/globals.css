@@ -12053,8 +12053,10 @@ h4, .text-h4 {
 
 .balanced-actions {
   display: flex;
+  flex-direction: row; /* EXPLICIT horizontal layout */
   gap: 1.5rem;
   flex-wrap: wrap;
+  align-items: center; /* Professional vertical alignment */
 }
 
 .balanced-btn {
@@ -12103,13 +12105,7 @@ h4, .text-h4 {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-/* Button Actions Container - Two Buttons Side by Side */
-.balanced-actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  align-items: center;
-}
+/* REMOVED: Duplicate rule consolidated with primary rule below */
 
 /* Button Icons */
 .btn-arrow,
@@ -17496,10 +17492,14 @@ img {
   padding: 2rem !important; /* Content breathing room only */
 }
 
-/* CRITICAL: RESTORE BUTTON STYLING - MUST BE VISIBLE & HORIZONTAL */
+/* NUCLEAR-LEVEL HORIZONTAL LAYOUT ENFORCEMENT */
+.project-card-cinematic .balanced-actions,
+.InteractiveProjectCard .balanced-actions,
+div.balanced-actions,
+motion.div .balanced-actions,
 .balanced-actions {
   display: flex !important;
-  flex-direction: row !important; /* FORCE horizontal layout */
+  flex-direction: row !important; /* NUCLEAR: Force horizontal layout with maximum specificity */
   gap: 1.5rem !important;
   flex-wrap: wrap !important;
   align-items: center !important; /* Center vertical alignment */
@@ -17509,6 +17509,11 @@ img {
   background: none !important;
   border: none !important;
   box-shadow: none !important;
+  width: 100% !important; /* Ensure full width availability */
+  
+  /* TEMPORARY DEBUG: Visual confirmation this CSS is applied */
+  border: 2px dashed rgba(255, 102, 99, 0.3) !important; /* Temporary visual debug */
+  background: rgba(255, 102, 99, 0.02) !important; /* Temporary background highlight */
 }
 
 .balanced-btn {
@@ -19942,10 +19947,9 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
     display: none !important;
   }
   
-  /* Ensure project action buttons stay horizontal on mobile */
+  /* Mobile: Maintain horizontal layout with compact spacing */
   .balanced-actions {
-    flex-direction: row !important; /* FORCE horizontal even on small screens */
-    gap: clamp(0.75rem, 3vw, 1.5rem) !important; /* Responsive gap */
+    gap: clamp(0.75rem, 3vw, 1.5rem) !important; /* Responsive gap for mobile */
     justify-content: center !important; /* Center on mobile for balance */
   }
   
@@ -19976,10 +19980,9 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
     min-width: 100px; /* Reasonable width */
   }
   
-  /* Ensure project action buttons maintain professional horizontal layout on tablets */
+  /* Tablet: Professional horizontal layout */
   .balanced-actions {
-    flex-direction: row !important; /* FORCE horizontal on tablets */
-    gap: 1.5rem !important; /* Comfortable spacing */
+    gap: 1.5rem !important; /* Comfortable tablet spacing */
     justify-content: flex-start !important; /* Natural left alignment */
   }
   
@@ -19993,10 +19996,8 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 /* Desktop optimization - Perfect horizontal button layout */
 @media (min-width: 769px) {
   .balanced-actions {
-    flex-direction: row !important; /* Horizontal layout on desktop */
     gap: 2rem !important; /* Generous desktop spacing */
     justify-content: flex-start !important; /* Natural left alignment */
-    align-items: center !important; /* Perfect vertical centering */
   }
   
   .balanced-btn {
