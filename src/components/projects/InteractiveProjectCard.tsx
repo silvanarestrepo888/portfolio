@@ -92,11 +92,21 @@ export function InteractiveProjectCard({
       whileHover={{
         y: -4,
         scale: 1.01,
-        transition: { duration: 0.4, ease: "easeOut" }
+        transition: { duration: 0.382, ease: [0.25, 0.46, 0.45, 0.94] } /* Landor easing */
       }}
       whileTap={{
         scale: 0.99,
-        transition: { duration: 0.15 }
+        transition: { duration: 0.1 } /* Instant feedback */
+      }}
+      data-cursor="image"
+      role="article"
+      aria-label={`${project.title} project by ${project.client} - Click to explore details`}
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleClick();
+        }
       }}
     >
       <div className="balanced-project-card luxury-hover-elevation project-card-shadow-3d">
@@ -167,7 +177,7 @@ export function InteractiveProjectCard({
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 + 0.3 }}
                   style={{
-                    background: 'rgba(0, 0, 0, 0.7)',
+                    background: 'rgba(45, 55, 72, 0.8)', /* Design system charcoal */
                     color: 'white',
                     padding: isMobile ? '3px 6px' : '4px 8px',
                     borderRadius: '4px',
@@ -184,7 +194,7 @@ export function InteractiveProjectCard({
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 + 0.4 }}
                   style={{
-                    background: 'rgba(0, 0, 0, 0.7)',
+                    background: 'rgba(45, 55, 72, 0.8)', /* Design system charcoal */
                     color: 'white',
                     padding: isMobile ? '3px 6px' : '4px 8px',
                     borderRadius: '4px',
@@ -205,7 +215,8 @@ export function InteractiveProjectCard({
                   e.stopPropagation();
                   setIsImageExpanded(true);
                 }}
-                aria-label="View full image"
+                aria-label={`View full size image of ${project.title} project`}
+                data-cursor="button"
                 style={{
                   position: 'absolute',
                   bottom: isMobile ? '12px' : '16px',
@@ -326,11 +337,15 @@ export function InteractiveProjectCard({
                   }}
                   whileHover={{ 
                     scale: 1.05,
-                    y: -2
+                    y: -2,
+                    transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] } /* Back-out easing */
                   }}
                   whileTap={{ 
-                    scale: 0.95 
+                    scale: 0.95,
+                    transition: { duration: 0.1 }
                   }}
+                  data-cursor="button"
+                  aria-label={`Explore ${project.title} case study in detail`}
                 >
                   Explore Case
                   <motion.span 
@@ -353,11 +368,15 @@ export function InteractiveProjectCard({
                     }}
                     whileHover={{ 
                       scale: 1.05,
-                      y: -2
+                      y: -2,
+                      transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] } /* Back-out easing */
                     }}
                     whileTap={{ 
-                      scale: 0.95 
+                      scale: 0.95,
+                      transition: { duration: 0.1 }
                     }}
+                    data-cursor="button"
+                    aria-label={`Visit ${project.client} website for ${project.title}`}
                   >
                     Client&apos;s Website
                     <motion.span 
@@ -384,7 +403,7 @@ export function InteractiveProjectCard({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.382, ease: [0.25, 0.46, 0.45, 0.94] }} /* Landor easing */
             onClick={() => setIsImageExpanded(false)}
           >
             <motion.button
@@ -393,9 +412,16 @@ export function InteractiveProjectCard({
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ delay: 0.1 }}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              transition={{ delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+              whileHover={{ 
+                scale: 1.1,
+                transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
+              }}
+              whileTap={{ 
+                scale: 0.9,
+                transition: { duration: 0.1 }
+              }}
+              data-cursor="button"
               aria-label="Close full image view"
             >
               <svg
@@ -418,7 +444,7 @@ export function InteractiveProjectCard({
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 0.382, ease: [0.25, 0.46, 0.45, 0.94] }} /* Golden ratio timing */
               onClick={(e) => e.stopPropagation()}
             >
               <Image

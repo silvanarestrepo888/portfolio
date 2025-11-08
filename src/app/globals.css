@@ -11958,35 +11958,41 @@ h4, .text-h4 {
 }
 
 .balanced-title {
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 4vw, var(--type-3xl)); /* Responsive design system integration */
+  font-family: var(--font-architectural-display); /* Design system font */
   font-weight: 600;
   color: #2D3748 !important; /* FIXED: Darker charcoal for maximum visibility */
   margin: 0 0 1rem 0;
   line-height: 1.2;
   letter-spacing: -0.01em;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Subtle depth for clarity */
+  transition: font-weight var(--duration-base) var(--ease-landor); /* Dynamic typography */
 }
 
 .balanced-client {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2.5vw, var(--type-xl)); /* Responsive design system */
+  font-family: var(--font-architectural-display); /* Design system font */
   font-weight: 500;
-  color: var(--grapefruit-rich) !important; /* Grapefruit system color */
+  color: var(--grapefruit-intelligence) !important; /* Primary grapefruit color */
   margin: 0 0 0.5rem 0;
   font-style: italic;
+  transition: font-weight var(--duration-base) var(--ease-landor); /* Dynamic typography */
 }
 
 .balanced-meta {
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-size: 0.9rem;
-  color: #888;
+  font-size: clamp(0.8rem, 1.5vw, var(--type-sm)); /* Responsive design system */
+  font-family: var(--font-architectural-body); /* Design system font */
+  color: var(--text-secondary); /* Design system color */
   font-weight: 500;
 }
 
 .balanced-divider {
-  color: #ccc;
+  color: var(--text-secondary); /* Design system color */
   font-weight: 300;
+  opacity: 0.6; /* Subtle visibility */
 }
 
 .balanced-description {
@@ -11994,16 +12000,19 @@ h4, .text-h4 {
 }
 
 .balanced-subtitle {
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 2vw, var(--type-lg)); /* Responsive design system */
+  font-family: var(--font-architectural-display); /* Design system font */
   font-weight: 600;
-  color: #718096 !important; /* Sophisticated medium gray for subtitles */
+  color: var(--text-secondary) !important; /* Design system color */
   margin: 0 0 1rem 0;
   line-height: 1.4;
+  transition: font-weight var(--duration-base) var(--ease-landor); /* Dynamic typography */
 }
 
 .balanced-description-text {
-  font-size: 1rem;
-  color: #667080 !important; /* Refined dark gray for descriptions */
+  font-size: clamp(0.9rem, 1.5vw, var(--type-base)); /* Responsive design system */
+  font-family: var(--font-architectural-body); /* Design system font */
+  color: var(--text-primary) !important; /* Design system primary text color */
   line-height: 1.6;
   margin: 0;
   font-weight: 400;
