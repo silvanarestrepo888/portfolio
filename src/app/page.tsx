@@ -1001,7 +1001,7 @@ export default function Home() {
                   alignItems: 'center',
                   gap: '0.75rem',
                   padding: '16px 28px',
-                  background: 'rgba(74, 85, 104, 0.8)', /* Stronger background for visibility */
+                  background: '#FF0000', /* BRIGHT RED TEST - to check if button shows up at all */
                   color: 'white', /* White text for better contrast */
                   border: '2px solid #4A5568',
                   borderRadius: '50px',
