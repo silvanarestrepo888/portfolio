@@ -17496,11 +17496,14 @@ img {
   padding: 2rem !important; /* Content breathing room only */
 }
 
-/* CRITICAL: RESTORE BUTTON STYLING - MUST BE VISIBLE */
+/* CRITICAL: RESTORE BUTTON STYLING - MUST BE VISIBLE & HORIZONTAL */
 .balanced-actions {
   display: flex !important;
+  flex-direction: row !important; /* FORCE horizontal layout */
   gap: 1.5rem !important;
   flex-wrap: wrap !important;
+  align-items: center !important; /* Center vertical alignment */
+  justify-content: flex-start !important; /* Left alignment for natural reading flow */
   margin-top: 2rem !important;
   padding: 0 !important; /* No padding on container */
   background: none !important;
@@ -19938,6 +19941,21 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   .carousel-play-pause {
     display: none !important;
   }
+  
+  /* Ensure project action buttons stay horizontal on mobile */
+  .balanced-actions {
+    flex-direction: row !important; /* FORCE horizontal even on small screens */
+    gap: clamp(0.75rem, 3vw, 1.5rem) !important; /* Responsive gap */
+    justify-content: center !important; /* Center on mobile for balance */
+  }
+  
+  .balanced-btn {
+    flex: 1 1 auto !important; /* Allow buttons to flex but maintain content width */
+    max-width: 160px !important; /* Prevent buttons getting too wide on mobile */
+    min-width: 120px !important; /* Ensure buttons remain readable */
+    padding: 14px 20px !important; /* Optimized mobile padding */
+    font-size: 0.875rem !important; /* Slightly smaller on mobile */
+  }
 }
 
 /* Tablet optimization - Keep horizontal layout where space permits */
@@ -19956,6 +19974,36 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   .carousel-play-pause {
     display: flex !important; /* Show on tablet */
     min-width: 100px; /* Reasonable width */
+  }
+  
+  /* Ensure project action buttons maintain professional horizontal layout on tablets */
+  .balanced-actions {
+    flex-direction: row !important; /* FORCE horizontal on tablets */
+    gap: 1.5rem !important; /* Comfortable spacing */
+    justify-content: flex-start !important; /* Natural left alignment */
+  }
+  
+  .balanced-btn {
+    flex: 0 1 auto !important; /* Don't force equal width on tablet */
+    min-width: 140px !important; /* Comfortable button width */
+    padding: 16px 24px !important; /* Professional tablet padding */
+  }
+}
+
+/* Desktop optimization - Perfect horizontal button layout */
+@media (min-width: 769px) {
+  .balanced-actions {
+    flex-direction: row !important; /* Horizontal layout on desktop */
+    gap: 2rem !important; /* Generous desktop spacing */
+    justify-content: flex-start !important; /* Natural left alignment */
+    align-items: center !important; /* Perfect vertical centering */
+  }
+  
+  .balanced-btn {
+    flex: 0 0 auto !important; /* Natural button sizing on desktop */
+    min-width: 160px !important; /* Professional desktop button width */
+    padding: 1rem 2.5rem !important; /* Generous desktop padding */
+    font-size: 1rem !important; /* Full desktop font size */
   }
 }
 

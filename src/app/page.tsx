@@ -1076,9 +1076,9 @@ export default function Home() {
                   alignItems: 'center',
                   gap: '0.75rem',
                   padding: '16px 28px',
-                  background: isMobile ? '#4A5568' : 'var(--grapefruit-intelligence)',
+                  background: 'var(--grapefruit-intelligence)', /* Always use primary coral for visibility */
                   color: 'white',
-                  border: `2px solid ${isMobile ? '#4A5568' : 'var(--grapefruit-intelligence)'}`,
+                  border: '2px solid var(--grapefruit-intelligence)', /* Consistent coral border */
                   borderRadius: '50px',
                   fontSize: '1rem',
                   fontWeight: '600',
@@ -1086,12 +1086,12 @@ export default function Home() {
                   fontFamily: 'var(--font-architectural-body)',
                   letterSpacing: '0.02em',
                   textTransform: 'none',
-                  boxShadow: isMobile ? '0 4px 16px rgba(74, 85, 104, 0.25)' : '0 4px 16px rgba(255, 102, 99, 0.3)'
+                  boxShadow: '0 4px 16px rgba(255, 102, 99, 0.3)', /* Consistent coral shadow for visibility */
                 }}
                 whileHover={{ 
                   scale: 1.08,
-                  backgroundColor: isMobile ? '#2D3748' : '#E55A5A',
-                  boxShadow: isMobile ? '0 6px 24px rgba(74, 85, 104, 0.35)' : '0 6px 24px rgba(255, 102, 99, 0.4)',
+                  backgroundColor: '#E55A5A', /* Consistent coral hover for visibility */
+                  boxShadow: '0 6px 24px rgba(255, 102, 99, 0.4)',
                   y: -2
                 }}
                 whileTap={{ scale: 0.95 }}
