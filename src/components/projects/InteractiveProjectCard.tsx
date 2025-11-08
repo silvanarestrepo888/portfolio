@@ -325,12 +325,28 @@ export function InteractiveProjectCard({
               {/* Project Action Buttons */}
               <motion.div 
                 className="balanced-actions"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row', /* FORCE horizontal layout with inline styles */
+                  gap: isMobile ? '1rem' : '1.5rem',
+                  alignItems: 'center',
+                  justifyContent: 'flex-start',
+                  marginTop: '2rem',
+                  width: '100%'
+                }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 + 0.8 }}
               >
                 <motion.button
                   className="balanced-btn primary project-case-study-btn"
+                  style={{
+                    display: 'inline-flex', /* Ensure button displays inline for horizontal layout */
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    whiteSpace: 'nowrap', /* Prevent text wrapping */
+                    flex: '0 0 auto' /* Don't grow or shrink, natural size */
+                  }}
                   onClick={(e) => {
                     e.stopPropagation();
                     onSelect(index);
@@ -363,6 +379,14 @@ export function InteractiveProjectCard({
                     target="_blank"
                     rel="noopener noreferrer"
                     className="balanced-btn secondary project-website-btn"
+                    style={{
+                      display: 'inline-flex', /* Ensure button displays inline for horizontal layout */
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      whiteSpace: 'nowrap', /* Prevent text wrapping */
+                      flex: '0 0 auto', /* Don't grow or shrink, natural size */
+                      textDecoration: 'none' /* Ensure no underlines */
+                    }}
                     onClick={(e) => {
                       e.stopPropagation();
                     }}

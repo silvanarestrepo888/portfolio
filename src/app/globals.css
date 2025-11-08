@@ -17510,10 +17510,6 @@ motion.div .balanced-actions,
   border: none !important;
   box-shadow: none !important;
   width: 100% !important; /* Ensure full width availability */
-  
-  /* TEMPORARY DEBUG: Visual confirmation this CSS is applied */
-  border: 2px dashed rgba(255, 102, 99, 0.3) !important; /* Temporary visual debug */
-  background: rgba(255, 102, 99, 0.02) !important; /* Temporary background highlight */
 }
 
 .balanced-btn {
