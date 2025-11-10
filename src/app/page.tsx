@@ -981,9 +981,28 @@ export default function Home() {
                 justifyContent: 'center',
                 alignItems: 'center',
                 gap: 'clamp(1rem, 3vw, 2rem)', /* Responsive gap scaling */
-                marginBottom: '2rem'
+                marginBottom: '2rem',
+                /* EXTREME VISIBILITY TEST */
+                background: '#00FF00', /* BRIGHT GREEN container background */
+                border: '5px solid #FF0000', /* BRIGHT RED border */
+                padding: '20px', /* Large padding to make it obvious */
+                minHeight: '100px', /* Ensure container has height */
+                width: '100%', /* Full width */
+                zIndex: 9999 /* Bring to front */
               }}
             >
+              {/* DEBUG TEST TEXT */}
+              <div style={{
+                fontSize: '24px',
+                fontWeight: 'bold',
+                color: '#000000',
+                background: '#FFFF00',
+                padding: '10px',
+                border: '2px solid #000000'
+              }}>
+                NAVIGATION TEST - CAN YOU SEE THIS?
+              </div>
+              
               {/* Previous Project Button */}
               <motion.button
                 onClick={() => {

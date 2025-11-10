@@ -17556,16 +17556,22 @@ motion.div .balanced-actions,
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
 }
 
-/* ENSURE PROJECTS SECTION CONTAINER IS FRAMELESS */
-.projects-carousel-award-winning,
+/* SELECTIVE FRAMELESS - PRESERVE NAVIGATION CONTAINER SPACING */
 .projects-3d-container,
-.projects-container-award-winning {
+.project-card-cinematic {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
   outline: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
+}
+
+/* PRESERVE CAROUSEL AND CONTAINER PADDING FOR NAVIGATION VISIBILITY */
+.projects-carousel-award-winning {
+  /* Keep natural spacing and margins for navigation visibility */
+}
+
+.projects-container-award-winning {
+  /* Keep container padding for proper content layout */
 }
 
 /* FORCE IMAGE ELEMENTS TO BE CLEAN */
@@ -17578,16 +17584,26 @@ img[class*="project-"] {
   border-radius: 0 !important;
 }
 
-/* FINAL NUCLEAR OVERRIDE - CATCH ALL REMAINING FRAMES */
-.projects-section-award-winning *,
-.section-projects-sophisticated *,
-.projects-carousel-award-winning *,
-.projects-3d-container * {
+/* SELECTIVE FRAMELESS OVERRIDE - EXCLUDE NAVIGATION ELEMENTS */
+.projects-section-award-winning .balanced-image-section,
+.projects-section-award-winning .balanced-content-section,
+.section-projects-sophisticated .project-card-3d,
+.projects-carousel-award-winning .project-card-3d,
+.projects-3d-container .balanced-project-card {
   border: none !important;
   box-shadow: none !important;
   background-color: transparent !important;
   backdrop-filter: none !important;
   outline: none !important;
+}
+
+/* PRESERVE NAVIGATION VISIBILITY - EXCLUDE FROM OVERRIDE */
+.carousel-navigation-prominent,
+.carousel-navigation-prominent *,
+.carousel-nav-button,
+.balanced-actions,
+.balanced-btn {
+  /* These elements KEEP their backgrounds and styling */
 }
 
 /* ENSURE TEXT READABILITY WITHOUT FRAMES */
