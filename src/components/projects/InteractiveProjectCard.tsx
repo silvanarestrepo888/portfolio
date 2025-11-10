@@ -332,7 +332,12 @@ export function InteractiveProjectCard({
                   alignItems: 'center',
                   justifyContent: 'flex-start',
                   marginTop: '2rem',
-                  width: '100%'
+                  width: '100%',
+                  /* DEBUG: Make container visible to confirm it exists */
+                  backgroundColor: '#FFFF00', /* BRIGHT YELLOW TEST */
+                  border: '3px solid #FF0000', /* RED BORDER TEST */
+                  padding: '10px', /* Padding to make visible */
+                  minHeight: '60px' /* Ensure height */
                 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
