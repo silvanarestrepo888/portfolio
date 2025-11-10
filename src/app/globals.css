@@ -19966,7 +19966,7 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   }
   
   .balanced-btn {
-    flex: 1 1 auto !important; /* Allow buttons to flex but maintain content width */
+    flex: 0 0 auto !important; /* FIXED: Natural button size, don't grow to full width */
     max-width: 160px !important; /* Prevent buttons getting too wide on mobile */
     min-width: 120px !important; /* Ensure buttons remain readable */
     padding: 14px 20px !important; /* Optimized mobile padding */
