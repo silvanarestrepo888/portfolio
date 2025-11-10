@@ -1119,6 +1119,23 @@ export default function Home() {
               </div>
             )}
             
+            {/* DEBUG: Test projects data and basic rendering */}
+            <div style={{
+              backgroundColor: '#FFA500', /* BRIGHT ORANGE */
+              border: '5px solid #800080', /* PURPLE border */
+              padding: '20px',
+              margin: '20px 0',
+              fontSize: '18px',
+              fontWeight: 'bold',
+              color: 'black'
+            }}>
+              PROJECTS DEBUG TEST:<br/>
+              Total Projects: {filteredProjects.length}<br/>
+              Current Index: {safeFeaturedProjectIndex}<br/>
+              Current Project: {filteredProjects[safeFeaturedProjectIndex]?.title || 'UNDEFINED'}<br/>
+              Is Mobile: {isMobile ? 'YES' : 'NO'}
+            </div>
+            
             {/* CINEMATIC CAROUSEL - SMOOTH RIGHT→LEFT FLOW */}
             <AnimatePresence mode="wait">
             <motion.div 
