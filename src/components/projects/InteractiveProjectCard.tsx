@@ -109,17 +109,7 @@ export function InteractiveProjectCard({
         }
       }}
     >
-      <div 
-        className="balanced-project-card luxury-hover-elevation project-card-shadow-3d"
-        style={{
-          /* DEBUG: Make project card extremely visible */
-          backgroundColor: '#FF00FF', /* BRIGHT PINK background */
-          border: '5px solid #00FFFF', /* CYAN border */
-          minHeight: '400px', /* Ensure card has height */
-          padding: '20px', /* Visible padding */
-          margin: '10px' /* Ensure separation from other elements */
-        }}
-      >
+      <div className="balanced-project-card luxury-hover-elevation project-card-shadow-3d">
         {/* Clean Balanced Layout: 60% Image / 40% Content */}
         <div className="balanced-layout-grid" style={{ display: isMobile ? 'block' as const : undefined }}>
           
@@ -337,17 +327,11 @@ export function InteractiveProjectCard({
                 className="balanced-actions"
                 style={{
                   display: 'flex',
-                  flexDirection: 'row', /* FORCE horizontal layout with inline styles */
-                  gap: isMobile ? '1rem' : '1.5rem',
-                  alignItems: 'center',
-                  justifyContent: 'flex-start',
-                  marginTop: '2rem',
-                  width: '100%',
-                  /* DEBUG: Make container visible to confirm it exists */
-                  backgroundColor: '#FFFF00', /* BRIGHT YELLOW TEST */
-                  border: '3px solid #FF0000', /* RED BORDER TEST */
-                  padding: '10px', /* Padding to make visible */
-                  minHeight: '60px' /* Ensure height */
+                  flexDirection: 'row', /* Use proven working horizontal layout */
+                  gap: '20px', /* Same spacing that worked in test */
+                  justifyContent: 'center', /* Same centering that worked */
+                  marginTop: '20px',
+                  width: '100%'
                 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -355,13 +339,6 @@ export function InteractiveProjectCard({
               >
                 <motion.button
                   className="balanced-btn primary project-case-study-btn"
-                  style={{
-                    display: 'inline-flex', /* Ensure button displays inline for horizontal layout */
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    whiteSpace: 'nowrap', /* Prevent text wrapping */
-                    flex: '0 0 auto' /* Don't grow or shrink, natural size */
-                  }}
                   onClick={(e) => {
                     e.stopPropagation();
                     onSelect(index);
@@ -369,7 +346,7 @@ export function InteractiveProjectCard({
                   whileHover={{ 
                     scale: 1.05,
                     y: -2,
-                    transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] } /* Back-out easing */
+                    transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
                   }}
                   whileTap={{ 
                     scale: 0.95,
@@ -394,21 +371,13 @@ export function InteractiveProjectCard({
                     target="_blank"
                     rel="noopener noreferrer"
                     className="balanced-btn secondary project-website-btn"
-                    style={{
-                      display: 'inline-flex', /* Ensure button displays inline for horizontal layout */
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      whiteSpace: 'nowrap', /* Prevent text wrapping */
-                      flex: '0 0 auto', /* Don't grow or shrink, natural size */
-                      textDecoration: 'none' /* Ensure no underlines */
-                    }}
                     onClick={(e) => {
                       e.stopPropagation();
                     }}
                     whileHover={{ 
                       scale: 1.05,
                       y: -2,
-                      transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] } /* Back-out easing */
+                      transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
                     }}
                     whileTap={{ 
                       scale: 0.95,

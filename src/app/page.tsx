@@ -1119,23 +1119,6 @@ export default function Home() {
               </div>
             )}
             
-            {/* DEBUG: Test projects data and basic rendering */}
-            <div style={{
-              backgroundColor: '#FFA500', /* BRIGHT ORANGE */
-              border: '5px solid #800080', /* PURPLE border */
-              padding: '20px',
-              margin: '20px 0',
-              fontSize: '18px',
-              fontWeight: 'bold',
-              color: 'black'
-            }}>
-              PROJECTS DEBUG TEST:<br/>
-              Total Projects: {filteredProjects.length}<br/>
-              Current Index: {safeFeaturedProjectIndex}<br/>
-              Current Project: {filteredProjects[safeFeaturedProjectIndex]?.title || 'UNDEFINED'}<br/>
-              Is Mobile: {isMobile ? 'YES' : 'NO'}
-            </div>
-            
             {/* CINEMATIC CAROUSEL - SMOOTH RIGHT→LEFT FLOW */}
             <AnimatePresence mode="wait">
             <motion.div 
@@ -1164,63 +1147,14 @@ export default function Home() {
               }}
               onHoverStart={() => setIsAutoPlaying(false)}
               onHoverEnd={() => setIsAutoPlaying(true)}
-              style={{
-                /* DEBUG: Test if project container renders */
-                backgroundColor: '#00FFFF', /* BRIGHT CYAN background */
-                border: '8px solid #FF00FF', /* BRIGHT MAGENTA border */
-                minHeight: '500px', /* Ensure visible height */
-                padding: '30px', /* Large padding */
-                margin: '20px 0' /* Visible margins */
-              }}
             >
-              {/* SIMPLE TEST: Replace complex component with basic rendering */}
-              <div style={{
-                backgroundColor: '#800080', /* PURPLE background */
-                color: 'white',
-                padding: '30px',
-                fontSize: '20px',
-                fontWeight: 'bold',
-                border: '5px solid #FFFF00', /* YELLOW border */
-                textAlign: 'center',
-                minHeight: '300px'
-              }}>
-                SIMPLE PROJECT TEST:<br/>
-                <br/>
-                Project Title: {filteredProjects[safeFeaturedProjectIndex]?.title || 'NO TITLE'}<br/>
-                Client: {filteredProjects[safeFeaturedProjectIndex]?.client || 'NO CLIENT'}<br/>
-                <br/>
-                {/* TEST ACTION BUTTONS - SIMPLE HORIZONTAL */}
-                <div style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  gap: '20px',
-                  justifyContent: 'center',
-                  marginTop: '20px'
-                }}>
-                  <button style={{
-                    backgroundColor: '#FF0000',
-                    color: 'white',
-                    padding: '15px 25px',
-                    border: 'none',
-                    borderRadius: '5px',
-                    fontSize: '16px',
-                    cursor: 'pointer'
-                  }}>
-                    Explore Project
-                  </button>
-                  <button style={{
-                    backgroundColor: '#0000FF',
-                    color: 'white', 
-                    padding: '15px 25px',
-                    border: 'none',
-                    borderRadius: '5px',
-                    fontSize: '16px',
-                    cursor: 'pointer'
-                  }}>
-                    Visit Client Website
-                  </button>
-                </div>
-              </div>
+              <InteractiveProjectCard
+                project={filteredProjects[safeFeaturedProjectIndex]}
+                index={safeFeaturedProjectIndex}
+                isActive={!isTransitioning}
+                onSelect={setSelectedProject}
+                className="project-card-cinematic-flow"
+              />
             </motion.div>
             </AnimatePresence>
             
