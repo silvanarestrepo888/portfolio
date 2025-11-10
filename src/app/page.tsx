@@ -980,29 +980,15 @@ export default function Home() {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                gap: 'clamp(1rem, 3vw, 2rem)', /* Responsive gap scaling */
+                gap: 'clamp(0.5rem, 2vw, 1rem)', /* REDUCED gap to fit all elements */
                 marginBottom: '2rem',
-                /* EXTREME VISIBILITY TEST */
-                background: '#00FF00', /* BRIGHT GREEN container background */
-                border: '5px solid #FF0000', /* BRIGHT RED border */
-                padding: '20px', /* Large padding to make it obvious */
-                minHeight: '100px', /* Ensure container has height */
                 width: '100%', /* Full width */
-                zIndex: 9999 /* Bring to front */
+                maxWidth: '100%', /* Prevent overflow */
+                padding: '0 1rem', /* Small padding for edge space */
+                flexWrap: 'nowrap', /* Keep all elements in one line */
+                overflowX: 'visible' /* Ensure no horizontal clipping */
               }}
             >
-              {/* DEBUG TEST TEXT */}
-              <div style={{
-                fontSize: '24px',
-                fontWeight: 'bold',
-                color: '#000000',
-                background: '#FFFF00',
-                padding: '10px',
-                border: '2px solid #000000'
-              }}>
-                NAVIGATION TEST - CAN YOU SEE THIS?
-              </div>
-              
               {/* Previous Project Button */}
               <motion.button
                 onClick={() => {
@@ -1018,18 +1004,20 @@ export default function Home() {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.75rem',
-                  padding: '16px 28px',
-                  background: '#FF0000', /* BRIGHT RED TEST - to check if button shows up at all */
-                  color: 'white', /* White text for better contrast */
+                  gap: '0.5rem', /* Reduced gap for space efficiency */
+                  padding: '12px 20px', /* REDUCED padding to fit container */
+                  background: 'rgba(74, 85, 104, 0.8)',
+                  color: 'white',
                   border: '2px solid #4A5568',
                   borderRadius: '50px',
-                  fontSize: '1rem', /* Matching Next button */
-                  fontWeight: '600', /* Matching Next button */
+                  fontSize: '0.875rem', /* REDUCED font size to fit container */
+                  fontWeight: '600',
                   cursor: 'pointer',
                   fontFamily: 'var(--font-architectural-body)',
                   letterSpacing: '0.02em',
-                  boxShadow: '0 4px 16px rgba(74, 85, 104, 0.25)' /* Matching prominence */
+                  boxShadow: '0 4px 16px rgba(74, 85, 104, 0.25)',
+                  whiteSpace: 'nowrap', /* Prevent text wrapping */
+                  flexShrink: 0 /* Prevent button from shrinking */
                 }}
                 whileHover={{ 
                   scale: 1.08,
@@ -1051,16 +1039,17 @@ export default function Home() {
                 style={{
                   display: isMobile ? 'none' : 'flex',
                   alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '10px 16px',
+                  gap: '0.25rem', /* REDUCED gap */
+                  padding: '8px 12px', /* REDUCED padding to save space */
                   background: isAutoPlaying ? 'rgba(255, 102, 99, 0.1)' : 'rgba(74, 85, 104, 0.1)',
                   color: isAutoPlaying ? 'var(--grapefruit-intelligence)' : '#4A5568',
                   border: `1px solid ${isAutoPlaying ? 'var(--grapefruit-intelligence)' : '#4A5568'}`,
                   borderRadius: '50px',
-                  fontSize: '0.875rem',
+                  fontSize: '0.75rem', /* REDUCED font size */
                   fontWeight: '500',
                   cursor: 'pointer',
-                  fontFamily: 'var(--font-architectural-body)'
+                  fontFamily: 'var(--font-architectural-body)',
+                  flexShrink: 0 /* Prevent shrinking */
                 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -1072,9 +1061,11 @@ export default function Home() {
               <div 
                 style={{
                   color: '#4A5568',
-                  fontSize: '0.875rem',
+                  fontSize: '0.75rem', /* REDUCED font size to save space */
                   fontWeight: '500',
-                  fontFamily: 'var(--font-architectural-body)'
+                  fontFamily: 'var(--font-architectural-body)',
+                  whiteSpace: 'nowrap', /* Prevent wrapping */
+                  flexShrink: 0 /* Prevent shrinking */
                 }}
               >
                 {safeFeaturedProjectIndex + 1} / {filteredProjects.length}
@@ -1093,19 +1084,21 @@ export default function Home() {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.75rem',
-                  padding: '16px 28px',
-                  background: 'var(--grapefruit-intelligence)', /* Always use primary coral for visibility */
+                  gap: '0.5rem', /* REDUCED gap to match Previous button */
+                  padding: '12px 20px', /* REDUCED padding to fit container */
+                  background: 'var(--grapefruit-intelligence)',
                   color: 'white',
-                  border: '2px solid var(--grapefruit-intelligence)', /* Consistent coral border */
+                  border: '2px solid var(--grapefruit-intelligence)',
                   borderRadius: '50px',
-                  fontSize: '1rem',
+                  fontSize: '0.875rem', /* REDUCED font size to fit container */
                   fontWeight: '600',
                   cursor: 'pointer',
                   fontFamily: 'var(--font-architectural-body)',
                   letterSpacing: '0.02em',
                   textTransform: 'none',
-                  boxShadow: '0 4px 16px rgba(255, 102, 99, 0.3)', /* Consistent coral shadow for visibility */
+                  boxShadow: '0 4px 16px rgba(255, 102, 99, 0.3)',
+                  whiteSpace: 'nowrap', /* Prevent text wrapping */
+                  flexShrink: 0 /* Prevent button from shrinking */
                 }}
                 whileHover={{ 
                   scale: 1.08,
