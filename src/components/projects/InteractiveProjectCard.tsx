@@ -109,7 +109,17 @@ export function InteractiveProjectCard({
         }
       }}
     >
-      <div className="balanced-project-card luxury-hover-elevation project-card-shadow-3d">
+      <div 
+        className="balanced-project-card luxury-hover-elevation project-card-shadow-3d"
+        style={{
+          /* DEBUG: Make project card extremely visible */
+          backgroundColor: '#FF00FF', /* BRIGHT PINK background */
+          border: '5px solid #00FFFF', /* CYAN border */
+          minHeight: '400px', /* Ensure card has height */
+          padding: '20px', /* Visible padding */
+          margin: '10px' /* Ensure separation from other elements */
+        }}
+      >
         {/* Clean Balanced Layout: 60% Image / 40% Content */}
         <div className="balanced-layout-grid" style={{ display: isMobile ? 'block' as const : undefined }}>
           

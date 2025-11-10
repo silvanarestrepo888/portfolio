@@ -1147,6 +1147,14 @@ export default function Home() {
               }}
               onHoverStart={() => setIsAutoPlaying(false)}
               onHoverEnd={() => setIsAutoPlaying(true)}
+              style={{
+                /* DEBUG: Test if project container renders */
+                backgroundColor: '#00FFFF', /* BRIGHT CYAN background */
+                border: '8px solid #FF00FF', /* BRIGHT MAGENTA border */
+                minHeight: '500px', /* Ensure visible height */
+                padding: '30px', /* Large padding */
+                margin: '20px 0' /* Visible margins */
+              }}
             >
               <InteractiveProjectCard
                 project={filteredProjects[safeFeaturedProjectIndex]}
