@@ -1173,13 +1173,54 @@ export default function Home() {
                 margin: '20px 0' /* Visible margins */
               }}
             >
-              <InteractiveProjectCard
-                project={filteredProjects[safeFeaturedProjectIndex]}
-                index={safeFeaturedProjectIndex}
-                isActive={!isTransitioning}
-                onSelect={setSelectedProject}
-                  className="project-card-cinematic-flow"
-              />
+              {/* SIMPLE TEST: Replace complex component with basic rendering */}
+              <div style={{
+                backgroundColor: '#800080', /* PURPLE background */
+                color: 'white',
+                padding: '30px',
+                fontSize: '20px',
+                fontWeight: 'bold',
+                border: '5px solid #FFFF00', /* YELLOW border */
+                textAlign: 'center',
+                minHeight: '300px'
+              }}>
+                SIMPLE PROJECT TEST:<br/>
+                <br/>
+                Project Title: {filteredProjects[safeFeaturedProjectIndex]?.title || 'NO TITLE'}<br/>
+                Client: {filteredProjects[safeFeaturedProjectIndex]?.client || 'NO CLIENT'}<br/>
+                <br/>
+                {/* TEST ACTION BUTTONS - SIMPLE HORIZONTAL */}
+                <div style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  gap: '20px',
+                  justifyContent: 'center',
+                  marginTop: '20px'
+                }}>
+                  <button style={{
+                    backgroundColor: '#FF0000',
+                    color: 'white',
+                    padding: '15px 25px',
+                    border: 'none',
+                    borderRadius: '5px',
+                    fontSize: '16px',
+                    cursor: 'pointer'
+                  }}>
+                    Explore Project
+                  </button>
+                  <button style={{
+                    backgroundColor: '#0000FF',
+                    color: 'white', 
+                    padding: '15px 25px',
+                    border: 'none',
+                    borderRadius: '5px',
+                    fontSize: '16px',
+                    cursor: 'pointer'
+                  }}>
+                    Visit Client Website
+                  </button>
+                </div>
+              </div>
             </motion.div>
             </AnimatePresence>
             
