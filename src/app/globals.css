@@ -876,8 +876,8 @@
     #F5F5DC 100%     /* vanilla-foundation */
   );
   position: relative;
-  padding-top: 80px;      /* AGGRESSIVE REDUCTION: 56% decrease for connected flow */
-  padding-bottom: 100px;  /* AGGRESSIVE REDUCTION: 50% decrease for connection */
+  padding-top: 40px;      /* ULTRA-AGGRESSIVE: 78% reduction for connected storytelling */
+  padding-bottom: 60px;   /* ULTRA-AGGRESSIVE: 70% reduction for tight flow */
 }
 
 .about-section-ultra-luxury::before {
@@ -901,8 +901,8 @@
     #FDFCF8 100%     /* vanilla-whisper */
   );
   position: relative;
-  padding-top: 80px;      /* AGGRESSIVE REDUCTION: 56% decrease for connected flow */
-  padding-bottom: 100px;  /* AGGRESSIVE REDUCTION: 50% decrease for connection */
+  padding-top: 40px;      /* ULTRA-AGGRESSIVE: 78% reduction for connected storytelling */
+  padding-bottom: 60px;   /* ULTRA-AGGRESSIVE: 70% reduction for tight flow */
 }
 
 .projects-section-award-winning::before {
@@ -9078,11 +9078,13 @@ h4, .text-h4 {
 
 .hero-section-luxury {
   position: relative;
-  height: 100vh;
+  height: 90vh;          /* REDUCE: 100vh → 90vh for better transition to about */
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 0;      /* ENSURE no bottom margin */
+  padding-bottom: 0;     /* ENSURE no bottom padding */
 }
 
 .hero-bg-luxury {
@@ -9596,7 +9598,7 @@ h4, .text-h4 {
 .about-container-ultra-luxury {
   width: 100%;
   margin: 0 auto;
-  padding: 80px 4rem;
+  padding: 0 4rem;    /* ELIMINATE TOP/BOTTOM: 80px → 0px for connected flow */
   position: relative;
   z-index: 2;
 }
@@ -9851,7 +9853,7 @@ h4, .text-h4 {
 /* Responsive Design for Ultra-Luxury About */
 @media (max-width: 1024px) {
   .about-container-ultra-luxury {
-    padding: 80px 3rem;
+    padding: 0 3rem;    /* ELIMINATE TOP/BOTTOM for tablet as well */
   }
   
   .about-content-ultra-luxury {
@@ -9881,7 +9883,7 @@ h4, .text-h4 {
 
 @media (max-width: 768px) {
   .about-container-ultra-luxury {
-    padding: 60px 2rem;
+    padding: 0 2rem;    /* ELIMINATE TOP/BOTTOM for mobile as well */
   }
   
   .about-content-ultra-luxury {
@@ -10292,7 +10294,7 @@ h4, .text-h4 {
 .projects-container-award-winning {
   width: 100%;
   margin: 0 auto;
-  padding: 80px 4rem;
+  padding: 0 4rem;    /* ELIMINATE TOP/BOTTOM: 80px → 0px for connected flow */
   position: relative;
   z-index: 2;
 }
@@ -13188,7 +13190,7 @@ h4, .text-h4 {
 /* Responsive Design for Award-Winning Projects */
 @media (max-width: 1024px) {
   .projects-container-award-winning {
-    padding: 80px 3rem;
+    padding: 0 3rem;    /* ELIMINATE TOP/BOTTOM for tablet projects as well */
   }
   
   .projects-title-award-winning {
@@ -20675,6 +20677,38 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   
   .snippet-title-text {
     font-size: 0.875rem !important;
+  }
+  
+  /* MOBILE SPACING SAFETY - Slightly more breathing room on small screens */
+  .about-section-ultra-luxury {
+    padding-top: 60px !important;     /* Mobile: More breathing than desktop */
+    padding-bottom: 80px !important;  /* Mobile: Better content separation */
+  }
+  
+  .projects-section-award-winning {
+    padding-top: 60px !important;     /* Mobile: More breathing than desktop */
+    padding-bottom: 80px !important;  /* Mobile: Better content separation */
+  }
+  
+  .hero-section-luxury {
+    height: 85vh !important;          /* Mobile: Slightly shorter hero */
+  }
+}
+
+/* SMALL MOBILE SPACING SAFETY */
+@media (max-width: 480px) {
+  .about-section-ultra-luxury {
+    padding-top: 80px !important;     /* Small mobile: Even more breathing */
+    padding-bottom: 100px !important; /* Small mobile: Comfortable spacing */
+  }
+  
+  .projects-section-award-winning {
+    padding-top: 80px !important;     /* Small mobile: Even more breathing */
+    padding-bottom: 100px !important; /* Small mobile: Comfortable spacing */
+  }
+  
+  .hero-section-luxury {
+    height: 80vh !important;          /* Small mobile: More content visible */
   }
 }
 
