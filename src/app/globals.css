@@ -9930,7 +9930,7 @@ h4, .text-h4 {
 
 .projects-section-ultra-luxury {
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* Ensure child elements are not clipped vertically */
 }
 
 .projects-container-ultra-luxury {
@@ -10286,7 +10286,7 @@ h4, .text-h4 {
 /* Award-Winning Projects Section Container */
 .projects-section-award-winning {
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* Allow content like CTA buttons to be fully visible */
 }
 
 .projects-container-award-winning {
@@ -11822,7 +11822,7 @@ h4, .text-h4 {
   width: 100%;
   margin: 0 auto;
   padding: 0 4rem;
-  overflow: hidden;
+  overflow: visible; /* Prevent clipping of card content and CTAs */
 }
 
 .balanced-project-card {
