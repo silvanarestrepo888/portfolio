@@ -876,9 +876,8 @@
     #F5F5DC 100%     /* vanilla-foundation */
   );
   position: relative;
-  padding-top: clamp(4rem, 10vw, 6rem);      /* CONNECTED FLOW: 64px-96px reduced */
-  padding-bottom: clamp(3rem, 8vw, 5rem);    /* 48px-80px for connected storytelling */
-  margin-bottom: 1rem;                       /* Minimal gap for flow */
+  padding-top: 120px;     /* SAFE REDUCTION: From 180px to 120px */
+  padding-bottom: 140px;  /* SAFE REDUCTION: From 200px to 140px */
 }
 
 .about-section-ultra-luxury::before {
@@ -902,9 +901,8 @@
     #FDFCF8 100%     /* vanilla-whisper */
   );
   position: relative;
-  padding-top: clamp(5rem, 12vw, 7rem);     /* PROGRESSIVE FLOW: 80px-112px */
-  padding-bottom: clamp(4rem, 10vw, 6rem);  /* 64px-96px connected spacing */
-  margin-bottom: 2rem;                      /* Small increase for progression */
+  padding-top: 120px;     /* SAFE REDUCTION: From 180px to 120px */
+  padding-bottom: 140px;  /* SAFE REDUCTION: From 200px to 140px */
 }
 
 .projects-section-award-winning::before {
@@ -9084,8 +9082,6 @@ h4, .text-h4 {
   overflow: hidden;
   display: flex;
   align-items: center;
-  padding-bottom: clamp(3rem, 8vw, 5rem);   /* CONNECTED FLOW: Reduced bottom spacing */
-  margin-bottom: 0;                          /* Remove gap for flow */
 }
   justify-content: center;
 }
@@ -19732,9 +19728,7 @@ img[class*="project-"] {
 section#services.section-services-sophisticated {
   background: var(--services-gradient) !important;
   position: relative;
-  padding-top: clamp(6rem, 14vw, 8rem);     /* PROGRESSIVE FLOW: 96px-128px further increase */
-  padding-bottom: clamp(5rem, 12vw, 7rem);  /* 80px-112px connected spacing */
-  margin-bottom: 3rem;                      /* Larger gap before experience section */
+  padding: 100px 0 120px 0; /* SAFE REDUCTION: From previous values */
   min-height: auto;
   max-height: 100vh; /* Ensure it fits in one viewport */
   overflow-y: auto; /* Allow scroll if needed, but aim for single screen */
@@ -20604,7 +20598,7 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 }
 
 /* ========================================== */
-/* VISUAL BRIDGE SYSTEM - CONNECTED STORYTELLING */
+/* VISUAL BRIDGE SYSTEM - SAFE VERSION WITH CSS VARIABLES */
 /* ========================================== */
 
 /* Section Connection Bridges */
@@ -20622,13 +20616,13 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 .section-connector::before {
   content: '';
   position: absolute;
-  width: clamp(60px, 15vw, 120px);
+  width: 80px;                    /* Fixed width for build safety */
   height: 2px;
   background: linear-gradient(90deg, 
     transparent 0%, 
-    var(--grapefruit-intelligence) 20%,
-    var(--grapefruit-soft) 50%, 
-    var(--grapefruit-intelligence) 80%,
+    var(--grapefruit-intelligence, #FF6663) 20%,
+    var(--grapefruit-soft, #ff8e8b) 50%, 
+    var(--grapefruit-intelligence, #FF6663) 80%,
     transparent 100%);
   opacity: 0.3;
 }
@@ -20638,9 +20632,9 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   position: absolute;
   width: 8px;
   height: 8px;
-  background: var(--grapefruit-intelligence);
+  background: var(--grapefruit-intelligence, #FF6663);
   border-radius: 50%;
-  border: 2px solid var(--vanilla-foundation);
+  border: 2px solid var(--vanilla-foundation, #F5F5DC);
   box-shadow: 0 2px 8px rgba(255, 102, 99, 0.25);
   animation: breathe 3s ease-in-out infinite;
 }
@@ -20664,7 +20658,7 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   }
   
   .section-connector::before {
-    width: clamp(40px, 12vw, 80px);
+    width: 60px;                   /* Fixed width for mobile */
   }
   
   .section-connector::after {
@@ -20674,113 +20668,70 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 }
 
 /* ========================================== */
-/* UNIFIED BUTTON SYSTEM - STANDARDIZED EXCELLENCE */
+/* UNIFIED BUTTON SYSTEM - SAFE VERSION WITH FALLBACKS */
 /* ========================================== */
 
-/* Primary Button Base - Unified Dimensions & Behavior */
-.btn-primary,
-.hero-cta-button,
-.balanced-btn.primary,
-.project-back-button-ultra {
-  /* STANDARDIZED DIMENSIONS */
-  padding: 0.875rem 2rem !important;        /* 14px 32px - consistent across all */
-  font-size: 0.9375rem !important;          /* 15px - optimal readability */
-  font-weight: 600 !important;              /* consistent weight */
-  line-height: 1.2 !important;              /* consistent line height */
-  border-radius: 50px !important;           /* pill shape */
-  
-  /* VISUAL CONSISTENCY */
-  background: linear-gradient(135deg, var(--grapefruit-pure) 0%, var(--grapefruit-soft) 100%) !important;
-  color: #FFFFFF !important;
-  border: none !important;
-  
-  /* ENHANCED SHADOWS */
-  box-shadow: 
-    0 4px 16px rgba(255, 102, 99, 0.2),
-    0 2px 8px rgba(0, 0, 0, 0.1) !important;
-    
-  /* SMOOTH TRANSITIONS */
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-  
-  /* ACCESSIBILITY */
-  min-height: 44px !important;              /* WCAG touch target */
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-decoration: none !important;
+/* Hero CTA Button Standardization */
+.hero-cta-button {
+  padding: 0.875rem 2rem;        /* Standardized padding */
+  font-size: 0.9375rem;          /* 15px - consistent size */
+  font-weight: 600;              /* Consistent weight */
+  line-height: 1.2;              /* Consistent line height */
+  border-radius: 50px;           /* Pill shape */
+  min-height: 44px;              /* WCAG touch target */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;     /* Simplified transition */
 }
 
-/* Primary Button Hover - Unified Behavior */
-.btn-primary:hover,
+/* Project Button Consistency */
+.balanced-btn.primary {
+  padding: 0.875rem 2rem;        /* Match hero buttons */
+  font-size: 0.9375rem;          /* Match hero buttons */
+  font-weight: 600;              /* Match hero buttons */
+  line-height: 1.2;              /* Match hero buttons */
+  border-radius: 50px;           /* Match shape */
+  min-height: 44px;              /* WCAG compliance */
+}
+
+/* Back Button Consistency */
+.project-back-button-ultra {
+  padding: 0.875rem 2rem;        /* Match other buttons */
+  font-size: 0.9375rem;          /* Match other buttons */  
+  font-weight: 600;              /* Match other buttons */
+  line-height: 1.2;              /* Match other buttons */
+  border-radius: 50px;           /* Match shape */
+  min-height: 44px;              /* WCAG compliance */
+}
+
+/* Enhanced Button Hover Effects */
 .hero-cta-button:hover,
 .balanced-btn.primary:hover,
 .project-back-button-ultra:hover {
-  transform: translateY(-2px) scale(1.02) !important;
-  background: linear-gradient(135deg, var(--grapefruit-rich) 0%, var(--grapefruit-pure) 100%) !important;
+  transform: translateY(-2px) scale(1.01);
   box-shadow: 
-    0 8px 25px rgba(255, 102, 99, 0.3),
-    0 4px 12px rgba(0, 0, 0, 0.15) !important;
-  filter: brightness(1.05) saturate(1.1) !important;
+    0 8px 25px var(--grapefruit-whisper, rgba(255, 102, 99, 0.08)),
+    0 4px 12px rgba(0, 0, 0, 0.12);
+  filter: brightness(1.03);
+  transition: all 0.3s ease;
 }
 
-/* Primary Button Active State */
-.btn-primary:active,
+/* Button Active States */
 .hero-cta-button:active,
 .balanced-btn.primary:active,
 .project-back-button-ultra:active {
-  transform: scale(0.98) !important;
-  transition: transform 0.1s ease !important;
-}
-
-/* Secondary Button Base */
-.btn-secondary,
-.balanced-btn.secondary {
-  /* MATCHING DIMENSIONS */
-  padding: 0.875rem 2rem !important;
-  font-size: 0.9375rem !important;
-  font-weight: 600 !important;
-  line-height: 1.2 !important;
-  border-radius: 50px !important;
-  
-  /* SECONDARY STYLING */
-  background: var(--vanilla-warm) !important;
-  color: var(--grapefruit-intelligence) !important;
-  border: 2px solid var(--grapefruit-whisper) !important;
-  
-  /* ENHANCED SHADOWS */
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
-  
-  /* SMOOTH TRANSITIONS */
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-  
-  /* ACCESSIBILITY */
-  min-height: 44px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-decoration: none !important;
-}
-
-/* Secondary Button Hover */
-.btn-secondary:hover,
-.balanced-btn.secondary:hover {
-  background: var(--vanilla-pure) !important;
-  color: var(--grapefruit-rich) !important;
-  border-color: var(--grapefruit-soft) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
 }
 
 /* Mobile Button Optimizations */
 @media (max-width: 768px) {
-  .btn-primary,
   .hero-cta-button,
   .balanced-btn.primary,
-  .project-back-button-ultra,
-  .btn-secondary,
-  .balanced-btn.secondary {
-    padding: 0.875rem 1.5rem !important;     /* Slightly reduced padding on mobile */
-    font-size: 0.875rem !important;           /* 14px - slightly smaller but readable */
-    min-width: 120px !important;              /* Consistent mobile minimum width */
+  .project-back-button-ultra {
+    padding: 0.875rem 1.5rem;     /* Reduced padding on mobile */
+    font-size: 0.875rem;          /* 14px - smaller but readable */
+    min-width: 120px;              /* Consistent mobile minimum */
   }
 }
