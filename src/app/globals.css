@@ -20767,3 +20767,329 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   }
 }
 
+/* ========================================== */
+/* GLASSMORPHISM ENHANCEMENT - AWARD-WINNING SOPHISTICATION */
+/* ========================================== */
+
+/* PROJECT CARD CONTENT GLASSMORPHISM */
+.balanced-content-section {
+  background: rgba(255, 251, 238, 0.85) !important; /* Vanilla with 85% opacity */
+  backdrop-filter: blur(20px) saturate(1.8) brightness(1.05) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.8) brightness(1.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 16px !important;
+  
+  /* MULTI-LAYER GLASSMORPHISM SHADOWS */
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),           /* Depth shadow */
+    0 4px 16px rgba(255, 102, 99, 0.05),     /* Grapefruit glow */
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),  /* Glass rim lighting */
+    inset 0 0 20px rgba(255, 251, 238, 0.3) !important; /* Inner glow */
+    
+  /* SOPHISTICATED POSITIONING */
+  position: relative !important;
+  z-index: 10 !important;
+  overflow: visible !important;
+}
+
+/* GLASSMORPHISM INNER HIGHLIGHT */
+.balanced-content-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 102, 99, 0.03) 50%,
+    rgba(255, 255, 255, 0.1) 100%);
+  border-radius: 16px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ENHANCE GLASSMORPHISM ON HOVER */
+.balanced-content-section:hover {
+  background: rgba(255, 251, 238, 0.9) !important; /* More opaque on hover */
+  backdrop-filter: blur(25px) saturate(1.9) brightness(1.08) !important;
+  border-color: rgba(255, 102, 99, 0.4) !important; /* Grapefruit accent border */
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.15),
+    0 6px 20px rgba(255, 102, 99, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 0 30px rgba(255, 251, 238, 0.4) !important;
+  transform: translateY(-2px) !important; /* Subtle lift */
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+}
+
+/* ========================================== */
+/* SECTION HEADERS GLASSMORPHISM - FLOATING AUTHORITY */
+/* ========================================== */
+
+.about-header-ultra-luxury,
+.projects-header-award-winning {
+  background: rgba(255, 251, 238, 0.9) !important; /* Vanilla glass */
+  backdrop-filter: blur(15px) saturate(1.6) !important;
+  -webkit-backdrop-filter: blur(15px) saturate(1.6) !important;
+  border-radius: 20px !important;
+  padding: 2rem 2.5rem !important; /* Generous internal spacing */
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  
+  /* FLOATING GLASSMORPHISM SHADOWS */
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.08),     /* Floating shadow */
+    0 4px 12px rgba(255, 102, 99, 0.05), /* Grapefruit undertone */
+    inset 0 1px 0 rgba(255, 255, 255, 0.5) !important; /* Glass highlight */
+    
+  position: relative !important;
+  margin-bottom: 3rem !important; /* Extra spacing for floating effect */
+  z-index: 5 !important;
+}
+
+/* GLASSMORPHISM HEADER HOVER */
+.about-header-ultra-luxury:hover,
+.projects-header-award-winning:hover {
+  background: rgba(255, 251, 238, 0.95) !important; /* More solid on hover */
+  border-color: rgba(255, 102, 99, 0.3) !important; /* Grapefruit accent */
+  box-shadow: 
+    0 12px 32px rgba(0, 0, 0, 0.12),
+    0 6px 16px rgba(255, 102, 99, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+  transform: translateY(-1px) !important; /* Subtle float */
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* ========================================== */
+/* PHILOSOPHY QUOTE GLASSMORPHISM - EMOTIONAL DEPTH */
+/* ========================================== */
+
+.about-philosophy-ultra-luxury {
+  background: rgba(255, 251, 238, 0.75) !important; /* Elegant transparency */
+  backdrop-filter: blur(25px) saturate(1.5) brightness(1.03) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(1.5) brightness(1.03) !important;
+  border-radius: 24px !important;
+  padding: 3rem 3.5rem !important;
+  
+  /* SOPHISTICATED BORDER SYSTEM */
+  border: 1px solid rgba(255, 102, 99, 0.2) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.4) !important; /* Glass highlight */
+  border-left: 1px solid rgba(255, 255, 255, 0.3) !important;
+  
+  /* PREMIUM EMOTIONAL SHADOWS */
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.1),        /* Emotional depth */
+    0 8px 24px rgba(255, 102, 99, 0.06),   /* Grapefruit warmth */
+    inset 0 1px 0 rgba(255, 255, 255, 0.6), /* Glass rim */
+    inset 0 0 30px rgba(255, 251, 238, 0.3) !important; /* Inner luminescence */
+    
+  position: relative !important;
+  margin: 3rem auto !important;
+  z-index: 5 !important;
+}
+
+/* QUOTE GLASSMORPHISM INNER RADIANCE */
+.philosophy-quote-ultra-luxury::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 30%, 
+    rgba(255, 102, 99, 0.03) 0%,
+    rgba(255, 251, 238, 0.02) 40%,
+    transparent 70%);
+  border-radius: 24px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* QUOTE HOVER GLASSMORPHISM ENHANCEMENT */
+.about-philosophy-ultra-luxury:hover {
+  background: rgba(255, 251, 238, 0.85) !important; /* More solid */
+  backdrop-filter: blur(30px) saturate(1.7) brightness(1.05) !important;
+  border-color: rgba(255, 102, 99, 0.3) !important;
+  box-shadow: 
+    0 20px 56px rgba(0, 0, 0, 0.12),
+    0 10px 28px rgba(255, 102, 99, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 0 40px rgba(255, 251, 238, 0.4) !important;
+  transform: translateY(-1px) !important; /* Gentle float */
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+}
+
+/* ========================================== */
+/* ADVANCED BUTTON MICRO-INTERACTIONS */
+/* ========================================== */
+
+/* BUTTON SWEEP GLASSMORPHISM EFFECT */
+.balanced-btn {
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+}
+
+.balanced-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.4) 30%,
+    rgba(255, 102, 99, 0.1) 50%,
+    rgba(255, 255, 255, 0.4) 70%,
+    transparent 100%);
+  transition: left 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 1;
+  backdrop-filter: blur(8px);
+}
+
+.balanced-btn:hover::before {
+  left: 100%; /* Sweep glassmorphism effect */
+}
+
+/* BUTTON GLASSMORPHISM ENHANCEMENT */
+.balanced-btn.primary {
+  box-shadow: 
+    0 4px 16px rgba(255, 102, 99, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important; /* Glass highlight */
+}
+
+.balanced-btn.secondary {
+  background: rgba(255, 251, 238, 0.9) !important; /* Glass vanilla */
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 102, 99, 0.3) !important;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+}
+
+/* SECONDARY BUTTON GLASSMORPHISM HOVER */
+.balanced-btn.secondary:hover {
+  background: rgba(255, 251, 238, 0.95) !important;
+  backdrop-filter: blur(15px) !important;
+  border-color: rgba(255, 102, 99, 0.4) !important;
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+/* ========================================== */
+/* GLASSMORPHISM PERFORMANCE OPTIMIZATION */
+/* ========================================== */
+
+/* REDUCED MOTION SUPPORT - ACCESSIBILITY FIRST */
+@media (prefers-reduced-motion: reduce) {
+  .balanced-content-section,
+  .about-header-ultra-luxury,
+  .projects-header-award-winning,
+  .philosophy-quote-ultra-luxury {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 251, 238, 0.95) !important; /* Solid fallback */
+    transition: opacity 0.2s ease !important; /* Simple opacity transition only */
+  }
+  
+  .balanced-btn::before {
+    display: none !important; /* No sweep effects for reduced motion */
+  }
+}
+
+/* MOBILE GLASSMORPHISM OPTIMIZATION */
+@media (max-width: 768px) {
+  .balanced-content-section {
+    backdrop-filter: blur(15px) saturate(1.4) !important; /* Reduced for performance */
+    background: rgba(255, 251, 238, 0.9) !important; /* More opaque for readability */
+    border-radius: 12px !important; /* Simplified radius */
+  }
+  
+  .about-header-ultra-luxury,
+  .projects-header-award-winning {
+    backdrop-filter: blur(12px) saturate(1.3) !important; /* Performance-safe mobile blur */
+    padding: 1.5rem 2rem !important; /* Optimized mobile padding */
+    border-radius: 16px !important; /* Simplified for mobile */
+    margin-bottom: 2rem !important; /* Reduced mobile spacing */
+  }
+  
+  .philosophy-quote-ultra-luxury {
+    backdrop-filter: blur(15px) saturate(1.4) !important; /* Lighter mobile blur */
+    padding: 2rem 2.5rem !important; /* Mobile-optimized padding */
+    border-radius: 20px !important; /* Simplified radius */
+    margin: 2rem auto !important; /* Reduced mobile margins */
+  }
+  
+  .balanced-btn::before {
+    transition: left 0.3s ease !important; /* Faster mobile sweep */
+  }
+}
+
+/* LOW-END DEVICE OPTIMIZATION */
+@media (max-width: 480px) {
+  .balanced-content-section,
+  .about-header-ultra-luxury,
+  .projects-header-award-winning,
+  .philosophy-quote-ultra-luxury {
+    backdrop-filter: blur(8px) !important; /* Minimal blur for older devices */
+    background: rgba(255, 251, 238, 0.95) !important; /* More solid for readability */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important; /* Simplified shadows */
+  }
+  
+  .balanced-btn::before {
+    display: none !important; /* No sweep effects on very small screens */
+  }
+}
+
+/* TYPOGRAPHY GLASSMORPHISM ENHANCEMENTS */
+.about-section-number,
+.projects-section-number-award {
+  background: rgba(255, 102, 99, 0.1) !important; /* Grapefruit glass */
+  backdrop-filter: blur(12px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(1.4) !important;
+  border: 1px solid rgba(255, 102, 99, 0.3) !important;
+  border-radius: 20px !important;
+  padding: 8px 16px !important;
+  
+  /* FLOATING NUMBER SHADOWS */
+  box-shadow: 
+    0 4px 16px rgba(255, 102, 99, 0.15),   /* Grapefruit glow */
+    0 2px 8px rgba(0, 0, 0, 0.1),          /* Depth */
+    inset 0 1px 0 rgba(255, 255, 255, 0.4) !important; /* Glass highlight */
+    
+  display: inline-block !important;
+  margin-bottom: 1rem !important;
+}
+
+/* TYPOGRAPHY DEPTH ENHANCEMENT */
+.typography-h1,
+.typography-h2 {
+  text-shadow: 
+    0 4px 20px rgba(255, 102, 99, 0.2),    /* Grapefruit depth */
+    0 2px 8px rgba(0, 0, 0, 0.1) !important; /* Subtle depth */
+    
+  position: relative !important;
+}
+
+/* SOPHISTICATED UNDERLINE ACCENTS */
+.typography-h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    rgba(255, 102, 99, 0.6) 50%,
+    transparent 100%);
+  border-radius: 2px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(255, 102, 99, 0.3);
+}
+
