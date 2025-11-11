@@ -50,7 +50,7 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
           quality={90}
         />
         <div className="snippet-overlay">
-          <h3 className="snippet-title-centered">{project.title}</h3>
+          {/* Only button in overlay - title moved outside */}
           <motion.button 
             className="snippet-cta-bottom-right"
             onClick={handleEmailClick}
@@ -61,6 +61,10 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
             Ask Me
           </motion.button>
         </div>
+      </div>
+      {/* Title moved OUTSIDE image container for visibility */}
+      <div className="snippet-title-section">
+        <h3 className="snippet-title-text">{project.title}</h3>
       </div>
       <div className="snippet-info">
         <span className="snippet-industry">{project.industry}</span>

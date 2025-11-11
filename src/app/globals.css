@@ -876,8 +876,8 @@
     #F5F5DC 100%     /* vanilla-foundation */
   );
   position: relative;
-  padding-top: 140px;     /* MINIMAL REDUCTION: 22% decrease for better flow */
-  padding-bottom: 160px;  /* MINIMAL REDUCTION: 20% decrease for connection */
+  padding-top: 80px;      /* AGGRESSIVE REDUCTION: 56% decrease for connected flow */
+  padding-bottom: 100px;  /* AGGRESSIVE REDUCTION: 50% decrease for connection */
 }
 
 .about-section-ultra-luxury::before {
@@ -901,8 +901,8 @@
     #FDFCF8 100%     /* vanilla-whisper */
   );
   position: relative;
-  padding-top: 140px;     /* MINIMAL REDUCTION: 22% decrease for better flow */
-  padding-bottom: 160px;  /* MINIMAL REDUCTION: 20% decrease for connection */
+  padding-top: 80px;      /* AGGRESSIVE REDUCTION: 56% decrease for connected flow */
+  padding-bottom: 100px;  /* AGGRESSIVE REDUCTION: 50% decrease for connection */
 }
 
 .projects-section-award-winning::before {
@@ -20593,6 +20593,88 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   .service-cta-button {
     font-size: 0.875rem;
     padding: 12px 20px;
+  }
+}
+
+/* ========================================== */
+/* SNIPPET LAYOUT FIX - TITLE OUTSIDE IMAGE */
+/* ========================================== */
+
+/* Updated Snippet Card Layout - Vertical Stack */
+.snippet-card {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  background: var(--vanilla-foundation, #F5F5DC) !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Image Container - Fixed Height for Consistency */
+.snippet-image-container {
+  position: relative !important;
+  height: 180px !important;
+  overflow: hidden !important;
+}
+
+/* Title Section - OUTSIDE Image for Full Visibility */
+.snippet-title-section {
+  padding: 12px 16px !important;
+  background: var(--vanilla-foundation, #F5F5DC) !important;
+  text-align: center !important;
+  border-bottom: 1px solid rgba(74, 85, 104, 0.08) !important;
+}
+
+.snippet-title-text {
+  font-size: clamp(0.875rem, 2vw, 1rem) !important;
+  font-weight: 600 !important;
+  color: var(--grapefruit-intelligence, #4A5568) !important;
+  margin: 0 !important;
+  line-height: 1.3 !important;
+  font-family: var(--font-architectural-display) !important;
+}
+
+/* Updated Info Section */
+.snippet-info {
+  padding: 12px 16px !important;
+  background: var(--vanilla-foundation, #F5F5DC) !important;
+  text-align: center !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  font-size: 0.8rem !important;
+  color: #6B7280 !important;
+}
+
+/* Hover Effects for New Layout */
+.snippet-card:hover .snippet-title-section {
+  background: var(--vanilla-pure, #FFFEF9) !important;
+}
+
+.snippet-card:hover .snippet-info {
+  background: var(--vanilla-pure, #FFFEF9) !important;
+}
+
+.snippet-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Mobile Responsive Updates */
+@media (max-width: 768px) {
+  .snippet-image-container {
+    height: 160px !important;
+  }
+  
+  .snippet-title-section,
+  .snippet-info {
+    padding: 10px 14px !important;
+  }
+  
+  .snippet-title-text {
+    font-size: 0.875rem !important;
   }
 }
 
