@@ -876,8 +876,9 @@
     #F5F5DC 100%     /* vanilla-foundation */
   );
   position: relative;
-  padding-top: 180px;     /* AWARD-WINNING: Visual stability */
-  padding-bottom: 200px;  /* Asymmetric flow creates forward momentum */
+  padding-top: clamp(4rem, 10vw, 6rem);      /* CONNECTED FLOW: 64px-96px reduced */
+  padding-bottom: clamp(3rem, 8vw, 5rem);    /* 48px-80px for connected storytelling */
+  margin-bottom: 1rem;                       /* Minimal gap for flow */
 }
 
 .about-section-ultra-luxury::before {
@@ -901,8 +902,9 @@
     #FDFCF8 100%     /* vanilla-whisper */
   );
   position: relative;
-  padding-top: 180px;
-  padding-bottom: 200px;
+  padding-top: clamp(5rem, 12vw, 7rem);     /* PROGRESSIVE FLOW: 80px-112px */
+  padding-bottom: clamp(4rem, 10vw, 6rem);  /* 64px-96px connected spacing */
+  margin-bottom: 2rem;                      /* Small increase for progression */
 }
 
 .projects-section-award-winning::before {
@@ -9082,6 +9084,9 @@ h4, .text-h4 {
   overflow: hidden;
   display: flex;
   align-items: center;
+  padding-bottom: clamp(3rem, 8vw, 5rem);   /* CONNECTED FLOW: Reduced bottom spacing */
+  margin-bottom: 0;                          /* Remove gap for flow */
+}
   justify-content: center;
 }
 
@@ -19727,7 +19732,9 @@ img[class*="project-"] {
 section#services.section-services-sophisticated {
   background: var(--services-gradient) !important;
   position: relative;
-  padding: 40px 0 50px 0; /* REDUCED: Top 40px, Bottom 50px for compact full viewport fit */
+  padding-top: clamp(6rem, 14vw, 8rem);     /* PROGRESSIVE FLOW: 96px-128px further increase */
+  padding-bottom: clamp(5rem, 12vw, 7rem);  /* 80px-112px connected spacing */
+  margin-bottom: 3rem;                      /* Larger gap before experience section */
   min-height: auto;
   max-height: 100vh; /* Ensure it fits in one viewport */
   overflow-y: auto; /* Allow scroll if needed, but aim for single screen */
@@ -20593,5 +20600,187 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   .service-cta-button {
     font-size: 0.875rem;
     padding: 12px 20px;
+  }
+}
+
+/* ========================================== */
+/* VISUAL BRIDGE SYSTEM - CONNECTED STORYTELLING */
+/* ========================================== */
+
+/* Section Connection Bridges */
+.section-connector {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  opacity: 0.6;
+}
+
+.section-connector::before {
+  content: '';
+  position: absolute;
+  width: clamp(60px, 15vw, 120px);
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--grapefruit-intelligence) 20%,
+    var(--grapefruit-soft) 50%, 
+    var(--grapefruit-intelligence) 80%,
+    transparent 100%);
+  opacity: 0.3;
+}
+
+.section-connector::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--grapefruit-intelligence);
+  border-radius: 50%;
+  border: 2px solid var(--vanilla-foundation);
+  box-shadow: 0 2px 8px rgba(255, 102, 99, 0.25);
+  animation: breathe 3s ease-in-out infinite;
+}
+
+/* Breathing Animation for Connection Points */
+@keyframes breathe {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 0.8; 
+  }
+  50% { 
+    transform: scale(1.2); 
+    opacity: 1; 
+  }
+}
+
+/* Mobile Responsive Connectors */
+@media (max-width: 768px) {
+  .section-connector {
+    height: 30px;
+  }
+  
+  .section-connector::before {
+    width: clamp(40px, 12vw, 80px);
+  }
+  
+  .section-connector::after {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* ========================================== */
+/* UNIFIED BUTTON SYSTEM - STANDARDIZED EXCELLENCE */
+/* ========================================== */
+
+/* Primary Button Base - Unified Dimensions & Behavior */
+.btn-primary,
+.hero-cta-button,
+.balanced-btn.primary,
+.project-back-button-ultra {
+  /* STANDARDIZED DIMENSIONS */
+  padding: 0.875rem 2rem !important;        /* 14px 32px - consistent across all */
+  font-size: 0.9375rem !important;          /* 15px - optimal readability */
+  font-weight: 600 !important;              /* consistent weight */
+  line-height: 1.2 !important;              /* consistent line height */
+  border-radius: 50px !important;           /* pill shape */
+  
+  /* VISUAL CONSISTENCY */
+  background: linear-gradient(135deg, var(--grapefruit-pure) 0%, var(--grapefruit-soft) 100%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  
+  /* ENHANCED SHADOWS */
+  box-shadow: 
+    0 4px 16px rgba(255, 102, 99, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    
+  /* SMOOTH TRANSITIONS */
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  
+  /* ACCESSIBILITY */
+  min-height: 44px !important;              /* WCAG touch target */
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+}
+
+/* Primary Button Hover - Unified Behavior */
+.btn-primary:hover,
+.hero-cta-button:hover,
+.balanced-btn.primary:hover,
+.project-back-button-ultra:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  background: linear-gradient(135deg, var(--grapefruit-rich) 0%, var(--grapefruit-pure) 100%) !important;
+  box-shadow: 
+    0 8px 25px rgba(255, 102, 99, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  filter: brightness(1.05) saturate(1.1) !important;
+}
+
+/* Primary Button Active State */
+.btn-primary:active,
+.hero-cta-button:active,
+.balanced-btn.primary:active,
+.project-back-button-ultra:active {
+  transform: scale(0.98) !important;
+  transition: transform 0.1s ease !important;
+}
+
+/* Secondary Button Base */
+.btn-secondary,
+.balanced-btn.secondary {
+  /* MATCHING DIMENSIONS */
+  padding: 0.875rem 2rem !important;
+  font-size: 0.9375rem !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  border-radius: 50px !important;
+  
+  /* SECONDARY STYLING */
+  background: var(--vanilla-warm) !important;
+  color: var(--grapefruit-intelligence) !important;
+  border: 2px solid var(--grapefruit-whisper) !important;
+  
+  /* ENHANCED SHADOWS */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+  
+  /* SMOOTH TRANSITIONS */
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  
+  /* ACCESSIBILITY */
+  min-height: 44px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+}
+
+/* Secondary Button Hover */
+.btn-secondary:hover,
+.balanced-btn.secondary:hover {
+  background: var(--vanilla-pure) !important;
+  color: var(--grapefruit-rich) !important;
+  border-color: var(--grapefruit-soft) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Mobile Button Optimizations */
+@media (max-width: 768px) {
+  .btn-primary,
+  .hero-cta-button,
+  .balanced-btn.primary,
+  .project-back-button-ultra,
+  .btn-secondary,
+  .balanced-btn.secondary {
+    padding: 0.875rem 1.5rem !important;     /* Slightly reduced padding on mobile */
+    font-size: 0.875rem !important;           /* 14px - slightly smaller but readable */
+    min-width: 120px !important;              /* Consistent mobile minimum width */
   }
 }
