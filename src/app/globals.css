@@ -19963,14 +19963,16 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   .balanced-actions {
     gap: clamp(0.75rem, 3vw, 1.5rem) !important; /* Responsive gap for mobile */
     justify-content: center !important; /* Center on mobile for balance */
+    overflow-x: visible !important; /* Ensure CTAs are not clipped horizontally */
   }
   
   .balanced-btn {
     flex: 0 0 auto !important; /* FIXED: Natural button size, don't grow to full width */
-    max-width: 160px !important; /* Prevent buttons getting too wide on mobile */
+    max-width: none !important; /* Allow full label width (prevents text clipping) */
     min-width: 120px !important; /* Ensure buttons remain readable */
     padding: 14px 20px !important; /* Optimized mobile padding */
     font-size: 0.875rem !important; /* Slightly smaller on mobile */
+    overflow: visible !important; /* Prevent internal label clipping */
   }
 }
 
