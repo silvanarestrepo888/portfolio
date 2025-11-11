@@ -898,9 +898,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* VISUAL CONNECTOR - About to Projects */}
-      <div className="section-connector" />
-
       {/* PROJECTS SECTION - Award-Winning Enhancement */}
       <section 
         id="projects" 
@@ -1165,9 +1162,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* VISUAL CONNECTOR - Projects to Snippets */}
-      <div className="section-connector" />
-
       {/* PROJECT SNIPPETS SECTION - ADDITIONAL WORK */}
       <section 
         id="project-snippets" 
@@ -1212,9 +1206,6 @@ export default function Home() {
           <ProjectSnippetGrid projects={snippetProjects} />
         </div>
       </section>
-
-      {/* VISUAL CONNECTOR - Snippets to Services */}
-      <div className="section-connector" />
 
       {/* SERVICES SECTION - GRAPEFRUIT BUSINESS CONFIDENCE */}
       <section 

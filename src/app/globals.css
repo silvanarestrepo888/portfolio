@@ -876,8 +876,8 @@
     #F5F5DC 100%     /* vanilla-foundation */
   );
   position: relative;
-  padding-top: 120px;     /* SAFE REDUCTION: From 180px to 120px */
-  padding-bottom: 140px;  /* SAFE REDUCTION: From 200px to 140px */
+  padding-top: 180px;     /* ORIGINAL VALUE RESTORED */
+  padding-bottom: 200px;  /* ORIGINAL VALUE RESTORED */
 }
 
 .about-section-ultra-luxury::before {
@@ -901,8 +901,8 @@
     #FDFCF8 100%     /* vanilla-whisper */
   );
   position: relative;
-  padding-top: 120px;     /* SAFE REDUCTION: From 180px to 120px */
-  padding-bottom: 140px;  /* SAFE REDUCTION: From 200px to 140px */
+  padding-top: 180px;     /* ORIGINAL VALUE RESTORED */
+  padding-bottom: 200px;  /* ORIGINAL VALUE RESTORED */
 }
 
 .projects-section-award-winning::before {
@@ -9082,7 +9082,6 @@ h4, .text-h4 {
   overflow: hidden;
   display: flex;
   align-items: center;
-}
   justify-content: center;
 }
 
@@ -19728,7 +19727,7 @@ img[class*="project-"] {
 section#services.section-services-sophisticated {
   background: var(--services-gradient) !important;
   position: relative;
-  padding: 100px 0 120px 0; /* SAFE REDUCTION: From previous values */
+  padding: 40px 0 50px 0; /* ORIGINAL VALUE RESTORED */
   min-height: auto;
   max-height: 100vh; /* Ensure it fits in one viewport */
   overflow-y: auto; /* Allow scroll if needed, but aim for single screen */
@@ -20597,141 +20596,3 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   }
 }
 
-/* ========================================== */
-/* VISUAL BRIDGE SYSTEM - SAFE VERSION WITH CSS VARIABLES */
-/* ========================================== */
-
-/* Section Connection Bridges */
-.section-connector {
-  position: relative;
-  width: 100%;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  opacity: 0.6;
-}
-
-.section-connector::before {
-  content: '';
-  position: absolute;
-  width: 80px;                    /* Fixed width for build safety */
-  height: 2px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    var(--grapefruit-intelligence, #FF6663) 20%,
-    var(--grapefruit-soft, #ff8e8b) 50%, 
-    var(--grapefruit-intelligence, #FF6663) 80%,
-    transparent 100%);
-  opacity: 0.3;
-}
-
-.section-connector::after {
-  content: '';
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: var(--grapefruit-intelligence, #FF6663);
-  border-radius: 50%;
-  border: 2px solid var(--vanilla-foundation, #F5F5DC);
-  box-shadow: 0 2px 8px rgba(255, 102, 99, 0.25);
-  animation: breathe 3s ease-in-out infinite;
-}
-
-/* Breathing Animation for Connection Points */
-@keyframes breathe {
-  0%, 100% { 
-    transform: scale(1); 
-    opacity: 0.8; 
-  }
-  50% { 
-    transform: scale(1.2); 
-    opacity: 1; 
-  }
-}
-
-/* Mobile Responsive Connectors */
-@media (max-width: 768px) {
-  .section-connector {
-    height: 30px;
-  }
-  
-  .section-connector::before {
-    width: 60px;                   /* Fixed width for mobile */
-  }
-  
-  .section-connector::after {
-    width: 6px;
-    height: 6px;
-  }
-}
-
-/* ========================================== */
-/* UNIFIED BUTTON SYSTEM - SAFE VERSION WITH FALLBACKS */
-/* ========================================== */
-
-/* Hero CTA Button Standardization */
-.hero-cta-button {
-  padding: 0.875rem 2rem;        /* Standardized padding */
-  font-size: 0.9375rem;          /* 15px - consistent size */
-  font-weight: 600;              /* Consistent weight */
-  line-height: 1.2;              /* Consistent line height */
-  border-radius: 50px;           /* Pill shape */
-  min-height: 44px;              /* WCAG touch target */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;     /* Simplified transition */
-}
-
-/* Project Button Consistency */
-.balanced-btn.primary {
-  padding: 0.875rem 2rem;        /* Match hero buttons */
-  font-size: 0.9375rem;          /* Match hero buttons */
-  font-weight: 600;              /* Match hero buttons */
-  line-height: 1.2;              /* Match hero buttons */
-  border-radius: 50px;           /* Match shape */
-  min-height: 44px;              /* WCAG compliance */
-}
-
-/* Back Button Consistency */
-.project-back-button-ultra {
-  padding: 0.875rem 2rem;        /* Match other buttons */
-  font-size: 0.9375rem;          /* Match other buttons */  
-  font-weight: 600;              /* Match other buttons */
-  line-height: 1.2;              /* Match other buttons */
-  border-radius: 50px;           /* Match shape */
-  min-height: 44px;              /* WCAG compliance */
-}
-
-/* Enhanced Button Hover Effects */
-.hero-cta-button:hover,
-.balanced-btn.primary:hover,
-.project-back-button-ultra:hover {
-  transform: translateY(-2px) scale(1.01);
-  box-shadow: 
-    0 8px 25px var(--grapefruit-whisper, rgba(255, 102, 99, 0.08)),
-    0 4px 12px rgba(0, 0, 0, 0.12);
-  filter: brightness(1.03);
-  transition: all 0.3s ease;
-}
-
-/* Button Active States */
-.hero-cta-button:active,
-.balanced-btn.primary:active,
-.project-back-button-ultra:active {
-  transform: scale(0.98);
-  transition: transform 0.1s ease;
-}
-
-/* Mobile Button Optimizations */
-@media (max-width: 768px) {
-  .hero-cta-button,
-  .balanced-btn.primary,
-  .project-back-button-ultra {
-    padding: 0.875rem 1.5rem;     /* Reduced padding on mobile */
-    font-size: 0.875rem;          /* 14px - smaller but readable */
-    min-width: 120px;              /* Consistent mobile minimum */
-  }
-}
