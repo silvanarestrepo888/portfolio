@@ -876,8 +876,8 @@
     #F5F5DC 100%     /* vanilla-foundation */
   );
   position: relative;
-  padding-top: 180px;     /* ORIGINAL VALUE RESTORED */
-  padding-bottom: 200px;  /* ORIGINAL VALUE RESTORED */
+  padding-top: 140px;     /* MINIMAL REDUCTION: 22% decrease for better flow */
+  padding-bottom: 160px;  /* MINIMAL REDUCTION: 20% decrease for connection */
 }
 
 .about-section-ultra-luxury::before {
@@ -901,8 +901,8 @@
     #FDFCF8 100%     /* vanilla-whisper */
   );
   position: relative;
-  padding-top: 180px;     /* ORIGINAL VALUE RESTORED */
-  padding-bottom: 200px;  /* ORIGINAL VALUE RESTORED */
+  padding-top: 140px;     /* MINIMAL REDUCTION: 22% decrease for better flow */
+  padding-bottom: 160px;  /* MINIMAL REDUCTION: 20% decrease for connection */
 }
 
 .projects-section-award-winning::before {
