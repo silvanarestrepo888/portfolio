@@ -748,7 +748,7 @@ export default function Home() {
         }}
       >
         {/* Background interference elements removed for clean design */}
-        <div className="about-container-ultra-luxury" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 max(2rem, 5vw)' }}>
+        <div className="about-container-ultra-luxury" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 max(1rem, 3vw)' }}>
           {/* Ultra-Luxury Section Header - Perfectly Centered */}
               <motion.header
             className="about-header-ultra-luxury"
@@ -910,7 +910,7 @@ export default function Home() {
         }}
       >
         {/* Background interference elements removed for clean design */}
-        <div className="projects-container-award-winning" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 max(2rem, 5vw)' }}>
+        <div className="projects-container-award-winning" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 max(1rem, 3vw)' }}>
           {/* Award-Winning Section Header with Sophisticated Spacing */}
           <motion.div 
             className="projects-header-award-winning"
@@ -1168,7 +1168,7 @@ export default function Home() {
         className="snippet-section section-transition-sophisticated"
         aria-labelledby="snippets-heading"
       >
-        <div className="snippet-container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 max(2rem, 5vw)' }}>
+        <div className="snippet-container" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 max(1rem, 3vw)' }}>
           {/* Snippet Section Header */}
           <motion.div 
             className="projects-header-award-winning"
@@ -1213,7 +1213,7 @@ export default function Home() {
         className="section-luxury section-services-sophisticated section-transition-sophisticated"
         aria-labelledby="services-heading"
       >
-        <div className="container-foundation" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 max(2rem, 5vw)' }}>
+        <div className="container-foundation" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 max(1rem, 3vw)' }}>
           <motion.div 
             className="projects-header-award-winning"
             initial={{ opacity: 0, y: 30 }}
@@ -1247,9 +1247,9 @@ export default function Home() {
           
           {/* SINGLE-SCREEN SERVICES OVERVIEW - SCROLLABLE */}
           <div style={{
-            maxWidth: '1200px',
+            maxWidth: '1400px',
             margin: '0 auto',
-            padding: '0 max(2rem, 5vw)',
+            padding: '0 max(1rem, 3vw)',
             maxHeight: '60vh', // Limit height to prevent off-screen cards
             overflowY: 'auto', // Allow scrolling when cards expand
             overflowX: 'hidden',

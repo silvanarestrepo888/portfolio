@@ -11952,7 +11952,7 @@ h4, .text-h4 {
 
 .balanced-content-inner {
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;    /* EXPANDED: 500px → 600px for button space */
 }
 
 .balanced-header {
@@ -12056,9 +12056,11 @@ h4, .text-h4 {
 .balanced-actions {
   display: flex;
   flex-direction: row; /* EXPLICIT horizontal layout */
-  gap: 1.5rem;
+  gap: clamp(0.75rem, 2vw, 1.5rem); /* RESPONSIVE GAP: Better space management */
   flex-wrap: wrap;
   align-items: center; /* Professional vertical alignment */
+  justify-content: center; /* CENTER buttons for better balance */
+  width: 100%; /* ENSURE full width usage */
 }
 
 .balanced-btn {
@@ -12071,12 +12073,16 @@ h4, .text-h4 {
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   text-align: center;
-  min-width: 160px;
+  min-width: 140px;           /* REDUCED: 160px → 140px for better fit */
+  max-width: 200px;           /* ADD: Maximum width constraint */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   white-space: nowrap;
+  flex-shrink: 1;            /* ALLOW shrinking if needed */
+  text-overflow: ellipsis;   /* HANDLE long text gracefully */
+  overflow: hidden;          /* PREVENT text overflow */
 }
 
 .balanced-btn.primary {
@@ -20709,6 +20715,55 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   
   .hero-section-luxury {
     height: 80vh !important;          /* Small mobile: More content visible */
+  }
+}
+
+/* ========================================== */
+/* BUTTON CUTOFF FIX & VISUAL EXPLORATION ENHANCEMENTS */
+/* ========================================== */
+
+/* MOBILE BUTTON OPTIMIZATION - Prevent "Client's Website" cutoff */
+@media (max-width: 768px) {
+  .balanced-btn {
+    min-width: 120px !important;    /* Smaller minimum for mobile fit */
+    max-width: 180px !important;    /* Smaller maximum for mobile */
+    padding: 0.75rem 1.5rem !important; /* Reduced padding for space */
+    font-size: 0.875rem !important; /* Smaller text to fit */
+  }
+  
+  .balanced-actions {
+    gap: clamp(0.5rem, 1.5vw, 1rem) !important; /* Tighter gap on mobile */
+    flex-direction: column !important; /* STACK buttons vertically to prevent cutoff */
+    width: 100% !important;
+    align-items: stretch !important; /* Full width buttons on mobile */
+  }
+  
+  .balanced-content-inner {
+    max-width: 100% !important;     /* Full width on mobile */
+    padding: 0 !important;          /* Remove inner padding constraints */
+  }
+}
+
+/* ULTRA-WIDE SCREEN OPTIMIZATION */
+@media (min-width: 1600px) {
+  .balanced-content-inner {
+    max-width: 700px !important;    /* Even wider on large screens */
+  }
+  
+  .balanced-actions {
+    gap: 2rem !important;            /* More generous gap on large screens */
+  }
+}
+
+/* TABLET OPTIMIZATION */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .balanced-content-inner {
+    max-width: 550px !important;    /* Slightly wider for tablet */
+  }
+  
+  .balanced-btn {
+    min-width: 130px !important;    /* Tablet-optimized button size */
+    padding: 0.8rem 1.75rem !important;
   }
 }
 
