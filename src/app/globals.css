@@ -17501,7 +17501,7 @@ motion.div .balanced-actions,
   display: flex !important;
   flex-direction: row !important; /* NUCLEAR: Force horizontal layout with maximum specificity */
   gap: 1.5rem !important;
-  flex-wrap: wrap !important;
+  flex-wrap: nowrap !important;
   align-items: center !important; /* Center vertical alignment */
   justify-content: flex-start !important; /* Left alignment for natural reading flow */
   margin-top: 2rem !important;
