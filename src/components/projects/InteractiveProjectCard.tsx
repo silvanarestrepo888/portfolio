@@ -90,9 +90,8 @@ export function InteractiveProjectCard({
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
       whileHover={{
-        y: -4,
-        scale: 1.01,
-        transition: { duration: 0.382, ease: [0.25, 0.46, 0.45, 0.94] } /* Landor easing */
+        y: -6,
+        transition: { duration: 0.5, ease: [0.23, 1, 0.32, 1] } /* Elegant single movement */
       }}
       whileTap={{
         scale: 0.99,
@@ -344,9 +343,8 @@ export function InteractiveProjectCard({
                     onSelect(index);
                   }}
                   whileHover={{ 
-                    scale: 1.05,
-                    y: -2,
-                    transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
+                    y: -3,
+                    transition: { duration: 0.3, ease: [0.23, 1, 0.32, 1] }
                   }}
                   whileTap={{ 
                     scale: 0.95,
@@ -375,9 +373,8 @@ export function InteractiveProjectCard({
                       e.stopPropagation();
                     }}
                     whileHover={{ 
-                      scale: 1.05,
-                      y: -2,
-                      transition: { duration: 0.2, ease: [0.34, 1.56, 0.64, 1] }
+                      y: -3,
+                      transition: { duration: 0.3, ease: [0.23, 1, 0.32, 1] }
                     }}
                     whileTap={{ 
                       scale: 0.95,
