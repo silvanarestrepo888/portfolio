@@ -19939,6 +19939,28 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 
 /* Responsive navigation - Optimized for Better Space Utilization */
 @media (max-width: 480px) {
+  .balanced-project-card {
+    min-height: auto !important; /* Allow card to grow with content */
+    padding-bottom: 2rem !important; /* Breathing room for CTAs */
+  }
+  
+  .balanced-layout-grid {
+    height: auto !important; /* Prevent forced grid height */
+    min-height: auto !important; /* Content-driven */
+    align-items: flex-start !important; /* Start-align to reclaim vertical space */
+  }
+  
+  .balanced-image-section {
+    height: 50vh !important; /* Reduce image height to avoid CTA clipping */
+    min-height: 50vh !important;
+  }
+  
+  .balanced-content-section {
+    align-items: flex-start !important; /* Ensure content starts at top */
+    justify-content: flex-start !important;
+    padding-bottom: 1rem !important; /* Keep space below content */
+  }
+  
   .carousel-navigation-prominent {
     flex-direction: row !important; /* Keep horizontal even on mobile */
     gap: 0.75rem !important; /* Tighter spacing on small screens */
