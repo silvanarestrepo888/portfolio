@@ -341,9 +341,9 @@ export default function Home() {
       image: "/projects/qiddiya/hero-qiddiya.png",
       secondaryImage: "/projects/qiddiya/secondary-qiddiya.png",
       galleryImages: [
-        "/projects/qiddiya/Project gallery  images/Emergency Management-Unified Alert System.png",
-        "/projects/qiddiya/Project gallery  images/Guest Search by Digital ID.png",
-        "/projects/qiddiya/Project gallery  images/Unified Guest Interaction History.png"
+        "/projects/qiddiya/emergency-management.png",
+        "/projects/qiddiya/guest-search-digital-id.png",
+        "/projects/qiddiya/unified-guest-interaction.png"
       ],
       context: "Saudi Arabia's flagship entertainment destination required comprehensive guest support systems navigating uncharted territory in a landmark entertainment project. Theme parks, water attractions, sports facilities, and retail centers operated through a unified digital infrastructure where both guests and operational staff would encounter these systems for the first time. Cultural complexity demanded sophisticated solutions: Saudi families, GCC visitors, and international tourists each brought different service expectations, with every touchpoint depending entirely on digital systems without analog alternatives available.",
       scope: "This proof of concept established a validated product strategy for complex entertainment ecosystem requirements through stakeholder collaboration and technical feasibility. Provided development teams with validated integration requirements, with PRDs specifying exact connections with Digital ID and ticketing systems. Workflow validation created shared understanding through stakeholder alignment via tangible prototypes, while designing data collection specs for guest interaction patterns and defining KPI structures for digital adoption and cultural adaptation success.",
