@@ -27,6 +27,7 @@ export default function Home() {
   const [currentGalleryImage, setCurrentGalleryImage] = useState(0);
   const [galleryZoomOpen, setGalleryZoomOpen] = useState(false);
   const [heroImageZoom, setHeroImageZoom] = useState(false);
+  const [imageZoomedIn, setImageZoomedIn] = useState(false);
   
   // Android viewport height fix
   useEffect(() => {
@@ -1774,6 +1775,12 @@ export default function Home() {
                   }}
                   viewport={{ once: true, margin: "-50px" }}
                   whileHover={{ scale: 1.01 }}
+                  onClick={() => {
+                    setCurrentGalleryImage(index);
+                    setGalleryZoomOpen(true);
+                    setImageZoomedIn(false);
+                  }}
+                  style={{ cursor: 'pointer' }}
                       >
                         <Image
                           src={image}
@@ -2002,10 +2009,12 @@ export default function Home() {
       {galleryZoomOpen && (
         <motion.div 
           className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center"
+          style={{ overflow: imageZoomedIn ? 'auto' : 'hidden' }}
           onMouseDown={(e) => {
             if (e.target === e.currentTarget) {
               console.log('Gallery modal background clicked - closing');
               setGalleryZoomOpen(false);
+              setImageZoomedIn(false); // Reset zoom when closing
             }
           }}
           initial={{ opacity: 0 }}
@@ -2021,26 +2030,36 @@ export default function Home() {
             transition={{ duration: 0.3 }}
             onMouseDown={(e) => e.stopPropagation()}
           >
-            <Image 
-              src={selectedProject !== null && projects[selectedProject].galleryImages ? 
-                projects[selectedProject].galleryImages[currentGalleryImage] : 
-                (selectedProject !== null ? projects[selectedProject].image : '')} 
-              alt={`${selectedProject !== null ? projects[selectedProject].title : ''} - Gallery image ${currentGalleryImage + 1} zoomed view`} 
-              width={1200}
-              height={800}
-              className="w-full h-auto object-contain rounded-xl shadow-2xl" 
-              quality={100}
-              priority
-              onError={(e) => {
-                console.log('Gallery zoom image load error');
-                // Graceful fallback for zoom images
-                e.currentTarget.style.backgroundColor = '#f3f4f6';
-                e.currentTarget.style.border = '2px dashed #d1d5db';
+            <motion.div
+              animate={{ scale: imageZoomedIn ? 1.5 : 1 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              style={{ cursor: imageZoomedIn ? 'zoom-out' : 'zoom-in' }}
+              onClick={(e) => {
+                e.stopPropagation();
+                setImageZoomedIn(!imageZoomedIn);
               }}
-              onLoad={() => {
-                console.log('Gallery zoom image loaded successfully');
-              }}
-            />
+            >
+              <Image 
+                src={selectedProject !== null && projects[selectedProject].galleryImages ? 
+                  projects[selectedProject].galleryImages[currentGalleryImage] : 
+                  (selectedProject !== null ? projects[selectedProject].image : '')} 
+                alt={`${selectedProject !== null ? projects[selectedProject].title : ''} - Gallery image ${currentGalleryImage + 1} zoomed view`} 
+                width={1200}
+                height={800}
+                className="w-full h-auto object-contain rounded-xl shadow-2xl" 
+                quality={100}
+                priority
+                onError={(e) => {
+                  console.log('Gallery zoom image load error');
+                  // Graceful fallback for zoom images
+                  e.currentTarget.style.backgroundColor = '#f3f4f6';
+                  e.currentTarget.style.border = '2px dashed #d1d5db';
+                }}
+                onLoad={() => {
+                  console.log('Gallery zoom image loaded successfully');
+                }}
+              />
+            </motion.div>
             
             {/* Navigation Arrows */}
             {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.length > 1 && (
@@ -2052,6 +2071,7 @@ export default function Home() {
                     setCurrentGalleryImage(prev => 
                       prev === 0 ? projects[selectedProject].galleryImages.length - 1 : prev - 1
                     );
+                    setImageZoomedIn(false); // Reset zoom when navigating
                   }}
                   className="absolute left-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white/95 rounded-full flex items-center justify-center text-gray-800 text-2xl font-bold hover:bg-white hover:scale-110 transition-all duration-200 shadow-lg"
                 >
@@ -2064,6 +2084,7 @@ export default function Home() {
                     setCurrentGalleryImage(prev => 
                       prev === projects[selectedProject].galleryImages.length - 1 ? 0 : prev + 1
                     );
+                    setImageZoomedIn(false); // Reset zoom when navigating
                   }}
                   className="absolute right-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white/95 rounded-full flex items-center justify-center text-gray-800 text-2xl font-bold hover:bg-white hover:scale-110 transition-all duration-200 shadow-lg"
                 >
@@ -2079,6 +2100,7 @@ export default function Home() {
                 e.stopPropagation();
                 console.log('Gallery modal close button clicked');
                 setGalleryZoomOpen(false);
+                setImageZoomedIn(false);
               }}
               className="absolute top-6 right-6 w-14 h-14 bg-white/95 rounded-full flex items-center justify-center text-gray-800 text-2xl font-bold hover:bg-red-500 hover:text-white transition-all duration-200 shadow-lg"
               whileHover={{ scale: 1.1 }}
@@ -2087,10 +2109,15 @@ export default function Home() {
               ×
             </motion.button>
             
-            {/* Image Counter */}
+            {/* Image Counter and Zoom Hint */}
             <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-6 py-3 rounded-full text-lg font-medium backdrop-blur-sm">
-              Image {currentGalleryImage + 1} of {selectedProject !== null && projects[selectedProject].galleryImages ? 
-                projects[selectedProject].galleryImages.length : 0}
+              <div className="text-center">
+                <div>Image {currentGalleryImage + 1} of {selectedProject !== null && projects[selectedProject].galleryImages ? 
+                  projects[selectedProject].galleryImages.length : 0}</div>
+                <div className="text-sm text-white/70 mt-1">
+                  {imageZoomedIn ? 'Click to zoom out' : 'Click image to zoom in 50%'}
+                </div>
+              </div>
             </div>
           </motion.div>
         </motion.div>
