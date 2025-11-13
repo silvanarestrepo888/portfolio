@@ -20,7 +20,6 @@ interface ProjectSnippetGridProps {
 
 export const ProjectSnippetGrid: React.FC<ProjectSnippetGridProps> = ({ projects }) => {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [currentProject, setCurrentProject] = useState(1);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isAtEnd, setIsAtEnd] = useState(false);
   const gridRef = useRef<HTMLDivElement>(null);
@@ -41,11 +40,6 @@ export const ProjectSnippetGrid: React.FC<ProjectSnippetGridProps> = ({ projects
       // Update scroll state for fade indicators
       setIsScrolled(scrollLeft > 10);
       setIsAtEnd(scrollLeft >= maxScroll - 10);
-      
-      // Calculate current project based on scroll position
-      const projectWidth = 400 + 56; // card width + gap
-      const currentIndex = Math.floor(scrollLeft / projectWidth) + 1;
-      setCurrentProject(Math.min(currentIndex, projects.length));
     };
 
     gridElement.addEventListener('scroll', handleScroll, { passive: true });
