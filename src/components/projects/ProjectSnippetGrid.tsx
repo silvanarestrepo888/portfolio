@@ -87,50 +87,40 @@ export const ProjectSnippetGrid: React.FC<ProjectSnippetGridProps> = ({ projects
         ))}
       </motion.div>
       
-      {/* More Content Indicator */}
+      {/* Minimal More Content Indicator */}
       {!isAtEnd && remainingProjects > 0 && (
         <motion.div 
-          className="snippet-more-indicator"
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 0.8, x: 0 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
+          className="snippet-more-minimal"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 0.6 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
         >
-          <div className="snippet-more-count">
-            +{remainingProjects} more
-          </div>
-          <div className="snippet-more-dots"></div>
+          <span>+{remainingProjects}</span>
         </motion.div>
       )}
       
-      {/* Enhanced Scroll Progress System */}
+      {/* Minimal Progress System */}
       <motion.div 
-        className="snippet-scroll-progress"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.8 }}
+        className="snippet-progress-minimal"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1.0, delay: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="snippet-progress-track">
+        <div className="snippet-progress-line">
           <div 
-            className="snippet-progress-bar"
+            className="snippet-progress-fill"
             style={{ width: `${scrollProgress}%` }}
           />
         </div>
-        
-        <div className="snippet-progress-counter">
-          <span className="snippet-current-project">{currentProject}</span>
-          <span>/</span>
-          <span>{projects.length}</span>
-          <span>projects</span>
-        </div>
       </motion.div>
       
-      {/* Enhanced Scroll Hint */}
+      {/* Minimal Scroll Hint */}
       <motion.div 
-        className="snippet-scroll-hint"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.0 }}
+        className="snippet-scroll-minimal"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 0.5 }}
+        transition={{ duration: 1.2, delay: 1.4 }}
         viewport={{ once: true }}
         onClick={() => {
           if (gridRef.current) {
@@ -138,8 +128,7 @@ export const ProjectSnippetGrid: React.FC<ProjectSnippetGridProps> = ({ projects
           }
         }}
       >
-        <span className="snippet-scroll-text">Scroll to explore</span>
-        <div className="snippet-scroll-arrow"></div>
+        <span>→</span>
       </motion.div>
     </div>
   );
