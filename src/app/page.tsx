@@ -2023,7 +2023,7 @@ export default function Home() {
           transition={{ duration: 0.3 }}
         >
           <motion.div
-            className="relative max-w-[95vw] max-h-[95vh] w-full mx-4"
+            className="relative max-w-[48vw] max-h-[48vh] w-full mx-4"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
