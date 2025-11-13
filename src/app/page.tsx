@@ -1253,7 +1253,7 @@ export default function Home() {
           }}>
             {referenceServices.map((service, index) => (
               <motion.div 
-                key={service.number}
+                key={service.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ 
@@ -1281,16 +1281,16 @@ export default function Home() {
                   /* NO box-shadow - ultra-clean approach */
                   transform: 'translateY(-2px)'
                 }}
-                onClick={() => setExpandedService(expandedService === service.number ? null : service.number)}
+                onClick={() => setExpandedService(expandedService === service.title ? null : service.title)}
                 data-cursor="button"
                 role="button"
-                aria-expanded={expandedService === service.number}
-                aria-controls={`service-content-${service.number}`}
+                aria-expanded={expandedService === service.title}
+                aria-controls={`service-content-${service.title}`}
                 tabIndex={0}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    setExpandedService(expandedService === service.number ? null : service.number);
+                    setExpandedService(expandedService === service.title ? null : service.title);
                   }
                 }}
               >
@@ -1312,7 +1312,7 @@ export default function Home() {
                   textAlign: 'center',
                   fontFamily: 'var(--font-architectural-body)'
                 }}>
-                  {service.number}
+                  {service.number || String(index + 1).padStart(2, '0')}
                   </span>
                 
                 <h3 style={{
@@ -1337,7 +1337,7 @@ export default function Home() {
                     textAlign: 'center'
                   }}
                   animate={{
-                    rotate: expandedService === service.number ? 45 : 0
+                    rotate: expandedService === service.title ? 45 : 0
                   }}
                   transition={{ duration: 0.3 }}
                 >
@@ -1346,9 +1346,9 @@ export default function Home() {
               </div>
               
                 {/* SINGLE-SCREEN COMPACT CONTENT */}
-                {expandedService === service.number && (
+                {expandedService === service.title && (
                   <motion.div 
-                    id={`service-content-${service.number}`}
+                    id={`service-content-${service.title}`}
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
