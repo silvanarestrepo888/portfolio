@@ -757,7 +757,6 @@ export default function Home() {
             transition={{ duration: isMobile ? 0.6 : 1.618, delay: isMobile ? 0.1 : 0.236 }}
               >
             <div className="about-header-content">
-              <span className="about-section-number">01</span>
               <motion.h2 
                 id="about-heading"
                 className="about-title-ultra-luxury typography-h2"
@@ -920,7 +919,6 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <div className="projects-header-content-award">
-              <span className="projects-section-number-award">02</span>
               <motion.h2 
                 className="projects-title-award-winning typography-h2"
                 initial={{ opacity: 0, y: 20 }}
@@ -1178,7 +1176,6 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <div className="projects-header-content-award">
-              <span className="projects-section-number-award">03b</span>
               <motion.h2 
                 id="snippets-heading"
                 className="projects-title-award-winning typography-h2"
@@ -1222,7 +1219,6 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <div className="projects-header-content-award">
-              <span className="projects-section-number-award">03</span>
               <motion.h2 
                 className="projects-title-award-winning typography-h2"
                   initial={{ opacity: 0, y: 20 }}
@@ -1633,7 +1629,6 @@ export default function Home() {
                 viewport={{ once: true, margin: "-100px" }}
               >
                 <div className="section-header">
-                  <span className="section-number typography-caption">01</span>
                   <h2 className="section-title typography-h3">Context</h2>
                 </div>
                 <div className="section-content">
@@ -1665,7 +1660,6 @@ export default function Home() {
                 viewport={{ once: true, margin: "-100px" }}
               >
                 <div className="section-header">
-                  <span className="section-number typography-caption">02</span>
                   <h2 className="section-title typography-h3">Scope of the Project</h2>
                 </div>
                 <div className="section-content">
@@ -1697,7 +1691,6 @@ export default function Home() {
                 viewport={{ once: true, margin: "-100px" }}
               >
                 <div className="section-header">
-                  <span className="section-number typography-caption">03</span>
                   <h2 className="section-title typography-h3">Impact</h2>
                 </div>
                 <div className="section-content">
@@ -1729,7 +1722,6 @@ export default function Home() {
                 viewport={{ once: true, margin: "-100px" }}
               >
                 <div className="section-header">
-                  <span className="section-number typography-caption">04</span>
                   <h2 className="section-title typography-h3">Testimonial</h2>
                 </div>
                 <div className="section-content">
