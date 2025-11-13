@@ -2031,7 +2031,7 @@ export default function Home() {
             onMouseDown={(e) => e.stopPropagation()}
           >
             <motion.div
-              animate={{ scale: imageZoomedIn ? 1.5 : 1 }}
+              animate={{ scale: imageZoomedIn ? 1.25 : 1 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
               style={{ cursor: imageZoomedIn ? 'zoom-out' : 'zoom-in' }}
               onClick={(e) => {
@@ -2115,7 +2115,7 @@ export default function Home() {
                 <div>Image {currentGalleryImage + 1} of {selectedProject !== null && projects[selectedProject].galleryImages ? 
                   projects[selectedProject].galleryImages.length : 0}</div>
                 <div className="text-sm text-white/70 mt-1">
-                  {imageZoomedIn ? 'Click to zoom out' : 'Click image to zoom in 50%'}
+                  {imageZoomedIn ? 'Click to zoom out' : 'Click image to zoom in 25%'}
                 </div>
               </div>
             </div>
