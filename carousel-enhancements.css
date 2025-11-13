@@ -1,0 +1,50 @@
+/* Additional Carousel Enhancements - Add to globals.css */
+
+/* Carousel Container with Fade Edges */
+.snippet-carousel-container {
+  position: relative;
+  margin: clamp(32px, 6vw, 64px) 0;
+}
+
+/* Left fade gradient */
+.snippet-carousel-container::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: clamp(20px, 3vw, 40px);
+  background: linear-gradient(to right, var(--cream-warmth), transparent);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Right fade gradient */
+.snippet-carousel-container::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: clamp(20px, 3vw, 40px);
+  background: linear-gradient(to left, var(--cream-warmth), transparent);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Scroll Hint */
+.snippet-scroll-hint {
+  text-align: center;
+  margin-top: clamp(24px, 4vw, 40px);
+  color: rgba(45, 55, 72, 0.6);
+  font-family: var(--font-architectural-body);
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 768px) {
+  .snippet-scroll-hint {
+    display: none; /* Hide on mobile - obvious it's scrollable */
+  }
+}

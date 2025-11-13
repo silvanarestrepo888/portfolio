@@ -20130,18 +20130,45 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   margin: 0;
 }
 
-/* Grid Layout - Editorial Magazine Style */
+/* Carousel Layout - Sophisticated Single Row */
 .snippet-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Always 5 equal columns */
-  gap: clamp(24px, 4vw, 48px); /* Generous editorial spacing */
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  gap: clamp(32px, 5vw, 56px); /* Generous spacing between larger cards */
+  padding: clamp(16px, 3vw, 32px) clamp(24px, 4vw, 48px);
+  max-width: none; /* Allow full width scrolling */
+  margin: 0;
+  /* Custom scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(45, 55, 72, 0.3) transparent;
 }
 
-/* Card Component - Editorial Sophistication */
+/* Webkit scrollbar styling for sophisticated appearance */
+.snippet-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.snippet-grid::-webkit-scrollbar-track {
+  background: rgba(45, 55, 72, 0.1);
+  border-radius: 4px;
+}
+
+.snippet-grid::-webkit-scrollbar-thumb {
+  background: rgba(45, 55, 72, 0.3);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.snippet-grid::-webkit-scrollbar-thumb:hover {
+  background: rgba(45, 55, 72, 0.5);
+}
+
+/* Card Component - Carousel Editorial Cards */
 .snippet-card {
+  flex: 0 0 auto; /* Don't shrink, don't grow, keep natural size */
+  width: clamp(280px, 35vw, 400px); /* Larger cards for carousel */
   border-radius: 0;
   overflow: visible;
   transition: all var(--duration-base) var(--ease-landor);
@@ -20155,16 +20182,16 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   /* No shadows - maintain editorial cleanliness */
 }
 
-/* Image Container - Editorial Breathing Space */
+/* Image Container - Larger Carousel Format */
 .snippet-image-container {
   position: relative;
   width: 100%;
-  height: clamp(140px, 18vw, 240px);
+  height: clamp(200px, 25vw, 320px); /* Significantly larger for carousel */
   aspect-ratio: 16/10;
   overflow: hidden;
   border-radius: 0; /* Clean edges for editorial feel */
   cursor: zoom-in;
-  margin-bottom: clamp(12px, 2vw, 20px); /* Space between image and text */
+  margin-bottom: clamp(16px, 2.5vw, 24px); /* More space for larger format */
 }
 
 .snippet-image-container:hover .snippet-expand-hint {
@@ -20340,14 +20367,20 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   letter-spacing: 0.02em; /* More open for editorial feel */
 }
 
-/* Award-Winning Responsive Foundation */
+/* Carousel Responsive Design */
 @media (max-width: 768px) {
   .snippet-card {
-    min-width: 0; /* Allow cards to shrink gracefully */
+    width: clamp(240px, 45vw, 320px); /* Smaller but still impactful on tablet */
+    flex: 0 0 auto;
   }
   
   .snippet-grid {
-    gap: clamp(20px, 5vw, 32px); /* More breathing space for editorial feel */
+    gap: clamp(24px, 4vw, 32px); /* Maintain generous spacing */
+    padding: clamp(12px, 2vw, 24px) clamp(16px, 3vw, 32px);
+  }
+  
+  .snippet-image-container {
+    height: clamp(160px, 20vw, 220px); /* Scale down but keep impact */
   }
   
   .snippet-title-section {
@@ -20360,13 +20393,18 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 }
 
 @media (max-width: 480px) {
+  .snippet-card {
+    width: clamp(220px, 55vw, 280px); /* Mobile-optimized carousel cards */
+  }
+  
   .snippet-grid {
-    gap: clamp(16px, 4vw, 24px); /* Maintain editorial spacing even on small screens */
+    gap: clamp(20px, 3vw, 24px); /* Tighter but still editorial */
+    padding: clamp(8px, 1.5vw, 16px) clamp(12px, 2vw, 20px);
   }
   
   .snippet-image-container {
-    height: clamp(120px, 22vw, 180px); /* Adjusted for mobile */
-    margin-bottom: clamp(8px, 1.5vw, 16px); /* Adjust spacing for mobile */
+    height: clamp(140px, 22vw, 180px); /* Mobile-optimized height */
+    margin-bottom: clamp(12px, 2vw, 16px);
   }
   
   .snippet-title-section {
