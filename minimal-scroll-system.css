@@ -4,31 +4,38 @@
 .snippet-progress-minimal {
   position: relative;
   width: 100%;
-  max-width: 500px; /* Slightly wider for more prominence */
-  margin: clamp(40px, 6vw, 60px) auto 0;
+  max-width: 600px; /* Even wider for maximum prominence */
+  margin: clamp(32px, 5vw, 48px) auto 0; /* Closer to content for better association */
   text-align: center;
+  padding: clamp(12px, 2vw, 20px); /* More padding for breathing room */
+  background: rgba(255, 251, 238, 0.5); /* Subtle background to frame the progress */
+  border-radius: 12px;
 }
 
 .snippet-progress-line {
   width: 100%;
-  height: 3px; /* Increased from 1px for better visibility */
-  background: rgba(45, 55, 72, 0.15); /* Increased from 0.08 for more contrast */
-  border-radius: 2px; /* Subtle rounding for sophistication */
+  height: 6px; /* Significantly increased for maximum visibility */
+  background: rgba(45, 55, 72, 0.25); /* Much stronger background contrast */
+  border-radius: 3px; /* Proportional rounding */
   position: relative;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(45, 55, 72, 0.05); /* Subtle depth */
+  box-shadow: 0 2px 8px rgba(45, 55, 72, 0.15); /* Much stronger shadow for definition */
+  border: 1px solid rgba(45, 55, 72, 0.1); /* Subtle border for definition */
 }
 
 .snippet-progress-fill {
   height: 100%;
   background: linear-gradient(90deg, 
-    var(--charcoal-confidence), 
-    var(--grapefruit-intelligence)); /* Brand gradient for impact */
+    var(--grapefruit-intelligence), 
+    var(--coral-accent), 
+    var(--grapefruit-intelligence)); /* Vibrant brand gradient */
   width: 0%;
   transition: width 0.3s ease-out;
   position: relative;
-  border-radius: 2px;
-  box-shadow: 0 1px 2px rgba(255, 102, 99, 0.2); /* Subtle glow */
+  border-radius: 3px;
+  box-shadow: 
+    0 2px 6px rgba(255, 102, 99, 0.4), /* Strong glow */
+    0 0 12px rgba(255, 102, 99, 0.2); /* Ambient glow for visibility */
 }
 
 /* Minimal More Content - Simple Typography */

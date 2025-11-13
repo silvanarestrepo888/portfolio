@@ -99,7 +99,6 @@ export default function Home() {
       icon: IntelligentOperationsIcon
     },
     {
-      number: "04",
       title: "Transformation Foundations",
       subtitle: "Engineering organizational evolution through scalable design foundations", 
       description: "Design systems become organizational DNA. Every component strengthens the whole. Every decision accelerates the next. I collaborate to create modular, scalable frameworks —turning organizational complexity into competitive advantage.",
