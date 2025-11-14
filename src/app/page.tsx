@@ -692,31 +692,7 @@ export default function Home() {
             Experience Architect
           </motion.h1>
           
-          <motion.p
-            id="hero-description"
-            className="typography-body text-center max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: isMobile ? 0.5 : 1.0, delay: isMobile ? 0.2 : 0.8 }}
-            style={{ marginTop: '1rem' }}
-          >
-            I believe the most compelling stories begin with curiosity—<br />
-            a spark that has carried me across continents, <br />
-            blending diverse perspectives from anthropology to business, <br />
-            from innovation to experience design, <br />
-            and from emerging technologies to business transformation.
-            <br /><br />
-            Each endeavor deepens my mission: <br />
-            bridging strategic business goals with the human truths <br />
-            that drive transformation.
-            <br /><br />
-            Welcome to my world—where strategy meets soul, <br />
-            and design becomes the universal language of possibility.
-            <br /><br />
-            <em>&ldquo;The art of my craft lies in listening to the unspoken, <br />
-            seeing the invisible, and revealing the intangible nature <br />
-            of human desire.&rdquo;</em>
-          </motion.p>
+          
           
           {/* ELEGANT CTA BUTTONS - Small and Sophisticated */}
           <motion.div 
@@ -821,11 +797,10 @@ export default function Home() {
                   transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.24 : 1.0 }}
                 >
                   I believe the most compelling stories begin with curiosity—<br />
-                  a spark that has carried me across continents,<br />
-                  weaving together unexpected threads:<br />
-                  anthropology and algorithms,<br />
-                  innovation and intuition,<br />
-                  emerging technologies and enduring truths.
+                  a spark that has carried me across continents, <br />
+                  blending diverse perspectives from anthropology to business, <br />
+                  from innovation to experience design, <br />
+                  and from emerging technologies to business transformation.
                 </motion.p>
                 
                 <motion.p 
@@ -834,7 +809,9 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.28 : 1.272 }}
                 >
-                  Each endeavor brings me closer to my mission: connecting strategic business goals with the essence of the <em className="highlight-human-typography">human perspective</em>.
+                  Each endeavor deepens my mission: <br />
+                  bridging strategic business goals with the human truths <br />
+                  that drive transformation.
                 </motion.p>
                 
                 <motion.p 
@@ -852,7 +829,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.36 : 2.0 }}
                 >
-                  Welcome to my world—where strategy meets soul, and design becomes the universal language of possibility
+                  Welcome to my world—where strategy meets soul, and design becomes the universal language of possibility.
                 </motion.p>
                 </div>
             </div>
