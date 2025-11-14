@@ -719,7 +719,7 @@ export default function Home() {
             </motion.button>
             
             <motion.a
-              href="file:///Users/silvanarestrepo/Desktop/CV_Silvana_Restrepo_Final.html"
+              href="/CV_Silvana_Restrepo_Final.html"
               target="_blank"
               rel="noopener noreferrer"
               className="hero-cta-button"

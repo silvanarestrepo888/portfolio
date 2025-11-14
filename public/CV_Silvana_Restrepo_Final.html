@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Silvana Restrepo - Experience Architect (2-page, subtle branded header)</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=EB+Garamond:wght@400;500;600&display=swap');
+
+    :root{
+      /* Two-page enforcement knobs */
+      --print-scale: 0.96;
+      --block-gap: 18pt;
+      --line-tighten: 1.38;
+      --page-margin-mm: 10mm;
+      --texture-opacity: 0.24; /* subtlety control */
+      --texture-fade-start: 46%; /* right half visible */
+      --texture-fade-end: 78%;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:'EB Garamond','Garamond',Georgia,serif;
+      background:#fff;color:#2c2c2c;
+      font-size:9pt;line-height:1.42;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .page{
+      width:210mm;min-height:297mm;margin:0 auto;background:#fff;position:relative;
+    }
+
+    /* Header base (kept as before) */
+    .header{
+      background:linear-gradient(135deg,
+        rgba(255,240,245,.5) 0%,
+        rgba(255,250,240,.4) 25%,
+        rgba(255,245,238,.45) 50%,
+        rgba(250,240,230,.35) 75%,
+        rgba(255,250,250,.5) 100%);
+      position:relative;overflow:hidden;
+      padding:20pt 36pt 18pt 36pt;
+    }
+    /* Existing soft pattern layer */
+    .header::before{
+      content:'';position:absolute;inset:0;z-index:1;
+      background-image:
+        repeating-linear-gradient(45deg,transparent,transparent 15px,rgba(240,230,220,.08) 15px,rgba(240,230,220,.08) 30px),
+        radial-gradient(circle at 20% 30%,rgba(255,240,235,.15) 0%,transparent 50%),
+        radial-gradient(circle at 80% 70%,rgba(250,235,225,.12) 0%,transparent 45%);
+      opacity:.6;
+      pointer-events:none;
+    }
+    /* Personal branding texture — right half, fading left */
+    .header::after{
+      content:'';position:absolute;inset:0;z-index:1; /* same layer as ::before */
+      background: url('header_texture.png') right center / cover no-repeat;
+      opacity: var(--texture-opacity);
+      mix-blend-mode: multiply; /* keeps warmth subtle */
+      pointer-events:none;
+      /* Fade from right to left so left side stays clean for name/titles */
+      -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) var(--texture-fade-start), rgba(0,0,0,0) var(--texture-fade-end));
+              mask-image: linear-gradient(to left, rgba(0,0,0,1) var(--texture-fade-start), rgba(0,0,0,0) var(--texture-fade-end));
+    }
+
+    .header-content{position:relative;z-index:2;max-width:650pt}
+    .name{font-family:'Cormorant Garamond',Georgia,serif;font-size:28pt;font-weight:300;color:#1a1a1a;margin-bottom:3pt;letter-spacing:-.5pt;line-height:1}
+    .title{font-family:'Cormorant Garamond',Georgia,serif;font-size:12pt;color:#4a4a4a;letter-spacing:1.5pt;margin-bottom:6pt;font-weight:500}
+    .subtitle{font-size:9.5pt;color:#3a3a3a;margin-bottom:10pt;line-height:1.3;font-weight:500}
+    .contact-bar{
+      padding:8pt 0;border-top:.5pt solid #E0E0E0;border-bottom:.5pt solid #E0E0E0;
+      font-size:8pt;color:#5a5a5a;font-weight:400;margin-bottom:10pt;line-height:1.5
+    }
+    .contact-separator{margin:0 8pt;color:#c0c0c0}
+    .executive-profile-title{
+      font-family:'Cormorant Garamond',Georgia,serif;font-size:12pt;font-weight:600;color:#1a1a1a;letter-spacing:.5pt;margin-bottom:8pt
+    }
+    .executive-summary{font-size:9pt;line-height:1.5;color:#3a3a3a;font-weight:400;max-width:650pt}
+    .career-vision{font-size:9pt;line-height:1.5;color:#3a3a3a;font-weight:400;margin-top:8pt;font-style:italic}
+
+    .content-wrapper{padding:24pt 40pt;max-width:650pt}
+    .section{margin-bottom:24pt}
+    .section-title{
+      font-family:'Cormorant Garamond',Georgia,serif;font-size:14pt;font-weight:600;color:#1a1a1a;letter-spacing:.5pt;margin-bottom:12pt;padding-bottom:5pt;border-bottom:.5pt solid #E0E0E0
+    }
+
+    .experience-item{margin-bottom:18pt;padding-bottom:14pt;border-bottom:.5pt solid #f5f5f5}
+    .experience-item:last-child{border-bottom:none;margin-bottom:0}
+    .experience-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4pt}
+    .company-line{font-size:10pt;color:#B8867D;font-weight:600;letter-spacing:.3pt;margin-bottom:4pt}
+    .duration{font-size:9pt;color:#888;font-weight:400;white-space:nowrap}
+    .role-title{font-size:11pt;font-weight:600;color:#1a1a1a;letter-spacing:-.2pt;margin-bottom:6pt}
+    .company-description{font-size:8.5pt;color:#666;font-style:italic;margin-bottom:8pt}
+    .achievements{list-style:none;padding:0}
+    .achievements li{
+      font-size:9pt;line-height:1.5;color:#3a3a3a;margin-bottom:7pt;padding-left:16pt;position:relative
+    }
+    .achievements li::before{content:'•';position:absolute;left:0;color:#4a4a4a;font-size:11pt;top:0}
+
+    .competencies-grid{display:grid;grid-template-columns:1fr 1fr;gap:12pt 20pt}
+    .competency-category{background:rgba(250,245,240,.4);padding:12pt 14pt;border-left:2pt solid #4a4a4a}
+    .competency-title{font-size:9pt;font-weight:600;color:#1a1a1a;margin-bottom:6pt;letter-spacing:.3pt}
+    .competency-content{font-size:8.5pt;line-height:1.4;color:#3a3a3a}
+
+    .education-grid{display:grid;grid-template-columns:1fr 1fr;gap:12pt 20pt}
+    .education-item{margin-bottom:0}
+    .education-degree{font-size:9pt;font-weight:600;color:#1a1a1a;line-height:1.4;margin-bottom:3pt}
+    .education-institution{font-size:8pt;color:#666}
+
+    /* Download button styles */
+    .download-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .download-btn {
+      background: #B8867D;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-family: 'EB Garamond', serif;
+      font-size: 11pt;
+      font-weight: 500;
+      letter-spacing: 0.5pt;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .download-btn:hover {
+      background: #9a6d65;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    .download-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+    }
+
+    /* Hide download button in print */
+    @media print {
+      .download-container {
+        display: none !important;
+      }
+    }
+
+    /* Print optimization for EXACTLY two pages without redesign */
+    @media print{
+      @page{ size:A4; margin: var(--page-margin-mm); }
+      html, body{ width:210mm; }
+
+      body{ line-height: var(--line-tighten); }
+
+      /* Tighter spacing for 2-page fit */
+      .header{ padding:18pt 32pt 16pt 32pt; }
+      .name{ font-size:26pt; margin-bottom:2pt; }
+      .title{ font-size:10pt; margin-bottom:4pt; }
+      .subtitle{ font-size:8.5pt; margin-bottom:6pt; }
+      .contact-bar{ padding:5pt 0; margin-bottom:6pt; font-size:7.8pt; }
+      .executive-profile-title{ font-size:10pt; margin-bottom:5pt; }
+      .executive-summary{ font-size:8.5pt; line-height:1.38; }
+      .career-vision{ font-size:8.5pt; line-height:1.36; margin-top:5pt; }
+      
+      .content-wrapper{ padding:18pt 32pt; }
+      .section{ margin-bottom: var(--block-gap); }
+      .section-title{ font-size:12pt; margin-bottom:8pt; padding-bottom:3pt; }
+      
+      .experience-item{ margin-bottom:14pt; padding-bottom:10pt; }
+      .company-line{ font-size:9pt; }
+      .duration{ font-size:8pt; }
+      .role-title{ font-size:10pt; margin-bottom:4pt; }
+      .company-description{ font-size:7.8pt; margin-bottom:5pt; }
+      .achievements li{ font-size:8.5pt; line-height:1.38; margin-bottom:4pt; }
+      
+      .competencies-grid{ gap:9pt 16pt; }
+      .competency-category{ padding:9pt 11pt; }
+      .competency-title{ font-size:8.5pt; margin-bottom:4pt; }
+      .competency-content{ font-size:8pt; line-height:1.32; }
+      
+      .education-grid{ gap:8pt 16pt; }
+      .education-degree{ font-size:8.5pt; }
+      .education-institution{ font-size:7.5pt; }
+
+      /* Prevent bad splits */
+      .experience-item, .competency-category, .education-item{ page-break-inside: avoid; }
+      .section-title{ page-break-after: avoid; }
+
+      /* Force page 2 to start exactly here */
+      .page2-start{ break-before: page; }
+
+      /* No footer */
+      .footer{ display:none !important; }
+
+      /* Scale entire canvas slightly to force 2 pages if needed */
+      .page{
+        width:210mm; min-height:auto; margin:0 auto;
+        transform: scale(var(--print-scale));
+        transform-origin: top left;
+      }
+    }
+
+    /* ATS-only metadata stays hidden */
+    .ats-only{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  </style>
+</head>
+<body>
+  <!-- Download Button -->
+  <div class="download-container">
+    <button class="download-btn" onclick="downloadPDF()">Download as PDF</button>
+  </div>
+
+  <!-- ATS-Friendly Metadata -->
+  <div class="ats-only">
+    <h1>Silvana Restrepo - Experience Architect</h1>
+    <p>Contact: srestrepo2@me.com | +34 649 778 762</p>
+    <p>LinkedIn: linkedin.com/in/silvanarestrepo | Portfolio: experiencearchitect.design</p>
+  </div>
+
+  <div class="page">
+    <!-- Header Section -->
+    <header class="header">
+      <div class="header-content">
+        <h1 class="name">Silvana Restrepo</h1>
+        <p class="title">Experience Architect</p>
+        <p class="subtitle">AI-Driven Experience Architect | Digital Transformation Strategist | Business Growth Strategist</p>
+        <div class="contact-bar">
+          +34 649 778 762<span class="contact-separator">•</span>srestrepo2@me.com<span class="contact-separator">•</span>experiencearchitect.design<span class="contact-separator">•</span>linkedin.com/in/silvanarestrepo
+        </div>
+        <div class="executive-profile-title">Executive Profile</div>
+        <p class="executive-summary">
+          Architect of digital transformation with 20+ years designing customer experiences, tech strategy, and operational excellence for clients across three continents, generating efficiency improvements in mission-critical operations. Experience at scaling global teams across multiple time zones while bridging C-suite strategy with execution to unlock competitive advantage in healthcare, finance, Retail, Hospitality, Entertainment, and emerging technology sectors.
+        </p>
+        <p class="career-vision">
+          <strong>Career Vision:</strong> Architecting invisible systems that turn business potential into market advantage through strategic clarity in complex environments. My approach: Transform ambiguity into opportunity by creating frameworks that evolve with discovery rather than rigid blueprints.
+        </p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+      <section class="section">
+        <h2 class="section-title">Professional Experience</h2>
+
+        <article class="experience-item">
+          <div class="experience-header">
+            <div class="company-line">Globant | Global</div>
+            <span class="duration">2020–2025</span>
+          </div>
+          <p class="company-description">Global technology powerhouse serving Fortune 500 enterprises.</p>
+          
+          <div class="role-title">Business Partner & Experience Designer | Directing Digital-Physical Convergence</div>
+          <ul class="achievements">
+            <li>Architect seamless experiences where human behavior shapes technology adoption, not the reverse</li>
+            <li>Transform operational complexity into elegant user journeys across touchpoints—from initial awareness through service delivery</li>
+            <li>Bridge strategic vision with implementation realities, ensuring technical feasibility without compromising experience integrity</li>
+            <li>Spearheaded powered digital transformation initiatives for multinational enterprise clients across healthcare, financial services, hospitality, retail, Services, and entertainment sectors.</li>
+            <li>Structured AI automated product management framework, accelerating ideation to prototype cycles from months to weeks for a guest support platform POC.</li>
+            <li>Drove digital transformation for more than 10 discovery projects, designing smart pricing algorithms, digital concierge platforms, and pharmaceutical discovery solutions that opened new revenue streams.</li>
+            <li>Unified product governance for 60+ entertainment venues across Europe for Parques Reunidos, standardizing cross-market operations and establishing scalable frameworks for diverse portfolios</li>
+          </ul>
+        </article>
+
+        <article class="experience-item">
+          <div class="experience-header">
+            <div class="company-line">Centre for the Fourth Industrial Revolution – World Economic Forum | Colombia</div>
+            <span class="duration">2019–2020</span>
+          </div>
+          <div class="role-title">Business Engagement Lead</div>
+          <ul class="achievements">
+            <li>Architected emerging technology governance frameworks connecting public policy with industry implementation, facilitating strategic partnerships between global technology leaders and regional government entities.</li>
+            <li>Established 15+ strategic partnerships between academia, private sector, and government, creating scalable models for emerging technology adoption across Latin America</li>
+            <li>Designed prioritization methodologies for IoT, AI, and blockchain adoption, accelerating technology policy development and reducing regulatory implementation timelines</li>
+            <li>Facilitated cross-sector stakeholder alignment on technology governance models, bridging gap between innovation and responsible deployment frameworks</li>
+          </ul>
+        </article>
+
+        <article class="experience-item">
+          <div class="experience-header">
+            <div class="company-line">Designit (Wipro) | Colombia</div>
+            <span class="duration">2018–2019</span>
+          </div>
+          <div class="role-title">Strategic Design Director</div>
+          <ul class="achievements">
+            <li>Led 20+ multidisciplinary designers delivering enterprise-wide digital transformation programs for retail and financial services clients while establishing market presence across Colombia.</li>
+            <li>Delivered IoT solutions for aerospace and automotive industries in partnership with World Economic Forum, creating methodological frameworks for client engagement and solution delivery</li>
+            <li>Accelerated time-to-market for Banking and retail clients through agile innovation frameworks and cross-functional team leadership.</li>
+          </ul>
+        </article>
+
+        <article class="experience-item">
+          <div class="experience-header">
+            <div class="company-line">Real Estate Grupo Éxito | Colombia</div>
+            <span class="duration">2016–2018</span>
+          </div>
+          <div class="role-title">Marketing Director</div>
+          <ul class="achievements">
+            <li>Orchestrated end-to-end experience strategy for 32 shopping centers, pioneering phygital retail formats that optimized customer journeys and diversified revenue streams.</li>
+            <li>Launched 12+ innovative retail formats, including food halls, co-living spaces, and pop-up stores, expanding portfolio offerings and increasing foot traffic by 18%</li>
+            <li>Optimized customer experience across 32 locations, implementing data-driven strategies that enhanced satisfaction scores and increased dwell time</li>
+            <li>Pioneered phygital integration strategy, merging physical and digital touchpoints to create seamless omnichannel experiences</li>
+          </ul>
+        </article>
+
+        <article class="experience-item">
+          <div class="experience-header">
+            <div class="company-line">Industrias Haceb | Colombia</div>
+            <span class="duration">2013–2016</span>
+          </div>
+          <div class="role-title">Business Intelligence Manager</div>
+          <ul class="achievements">
+            <li>Delivered enterprise-wide consumer intelligence strategy that transformed business performance through data-driven decision frameworks and predictive analytics.</li>
+            <li>Generated 26% sales growth and 4% profit increase by implementing consumer-centric strategy leveraging behavioral modeling and market segmentation</li>
+            <li>Built predictive analytics infrastructure that optimized product portfolio, pricing strategy, and channel distribution across South American markets</li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- Page 2 starts here -->
+      <section class="section page2-start">
+        <h2 class="section-title">Core Competencies</h2>
+        <div class="competencies-grid">
+          <div class="competency-category">
+            <div class="competency-title">AI & Emerging Technology</div>
+            <div class="competency-content">AI Product Strategy | Platform Architecture | Business Processes Optimization | Predictive Analytics | No-Code AI Implementation | Data-driven decision frameworks | Agentic Systems Design</div>
+          </div>
+
+          <div class="competency-category">
+            <div class="competency-title">Business Transformation</div>
+            <div class="competency-content">Cross-Cultural Market Entry | C-Suite Advisory | Digital Strategy Consulting | Performance Optimization | Change Management | M&A Integration | Strategic Partnerships</div>
+          </div>
+
+          <div class="competency-category">
+            <div class="competency-title">Strategic Leadership</div>
+            <div class="competency-content">Global Team Leadership (20+ Members) | P&L Management | Business Model Innovation | Revenue Stream Diversification | Technology Governance | Policy Development</div>
+          </div>
+
+          <div class="competency-category">
+            <div class="competency-title">Experience Design</div>
+            <div class="competency-content">Customer Journey Transformation | Phygital Ecosystem Development | Service Design | Design Thinking | UX Strategy | Product Strategy | Systems Design</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Education & Certifications</h2>
+        <div class="education-grid">
+          <div class="education-item">
+            <div class="education-degree">Executive Leadership Program</div>
+            <div class="education-institution">Wharton University</div>
+          </div>
+
+          <div class="education-item">
+            <div class="education-degree">MBA, Marketing</div>
+            <div class="education-institution">EAFIT University</div>
+          </div>
+
+          <div class="education-item">
+            <div class="education-degree">Neuromarketing Specialist</div>
+            <div class="education-institution">Universidad de La Plata</div>
+          </div>
+
+          <div class="education-item">
+            <div class="education-degree">Business Administration</div>
+            <div class="education-institution">EAFIT University</div>
+          </div>
+
+          <div class="education-item">
+            <div class="education-degree">Design Leadership Certification</div>
+            <div class="education-institution">Cooper Professional Education</div>
+          </div>
+
+          <div class="education-item">
+            <div class="education-degree">Innovation & Future Thinking</div>
+            <div class="education-institution">Instituto Europeo di Design</div>
+          </div>
+
+          <div class="education-item">
+            <div class="education-degree">Agentic Systems Certification</div>
+            <div class="education-institution">Maven</div>
+          </div>
+
+          <div class="education-item">
+            <div class="education-degree">Coding with AI Bootcamp</div>
+            <div class="education-institution">100DaysOfAI</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </div>
+
+  <script>
+    function downloadPDF() {
+      // Store original title
+      const originalTitle = document.title;
+      
+      // Set filename for PDF
+      document.title = 'CV_Silvana_Restrepo';
+      
+      // Trigger print dialog (save as PDF)
+      window.print();
+      
+      // Restore original title
+      setTimeout(() => {
+        document.title = originalTitle;
+      }, 100);
+    }
+
+    // Optional: Add keyboard shortcut (Ctrl/Cmd + S)
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+        e.preventDefault();
+        downloadPDF();
+      }
+    });
+  </script>
+</body>
+</html>
