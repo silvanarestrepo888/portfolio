@@ -794,7 +794,12 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.24 : 1.0 }}
                 >
-                  I believe the most compelling stories begin with curiosity—a spark that has carried me across continents, blending diverse perspectives from anthropology to business, from innovation to experience design, and from emerging technologies to business transformation.
+                  I believe the most compelling stories begin with curiosity—<br />
+                  a spark that has carried me across continents,<br />
+                  weaving together unexpected threads:<br />
+                  anthropology and algorithms,<br />
+                  innovation and intuition,<br />
+                  emerging technologies and enduring truths.
                 </motion.p>
                 
                 <motion.p 
@@ -803,7 +808,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.28 : 1.272 }}
                 >
-                  Each endeavour brings me closer to my mission: connecting strategic business goals with the essence of the <span className="highlight-human-typography">#human perspective</span>.
+                  Each endeavor brings me closer to my mission: connecting strategic business goals with the essence of the <em className="highlight-human-typography">human perspective</em>.
                 </motion.p>
                 
                 <motion.p 
