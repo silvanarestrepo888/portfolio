@@ -137,9 +137,11 @@ export function FloatingNavigation() {
               tabIndex={0}
               aria-label={`Navigate to ${item.name} section`}
             >
-              <span className="nav-section-number">
-                {item.number}
-              </span>
+              {item.name !== 'experience' && (
+                <span className="nav-section-number">
+                  {item.number}
+                </span>
+              )}
               <span className="nav-section-name">
                 {item.name.toUpperCase()}
               </span>
@@ -191,9 +193,11 @@ export function FloatingNavigation() {
                     tabIndex={0}
                     aria-label={`Navigate to ${item.name} section`}
                   >
-                    <span className="mobile-nav-number">
-                      {item.number}
-                    </span>
+                    {item.name !== 'experience' && (
+                      <span className="mobile-nav-number">
+                        {item.number}
+                      </span>
+                    )}
                     <span className="mobile-nav-name">
                       {item.name}
                     </span>

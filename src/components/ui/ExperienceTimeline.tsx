@@ -50,7 +50,6 @@ export function ExperienceTimeline() {
         viewport={{ once: true }}
       >
         <div className="projects-header-content-award">
-          <span className="projects-section-number-award">04</span>
           <motion.h2 
             className="projects-title-award-winning typography-h2"
             initial={{ opacity: 0, y: 20 }}
