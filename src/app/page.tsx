@@ -77,7 +77,7 @@ export default function Home() {
     {
       number: "01",
       title: "Accelerated Product Innovation",
-      subtitle: "From concept to market reach in half the time",
+      subtitle: "From concept to market in half the time",
       description: "Transform product visions into market reality through AI-powered rapid prototyping and validation. Implementing innovation sprints where data accelerates ideation, AI accelerates testing, and go-to-market strategies—turning months of development into weeks of strategic clarity.",
       demand: "Speed to market without sacrificing strategic depth.",
       icon: AcceleratedInnovationIcon
@@ -692,6 +692,32 @@ export default function Home() {
             Experience Architect
           </motion.h1>
           
+          <motion.p
+            id="hero-description"
+            className="typography-body text-center max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: isMobile ? 0.5 : 1.0, delay: isMobile ? 0.2 : 0.8 }}
+            style={{ marginTop: '1rem' }}
+          >
+            I believe the most compelling stories begin with curiosity—<br />
+            a spark that has carried me across continents, <br />
+            blending diverse perspectives from anthropology to business, <br />
+            from innovation to experience design, <br />
+            and from emerging technologies to business transformation.
+            <br /><br />
+            Each endeavor deepens my mission: <br />
+            bridging strategic business goals with the human truths <br />
+            that drive transformation.
+            <br /><br />
+            Welcome to my world—where strategy meets soul, <br />
+            and design becomes the universal language of possibility.
+            <br /><br />
+            <em>"The art of my craft lies in listening to the unspoken, <br />
+            seeing the invisible, and revealing the intangible nature <br />
+            of human desire."</em>
+          </motion.p>
+          
           {/* ELEGANT CTA BUTTONS - Small and Sophisticated */}
           <motion.div 
             className="hero-cta-elegant"
@@ -875,28 +901,14 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: isMobile ? 0.6 : 1.5, delay: isMobile ? 0.28 : 1.6 }}
-          >
+            >
             <motion.blockquote 
               className="philosophy-quote-ultra-luxury"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: isMobile ? 0.6 : 1.5, delay: isMobile ? 0.28 : 1.6 }}
             >
-              &ldquo;The art of <motion.span 
-                className="craft-highlight-luxury"
-                initial={{ opacity: 0.7 }}
-                whileInView={{ 
-                  opacity: 1,
-                  transition: { duration: isMobile ? 0.3 : 0.6, delay: isMobile ? 0.3 : 1.8 }
-                }}
-                onViewportEnter={() => {
-                  // Add class to trigger underline animation
-                  setTimeout(() => {
-                    const element = document.querySelector('.craft-highlight-luxury');
-                    if (element) element.classList.add('animate-underline');
-                  }, isMobile ? 300 : 1800);
-                }}
-              >MY CRAFT</motion.span> lies in listening to the unspoken, seeing the invisible, and touching the intangible essence of human desire&rdquo;
+              <em>The art of my craft lies in listening to the unspoken, seeing the invisible, and revealing the intangible nature of human desire.</em>
             </motion.blockquote>
           </motion.div>
         </div>
