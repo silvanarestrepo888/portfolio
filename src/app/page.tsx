@@ -713,9 +713,9 @@ export default function Home() {
             Welcome to my world—where strategy meets soul, <br />
             and design becomes the universal language of possibility.
             <br /><br />
-            <em>"The art of my craft lies in listening to the unspoken, <br />
+            <em>&ldquo;The art of my craft lies in listening to the unspoken, <br />
             seeing the invisible, and revealing the intangible nature <br />
-            of human desire."</em>
+            of human desire.&rdquo;</em>
           </motion.p>
           
           {/* ELEGANT CTA BUTTONS - Small and Sophisticated */}
