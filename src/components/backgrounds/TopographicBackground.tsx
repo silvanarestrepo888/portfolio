@@ -27,40 +27,40 @@ export function TopographicBackground() {
     });
   }, []);
 
-  // Intersection Observer for reveal animation
+  // Force immediate visibility for testing
   useEffect(() => {
+    // TEMPORARILY FORCE ALL SECTIONS TO BE VISIBLE IMMEDIATELY
+    const sections = document.querySelectorAll('.topographic-luxury');
+    sections.forEach(section => {
+      section.classList.add('in-view');
+    });
+    
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (prefersReducedMotion) {
-      // If reduced motion is preferred, reveal all textures immediately
-      const sections = document.querySelectorAll('.topographic-luxury');
-      sections.forEach(section => {
-        section.classList.add('in-view');
-      });
       return;
     }
 
-    // Create intersection observer for texture reveal
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -10% 0px'
-      }
-    );
+    // Create intersection observer for texture reveal (disabled for testing)
+    // observerRef.current = new IntersectionObserver(
+    //   (entries) => {
+    //     entries.forEach(entry => {
+    //       if (entry.isIntersecting) {
+    //         entry.target.classList.add('in-view');
+    //       }
+    //     });
+    //   },
+    //   {
+    //     threshold: 0.1,
+    //     rootMargin: '0px 0px -10% 0px'
+    //   }
+    // );
 
-    // Observe all topographic sections
-    const sections = document.querySelectorAll('.topographic-luxury');
-    sections.forEach(section => {
-      observerRef.current?.observe(section);
-    });
+    // Observe all topographic sections (disabled for testing)
+    // sections.forEach(section => {
+    //   observerRef.current?.observe(section);
+    // });
 
     // Add scroll listener for parallax
     const debouncedScroll = debounce(handleScroll, 100);

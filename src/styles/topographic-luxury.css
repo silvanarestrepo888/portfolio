@@ -7,7 +7,7 @@
 /* ROOT VARIABLES                           */
 /* ========================================== */
 :root {
-  --topographic-opacity: 0.03;
+  --topographic-opacity: 0.12; /* Increased from 0.03 for visibility */
   --topographic-color: rgba(255, 102, 99, var(--topographic-opacity));
   --topographic-blur: 0px;
   --topographic-scale: 1;
@@ -26,36 +26,49 @@
   isolation: isolate;
 }
 
-/* Subtle Paper Texture */
+/* Enhanced Paper Texture for Visibility */
 .topographic-luxury::before {
   content: '';
   position: absolute;
   inset: 0;
-  opacity: 0.02;
-  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.08; /* Increased from 0.02 for visibility */
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 1px,
+      rgba(255, 102, 99, 0.03) 1px,
+      rgba(255, 102, 99, 0.03) 2px
+    );
+  background-size: 4px 4px;
   pointer-events: none;
   z-index: 1;
 }
 
-/* Topographic Pattern Layer */
+/* Topographic Pattern Layer - CSS Gradients for Reliability */
 .topographic-luxury::after {
   content: '';
   position: absolute;
   inset: 0;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat: repeat;
+  background-size: 50px 50px;
   background-position: center;
-  opacity: 0;
-  transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: var(--topographic-opacity) !important; /* Force visible */
   pointer-events: none;
   z-index: 2;
   will-change: transform;
   transform: translateZ(0);
+  mix-blend-mode: multiply;
 }
 
-/* Reveal on View */
+/* Force Visibility - No fade-in for testing */
 .topographic-luxury.in-view::after {
-  opacity: var(--topographic-opacity);
+  opacity: var(--topographic-opacity) !important;
+}
+
+/* Ensure all sections are visible immediately */
+.topographic-luxury::after {
+  opacity: var(--topographic-opacity) !important;
 }
 
 /* ========================================== */
@@ -64,22 +77,56 @@
 
 /* Hero Section - The Peak */
 [data-topographic="hero"] {
-  --topographic-opacity: 0.04;
+  --topographic-opacity: 0.15; /* Increased for visibility */
 }
 
 [data-topographic="hero"]::after {
-  background-image: url("data:image/svg+xml,%3Csvg width='1440' height='900' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='blur'%3E%3CfeGaussianBlur stdDeviation='0.5'/%3E%3C/filter%3E%3C/defs%3E%3Cg stroke='%23FF6663' stroke-width='0.5' fill='none' opacity='0.8' filter='url(%23blur)'%3E%3Cpath d='M0,100 Q720,50 1440,100'/%3E%3Cpath d='M0,200 Q720,120 1440,200'/%3E%3Cpath d='M0,300 Q720,200 1440,300'/%3E%3Cpath d='M100,400 Q720,320 1340,400'/%3E%3Cpath d='M200,500 Q720,400 1240,500'/%3E%3Cpath d='M300,600 Q720,480 1140,600'/%3E%3Cpath d='M400,700 Q720,560 1040,700'/%3E%3Cpath d='M500,800 Q720,640 940,800'/%3E%3C/g%3E%3C/svg%3E");
-  background-position: center 20%;
-  transform: scale(1.1);
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 39px,
+      rgba(255, 102, 99, 0.12) 40px,
+      rgba(255, 102, 99, 0.12) 41px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      rgba(255, 102, 99, 0.1) 40px,
+      rgba(255, 102, 99, 0.1) 41px
+    ),
+    radial-gradient(
+      circle at 50% 30%,
+      transparent 30%,
+      rgba(255, 102, 99, 0.03) 60%
+    );
+  background-size: 40px 40px, 40px 40px, 100% 100%;
+  background-position: center;
 }
 
 /* About Section - The Journey */
 [data-topographic="about"] {
-  --topographic-opacity: 0.025;
+  --topographic-opacity: 0.1; /* Increased for visibility */
 }
 
 [data-topographic="about"]::after {
-  background-image: url("data:image/svg+xml,%3Csvg width='1440' height='900' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%23FF6663' stroke-width='0.4' fill='none' opacity='0.9'%3E%3Cpath d='M0,150 Q360,130 720,150 T1440,150'/%3E%3Cpath d='M0,250 Q360,230 720,250 T1440,250'/%3E%3Cpath d='M0,350 Q360,330 720,350 T1440,350'/%3E%3Cpath d='M0,450 Q360,430 720,450 T1440,450'/%3E%3Cpath d='M0,550 Q360,530 720,550 T1440,550'/%3E%3Cpath d='M0,650 Q360,630 720,650 T1440,650'/%3E%3Cpath d='M0,750 Q360,730 720,750 T1440,750'/%3E%3C/g%3E%3C/svg%3E");
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 49px,
+      rgba(255, 102, 99, 0.08) 50px,
+      rgba(255, 102, 99, 0.08) 51px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 79px,
+      rgba(255, 102, 99, 0.05) 80px,
+      rgba(255, 102, 99, 0.05) 81px
+    );
+  background-size: 100% 50px, 80px 100%;
   background-position: 0% center;
   animation: subtle-drift 60s linear infinite;
 }
@@ -91,37 +138,88 @@
 
 /* Projects Section - The Terrain */
 [data-topographic="projects"] {
-  --topographic-opacity: 0.035;
+  --topographic-opacity: 0.12; /* Increased for visibility */
 }
 
 [data-topographic="projects"]::after {
-  background-image: url("data:image/svg+xml,%3Csvg width='1440' height='900' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%23FF6663' stroke-width='0.5' fill='none' opacity='0.7'%3E%3Cpath d='M0,100 Q180,80 360,100 T720,100 Q900,80 1080,100 T1440,100'/%3E%3Cpath d='M0,200 Q180,220 360,200 T720,200 Q900,180 1080,200 T1440,200'/%3E%3Cpath d='M0,300 Q180,280 360,300 T720,300 Q900,320 1080,300 T1440,300'/%3E%3Cpath d='M0,400 Q180,420 360,400 T720,400 Q900,380 1080,400 T1440,400'/%3E%3Cpath d='M0,500 Q180,480 360,500 T720,500 Q900,520 1080,500 T1440,500'/%3E%3Cpath d='M0,600 Q180,620 360,600 T720,600 Q900,580 1080,600 T1440,600'/%3E%3Cpath d='M0,700 Q180,680 360,700 T720,700 Q900,720 1080,700 T1440,700'/%3E%3Cpath d='M0,800 Q180,820 360,800 T720,800 Q900,780 1080,800 T1440,800'/%3E%3C/g%3E%3C/svg%3E");
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 29px,
+      rgba(255, 102, 99, 0.1) 30px,
+      rgba(255, 102, 99, 0.1) 31px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 29px,
+      rgba(255, 102, 99, 0.08) 30px,
+      rgba(255, 102, 99, 0.08) 31px
+    ),
+    repeating-radial-gradient(
+      circle at 30% 70%,
+      transparent,
+      transparent 59px,
+      rgba(255, 102, 99, 0.04) 60px,
+      rgba(255, 102, 99, 0.04) 61px
+    );
+  background-size: 42px 42px, 42px 42px, 120px 120px;
 }
 
 /* Experience Section - The Timeline */
 [data-topographic="experience"] {
-  --topographic-opacity: 0.02;
+  --topographic-opacity: 0.08; /* Increased for visibility */
 }
 
 [data-topographic="experience"]::after {
-  background-image: url("data:image/svg+xml,%3Csvg width='1440' height='900' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%23FF6663' stroke-width='0.4' fill='none' opacity='1'%3E%3Cpath d='M200,0 Q220,450 200,900'/%3E%3Cpath d='M400,0 Q380,450 400,900'/%3E%3Cpath d='M600,0 Q620,450 600,900'/%3E%3Cpath d='M800,0 Q780,450 800,900'/%3E%3Cpath d='M1000,0 Q1020,450 1000,900'/%3E%3Cpath d='M1200,0 Q1180,450 1200,900'/%3E%3C/g%3E%3C/svg%3E");
-  transform: scaleY(1.2);
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 99px,
+      rgba(255, 102, 99, 0.08) 100px,
+      rgba(255, 102, 99, 0.08) 101px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      rgba(255, 102, 99, 0.05) 40px,
+      rgba(255, 102, 99, 0.05) 41px
+    );
+  background-size: 100px 100%, 100% 40px;
 }
 
 /* Services Section - The Depth */
 [data-topographic="services"] {
-  --topographic-opacity: 0.03;
+  --topographic-opacity: 0.1; /* Increased for visibility */
 }
 
 [data-topographic="services"]::after {
-  background-image: url("data:image/svg+xml,%3Csvg width='1440' height='900' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='blur-soft'%3E%3CfeGaussianBlur stdDeviation='1'/%3E%3C/filter%3E%3C/defs%3E%3Cg stroke='%23FF6663' stroke-width='0.3' fill='none' opacity='1'%3E%3Cellipse cx='720' cy='450' rx='200' ry='100' /%3E%3Cellipse cx='720' cy='450' rx='300' ry='150' /%3E%3Cellipse cx='720' cy='450' rx='400' ry='200' /%3E%3Cellipse cx='720' cy='450' rx='500' ry='250' /%3E%3Cellipse cx='720' cy='450' rx='600' ry='300' /%3E%3Cellipse cx='720' cy='450' rx='700' ry='350' filter='url(%23blur-soft)' /%3E%3C/g%3E%3C/svg%3E");
+  background: 
+    repeating-radial-gradient(
+      circle at 50% 50%,
+      transparent,
+      transparent 49px,
+      rgba(255, 102, 99, 0.08) 50px,
+      rgba(255, 102, 99, 0.08) 51px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 59px,
+      rgba(255, 102, 99, 0.05) 60px,
+      rgba(255, 102, 99, 0.05) 61px
+    );
+  background-size: 100px 100px, 100% 60px;
 }
 
 /* ========================================== */
 /* ACCENT LAYER                             */
 /* ========================================== */
 
-/* Single Radial Accent */
+/* Enhanced Radial Accent for Visibility */
 .topographic-accent {
   position: absolute;
   top: 30%;
@@ -130,19 +228,19 @@
   height: 40vw;
   background: radial-gradient(
     circle at center,
-    rgba(255, 102, 99, 0.02) 0%,
-    rgba(255, 102, 99, 0.01) 30%,
+    rgba(255, 102, 99, 0.08) 0%,  /* Increased from 0.02 */
+    rgba(255, 102, 99, 0.05) 30%, /* Increased from 0.01 */
     transparent 60%
   );
-  filter: blur(80px);
+  filter: blur(60px); /* Reduced blur for more definition */
   pointer-events: none;
   z-index: 3;
-  opacity: 0;
-  transition: opacity 3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1 !important; /* Force visible */
+  transition: none; /* Remove transition for immediate visibility */
 }
 
 .topographic-luxury.in-view .topographic-accent {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 /* ========================================== */
