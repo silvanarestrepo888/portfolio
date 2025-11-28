@@ -1,0 +1,639 @@
+/* ========================================== */
+/* LANDOR LUXURY ELEVATION SYSTEM            */
+/* Swiss Precision × Japanese Minimalism     */
+/* ========================================== */
+
+/* ========================================== */
+/* 1. GLASS MORPHISM MODAL ARCHITECTURE      */
+/* ========================================== */
+
+/* Modal Backdrop - Gallery Entry */
+.modal-glass-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  backdrop-filter: blur(0px) saturate(1);
+}
+
+.modal-glass-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+  backdrop-filter: blur(40px) saturate(1.8);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 251, 247, 0.02) 0%,
+    rgba(255, 102, 99, 0.01) 40%,
+    rgba(30, 30, 30, 0.4) 100%
+  );
+}
+
+/* Modal Content - Architectural Glass */
+.modal-glass-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9) translateZ(-100px);
+  width: min(90vw, 1200px);
+  max-height: 85vh;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 251, 247, 0.08) 0%,
+    rgba(255, 251, 247, 0.03) 50%,
+    rgba(30, 30, 30, 0.05) 100%
+  );
+  border: 1px solid rgba(255, 251, 247, 0.1);
+  border-radius: 24px;
+  box-shadow: 
+    inset 0 0 60px rgba(255, 251, 247, 0.05),
+    0 30px 60px -20px rgba(0, 0, 0, 0.5),
+    0 50px 100px -30px rgba(255, 102, 99, 0.1);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  filter: blur(20px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.modal-glass-content.active {
+  transform: translate(-50%, -50%) scale(1) translateZ(0);
+  opacity: 1;
+  visibility: visible;
+  filter: blur(0);
+}
+
+/* Glass Shimmer Layer */
+.modal-glass-content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 251, 247, 0.1) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%) translateY(100%);
+  transition: transform 3s cubic-bezier(0.23, 1, 0.32, 1);
+  pointer-events: none;
+  border-radius: 24px;
+}
+
+.modal-glass-content.active::before {
+  animation: glass-shimmer 8s ease-in-out infinite;
+}
+
+@keyframes glass-shimmer {
+  0%, 100% { 
+    transform: translateX(-100%) translateY(100%); 
+  }
+  50% { 
+    transform: translateX(100%) translateY(-100%); 
+  }
+}
+
+/* Modal Inner Content Styling */
+.modal-glass-inner {
+  padding: 3rem;
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 102, 99, 0.3) transparent;
+}
+
+.modal-glass-inner::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-glass-inner::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-glass-inner::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 102, 99, 0.3),
+    rgba(255, 102, 99, 0.1)
+  );
+  border-radius: 4px;
+}
+
+/* Close Button - Minimal Luxury */
+.modal-glass-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 251, 247, 0.05);
+  border: 1px solid rgba(255, 251, 247, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 10;
+}
+
+.modal-glass-close:hover {
+  background: rgba(255, 102, 99, 0.1);
+  border-color: rgba(255, 102, 99, 0.3);
+  transform: scale(1.1) rotate(90deg);
+}
+
+/* Services Grid within Modal */
+.modal-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.modal-service-card {
+  padding: 2rem;
+  background: rgba(255, 251, 247, 0.03);
+  border: 1px solid rgba(255, 251, 247, 0.05);
+  border-radius: 16px;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.modal-service-card:hover {
+  background: rgba(255, 251, 247, 0.06);
+  border-color: rgba(255, 102, 99, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 
+    0 20px 40px -10px rgba(255, 102, 99, 0.2),
+    0 10px 20px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================== */
+/* 2. CHROMATIC INTELLIGENCE SYSTEM          */
+/* ========================================== */
+
+/* Living Color Variables */
+:root {
+  /* Time-based factors (updated via JavaScript) */
+  --time-factor: 0.5; /* 0 = dawn, 0.5 = noon, 1 = dusk */
+  --season-factor: 0.25; /* 0 = winter, 0.5 = summer */
+  
+  /* Dynamic Grapefruit Intelligence */
+  --grapefruit-hue: calc(1deg + 5deg * var(--time-factor));
+  --grapefruit-saturation: calc(100% - 10% * var(--time-factor));
+  --grapefruit-lightness: calc(69% + 3% * var(--time-factor));
+  --grapefruit-intelligence-live: hsl(
+    var(--grapefruit-hue),
+    var(--grapefruit-saturation),
+    var(--grapefruit-lightness)
+  );
+  
+  /* Dynamic Vanilla Foundation */
+  --vanilla-hue: 36deg;
+  --vanilla-saturation: calc(100% - 20% * var(--time-factor));
+  --vanilla-lightness: calc(97% + 2% * var(--time-factor));
+  --vanilla-foundation-live: hsl(
+    var(--vanilla-hue),
+    var(--vanilla-saturation),
+    var(--vanilla-lightness)
+  );
+  
+  /* Color Temperature Overlays */
+  --color-temperature: linear-gradient(
+    180deg,
+    transparent 0%,
+    hsla(
+      calc(30deg - 30deg * var(--time-factor)), /* Warmer at dawn/dusk */
+      20%,
+      50%,
+      calc(0.02 + 0.02 * var(--time-factor))
+    ) 100%
+  );
+}
+
+/* Chromatic Breathing Animation */
+.chromatic-intelligence {
+  position: relative;
+  isolation: isolate;
+}
+
+.chromatic-intelligence::before {
+  content: '';
+  position: absolute;
+  inset: -40px;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    hsla(var(--grapefruit-hue), 100%, 69%, 0.1) 0%,
+    hsla(var(--grapefruit-hue), 100%, 69%, 0.05) 20%,
+    transparent 60%
+  );
+  filter: blur(40px);
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.chromatic-intelligence:hover::before {
+  opacity: 1;
+  animation: chromatic-pulse 3s ease-in-out infinite;
+}
+
+@keyframes chromatic-pulse {
+  0%, 100% { 
+    transform: scale(1);
+    filter: blur(40px) hue-rotate(0deg);
+  }
+  50% { 
+    transform: scale(1.1);
+    filter: blur(60px) hue-rotate(10deg);
+  }
+}
+
+/* Ambient Color Field */
+.section-chromatic-field {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+.section-chromatic-field::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200vw;
+  height: 200vh;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    ellipse at center,
+    transparent 30%,
+    hsla(var(--grapefruit-hue), 100%, 69%, 0.02) 50%,
+    hsla(var(--vanilla-hue), 100%, 97%, 0.03) 70%,
+    transparent 90%
+  );
+  animation: ambient-rotation 30s linear infinite;
+}
+
+@keyframes ambient-rotation {
+  0% { 
+    transform: translate(-50%, -50%) rotate(0deg); 
+  }
+  100% { 
+    transform: translate(-50%, -50%) rotate(360deg); 
+  }
+}
+
+/* Time-based Background Shifts */
+.time-aware-bg {
+  background: linear-gradient(
+    180deg,
+    var(--vanilla-foundation-live) 0%,
+    rgba(255, 251, 247, 0.95) 50%,
+    var(--vanilla-foundation-live) 100%
+  );
+  position: relative;
+}
+
+.time-aware-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-temperature);
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+}
+
+/* ========================================== */
+/* 3. QUANTUM MICRO-INTERACTIONS             */
+/* ========================================== */
+
+/* Magnetic Button System */
+.quantum-button {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: none; /* Custom cursor will handle this */
+}
+
+/* Magnetic Field Visualization */
+.quantum-button::before {
+  content: '';
+  position: absolute;
+  inset: -100px;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 102, 99, 0.4) 0%,
+    rgba(255, 102, 99, 0.2) 10%,
+    rgba(255, 102, 99, 0.1) 20%,
+    transparent 30%
+  );
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  pointer-events: none;
+  z-index: -1;
+  mix-blend-mode: screen;
+  filter: blur(20px);
+}
+
+.quantum-button:hover::before {
+  opacity: 0.5;
+  animation: magnetic-field-pulse 2s ease-in-out infinite;
+}
+
+@keyframes magnetic-field-pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: blur(20px);
+  }
+  50% {
+    transform: scale(1.2);
+    filter: blur(30px);
+  }
+}
+
+/* Magnetic Pull Effect (applied via JS) */
+.quantum-button[data-magnetic-active="true"] {
+  transform: translate(
+    calc(var(--magnetic-x) * 0.15),
+    calc(var(--magnetic-y) * 0.15)
+  );
+}
+
+/* Quantum Ripple Effect */
+.quantum-ripple-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.quantum-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 251, 247, 0.8) 0%,
+    rgba(255, 102, 99, 0.4) 50%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+}
+
+.quantum-ripple.active {
+  animation: quantum-expand 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes quantum-expand {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(-50%, -50%) scale(1.618);
+    opacity: 0.8;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(2.618);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(4.236); /* φ³ */
+    opacity: 0;
+  }
+}
+
+/* Advanced Cursor System */
+.quantum-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--grapefruit-intelligence-live);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10000;
+  transition: all 0.15s cubic-bezier(0.23, 1, 0.32, 1);
+  mix-blend-mode: difference;
+}
+
+.quantum-cursor.hovering {
+  width: 40px;
+  height: 40px;
+  border-width: 1px;
+  background: rgba(255, 102, 99, 0.1);
+}
+
+.quantum-cursor.clicking {
+  transform: translate(-50%, -50%) scale(0.8);
+  background: rgba(255, 102, 99, 0.3);
+}
+
+/* Cursor Trail System */
+.cursor-trail {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    var(--grapefruit-intelligence-live) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.cursor-trail.fading {
+  animation: trail-fade 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes trail-fade {
+  0% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 0.5;
+    filter: blur(0);
+  }
+  100% {
+    transform: scale(0.1) translate(-50%, -50%);
+    opacity: 0;
+    filter: blur(10px);
+  }
+}
+
+/* Interaction Particles */
+.interaction-particle {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: var(--grapefruit-intelligence-live);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+.interaction-particle.floating {
+  animation: particle-float 2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(
+      calc(var(--random-x, 0) * 100px),
+      calc(var(--random-y, 0) * -100px)
+    ) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Hover Glow for Interactive Elements */
+.quantum-hover-glow {
+  position: relative;
+  isolation: isolate;
+}
+
+.quantum-hover-glow::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    45deg,
+    var(--grapefruit-intelligence-live),
+    var(--vanilla-foundation-live),
+    var(--grapefruit-intelligence-live)
+  );
+  border-radius: inherit;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  filter: blur(10px);
+}
+
+.quantum-hover-glow:hover::after {
+  opacity: 0.3;
+  animation: glow-rotate 3s linear infinite;
+}
+
+@keyframes glow-rotate {
+  0% {
+    filter: blur(10px) hue-rotate(0deg);
+  }
+  100% {
+    filter: blur(10px) hue-rotate(360deg);
+  }
+}
+
+/* ========================================== */
+/* RESPONSIVE OPTIMIZATIONS                  */
+/* ========================================== */
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  /* Simplify glass effects on mobile */
+  .modal-glass-backdrop.active {
+    backdrop-filter: blur(20px) saturate(1.4);
+  }
+  
+  .modal-glass-content {
+    border-radius: 16px;
+    width: 95vw;
+    max-height: 90vh;
+  }
+  
+  /* Reduce particle effects on mobile */
+  .cursor-trail,
+  .interaction-particle {
+    display: none;
+  }
+  
+  /* Simplify magnetic effects */
+  .quantum-button[data-magnetic-active="true"] {
+    transform: none;
+  }
+  
+  /* Optimize chromatic effects */
+  .chromatic-intelligence::before {
+    display: none;
+  }
+}
+
+/* Tablet Optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .modal-glass-content {
+    width: min(85vw, 900px);
+  }
+  
+  .cursor-trail {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .quantum-button[data-magnetic-active="true"] {
+    transform: translate(
+      calc(var(--magnetic-x) * 0.1),
+      calc(var(--magnetic-y) * 0.1)
+    );
+  }
+}
+
+/* High-Performance Mode */
+@media (prefers-reduced-motion: reduce) {
+  .modal-glass-content::before,
+  .chromatic-intelligence::before,
+  .quantum-button::before,
+  .quantum-hover-glow::after {
+    animation: none !important;
+  }
+  
+  .quantum-ripple,
+  .cursor-trail,
+  .interaction-particle {
+    display: none !important;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================== */
+/* ACCESSIBILITY ENHANCEMENTS                */
+/* ========================================== */
+
+/* Focus States for Quantum Elements */
+.quantum-button:focus-visible,
+.modal-glass-close:focus-visible {
+  outline: 3px solid var(--grapefruit-intelligence-live);
+  outline-offset: 4px;
+  box-shadow: 
+    0 0 0 6px rgba(255, 102, 99, 0.1),
+    0 4px 12px rgba(255, 102, 99, 0.15);
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
