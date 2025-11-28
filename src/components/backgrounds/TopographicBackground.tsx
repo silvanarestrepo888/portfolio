@@ -31,9 +31,75 @@ export function TopographicBackground() {
   useEffect(() => {
     // TEMPORARILY FORCE ALL SECTIONS TO BE VISIBLE IMMEDIATELY
     const sections = document.querySelectorAll('.topographic-luxury');
-    sections.forEach(section => {
-      section.classList.add('in-view');
+    console.log('🔍 DEBUG: Found topographic sections:', sections.length);
+    
+    sections.forEach((section, index) => {
+      const htmlSection = section as HTMLElement;
+      htmlSection.classList.add('in-view');
+      htmlSection.classList.add('debug-mode'); // Add debug class
+      htmlSection.classList.add('test-pattern'); // Add test pattern class
+      htmlSection.classList.add('topographic-test-override'); // Add override class
+      
+      // Comprehensive debug logging
+      const styles = window.getComputedStyle(htmlSection);
+      const afterStyles = window.getComputedStyle(htmlSection, '::after');
+      const beforeStyles = window.getComputedStyle(htmlSection, '::before');
+      
+      console.log(`📍 Section ${index + 1} Debug Info:`, {
+        element: htmlSection,
+        id: htmlSection.id,
+        classList: htmlSection.classList.toString(),
+        dataset: htmlSection.dataset,
+        position: styles.position,
+        background: styles.background,
+        border: styles.border,
+        zIndex: styles.zIndex,
+        '::after': {
+          content: afterStyles.content,
+          display: afterStyles.display,
+          opacity: afterStyles.opacity,
+          zIndex: afterStyles.zIndex,
+          position: afterStyles.position,
+          background: afterStyles.background?.substring(0, 100) + '...'
+        },
+        '::before': {
+          content: beforeStyles.content,
+          display: beforeStyles.display,
+          opacity: beforeStyles.opacity,
+          background: beforeStyles.background?.substring(0, 100) + '...'
+        }
+      });
     });
+    
+    // Check if CSS files are loaded
+    const styleSheets = Array.from(document.styleSheets);
+    console.log('📄 Total stylesheets loaded:', styleSheets.length);
+    
+    // Look for topographic CSS
+    let topographicFound = false;
+    styleSheets.forEach(sheet => {
+      try {
+        if (sheet.href?.includes('topographic') || sheet.href?.includes('_next')) {
+          console.log('📋 Stylesheet:', sheet.href);
+        }
+        const rules = Array.from(sheet.cssRules || []);
+        const topographicRules = rules.filter((rule) => {
+          const cssRule = rule as CSSStyleRule;
+          return cssRule.selectorText?.includes('topographic');
+        });
+        if (topographicRules.length > 0) {
+          topographicFound = true;
+          console.log('✅ Found topographic rules:', topographicRules.length);
+        }
+      } catch {
+        // Cross-origin stylesheets will throw - this is expected
+      }
+    });
+    
+    if (!topographicFound) {
+      console.log('⚠️ WARNING: No topographic CSS rules found!');
+      console.log('This means the CSS file is not loading properly.');
+    }
     
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

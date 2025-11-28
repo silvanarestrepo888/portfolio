@@ -18,12 +18,15 @@
 /* BASE TOPOGRAPHIC SYSTEM                  */
 /* ========================================== */
 
-/* Foundation Layer - Pure Vanilla */
+/* Foundation Layer - Pure Vanilla - WITH DEBUG */
 .topographic-luxury {
   position: relative;
   background: #FFFBF7;
   overflow: hidden;
   isolation: isolate;
+  /* DEBUG: Red border to verify class is applied */
+  border: 10px solid red !important;
+  box-shadow: inset 0 0 50px rgba(255, 0, 0, 0.3) !important;
 }
 
 /* Enhanced Paper Texture for Visibility */
@@ -45,20 +48,21 @@
   z-index: 1;
 }
 
-/* Topographic Pattern Layer - CSS Gradients for Reliability */
+/* DEBUG: SUPER OBVIOUS TEST PATTERN */
 .topographic-luxury::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-repeat: repeat;
-  background-size: 50px 50px;
-  background-position: center;
-  opacity: var(--topographic-opacity) !important; /* Force visible */
-  pointer-events: none;
-  z-index: 2;
-  will-change: transform;
-  transform: translateZ(0);
-  mix-blend-mode: multiply;
+  content: 'BACKGROUND PATTERN ACTIVE' !important;
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  font-size: 60px !important;
+  font-weight: bold !important;
+  color: red !important;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
+  z-index: 99999 !important;
+  pointer-events: none !important;
+  opacity: 1 !important;
+  display: block !important;
 }
 
 /* Force Visibility - No fade-in for testing */
@@ -69,6 +73,31 @@
 /* Ensure all sections are visible immediately */
 .topographic-luxury::after {
   opacity: var(--topographic-opacity) !important;
+}
+
+/* DEBUG: Rainbow gradient to ensure visibility */
+.topographic-luxury.debug-mode::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 0, 0, 0.3) 0%,
+    rgba(255, 154, 0, 0.3) 10%,
+    rgba(208, 222, 33, 0.3) 20%,
+    rgba(79, 220, 74, 0.3) 30%,
+    rgba(63, 218, 216, 0.3) 40%,
+    rgba(47, 201, 226, 0.3) 50%,
+    rgba(28, 127, 238, 0.3) 60%,
+    rgba(95, 21, 242, 0.3) 70%,
+    rgba(186, 12, 248, 0.3) 80%,
+    rgba(251, 7, 217, 0.3) 90%,
+    rgba(255, 0, 0, 0.3) 100%
+  ) !important;
+  z-index: 9998 !important;
+  pointer-events: none !important;
+  mix-blend-mode: normal !important;
+  display: block !important;
 }
 
 /* ========================================== */
