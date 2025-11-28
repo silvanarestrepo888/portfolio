@@ -6,12 +6,7 @@ import React, { useEffect, useRef, useState, useCallback } from 'react';
 // TOPOGRAPHIC BACKGROUND SYSTEM
 // ============================================
 
-interface TopographicBackgroundProps {
-  className?: string;
-}
-
-export function TopographicBackground({ className = '' }: TopographicBackgroundProps) {
-  const [scrollY, setScrollY] = useState(0);
+export function TopographicBackground() {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const rafRef = useRef<number | null>(null);
 
@@ -27,8 +22,6 @@ export function TopographicBackground({ className = '' }: TopographicBackgroundP
       const scrollPercentage = scrollPosition / maxScroll;
       
       // Apply micro-parallax (5% maximum movement)
-      setScrollY(scrollPercentage);
-      
       // Update CSS variable for parallax elements
       document.documentElement.style.setProperty('--scroll-y', scrollPercentage.toString());
     });
@@ -155,7 +148,7 @@ export function TopographicSection({
 // UTILITY FUNCTIONS
 // ============================================
 
-function debounce<T extends (...args: any[]) => any>(
+function debounce<T extends (...args: unknown[]) => unknown>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {

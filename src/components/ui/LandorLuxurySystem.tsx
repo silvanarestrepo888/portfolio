@@ -191,10 +191,12 @@ export function QuantumButton({
     createParticles(e.clientX, e.clientY);
   }, []);
 
+  const variantClass = `quantum-button-${variant}`;
+  
   return (
     <button
       ref={buttonRef}
-      className={`quantum-button quantum-hover-glow ${className}`}
+      className={`quantum-button quantum-hover-glow ${variantClass} ${className}`}
       data-magnetic-active={magneticActive}
       style={{
         '--magnetic-x': `${magneticX}px`,
@@ -230,7 +232,6 @@ export function QuantumButton({
 
 export function QuantumCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const trailsRef = useRef<HTMLDivElement[]>([]);
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
 
