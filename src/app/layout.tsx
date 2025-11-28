@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Playfair_Display, Open_Sans, Great_Vibes, Inter, JetBrains_Mono, Crimson_Pro, Work_Sans, DM_Sans } from "next/font/google";
 import "./globals.css";
 import "./layout-fix.css";
+import { TopographicBackground } from "@/components/backgrounds/TopographicBackground";
+import { ChromaticIntelligence, QuantumCursor } from "@/components/ui/LandorLuxurySystem";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -155,6 +157,9 @@ export default function RootLayout({
           MozOsxFontSmoothing: 'grayscale'
         } as React.CSSProperties}
       >
+        <TopographicBackground />
+        <ChromaticIntelligence />
+        <QuantumCursor />
         {children}
       </body>
     </html>

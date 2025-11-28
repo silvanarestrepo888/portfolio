@@ -1,0 +1,296 @@
+/* ========================================== */
+/* TOPOGRAPHIC LUXURY SYSTEM                 */
+/* Quiet Sophistication Through Texture      */
+/* ========================================== */
+
+/* ========================================== */
+/* ROOT VARIABLES                           */
+/* ========================================== */
+:root {
+  --topographic-opacity: 0.03;
+  --topographic-color: rgba(255, 102, 99, var(--topographic-opacity));
+  --topographic-blur: 0px;
+  --topographic-scale: 1;
+  --topographic-parallax: 0.05; /* 5% maximum parallax */
+}
+
+/* ========================================== */
+/* BASE TOPOGRAPHIC SYSTEM                  */
+/* ========================================== */
+
+/* Foundation Layer - Pure Vanilla */
+.topographic-luxury {
+  position: relative;
+  background: #FFFBF7;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Subtle Paper Texture */
+.topographic-luxury::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Topographic Pattern Layer */
+.topographic-luxury::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 2;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Reveal on View */
+.topographic-luxury.in-view::after {
+  opacity: var(--topographic-opacity);
+}
+
+/* ========================================== */
+/* SECTION-SPECIFIC PATTERNS                */
+/* ========================================== */
+
+/* Hero Section - The Peak */
+[data-topographic="hero"] {
+  --topographic-opacity: 0.04;
+}
+
+[data-topographic="hero"]::after {
+  background-image: url("data:image/svg+xml,%3Csvg width='1440' height='900' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='blur'%3E%3CfeGaussianBlur stdDeviation='0.5'/%3E%3C/filter%3E%3C/defs%3E%3Cg stroke='%23FF6663' stroke-width='0.5' fill='none' opacity='0.8' filter='url(%23blur)'%3E%3Cpath d='M0,100 Q720,50 1440,100'/%3E%3Cpath d='M0,200 Q720,120 1440,200'/%3E%3Cpath d='M0,300 Q720,200 1440,300'/%3E%3Cpath d='M100,400 Q720,320 1340,400'/%3E%3Cpath d='M200,500 Q720,400 1240,500'/%3E%3Cpath d='M300,600 Q720,480 1140,600'/%3E%3Cpath d='M400,700 Q720,560 1040,700'/%3E%3Cpath d='M500,800 Q720,640 940,800'/%3E%3C/g%3E%3C/svg%3E");
+  background-position: center 20%;
+  transform: scale(1.1);
+}
+
+/* About Section - The Journey */
+[data-topographic="about"] {
+  --topographic-opacity: 0.025;
+}
+
+[data-topographic="about"]::after {
+  background-image: url("data:image/svg+xml,%3Csvg width='1440' height='900' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%23FF6663' stroke-width='0.4' fill='none' opacity='0.9'%3E%3Cpath d='M0,150 Q360,130 720,150 T1440,150'/%3E%3Cpath d='M0,250 Q360,230 720,250 T1440,250'/%3E%3Cpath d='M0,350 Q360,330 720,350 T1440,350'/%3E%3Cpath d='M0,450 Q360,430 720,450 T1440,450'/%3E%3Cpath d='M0,550 Q360,530 720,550 T1440,550'/%3E%3Cpath d='M0,650 Q360,630 720,650 T1440,650'/%3E%3Cpath d='M0,750 Q360,730 720,750 T1440,750'/%3E%3C/g%3E%3C/svg%3E");
+  background-position: 0% center;
+  animation: subtle-drift 60s linear infinite;
+}
+
+@keyframes subtle-drift {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(10px); }
+}
+
+/* Projects Section - The Terrain */
+[data-topographic="projects"] {
+  --topographic-opacity: 0.035;
+}
+
+[data-topographic="projects"]::after {
+  background-image: url("data:image/svg+xml,%3Csvg width='1440' height='900' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%23FF6663' stroke-width='0.5' fill='none' opacity='0.7'%3E%3Cpath d='M0,100 Q180,80 360,100 T720,100 Q900,80 1080,100 T1440,100'/%3E%3Cpath d='M0,200 Q180,220 360,200 T720,200 Q900,180 1080,200 T1440,200'/%3E%3Cpath d='M0,300 Q180,280 360,300 T720,300 Q900,320 1080,300 T1440,300'/%3E%3Cpath d='M0,400 Q180,420 360,400 T720,400 Q900,380 1080,400 T1440,400'/%3E%3Cpath d='M0,500 Q180,480 360,500 T720,500 Q900,520 1080,500 T1440,500'/%3E%3Cpath d='M0,600 Q180,620 360,600 T720,600 Q900,580 1080,600 T1440,600'/%3E%3Cpath d='M0,700 Q180,680 360,700 T720,700 Q900,720 1080,700 T1440,700'/%3E%3Cpath d='M0,800 Q180,820 360,800 T720,800 Q900,780 1080,800 T1440,800'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Experience Section - The Timeline */
+[data-topographic="experience"] {
+  --topographic-opacity: 0.02;
+}
+
+[data-topographic="experience"]::after {
+  background-image: url("data:image/svg+xml,%3Csvg width='1440' height='900' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%23FF6663' stroke-width='0.4' fill='none' opacity='1'%3E%3Cpath d='M200,0 Q220,450 200,900'/%3E%3Cpath d='M400,0 Q380,450 400,900'/%3E%3Cpath d='M600,0 Q620,450 600,900'/%3E%3Cpath d='M800,0 Q780,450 800,900'/%3E%3Cpath d='M1000,0 Q1020,450 1000,900'/%3E%3Cpath d='M1200,0 Q1180,450 1200,900'/%3E%3C/g%3E%3C/svg%3E");
+  transform: scaleY(1.2);
+}
+
+/* Services Section - The Depth */
+[data-topographic="services"] {
+  --topographic-opacity: 0.03;
+}
+
+[data-topographic="services"]::after {
+  background-image: url("data:image/svg+xml,%3Csvg width='1440' height='900' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='blur-soft'%3E%3CfeGaussianBlur stdDeviation='1'/%3E%3C/filter%3E%3C/defs%3E%3Cg stroke='%23FF6663' stroke-width='0.3' fill='none' opacity='1'%3E%3Cellipse cx='720' cy='450' rx='200' ry='100' /%3E%3Cellipse cx='720' cy='450' rx='300' ry='150' /%3E%3Cellipse cx='720' cy='450' rx='400' ry='200' /%3E%3Cellipse cx='720' cy='450' rx='500' ry='250' /%3E%3Cellipse cx='720' cy='450' rx='600' ry='300' /%3E%3Cellipse cx='720' cy='450' rx='700' ry='350' filter='url(%23blur-soft)' /%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ========================================== */
+/* ACCENT LAYER                             */
+/* ========================================== */
+
+/* Single Radial Accent */
+.topographic-accent {
+  position: absolute;
+  top: 30%;
+  right: -5%;
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 102, 99, 0.02) 0%,
+    rgba(255, 102, 99, 0.01) 30%,
+    transparent 60%
+  );
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.topographic-luxury.in-view .topographic-accent {
+  opacity: 1;
+}
+
+/* ========================================== */
+/* MICRO-PARALLAX SYSTEM                    */
+/* ========================================== */
+
+.topographic-parallax {
+  transform: translateY(0);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform;
+}
+
+/* Applied via JavaScript based on scroll */
+.topographic-parallax[data-parallax] {
+  transform: translateY(calc(var(--scroll-y, 0) * var(--topographic-parallax)));
+}
+
+/* ========================================== */
+/* RESPONSIVE ADJUSTMENTS                   */
+/* ========================================== */
+
+/* Mobile - Simplified or Hidden */
+@media (max-width: 768px) {
+  :root {
+    --topographic-opacity: 0.02; /* Even more subtle on mobile */
+  }
+  
+  .topographic-luxury::after {
+    background-size: 200% 200%; /* Larger scale for mobile */
+  }
+  
+  [data-topographic="about"]::after {
+    animation: none; /* No drift on mobile */
+  }
+  
+  .topographic-accent {
+    display: none; /* Remove accent on mobile for performance */
+  }
+  
+  .topographic-parallax[data-parallax] {
+    transform: none; /* No parallax on mobile */
+  }
+}
+
+/* Tablet - Reduced Complexity */
+@media (min-width: 769px) and (max-width: 1024px) {
+  :root {
+    --topographic-opacity: 0.025;
+  }
+  
+  .topographic-luxury::after {
+    background-size: 150% 150%;
+  }
+  
+  .topographic-accent {
+    width: 30vw;
+    height: 30vw;
+    filter: blur(60px);
+  }
+}
+
+/* Desktop - Full Experience */
+@media (min-width: 1025px) {
+  .topographic-luxury::after {
+    background-attachment: fixed; /* Subtle fixed attachment on desktop */
+  }
+}
+
+/* Ultra-wide - Extended Patterns */
+@media (min-width: 1600px) {
+  .topographic-luxury::after {
+    background-size: 80% 80%;
+  }
+  
+  .topographic-accent {
+    width: 30vw;
+    height: 30vw;
+  }
+}
+
+/* ========================================== */
+/* ACCESSIBILITY                            */
+/* ========================================== */
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .topographic-luxury::after {
+    transition: none !important;
+    opacity: var(--topographic-opacity) !important;
+  }
+  
+  [data-topographic="about"]::after {
+    animation: none !important;
+  }
+  
+  .topographic-parallax[data-parallax] {
+    transform: none !important;
+  }
+  
+  .topographic-accent {
+    transition: none !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .topographic-luxury::before,
+  .topographic-luxury::after,
+  .topographic-accent {
+    display: none !important;
+  }
+}
+
+/* Print Mode */
+@media print {
+  .topographic-luxury {
+    background: white !important;
+  }
+  
+  .topographic-luxury::before,
+  .topographic-luxury::after,
+  .topographic-accent {
+    display: none !important;
+  }
+}
+
+/* ========================================== */
+/* LOADING STATES                           */
+/* ========================================== */
+
+.topographic-loading {
+  position: relative;
+}
+
+.topographic-loading::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 102, 99, 0.02) 50%,
+    transparent 100%
+  );
+  animation: topographic-shimmer 2s ease-in-out infinite;
+}
+
+@keyframes topographic-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}

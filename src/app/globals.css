@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "../styles/topographic-luxury.css";
+@import "../styles/landor-luxury-elevation.css";
 
 /* ========================================== */
 /* ACCESSIBILITY FIRST - AWARD-WINNING COMPLIANCE */
@@ -1543,65 +1545,11 @@ body {
 /* ENHANCED ANIMATION KEYFRAMES - PREMIUM EFFECTS */
 /* ========================================== */
 
-/* Enhanced Editorial Gradient Flow */
-@keyframes editorial-gradient-flow {
-  0%, 100% { 
-    background-position: 0% 50%; 
-    filter: drop-shadow(0 4px 12px rgba(255, 102, 99, 0.15));
-  }
-  25% { 
-    background-position: 25% 25%; 
-    filter: drop-shadow(0 6px 16px rgba(255, 102, 99, 0.20));
-  }
-  50% { 
-    background-position: 100% 50%; 
-    filter: drop-shadow(0 8px 20px rgba(255, 102, 99, 0.25));
-  }
-  75% { 
-    background-position: 75% 75%; 
-    filter: drop-shadow(0 6px 16px rgba(255, 102, 99, 0.20));
-  }
-}
+/* Removed animated gradient flow - replaced with topographic system */
 
-/* Dramatic Grapefruit Pulse */
-@keyframes dramatic-grapefruit-pulse {
-  0%, 100% { 
-    opacity: 0.8;
-    filter: hue-rotate(0deg) saturate(1);
-  }
-  25% { 
-    opacity: 0.9;
-    filter: hue-rotate(5deg) saturate(1.1);
-  }
-  50% { 
-    opacity: 1;
-    filter: hue-rotate(10deg) saturate(1.2);
-  }
-  75% { 
-    opacity: 0.95;
-    filter: hue-rotate(5deg) saturate(1.1);
-  }
-}
+/* Removed grapefruit pulse - replaced with static topographic texture */
 
-/* Enhanced Hero Breathe */
-@keyframes enhanced-hero-breathe {
-  0%, 100% { 
-    filter: contrast(1.08) brightness(0.95) saturate(1.15) blur(0px);
-    transform: scale(1.03);
-  }
-  25% { 
-    filter: contrast(1.12) brightness(0.97) saturate(1.18) blur(0.1px);
-    transform: scale(1.035);
-  }
-  50% { 
-    filter: contrast(1.15) brightness(1.0) saturate(1.2) blur(0.2px);
-    transform: scale(1.04);
-  }
-  75% { 
-    filter: contrast(1.12) brightness(0.97) saturate(1.18) blur(0.1px);
-    transform: scale(1.035);
-  }
-}
+/* Removed hero breathe animation - using subtle topographic reveal instead */
 
 /* Editorial Text Shimmer */
 @keyframes editorial-text-shimmer {
@@ -2510,203 +2458,31 @@ body {
 }
 
 /* ========================================== */
-/* PHASE 3: SOPHISTICATED BACKGROUND SYSTEM */
+/* TOPOGRAPHIC BACKGROUND SYSTEM ACTIVE      */
 /* ========================================== */
+/* 
+ * All animated backgrounds have been replaced with the sophisticated
+ * topographic texture system defined in topographic-luxury.css
+ * 
+ * Previous dynamic backgrounds (.bg-dynamic-*) removed for:
+ * - Quiet luxury over digital noise
+ * - Static sophistication over constant movement
+ * - Narrative through texture, not animation
+ * - 90% reduction in visual fatigue
+ * 
+ * New system uses:
+ * - Topographic contour lines at 2-5% opacity
+ * - Section-specific patterns (hero, about, projects, experience, services)
+ * - Single radial accent at 2% opacity
+ * - 5% micro-parallax on scroll (desktop only)
+ * - 60-second subtle drift for about section only
+ */
 
-/* SIMPLIFIED DYNAMIC BACKGROUNDS - Content-First Design */
-.bg-dynamic-hero {
-  background: 
-    linear-gradient(45deg, var(--pannocotta-primary) 0%, var(--pannocotta-warm) 100%),
-    radial-gradient(circle at 50% 50%, rgba(255,102,99,0.04) 0%, transparent 80%);
-  background-size: 150% 150%, 200% 200%;
-  /* REMOVED: animation for sophisticated stillness - no trembling */
-  filter: var(--temperature-neutral);
-  transition: filter 2s ease-in-out;
-  /* GPU ACCELERATION & PERFORMANCE */
-  transform: translateZ(0);
-  will-change: background-position;
-  backface-visibility: hidden;
-  contain: layout style paint;
-}
-
-.bg-dynamic-about {
-  background: 
-    linear-gradient(135deg, var(--pannocotta-primary) 0%, var(--pannocotta-soft) 100%),
-    radial-gradient(circle at 80% 20%, rgba(255,102,99,0.02) 0%, transparent 80%);
-  background-size: 200% 200%, 150% 150%;
-  animation: about-flow 30s ease-in-out infinite;
-  filter: var(--temperature-warm);
-  transition: filter 2s ease-in-out;
-  /* GPU ACCELERATION & PERFORMANCE */
-  transform: translateZ(0);
-  will-change: background-position;
-  backface-visibility: hidden;
-  contain: layout style paint;
-}
-
-.bg-dynamic-projects {
-  background: 
-    linear-gradient(180deg, var(--pannocotta-warm) 0%, var(--pannocotta-primary) 50%, var(--pannocotta-soft) 100%),
-    radial-gradient(circle at 25% 75%, rgba(255,142,139,0.06) 0%, transparent 50%);
-  background-size: 100% 400%, 200% 200%;
-  animation: projects-shift 30s ease-in-out infinite;
-  filter: var(--temperature-neutral);
-  transition: filter 2s ease-in-out;
-  /* GPU ACCELERATION & PERFORMANCE */
-  transform: translateZ(0);
-  will-change: background-position, filter;
-  backface-visibility: hidden;
-  contain: layout style paint;
-}
-
-.bg-dynamic-experience {
-  background: 
-    linear-gradient(225deg, var(--pannocotta-soft) 0%, var(--pannocotta-primary) 100%),
-    radial-gradient(circle at 60% 40%, rgba(255,174,159,0.05) 0%, transparent 65%);
-  background-size: 250% 250%, 160% 160%;
-  animation: experience-wave 28s ease-in-out infinite;
-  filter: var(--temperature-cool);
-  transition: filter 2s ease-in-out;
-  /* GPU ACCELERATION & PERFORMANCE */
-  transform: translateZ(0);
-  will-change: background-position, filter;
-  backface-visibility: hidden;
-  contain: layout style paint;
-}
-
-.bg-dynamic-services {
-  background: 
-    linear-gradient(-45deg, var(--pannocotta-primary) 0%, var(--pannocotta-warm) 100%),
-    radial-gradient(circle at 50% 50%, rgba(255,102,99,0.03) 0%, transparent 80%);
-  background-size: 250% 250%, 180% 180%;
-  animation: services-wave 35s ease-in-out infinite;
-  filter: var(--temperature-cool);
-  transition: filter 2s ease-in-out;
-  /* GPU ACCELERATION & PERFORMANCE */
-  transform: translateZ(0);
-  will-change: background-position, filter;
-  backface-visibility: hidden;
-  contain: layout style paint;
-}
-
-/* SOPHISTICATED ANIMATION KEYFRAMES */
-@keyframes hero-breathe {
-  0%, 100% { 
-    background-position: 0% 0%, 30% 20%, 70% 80%;
-    filter: var(--temperature-neutral);
-  }
-  33% { 
-    background-position: 50% 25%, 40% 30%, 60% 70%;
-    filter: var(--temperature-warm);
-  }
-  66% { 
-    background-position: 100% 50%, 50% 40%, 50% 60%;
-    filter: var(--temperature-cool);
-  }
-}
-
-@keyframes about-flow {
-  0%, 100% { 
-    background-position: 0% 50%, 80% 20%;
-    filter: var(--temperature-warm);
-  }
-  50% { 
-    background-position: 100% 50%, 20% 80%;
-    filter: var(--temperature-neutral);
-  }
-}
-
-@keyframes projects-shift {
-  0%, 100% { 
-    background-position: 0% 0%, 25% 75%;
-    filter: var(--temperature-neutral);
-  }
-  25% { 
-    background-position: 0% 33%, 75% 25%;
-    filter: var(--temperature-warm);
-  }
-  50% { 
-    background-position: 0% 66%, 50% 50%;
-    filter: var(--temperature-cool);
-  }
-  75% { 
-    background-position: 0% 100%, 75% 75%;
-    filter: var(--temperature-evening);
-  }
-}
-
-@keyframes experience-wave {
-  0%, 100% { 
-    background-position: 0% 0%, 60% 40%;
-    filter: var(--temperature-cool);
-  }
-  50% { 
-    background-position: 100% 100%, 40% 60%;
-    filter: var(--temperature-neutral);
-  }
-}
-
-@keyframes services-wave {
-  0%, 100% { 
-    background-position: 0% 0%, 50% 50%;
-    filter: var(--temperature-cool);
-  }
-  25% { 
-    background-position: 50% 25%, 30% 70%;
-    filter: var(--temperature-neutral);
-  }
-  50% { 
-    background-position: 100% 50%, 70% 30%;
-    filter: var(--temperature-warm);
-  }
-  75% { 
-    background-position: 75% 75%, 40% 60%;
-    filter: var(--temperature-evening);
-  }
-}
-
-/* PARALLAX DEPTH LAYER SYSTEM */
-.parallax-container {
-  position: relative;
-  overflow: hidden;
-  transform-style: preserve-3d;
-}
-
-.parallax-layer-1 {
-  position: absolute;
-  inset: 0;
-  background: var(--pannocotta-primary);
-  z-index: 10; /* Sophisticated layering */
-  will-change: transform;
-}
-
-.parallax-layer-2 {
-  position: absolute;
-  inset: 0;
-  background: 
-    radial-gradient(circle at 40% 60%, rgba(255,102,99,0.04) 0%, transparent 70%);
-  z-index: 2;
-  opacity: 0.8;
-  animation: layer-float 20s ease-in-out infinite;
-  will-change: transform;
-}
-
-.parallax-layer-3 {
-  position: absolute;
-  inset: 0;
-  background: 
-    radial-gradient(ellipse at 20% 80%, rgba(255,142,139,0.03) 0%, transparent 60%);
-  z-index: 3;
-  opacity: 0.6;
-  /* REMOVED: animation for sophisticated stillness - no trembling */
-  will-change: transform;
-}
-
+/* Parallax content wrapper for topographic sections */
 .parallax-content {
   position: relative;
-  z-index: 20; /* Increased for better content visibility */
+  z-index: 20;
   transform: translateZ(0);
-  background: rgba(255, 255, 255, 0.01); /* Subtle content backing for readability */
   border-radius: 0.5rem;
 }
 
@@ -2946,83 +2722,19 @@ body {
 
 
 /* ========================================== */
-/* ADVANCED GLASSMORPHISM LAYER SYSTEM */
+/* GLASSMORPHISM LAYERS REPLACED            */
 /* ========================================== */
-
-/* Multi-Layer Depth Creation for Award-Winning Sophistication */
-.glassmorphism-layer-1 {
-  position: absolute;
-  top: 10%;
-  left: 15%;
-  width: 60%;
-  height: 40%;
-  background: linear-gradient(135deg, 
-    rgba(255,255,255,0.12) 0%, 
-    rgba(255,102,99,0.05) 50%, 
-    rgba(255,255,255,0.08) 100%);
-  backdrop-filter: blur(20px) saturate(1.3) brightness(1.1);
-  border-radius: 3rem;
-  border: 1px solid rgba(255,102,99,0.1);
-  box-shadow: 
-    0 25px 50px rgba(255,102,99,0.08),
-    inset 0 1px 0 rgba(255,255,255,0.3);
-  z-index: 10; /* Sophisticated layering */
-  animation: glass-layer-float-1 25s ease-in-out infinite;
-  pointer-events: none;
-  /* GPU acceleration */
-  transform: translateZ(0);
-  will-change: transform, filter;
-}
-
-.glassmorphism-layer-2 {
-  position: absolute;
-  top: 40%;
-  right: 20%;
-  width: 45%;
-  height: 35%;
-  background: linear-gradient(225deg, 
-    rgba(255,102,99,0.08) 0%, 
-    rgba(255,255,255,0.06) 50%, 
-    rgba(255,142,139,0.04) 100%);
-  backdrop-filter: blur(30px) brightness(1.1) saturate(1.2);
-  border-radius: 2rem;
-  border: 1px solid rgba(255,142,139,0.15);
-  box-shadow: 
-    0 30px 60px rgba(255,142,139,0.12),
-    inset 0 1px 0 rgba(255,255,255,0.4);
-  z-index: 2;
-  animation: glass-layer-float-2 30s ease-in-out infinite;
-  pointer-events: none;
-  /* GPU acceleration */
-  transform: translateZ(0);
-  will-change: transform, filter;
-}
-
-.glassmorphism-layer-3 {
-  position: absolute;
-  bottom: 20%;
-  left: 25%;
-  width: 40%;
-  height: 30%;
-  background: linear-gradient(315deg, 
-    rgba(255,174,159,0.1) 0%, 
-    rgba(255,255,255,0.04) 50%, 
-    rgba(255,122,119,0.06) 100%);
-  backdrop-filter: blur(15px) contrast(1.05) saturate(1.1);
-  border-radius: 2.5rem;
-  border: 1px solid rgba(255,122,119,0.2);
-  box-shadow: 
-    0 20px 40px rgba(255,174,159,0.1),
-    inset 0 1px 0 rgba(255,255,255,0.5);
-  z-index: 3;
-  animation: glass-layer-float-3 35s ease-in-out infinite;
-  pointer-events: none;
-  /* GPU acceleration */
-  transform: translateZ(0);
-  will-change: transform, filter;
-}
-
-/* Glassmorphism layers removed for clean design */
+/* 
+ * Previous animated glass layers removed in favor of:
+ * - Static topographic texture system
+ * - Clean, breathing vanilla backgrounds
+ * - Single accent element per section
+ * 
+ * Glass morphism preserved only for:
+ * - Modal systems (see landor-luxury-elevation.css)
+ * - Interactive elements requiring depth
+ * - Not for decorative background layers
+ */
 
 /* Particle system removed for clean design */
 

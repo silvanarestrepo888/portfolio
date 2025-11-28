@@ -30,7 +30,8 @@ export function ExperienceTimeline() {
   return (
     <section 
       id="experience"
-      className="experience-infinite-section luxury-background-texture section-about-sophisticated section-transition-sophisticated"
+      className="experience-infinite-section luxury-background-texture section-about-sophisticated section-transition-sophisticated topographic-luxury"
+      data-topographic="experience"
       style={{
         padding: '6rem 0',
         overflow: 'hidden',

@@ -647,12 +647,13 @@ export default function Home() {
       <main id="main-content">
       <section 
         id="hero" 
-        className="hero-section-luxury section-hero-sophisticated section-transition-sophisticated"
+        className="hero-section-luxury section-hero-sophisticated section-transition-sophisticated topographic-luxury"
+        data-topographic="hero"
         aria-labelledby="hero-title"
         aria-describedby="hero-description"
         role="banner"
       >
-        <div className="hero-bg-unified parallax-container">
+        <div className="hero-bg-unified">
           {/* Artistic Photo Background Layer - Cohesive Integration */}
           <div className="hero-photo-layer-unified">
             <Image 
@@ -739,7 +740,8 @@ export default function Home() {
       {/* ABOUT SECTION - Ultra-Luxury Single-View */}
       <section 
         id="about" 
-        className="about-section-ultra-luxury luxury-background-texture section-about-sophisticated section-transition-sophisticated"
+        className="about-section-ultra-luxury luxury-background-texture section-about-sophisticated section-transition-sophisticated topographic-luxury"
+        data-topographic="about"
         aria-labelledby="about-heading"
         aria-describedby="about-description"
         role="main"
@@ -894,7 +896,8 @@ export default function Home() {
       {/* PROJECTS SECTION - Award-Winning Enhancement */}
       <section 
         id="projects" 
-        className="projects-section-award-winning luxury-background-texture section-projects-sophisticated section-transition-sophisticated"
+        className="projects-section-award-winning luxury-background-texture section-projects-sophisticated section-transition-sophisticated topographic-luxury"
+        data-topographic="projects"
         style={{
           minHeight: '100vh',
           display: 'flex',
@@ -1157,7 +1160,8 @@ export default function Home() {
       {/* PROJECT SNIPPETS SECTION - ADDITIONAL WORK */}
       <section 
         id="project-snippets" 
-        className="snippet-section section-transition-sophisticated"
+        className="snippet-section section-transition-sophisticated topographic-luxury"
+        data-topographic="projects"
         aria-labelledby="snippets-heading"
       >
         <div className="snippet-container" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 max(1rem, 3vw)' }}>
@@ -1201,7 +1205,8 @@ export default function Home() {
       {/* SERVICES SECTION - GRAPEFRUIT BUSINESS CONFIDENCE */}
       <section 
         id="services"
-        className="section-luxury section-services-sophisticated section-transition-sophisticated"
+        className="section-luxury section-services-sophisticated section-transition-sophisticated topographic-luxury"
+        data-topographic="services"
         aria-labelledby="services-heading"
       >
         <div className="container-foundation" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 max(1rem, 3vw)' }}>
