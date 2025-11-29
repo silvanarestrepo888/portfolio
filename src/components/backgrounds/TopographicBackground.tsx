@@ -27,7 +27,7 @@ export function TopographicBackground() {
     });
   }, []);
 
-  // Force immediate visibility for testing
+  // Force immediate visibility and add JavaScript fallback patterns
   useEffect(() => {
     // TEMPORARILY FORCE ALL SECTIONS TO BE VISIBLE IMMEDIATELY
     const sections = document.querySelectorAll('.topographic-luxury');
@@ -39,6 +39,32 @@ export function TopographicBackground() {
       htmlSection.classList.add('debug-mode'); // Add debug class
       htmlSection.classList.add('test-pattern'); // Add test pattern class
       htmlSection.classList.add('topographic-test-override'); // Add override class
+      
+      // JAVASCRIPT DIV INJECTION FALLBACK
+      // Create actual div elements instead of relying on pseudo-elements
+      if (!htmlSection.querySelector('.js-pattern-overlay')) {
+        const patternDiv = document.createElement('div');
+        patternDiv.className = 'js-pattern-overlay';
+        patternDiv.style.cssText = `
+          position: absolute !important;
+          inset: 0 !important;
+          background: repeating-linear-gradient(
+            45deg,
+            rgba(255, 102, 99, 0.15),
+            rgba(255, 102, 99, 0.15) 10px,
+            rgba(255, 102, 99, 0.05) 10px,
+            rgba(255, 102, 99, 0.05) 20px
+          ) !important;
+          pointer-events: none !important;
+          z-index: 2 !important;
+          opacity: 1 !important;
+          display: block !important;
+          mix-blend-mode: multiply !important;
+        `;
+        htmlSection.style.position = 'relative';
+        htmlSection.appendChild(patternDiv);
+        console.log(`✅ Injected pattern div into section ${index + 1}`);
+      }
       
       // Comprehensive debug logging
       const styles = window.getComputedStyle(htmlSection);
@@ -54,6 +80,7 @@ export function TopographicBackground() {
         background: styles.background,
         border: styles.border,
         zIndex: styles.zIndex,
+        hasJsPattern: !!htmlSection.querySelector('.js-pattern-overlay'),
         '::after': {
           content: afterStyles.content,
           display: afterStyles.display,
