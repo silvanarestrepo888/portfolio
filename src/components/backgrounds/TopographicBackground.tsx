@@ -27,27 +27,19 @@ export function TopographicBackground() {
     });
   }, []);
 
-  // Initialize intersection observer for texture reveal
+  // Subtle reveal and parallax; no debug or JS overlays
   useEffect(() => {
     const sections = document.querySelectorAll('.topographic-luxury');
-    
-    // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (prefersReducedMotion) {
-      // Apply visible state immediately for accessibility
-      sections.forEach((section) => {
-        (section as HTMLElement).classList.add('in-view');
-      });
-      return;
-    }
-
-    // Create intersection observer for texture reveal
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
+          const el = entry.target as HTMLElement;
           if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
+            el.classList.add('in-view');
+          } else {
+            el.classList.remove('in-view');
           }
         });
       },
@@ -57,21 +49,23 @@ export function TopographicBackground() {
       }
     );
 
-    // Observe all topographic sections
     sections.forEach(section => {
       observerRef.current?.observe(section);
     });
 
-    // Add scroll listener for parallax
-    const debouncedScroll = debounce(handleScroll, 100);
-    window.addEventListener('scroll', debouncedScroll, { passive: true });
+    let debouncedScroll: ((...args: unknown[]) => void) | null = null;
+    if (!prefersReducedMotion) {
+      debouncedScroll = debounce(handleScroll, 100);
+      window.addEventListener('scroll', debouncedScroll as EventListener, { passive: true });
+    }
 
     return () => {
-      // Cleanup
       if (observerRef.current) {
         observerRef.current.disconnect();
       }
-      window.removeEventListener('scroll', debouncedScroll);
+      if (debouncedScroll) {
+        window.removeEventListener('scroll', debouncedScroll as EventListener);
+      }
       if (rafRef.current) {
         cancelAnimationFrame(rafRef.current);
       }

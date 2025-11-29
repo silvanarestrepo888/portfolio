@@ -20,7 +20,6 @@ import {
   CustomerIntelligenceIcon
 } from '../components/icons/services';
 import { ExperienceTimeline } from '../components/ui/ExperienceTimeline';
-import { BackgroundProvider, BackgroundLayer } from '../components/backgrounds/BackgroundProvider';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -607,8 +606,7 @@ export default function Home() {
   const safeFeaturedProjectIndex = Math.min(featuredProjectIndex, Math.max(0, filteredProjects.length - 1));
 
   return (
-    <BackgroundProvider>
-      <div className="min-h-screen" style={{backgroundColor: '#fffbee'}}>
+    <div className="min-h-screen" style={{backgroundColor: '#fffbee'}}>
       
       {/* ACCESSIBILITY - Skip Navigation Links */}
       <a 
@@ -647,17 +645,14 @@ export default function Home() {
 
       {/* HERO FOUNDATION - Award-Winning Visual Communication */}
       <main id="main-content">
-      <BackgroundLayer 
-        section="hero"
-        className="hero-section-luxury section-hero-sophisticated section-transition-sophisticated"
+      <section 
+        id="hero" 
+        className="hero-section-luxury section-hero-sophisticated section-transition-sophisticated topographic-luxury"
+        data-topographic="hero"
+        aria-labelledby="hero-title"
+        aria-describedby="hero-description"
+        role="banner"
       >
-        <section 
-          id="hero" 
-          data-section="hero"
-          aria-labelledby="hero-title"
-          aria-describedby="hero-description"
-          role="banner"
-        >
         <div className="hero-bg-unified">
           {/* Artistic Photo Background Layer - Cohesive Integration */}
           <div className="hero-photo-layer-unified">
@@ -741,20 +736,16 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-      </BackgroundLayer>
 
       {/* ABOUT SECTION - Ultra-Luxury Single-View */}
-      <BackgroundLayer 
-        section="about"
-        className="about-section-ultra-luxury luxury-background-texture section-about-sophisticated section-transition-sophisticated"
-      >
-        <section 
-          id="about" 
-          data-section="about"
-          aria-labelledby="about-heading"
-          aria-describedby="about-description"
-          role="main"
-          style={{ 
+      <section 
+        id="about" 
+        className="about-section-ultra-luxury luxury-background-texture section-about-sophisticated section-transition-sophisticated topographic-luxury"
+        data-topographic="about"
+        aria-labelledby="about-heading"
+        aria-describedby="about-description"
+        role="main"
+        style={{ 
           minHeight: '100vh',
           display: 'flex',
           alignItems: 'center'
@@ -901,17 +892,13 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-      </BackgroundLayer>
 
       {/* PROJECTS SECTION - Award-Winning Enhancement */}
-      <BackgroundLayer 
-        section="projects"
-        className="projects-section-award-winning luxury-background-texture section-projects-sophisticated section-transition-sophisticated"
-      >
-        <section 
-          id="projects" 
-          data-section="projects"
-          style={{
+      <section 
+        id="projects" 
+        className="projects-section-award-winning luxury-background-texture section-projects-sophisticated section-transition-sophisticated topographic-luxury"
+        data-topographic="projects"
+        style={{
           minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
@@ -1214,18 +1201,14 @@ export default function Home() {
           <ProjectSnippetGrid projects={snippetProjects} />
         </div>
       </section>
-      </BackgroundLayer>
 
       {/* SERVICES SECTION - GRAPEFRUIT BUSINESS CONFIDENCE */}
-      <BackgroundLayer 
-        section="services"
-        className="section-luxury section-services-sophisticated section-transition-sophisticated"
+      <section 
+        id="services"
+        className="section-luxury section-services-sophisticated section-transition-sophisticated topographic-luxury"
+        data-topographic="services"
+        aria-labelledby="services-heading"
       >
-        <section 
-          id="services"
-          data-section="services"
-          aria-labelledby="services-heading"
-        >
         <div className="container-foundation" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 max(1rem, 3vw)' }}>
           <motion.div 
             className="projects-header-award-winning"
@@ -1424,16 +1407,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-      </BackgroundLayer>
 
       {/* EXPERIENCE SECTION - Horizontal Auto-Scroll Timeline */}
-      <BackgroundLayer 
-        section="experience"
-        className="experience-section-sophisticated"
-        enableVideo={false}
-      >
-        <ExperienceTimeline />
-      </BackgroundLayer>
+      <ExperienceTimeline />
 
       {/* LANDOR STANDARDS FOOTER - ULTRA-LUXURY */}
       <footer id="footer" className="footer-landor-standards">
@@ -2146,6 +2122,5 @@ export default function Home() {
       )}
 
     </div>
-    </BackgroundProvider>
   );
 }

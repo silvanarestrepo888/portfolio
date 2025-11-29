@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "../styles/topographic-luxury.css";
 @import "../styles/landor-luxury-elevation.css";
-@import "../styles/backgrounds.css";
 
 /* ========================================== */
 /* ACCESSIBILITY FIRST - AWARD-WINNING COMPLIANCE */
@@ -20802,50 +20801,4 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   box-shadow: 0 2px 8px rgba(255, 102, 99, 0.3);
 }
 
-/* ========================================== */
-/* GLOBAL PSEUDO-ELEMENT FIX                 */
-/* Force pseudo-elements to render properly  */
-/* ========================================== */
-
-/* Reset any blocking properties globally */
-.topographic-luxury {
-  contain: none !important;
-  will-change: auto !important;
-  transform: none !important;
-  filter: none !important;
-}
-
-/* Force pseudo-element rendering */
-.topographic-luxury::before,
-.topographic-luxury::after {
-  content: '' !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  pointer-events: none !important;
-  position: absolute !important;
-  inset: 0 !important;
-}
-
-/* Simplified global pattern override */
-.topographic-luxury::after {
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(255, 102, 99, 0.1),
-    rgba(255, 102, 99, 0.1) 10px,
-    transparent 10px,
-    transparent 20px
-  ) !important;
-  z-index: 1 !important;
-}
-
-/* JavaScript injected pattern styling */
-.js-pattern-overlay {
-  position: absolute !important;
-  inset: 0 !important;
-  pointer-events: none !important;
-  z-index: 2 !important;
-  opacity: 1 !important;
-  display: block !important;
-}
 
