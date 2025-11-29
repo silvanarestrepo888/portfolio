@@ -7,7 +7,7 @@
 /* ROOT VARIABLES                           */
 /* ========================================== */
 :root {
-  --topographic-opacity: 0.12; /* Increased from 0.03 for visibility */
+  --topographic-opacity: 0.03;
   --topographic-color: rgba(255, 102, 99, var(--topographic-opacity));
   --topographic-blur: 0px;
   --topographic-scale: 1;
@@ -18,22 +18,20 @@
 /* BASE TOPOGRAPHIC SYSTEM                  */
 /* ========================================== */
 
-/* Foundation Layer - Pure Vanilla - WITH DEBUG */
+/* Foundation Layer - Pure Vanilla */
 .topographic-luxury {
   position: relative;
   background: #FFFBF7;
-  /* Removed overflow: hidden and isolation: isolate to allow pseudo-elements */
-  /* DEBUG: Red border to verify class is applied */
-  border: 10px solid red !important;
-  box-shadow: inset 0 0 50px rgba(255, 0, 0, 0.3) !important;
+  overflow: hidden;
+  isolation: isolate;
 }
 
-/* Enhanced Paper Texture for Visibility */
+/* Paper Texture Layer */
 .topographic-luxury::before {
   content: '';
   position: absolute;
   inset: 0;
-  opacity: 0.08; /* Increased from 0.02 for visibility */
+  opacity: 0.02;
   background: 
     repeating-linear-gradient(
       45deg,
@@ -47,59 +45,23 @@
   z-index: 1;
 }
 
-/* SIMPLIFIED STRIPE PATTERN - SUPER VISIBLE */
+/* Topographic Pattern Layer */
 .topographic-luxury::after {
-  content: '' !important;
-  position: absolute !important;
-  inset: 0 !important;
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(255, 0, 0, 0.2),
-    rgba(255, 0, 0, 0.2) 10px,
-    rgba(0, 255, 0, 0.2) 10px,
-    rgba(0, 255, 0, 0.2) 20px
-  ) !important;
-  z-index: 1 !important;
-  pointer-events: none !important;
-  opacity: 1 !important;
-  display: block !important;
-  mix-blend-mode: normal !important;
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: multiply;
 }
 
-/* Force Visibility - No fade-in for testing */
+/* Fade in on scroll */
 .topographic-luxury.in-view::after {
-  opacity: var(--topographic-opacity) !important;
+  opacity: var(--topographic-opacity);
 }
 
-/* Ensure all sections are visible immediately */
-.topographic-luxury::after {
-  opacity: var(--topographic-opacity) !important;
-}
-
-/* DEBUG: Rainbow gradient to ensure visibility */
-.topographic-luxury.debug-mode::before {
-  content: '' !important;
-  position: absolute !important;
-  inset: 0 !important;
-  background: linear-gradient(
-    45deg,
-    rgba(255, 0, 0, 0.3) 0%,
-    rgba(255, 154, 0, 0.3) 10%,
-    rgba(208, 222, 33, 0.3) 20%,
-    rgba(79, 220, 74, 0.3) 30%,
-    rgba(63, 218, 216, 0.3) 40%,
-    rgba(47, 201, 226, 0.3) 50%,
-    rgba(28, 127, 238, 0.3) 60%,
-    rgba(95, 21, 242, 0.3) 70%,
-    rgba(186, 12, 248, 0.3) 80%,
-    rgba(251, 7, 217, 0.3) 90%,
-    rgba(255, 0, 0, 0.3) 100%
-  ) !important;
-  z-index: 9998 !important;
-  pointer-events: none !important;
-  mix-blend-mode: normal !important;
-  display: block !important;
-}
 
 /* ========================================== */
 /* SECTION-SPECIFIC PATTERNS                */
@@ -107,7 +69,7 @@
 
 /* Hero Section - The Peak */
 [data-topographic="hero"] {
-  --topographic-opacity: 0.15; /* Increased for visibility */
+  --topographic-opacity: 0.04;
 }
 
 [data-topographic="hero"]::after {
@@ -137,7 +99,7 @@
 
 /* About Section - The Journey */
 [data-topographic="about"] {
-  --topographic-opacity: 0.1; /* Increased for visibility */
+  --topographic-opacity: 0.03;
 }
 
 [data-topographic="about"]::after {
@@ -168,7 +130,7 @@
 
 /* Projects Section - The Terrain */
 [data-topographic="projects"] {
-  --topographic-opacity: 0.12; /* Increased for visibility */
+  --topographic-opacity: 0.035;
 }
 
 [data-topographic="projects"]::after {
@@ -199,7 +161,7 @@
 
 /* Experience Section - The Timeline */
 [data-topographic="experience"] {
-  --topographic-opacity: 0.08; /* Increased for visibility */
+  --topographic-opacity: 0.025;
 }
 
 [data-topographic="experience"]::after {
@@ -223,7 +185,7 @@
 
 /* Services Section - The Depth */
 [data-topographic="services"] {
-  --topographic-opacity: 0.1; /* Increased for visibility */
+  --topographic-opacity: 0.03;
 }
 
 [data-topographic="services"]::after {
@@ -249,7 +211,7 @@
 /* ACCENT LAYER                             */
 /* ========================================== */
 
-/* Enhanced Radial Accent for Visibility */
+/* Radial Accent Layer */
 .topographic-accent {
   position: absolute;
   top: 30%;
@@ -258,19 +220,19 @@
   height: 40vw;
   background: radial-gradient(
     circle at center,
-    rgba(255, 102, 99, 0.08) 0%,  /* Increased from 0.02 */
-    rgba(255, 102, 99, 0.05) 30%, /* Increased from 0.01 */
+    rgba(255, 102, 99, 0.02) 0%,
+    rgba(255, 102, 99, 0.01) 30%,
     transparent 60%
   );
-  filter: blur(60px); /* Reduced blur for more definition */
+  filter: blur(80px);
   pointer-events: none;
   z-index: 3;
-  opacity: 1 !important; /* Force visible */
-  transition: none; /* Remove transition for immediate visibility */
+  opacity: 0;
+  transition: opacity 1.8s cubic-bezier(0.23, 1, 0.32, 1) 0.3s;
 }
 
 .topographic-luxury.in-view .topographic-accent {
-  opacity: 1 !important;
+  opacity: 1;
 }
 
 /* ========================================== */

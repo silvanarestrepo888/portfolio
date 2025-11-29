@@ -148,40 +148,6 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* DEBUG: Direct CSS injection to test if styles are loading */}
-        <style dangerouslySetInnerHTML={{ __html: `
-          .topographic-test-override {
-            position: relative !important;
-            border: 5px dashed blue !important;
-          }
-          .topographic-test-override::after {
-            content: 'CSS LOADED' !important;
-            position: fixed !important;
-            bottom: 20px !important;
-            right: 20px !important;
-            background: yellow !important;
-            color: black !important;
-            padding: 10px !important;
-            font-size: 20px !important;
-            font-weight: bold !important;
-            z-index: 99999 !important;
-          }
-          /* Striped pattern fallback */
-          .topographic-luxury.test-pattern::before {
-            content: '' !important;
-            position: absolute !important;
-            inset: 0 !important;
-            background: repeating-linear-gradient(
-              45deg,
-              rgba(255, 0, 255, 0.1),
-              rgba(255, 0, 255, 0.1) 10px,
-              transparent 10px,
-              transparent 20px
-            ) !important;
-            z-index: 9999 !important;
-            pointer-events: none !important;
-          }
-        ` }} />
       </head>
       <body
         className={`${plusJakartaSans.variable} ${playfairDisplay.variable} ${openSans.variable} ${greatVibes.variable} ${inter.variable} ${jetbrainsMono.variable} ${crimsonPro.variable} ${workSans.variable} ${dmSans.variable} antialiased`}

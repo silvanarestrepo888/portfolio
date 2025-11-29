@@ -1,0 +1,257 @@
+/* ========================================== */
+/* UNIFIED BACKGROUND SYSTEM                 */
+/* Orchestrating Video, Interactive & Topographic */
+/* ========================================== */
+
+/* ========================================== */
+/* VIDEO BACKGROUND STYLES                   */
+/* ========================================== */
+
+.video-bg-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.video-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%) scale(1.05);
+  object-fit: cover;
+  z-index: 1;
+}
+
+.video-bg-fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .video-bg-container {
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/* ========================================== */
+/* INTERACTIVE BACKGROUND STYLES            */
+/* ========================================== */
+
+.interactive-bg-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.interactive-bg-overlay.active {
+  opacity: 1;
+}
+
+/* Performance optimization */
+@media (prefers-reduced-motion: reduce) {
+  .interactive-bg-overlay {
+    display: none;
+  }
+}
+
+/* ========================================== */
+/* BACKGROUND LAYER SYSTEM                  */
+/* ========================================== */
+
+.background-layer-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.video-background-layer,
+.interactive-background-layer,
+.fallback-gradient-layer {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.content-layer {
+  position: relative;
+  z-index: 10;
+  isolation: isolate;
+}
+
+/* ========================================== */
+/* SECTION TRANSITIONS                      */
+/* ========================================== */
+
+.background-section {
+  position: relative;
+  transition: background-color 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Smooth transitions between sections */
+[data-section] {
+  position: relative;
+  min-height: 100vh;
+}
+
+[data-section="hero"] {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 251, 238, 0.98) 0%,
+    rgba(255, 251, 238, 0.95) 100%
+  );
+}
+
+[data-section="about"] {
+  background: linear-gradient(
+    to bottom,
+    rgba(253, 247, 235, 0.97) 0%,
+    rgba(255, 251, 238, 0.95) 100%
+  );
+}
+
+[data-section="projects"] {
+  background: linear-gradient(
+    to bottom,
+    rgba(254, 249, 240, 0.96) 0%,
+    rgba(255, 251, 238, 0.94) 100%
+  );
+}
+
+[data-section="experience"] {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 251, 238, 0.97) 0%,
+    rgba(253, 247, 235, 0.95) 100%
+  );
+}
+
+[data-section="services"] {
+  background: linear-gradient(
+    to bottom,
+    rgba(254, 249, 240, 0.96) 0%,
+    rgba(255, 251, 238, 0.98) 100%
+  );
+}
+
+/* ========================================== */
+/* PERFORMANCE INDICATORS                   */
+/* ========================================== */
+
+.background-performance-low {
+  .video-bg,
+  .interactive-bg-overlay {
+    display: none !important;
+  }
+  
+  .fallback-gradient-layer {
+    opacity: 1 !important;
+  }
+}
+
+/* ========================================== */
+/* LOADING STATES                           */
+/* ========================================== */
+
+.background-loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.background-loading::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 102, 99, 0.02) 50%,
+    transparent 100%
+  );
+  animation: background-shimmer 2s ease-in-out infinite;
+  z-index: 100;
+}
+
+@keyframes background-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ========================================== */
+/* ACCESSIBILITY                            */
+/* ========================================== */
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .video-bg-container,
+  .interactive-bg-overlay,
+  .topographic-accent {
+    display: none !important;
+  }
+  
+  [data-section] {
+    background: white !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .video-bg-container,
+  .interactive-bg-overlay,
+  .video-background-layer,
+  .interactive-background-layer,
+  .topographic-luxury::before,
+  .topographic-luxury::after,
+  .topographic-accent {
+    display: none !important;
+  }
+  
+  .background-section,
+  [data-section] {
+    background: white !important;
+  }
+}
+
+/* ========================================== */
+/* RESPONSIVE ADJUSTMENTS                   */
+/* ========================================== */
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .video-bg {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  
+  .interactive-bg-overlay {
+    opacity: 0.8;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .video-bg-container {
+    background-attachment: fixed;
+  }
+}
+
+/* Ultra-wide */
+@media (min-width: 1600px) {
+  .video-bg {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

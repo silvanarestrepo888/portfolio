@@ -27,133 +27,40 @@ export function TopographicBackground() {
     });
   }, []);
 
-  // Force immediate visibility and add JavaScript fallback patterns
+  // Initialize intersection observer for texture reveal
   useEffect(() => {
-    // TEMPORARILY FORCE ALL SECTIONS TO BE VISIBLE IMMEDIATELY
     const sections = document.querySelectorAll('.topographic-luxury');
-    console.log('🔍 DEBUG: Found topographic sections:', sections.length);
-    
-    sections.forEach((section, index) => {
-      const htmlSection = section as HTMLElement;
-      htmlSection.classList.add('in-view');
-      htmlSection.classList.add('debug-mode'); // Add debug class
-      htmlSection.classList.add('test-pattern'); // Add test pattern class
-      htmlSection.classList.add('topographic-test-override'); // Add override class
-      
-      // JAVASCRIPT DIV INJECTION FALLBACK
-      // Create actual div elements instead of relying on pseudo-elements
-      if (!htmlSection.querySelector('.js-pattern-overlay')) {
-        const patternDiv = document.createElement('div');
-        patternDiv.className = 'js-pattern-overlay';
-        patternDiv.style.cssText = `
-          position: absolute !important;
-          inset: 0 !important;
-          background: repeating-linear-gradient(
-            45deg,
-            rgba(255, 102, 99, 0.15),
-            rgba(255, 102, 99, 0.15) 10px,
-            rgba(255, 102, 99, 0.05) 10px,
-            rgba(255, 102, 99, 0.05) 20px
-          ) !important;
-          pointer-events: none !important;
-          z-index: 2 !important;
-          opacity: 1 !important;
-          display: block !important;
-          mix-blend-mode: multiply !important;
-        `;
-        htmlSection.style.position = 'relative';
-        htmlSection.appendChild(patternDiv);
-        console.log(`✅ Injected pattern div into section ${index + 1}`);
-      }
-      
-      // Comprehensive debug logging
-      const styles = window.getComputedStyle(htmlSection);
-      const afterStyles = window.getComputedStyle(htmlSection, '::after');
-      const beforeStyles = window.getComputedStyle(htmlSection, '::before');
-      
-      console.log(`📍 Section ${index + 1} Debug Info:`, {
-        element: htmlSection,
-        id: htmlSection.id,
-        classList: htmlSection.classList.toString(),
-        dataset: htmlSection.dataset,
-        position: styles.position,
-        background: styles.background,
-        border: styles.border,
-        zIndex: styles.zIndex,
-        hasJsPattern: !!htmlSection.querySelector('.js-pattern-overlay'),
-        '::after': {
-          content: afterStyles.content,
-          display: afterStyles.display,
-          opacity: afterStyles.opacity,
-          zIndex: afterStyles.zIndex,
-          position: afterStyles.position,
-          background: afterStyles.background?.substring(0, 100) + '...'
-        },
-        '::before': {
-          content: beforeStyles.content,
-          display: beforeStyles.display,
-          opacity: beforeStyles.opacity,
-          background: beforeStyles.background?.substring(0, 100) + '...'
-        }
-      });
-    });
-    
-    // Check if CSS files are loaded
-    const styleSheets = Array.from(document.styleSheets);
-    console.log('📄 Total stylesheets loaded:', styleSheets.length);
-    
-    // Look for topographic CSS
-    let topographicFound = false;
-    styleSheets.forEach(sheet => {
-      try {
-        if (sheet.href?.includes('topographic') || sheet.href?.includes('_next')) {
-          console.log('📋 Stylesheet:', sheet.href);
-        }
-        const rules = Array.from(sheet.cssRules || []);
-        const topographicRules = rules.filter((rule) => {
-          const cssRule = rule as CSSStyleRule;
-          return cssRule.selectorText?.includes('topographic');
-        });
-        if (topographicRules.length > 0) {
-          topographicFound = true;
-          console.log('✅ Found topographic rules:', topographicRules.length);
-        }
-      } catch {
-        // Cross-origin stylesheets will throw - this is expected
-      }
-    });
-    
-    if (!topographicFound) {
-      console.log('⚠️ WARNING: No topographic CSS rules found!');
-      console.log('This means the CSS file is not loading properly.');
-    }
     
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (prefersReducedMotion) {
+      // Apply visible state immediately for accessibility
+      sections.forEach((section) => {
+        (section as HTMLElement).classList.add('in-view');
+      });
       return;
     }
 
-    // Create intersection observer for texture reveal (disabled for testing)
-    // observerRef.current = new IntersectionObserver(
-    //   (entries) => {
-    //     entries.forEach(entry => {
-    //       if (entry.isIntersecting) {
-    //         entry.target.classList.add('in-view');
-    //       }
-    //     });
-    //   },
-    //   {
-    //     threshold: 0.1,
-    //     rootMargin: '0px 0px -10% 0px'
-    //   }
-    // );
+    // Create intersection observer for texture reveal
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -10% 0px'
+      }
+    );
 
-    // Observe all topographic sections (disabled for testing)
-    // sections.forEach(section => {
-    //   observerRef.current?.observe(section);
-    // });
+    // Observe all topographic sections
+    sections.forEach(section => {
+      observerRef.current?.observe(section);
+    });
 
     // Add scroll listener for parallax
     const debouncedScroll = debounce(handleScroll, 100);
