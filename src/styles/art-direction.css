@@ -1,0 +1,104 @@
+/* ========================================== */
+/* ART DIRECTION SYSTEM                       */
+/* Themes, Image Treatments, Accents          */
+/* ========================================== */
+
+/* ------------------------------------------ */
+/* Treatment tokens (safe, subtle defaults)   */
+/* ------------------------------------------ */
+:root {
+  --treatment-contrast: 1.05;
+  --treatment-saturation: 1.02;
+  --treatment-brightness: 1.00;
+  --treatment-warmth: 1.00; /* hue warmth proxy via saturation/brightness */
+}
+
+/* ------------------------------------------ */
+/* Gallery Sepia Color Mode (optional)        */
+/* Enable by setting: <html data-color-mode="gallery-sepia"> */
+/* ------------------------------------------ */
+[data-color-mode="gallery-sepia"] {
+  /* Slightly warmer paper tone */
+  --vanilla-foundation: #FFF8EF;
+  --vanilla-warm: #FFF3E5;
+}
+
+[data-color-mode="gallery-sepia"] .topographic-luxury {
+  background: var(--vanilla-foundation);
+}
+
+/* Hero photo refinement (quieter, editorial) */
+.section-hero-sophisticated .hero-photo-artistic-unified {
+  opacity: 0.5;
+  filter:
+    contrast(var(--treatment-contrast))
+    saturate(var(--treatment-saturation))
+    brightness(var(--treatment-brightness));
+}
+
+/* Project media refinement (depth without spectacle) */
+.projects-section-award-winning img,
+.projects-section-award-winning video,
+.projects-section-award-winning .media,
+.section-projects-sophisticated img {
+  filter:
+    contrast(1.03)
+    saturate(1.02);
+}
+
+/* ------------------------------------------ */
+/* Accent hooks (per-project)                  */
+/* Apply via data-project-accent on a wrapper  */
+/* e.g., <section data-project-accent="grapefruit"> */
+/* ------------------------------------------ */
+[data-project-accent="grapefruit"] {
+  --accent-color: var(--grapefruit-intelligence);
+}
+
+[data-project-accent="vanilla"] {
+  --accent-color: var(--vanilla-warm);
+}
+
+[data-project-accent="charcoal"] {
+  --accent-color: var(--charcoal-warm);
+}
+
+/* Utility: use where accent color should apply */
+.accent-color {
+  color: var(--accent-color);
+}
+.accent-border {
+  border-color: var(--accent-color);
+}
+.accent-bg {
+  background-color: color-mix(in srgb, var(--accent-color) 8%, white);
+}
+
+/* ------------------------------------------ */
+/* Print refinements                          */
+/* ------------------------------------------ */
+@media print {
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  /* Ensure maximum legibility */
+  * {
+    text-shadow: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+  }
+  /* Hide decorative layers */
+  .topographic-luxury::before,
+  .topographic-luxury::after,
+  .topographic-accent {
+    display: none !important;
+  }
+  /* Avoid truncated content */
+  img, video {
+    max-width: 100% !important;
+    page-break-inside: avoid !important;
+  }
+}
+
+
