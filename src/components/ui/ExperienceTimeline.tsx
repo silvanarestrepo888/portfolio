@@ -6,39 +6,39 @@ import { useRef, useState } from 'react';
 const experiences = [
   {
     company: "Globant",
-    role: "Business Partner & Experience Architect",
+    role: "Experience Tech Manager",
     period: "2019 – Now",
-    impact: "Architecting experience strategy for global enterprise clients across health, retail, and finance.",
+    impact: "Turned complex, undefined challenges into clear experience strategies. Seven industries. Thirty projects. Always on time, always with a business case behind the design.",
   },
   {
-    company: "WEF — C4IR",
+    company: "World Economic Forum — C4IR",
     role: "Ecosystem Engagement Leader",
     period: "2018 – 2019",
-    impact: "Bridging public-private innovation ecosystems across 40+ countries for the Fourth Industrial Revolution.",
+    impact: "Connected governments, industry, and academia around technology governance. Built frameworks that held up under real policy pressure.",
   },
   {
-    company: "Designit",
+    company: "Designit (Wipro)",
     role: "Strategic Design Director",
     period: "2015 – 2018",
-    impact: "Leading strategic design and transformation programs for Fortune 500 companies. A Wipro Company.",
+    impact: "Led a 20-person multidisciplinary studio. Owned the P&L. Delivered strategy and design for complex clients. Built a team that could think independently.",
   },
   {
     company: "Grupo Éxito",
-    role: "Tech Manager, Product Direction",
+    role: "Marketing Director, Real Estate",
     period: "2012 – 2015",
-    impact: "Directing product and technology strategy for LATAM's largest omnichannel retailer. A Casino Group company.",
+    impact: "Ran experience and brand strategy across 32 retail destinations. Grew sales and market expansion above industry benchmarks two years running.",
   },
   {
-    company: "Ind. HACEB",
-    role: "Marketing Director",
+    company: "Haceb",
+    role: "Business Intelligence Director",
     period: "2008 – 2012",
-    impact: "Building brand market leadership and customer intelligence across Latin America.",
+    impact: "Built the consumer intelligence system behind 26% revenue growth. Shifted company culture from product-driven to consumer-driven.",
   },
   {
-    company: "TIGO-Millicom",
-    role: "Business Intelligence Manager",
+    company: "UNE-TIGO (EPM)",
+    role: "Senior Marketing Leader",
     period: "2004 – 2008",
-    impact: "Transforming raw data into competitive positioning strategy for one of LATAM's largest telecom groups.",
+    impact: "Opened three new markets. Scaled a technology brand across 22 cities.",
   },
 ];
 
