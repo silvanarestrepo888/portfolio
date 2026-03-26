@@ -22102,12 +22102,17 @@ body:has(.project-details-overlay) .navigation-floating {
   transform: translateX(-50%) translateY(-140%) !important;
 }
 
-/* 2. Hero section: full viewport width, tall cinematic height */
+/* 1b. Push the overlay scroll container below the fixed nav bar (~92px) */
+.project-details-overlay {
+  padding-top: 92px !important;
+}
+
+/* 2. Hero section: fills full viewport below the nav bar */
 .project-details-hero-section {
   padding: 0 !important;
   margin-top: 0 !important;
-  height: 70vh !important;
-  min-height: 420px !important;
+  height: calc(100vh - 92px) !important;
+  min-height: 400px !important;
   width: 100% !important;
   position: relative !important;
   overflow: hidden !important;
