@@ -21577,3 +21577,169 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 }
 
 
+/* ============================================================
+   UNIFIED BUTTON SYSTEM — FINAL OVERRIDE
+   All button classes resolve to one of three tiers:
+   1. Primary   — coral fill, white text
+   2. Secondary — frosted glass, charcoal border
+   3. On-coral  — vanilla glass, vanilla text (services)
+   ============================================================ */
+
+/* ── Shared base ─────────────────────────────────────────── */
+.hero-cta-button,
+.balanced-btn,
+.balanced-btn.primary,
+.balanced-btn.secondary,
+.action-btn-award,
+.action-btn-award.primary,
+.btn-primary,
+.btn-secondary,
+.svc-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 10px !important;
+  min-height: 44px;
+  padding: 0.875rem 2rem;
+  cursor: pointer;
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.18s ease;
+}
+
+/* ── Tier 1: Primary — coral fill ───────────────────────── */
+.hero-cta-button,
+.balanced-btn.primary,
+.action-btn-award.primary,
+.btn-primary {
+  background: var(--coral, #FF6663) !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid var(--coral, #FF6663) !important;
+  box-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.10),
+    0 4px 16px rgba(255, 102, 99, 0.28) !important;
+}
+
+.hero-cta-button:hover,
+.balanced-btn.primary:hover,
+.action-btn-award.primary:hover,
+.btn-primary:hover {
+  background: var(--coral-impact, #E55A5A) !important;
+  border-color: var(--coral-impact, #E55A5A) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 0 rgba(0, 0, 0, 0.10),
+    0 10px 28px rgba(255, 102, 99, 0.38) !important;
+}
+
+/* ── Tier 2: Secondary — frosted glass ──────────────────── */
+/* On light/neutral backgrounds */
+.hero-cta-button--secondary,
+.btn-secondary {
+  background: rgba(74, 85, 104, 0.07) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  color: var(--charcoal-mid, #4A5568) !important;
+  border: 1.5px solid rgba(74, 85, 104, 0.30) !important;
+  box-shadow: none !important;
+}
+
+.hero-cta-button--secondary:hover,
+.btn-secondary:hover {
+  background: rgba(74, 85, 104, 0.13) !important;
+  border-color: rgba(74, 85, 104, 0.50) !important;
+  color: var(--charcoal-mid, #4A5568) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 85, 104, 0.12) !important;
+}
+
+/* On dark backgrounds (project cards) */
+.balanced-btn.secondary,
+.action-btn-award {
+  background: rgba(255, 255, 255, 0.09) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  color: rgba(255, 255, 255, 0.90) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.22) !important;
+  box-shadow: none !important;
+}
+
+.balanced-btn.secondary:hover,
+.action-btn-award:hover {
+  background: rgba(255, 255, 255, 0.16) !important;
+  border-color: rgba(255, 255, 255, 0.42) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* ── Tier 3: On-coral surface ───────────────────────────── */
+.svc-cta {
+  background: rgba(245, 245, 220, 0.12) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  color: var(--vanilla-warm, #F5F5DC) !important;
+  border: 1.5px solid rgba(245, 245, 220, 0.42) !important;
+  box-shadow: none !important;
+}
+
+.svc-cta:hover {
+  background: rgba(245, 245, 220, 0.22) !important;
+  border-color: rgba(245, 245, 220, 0.72) !important;
+  color: #FFFFFF !important;
+  transform: translateX(3px);
+  box-shadow: none !important;
+}
+
+/* ── Snippet CTA (small, on dark card) ──────────────────── */
+.snippet-cta-bottom-right {
+  background: var(--coral, #FF6663) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(255, 102, 99, 0.35) !important;
+}
+
+.snippet-cta-bottom-right:hover {
+  background: var(--coral-impact, #E55A5A) !important;
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 4px 14px rgba(255, 102, 99, 0.45) !important;
+}
+
+/* ── hero-cta-award-winning overrides ───────────────────── */
+/* The hero section uses a special wrapper — ensure consistency */
+.hero-cta-award-winning .hero-cta-button:first-child {
+  background: var(--coral, #FF6663) !important;
+  border-color: var(--coral, #FF6663) !important;
+  color: #FFFFFF !important;
+  border-radius: 10px !important;
+}
+
+.hero-cta-award-winning .hero-cta-button:last-child {
+  background: rgba(74, 85, 104, 0.07) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1.5px solid rgba(74, 85, 104, 0.30) !important;
+  color: var(--charcoal-mid, #4A5568) !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+
+/* ── Mobile: full-width stacking ────────────────────────── */
+@media (max-width: 640px) {
+  .hero-cta-elegant .hero-cta-button {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
