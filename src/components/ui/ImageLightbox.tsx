@@ -1,8 +1,8 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { useEffect } from 'react';
 
 interface ImageLightboxProps {
   image: string;
@@ -16,19 +16,21 @@ interface ImageLightboxProps {
 export const ImageLightbox: React.FC<ImageLightboxProps> = ({
   image, alt, isOpen, onClose, projectTitle, projectIndustry
 }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  // Reset load state on image change
+  useEffect(() => {
+    setImageLoaded(false);
+  }, [image]);
+
   // Keyboard navigation
   useEffect(() => {
     const handleKeyboard = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
+      if (e.key === 'Escape') onClose();
     };
-
     if (isOpen) {
       document.addEventListener('keydown', handleKeyboard);
-      // Prevent body scroll
       document.body.style.overflow = 'hidden';
-      
       return () => {
         document.removeEventListener('keydown', handleKeyboard);
         document.body.style.overflow = 'auto';
@@ -45,21 +47,18 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
         onClick={onClose}
         style={{
           position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'rgba(45, 55, 72, 0.95)', /* Charcoal from design system */
+          top: 0, left: 0, right: 0, bottom: 0,
+          background: 'rgba(45, 55, 72, 0.95)',
           backdropFilter: 'blur(20px)',
           zIndex: 9999,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          cursor: 'zoom-out'
+          cursor: 'zoom-out',
         }}
       >
         <motion.div
@@ -67,10 +66,7 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
           initial={{ opacity: 0, scale: 0.8, y: 50 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 50 }}
-          transition={{ 
-            duration: 0.4, 
-            ease: [0.25, 0.46, 0.45, 0.94] // Landor easing
-          }}
+          transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
           onClick={(e) => e.stopPropagation()}
           style={{
             maxWidth: '90vw',
@@ -78,18 +74,23 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            cursor: 'default'
+            cursor: 'default',
           }}
         >
-          {/* Image Container */}
-          <div style={{
-            position: 'relative',
-            maxWidth: '90vw',
-            maxHeight: '80vh',
-            borderRadius: '16px',
-            overflow: 'hidden',
-            boxShadow: '0 25px 60px rgba(45, 55, 72, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)' /* Charcoal shadow */
-          }}>
+          {/* Image container — shimmer until loaded */}
+          <div
+            className={imageLoaded ? '' : 'img-loading'}
+            style={{
+              position: 'relative',
+              maxWidth: '90vw',
+              maxHeight: '80vh',
+              minWidth: '300px',
+              minHeight: '200px',
+              borderRadius: '16px',
+              overflow: 'hidden',
+              boxShadow: '0 25px 60px rgba(45, 55, 72, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+            }}
+          >
             <Image
               src={image}
               alt={alt}
@@ -100,13 +101,20 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
                 height: 'auto',
                 maxHeight: '80vh',
                 objectFit: 'contain',
-                objectPosition: 'center'
+                objectPosition: 'center',
+                display: 'block',
+                opacity: imageLoaded ? 1 : 0,
+                transition: 'opacity 0.4s ease',
               }}
               quality={100}
+              unoptimized
               priority
+              sizes="90vw"
+              onLoad={() => setImageLoaded(true)}
+              onError={() => setImageLoaded(true)}
             />
-            
-            {/* Close Button */}
+
+            {/* Close button */}
             <motion.button
               onClick={onClose}
               className="lightbox-close"
@@ -116,7 +124,7 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
                 right: '16px',
                 width: '44px',
                 height: '44px',
-                background: 'rgba(45, 55, 72, 0.8)', /* Charcoal from design system */
+                background: 'rgba(45, 55, 72, 0.8)',
                 backdropFilter: 'blur(10px)',
                 border: '1px solid rgba(255, 255, 255, 0.2)',
                 borderRadius: '50%',
@@ -127,13 +135,9 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                zIndex: 10
+                zIndex: 10,
               }}
-              whileHover={{ 
-                scale: 1.1,
-                background: 'rgba(255, 102, 99, 0.9)',
-                transition: { duration: 0.2 }
-              }}
+              whileHover={{ scale: 1.1, background: 'rgba(255, 102, 99, 0.9)', transition: { duration: 0.2 } }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -142,14 +146,14 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
               ×
             </motion.button>
           </div>
-          
-          {/* Project Info */}
+
+          {/* Project info */}
           <motion.div
             style={{
               marginTop: '24px',
               textAlign: 'center',
               color: 'white',
-              maxWidth: '600px'
+              maxWidth: '600px',
             }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -160,7 +164,7 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
               fontFamily: 'var(--font-architectural-display)',
               fontWeight: '400',
               marginBottom: '8px',
-              color: 'rgba(255, 255, 255, 0.95)'
+              color: 'rgba(255, 255, 255, 0.95)',
             }}>
               {projectTitle}
             </h3>
@@ -169,17 +173,15 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
               fontFamily: 'var(--font-architectural-body)',
               fontWeight: '400',
               color: 'rgba(255, 255, 255, 0.7)',
-              margin: 0
+              margin: 0,
             }}>
               {projectIndustry}
             </p>
-            
-            {/* Instruction */}
             <p style={{
               fontSize: '0.875rem',
               color: 'rgba(255, 255, 255, 0.5)',
               marginTop: '16px',
-              fontFamily: 'var(--font-architectural-body)'
+              fontFamily: 'var(--font-architectural-body)',
             }}>
               Press ESC or click outside to close
             </p>

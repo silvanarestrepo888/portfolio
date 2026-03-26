@@ -14,7 +14,7 @@
   z-index: 9999;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.8s var(--ease-natural);
   backdrop-filter: blur(0px) saturate(1);
 }
 
@@ -54,7 +54,7 @@
   opacity: 0;
   visibility: hidden;
   filter: blur(20px);
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.8s var(--ease-natural);
 }
 
 .modal-glass-content.active {
@@ -76,7 +76,7 @@
     transparent 70%
   );
   transform: translateX(-100%) translateY(100%);
-  transition: transform 3s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 3s var(--ease-natural);
   pointer-events: none;
   border-radius: 24px;
 }
@@ -134,7 +134,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.6s var(--ease-natural);
   z-index: 10;
 }
 
@@ -157,7 +157,7 @@
   background: rgba(255, 251, 247, 0.03);
   border: 1px solid rgba(255, 251, 247, 0.05);
   border-radius: 16px;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.6s var(--ease-natural);
 }
 
 .modal-service-card:hover {
@@ -230,7 +230,7 @@
   );
   filter: blur(40px);
   opacity: 0;
-  transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: opacity 1.2s var(--ease-natural);
   z-index: -1;
   pointer-events: none;
 }
@@ -320,7 +320,7 @@
   position: relative;
   isolation: isolate;
   overflow: visible;
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.6s var(--ease-natural);
   cursor: none; /* Custom cursor will handle this */
 }
 
@@ -337,7 +337,7 @@
     transparent 30%
   );
   opacity: 0;
-  transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: opacity 0.6s var(--ease-natural);
   pointer-events: none;
   z-index: -1;
   mix-blend-mode: screen;
@@ -391,7 +391,7 @@
 }
 
 .quantum-ripple.active {
-  animation: quantum-expand 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation: quantum-expand 1.2s var(--ease-natural) forwards;
 }
 
 @keyframes quantum-expand {
@@ -423,7 +423,7 @@
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 10000;
-  transition: all 0.15s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.15s var(--ease-natural);
   mix-blend-mode: difference;
 }
 
@@ -455,7 +455,7 @@
 }
 
 .cursor-trail.fading {
-  animation: trail-fade 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation: trail-fade 1s var(--ease-natural) forwards;
 }
 
 @keyframes trail-fade {
@@ -483,7 +483,7 @@
 }
 
 .interaction-particle.floating {
-  animation: particle-float 2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation: particle-float 2s var(--ease-natural) forwards;
 }
 
 @keyframes particle-float {
@@ -519,7 +519,7 @@
   border-radius: inherit;
   opacity: 0;
   z-index: -1;
-  transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: opacity 0.6s var(--ease-natural);
   filter: blur(10px);
 }
 
