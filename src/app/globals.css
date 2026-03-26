@@ -6569,25 +6569,27 @@ h4, .text-h4 {
   top: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(253, 252, 248, 0.08); /* Transparent vanilla whisper */
-  backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(253, 252, 248, 0.94); /* Opaque vanilla — always readable */
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
   border-radius: 3rem;
   padding: 0.875rem 2.5rem;
   transition: all 0.6s var(--ease-landor);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(74, 85, 104, 0.10);
   z-index: 100;
   will-change: transform, background-color, box-shadow;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0,0,0,0.04);
   white-space: nowrap;
   min-width: fit-content;
 }
 
 .navigation-floating.scrolled {
-  background: rgba(255, 102, 99, 0.05); /* Slightly more visible grapefruit tint */
-  backdrop-filter: blur(10px); /* Reduced blur */
-  box-shadow: 0 8px 25px rgba(255, 102, 99, 0.1); /* Subtle grapefruit shadow */
-  transform: translateX(-50%) translateY(-5px);
-  border: none; /* Remove border */
+  background: rgba(253, 252, 248, 0.97);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10), 0 2px 8px rgba(0,0,0,0.05);
+  transform: translateX(-50%) translateY(-3px);
+  border-color: rgba(74, 85, 104, 0.08);
 }
 
 .navigation-floating.hidden {
@@ -22418,3 +22420,85 @@ body:has(.project-details-overlay) .navigation-floating {
   margin-bottom: 1.25rem !important;
 }
 
+
+
+/* ============================================================
+   ACCESSIBILITY — CONTRAST FIXES
+   All text must meet WCAG AA (4.5:1 normal, 3:1 large)
+   ============================================================ */
+
+/* Project detail overlay: force dark bg + light text consistently */
+.project-details-overlay {
+  background: #1C1C22 !important;
+  color: rgba(255, 251, 240, 0.90) !important;
+}
+
+/* Section headings inside detail overlay */
+.project-details-overlay .section-title,
+.project-details-overlay .typography-h3 {
+  color: rgba(255, 251, 240, 0.92) !important;
+}
+
+/* Body copy inside detail overlay */
+.project-details-overlay .typography-body,
+.project-details-overlay .section-text,
+.project-details-overlay .section-body {
+  color: rgba(255, 251, 240, 0.80) !important;
+}
+
+/* Metadata labels (Client / Year / Location / Category) */
+.project-details-overlay .metadata-label {
+  color: rgba(255, 251, 240, 0.50) !important;
+}
+
+/* Metadata values */
+.project-details-overlay .metadata-value {
+  color: rgba(255, 251, 240, 0.90) !important;
+}
+
+/* Discipline tags */
+.project-details-overlay .project-tag {
+  color: rgba(255, 251, 240, 0.70) !important;
+  border-color: rgba(255, 251, 240, 0.18) !important;
+  background: rgba(255, 251, 240, 0.06) !important;
+}
+
+/* Testimonial quote text */
+.project-details-overlay .testimonial-quote,
+.project-details-overlay blockquote {
+  color: rgba(255, 251, 240, 0.85) !important;
+  border-left-color: var(--coral) !important;
+}
+
+/* Testimonial author/role: caption text must be readable */
+.project-details-overlay .testimonial-author {
+  color: var(--coral) !important;
+  opacity: 1 !important;
+}
+.project-details-overlay .testimonial-role,
+.project-details-overlay .typography-caption {
+  color: rgba(255, 251, 240, 0.55) !important;
+  opacity: 1 !important;
+}
+
+/* Section divider line: visible on dark bg */
+.project-details-overlay .section-header {
+  border-bottom-color: rgba(255, 251, 240, 0.10) !important;
+}
+
+/* Gallery title */
+.project-details-overlay .gallery-title {
+  color: rgba(255, 251, 240, 0.88) !important;
+}
+
+/* Prev/next nav section on dark bg */
+.project-details-overlay .sophisticated-navigation-section {
+  background: rgba(255, 251, 240, 0.04) !important;
+  border-top-color: rgba(255, 251, 240, 0.08) !important;
+}
+.project-details-overlay .sophisticated-nav-title {
+  color: rgba(255, 251, 240, 0.85) !important;
+}
+.project-details-overlay .sophisticated-nav-label {
+  color: rgba(255, 251, 240, 0.40) !important;
+}

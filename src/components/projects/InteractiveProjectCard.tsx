@@ -198,43 +198,6 @@ export function InteractiveProjectCard({
                 />
               )}
               
-              {/* Video playing indicator — bottom-left, subtle */}
-              {project.video && isActive && (
-                <motion.div
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6, duration: 0.4 }}
-                  style={{
-                    position: 'absolute',
-                    bottom: isMobile ? '12px' : '16px',
-                    left: isMobile ? '12px' : '16px',
-                    zIndex: 6,
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    background: 'rgba(255, 102, 99, 0.15)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255, 102, 99, 0.4)',
-                    borderRadius: '20px',
-                    padding: '4px 10px',
-                    color: 'var(--coral)',
-                    fontSize: '0.7rem',
-                    fontWeight: '600',
-                    letterSpacing: '0.08em',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  <span style={{
-                    width: '6px',
-                    height: '6px',
-                    borderRadius: '50%',
-                    background: 'var(--coral)',
-                    display: 'inline-block',
-                    animation: 'subtle-pulse 1.5s ease-in-out infinite',
-                  }} />
-                  Live Demo
-                </motion.div>
-              )}
 
               {/* Cinematic Tags - Positioned over image layers */}
               <div
