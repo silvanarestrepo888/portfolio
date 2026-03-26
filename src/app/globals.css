@@ -21799,3 +21799,139 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   }
 }
 
+/* ══════════════════════════════════════════════════════════════
+   PROJECT DETAIL PAGE — ELEVATION SYSTEM
+   Replaces excessive spacing, pill tags, and grapefruit artifacts
+   with a tight, architectural, professional layout.
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Discipline / project tags — architectural, not pill ── */
+.project-tag {
+  background: rgba(255, 102, 99, 0.10) !important;
+  color: var(--coral, #FF6663) !important;
+  border: 1px solid rgba(255, 102, 99, 0.28) !important;
+  border-radius: 6px !important;
+  padding: 0.3rem 0.75rem !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.07em !important;
+  text-transform: uppercase !important;
+}
+
+.project-tags {
+  gap: 0.5rem !important;
+  margin-top: 0 !important;
+}
+
+/* ── Capability tags — same architectural treatment ── */
+.capability-tag {
+  background: rgba(255, 102, 99, 0.08) !important;
+  color: var(--coral, #FF6663) !important;
+  border: 1px solid rgba(255, 102, 99, 0.25) !important;
+  border-radius: 6px !important;
+  padding: 0.3rem 0.75rem !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+}
+
+.capability-tags {
+  gap: 0.5rem !important;
+  margin-top: 1rem !important;
+}
+
+/* ── Metadata section — reduce vertical sprawl ── */
+.project-metadata-section {
+  margin: 1.25rem 0 !important;
+  padding: 0 var(--container-px) !important;
+}
+
+.metadata-grid {
+  gap: 1rem !important;
+  margin-bottom: 1.25rem !important;
+}
+
+.metadata-item {
+  padding: 1rem !important;
+  gap: 0.4rem !important;
+}
+
+/* ── Content sections — single column, tight vertical rhythm ── */
+.content-sections-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1rem !important;
+  padding: 0 var(--container-px) 1.5rem !important;
+}
+
+.content-section {
+  border: 1px solid rgba(253, 252, 248, 0.12) !important;
+  padding: 1.25rem !important;
+  border-radius: 8px !important;
+}
+
+/* ── Section header — make divider line visible ── */
+.section-header {
+  border-bottom: 1px solid rgba(253, 252, 248, 0.18) !important;
+  margin-bottom: 0.875rem !important;
+  padding-bottom: 0.625rem !important;
+}
+
+/* ── Section number dot — coral, not grapefruit ── */
+.section-number {
+  background: var(--coral, #FF6663) !important;
+  color: #FFFFFF !important;
+  width: 2rem !important;
+  height: 2rem !important;
+  font-size: 0.8rem !important;
+  flex-shrink: 0 !important;
+}
+
+/* ── Testimonial — tighter, coral accent, less chrome ── */
+.testimonial-container {
+  padding: 1.5rem !important;
+  border-radius: 10px !important;
+  border-left: 3px solid var(--coral, #FF6663) !important;
+  margin-top: 0.875rem !important;
+  box-shadow: 0 8px 24px rgba(74, 85, 104, 0.06) !important;
+}
+
+.testimonial-container:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 12px 32px rgba(74, 85, 104, 0.10) !important;
+}
+
+.testimonial-quote {
+  font-size: 1rem !important;
+  line-height: 1.65 !important;
+  margin-bottom: 1rem !important;
+}
+
+/* ── Gallery label — remove unstyled casual text ── */
+.gallery-section-label,
+.project-gallery-label {
+  font-family: var(--font-body, 'Inter', sans-serif) !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: rgba(253, 252, 248, 0.5) !important;
+}
+
+/* ── Next / prev navigation — compact, no excess padding ── */
+.project-navigation-section,
+.project-nav-section {
+  padding: 1.25rem var(--container-px) !important;
+  margin-top: 0.5rem !important;
+}
+
+/* ── Override tablet/desktop 2-col grid back to single ── */
+@media (min-width: 1025px) {
+  .content-sections-container {
+    grid-template-columns: unset !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
+
