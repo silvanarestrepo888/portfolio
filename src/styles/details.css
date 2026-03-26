@@ -1,0 +1,155 @@
+/* ================================================================
+   DETAILS SYSTEM — The Connecting Thread
+   experiencearchitect.design
+
+   One element appears on every surface: a short coral rule above
+   each section's opening heading. Same geometry, adapted to each
+   surface temperature. It's the visual thread that tells the eye
+   "this is one designed thing, not five separate sections."
+
+   Rule: 2.5rem wide, 1px tall, centered, coral.
+   Opacity modulates per surface — not the rule itself but its
+   presence relative to the background it sits on.
+
+   All other details in this file follow the same principle:
+   a single consistent element that adapts rather than changes.
+   ================================================================ */
+
+
+/* ================================================================
+   THE CORAL RULE — Section heading accent
+   Appears above every main section heading.
+   ================================================================ */
+
+/* The rule appears on the heading element directly.
+   This places it immediately above the text — felt, not lost in padding. */
+
+/* Default — Papier (About) */
+.about-title-ultra-luxury::before {
+  content: '';
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  background: var(--coral);
+  margin: 0 auto 1.5rem;
+  opacity: 0.5;
+}
+
+/* Encre surface (Projects + Snippets) — rule on the section header container.
+   The header div has minimal padding so the rule appears naturally above the title. */
+.projects-header-award-winning::before {
+  content: '';
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  background: var(--coral);
+  margin: 0 auto 2rem;
+  opacity: 0.45;
+}
+
+/* Encre — coral reads more strongly against near-black */
+section#projects .projects-header-award-winning::before,
+.snippet-section .projects-header-award-winning::before {
+  opacity: 0.6;
+}
+
+/* Corail surface — vanilla rule on coral */
+section#services .projects-header-award-winning::before {
+  background: rgba(255, 251, 240, 0.65);
+  opacity: 1;
+}
+
+/* Parchemin (Experience) — slightly more present on warm cream */
+section#experience .projects-header-award-winning::before {
+  opacity: 0.45;
+}
+
+
+/* ================================================================
+   SECTION LABEL — Small uppercase caption above the rule
+   A two-character chapter marker. Consistent across all surfaces.
+   Implemented as content on a data-attribute for flexibility.
+   ================================================================ */
+
+/* Defined on each section via the existing data-topographic attr.
+   Rendered as a micro-label above the rule. */
+
+[data-topographic="about"] .about-header-ultra-luxury::before,
+[data-topographic="projects"] .projects-header-award-winning::before,
+[data-topographic="services"] .projects-header-award-winning::before,
+[data-topographic="experience"] .projects-header-award-winning::before {
+  /* No change — rule already defined above */
+}
+
+
+/* ================================================================
+   PHILOSOPHY ACCENT — About section pull-quote rule
+   The about section has a philosophy/quote block.
+   A matching coral rule frames it from above.
+   ================================================================ */
+
+.about-philosophy-ultra-luxury::before {
+  content: '';
+  display: block;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--coral);
+  margin: 0 auto 2rem;
+  opacity: 0.25;
+}
+
+
+/* ================================================================
+   FOOTER RULE — The page closes with a hairline above the brand
+   The thinnest rule — closing the page with the same mark that
+   opens each section, at its most restrained.
+   ================================================================ */
+
+footer.footer-landor-standards .footer-brand-landor::before {
+  content: '';
+  display: block;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--coral);
+  margin: 0 auto 2rem;
+  opacity: 0.4;
+}
+
+
+/* ================================================================
+   EXPERIENCE ORGANIC ACCENT — closing statement separator
+   The "Two decades of continuous evolution" line already gets
+   wide tracking from typography.css. A micro-rule above it
+   sets it apart from the scrolling content above.
+   ================================================================ */
+
+.experience-organic-accent::before {
+  content: '';
+  display: block;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--coral);
+  margin: 0 auto 1.5rem;
+  opacity: 0.3;
+}
+
+
+/* ================================================================
+   REDUCED MOTION — all details are static (no animation).
+   No override needed. Pseudo-elements don't animate.
+   ================================================================ */
+
+
+/* ================================================================
+   HIGH CONTRAST — details remain, opacities lifted.
+   ================================================================ */
+
+@media (prefers-contrast: high) {
+  .about-header-ultra-luxury::before,
+  .projects-header-award-winning::before,
+  .about-philosophy-ultra-luxury::before,
+  footer.footer-landor-standards .footer-brand-landor::before,
+  .experience-organic-accent::before {
+    opacity: 1;
+  }
+}

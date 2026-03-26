@@ -1,0 +1,274 @@
+/* ================================================================
+   TYPOGRAPHY SYSTEM
+   experiencearchitect.design
+
+   RULE: Section headings are identical everywhere.
+   The surface (background color, temperature) does the differentiation.
+   Typography does not.
+
+   Two tiers:
+
+   TIER 1 — HEADINGS (universal)
+   Every section heading: same font-style, same letter-spacing,
+   same line-height. No exceptions. No per-surface variations.
+   Playfair Display, upright, -0.02em, line-height 1.0.
+
+   TIER 2 — BODY / SUPPORTING TEXT (surface-aware)
+   Line-height and letter-spacing of body text adapts to the surface
+   it sits on. Generous on light surfaces (room to read). Tighter
+   on dark surfaces (pulls the eye forward). This is invisible
+   variation — felt as rhythm, not seen as inconsistency.
+
+   Footer: its own composed voice, separate from sections.
+
+   Colors live in backgrounds.css. Sizes and families in tokens.css.
+   This file touches only letter-spacing, line-height, font-style.
+   ================================================================ */
+
+
+/* ================================================================
+   TIER 1 — UNIVERSAL HEADING TREATMENT
+   Every heading on every surface and every page: identical.
+   ================================================================ */
+
+/* Section headings (main page) + project title (overlay)
+   Double-class selectors beat the single-class .typography-h2
+   rule in globals.css without needing !important. */
+.about-title-ultra-luxury.typography-h2,
+.about-title-ultra-luxury.typography-h3,
+.about-title-ultra-luxury,
+.projects-title-award-winning.typography-h2,
+.projects-title-award-winning.typography-h3,
+.projects-title-award-winning,
+.project-hero-title,
+.project-details-overlay h1 {
+  font-family: var(--font-cormorant-display), "Cormorant Garamond", serif;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.0;
+  text-transform: lowercase;
+}
+
+/* Sub-headings within project overlay (Context, Gallery, etc.) */
+.project-details-overlay h2,
+.project-section-title {
+  font-family: var(--font-cormorant-display), "Cormorant Garamond", serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: var(--type-xl);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  text-transform: lowercase;
+}
+
+
+/* ================================================================
+   TIER 2 — SECTION DESCRIPTION
+   One clear step below the heading. Inter Light, sized up from body.
+   ================================================================ */
+
+.about-description-ultra-luxury,
+.projects-description-award-winning {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: var(--type-lg);
+  letter-spacing: 0;
+  line-height: 1.7;
+}
+
+/* Overlay subtitle (project tagline under the title) */
+.project-details-overlay p:first-of-type,
+.project-subtitle-display {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-size: var(--type-lg);
+  font-style: normal;
+  letter-spacing: 0;
+  line-height: 1.7;
+}
+
+
+/* ================================================================
+   TIER 2 — BODY TEXT RHYTHM (surface-aware)
+   Line-height is the only variable. Letter-spacing stays minimal.
+   ================================================================ */
+
+/* PAPIER — About. Most generous leading on the page.
+   Literary text needs room to breathe between lines. */
+.about-section-ultra-luxury .about-description-ultra-luxury {
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+}
+
+.about-section-ultra-luxury .about-main-story {
+  line-height: 1.9;
+  letter-spacing: 0.005em;
+}
+
+.about-section-ultra-luxury .about-welcome {
+  letter-spacing: 0.08em;
+  line-height: 1.7;
+}
+
+/* ENCRE — Projects. Tighter rhythm on the dark surface.
+   The work cards carry the reading load. */
+section#projects .balanced-title {
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+section#projects .balanced-category,
+section#projects .balanced-year {
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+}
+
+section#projects .balanced-client {
+  letter-spacing: 0.04em;
+}
+
+section#projects .balanced-description {
+  line-height: 1.618;
+  letter-spacing: 0.005em;
+}
+
+section#projects .projects-description-award-winning {
+  line-height: 1.7;
+}
+
+/* Snippet section — Encre continuation */
+.snippet-section h2,
+.snippet-section h3 {
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* CORAIL — Services. Generous leading. Description earns its space. */
+section#services .projects-description-award-winning {
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+}
+
+/* PARCHEMIN — Experience. Documentary rhythm — slightly more open. */
+section#experience .projects-description-award-winning {
+  line-height: 1.8;
+  letter-spacing: 0.01em;
+}
+
+/* Closing accent — uppercase, measured distance */
+.experience-organic-accent {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+
+
+/* ================================================================
+   TIER 3 — INTERACTIVE LABELS
+   Buttons, filter tags, navigation items: one voice.
+   Inter, uppercase, tracked. Tracking is the only variable.
+   A primary CTA is 0.12em. A nav label is 0.08em. Same typeface,
+   same weight — only the deliberateness of the action changes.
+
+   Specificity: body + .class = (0,1,1) beats globals.css .class = (0,1,0).
+   This file controls font-family, font-weight, letter-spacing, text-transform.
+   Structural properties (size, padding, color) stay in globals.css.
+   ================================================================ */
+
+/* 3A — Primary CTAs: widest tracking, most considered action */
+body .hero-cta-button,
+body .balanced-btn,
+body .service-cta-landor,
+body .btn-primary-refined,
+body .btn-secondary-refined,
+body .btn-explore-clean {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: var(--type-xs);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* 3B — Filter and meta labels: same register, same voice */
+body .filter-tag-award-winning {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: var(--type-xs);
+  font-weight: 400;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+
+/* 3C — Navigation labels: browsing register, least deliberate */
+body .nav-section-name {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: var(--type-xs);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Navigation index numerals — coral, minimal */
+body .nav-section-number {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+}
+
+/* Navigation brand mark — display serif, same voice as page headings */
+body .nav-brand-enhanced {
+  font-family: var(--font-cormorant-display), "Cormorant Garamond", serif;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  text-transform: lowercase;
+}
+
+
+/* ================================================================
+   NOIR — Footer
+   Composed voice. Not a section heading system — its own register.
+   ================================================================ */
+
+/* Footer brand mark — Cormorant Garamond, same voice as nav brand and page headings.
+   Double-class specificity (0,2,1) beats globals.css .footer-brand-name-landor (0,1,0). */
+footer.footer-landor-standards .footer-brand-name-landor {
+  font-family: var(--font-cormorant-display), "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-style: normal;
+  letter-spacing: 0.25em;
+  text-transform: lowercase;
+}
+
+footer.footer-landor-standards .footer-brand-title-landor {
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+}
+
+footer.footer-landor-standards .footer-brand-description-landor {
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
+
+footer.footer-landor-standards .footer-nav-title-landor,
+footer.footer-landor-standards .footer-contact-title-landor {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: var(--type-xs);
+  line-height: 1.5;
+}
+
+footer.footer-landor-standards .footer-nav-link-landor,
+footer.footer-landor-standards .footer-contact-link-landor {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.8;
+}
+
+footer.footer-landor-standards .footer-copyright-text-landor,
+footer.footer-landor-standards .footer-legal-link-landor {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  line-height: 1.6;
+}

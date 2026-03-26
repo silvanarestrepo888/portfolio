@@ -1,0 +1,117 @@
+/* ================================================================
+   SPACING SYSTEM
+   experiencearchitect.design
+
+   POLICY: All structural spacing must use tokens from tokens.css.
+   Never hardcode px or rem values at the section or container level.
+
+   Three tiers:
+
+   TIER 1 — SECTION VERTICAL RHYTHM
+   Every section uses --section-py (= --space-2xl = 64px) for
+   padding-top and padding-bottom. No exceptions. The hero is
+   height-based (90vh) and exempt. The footer is intentionally
+   compact (--space-xl top, --space-lg bottom).
+
+   TIER 2 — HORIZONTAL CONTAINER EDGE
+   Every inner container uses --container-px for left/right padding.
+   --container-px = max(--space-xl, 5vw) = min 40px, fluid to ~70px.
+   Max-width uses --container-max (1200px) or --container-max-wide (1400px).
+
+   TIER 3 — COMPONENT INTERIOR SPACING
+   Gaps, card padding, and inline margins use the space scale:
+   --space-xs (4) → --space-sm (8) → --space-md (16) →
+   --space-lg (24) → --space-xl (40) → --space-2xl (64) → --space-3xl (104)
+   ================================================================ */
+
+
+/* ================================================================
+   EDITORIAL RHYTHM OVERRIDE
+   globals.css inflates --space-2xl to 177px via golden-ratio tokens.
+   --section-py inherited that value, making sections 354px of dead air.
+   Corrected here to a magazine-standard 64px vertical breathing room.
+   ================================================================ */
+
+:root {
+  --section-py: 4rem;          /* 64px — editorial standard, was 177px */
+  --section-header-mb: 2.5rem; /* 40px — between section header and content */
+  --about-grid-gap: 2.5rem;    /* 40px — about two-column gap, was 110px */
+}
+
+
+/* ================================================================
+   TIER 1 — SECTION VERTICAL RHYTHM
+   Enforces --section-py on every page section.
+   ================================================================ */
+
+/* About — Papier */
+.about-section-ultra-luxury {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+}
+
+/* Projects — Encre */
+.projects-section-award-winning {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+}
+
+/* Project Snippets — Encre continuation */
+.snippet-section {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+}
+
+/* Services — Corail
+   Uses fluid clamp between --space-lg and --space-2xl via .section-luxury.
+   This is intentional: the services section is height-constrained on mobile. */
+
+/* Experience — Parchemin */
+.experience-infinite-section {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+}
+
+/* Footer — Noir. Concrete values to bypass golden-ratio token inflation. */
+footer.footer-landor-standards {
+  padding-top: 2.5rem;   /* 40px */
+  padding-bottom: 1.5rem; /* 24px */
+}
+
+
+/* ================================================================
+   TIER 2 — HORIZONTAL CONTAINER EDGE
+   Enforces --container-px on all section-level containers.
+   ================================================================ */
+
+.about-container-ultra-luxury,
+.projects-container-award-winning,
+.container-foundation,
+.snippet-container {
+  padding-left: var(--container-px);
+  padding-right: var(--container-px);
+}
+
+.experience-integrated-frame {
+  max-width: var(--container-max);
+}
+
+
+/* ================================================================
+   RESPONSIVE OVERRIDES — Container horizontal padding
+   The golden-ratio token --space-xl resolves to 109px, making
+   --container-px = max(109px, 5vw) = 109px at all widths.
+   These overrides restore sensible edge padding at smaller viewports.
+   ================================================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --container-px: 2rem; /* 32px — comfortable tablet edge */
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --container-px: 1.25rem; /* 20px — standard mobile edge */
+  }
+}

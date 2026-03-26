@@ -1,0 +1,574 @@
+/* ================================================================
+   BACKGROUND SYSTEM v3 — experiencearchitect.design
+   Three surfaces. Two moments of absolute commitment.
+   60% quiet. 30% depth. 10% declaration.
+
+   The principle: less per section, total commitment where it matters.
+   Radial gradients are not atmosphere — restraint is atmosphere.
+
+   Import order: last — owns all atmospheric backgrounds.
+   All values via tokens.css. No hardcoded hex except the
+   surface tokens which are defined there.
+   ================================================================ */
+
+
+/* ================================================================
+   HERO — The Stage
+   The photograph speaks. This overlay only lifts text contrast
+   and anchors coral warmth at the base. Nothing more.
+   ================================================================ */
+
+.hero-unified-color-story {
+  background:
+    /* Coral ground — narrow, warm, alive at the base */
+    linear-gradient(
+      to top,
+      rgba(255, 102, 99, 0.22) 0%,
+      rgba(255, 102, 99, 0.08) 20%,
+      transparent 42%
+    ),
+    /* Cinematic dark corner — top-left, draws eye inward */
+    linear-gradient(
+      138deg,
+      rgba(20, 20, 26, 0.48) 0%,
+      rgba(20, 20, 26, 0.16) 32%,
+      transparent 54%
+    );
+}
+
+
+/* ================================================================
+   ABOUT — Papier
+   Near-white. One barely-perceptible warm blush, enormous, centred.
+   The grain texture (::before) carries all atmosphere.
+   Confidence doesn't decorate.
+   ================================================================ */
+
+.about-section-ultra-luxury {
+  background:
+    /* Single warm blush — centred, enormous, present only at
+       the threshold of perception */
+    radial-gradient(ellipse 110% 80% at 52% 45%,
+      rgba(255, 251, 240, 0.55) 0%, transparent 100%),
+    /* Base — quiet paper drift from cool-white to warm-white */
+    linear-gradient(158deg,
+      var(--vanilla-pure) 0%,
+      var(--vanilla) 50%,
+      var(--vanilla-warm) 100%) !important;
+  text-shadow: none;
+}
+
+
+/* ================================================================
+   PROJECTS — Encre
+   Ink-near-black, cool undertone. One coral source — upper right,
+   directional, like a museum spotlight trained on the work.
+   The projects are the light. Nothing else competes.
+   ================================================================ */
+
+section#projects.projects-section-award-winning {
+  background:
+    /* Single spotlight — upper right, one source, one intention */
+    radial-gradient(ellipse 60% 50% at 78% 10%,
+      rgba(255, 102, 99, 0.18) 0%, transparent 100%),
+    /* Base — warm ink, not pure black, not warm charcoal */
+    linear-gradient(150deg,
+      var(--surface-ink) 0%,
+      var(--surface-ink-mid) 50%,
+      var(--surface-ink-edge) 100%) !important;
+}
+
+/* Unified gradient override — must be defeated */
+.section-projects-sophisticated {
+  background: unset !important;
+}
+
+section#projects.projects-section-award-winning.section-projects-sophisticated {
+  background:
+    radial-gradient(ellipse 60% 50% at 78% 10%,
+      rgba(255, 102, 99, 0.18) 0%, transparent 100%),
+    linear-gradient(150deg,
+      var(--surface-ink) 0%,
+      var(--surface-ink-mid) 50%,
+      var(--surface-ink-edge) 100%) !important;
+}
+
+
+/* ================================================================
+   PROJECT SNIPPETS — Encre continuation
+   Same ink atmosphere. Coral source shifts to lower left —
+   a different angle on the same surface. Seamless continuation.
+   ================================================================ */
+
+.snippet-section {
+  background:
+    /* Coral warmth — lower left, shifted from projects */
+    radial-gradient(ellipse 55% 45% at 22% 78%,
+      rgba(255, 102, 99, 0.14) 0%, transparent 100%),
+    /* Base — same ink surface, fractionally warmer edge */
+    linear-gradient(155deg,
+      var(--surface-ink-mid) 0%,
+      var(--surface-ink-edge) 55%,
+      #1C1C24 100%) !important;
+}
+
+
+/* ================================================================
+   SERVICES — Corail Absolu
+   Full coral. No radial effects. No atmospheric compositions.
+   The grain texture (::before) is the only texture.
+   One colour, completely committed. Restraint is the power.
+   ================================================================ */
+
+section#services.section-services-sophisticated {
+  background:
+    linear-gradient(145deg,
+      var(--coral-surface-deep) 0%,
+      var(--coral) 48%,
+      var(--coral-surface-light) 100%) !important;
+  padding-top: var(--section-py) !important;
+  padding-bottom: var(--section-py) !important;
+  max-height: none !important;
+  overflow-y: visible !important;
+}
+
+
+
+/* ================================================================
+   EXPERIENCE — Parchemin
+   Warm cream. The archive. After the heat of coral, the page
+   turns to warm parchment — earned, measured, documentary.
+   Coral company names glow on cream like ink on old paper.
+   One barely-present coral blush at the base connects the
+   palette without demanding attention.
+   ================================================================ */
+
+section#experience.experience-infinite-section {
+  background:
+    /* Coral blush at base — archive warmth, barely present */
+    radial-gradient(ellipse 90% 45% at 50% 100%,
+      rgba(255, 102, 99, 0.06) 0%, transparent 100%),
+    /* Base — warm parchment, deeper than vanilla, older */
+    linear-gradient(160deg,
+      var(--surface-parchment) 0%,
+      var(--surface-parchment-mid) 55%,
+      var(--surface-parchment-edge) 100%) !important;
+}
+
+/* Experience text — dark on parchment */
+section#experience .projects-title-award-winning {
+  color: var(--charcoal-warm) !important;
+  text-shadow: none !important;
+}
+
+section#experience .projects-description-award-winning {
+  color: var(--charcoal-muted) !important;
+}
+
+section#experience .experience-organic-accent {
+  color: var(--charcoal-light) !important;
+}
+
+
+/* ================================================================
+   FOOTER — Noir Absolu
+   The deepest, coolest surface. No coral — it has already had
+   its moment. No warmth. A single centre lift at 3% prevents
+   complete deadness. The page closes with composure.
+   ================================================================ */
+
+footer.footer-landor-standards {
+  background:
+    /* Subtle top-shadow for depth */
+    radial-gradient(ellipse 100% 80% at 50% 0%, rgba(0, 0, 0, 0.07) 0%, transparent 65%),
+    /* Deeper coral — distinct from services, same warm family, lower register */
+    var(--coral-impact, #E55A5A) !important;
+}
+
+/* Footer text — vanilla spectrum on near-black */
+footer.footer-landor-standards .footer-brand-name-landor,
+footer.footer-landor-standards .footer-brand-title-landor,
+footer.footer-landor-standards .footer-nav-title-landor,
+footer.footer-landor-standards .footer-contact-title-landor {
+  color: var(--vanilla-pure) !important;
+}
+
+footer.footer-landor-standards .footer-brand-description-landor {
+  color: rgba(255, 251, 240, 0.50) !important;
+}
+
+footer.footer-landor-standards .footer-nav-link-landor,
+footer.footer-landor-standards .footer-contact-link-landor {
+  color: rgba(255, 251, 240, 0.60) !important;
+}
+
+footer.footer-landor-standards .footer-nav-link-landor:hover,
+footer.footer-landor-standards .footer-contact-link-landor:hover {
+  color: var(--coral) !important;
+  opacity: 1 !important;
+}
+
+footer.footer-landor-standards .footer-copyright-text-landor,
+footer.footer-landor-standards .footer-legal-link-landor {
+  color: rgba(255, 251, 240, 0.32) !important;
+}
+
+footer.footer-landor-standards .footer-legal-link-landor:hover {
+  color: rgba(255, 251, 240, 0.62) !important;
+}
+
+
+/* ================================================================
+   PROJECT DETAILS OVERLAY — Vélin
+   The reading room. Cleaner than any other surface on the page.
+   Pure vanilla — no gradient, no atmospheric effects.
+   The project images provide all atmosphere.
+
+   Structure:
+   ┌─ Navigation bar (dark ink, fixed) ─────────────────────┐
+   │  Hero zone (Encre — dark image presentation)           │
+   │  Reading zone (Vélin — pure vanilla, text breathes)    │
+   │  Gallery zone (Vélin — images on white)                │
+   └─ Mini footer (Corail — brand bookend) ─────────────────┘
+   ================================================================ */
+
+.project-details-overlay {
+  background: var(--vanilla-pure) !important;
+  color: var(--charcoal-mid) !important;   /* base text color — vanilla surface needs charcoal text */
+}
+
+/* ================================================================
+   OVERLAY TEXT COLOR SYSTEM
+   The overlay was originally designed for a dark charcoal background.
+   Many typography classes hardcode vanilla text (for dark bg).
+   These rules flip all vanilla-colored classes back to charcoal
+   when inside the overlay's vanilla surface.
+   ================================================================ */
+
+/* Section headings within the overlay */
+.project-details-overlay .typography-h3,
+.project-details-overlay .section-title {
+  color: var(--charcoal-deep) !important;
+}
+
+/* Metadata values — the actual data (client name, year, location) */
+.project-details-overlay .metadata-value {
+  color: var(--charcoal-warm) !important;
+}
+
+/* Body text — context, approach, impact paragraphs */
+.project-details-overlay .typography-body,
+.project-details-overlay .section-text {
+  color: var(--charcoal-muted) !important;
+}
+
+/* Caption labels — small uppercase labels like "CLIENT", "YEAR" */
+.project-details-overlay .typography-caption {
+  color: var(--charcoal-light) !important;
+}
+
+/* Content section containers — set to vanilla in globals.css for dark bg */
+.project-details-overlay .project-details-content-sections,
+.project-details-overlay .content-sections-container,
+.project-details-overlay .content-section,
+.project-details-overlay .section-header,
+.project-details-overlay .section-content {
+  color: var(--charcoal-mid) !important;
+}
+
+/* Testimonial block */
+.project-details-overlay .testimonial-container,
+.project-details-overlay .testimonial-quote,
+.project-details-overlay .testimonial-attribution,
+.project-details-overlay .testimonial-author,
+.project-details-overlay .testimonial-role {
+  color: var(--charcoal-muted) !important;
+}
+
+/* Hero zone — vertical stack layout.
+   The original rule at line 10780 sets display:flex with no
+   flex-direction, defaulting to ROW — splitting image and title
+   into two 50/50 halves. We correct this to a proper vertical
+   layout: image full-width, title centred below.
+   Text was vanilla-white (designed for dark background that was
+   later overridden). Corrected to charcoal for reading room. */
+
+.project-details-overlay .project-hero-section {
+  flex-direction: column !important;
+  height: auto !important;
+  align-items: center !important;
+  gap: var(--space-xl) !important;
+  padding-top: 8rem !important;
+  padding-bottom: var(--space-2xl) !important;
+  margin-bottom: 0 !important;
+}
+
+.project-details-overlay .hero-image-container {
+  width: 100% !important;
+  max-width: var(--container-max-wide) !important;
+  margin: 0 auto !important;
+  padding: 0 var(--container-px) !important;
+}
+
+/* ================================================================
+   PROJECT DETAILS OVERLAY — Mobile responsive overrides
+   The base rules above use specificity (0,2,0) + !important.
+   These overrides match the same specificity so later-order wins.
+   ================================================================ */
+
+@media (max-width: 768px) {
+  .project-details-overlay .project-hero-section {
+    padding-top: 5.5rem !important; /* ~88px — clears the 78px compact nav */
+    padding-bottom: var(--space-lg) !important;
+    gap: var(--space-md) !important;
+  }
+
+  .project-details-overlay .hero-image-container {
+    padding: 0 1.25rem !important;
+  }
+
+  .project-details-overlay .project-title-section {
+    padding: 0 1.25rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-details-overlay .project-hero-section {
+    padding-top: 5rem !important; /* ~80px — clears ~68px mobile nav with breathing room */
+    padding-bottom: 1.5rem !important;
+    gap: 1rem !important;
+  }
+
+  .project-details-overlay .hero-image-container {
+    padding: 0 1rem !important;
+  }
+
+  .project-details-overlay .project-title-section {
+    padding: 0 1rem !important;
+  }
+}
+
+.project-details-overlay .project-title-section {
+  width: 100% !important;
+  max-width: var(--container-max) !important;
+  margin: 0 auto !important;
+  padding: 0 var(--container-px) !important;
+  text-align: center !important;
+}
+
+.project-details-overlay .project-title {
+  color: var(--charcoal-deep) !important;
+  text-shadow: none !important;
+}
+
+.project-details-overlay .project-subtitle {
+  color: var(--charcoal-muted) !important;
+}
+
+/* Project details footer — calibrated coral, matching services */
+.project-details-footer {
+  background:
+    linear-gradient(145deg,
+      var(--coral-surface-deep) 0%,
+      var(--coral) 48%,
+      var(--coral-surface-light) 100%) !important;
+}
+
+.project-details-footer .footer-brand-name,
+.project-details-footer .footer-brand-title,
+.project-details-footer .footer-copyright-text,
+.project-details-footer .footer-tagline {
+  color: var(--vanilla-pure) !important;
+}
+
+
+/* ================================================================
+   PROJECT OVERLAY — Sophisticated Navigation (Prev/Next)
+   The navigation section inherits the white reading surface.
+   The hardcoded #374151 background is the source of the dark
+   blue-gray band. Text must flip to dark for white surface.
+   ================================================================ */
+
+.sophisticated-navigation-section {
+  background: var(--vanilla-pure) !important;
+  border-top: 1px solid rgba(44, 44, 44, 0.08);
+}
+
+.sophisticated-nav-title {
+  color: var(--charcoal-deep) !important;
+}
+
+.sophisticated-nav-subtitle {
+  color: var(--charcoal-muted) !important;
+}
+
+/* Thumbnail border — visible on white */
+.project-details-overlay .sophisticated-nav-thumbnail {
+  border-color: rgba(44, 44, 44, 0.10) !important;
+}
+
+
+/* ================================================================
+   DARK SECTION TEXT — Encre zone (projects + snippets)
+   All copy inside the gallery zone flips to vanilla spectrum.
+   Coral client names stay coral — they glow against the ink.
+   ================================================================ */
+
+section#projects .projects-title-award-winning,
+.snippet-section .projects-title-award-winning {
+  color: var(--vanilla-pure) !important;
+  text-shadow: 0 2px 32px rgba(12, 12, 16, 0.8) !important;
+}
+
+section#projects .projects-description-award-winning,
+.snippet-section .projects-description-award-winning {
+  color: rgba(255, 251, 240, 0.68) !important;
+  text-shadow: none !important;
+}
+
+section#projects .filter-tag-award-winning {
+  background: rgba(255, 251, 240, 0.06) !important;
+  border-color: rgba(255, 251, 240, 0.12) !important;
+  color: rgba(255, 251, 240, 0.58) !important;
+  box-shadow: none !important;
+}
+
+section#projects .filter-tag-award-winning.active {
+  background: var(--coral) !important;
+  border-color: var(--coral) !important;
+  color: var(--vanilla-pure) !important;
+  box-shadow: 0 4px 20px rgba(255, 102, 99, 0.35) !important;
+}
+
+section#projects .balanced-title {
+  color: var(--vanilla-pure) !important;
+  text-shadow: none !important;
+}
+
+section#projects .balanced-description,
+section#projects .balanced-category,
+section#projects .balanced-year {
+  color: rgba(255, 251, 240, 0.55) !important;
+}
+
+/* Client names stay coral — they glow on ink */
+section#projects .balanced-client {
+  color: var(--coral) !important;
+}
+
+section#projects .balanced-btn {
+  border-color: rgba(255, 251, 240, 0.20) !important;
+  color: var(--vanilla-pure) !important;
+}
+
+section#projects .balanced-btn:hover {
+  background: var(--coral) !important;
+  border-color: var(--coral) !important;
+  color: var(--vanilla-pure) !important;
+}
+
+/* Snippet section — section title stays light (on dark section bg).
+   Card-level h3 and p inherit from their own class rules — no override here. */
+.snippet-section > .snippet-container .snippet-header h2 {
+  color: rgba(255, 251, 240, 0.82);
+}
+
+section#projects .carousel-arrow,
+section#projects .swiper-button-next,
+section#projects .swiper-button-prev {
+  color: var(--vanilla-pure) !important;
+  border-color: rgba(255, 251, 240, 0.18) !important;
+}
+
+section#projects .swiper-pagination-bullet {
+  background: rgba(255, 251, 240, 0.28) !important;
+}
+
+section#projects .swiper-pagination-bullet-active {
+  background: var(--coral) !important;
+}
+
+
+/* ================================================================
+   SERVICES TEXT — enforced vanilla over coral
+   ================================================================ */
+
+section#services .projects-title-award-winning {
+  color: var(--vanilla-pure) !important;
+  text-shadow: 0 2px 20px rgba(150, 30, 30, 0.28) !important;
+}
+
+section#services .projects-description-award-winning {
+  color: rgba(255, 251, 240, 0.88) !important;
+}
+
+
+/* ================================================================
+   SECTION TRANSITIONS
+   No gradient bridges. Surfaces meet with clean edges.
+   The contrast between surfaces is intentional — each edge
+   is a visual beat in the page's rhythm.
+
+   paper → ink:      abrupt (light to dark — dramatic entry)
+   ink → ink:        seamless (same surface family)
+   ink → coral:      abrupt (dark to saturated — earned arrival)
+   coral → parchment: clean edge (warm tones relate naturally)
+   parchment → noir:  abrupt (the end-of-chapter moment)
+   ================================================================ */
+
+
+/* ================================================================
+   REDUCED MOTION — surfaces stay, animations removed
+   ================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .about-section-ultra-luxury,
+  section#projects.projects-section-award-winning,
+  section#projects.projects-section-award-winning.section-projects-sophisticated,
+  .snippet-section,
+  section#services.section-services-sophisticated,
+  section#experience.experience-infinite-section,
+  footer.footer-landor-standards {
+    transition: none !important;
+  }
+}
+
+
+/* ================================================================
+   HIGH CONTRAST — strip all layering, pure surface colors only
+   ================================================================ */
+
+@media (prefers-contrast: high) {
+  .hero-unified-color-story {
+    background: transparent !important;
+  }
+  .about-section-ultra-luxury {
+    background: #ffffff !important;
+  }
+  section#projects.projects-section-award-winning,
+  section#projects.projects-section-award-winning.section-projects-sophisticated {
+    background: #000000 !important;
+  }
+  .snippet-section {
+    background: #111111 !important;
+  }
+  section#services.section-services-sophisticated {
+    background: var(--coral) !important;
+  }
+  section#experience.experience-infinite-section {
+    background: #ffffff !important;
+  }
+  footer.footer-landor-standards {
+    background: #000000 !important;
+  }
+  .project-details-overlay {
+    background: #ffffff !important;
+  }
+  .project-hero-section,
+  .project-details-hero-section {
+    background: #000000 !important;
+  }
+  .sophisticated-navigation-section {
+    border-top-color: rgba(0,0,0,0.15) !important;
+  }
+}
