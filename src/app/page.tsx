@@ -79,7 +79,6 @@ export default function Home() {
   
   // Services hover expansion state
   const [expandedService, setExpandedService] = useState<string | null>(null);
-  const [heroLoaded, setHeroLoaded] = useState(false);
   const [aboutLoaded, setAboutLoaded] = useState(false);
   
   
@@ -723,8 +722,6 @@ export default function Home() {
               unoptimized
               priority
               sizes="100vw"
-              onLoad={() => setHeroLoaded(true)}
-              onError={() => setHeroLoaded(true)}
             />
           </div>
           

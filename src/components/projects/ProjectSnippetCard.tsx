@@ -93,7 +93,7 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
           <motion.button
             className="snippet-cta-bottom-right"
             onClick={handleEmailClick}
-            whileHover={{ scale: 1.05, backgroundColor: '#E55A5A' }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             aria-label={`Contact about ${project.title} project`}
           >

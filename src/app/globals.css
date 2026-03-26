@@ -18843,7 +18843,7 @@ img[class*="project-"] {
 /* ABOUT PHOTO UNIFIED SOPHISTICATED SYSTEM */
 .about-photo-unified-sophisticated {
   position: relative;
-  border-radius: 20px; /* Clean floating edges */
+  border-radius: 6px; /* Architectural — matches inline image radius */
   overflow: hidden;
   
   /* REMOVE frame background - floating effect */
@@ -20052,7 +20052,7 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 }
 
 .snippet-cta-bottom-right:hover {
-  background: #E55A5A;
+  background: var(--coral-impact);
   transform: translateY(-1px) scale(1.02); /* Lift and scale */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
   transition: all var(--duration-fast) var(--ease-back-out);
