@@ -22023,6 +22023,113 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 
 
 /* ============================================================
+   PROJECT DETAIL HERO — FULL-BLEED FIX
+   Image fills container edge-to-edge; floating nav hidden
+   ============================================================ */
+
+/* 1. Hide the floating site nav whenever the overlay is open */
+body:has(.project-details-overlay) .navigation-floating {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateX(-50%) translateY(-140%) !important;
+}
+
+/* 2. Hero section: full viewport width, tall cinematic height */
+.project-details-hero-section {
+  padding: 0 !important;
+  margin-top: 0 !important;
+  height: 70vh !important;
+  min-height: 420px !important;
+  width: 100% !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* 3. Image wrapper: fills the full hero section */
+.detail-hero-image-wrap {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* 4. Top gradient so navigation buttons sit comfortably over the image */
+.detail-hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.30) 0%,
+    rgba(0, 0, 0, 0.08) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 5. Nav system: glass floating over the hero image */
+.project-details-navigation-system {
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* 6. Back button: coral pill keeps its style, add shadow for readability */
+.project-back-button-ultra {
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.20)) !important;
+}
+
+/* 7. Center title bar: white text over the image */
+.project-title-bar-text {
+  color: rgba(255, 255, 255, 0.92) !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.25) !important;
+}
+
+.kbd-hint {
+  border-color: rgba(255, 255, 255, 0.28) !important;
+  color: rgba(255, 255, 255, 0.55) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 8. Close button: frosted glass on dark gradient */
+.project-close-button-ultra {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.26) !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* 9. Title + subtitle overlaid at the bottom of the hero */
+.project-details-hero-section .project-title-section {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem var(--container-px, 40px) !important;
+  background: linear-gradient(0deg, rgba(0,0,0,0.45) 0%, transparent 100%);
+  z-index: 2;
+}
+
+.project-details-hero-section .project-title {
+  color: #ffffff !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.28) !important;
+}
+
+.project-details-hero-section .project-subtitle {
+  color: rgba(255, 255, 255, 0.80) !important;
+}
+
+@media (max-width: 640px) {
+  .project-details-hero-section {
+    height: 56vw !important;
+    min-height: 260px !important;
+  }
+}
+
+
+/* ============================================================
    EXPERIENCE TIMELINE — BREATHING ROOM & CARD ELEVATION
    More air between year / dot / label, refined hover card
    ============================================================ */

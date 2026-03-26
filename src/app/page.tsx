@@ -1380,31 +1380,28 @@ export default function Home() {
             </motion.button>
           </div>
 
-          {/* HERO SECTION - Perfect Visual Exploration with Proper Spacing */}
+          {/* HERO SECTION - Full-bleed cinematic image */}
           <div className="project-hero-section project-details-hero-section">
-            <div className="hero-image-container">
+            <div className="detail-hero-image-wrap">
               <Image
                 src={projects[selectedProject].secondaryImage || projects[selectedProject].image}
                 alt={projects[selectedProject].title}
-                width={1200}
-                height={600}
-                className="hero-image-perfect"
+                fill
+                className="detail-hero-image"
                 style={{
-                  width: '100%',
-                  height: 'auto',
-                  maxHeight: '60vh',
-                  objectFit: 'contain',
-                  objectPosition: 'center',
-                  display: 'block',
+                  objectFit: 'cover',
+                  objectPosition: 'center top',
                   opacity: detailHeroLoaded ? 1 : 0,
-                  transition: 'opacity 0.5s ease',
+                  transition: 'opacity 0.6s ease',
                 }}
                 priority
                 unoptimized
-                sizes="(max-width: 768px) 100vw, 90vw"
+                sizes="100vw"
                 onLoad={() => setDetailHeroLoaded(true)}
                 onError={() => setDetailHeroLoaded(true)}
               />
+              {/* Gradient overlay so nav buttons stay readable */}
+              <div className="detail-hero-gradient" aria-hidden="true" />
             </div>
 
             {/* Project Title and Metadata - BELOW IMAGE with Proper Spacing */}
