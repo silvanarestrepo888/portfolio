@@ -22023,6 +22023,74 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 
 
 /* ============================================================
+   PROJECT DETAIL — PREV/NEXT NAVIGATION ELEVATION
+   Lighter background, tighter spacing, cleaner typography
+   ============================================================ */
+
+.sophisticated-navigation-section {
+  padding: 3rem var(--container-px, 40px) !important;
+  gap: 2rem !important;
+  background: rgba(74, 85, 104, 0.04) !important;
+  border-top: 1px solid rgba(74, 85, 104, 0.10) !important;
+  max-width: 100% !important;
+}
+
+.sophisticated-nav-project {
+  padding: 1.5rem !important;
+  gap: 1.5rem !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(74, 85, 104, 0.08) !important;
+  transition: border-color 0.25s ease, background 0.25s ease !important;
+}
+
+.sophisticated-nav-project:hover {
+  background: rgba(74, 85, 104, 0.04) !important;
+  border-color: rgba(74, 85, 104, 0.18) !important;
+  transform: translateY(-2px) !important;
+}
+
+.sophisticated-nav-thumbnail {
+  width: 96px !important;
+  height: 96px !important;
+  border-radius: 6px !important;
+  border: 1px solid rgba(74, 85, 104, 0.12) !important;
+}
+
+.sophisticated-nav-label {
+  font-size: 0.68rem !important;
+  letter-spacing: 0.12em !important;
+  color: var(--coral, #FF6663) !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.sophisticated-nav-title {
+  font-family: var(--font-display, 'Cormorant Garamond', serif) !important;
+  font-size: 1.1rem !important;
+  font-weight: 500 !important;
+  color: var(--charcoal-mid, #4A5568) !important;
+  margin: 0 0 0.35rem !important;
+}
+
+.sophisticated-nav-subtitle {
+  font-size: 0.8125rem !important;
+  color: rgba(74, 85, 104, 0.55) !important;
+  font-style: normal !important;
+  line-height: 1.4 !important;
+}
+
+@media (max-width: 640px) {
+  .sophisticated-navigation-section {
+    grid-template-columns: 1fr !important;
+    padding: 2rem 1.5rem !important;
+    gap: 1rem !important;
+  }
+  .sophisticated-nav-project {
+    padding: 1rem !important;
+  }
+}
+
+
+/* ============================================================
    PROJECT DETAIL HERO — FULL-BLEED FIX
    Image fills container edge-to-edge; floating nav hidden
    ============================================================ */

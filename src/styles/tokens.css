@@ -77,6 +77,12 @@
   --grapefruit-rich:           var(--charcoal-mid);
   --grapefruit-medium:         var(--charcoal-light);
 
+  /* MISSING — bare --grapefruit and rare variants (18 + 3 usages) */
+  --grapefruit:                var(--coral);
+  --grapefruit-warm:           var(--coral);
+  --grapefruit-secondary:      var(--coral-15);
+  --grapefruit-light:          var(--coral-08);
+
   /* ==========================================
      TYPOGRAPHY SCALE — Golden Ratio (φ = 1.618)
      ========================================== */

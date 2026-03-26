@@ -820,7 +820,7 @@ export default function Home() {
                 as="h2"
                 className="about-title-ultra-luxury typography-h2"
               >
-                About Me
+                about
               </RevealHeading>
             </div>
             <RevealSubheading
@@ -876,7 +876,7 @@ export default function Home() {
                 height: 'clamp(360px, 50vw, 560px)',
                 objectFit: 'cover',
                 objectPosition: 'center',
-                borderRadius: '20px',
+                borderRadius: '6px',
                 display: 'block',
                 opacity: aboutLoaded ? 1 : 0,
                 transition: 'opacity 0.6s ease',
