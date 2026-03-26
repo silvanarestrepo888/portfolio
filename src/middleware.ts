@@ -42,15 +42,6 @@ export function middleware(request: NextRequest) {
     "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vercel.live; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://vitals.vercel-insights.com;"
   );
   
-  // Add cache-busting query parameter for development
-  if (process.env.NODE_ENV === 'development') {
-    const url = request.nextUrl.clone();
-    if (!url.searchParams.has('_cb')) {
-      url.searchParams.set('_cb', Date.now().toString());
-      return NextResponse.redirect(url);
-    }
-  }
-  
   return response;
 }
 
@@ -62,7 +53,8 @@ export const config = {
      * - _next/static (static files)
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
+     * - image files (jpg, jpeg, png, gif, svg, webp, avif, ico)
      */
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|.*\\.(?:jpg|jpeg|png|gif|svg|webp|avif|ico|pdf|html)$).*)',
   ],
 };

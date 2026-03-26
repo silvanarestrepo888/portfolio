@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -19,14 +20,26 @@ interface ProjectSnippetCardProps {
 }
 
 export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project, index }) => {
-  const handleEmailClick = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  const cardNumber = String(index + 1).padStart(2, '0');
+  // Show only the primary service (before the | separator)
+  const primaryService = project.serviceType.split('|')[0].trim();
+
+  const handleEmailClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
     const subject = `Inquiry about ${project.title} - ${project.industry} Project`;
     const body = `Hi Silvana, I noticed your work on "${project.title}" in the ${project.industry} sector. I'd like to discuss how your ${project.serviceType} expertise might apply to my project. Could we schedule a conversation?`;
     window.location.href = `mailto:silvanarestrepo888@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
+  const handleExternalLink = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    window.open(project.website, '_blank', 'noopener noreferrer');
+  };
+
   return (
-    <motion.div 
+    <motion.div
       className="snippet-card"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -34,42 +47,70 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
       viewport={{ once: true }}
       whileHover={{ scale: 1.015 }}
     >
-      <div className="snippet-image-container">
+      {/* Image — fills the container, shimmer until ready */}
+      <div className={`snippet-image-container${imageLoaded ? '' : ' img-loading'}`}>
         <Image
           src={project.image}
-          alt={`${project.title} - ${project.industry} project by Silvana Restrepo`}
-          width={240}
-          height={200}
+          alt={`${project.title} — ${project.industry} project by Silvana Restrepo`}
+          fill
           className="snippet-image"
           style={{
-            width: '100%',
-            height: '100%',
             objectFit: 'cover',
-            objectPosition: 'center'
+            objectPosition: 'center',
+            opacity: imageLoaded ? 1 : 0,
+            transition: 'opacity 0.5s ease',
           }}
           quality={90}
+          unoptimized
+          priority={index < 3}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+          onLoad={() => setImageLoaded(true)}
+          onError={() => setImageLoaded(true)}
         />
+
+        {/* Editorial index number — top left */}
+        <div className="snippet-card-number">{cardNumber}</div>
+
+        {/* Industry pill — top right */}
+        <div className="snippet-industry-pill">{project.industry}</div>
+
+        {/* Coral sweep line — CSS :after handles the animation */}
+        <div className="snippet-sweep-line" aria-hidden="true" />
+
+        {/* Overlay — contains action buttons */}
         <div className="snippet-overlay">
-          {/* Only button in overlay - title moved outside */}
-          <motion.button 
+          {/* External link — bottom left, reveals on hover */}
+          <motion.button
+            className="snippet-external-link"
+            onClick={handleExternalLink}
+            aria-label={`Visit ${project.title} website`}
+            whileTap={{ scale: 0.9 }}
+          >
+            ↗
+          </motion.button>
+
+          {/* Inquire CTA — bottom right */}
+          <motion.button
             className="snippet-cta-bottom-right"
             onClick={handleEmailClick}
-            whileHover={{ scale: 1.05, backgroundColor: '#E55A5A' }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             aria-label={`Contact about ${project.title} project`}
           >
-            Ask Me
+            Inquire →
           </motion.button>
         </div>
       </div>
-      {/* Title moved OUTSIDE image container for visibility */}
+
+      {/* Title with reveal underline */}
       <div className="snippet-title-section">
+        <p className="snippet-card-service-label">{primaryService}</p>
         <h3 className="snippet-title-text">{project.title}</h3>
       </div>
+
+      {/* Metadata row */}
       <div className="snippet-info">
         <span className="snippet-industry">{project.industry}</span>
-        <span className="snippet-separator">•</span>
-        <span className="snippet-service">{project.serviceType}</span>
       </div>
     </motion.div>
   );

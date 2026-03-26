@@ -1,0 +1,193 @@
+/* ============================================
+   tokens.css — SINGLE SOURCE OF TRUTH
+   experiencearchitect.design
+   All design tokens live here. Nowhere else.
+   ============================================ */
+
+:root {
+
+  /* ==========================================
+     COLOR SYSTEM — 3 palette colors, nothing else
+     ========================================== */
+
+  /* Coral / Grapefruit — strategic impact only */
+  --coral:               #FF6663;
+  --coral-impact:        #E55A5A;
+  --coral-08:            rgba(255, 102, 99, 0.08);
+  --coral-15:            rgba(255, 102, 99, 0.15);
+  --coral-03:            rgba(255, 102, 99, 0.03);
+
+  /* Vanilla — surfaces and backgrounds */
+  --vanilla:             #FFFBF0;   /* Primary surface (topographic base) */
+  --vanilla-warm:        #F5F5DC;   /* Secondary surface, cards */
+  --vanilla-pure:        #FFFEF9;   /* Lightest surface, overlays */
+  --vanilla-depth:       #F0EDD4;   /* Architectural depth */
+
+  /* Charcoal — all text and structural elements */
+  --charcoal-deep:       #1A1A1A;   /* Heaviest weight text */
+  --charcoal:            #2C2C2C;   /* Standard dark text */
+  --charcoal-warm:       #2D3748;   /* Body text on light bg */
+  --charcoal-mid:        #4A5568;   /* Primary UI text */
+  --charcoal-light:      #718096;   /* Secondary UI text */
+  --charcoal-muted:      #667080;   /* Body copy */
+
+  /* ==========================================
+     SEMANTIC ALIASES — what to use in components
+     These map to palette above. Never hardcode hex.
+     ========================================== */
+
+  /* Text */
+  --text-primary:        var(--charcoal-mid);    /* #4A5568 — headings, labels */
+  --text-secondary:      var(--charcoal-light);  /* #718096 — supporting text */
+  --text-body:           var(--charcoal-muted);  /* #667080 — paragraphs */
+  --text-deep:           var(--charcoal-warm);   /* #2D3748 — service descriptions */
+  --text-on-coral:       var(--vanilla-pure);    /* Text on coral backgrounds */
+
+  /* Surfaces */
+  --surface:             var(--vanilla);
+  --surface-warm:        var(--vanilla-warm);
+  --surface-pure:        var(--vanilla-pure);
+
+  /* Accent */
+  --accent:              var(--coral);
+  --accent-hover:        var(--coral-impact);
+
+  /* LEGACY ALIASES — kept for backward compat, point to canonical tokens */
+  /* Remove these one component at a time as you refactor */
+  --panna-cotta-vanilla:       var(--vanilla-pure);   /* undefined token — now resolved */
+  --vanilla-foundation:        var(--vanilla-warm);
+  --vanilla-whisper:           var(--vanilla-pure);
+  --vanilla-breath:            var(--vanilla-pure);
+  --grapefruit-intelligence:   var(--coral);
+  --grapefruit-impact:         var(--coral-impact);
+  --grapefruit-breath:         var(--coral-03);
+  --grapefruit-whisper:        var(--coral-08);
+  --grapefruit-moment:         var(--coral-15);
+  --grapefruit-pure:           var(--coral);      /* was incorrectly used for CTAs */
+  --grapefruit-primary:        var(--coral);
+  --grapefruit-subtle:         var(--coral-08);
+  --grapefruit-soft:           var(--coral-15);
+
+  /* FIXED — these were previously mapped to charcoal (wrong) */
+  /* Renamed to what they actually are */
+  --charcoal-confidence:       var(--charcoal-mid);    /* was --grapefruit-rich */
+  --charcoal-authority:        var(--charcoal-light);  /* was --grapefruit-medium */
+
+  /* LEGACY: grapefruit-rich / grapefruit-medium kept as aliases */
+  --grapefruit-rich:           var(--charcoal-mid);
+  --grapefruit-medium:         var(--charcoal-light);
+
+  /* MISSING — bare --grapefruit and rare variants (18 + 3 usages) */
+  --grapefruit:                var(--coral);
+  --grapefruit-warm:           var(--coral);
+  --grapefruit-secondary:      var(--coral-15);
+  --grapefruit-light:          var(--coral-08);
+
+  /* ==========================================
+     TYPOGRAPHY SCALE — Golden Ratio (φ = 1.618)
+     ========================================== */
+
+  --font-display:        "Cormorant Garamond", serif;
+  --font-body:           "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Aliases for existing class references */
+  --font-architectural-display:  var(--font-display);
+  --font-architectural-body:     var(--font-body);
+
+  --type-xs:             12px;
+  --type-sm:             14px;
+  --type-base:           16px;
+  --type-lg:             20px;
+  --type-xl:             26px;
+  --type-2xl:            34px;
+  --type-3xl:            44px;
+  --type-4xl:            58px;
+
+  /* ==========================================
+     SPACING — Fibonacci / Golden Ratio
+     ========================================== */
+
+  --space-xs:            4px;
+  --space-sm:            8px;
+  --space-md:            16px;
+  --space-lg:            24px;
+  --space-xl:            40px;
+  --space-2xl:           64px;
+  --space-3xl:           104px;
+
+  /* ==========================================
+     LAYOUT — Container & section rhythm
+     Single source of truth for all page layout.
+     All sections and containers must use these.
+     ========================================== */
+
+  /* Horizontal edge padding — fluid, luxury-appropriate */
+  --container-px:        max(var(--space-xl), 5vw);   /* 40px min → 70px at 1400px */
+
+  /* Max-width for content containers */
+  --container-max:       1200px;
+  --container-max-wide:  1400px;
+
+  /* Vertical section padding — breathing room between sections */
+  --section-py:          var(--space-2xl);             /* 64px — main sections */
+
+  /* ==========================================
+     SECTION SURFACES — atmospheric backgrounds
+     One dark (gallery), one coral (declaration).
+     All others are vanilla-spectrum.
+     ========================================== */
+
+  /* Gallery dark — legacy tokens, kept for backward compat */
+  --surface-gallery:       #1C1C1E;
+  --surface-gallery-mid:   #242428;
+  --surface-gallery-edge:  #2A2A30;
+
+  /* Encre — projects + snippets. Cool-blue ink-near-black. */
+  --surface-ink:           #14141A;   /* base ink surface */
+  --surface-ink-mid:       #17171E;   /* mid ink */
+  --surface-ink-edge:      #1A1A22;   /* edge ink */
+
+  /* Coral surface — deeper, more composed than raw --coral */
+  --coral-surface-deep:    #C94444;   /* shadow end of coral gradient */
+  --coral-surface-light:   #D85555;   /* highlight end */
+
+  /* Parchemin — experience. Warm archival cream. */
+  --surface-parchment:     #F5F0E8;   /* warm cream base */
+  --surface-parchment-mid: #F0EBE0;   /* mid parchment */
+  --surface-parchment-edge:#EDE6D8;   /* deeper parchment */
+
+  /* Noir — footer. Deepest, coolest surface on the page. */
+  --surface-noir:          #0C0C10;   /* near-black, cool undertone */
+  --surface-noir-mid:      #0E0E14;
+  --surface-noir-edge:     #10101A;
+
+  /* Vanilla depth for transitions */
+  --vanilla-depth:         #F0EDD4;   /* warm-paper tone, slightly darker than warm */
+
+  /* ==========================================
+     ANIMATION — Golden Ratio timing system
+     Previously defined only in spec doc, never in CSS.
+     Now canonical. Used via var() — no hardcoding.
+     ========================================== */
+
+  --duration-instant:    0.1s;
+  --duration-fast:       0.2s;
+  --duration-base:       0.382s;   /* φ⁻¹ — primary transitions */
+  --duration-normal:     0.618s;   /* φ — standard animations */
+  --duration-slow:       1s;
+  --duration-cinematic:  1.618s;   /* pure φ — page moments */
+
+  --ease-landor:         cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-silk:           cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  --ease-back:           cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-anticipate:     cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-natural:        cubic-bezier(0.23, 1, 0.32, 1);
+
+  /* ==========================================
+     TOPOGRAPHIC — texture system config
+     ========================================== */
+
+  --topographic-opacity:   0.04;
+  --topographic-parallax:  0.05;
+
+}

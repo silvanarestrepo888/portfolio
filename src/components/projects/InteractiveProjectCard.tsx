@@ -1,7 +1,6 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
-import { useEffect } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
@@ -18,6 +17,7 @@ interface Project {
   image: string;
   secondaryImage: string;
   galleryImages: string[];
+  video?: string;
 }
 
 interface InteractiveProjectCardProps {
@@ -31,11 +31,14 @@ interface InteractiveProjectCardProps {
 export function InteractiveProjectCard({
   project,
   index,
+  isActive,
   onSelect,
   className = ''
 }: InteractiveProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const [isImageExpanded, setIsImageExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -44,7 +47,24 @@ export function InteractiveProjectCard({
     window.addEventListener('resize', update);
     return () => window.removeEventListener('resize', update);
   }, []);
-  
+
+  // Control video play/pause — auto-plays when card is active featured slide, or on hover
+  useEffect(() => {
+    if (!project.video || !videoRef.current) return;
+    const shouldPlay = isHovered || isActive;
+    if (shouldPlay) {
+      // Small delay when becoming active to let slide-in animation complete
+      const delay = isActive && !isHovered ? 400 : 0;
+      const timer = setTimeout(() => {
+        videoRef.current?.play().catch(() => {/* autoplay blocked */});
+      }, delay);
+      return () => clearTimeout(timer);
+    } else {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  }, [isHovered, isActive, project.video]);
+
   // Cinematic aspect ratios for different project types
   const getAspectRatio = (projectTitle: string) => {
     const ratios: { [key: string]: string } = {
@@ -54,7 +74,8 @@ export function InteractiveProjectCard({
       'Nomade Tulum': '16:9',    // Hospitality - cinematic wide
       'Danone Digital Transformation': '4:3', // Corporate - square
       'Parques Reunidos': '16:9', // Entertainment - wide
-      'Flagship Entertainment Destination, KSA': '16:9' // Entertainment - wide
+      'Flagship Entertainment Destination, KSA': '16:9', // Entertainment - wide
+    'STC Kuwait CEX Center': '16:9'  // Telecom - wide cinematic
     };
     return ratios[projectTitle] || '4:3';
   };
@@ -126,38 +147,97 @@ export function InteractiveProjectCard({
             }}
           >
             <div className="cinematic-image-layers">
-              {/* Ultra-Luxurious Static Image - Pure Minimalism */}
+              {/* Static Image — shimmer skeleton until loaded */}
               <div
-                className="cinematic-main-image-static"
+                className={`cinematic-main-image-static${imageLoaded ? '' : ' img-loading'}`}
                 style={{
                   position: 'absolute',
                   inset: 0,
                   zIndex: 1,
-                  background: 'transparent'
                 }}
               >
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className={isMobile ? 'object-cover' : 'object-contain'} /* Mobile: immersive */
+                  className={isMobile ? 'object-cover' : 'object-contain'}
                   style={{
                     objectPosition: 'center',
-                    filter: 'contrast(1.02) saturate(1.05)', /* Subtle enhancement */
-                    background: 'transparent'
+                    filter: 'contrast(1.02) saturate(1.05)',
+                    opacity: imageLoaded ? (project.video && (isHovered || isActive) ? 0 : 1) : 0,
+                    transition: 'opacity 0.8s ease',
                   }}
                   quality={100}
+                  unoptimized
                   priority={index < 2}
                   sizes={isMobile ? '100vw' : '(max-width: 1200px) 80vw, 1200px'}
+                  onLoad={() => setImageLoaded(true)}
+                  onError={() => setImageLoaded(true)}
                 />
               </div>
 
-              {/* REMOVED: Gallery preview on hover - focusing on cleaner presentation */}
-
-              {/* REMOVED: Image overlays - pure, clean presentation */}
+              {/* Video layer — crossfades in when card is active or hovered */}
+              {project.video && (
+                <motion.video
+                  ref={videoRef}
+                  src={project.video}
+                  muted
+                  loop
+                  playsInline
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: isMobile ? 'cover' : 'contain',
+                    zIndex: 2,
+                    background: 'transparent',
+                  }}
+                  animate={{ opacity: (isHovered || isActive) ? 1 : 0 }}
+                  transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+                />
+              )}
               
+              {/* Video playing indicator — bottom-left, subtle */}
+              {project.video && isActive && (
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6, duration: 0.4 }}
+                  style={{
+                    position: 'absolute',
+                    bottom: isMobile ? '12px' : '16px',
+                    left: isMobile ? '12px' : '16px',
+                    zIndex: 6,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    background: 'rgba(255, 102, 99, 0.15)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(255, 102, 99, 0.4)',
+                    borderRadius: '20px',
+                    padding: '4px 10px',
+                    color: 'var(--coral)',
+                    fontSize: '0.7rem',
+                    fontWeight: '600',
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  <span style={{
+                    width: '6px',
+                    height: '6px',
+                    borderRadius: '50%',
+                    background: 'var(--coral)',
+                    display: 'inline-block',
+                    animation: 'subtle-pulse 1.5s ease-in-out infinite',
+                  }} />
+                  Live Demo
+                </motion.div>
+              )}
+
               {/* Cinematic Tags - Positioned over image layers */}
-              <div 
+              <div
                 className="balanced-overlay-tags cinematic-tags"
                 style={{
                   position: 'absolute',
@@ -254,13 +334,25 @@ export function InteractiveProjectCard({
                   {project.title}
                 </motion.h3>
                 
-                <motion.p 
+                <motion.p
                   className="balanced-client"
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 + 0.3 }}
                 >
-                  {project.client}
+                  {project.website ? (
+                    <a
+                      href={project.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="balanced-client-link"
+                      onClick={(e) => e.stopPropagation()}
+                      aria-label={`Visit ${project.client} website`}
+                    >
+                      {project.client}
+                      <span className="balanced-client-arrow">↗</span>
+                    </a>
+                  ) : project.client}
                 </motion.p>
                 
                 <motion.div 
@@ -321,78 +413,21 @@ export function InteractiveProjectCard({
                 </motion.div>
               )}
               
-              {/* Project Action Buttons */}
-              <motion.div 
-                className="balanced-actions"
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row', /* Use proven working horizontal layout */
-                  gap: '20px', /* Same spacing that worked in test */
-                  justifyContent: 'center', /* Same centering that worked */
-                  marginTop: '20px',
-                  width: '100%'
-                }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+              {/* Editorial CTA strip — replaces disconnected buttons */}
+              <motion.div
+                className="card-cta-strip"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ delay: index * 0.1 + 0.8 }}
               >
-                <motion.button
-                  className="balanced-btn primary project-case-study-btn"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onSelect(index);
-                  }}
-                  whileHover={{ 
-                    y: -3,
-                    transition: { duration: 0.3, ease: [0.23, 1, 0.32, 1] }
-                  }}
-                  whileTap={{ 
-                    scale: 0.95,
-                    transition: { duration: 0.1 }
-                  }}
-                  data-cursor="button"
-                  aria-label={`Explore ${project.title} case study in detail`}
+                <span className="card-cta-label">View case study</span>
+                <motion.span
+                  className="card-cta-arrow"
+                  animate={{ x: (isHovered || isActive) ? 6 : 0 }}
+                  transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
                 >
-                  Explore Case
-                  <motion.span 
-                    className="btn-arrow"
-                    animate={{ x: isHovered ? 4 : 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    →
-                  </motion.span>
-                </motion.button>
-                
-                {project.website && (
-                  <motion.a
-                    href={project.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="balanced-btn secondary project-website-btn"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                    }}
-                    whileHover={{ 
-                      y: -3,
-                      transition: { duration: 0.3, ease: [0.23, 1, 0.32, 1] }
-                    }}
-                    whileTap={{ 
-                      scale: 0.95,
-                      transition: { duration: 0.1 }
-                    }}
-                    data-cursor="button"
-                    aria-label={`Visit ${project.client} website for ${project.title}`}
-                  >
-                    Client&apos;s Website
-                    <motion.span 
-                      className="btn-external-icon"
-                      animate={{ x: isHovered ? 2 : 0, y: isHovered ? -2 : 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      ↗
-                    </motion.span>
-                  </motion.a>
-                )}
+                  →
+                </motion.span>
               </motion.div>
               
             </div>
@@ -454,17 +489,21 @@ export function InteractiveProjectCard({
             >
               <Image
                 src={project.image}
-                alt={`${project.title} - Full view`}
+                alt={`${project.title} — Full view`}
                 fill
                 style={{
                   objectFit: 'contain',
-                  objectPosition: 'center'
+                  objectPosition: 'center',
                 }}
                 quality={100}
+                unoptimized
                 priority
+                sizes="90vw"
+                onLoad={() => {}}
+                onError={() => {}}
               />
             </motion.div>
-            
+
             <motion.div
               className="lightbox-info"
               initial={{ opacity: 0, y: 20 }}

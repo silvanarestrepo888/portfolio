@@ -1,76 +1,79 @@
 'use client';
 
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { useSectionDetection } from '../../hooks/useSectionDetection';
 
 interface NavigationItem {
   name: string;
   number: string;
   href: string;
+  sectionId: string;
 }
 
 const navigationItems: NavigationItem[] = [
-  { name: 'about', number: '01', href: '#about' },
-  { name: 'projects', number: '02', href: '#projects' },
-  { name: 'services', number: '03', href: '#services' },
-  { name: 'experience', number: '04', href: '#experience' }
+  { name: 'about',      number: '01', href: '#about',      sectionId: 'about' },
+  { name: 'projects',   number: '02', href: '#projects',   sectionId: 'projects' },
+  { name: 'services',   number: '03', href: '#services',   sectionId: 'services' },
+  { name: 'experience', number: '04', href: '#experience', sectionId: 'experience' },
 ];
 
-export function FloatingNavigation() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isHidden, setIsHidden] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const { scrollY } = useScroll();
+// Map any section that should highlight a nav item
+const sectionToNavItem: Record<string, string> = {
+  about:            'about',
+  projects:         'projects',
+  'project-snippets': 'projects',
+  services:         'services',
+  experience:       'experience',
+};
 
-  // Mobile detection with SSR guard
+// Framer Motion easing — mirrors var(--ease-natural)
+const easeNatural = [0.23, 1, 0.32, 1] as const;
+const easeLandor  = [0.25, 0.46, 0.45, 0.94] as const;
+
+export function FloatingNavigation() {
+  const [isScrolled, setIsScrolled]           = useState(false);
+  const [isHidden, setIsHidden]               = useState(false);
+  const [lastScrollY, setLastScrollY]         = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile]               = useState(false);
+  const { scrollY } = useScroll();
+  const { currentSection } = useSectionDetection();
+
+  const activeNavItem = sectionToNavItem[currentSection] ?? null;
+
+  // Mobile detection
   useEffect(() => {
-    // SSR guard - only run on client side
     if (typeof window === 'undefined') return;
-    
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
+  // Hide-on-scroll-down
+  useMotionValueEvent(scrollY, 'change', (latest) => {
     const previous = lastScrollY;
-    const direction = latest > previous ? "down" : "up";
-    
-    // Adaptive scroll behavior
+    const direction = latest > previous ? 'down' : 'up';
+
     if (latest > 100) {
       setIsScrolled(true);
-      if (direction === "down" && latest > previous + 10) {
-        setIsHidden(true);
-      } else if (direction === "up" && latest < previous - 10) {
-        setIsHidden(false);
-      }
+      if (direction === 'down' && latest > previous + 10) setIsHidden(true);
+      else if (direction === 'up' && latest < previous - 10) setIsHidden(false);
     } else {
       setIsScrolled(false);
       setIsHidden(false);
     }
-    
     setLastScrollY(latest);
   });
 
   const handleNavClick = (href: string) => {
-    // SSR guard - only run on client side
     if (typeof window === 'undefined') return;
-    
     const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    // Close mobile menu when item is clicked
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
     setIsMobileMenuOpen(false);
   };
 
-  // Keyboard navigation support
   const handleKeyDown = (e: React.KeyboardEvent, href: string) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -78,17 +81,12 @@ export function FloatingNavigation() {
     }
   };
 
-  // Close mobile menu on escape key with SSR guard
+  // Close mobile menu on Escape
   useEffect(() => {
-    // SSR guard - only run on client side
     if (typeof window === 'undefined') return;
-    
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setIsMobileMenuOpen(false);
-      }
+      if (e.key === 'Escape') setIsMobileMenuOpen(false);
     };
-
     if (isMobileMenuOpen) {
       document.addEventListener('keydown', handleEscape);
       return () => document.removeEventListener('keydown', handleEscape);
@@ -100,11 +98,11 @@ export function FloatingNavigation() {
       className={`navigation-floating navigation-responsive ${isScrolled ? 'scrolled' : ''} ${isHidden ? 'hidden' : ''}`}
       initial={{ opacity: 0, y: -100 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
+      transition={{ duration: 1, delay: 0.5, ease: easeNatural }}
       aria-label="Main navigation"
       role="navigation"
     >
-      {/* Brand Logo - Links to Blog/Portfolio */}
+      {/* Brand */}
       <motion.a
         href="https://silvana.mmm.page/human-perspective"
         target="_blank"
@@ -120,40 +118,77 @@ export function FloatingNavigation() {
       {/* Desktop Navigation */}
       {!isMobile && (
         <div className="nav-desktop-container">
-          {navigationItems.map((item, index) => (
-            <motion.button
-              key={item.name}
-              onClick={() => handleNavClick(item.href)}
-              onKeyDown={(e) => handleKeyDown(e, item.href)}
-              className="nav-item-enhanced luxury-navigation luxury-hover-scale luxury-hover-glow"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.6, 
-                delay: 0.8 + index * 0.1,
-                ease: [0.23, 1, 0.32, 1]
-              }}
-              whileHover={{ scale: 1.05 }}
-              tabIndex={0}
-              aria-label={`Navigate to ${item.name} section`}
-            >
-              {item.name !== 'experience' && (
-                <span className="nav-section-number">
+          {navigationItems.map((item, index) => {
+            const isActive = activeNavItem === item.sectionId;
+
+            return (
+              <motion.button
+                key={item.name}
+                onClick={() => handleNavClick(item.href)}
+                onKeyDown={(e) => handleKeyDown(e, item.href)}
+                className={`nav-item-enhanced luxury-navigation luxury-hover-scale luxury-hover-glow ${isActive ? 'nav-item-active' : ''}`}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.8 + index * 0.1,
+                  ease: easeNatural,
+                }}
+                whileHover={{ scale: 1.05 }}
+                tabIndex={0}
+                aria-label={`Navigate to ${item.name} section`}
+                aria-current={isActive ? 'location' : undefined}
+              >
+                {/* Section number */}
+                <motion.span
+                  className="nav-section-number"
+                  animate={{
+                    color: isActive ? 'var(--coral)' : 'var(--charcoal-light)',
+                    opacity: isActive ? 1 : 0.5,
+                  }}
+                  transition={{ duration: 0.382, ease: easeLandor }}
+                >
                   {item.number}
-                </span>
-              )}
-              <span className="nav-section-name">
-                {item.name.toUpperCase()}
-              </span>
-            </motion.button>
-          ))}
+                </motion.span>
+
+                {/* Section name */}
+                <motion.span
+                  className="nav-section-name"
+                  animate={{
+                    color: isActive ? 'var(--charcoal-mid)' : 'var(--charcoal-light)',
+                    fontWeight: isActive ? 600 : 400,
+                  }}
+                  transition={{ duration: 0.382, ease: easeLandor }}
+                >
+                  {item.name.toUpperCase()}
+                </motion.span>
+
+                {/* Active underline */}
+                <motion.span
+                  className="nav-active-line"
+                  style={{
+                    position: 'absolute',
+                    bottom: '-3px',
+                    left: 0,
+                    right: 0,
+                    height: '1.5px',
+                    background: 'var(--coral)',
+                    borderRadius: '1px',
+                    transformOrigin: 'left',
+                  }}
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: isActive ? 1 : 0 }}
+                  transition={{ duration: 0.382, ease: easeLandor }}
+                />
+              </motion.button>
+            );
+          })}
         </div>
       )}
 
-      {/* Mobile Navigation */}
+      {/* Mobile toggle */}
       {isMobile && (
         <>
-          {/* Mobile Menu Toggle */}
           <motion.button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="mobile-menu-toggle"
@@ -162,50 +197,59 @@ export function FloatingNavigation() {
             aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={isMobileMenuOpen}
           >
-            <span className={`hamburger-line ${isMobileMenuOpen ? 'line-1-open' : ''}`}></span>
-            <span className={`hamburger-line ${isMobileMenuOpen ? 'line-2-open' : ''}`}></span>
-            <span className={`hamburger-line ${isMobileMenuOpen ? 'line-3-open' : ''}`}></span>
+            <span className={`hamburger-line ${isMobileMenuOpen ? 'line-1-open' : ''}`} />
+            <span className={`hamburger-line ${isMobileMenuOpen ? 'line-2-open' : ''}`} />
+            <span className={`hamburger-line ${isMobileMenuOpen ? 'line-3-open' : ''}`} />
           </motion.button>
 
-          {/* Mobile Menu Overlay */}
-          {isMobileMenuOpen && (
-            <motion.div
-              className="mobile-menu-overlay"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-            >
-              <div className="mobile-menu-content">
-                {navigationItems.map((item, index) => (
-                  <motion.button
-                    key={item.name}
-                    onClick={() => handleNavClick(item.href)}
-                    onKeyDown={(e) => handleKeyDown(e, item.href)}
-                    className="mobile-nav-item luxury-navigation"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ 
-                      duration: 0.4, 
-                      delay: index * 0.1,
-                      ease: [0.23, 1, 0.32, 1]
-                    }}
-                    tabIndex={0}
-                    aria-label={`Navigate to ${item.name} section`}
-                  >
-                    {item.name !== 'experience' && (
-                      <span className="mobile-nav-number">
-                        {item.number}
-                      </span>
-                    )}
-                    <span className="mobile-nav-name">
-                      {item.name}
-                    </span>
-                  </motion.button>
-                ))}
-              </div>
-            </motion.div>
-          )}
+          {/* Mobile overlay — wrapped in AnimatePresence for exit animation */}
+          <AnimatePresence>
+            {isMobileMenuOpen && (
+              <motion.div
+                className="mobile-menu-overlay"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3, ease: easeLandor }}
+              >
+                <div className="mobile-menu-content">
+                  {navigationItems.map((item, index) => {
+                    const isActive = activeNavItem === item.sectionId;
+
+                    return (
+                      <motion.button
+                        key={item.name}
+                        onClick={() => handleNavClick(item.href)}
+                        onKeyDown={(e) => handleKeyDown(e, item.href)}
+                        className={`mobile-nav-item luxury-navigation ${isActive ? 'nav-item-active' : ''}`}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4, delay: index * 0.07, ease: easeNatural }}
+                        tabIndex={0}
+                        aria-label={`Navigate to ${item.name} section`}
+                        aria-current={isActive ? 'location' : undefined}
+                      >
+                        <motion.span
+                          className="mobile-nav-number"
+                          animate={{ color: isActive ? 'var(--coral)' : 'var(--charcoal-light)' }}
+                          transition={{ duration: 0.382 }}
+                        >
+                          {item.number}
+                        </motion.span>
+                        <motion.span
+                          className="mobile-nav-name"
+                          animate={{ color: isActive ? 'var(--charcoal-mid)' : 'var(--charcoal-light)' }}
+                          transition={{ duration: 0.382 }}
+                        >
+                          {item.name}
+                        </motion.span>
+                      </motion.button>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </>
       )}
     </motion.nav>

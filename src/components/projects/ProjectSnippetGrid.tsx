@@ -25,6 +25,8 @@ export const ProjectSnippetGrid: React.FC<ProjectSnippetGridProps> = ({ projects
   const gridRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const SCROLL_STEP = 440;
+
   useEffect(() => {
     const gridElement = gridRef.current;
     if (!gridElement) return;
@@ -32,39 +34,56 @@ export const ProjectSnippetGrid: React.FC<ProjectSnippetGridProps> = ({ projects
     const handleScroll = () => {
       const { scrollLeft, scrollWidth, clientWidth } = gridElement;
       const maxScroll = scrollWidth - clientWidth;
-      
-      // Calculate scroll progress (0-100)
-      const progress = maxScroll > 0 ? (scrollLeft / maxScroll) * 100 : 0;
-      setScrollProgress(progress);
-      
-      // Update scroll state for fade indicators
+      setScrollProgress(maxScroll > 0 ? (scrollLeft / maxScroll) * 100 : 0);
       setIsScrolled(scrollLeft > 10);
       setIsAtEnd(scrollLeft >= maxScroll - 10);
     };
 
     gridElement.addEventListener('scroll', handleScroll, { passive: true });
-    
-    // Initial calculation
     handleScroll();
-    
     return () => gridElement.removeEventListener('scroll', handleScroll);
   }, [projects.length]);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
-    
-    // Update container classes for CSS styling
     container.classList.toggle('scrolled', isScrolled);
     container.classList.toggle('at-end', isAtEnd);
   }, [isScrolled, isAtEnd]);
 
-  const visibleProjects = Math.ceil(projects.length * 0.6); // Show about 60% initially
-  const remainingProjects = projects.length - visibleProjects;
+  const scrollLeft = () => {
+    gridRef.current?.scrollBy({ left: -SCROLL_STEP, behavior: 'smooth' });
+  };
+
+  const scrollRight = () => {
+    gridRef.current?.scrollBy({ left: SCROLL_STEP, behavior: 'smooth' });
+  };
 
   return (
     <div ref={containerRef} className="snippet-carousel-container">
-      <motion.div 
+      {/* Nav arrows */}
+      <div className="snippet-nav-arrows">
+        <motion.button
+          className={`snippet-nav-arrow snippet-nav-prev${isScrolled ? ' visible' : ''}`}
+          onClick={scrollLeft}
+          aria-label="Scroll left"
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.92 }}
+        >
+          ←
+        </motion.button>
+        <motion.button
+          className={`snippet-nav-arrow snippet-nav-next${!isAtEnd ? ' visible' : ''}`}
+          onClick={scrollRight}
+          aria-label="Scroll right"
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.92 }}
+        >
+          →
+        </motion.button>
+      </div>
+
+      <motion.div
         ref={gridRef}
         className="snippet-grid"
         initial={{ opacity: 0, y: 40 }}
@@ -73,28 +92,16 @@ export const ProjectSnippetGrid: React.FC<ProjectSnippetGridProps> = ({ projects
         viewport={{ once: true }}
       >
         {projects.map((project, index) => (
-          <ProjectSnippetCard 
+          <ProjectSnippetCard
             key={project.id}
             project={project}
             index={index}
           />
         ))}
       </motion.div>
-      
-      {/* Minimal More Content Indicator */}
-      {!isAtEnd && remainingProjects > 0 && (
-        <motion.div 
-          className="snippet-more-minimal"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 0.6 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-        >
-          <span>+{remainingProjects}</span>
-        </motion.div>
-      )}
-      
-      {/* Minimal Progress System */}
-      <motion.div 
+
+      {/* Progress bar */}
+      <motion.div
         className="snippet-progress-minimal"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -102,27 +109,11 @@ export const ProjectSnippetGrid: React.FC<ProjectSnippetGridProps> = ({ projects
         viewport={{ once: true }}
       >
         <div className="snippet-progress-line">
-          <div 
+          <div
             className="snippet-progress-fill"
             style={{ width: `${scrollProgress}%` }}
           />
         </div>
-      </motion.div>
-      
-      {/* Minimal Scroll Hint */}
-      <motion.div 
-        className="snippet-scroll-minimal"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 0.5 }}
-        transition={{ duration: 1.2, delay: 1.4 }}
-        viewport={{ once: true }}
-        onClick={() => {
-          if (gridRef.current) {
-            gridRef.current.scrollBy({ left: 400, behavior: 'smooth' });
-          }
-        }}
-      >
-        <span>→</span>
       </motion.div>
     </div>
   );

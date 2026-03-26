@@ -20,6 +20,15 @@ import {
   CustomerIntelligenceIcon
 } from '../components/icons/services';
 import { ExperienceTimeline } from '../components/ui/ExperienceTimeline';
+import {
+  RevealHeading,
+  RevealSubheading,
+  RevealBody,
+  RevealImage,
+  RevealGroup,
+  RevealItem,
+  SectionReveal,
+} from '../components/motion/RevealSystem';
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -28,6 +37,12 @@ export default function Home() {
   const [galleryZoomOpen, setGalleryZoomOpen] = useState(false);
   const [heroImageZoom, setHeroImageZoom] = useState(false);
   const [imageZoomedIn, setImageZoomedIn] = useState(false);
+  const [detailHeroLoaded, setDetailHeroLoaded] = useState(false);
+
+  // Reset detail hero fade-in whenever the project changes
+  useEffect(() => {
+    setDetailHeroLoaded(false);
+  }, [selectedProject]);
   
   // Android viewport height fix
   useEffect(() => {
@@ -64,6 +79,7 @@ export default function Home() {
   
   // Services hover expansion state
   const [expandedService, setExpandedService] = useState<string | null>(null);
+  const [aboutLoaded, setAboutLoaded] = useState(false);
   
   
 
@@ -80,29 +96,34 @@ export default function Home() {
       subtitle: "From concept to market in half the time",
       description: "Transform product visions into market reality through AI-powered rapid prototyping and validation. Implementing innovation sprints where data accelerates ideation, AI accelerates testing, and go-to-market strategies—turning months of development into weeks of strategic clarity.",
       demand: "Speed to market without sacrificing strategic depth.",
+      tags: ["AI Prototyping", "Innovation Sprints", "Go-to-Market"],
       icon: AcceleratedInnovationIcon
     },
     {
-      number: "02", 
+      number: "02",
       title: "Experience Orchestration",
-      subtitle: "Harmonizing thousands of touchpoints across locations/channels/vendors into one resonant brand voice",
+      subtitle: "Harmonizing thousands of touchpoints into one resonant brand voice",
       description: "Systems thinking applied to create unified experience architectures where daily interactions feel like one seamless conversation—whether digital, physical, or hybrid.",
       demand: "Coherent brand experiences that scale without losing soul. Global reach with local resonance.",
+      tags: ["Omnichannel", "Systems Thinking", "Brand Architecture"],
       icon: ExperienceOrchestrationIcon
     },
     {
       number: "03",
-      title: "Intelligent Operations Architecture", 
+      title: "Intelligent Operations Architecture",
       subtitle: "Building AI-augmented teams that outperform traditional structures",
-      description: "Design agentic systems where AI specialists and human experts collaborate as unified intelligence. I help to architect operational ecosystems with embedded market monitoring, competitive intelligence, and automated research capabilities—creating self-optimizing organizations.",
-      demand: "Operations that think, adapt, and evolve. Intelligence is embedded in every process.",
+      description: "Design agentic systems where AI specialists and human experts collaborate as unified intelligence. I architect operational ecosystems with embedded market monitoring, competitive intelligence, and automated research capabilities—creating self-optimizing organizations.",
+      demand: "Operations that think, adapt, and evolve. Intelligence embedded in every process.",
+      tags: ["Agentic AI", "Org Design", "Intelligence Systems"],
       icon: IntelligentOperationsIcon
     },
     {
+      number: "04",
       title: "Transformation Foundations",
-      subtitle: "Engineering organizational evolution through scalable design foundations", 
-      description: "Design systems become organizational DNA. Every component strengthens the whole. Every decision accelerates the next. I collaborate to create modular, scalable frameworks —turning organizational complexity into competitive advantage.",
+      subtitle: "Engineering organizational evolution through scalable design foundations",
+      description: "Design systems become organizational DNA. Every component strengthens the whole. Every decision accelerates the next. I create modular, scalable frameworks—turning organizational complexity into competitive advantage.",
       demand: "Transformation that compounds. Every change strengthens the foundation for the next leap.",
+      tags: ["Design Systems", "Scalable Frameworks", "Cultural Change"],
       icon: TransformationFoundationsIcon
     },
     {
@@ -111,14 +132,16 @@ export default function Home() {
       subtitle: "Converting market disruption into systematic advantage",
       description: "Navigate complexity with frameworks that transform uncertainty into opportunity. I blend behavioral economics, emerging technology foresight, and cultural intelligence to create innovation strategies that don't just respond to change—they create it.",
       demand: "Innovation with precision. Strategies that move from boardroom to market with velocity.",
+      tags: ["Strategic Advisory", "Behavioral Economics", "Foresight"],
       icon: StrategyConsultingIcon
     },
     {
       number: "06",
       title: "Customer Intelligence Platforms",
-      subtitle: "Turning customer behavior into a competitive advantage",
-      description: "Architecting intelligence systems that don't just track customer behavior—they anticipate it, I design platforms where every interaction feeds learning algorithms, creating self-improving experiences that evolve faster than market demands.",
+      subtitle: "Turning customer behavior into competitive advantage",
+      description: "Architecting intelligence systems that don't just track customer behavior—they anticipate it. I design platforms where every interaction feeds learning algorithms, creating self-improving experiences that evolve faster than market demands.",
       demand: "Customer relationships that deepen with every interaction. Intelligence that scales intimacy.",
+      tags: ["Behavioral Data", "Experience Intelligence", "Platform Design"],
       icon: CustomerIntelligenceIcon
     }
   ];
@@ -147,6 +170,7 @@ export default function Home() {
       },
       image: "/projects/kayanee/hero-kayanee.jpeg",
       secondaryImage: "/projects/kayanee/secundary-kayanee.jpeg",
+      video: "/projects/kayanee/kayanee-story.mp4",
       galleryImages: [
         "/projects/kayanee/Project Gallery /secundary-kayanee.jpeg",
         "/projects/kayanee/Project Gallery /Screenshot 2024-11-15 at 10.42.42.png",
@@ -179,6 +203,7 @@ export default function Home() {
       },
       image: "/projects/augoor/hero-2.png",
       secondaryImage: "/projects/augoor/photo-main-carrusel.jpeg",
+      video: "/projects/augoor/product-demo.mp4",
       galleryImages: [
         "/projects/augoor/Project Gallery/Screenshot 2025-04-15 at 13.33.51.png",
         "/projects/augoor/Project Gallery/Screenshot 2025-04-15 at 13.34.12.png",
@@ -352,6 +377,37 @@ export default function Home() {
         quote: "This foundational work provided our internal teams with the confidence and clarity needed to align internal visions and also determine what part of the experience wouldn't be considered if it weren't for this envisioning.",
         author: "Project Stakeholder",
         role: "Qiddiya"
+      }
+    },
+    {
+      title: "STC Kuwait CEX Center",
+      subtitle: "Building the Heart, Mind, and Soul of CX Transformation",
+      description: "Designed the full strategic and operational foundation for STC Kuwait's Customer Experience Center — a physical and operational hub on the 16th floor of HQ, unifying CX performance, accountability, and cross-functional action in one place.",
+      tech: ["CX Strategy", "Experience Design", "Service Design"],
+      industryTags: ["Telecommunications"],
+      category: "Telecommunications",
+      year: "2025–2026",
+      client: "STC Kuwait — via Bejo Limited",
+      location: "Kuwait City, Kuwait",
+      impactMetrics: {
+        scale: "25 Stakeholders",
+        reach: "B2C & B2B",
+        transformation: "15 Use Cases"
+      },
+      image: "/projects/stc/hero-stc.png",
+      secondaryImage: "/projects/stc/secondary-stc.png",
+      galleryImages: [
+        "/projects/stc/gallery-stc-1.png",
+        "/projects/stc/gallery-stc-2.png",
+        "/projects/stc/gallery-stc-3.png"
+      ],
+      context: "STC Kuwait is one of the Gulf's leading telecom operators, serving millions of B2C and B2B customers across a fiercely competitive market. In late 2024, leadership embedded customer experience as a core strategic pillar through the REACH framework — CX moved from aspiration to accountability. That decision created momentum and an urgent question: what does CX excellence actually look like when you build it from scratch?",
+      scope: "The answer was a Customer Experience Center on the 16th floor of STC Kuwait HQ — not a showroom, not a dashboard wall, but a working space where CX performance becomes visible, actionable, and accountable across the organisation. As Lead CX Architect, contracted through Bejo Limited, I owned the design inputs track — personas, use cases, spatial concept inputs, and the rituals that connect space to the people performing each scenario. Every claim, every persona, every use case traced back to specific stakeholder evidence. No assumptions.",
+      impact: "Fifteen structured interviews engaging twenty-five stakeholders across ten functional areas: executive leadership, strategy, commercial, technology, retail, and quality. Thematic coding produced eight insight themes, six validated findings, and three strategic imperatives defining the path forward. Fifteen validated use cases mapped B2C and B2B scenarios across four readiness tiers and three delivery horizons — moving from insight trapped in silos to intelligence flowing across functions.",
+      testimonial: {
+        quote: "The primary barriers were not technical. They were structural and cultural — governance clarity, decision rights, and shared accountability across functions. This architecture gave us the foundation to address all three.",
+        author: "Engagement Stakeholder",
+        role: "STC Kuwait — via Bejo Limited"
       }
     }
   ], []); // Empty dependency array - static data
@@ -606,20 +662,20 @@ export default function Home() {
   const safeFeaturedProjectIndex = Math.min(featuredProjectIndex, Math.max(0, filteredProjects.length - 1));
 
   return (
-    <div className="min-h-screen" style={{backgroundColor: '#fffbee'}}>
+    <div className="min-h-screen" style={{backgroundColor: 'var(--vanilla)'}}>
       
       {/* ACCESSIBILITY - Skip Navigation Links */}
       <a 
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-coral text-white px-6 py-3 rounded-lg z-50 font-medium"
-        style={{ backgroundColor: '#ff6663' }}
+        style={{ backgroundColor: 'var(--coral)' }}
       >
         Skip to main content
       </a>
       <a 
         href="#about"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-40 bg-coral text-white px-6 py-3 rounded-lg z-50 font-medium"
-        style={{ backgroundColor: '#ff6663' }}
+        style={{ backgroundColor: 'var(--coral)' }}
       >
         Skip to about section
       </a>
@@ -656,13 +712,14 @@ export default function Home() {
         <div className="hero-bg-unified">
           {/* Artistic Photo Background Layer - Cohesive Integration */}
           <div className="hero-photo-layer-unified">
-            <Image 
+            <Image
               src="/silvana-hero.jpg"
               alt="Silvana Restrepo, Principal Experience Architect, professional headshot in business attire with confident smile"
               fill
               className="hero-photo-artistic-unified parallax-element gpu-accelerated"
               style={{ transform: parallaxTransform }}
               quality={100}
+              unoptimized
               priority
               sizes="100vw"
             />
@@ -700,7 +757,7 @@ export default function Home() {
             className="hero-cta-elegant"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.24 : 1.618 }}
+            transition={{ duration: isMobile ? 0.5 : 1.0, delay: isMobile ? 0.24 : 0.8 }}
           >
             <motion.button
               onClick={() => {
@@ -716,7 +773,7 @@ export default function Home() {
               aria-label="Navigate to featured projects section"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: isMobile ? 0.4 : 1.0, delay: isMobile ? 0.36 : 2.618 }} /* Mathematical progression */
+              transition={{ duration: isMobile ? 0.4 : 0.618, delay: isMobile ? 0.36 : 1.0, ease: [0.34, 1.56, 0.64, 1] }}
             >
               Projects
             </motion.button>
@@ -725,11 +782,11 @@ export default function Home() {
               href="/CV_Silvana_Restrepo_Final.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="hero-cta-button"
+              className="hero-cta-button hero-cta-button--secondary"
               aria-label="Open Silvana Restrepo's curriculum vitae in new tab"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: isMobile ? 0.4 : 1.0, delay: isMobile ? 0.48 : 3.236 }} /* Mathematical progression */
+              transition={{ duration: isMobile ? 0.4 : 0.618, delay: isMobile ? 0.48 : 1.382, ease: [0.34, 1.56, 0.64, 1] }}
             >
               Executive CV
             </motion.a>
@@ -745,100 +802,66 @@ export default function Home() {
         aria-labelledby="about-heading"
         aria-describedby="about-description"
         role="main"
-        style={{ 
-          minHeight: '100vh',
+        style={{
           display: 'flex',
           alignItems: 'center'
         }}
       >
         {/* Background interference elements removed for clean design */}
         <div className="about-container-ultra-luxury" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 max(1rem, 3vw)' }}>
-          {/* Ultra-Luxury Section Header - Perfectly Centered */}
-              <motion.header
-            className="about-header-ultra-luxury"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: isMobile ? 0.6 : 1.618, delay: isMobile ? 0.1 : 0.236 }}
-              >
+          {/* Section Header */}
+          <SectionReveal as="header" className="about-header-ultra-luxury">
             <div className="about-header-content">
-              <motion.h2 
+              <RevealHeading
                 id="about-heading"
+                as="h2"
                 className="about-title-ultra-luxury typography-h2"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.16 : 0.382 }}
               >
-                About Me
-              </motion.h2>
-                </div>
-            <motion.p 
+                about
+              </RevealHeading>
+            </div>
+            <RevealSubheading
               id="about-description"
+              as="p"
               className="about-description-ultra-luxury typography-body text-center max-w-4xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.2 : 0.618 }}
+              delay={0.1}
             >
               Two decades of transforming how global brands connect with human experiences
-            </motion.p>
-              </motion.header>
+            </RevealSubheading>
+          </SectionReveal>
 
-          {/* Ultra-Luxury Symmetric Two-Column Layout - Stella Petkova Style */}
-              <motion.div
-            className="about-content-ultra-luxury"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: isMobile ? 0.5 : 1, delay: isMobile ? 0.2 : 0.8 }}
-          >
-            {/* Left Column - Your Exact Content */}
+          {/* Two-Column Layout */}
+          <div className="about-content-ultra-luxury">
+            {/* Left Column — text reveals as staggered group */}
             <div className="about-text-column">
-              <div className="about-text-content">
-                <motion.p 
-                  className="about-main-story"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.24 : 1.0 }}
-                >
+              <RevealGroup as="div" className="about-text-content" stagger={0.14} delayChildren={0.1}>
+                <RevealItem as="p" className="about-main-story">
                   I believe the most compelling stories begin with curiosity—<br />
                   a spark that has carried me across continents, <br />
                   blending diverse perspectives from anthropology to business, <br />
                   from innovation to experience design, <br />
                   and from emerging technologies to business transformation.
-                </motion.p>
-                
-                <motion.p 
-                  className="about-main-story"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.28 : 1.272 }}
-                >
+                </RevealItem>
+
+                <RevealItem as="p" className="about-main-story">
                   Each endeavor deepens my mission: <br />
                   bridging strategic business goals with the human truths <br />
                   that drive transformation.
-                </motion.p>
-                
-                <motion.p 
-                  className="about-main-story"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.32 : 1.618 }}
-                >
+                </RevealItem>
+
+                <RevealItem as="p" className="about-main-story">
                   Whether leading teams in retail innovation or pioneering Experience design for global brands, my passion remains: to reveal what lies beneath and transform it into tangible expansion.
-                </motion.p>
-                
-                <motion.p 
-                  className="about-welcome"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.36 : 2.0 }}
-                >
+                </RevealItem>
+
+                <RevealItem as="p" className="about-welcome">
                   Welcome to my world—where strategy meets soul, and design becomes the universal language of possibility.
-                </motion.p>
-                </div>
+                </RevealItem>
+              </RevealGroup>
             </div>
 
-            {/* Right Column - Profile Photo */}
+            {/* Right Column — photo reveals with scale */}
             <div className="about-photo-column">
-              <div className="about-photo-container about-photo-unified-sophisticated">
+              <RevealImage className="about-photo-container about-photo-unified-sophisticated">
                 <Image
                   src="/silvana-about.jpg"
               alt="Silvana Restrepo working at her desk, black and white professional photo showing her workspace and thoughtful expression"
@@ -847,49 +870,39 @@ export default function Home() {
               className="about-photo-perfect about-photo-cohesive"
                   style={{
                 width: '100%',
-                height: '500px',
+                height: 'clamp(360px, 50vw, 560px)',
                 objectFit: 'cover',
                 objectPosition: 'center',
-                borderRadius: '20px'
+                borderRadius: '6px',
+                display: 'block',
+                opacity: aboutLoaded ? 1 : 0,
+                transition: 'opacity 0.6s ease',
               }}
               quality={100}
+              unoptimized
               priority
-              onError={(e) => {
-                console.log('Profile image load error - Next.js Image');
-                // Graceful fallback - show a subtle background instead of broken image
-                e.currentTarget.style.backgroundColor = '#f3f4f6';
-                e.currentTarget.style.border = '2px dashed #d1d5db';
-              }}
-              onLoad={() => {
-                console.log('Profile image loaded successfully - Next.js Image');
-              }}
+              onError={() => setAboutLoaded(true)}
+              onLoad={() => setAboutLoaded(true)}
             />
                 
                 {/* Unified Color Harmony */}
                 <div className="about-photo-unified-harmony"></div>
-                
                 {/* Cohesive Accent System */}
                 <div className="about-photo-unified-accent"></div>
-              </div>
+              </RevealImage>
             </div>
-          </motion.div>
-          
-          {/* Ultra-Luxury Philosophy Quote - Your Exact Quote */}
-                <motion.div 
+          </div>
+
+          {/* Philosophy Quote */}
+          <RevealBody
+            as="div"
             className="about-philosophy-ultra-luxury"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: isMobile ? 0.6 : 1.5, delay: isMobile ? 0.28 : 1.6 }}
-            >
-            <motion.blockquote 
-              className="philosophy-quote-ultra-luxury"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: isMobile ? 0.6 : 1.5, delay: isMobile ? 0.28 : 1.6 }}
-            >
+            delay={0.1}
+          >
+            <blockquote className="philosophy-quote-ultra-luxury">
               <em>The art of my craft lies in listening to the unspoken, seeing the invisible, and revealing the intangible nature of human desire.</em>
-            </motion.blockquote>
-          </motion.div>
+            </blockquote>
+          </RevealBody>
         </div>
       </section>
 
@@ -899,14 +912,13 @@ export default function Home() {
         className="projects-section-award-winning luxury-background-texture section-projects-sophisticated section-transition-sophisticated topographic-luxury"
         data-topographic="projects"
         style={{
-          minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center'
         }}
       >
         {/* Background interference elements removed for clean design */}
-        <div className="projects-container-award-winning" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 max(1rem, 3vw)' }}>
+        <div className="projects-container-award-winning">
           {/* Award-Winning Section Header with Sophisticated Spacing */}
           <motion.div 
             className="projects-header-award-winning"
@@ -964,152 +976,81 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            {/* PROMINENT MANUAL NAVIGATION CONTROLS */}
-            <motion.div 
-              className="carousel-navigation-prominent"
-              initial={{ opacity: 0, y: 20 }}
+            {/* Elegant Dot Navigation */}
+            <motion.div
+              className="carousel-dot-navigation"
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: isMobile ? 0.4 : 0.8, delay: isMobile ? 0.2 : 1.0 }}
+              transition={{ duration: 0.7, delay: 1.0 }}
               viewport={{ once: true }}
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: 'clamp(0.5rem, 2vw, 1rem)', /* REDUCED gap to fit all elements */
-                marginBottom: '2rem',
-                width: '100%', /* Full width */
-                maxWidth: '100%', /* Prevent overflow */
-                padding: '0 1rem', /* Small padding for edge space */
-                flexWrap: 'nowrap', /* Keep all elements in one line */
-                overflowX: 'visible' /* Ensure no horizontal clipping */
-              }}
             >
-              {/* Previous Project Button */}
+              {/* Previous chevron */}
               <motion.button
                 onClick={() => {
-                  const prevIndex = safeFeaturedProjectIndex === 0 
-                    ? filteredProjects.length - 1 
+                  const prevIndex = safeFeaturedProjectIndex === 0
+                    ? filteredProjects.length - 1
                     : safeFeaturedProjectIndex - 1;
                   goToProjectWithTransition(prevIndex);
                   setIsAutoPlaying(false);
                 }}
-                className="carousel-nav-button"
+                className="carousel-chevron"
+                aria-label="Previous project"
                 data-cursor="button"
-                aria-label="Navigate to previous project"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem', /* Reduced gap for space efficiency */
-                  padding: '12px 20px', /* REDUCED padding to fit container */
-                  background: 'rgba(74, 85, 104, 0.8)',
-                  color: 'white',
-                  border: '2px solid #4A5568',
-                  borderRadius: '50px',
-                  fontSize: '0.875rem', /* REDUCED font size to fit container */
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  fontFamily: 'var(--font-architectural-body)',
-                  letterSpacing: '0.02em',
-                  boxShadow: '0 4px 16px rgba(74, 85, 104, 0.25)',
-                  whiteSpace: 'nowrap', /* Prevent text wrapping */
-                  flexShrink: 0 /* Prevent button from shrinking */
-                }}
-                whileHover={{ 
-                  scale: 1.08,
-                  backgroundColor: '#2D3748', /* Darker charcoal on hover */
-                  boxShadow: '0 6px 24px rgba(74, 85, 104, 0.35)',
-                  y: -2
-                }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.12, x: -2 }}
+                whileTap={{ scale: 0.88 }}
               >
-                ← Previous Project
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="15,18 9,12 15,6" />
+                </svg>
               </motion.button>
 
-              {/* Play/Pause Control */}
-              <motion.button
-                onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-                className="carousel-play-pause"
-                data-cursor="button"
-                aria-label={isAutoPlaying ? 'Pause automatic carousel' : 'Start automatic carousel'}
-                style={{
-                  display: isMobile ? 'none' : 'flex',
-                  alignItems: 'center',
-                  gap: '0.25rem', /* REDUCED gap */
-                  padding: '8px 12px', /* REDUCED padding to save space */
-                  background: isAutoPlaying ? 'rgba(255, 102, 99, 0.1)' : 'rgba(74, 85, 104, 0.1)',
-                  color: isAutoPlaying ? 'var(--grapefruit-intelligence)' : '#4A5568',
-                  border: `1px solid ${isAutoPlaying ? 'var(--grapefruit-intelligence)' : '#4A5568'}`,
-                  borderRadius: '50px',
-                  fontSize: '0.75rem', /* REDUCED font size */
-                  fontWeight: '500',
-                  cursor: 'pointer',
-                  fontFamily: 'var(--font-architectural-body)',
-                  flexShrink: 0 /* Prevent shrinking */
-                }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {isAutoPlaying ? '⏸ Pause' : '▶ Play'}
-              </motion.button>
-              
-              {/* Project Counter */}
-              <div 
-                style={{
-                  color: '#4A5568',
-                  fontSize: '0.75rem', /* REDUCED font size to save space */
-                  fontWeight: '500',
-                  fontFamily: 'var(--font-architectural-body)',
-                  whiteSpace: 'nowrap', /* Prevent wrapping */
-                  flexShrink: 0 /* Prevent shrinking */
-                }}
-              >
-                {safeFeaturedProjectIndex + 1} / {filteredProjects.length}
+              {/* Dot indicators — one per project, tap any to jump */}
+              <div className="carousel-dots">
+                {filteredProjects.map((proj, dotIndex) => (
+                  <motion.button
+                    key={dotIndex}
+                    className="carousel-dot"
+                    onClick={() => {
+                      goToProjectWithTransition(dotIndex);
+                      setIsAutoPlaying(false);
+                    }}
+                    aria-label={`Go to ${proj.title}`}
+                    title={proj.title}
+                    animate={{
+                      width: dotIndex === safeFeaturedProjectIndex ? 24 : 8,
+                      background: dotIndex === safeFeaturedProjectIndex
+                        ? 'var(--coral)'
+                        : 'rgba(74, 85, 104, 0.28)'
+                    }}
+                    transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
+                    whileHover={{ scale: 1.35 }}
+                    whileTap={{ scale: 0.82 }}
+                  />
+                ))}
               </div>
 
-              {/* Next Project Button - PROMINENT AND CLEAR */}
+              {/* Next chevron */}
               <motion.button
                 onClick={() => {
                   const nextIndex = (safeFeaturedProjectIndex + 1) % filteredProjects.length;
                   goToProjectWithTransition(nextIndex);
                   setIsAutoPlaying(false);
                 }}
-                className="carousel-nav-button next-project-prominent"
+                className="carousel-chevron"
+                aria-label="Next project"
                 data-cursor="button"
-                aria-label="Navigate to next project"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem', /* REDUCED gap to match Previous button */
-                  padding: '12px 20px', /* REDUCED padding to fit container */
-                  background: 'var(--grapefruit-intelligence)',
-                  color: 'white',
-                  border: '2px solid var(--grapefruit-intelligence)',
-                  borderRadius: '50px',
-                  fontSize: '0.875rem', /* REDUCED font size to fit container */
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  fontFamily: 'var(--font-architectural-body)',
-                  letterSpacing: '0.02em',
-                  textTransform: 'none',
-                  boxShadow: '0 4px 16px rgba(255, 102, 99, 0.3)',
-                  whiteSpace: 'nowrap', /* Prevent text wrapping */
-                  flexShrink: 0 /* Prevent button from shrinking */
-                }}
-                whileHover={{ 
-                  scale: 1.08,
-                  backgroundColor: '#E55A5A', /* Consistent coral hover for visibility */
-                  boxShadow: '0 6px 24px rgba(255, 102, 99, 0.4)',
-                  y: -2
-                }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.12, x: 2 }}
+                whileTap={{ scale: 0.88 }}
               >
-                Next Project →
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="9,18 15,12 9,6" />
+                </svg>
               </motion.button>
             </motion.div>
             
             {/* Mobile swipe hint */}
             {isMobile && (
-              <div style={{ textAlign: 'center', color: '#4A5568', fontSize: '0.8125rem', marginBottom: '0.5rem' }}>
+              <div style={{ textAlign: 'center', color: 'var(--charcoal-mid)', fontSize: '0.8125rem', marginBottom: '0.5rem' }}>
                 Swipe to browse projects
               </div>
             )}
@@ -1164,7 +1105,7 @@ export default function Home() {
         data-topographic="projects"
         aria-labelledby="snippets-heading"
       >
-        <div className="snippet-container" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 max(1rem, 3vw)' }}>
+        <div className="snippet-container">
           {/* Snippet Section Header */}
           <motion.div 
             className="projects-header-award-winning"
@@ -1209,201 +1150,95 @@ export default function Home() {
         data-topographic="services"
         aria-labelledby="services-heading"
       >
-        <div className="container-foundation" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 max(1rem, 3vw)' }}>
-          <motion.div 
-            className="projects-header-award-winning"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: isMobile ? 0.6 : 1.618, ease: [0.236, 0.618, 0.382, 1.0] }}
-            viewport={{ once: true }}
-          >
-            <div className="projects-header-content-award">
-              <motion.h2 
-                className="projects-title-award-winning typography-h2"
-                  initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.1 : 0.236 }}
-            viewport={{ once: true }}
-          >
-                services
-              </motion.h2>
-            </div>
-            
-            <motion.p 
-              className="projects-description-award-winning typography-body text-center max-w-4xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.16 : 0.382 }}
-              viewport={{ once: true }}
-            >
+        <div className="container-foundation">
+          {/* Section header */}
+          <SectionReveal as="div" className="svc-header">
+            <RevealHeading as="h2" className="svc-heading">
+              services
+            </RevealHeading>
+            <RevealSubheading as="p" className="svc-subheading" delay={0.1}>
               Meticulously architected solutions addressing demanding market realities and evolving client needs.
-            </motion.p>
-          </motion.div>
-          
-          {/* SINGLE-SCREEN SERVICES OVERVIEW - SCROLLABLE */}
-          <div style={{
-            maxWidth: '1400px',
-            margin: '0 auto',
-            padding: '0 max(1rem, 3vw)',
-            maxHeight: '60vh', // Limit height to prevent off-screen cards
-            overflowY: 'auto', // Allow scrolling when cards expand
-            overflowX: 'hidden',
-            scrollBehavior: 'smooth'
-          }}>
-            {referenceServices.map((service, index) => (
-              <motion.div 
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: 1.618, 
-                  delay: index * 0.1, // Fibonacci stagger
-                  ease: [0.236, 0.618, 0.382, 1.0] // Your mathematical easing
-                }}
-                viewport={{ once: true }}
-                style={{
-                  // ACCESSIBILITY: Better contrast overlay for text readability
-                  background: 'rgba(0, 0, 0, 0.1)', // Subtle dark overlay for better text contrast
-                  border: '1px solid rgba(253, 252, 248, 0.2)',
-                  borderLeft: '3px solid var(--vanilla-whisper)',
-                  borderRadius: '16px',
-                  marginBottom: '16px', // Breathing room
-                  padding: '20px 24px',
-                  cursor: 'pointer',
-                  overflow: 'hidden',
-                  /* NO box-shadow - ultra-clean approach */
-                  transition: 'all 0.618s cubic-bezier(0.236, 0.618, 0.382, 1.0)'
-                }}
-                whileHover={{
-                  background: 'rgba(0, 0, 0, 0.2)', // Stronger contrast on hover
-                  borderColor: 'rgba(253, 252, 248, 0.3)',
-                  /* NO box-shadow - ultra-clean approach */
-                  transform: 'translateY(-2px)'
-                }}
-                onClick={() => setExpandedService(expandedService === service.title ? null : service.title)}
-                data-cursor="button"
-                role="button"
-                aria-expanded={expandedService === service.title}
-                aria-controls={`service-content-${service.title}`}
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    setExpandedService(expandedService === service.title ? null : service.title);
-                  }
-                }}
-              >
-                {/* ULTRA COMPACT Header */}
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px', // REDUCED spacing
-                  padding: 0
-                }}>
-                <span style={{
-                  fontSize: '11px', // REDUCED from 12px
-                  fontWeight: '700',
-                  color: 'var(--vanilla-whisper)',
-                  background: 'var(--grapefruit-intelligence)',
-                  padding: '6px 12px', // REDUCED from 8px 16px
-                  borderRadius: '6px', // REDUCED from 8px
-                  minWidth: '28px', // REDUCED from 32px
-                  textAlign: 'center',
-                  fontFamily: 'var(--font-architectural-body)'
-                }}>
-                  {service.number || String(index + 1).padStart(2, '0')}
-                  </span>
-                
-                <h3 style={{
-                  flex: 1,
-                  fontSize: 'clamp(1.125rem, 2vw, 1.375rem)', // REDUCED: 18px → 22px (was 34px!)
-                  fontFamily: 'var(--font-architectural-display)',
-                  color: 'var(--vanilla-whisper)', /* Design system breathing elegance on grapefruit */
-                  margin: 0,
-                  fontWeight: '300', // Danish elegance matching your about section
-                  letterSpacing: '-0.02em', // Your luxury spacing
-                  lineHeight: '1.1' // Your established ratio
-                }}>
-                  {service.title}
-                </h3>
-                
-                <motion.span 
-                  style={{
-                    fontSize: '18px', // REDUCED from 20px
-                    color: 'var(--grapefruit-intelligence)',
-                    fontWeight: '300',
-                    minWidth: '20px', // REDUCED from 24px
-                    textAlign: 'center'
-                  }}
-                  animate={{
-                    rotate: expandedService === service.title ? 45 : 0
-                  }}
-                  transition={{ duration: 0.3 }}
+            </RevealSubheading>
+          </SectionReveal>
+
+          {/* Enhanced editorial accordion */}
+          <div className="svc-list">
+            {referenceServices.map((service, index) => {
+              const isOpen = expandedService === service.title;
+              const num = service.number || String(index + 1).padStart(2, '0');
+              return (
+                <motion.div
+                  key={service.title}
+                  className={`svc-row${isOpen ? ' svc-row--open' : ''}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.07, ease: [0.23, 1, 0.32, 1] }}
+                  viewport={{ once: true }}
                 >
-                  +
-                </motion.span>
-              </div>
-              
-                {/* SINGLE-SCREEN COMPACT CONTENT */}
-                {expandedService === service.title && (
-                  <motion.div 
-                    id={`service-content-${service.title}`}
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.618, ease: [0.236, 0.618, 0.382, 1.0] }} // Your mathematical timing
+                  {/* ── Clickable header ── */}
+                  <button
+                    className="svc-row-header"
+                    onClick={() => setExpandedService(isOpen ? null : service.title)}
+                    aria-expanded={isOpen}
+                    aria-controls={`svc-body-${index}`}
+                  >
+                    <span className="svc-num">{num}</span>
+
+                    <div className="svc-text">
+                      <span className="svc-title">{service.title}</span>
+                      <span className="svc-tagline">{service.subtitle}</span>
+                    </div>
+
+                    <motion.span
+                      className="svc-chevron"
+                      animate={{ rotate: isOpen ? 45 : 0 }}
+                      transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+                    >
+                      +
+                    </motion.span>
+                  </button>
+
+                  {/* ── Expanded body ── */}
+                  <motion.div
+                    id={`svc-body-${index}`}
+                    className="svc-body"
+                    initial={false}
+                    animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
+                    transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
                     style={{ overflow: 'hidden' }}
                   >
-                    <div className="service-enhanced-content">
-                      {/* Service Subtitle - Prominent Display */}
-                      <div className="service-subtitle-section">
-                        <em className="service-subtitle-enhanced">
-                          {service.subtitle}
-                        </em>
+                    <div className="svc-body-inner">
+                      <p className="svc-description">{service.description}</p>
+
+                      <p className="svc-demand">
+                        <em>{service.demand}</em>
+                      </p>
+
+                      {/* Capability tags */}
+                      <div className="svc-tags">
+                        {(service.tags || []).map((tag: string) => (
+                          <span key={tag} className="svc-tag">{tag}</span>
+                        ))}
                       </div>
-                      
-                      {/* Strategic Capability Section */}
-                      <div className="service-capability-section">
-                        <h4 className="service-section-label">Strategic Capability</h4>
-                        <p className="service-description-enhanced">
-                          {service.description}
-                        </p>
-                      </div>
-                      
-                      {/* Project Demand Section */}
-                      <div className="service-demand-section">
-                        <h4 className="service-section-label">For Projects That Demand</h4>
-                        <p className="service-demand-enhanced">
-                          {service.demand}
-                        </p>
-                      </div>
-                      
-                      {/* Call to Action */}
-                      <div className="service-cta-section">
-                        <motion.button
-                          className="service-cta-button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            const subject = `Inquiry about ${service.title} - Service Discussion`;
-                            const body = `Hi Silvana, I'm interested in learning more about your "${service.title}" service. Could we schedule a conversation to discuss how this might apply to my project?`;
-                            window.location.href = `mailto:silvanarestrepo888@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                          }}
-                          whileHover={{ 
-                            scale: 1.02,
-                            backgroundColor: '#E55A5A',
-                            transition: { duration: 0.2 }
-                          }}
-                          whileTap={{ scale: 0.98 }}
-                          data-cursor="button"
-                        >
-                          Ask About This Service →
-                        </motion.button>
-                      </div>
+
+                      <motion.button
+                        className="svc-cta"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          const subject = `Inquiry — ${service.title}`;
+                          const body = `Hi Silvana, I'm interested in learning more about "${service.title}". Could we schedule a conversation?`;
+                          window.location.href = `mailto:silvanarestrepo888@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                        }}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.97 }}
+                      >
+                        Ask About This Service →
+                      </motion.button>
                     </div>
                   </motion.div>
-                )}
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -1491,13 +1326,14 @@ export default function Home() {
       </main>
 
       {/* AWARD-WINNING PROJECT DETAILS PAGE - LANDOR STANDARDS */}
+      <AnimatePresence mode="wait">
       {selectedProject !== null && (
-        <motion.div 
+        <motion.div
           className={`project-details-overlay ${currentProjectColor}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } }}
+          transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
         >
           {/* ULTRA-PROMINENT NAVIGATION SYSTEM */}
           <div className="project-details-navigation-system">
@@ -1508,7 +1344,7 @@ export default function Home() {
               whileTap={{ scale: 0.98 }}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.618, delay: 0.25, ease: [0.23, 1, 0.32, 1] }}
             >
               <span className="back-icon">←</span>
               <span className="back-text">back to projects</span>
@@ -1518,7 +1354,7 @@ export default function Home() {
               className="project-title-bar"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.618, delay: 0.35, ease: [0.23, 1, 0.32, 1] }}
             >
               <span className="project-title-bar-text">
                 {selectedProject !== null ? projects[selectedProject].title : ''}
@@ -1533,7 +1369,7 @@ export default function Home() {
               whileTap={{ scale: 0.9 }}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.382, delay: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
               aria-label="Close project details"
             >
               <svg width={isMobile ? 32 : 24} height={isMobile ? 32 : 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -1543,24 +1379,28 @@ export default function Home() {
             </motion.button>
           </div>
 
-          {/* HERO SECTION - Perfect Visual Exploration with Proper Spacing */}
+          {/* HERO SECTION - Full-bleed cinematic image */}
           <div className="project-hero-section project-details-hero-section">
-            <div className="hero-image-container">
+            <div className="detail-hero-image-wrap">
               <Image
                 src={projects[selectedProject].secondaryImage || projects[selectedProject].image}
                 alt={projects[selectedProject].title}
-                width={1200}
-                height={600}
-                className="hero-image-perfect"
+                fill
+                className="detail-hero-image"
                 style={{
-                  width: '100%',
-                  height: 'auto',
-                  maxHeight: '60vh',
-                  objectFit: 'contain',
-                  objectPosition: 'center'
+                  objectFit: 'cover',
+                  objectPosition: 'center top',
+                  opacity: detailHeroLoaded ? 1 : 0,
+                  transition: 'opacity 0.6s ease',
                 }}
                 priority
+                unoptimized
+                sizes="100vw"
+                onLoad={() => setDetailHeroLoaded(true)}
+                onError={() => setDetailHeroLoaded(true)}
               />
+              {/* Gradient overlay so nav buttons stay readable */}
+              <div className="detail-hero-gradient" aria-hidden="true" />
             </div>
 
             {/* Project Title and Metadata - BELOW IMAGE with Proper Spacing */}
@@ -1622,10 +1462,10 @@ export default function Home() {
                   {/* Context Section */}
                   <motion.section
                     className="content-section"
-                initial={{ opacity: 0, y: 60 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.618, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+                viewport={{ once: true, margin: '-8% 0px' }}
               >
                 <div className="section-header">
                   <h2 className="section-title typography-h3">Context</h2>
@@ -1653,10 +1493,10 @@ export default function Home() {
               {/* Scope of the Project Section */}
                   <motion.section
                     className="content-section"
-                initial={{ opacity: 0, y: 60 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.618, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+                viewport={{ once: true, margin: '-8% 0px' }}
               >
                 <div className="section-header">
                   <h2 className="section-title typography-h3">Scope of the Project</h2>
@@ -1684,10 +1524,10 @@ export default function Home() {
               {/* Approach Section */}
                   <motion.section
                     className="content-section"
-                initial={{ opacity: 0, y: 60 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.618, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+                viewport={{ once: true, margin: '-8% 0px' }}
               >
                 <div className="section-header">
                   <h2 className="section-title typography-h3">Impact</h2>
@@ -1715,10 +1555,10 @@ export default function Home() {
               {/* Testimonial Section */}
                     <motion.section
                 className="content-section"
-                initial={{ opacity: 0, y: 60 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.618, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+                viewport={{ once: true, margin: '-8% 0px' }}
               >
                 <div className="section-header">
                   <h2 className="section-title typography-h3">Testimonial</h2>
@@ -1753,9 +1593,6 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <h2 className="gallery-title typography-h3">Project Gallery</h2>
-              <span className="gallery-count typography-caption">
-                Gallery — 3 Images
-              </span>
             </motion.div>
             <div className="gallery-grid">
               {/* Gallery Images - All 3 from galleryImages array */}
@@ -1788,20 +1625,18 @@ export default function Home() {
                           className="gallery-image-perfect"
                           style={{
                             width: '100%',
-                            height: '100%',
+                            height: 'auto',
                             objectFit: 'cover',
-                            objectPosition: 'center'
+                            objectPosition: 'center',
+                            display: 'block'
                           }}
                           quality={95}
+                          unoptimized
                           onError={(e) => {
-                            console.log('Gallery thumbnail load error:', image);
-                            // Graceful fallback for gallery images
-                            e.currentTarget.style.backgroundColor = '#f3f4f6';
-                            e.currentTarget.style.border = '1px solid #d1d5db';
+                            e.currentTarget.style.setProperty('background-color', 'var(--vanilla-depth)');
+                            e.currentTarget.style.setProperty('border', '1px solid var(--charcoal-light)');
                           }}
-                          onLoad={() => {
-                            console.log('Gallery thumbnail loaded successfully:', image);
-                          }}
+                          onLoad={() => {}}
                         />
                 </motion.div>
                     ))}
@@ -1963,6 +1798,7 @@ export default function Home() {
            </footer>
         </motion.div>
       )}
+      </AnimatePresence>
 
       {/* Hero Image Zoom Modal */}
       {heroImageZoom && (
@@ -2037,24 +1873,27 @@ export default function Home() {
                 setImageZoomedIn(!imageZoomedIn);
               }}
             >
-              <Image 
-                src={selectedProject !== null && projects[selectedProject].galleryImages ? 
-                  projects[selectedProject].galleryImages[currentGalleryImage] : 
-                  (selectedProject !== null ? projects[selectedProject].image : '')} 
-                alt={`${selectedProject !== null ? projects[selectedProject].title : ''} - Gallery image ${currentGalleryImage + 1} zoomed view`} 
+              <Image
+                src={selectedProject !== null && projects[selectedProject].galleryImages ?
+                  projects[selectedProject].galleryImages[currentGalleryImage] :
+                  (selectedProject !== null ? projects[selectedProject].image : '')}
+                alt={`${selectedProject !== null ? projects[selectedProject].title : ''} — Gallery image ${currentGalleryImage + 1}`}
                 width={1200}
                 height={800}
-                className="w-full h-auto object-contain rounded-xl shadow-2xl" 
-                quality={100}
-                priority
-                onError={(e) => {
-                  console.log('Gallery zoom image load error');
-                  // Graceful fallback for zoom images
-                  e.currentTarget.style.backgroundColor = '#f3f4f6';
-                  e.currentTarget.style.border = '2px dashed #d1d5db';
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  objectFit: 'contain',
+                  display: 'block',
+                  borderRadius: '12px',
                 }}
-                onLoad={() => {
-                  console.log('Gallery zoom image loaded successfully');
+                quality={100}
+                unoptimized
+                priority
+                sizes="90vw"
+                onError={(e) => {
+                  e.currentTarget.style.setProperty('background-color', 'var(--vanilla-depth)');
+                  e.currentTarget.style.setProperty('border', '2px dashed var(--charcoal-light)');
                 }}
               />
             </motion.div>
