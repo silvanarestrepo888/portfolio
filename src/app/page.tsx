@@ -171,7 +171,6 @@ export default function Home() {
       },
       image: "/projects/kayanee/hero-kayanee.jpeg",
       secondaryImage: "/projects/kayanee/secundary-kayanee.jpeg",
-      video: "/projects/kayanee/kayanee-story.mp4",
       galleryImages: [
         "/projects/kayanee/Project Gallery /secundary-kayanee.jpeg",
         "/projects/kayanee/Project Gallery /Screenshot 2024-11-15 at 10.42.42.png",
@@ -204,7 +203,6 @@ export default function Home() {
       },
       image: "/projects/augoor/hero-2.png",
       secondaryImage: "/projects/augoor/photo-main-carrusel.jpeg",
-      video: "/projects/augoor/product-demo.mp4",
       galleryImages: [
         "/projects/augoor/Project Gallery/Screenshot 2025-04-15 at 13.33.51.png",
         "/projects/augoor/Project Gallery/Screenshot 2025-04-15 at 13.34.12.png",
@@ -378,6 +376,37 @@ export default function Home() {
         quote: "This foundational work provided our internal teams with the confidence and clarity needed to align internal visions and also determine what part of the experience wouldn't be considered if it weren't for this envisioning.",
         author: "Project Stakeholder",
         role: "Qiddiya"
+      }
+    },
+    {
+      title: "STC Kuwait CEX Center",
+      subtitle: "Building the Heart, Mind, and Soul of CX Transformation",
+      description: "Designed the full strategic and operational foundation for STC Kuwait's Customer Experience Center — a physical and operational hub on the 16th floor of HQ, unifying CX performance, accountability, and cross-functional action in one place.",
+      tech: ["CX Strategy", "Experience Design", "Service Design"],
+      industryTags: ["Telecommunications"],
+      category: "Telecommunications",
+      year: "2025–2026",
+      client: "STC Kuwait — via Bejo Limited",
+      location: "Kuwait City, Kuwait",
+      impactMetrics: {
+        scale: "25 Stakeholders",
+        reach: "B2C & B2B",
+        transformation: "15 Use Cases"
+      },
+      image: "/projects/stc/hero-stc.png",
+      secondaryImage: "/projects/stc/secondary-stc.png",
+      galleryImages: [
+        "/projects/stc/gallery-stc-1.png",
+        "/projects/stc/gallery-stc-2.png",
+        "/projects/stc/gallery-stc-3.png"
+      ],
+      context: "STC Kuwait is one of the Gulf's leading telecom operators, serving millions of B2C and B2B customers across a fiercely competitive market. In late 2024, leadership embedded customer experience as a core strategic pillar through the REACH framework — CX moved from aspiration to accountability. That decision created momentum and an urgent question: what does CX excellence actually look like when you build it from scratch?",
+      scope: "The answer was a Customer Experience Center on the 16th floor of STC Kuwait HQ — not a showroom, not a dashboard wall, but a working space where CX performance becomes visible, actionable, and accountable across the organisation. As Lead CX Architect, contracted through Bejo Limited, I owned the design inputs track — personas, use cases, spatial concept inputs, and the rituals that connect space to the people performing each scenario. Every claim, every persona, every use case traced back to specific stakeholder evidence. No assumptions.",
+      impact: "Fifteen structured interviews engaging twenty-five stakeholders across ten functional areas: executive leadership, strategy, commercial, technology, retail, and quality. Thematic coding produced eight insight themes, six validated findings, and three strategic imperatives defining the path forward. Fifteen validated use cases mapped B2C and B2B scenarios across four readiness tiers and three delivery horizons — moving from insight trapped in silos to intelligence flowing across functions.",
+      testimonial: {
+        quote: "The primary barriers were not technical. They were structural and cultural — governance clarity, decision rights, and shared accountability across functions. This architecture gave us the foundation to address all three.",
+        author: "Engagement Stakeholder",
+        role: "STC Kuwait — via Bejo Limited"
       }
     }
   ], []); // Empty dependency array - static data
@@ -948,146 +977,75 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            {/* PROMINENT MANUAL NAVIGATION CONTROLS */}
-            <motion.div 
-              className="carousel-navigation-prominent"
-              initial={{ opacity: 0, y: 20 }}
+            {/* Elegant Dot Navigation */}
+            <motion.div
+              className="carousel-dot-navigation"
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: isMobile ? 0.4 : 0.8, delay: isMobile ? 0.2 : 1.0 }}
+              transition={{ duration: 0.7, delay: 1.0 }}
               viewport={{ once: true }}
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: 'clamp(0.5rem, 2vw, 1rem)', /* REDUCED gap to fit all elements */
-                marginBottom: '0.75rem',
-                width: '100%', /* Full width */
-                maxWidth: '100%', /* Prevent overflow */
-                padding: '0 1rem', /* Small padding for edge space */
-                flexWrap: 'nowrap', /* Keep all elements in one line */
-                overflowX: 'visible' /* Ensure no horizontal clipping */
-              }}
             >
-              {/* Previous Project Button */}
+              {/* Previous chevron */}
               <motion.button
                 onClick={() => {
-                  const prevIndex = safeFeaturedProjectIndex === 0 
-                    ? filteredProjects.length - 1 
+                  const prevIndex = safeFeaturedProjectIndex === 0
+                    ? filteredProjects.length - 1
                     : safeFeaturedProjectIndex - 1;
                   goToProjectWithTransition(prevIndex);
                   setIsAutoPlaying(false);
                 }}
-                className="carousel-nav-button"
+                className="carousel-chevron"
+                aria-label="Previous project"
                 data-cursor="button"
-                aria-label="Navigate to previous project"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem', /* Reduced gap for space efficiency */
-                  padding: '12px 20px', /* REDUCED padding to fit container */
-                  background: 'rgba(74, 85, 104, 0.8)',
-                  color: 'white',
-                  border: '2px solid #4A5568',
-                  borderRadius: '50px',
-                  fontSize: '0.875rem', /* REDUCED font size to fit container */
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  fontFamily: 'var(--font-architectural-body)',
-                  letterSpacing: '0.02em',
-                  boxShadow: '0 4px 16px rgba(74, 85, 104, 0.25)',
-                  whiteSpace: 'nowrap', /* Prevent text wrapping */
-                  flexShrink: 0 /* Prevent button from shrinking */
-                }}
-                whileHover={{ 
-                  scale: 1.08,
-                  backgroundColor: 'var(--charcoal-warm)', /* Darker charcoal on hover */
-                  boxShadow: '0 6px 24px rgba(74, 85, 104, 0.35)',
-                  y: -2
-                }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.12, x: -2 }}
+                whileTap={{ scale: 0.88 }}
               >
-                ← Previous Project
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="15,18 9,12 15,6" />
+                </svg>
               </motion.button>
 
-              {/* Play/Pause Control */}
-              <motion.button
-                onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-                className="carousel-play-pause"
-                data-cursor="button"
-                aria-label={isAutoPlaying ? 'Pause automatic carousel' : 'Start automatic carousel'}
-                style={{
-                  display: isMobile ? 'none' : 'flex',
-                  alignItems: 'center',
-                  gap: '0.25rem', /* REDUCED gap */
-                  padding: '8px 12px', /* REDUCED padding to save space */
-                  background: isAutoPlaying ? 'rgba(255, 102, 99, 0.1)' : 'rgba(74, 85, 104, 0.1)',
-                  color: isAutoPlaying ? 'var(--coral)' : 'var(--charcoal-mid)',
-                  border: `1px solid ${isAutoPlaying ? 'var(--coral)' : 'var(--charcoal-mid)'}`,
-                  borderRadius: '50px',
-                  fontSize: '0.75rem', /* REDUCED font size */
-                  fontWeight: '500',
-                  cursor: 'pointer',
-                  fontFamily: 'var(--font-architectural-body)',
-                  flexShrink: 0 /* Prevent shrinking */
-                }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {isAutoPlaying ? '⏸ Pause' : '▶ Play'}
-              </motion.button>
-              
-              {/* Project Counter */}
-              <div 
-                style={{
-                  color: 'var(--charcoal-mid)',
-                  fontSize: '0.75rem', /* REDUCED font size to save space */
-                  fontWeight: '500',
-                  fontFamily: 'var(--font-architectural-body)',
-                  whiteSpace: 'nowrap', /* Prevent wrapping */
-                  flexShrink: 0 /* Prevent shrinking */
-                }}
-              >
-                {safeFeaturedProjectIndex + 1} / {filteredProjects.length}
+              {/* Dot indicators — one per project, tap any to jump */}
+              <div className="carousel-dots">
+                {filteredProjects.map((proj, dotIndex) => (
+                  <motion.button
+                    key={dotIndex}
+                    className="carousel-dot"
+                    onClick={() => {
+                      goToProjectWithTransition(dotIndex);
+                      setIsAutoPlaying(false);
+                    }}
+                    aria-label={`Go to ${proj.title}`}
+                    title={proj.title}
+                    animate={{
+                      width: dotIndex === safeFeaturedProjectIndex ? 24 : 8,
+                      background: dotIndex === safeFeaturedProjectIndex
+                        ? 'var(--coral)'
+                        : 'rgba(74, 85, 104, 0.28)'
+                    }}
+                    transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
+                    whileHover={{ scale: 1.35 }}
+                    whileTap={{ scale: 0.82 }}
+                  />
+                ))}
               </div>
 
-              {/* Next Project Button - PROMINENT AND CLEAR */}
+              {/* Next chevron */}
               <motion.button
                 onClick={() => {
                   const nextIndex = (safeFeaturedProjectIndex + 1) % filteredProjects.length;
                   goToProjectWithTransition(nextIndex);
                   setIsAutoPlaying(false);
                 }}
-                className="carousel-nav-button next-project-prominent"
+                className="carousel-chevron"
+                aria-label="Next project"
                 data-cursor="button"
-                aria-label="Navigate to next project"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem', /* REDUCED gap to match Previous button */
-                  padding: '12px 20px', /* REDUCED padding to fit container */
-                  background: 'var(--grapefruit-intelligence)',
-                  color: 'white',
-                  border: '2px solid var(--grapefruit-intelligence)',
-                  borderRadius: '50px',
-                  fontSize: '0.875rem', /* REDUCED font size to fit container */
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  fontFamily: 'var(--font-architectural-body)',
-                  letterSpacing: '0.02em',
-                  textTransform: 'none',
-                  boxShadow: '0 4px 16px rgba(255, 102, 99, 0.3)',
-                  whiteSpace: 'nowrap', /* Prevent text wrapping */
-                  flexShrink: 0 /* Prevent button from shrinking */
-                }}
-                whileHover={{ 
-                  scale: 1.08,
-                  backgroundColor: 'var(--coral-impact)', /* Consistent coral hover for visibility */
-                  boxShadow: '0 6px 24px rgba(255, 102, 99, 0.4)',
-                  y: -2
-                }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.12, x: 2 }}
+                whileTap={{ scale: 0.88 }}
               >
-                Next Project →
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="9,18 15,12 9,6" />
+                </svg>
               </motion.button>
             </motion.div>
             
