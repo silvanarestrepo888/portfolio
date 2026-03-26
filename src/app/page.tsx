@@ -171,7 +171,7 @@ export default function Home() {
       },
       image: "/projects/kayanee/hero-kayanee.jpeg",
       secondaryImage: "/projects/kayanee/secundary-kayanee.jpeg",
-      video: "/projects/kayanee/kayanee-story.mov",
+      video: "/projects/kayanee/kayanee-story.mp4",
       galleryImages: [
         "/projects/kayanee/Project Gallery /secundary-kayanee.jpeg",
         "/projects/kayanee/Project Gallery /Screenshot 2024-11-15 at 10.42.42.png",
@@ -204,7 +204,7 @@ export default function Home() {
       },
       image: "/projects/augoor/hero-2.png",
       secondaryImage: "/projects/augoor/photo-main-carrusel.jpeg",
-      video: "/projects/augoor/product-demo.mov",
+      video: "/projects/augoor/product-demo.mp4",
       galleryImages: [
         "/projects/augoor/Project Gallery/Screenshot 2025-04-15 at 13.33.51.png",
         "/projects/augoor/Project Gallery/Screenshot 2025-04-15 at 13.34.12.png",

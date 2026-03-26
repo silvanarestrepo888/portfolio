@@ -44,6 +44,10 @@ next-env.d.ts
 .netlify
 
 
-# Large video files — serve from Vercel blob / CDN, not Git
-public/projects/**/*.mp4
+# Large source video files — keep .mov out of git (too large)
 public/projects/**/*.mov
+# kayanee-experience.mp4 is 195MB — keep out of git
+public/projects/kayanee/kayanee-experience.mp4
+# Compressed web-ready .mp4 files ARE tracked (≤40MB each)
+# public/projects/kayanee/kayanee-story.mp4     ← tracked ✓
+# public/projects/augoor/product-demo.mp4        ← tracked ✓
