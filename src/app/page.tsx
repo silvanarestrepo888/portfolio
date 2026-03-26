@@ -1597,9 +1597,6 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <h2 className="gallery-title typography-h3">Project Gallery</h2>
-              <span className="gallery-count typography-caption">
-                Gallery — 3 Images
-              </span>
             </motion.div>
             <div className="gallery-grid">
               {/* Gallery Images - All 3 from galleryImages array */}
