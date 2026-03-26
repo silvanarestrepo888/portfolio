@@ -21226,7 +21226,7 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 /* ── Section shell ────────────────────────────────────────── */
 .exp-section {
   background: var(--vanilla-warm, #F5F5DC);
-  padding: clamp(80px, 12vw, 140px) 0 clamp(64px, 10vw, 120px);
+  padding: clamp(64px, 8vw, 104px) 0 clamp(40px, 5vw, 64px);
   position: relative;
   overflow: hidden;
 }
@@ -21457,7 +21457,7 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(74, 85, 104, 0.3) !important;
-  margin: clamp(48px, 6vw, 72px) 0 0;
+  margin: clamp(28px, 3.5vw, 44px) 0 0;
 }
 
 /* ── Tablet: horizontal scroll ────────────────────────────── */
@@ -22224,34 +22224,35 @@ body:has(.project-details-overlay) .navigation-floating {
   transform: scale(1.3) !important;
 }
 
-/* Hover card: more padding, refined shadow, cleaner proportions */
+/* Hover card: dark architectural panel — no speech bubble */
 .exp-card {
-  padding: 20px 24px !important;
+  padding: 18px 22px !important;
   width: clamp(200px, 22vw, 260px) !important;
-  border-radius: 6px !important;
-  background: rgba(255, 255, 255, 0.85) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  border: 1px solid rgba(74, 85, 104, 0.09) !important;
+  border-radius: 4px !important;
+  background: var(--charcoal, #2C2C2C) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-left: 2px solid var(--coral) !important;
   box-shadow:
-    0 12px 40px rgba(74, 85, 104, 0.10),
-    0 3px 10px rgba(74, 85, 104, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
-  bottom: calc(100% + 28px) !important;
+    0 16px 48px rgba(28, 28, 28, 0.22),
+    0 4px 12px rgba(28, 28, 28, 0.12) !important;
+  bottom: calc(100% + 24px) !important;
+  text-align: left !important;
 }
 
-/* Refined card text — slightly larger, more legible */
+/* Remove the tooltip arrow entirely */
+.exp-card::after {
+  display: none !important;
+}
+
+/* Card text — warm white on dark */
 .exp-card-impact {
   font-size: 0.8125rem !important;
-  line-height: 1.68 !important;
-  color: rgba(74, 85, 104, 0.70) !important;
+  line-height: 1.65 !important;
+  color: rgba(255, 251, 240, 0.82) !important;
   letter-spacing: 0.012em !important;
-}
-
-/* Crisper arrow connector */
-.exp-card::after {
-  border-top-color: rgba(255, 255, 255, 0.85) !important;
-  border-width: 6px !important;
+  text-align: left !important;
 }
 
 /* Mobile: card static, no clipping */
