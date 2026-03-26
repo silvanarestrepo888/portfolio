@@ -21935,3 +21935,89 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   }
 }
 
+/* ══════════════════════════════════════════════════════════════
+   CAROUSEL CARD — EDITORIAL CTA STRIP + CLIENT LINK
+   Replaces disconnected button row with architectural intent.
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Editorial CTA strip at base of content panel ── */
+.card-cta-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(45, 55, 72, 0.12);
+  width: 100%;
+}
+
+.card-cta-label {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--charcoal-mid, #4A5568);
+  transition: color var(--duration-fast, 0.18s) ease;
+}
+
+.card-cta-arrow {
+  font-size: 1rem;
+  color: var(--coral, #FF6663);
+  display: inline-block;
+  transition: color var(--duration-fast, 0.18s) ease;
+}
+
+/* On card hover: label shifts to coral */
+.project-card-cinematic:hover .card-cta-label,
+.project-card-cinematic:focus-visible .card-cta-label {
+  color: var(--coral, #FF6663);
+}
+
+/* ── Client name — inline ↗ micro-link ── */
+.balanced-client-link {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color var(--duration-fast, 0.18s) ease;
+}
+
+.balanced-client-link:hover {
+  color: var(--coral, #FF6663);
+}
+
+.balanced-client-arrow {
+  font-size: 0.7em;
+  opacity: 0.55;
+  transition: opacity var(--duration-fast, 0.18s) ease,
+              transform var(--duration-fast, 0.18s) ease;
+}
+
+.balanced-client-link:hover .balanced-client-arrow {
+  opacity: 1;
+  transform: translate(1px, -1px);
+}
+
+/* ── Content inner: push CTA strip to bottom ── */
+.balanced-content-inner {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+.balanced-description {
+  flex: 1 !important;
+}
+
+/* ── Mobile: CTA strip stays but smaller ── */
+@media (max-width: 640px) {
+  .card-cta-strip {
+    padding-top: 1rem;
+  }
+  .card-cta-label {
+    font-size: 0.7rem;
+  }
+}
+

@@ -333,13 +333,25 @@ export function InteractiveProjectCard({
                   {project.title}
                 </motion.h3>
                 
-                <motion.p 
+                <motion.p
                   className="balanced-client"
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 + 0.3 }}
                 >
-                  {project.client}
+                  {project.website ? (
+                    <a
+                      href={project.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="balanced-client-link"
+                      onClick={(e) => e.stopPropagation()}
+                      aria-label={`Visit ${project.client} website`}
+                    >
+                      {project.client}
+                      <span className="balanced-client-arrow">↗</span>
+                    </a>
+                  ) : project.client}
                 </motion.p>
                 
                 <motion.div 
@@ -400,78 +412,21 @@ export function InteractiveProjectCard({
                 </motion.div>
               )}
               
-              {/* Project Action Buttons */}
-              <motion.div 
-                className="balanced-actions"
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row', /* Use proven working horizontal layout */
-                  gap: '20px', /* Same spacing that worked in test */
-                  justifyContent: 'center', /* Same centering that worked */
-                  marginTop: '20px',
-                  width: '100%'
-                }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+              {/* Editorial CTA strip — replaces disconnected buttons */}
+              <motion.div
+                className="card-cta-strip"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ delay: index * 0.1 + 0.8 }}
               >
-                <motion.button
-                  className="balanced-btn primary project-case-study-btn"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onSelect(index);
-                  }}
-                  whileHover={{ 
-                    y: -3,
-                    transition: { duration: 0.3, ease: [0.23, 1, 0.32, 1] }
-                  }}
-                  whileTap={{ 
-                    scale: 0.95,
-                    transition: { duration: 0.1 }
-                  }}
-                  data-cursor="button"
-                  aria-label={`Explore ${project.title} case study in detail`}
+                <span className="card-cta-label">View case study</span>
+                <motion.span
+                  className="card-cta-arrow"
+                  animate={{ x: (isHovered || isActive) ? 6 : 0 }}
+                  transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
                 >
-                  Explore Case
-                  <motion.span 
-                    className="btn-arrow"
-                    animate={{ x: isHovered ? 4 : 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    →
-                  </motion.span>
-                </motion.button>
-                
-                {project.website && (
-                  <motion.a
-                    href={project.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="balanced-btn secondary project-website-btn"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                    }}
-                    whileHover={{ 
-                      y: -3,
-                      transition: { duration: 0.3, ease: [0.23, 1, 0.32, 1] }
-                    }}
-                    whileTap={{ 
-                      scale: 0.95,
-                      transition: { duration: 0.1 }
-                    }}
-                    data-cursor="button"
-                    aria-label={`Visit ${project.client} website for ${project.title}`}
-                  >
-                    Client&apos;s Website
-                    <motion.span 
-                      className="btn-external-icon"
-                      animate={{ x: isHovered ? 2 : 0, y: isHovered ? -2 : 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      ↗
-                    </motion.span>
-                  </motion.a>
-                )}
+                  →
+                </motion.span>
               </motion.div>
               
             </div>
