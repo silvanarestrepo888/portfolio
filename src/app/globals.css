@@ -23217,3 +23217,93 @@ footer.footer-landor-standards .footer-brand-title-landor {
 .snippet-card {
   border-radius: var(--radius-sharp) !important; /* 2px */
 }
+
+
+/* ================================================================
+   HERO ELEVATION — Editorial Asymmetric Architecture
+   Left-anchored text · Bold photo · Clean directional overlay
+   ================================================================ */
+
+/* 1. Photo: bolder presence (was 0.6) */
+.hero-photo-artistic-unified {
+  opacity: 0.88 !important;
+  object-position: 68% 28% !important;  /* Silvana lives in the right half */
+}
+
+/* 2. Remove the washed vanilla overlay */
+.unified-gradient-foundation {
+  opacity: 0 !important;
+}
+
+/* 3. Replace milky overlay with a directional gradient:
+      dark-left for text protection, transparent-right for photo */
+.hero-unified-color-story {
+  background: linear-gradient(
+    to right,
+    rgba(10, 10, 14, 0.80) 0%,
+    rgba(10, 10, 14, 0.52) 30%,
+    rgba(10, 10, 14, 0.12) 52%,
+    transparent 68%
+  ) !important;
+}
+
+/* 4. Bottom fade to bridge with next section — replace the harsh vanilla bridge */
+.unified-section-connector {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 251, 240, 0.55) 100%
+  ) !important;
+}
+
+/* 5. Left-anchored layout on desktop */
+@media (min-width: 769px) {
+  .hero-section-luxury {
+    justify-content: flex-start !important;
+  }
+
+  .hero-content-luxury {
+    text-align: left !important;
+    max-width: 56% !important;
+    padding-left: max(64px, 7vw) !important;
+    padding-right: 0 !important;
+  }
+
+  .hero-name-label {
+    text-align: left !important;
+  }
+
+  /* 6. Title: clean shadow, vanilla-pure, left-align */
+  .section-hero-sophisticated .hero-title-luxury-centered,
+  .hero-title-luxury-centered {
+    text-align: left !important;
+    color: var(--vanilla-pure, #FFFEF9) !important;
+    font-weight: 300 !important;
+    line-height: 0.92 !important;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.55) !important;
+  }
+
+  .hero-cta-elegant {
+    justify-content: flex-start !important;
+  }
+}
+
+/* 7. Discipline / role line */
+.hero-role-line {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(0.6875rem, 0.9vw, 0.8125rem);
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 251, 240, 0.48);
+  margin: 1.25rem 0 2.75rem;
+  text-align: center;
+  text-shadow: none;
+}
+
+@media (min-width: 769px) {
+  .hero-role-line {
+    text-align: left !important;
+    color: rgba(255, 251, 240, 0.50) !important;
+  }
+}

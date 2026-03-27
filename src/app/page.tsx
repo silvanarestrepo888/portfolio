@@ -758,9 +758,16 @@ export default function Home() {
           >
             Experience Architect
           </motion.h1>
-          
-          
-          
+
+          <motion.p
+            className="hero-role-line"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: isMobile ? 0.5 : 0.618, delay: isMobile ? 0.2 : 0.72 }}
+          >
+            Experience Design · Strategy · Transformation
+          </motion.p>
+
           {/* ELEGANT CTA BUTTONS - Small and Sophisticated */}
           <motion.div 
             className="hero-cta-elegant"
