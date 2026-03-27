@@ -94,6 +94,14 @@
   --font-architectural-display:  var(--font-display);
   --font-architectural-body:     var(--font-body);
 
+  /* Unified serif — Cormorant Garamond is the ONLY display serif on this site.
+     These aliases redirect all legacy Playfair / secondary references to it,
+     eliminating the three-typeface competition.
+     --font-playfair-display was never loaded; this resolves it correctly.
+     --font-secondary was 'Playfair Display, Times New Roman' — now canonical. */
+  --font-playfair-display:       var(--font-cormorant-display), "Cormorant Garamond", serif;
+  --font-secondary:              var(--font-cormorant-display), "Cormorant Garamond", serif;
+
   --type-xs:             12px;
   --type-sm:             14px;
   --type-base:           16px;

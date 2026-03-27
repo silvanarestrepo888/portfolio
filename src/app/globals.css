@@ -13789,7 +13789,7 @@ h4, .text-h4 {
 :root {
   /* Font Families - Perfect Pairing */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-secondary: 'Playfair Display', 'Times New Roman', serif;
+  --font-secondary: var(--font-cormorant-display), "Cormorant Garamond", serif; /* unified — Cormorant only */
   --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
   
   /* Typography Scale - Golden Ratio (1.618) */
@@ -22761,4 +22761,316 @@ footer.footer-landor-standards .footer-brand-title-landor {
 .exp-node-col:hover .exp-dot {
   width: 14px !important;
   height: 14px !important;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   SNIPPET CARDS — DARK EDITORIAL REDESIGN
+   Cards sit in the dark ink section. Redesigned for palette
+   cohesion: images desaturated → arbitrary color tints removed;
+   card body → dark glass (replaces jarring vanilla break);
+   text → vanilla palette; service label → coral accent.
+   ══════════════════════════════════════════════════════════════ */
+
+/* 1. Card shell — dark glass with defined border */
+.snippet-card {
+  background: rgba(22, 26, 34, 0.82) !important;
+  border: 1px solid rgba(245, 245, 220, 0.09) !important;
+  border-radius: 2px !important;
+  overflow: hidden !important;
+  transition: border-color var(--duration-base) var(--ease-landor),
+              transform var(--duration-base) var(--ease-landor),
+              box-shadow var(--duration-base) var(--ease-landor) !important;
+}
+
+.snippet-card:hover {
+  border-color: rgba(255, 102, 99, 0.32) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5),
+              0 0 0 1px rgba(255, 102, 99, 0.12) !important;
+}
+
+/* 2. Images: desaturate arbitrary tints, reveal on hover */
+.snippet-image {
+  filter: grayscale(0.82) contrast(1.08) brightness(1.06) !important;
+  transition: filter 0.55s ease,
+              transform var(--duration-fast) ease-out !important;
+}
+
+.snippet-card:hover .snippet-image {
+  filter: grayscale(0.25) contrast(1.08) brightness(1.06) !important;
+  transform: scale(1.04) !important;
+}
+
+/* 3. Coral palette wash on all images */
+.snippet-image-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 102, 99, 0.07);
+  mix-blend-mode: color;
+  pointer-events: none;
+  z-index: 1;
+  transition: background 0.55s ease;
+}
+
+.snippet-card:hover .snippet-image-container::after {
+  background: rgba(255, 102, 99, 0.20);
+}
+
+/* 4. Flush image-to-text join, subtle separator line */
+.snippet-image-container {
+  margin-bottom: 0 !important;
+  border-bottom: 1px solid rgba(245, 245, 220, 0.07) !important;
+}
+
+/* 5. Text area — transparent so card bg shows through */
+.snippet-title-section {
+  background: transparent !important;
+  padding: 18px 20px 8px 20px !important;
+}
+
+.snippet-info {
+  background: transparent !important;
+  padding: 0 20px 18px 20px !important;
+}
+
+/* Override hover rule that sets vanilla bg */
+.snippet-card:hover .snippet-title-section,
+.snippet-card:hover .snippet-info {
+  background: transparent !important;
+}
+
+/* 6. Title — vanilla on dark */
+.snippet-title-text {
+  color: var(--vanilla-warm, #F5F5DC) !important;
+  font-size: clamp(1rem, 1.8vw, 1.15rem) !important;
+}
+
+.snippet-title-text::after {
+  background: var(--coral, #FF6663) !important;
+}
+
+/* 7. Service label — coral (legible on dark) */
+.snippet-card-service-label {
+  color: var(--coral, #FF6663) !important;
+  font-size: 0.6875rem !important;
+  letter-spacing: 0.14em !important;
+  opacity: 0.88 !important;
+}
+
+/* 8. Industry — muted vanilla hierarchy */
+.snippet-industry {
+  color: rgba(245, 245, 220, 0.50) !important;
+  opacity: 1 !important;
+  font-size: 0.8125rem !important;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   VISUAL ELEVATION — FIVE SECTION FIXES
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── 1. ABOUT: Philosophy quote — visible on vanilla bg ─────── */
+/* The glassmorphism quote is invisible against vanilla-warm.    */
+/* Give it a cream card with a visible coral border.             */
+.about-philosophy-ultra-luxury {
+  background: rgba(255, 252, 242, 0.97) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid rgba(255, 102, 99, 0.28) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06),
+              0 1px 0 rgba(255, 255, 255, 0.9) inset !important;
+  border-radius: 4px !important;
+  padding: 2rem 2.5rem !important;
+  margin-top: 2.5rem !important;
+}
+
+.about-philosophy-ultra-luxury:hover {
+  background: rgba(255, 252, 242, 0.99) !important;
+  border-color: rgba(255, 102, 99, 0.42) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08),
+              0 1px 0 rgba(255, 255, 255, 0.9) inset !important;
+}
+
+/* ── 2. PROJECTS: Filter tags — editorial pill row ──────────── */
+/* From: 2×3 grid of equal-weight square buttons                 */
+/* To: single horizontally-scrollable pill row                   */
+.projects-filter-tags-award {
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  padding: 0 clamp(2rem, 6vw, 4rem) !important;
+  margin-top: 2rem !important;
+  /* Right fade hint */
+  -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%) !important;
+  mask-image: linear-gradient(to right, black 85%, transparent 100%) !important;
+}
+
+.projects-filter-tags-award::-webkit-scrollbar {
+  display: none !important;
+}
+
+.filter-tag-award-winning {
+  border-radius: 100px !important;
+  font-size: 0.6875rem !important;
+  letter-spacing: 0.12em !important;
+  padding: 7px 20px !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  background: transparent !important;
+  border: 1px solid rgba(245, 245, 220, 0.22) !important;
+  color: rgba(245, 245, 220, 0.60) !important;
+  cursor: default !important;
+  box-shadow: none !important;
+  transition: border-color 0.25s ease, color 0.25s ease !important;
+}
+
+/* Subtle section-specific override for the dark projects bg */
+.section-projects-sophisticated .filter-tag-award-winning {
+  background: transparent !important;
+  color: rgba(245, 245, 220, 0.60) !important;
+  border-color: rgba(245, 245, 220, 0.20) !important;
+}
+
+/* ── 3. EXPERIENCE: Company weight + tagline coral ──────────── */
+.exp-company {
+  font-weight: 600 !important;
+}
+
+.exp-footer-tagline {
+  color: var(--coral, #FF6663) !important;
+  opacity: 0.80 !important;
+  letter-spacing: 0.18em !important;
+}
+
+/* ── 4. HERO: Scroll indicator ──────────────────────────────── */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.hero-scroll-line {
+  display: block;
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom,
+    rgba(255, 102, 99, 0.85) 0%,
+    rgba(255, 102, 99, 0.10) 100%);
+  animation: hero-scroll-pulse 2.2s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+@keyframes hero-scroll-pulse {
+  0%   { opacity: 0; transform: scaleY(0.3) translateY(-8px); }
+  40%  { opacity: 1; transform: scaleY(1) translateY(0); }
+  80%  { opacity: 0.6; transform: scaleY(1) translateY(0); }
+  100% { opacity: 0; transform: scaleY(1) translateY(4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-line { animation: none; opacity: 0.5; }
+}
+
+
+/* ================================================================
+   CORAL REDUCTION — 38 → 6 intentional moments
+   Keeper list: nav brand · hero CTA · section indicator dot ·
+                philosophy border · project CTA arrow · snippet label
+   ================================================================ */
+
+/* 1. Hero H1 — luminous vanilla against photo; coral reserved for CTA */
+.hero-title-luxury-centered {
+  color: var(--vanilla-pure) !important;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.45),
+    0 6px 28px rgba(0, 0, 0, 0.22) !important;
+}
+
+/* 2. Hamburger — charcoal, not coral */
+.hamburger-line {
+  background: var(--charcoal-mid) !important;
+}
+.mobile-menu-toggle {
+  border-color: rgba(74, 85, 104, 0.25) !important;
+}
+
+/* 3. Nav section numbers — quiet charcoal; the brand mark carries coral */
+.nav-section-number {
+  color: var(--charcoal-light) !important;
+}
+.nav-item-premium:hover .nav-section-number,
+.nav-item-enhanced:hover .nav-section-number {
+  color: var(--charcoal-mid) !important;
+}
+
+/* 4. Philosophy quote text — charcoal; border is already the coral signal */
+.philosophy-quote-ultra-luxury {
+  color: var(--charcoal-warm) !important;
+}
+
+/* 5. Project cards — client name & tags neutral on dark surface */
+.balanced-client {
+  color: var(--vanilla-warm) !important;
+}
+.balanced-client-link {
+  color: var(--vanilla-warm) !important;
+}
+.balanced-client-link:hover {
+  color: var(--coral) !important;
+}
+.balanced-client-arrow {
+  color: rgba(245, 245, 220, 0.45) !important;
+}
+.balanced-client-link:hover .balanced-client-arrow {
+  color: var(--coral) !important;
+}
+.balanced-tag {
+  background: rgba(245, 245, 220, 0.06) !important;
+  border: 1px solid rgba(245, 245, 220, 0.14) !important;
+  color: rgba(245, 245, 220, 0.45) !important;
+}
+.balanced-tag:hover {
+  background: rgba(245, 245, 220, 0.10) !important;
+  color: rgba(245, 245, 220, 0.72) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* 6. Snippet industry pill — editorial dark, not coral */
+.snippet-industry-pill {
+  background: rgba(20, 20, 26, 0.72) !important;
+  border: 1px solid rgba(245, 245, 220, 0.18) !important;
+  color: rgba(245, 245, 220, 0.72) !important;
+}
+
+/* 7. Snippet sweep line — whisper vanilla hairline */
+.snippet-sweep-line {
+  background: rgba(245, 245, 220, 0.18) !important;
+  height: 1px !important;
+}
+
+/* 8. Snippet CTA button — charcoal with vanilla text */
+.snippet-cta-bottom-right {
+  background: rgba(245, 245, 220, 0.10) !important;
+  border: 1px solid rgba(245, 245, 220, 0.20) !important;
+  color: rgba(245, 245, 220, 0.80) !important;
+  box-shadow: none !important;
+}
+.snippet-cta-bottom-right:hover {
+  background: rgba(245, 245, 220, 0.18) !important;
+  color: var(--vanilla-pure) !important;
+  box-shadow: none !important;
+  transform: none !important;
 }

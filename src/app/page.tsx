@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { Linkedin, Mail, ExternalLink } from 'lucide-react';
+import { Linkedin, Mail } from 'lucide-react';
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import Image from 'next/image';
 import { CustomCursor } from '../components/motion/CustomCursor';
@@ -800,6 +800,17 @@ export default function Home() {
               Executive CV
             </motion.a>
           </motion.div>
+
+          {/* Scroll indicator */}
+          <motion.div
+            className="hero-scroll-indicator"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2.2, duration: 1 }}
+            aria-hidden="true"
+          >
+            <span className="hero-scroll-line" />
+          </motion.div>
         </div>
       </section>
 
@@ -1275,17 +1286,10 @@ export default function Home() {
                   <Linkedin size={14} />
                 Linkedin
               </a>
-              <a 
-                href="#projects"
-                  className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
-              >
-                  <ExternalLink size={14} />
-                Projects
-              </a>
               </div>
             </div>
             </div>
-            
+
           {/* Footer Bottom - Enhanced */}
           <div className="footer-bottom-landor">
             <div className="footer-copyright-landor">
@@ -1746,14 +1750,6 @@ export default function Home() {
                     >
                       <Linkedin size={14} />
                       Linkedin
-                    </a>
-                    <a 
-                      href="#projects"
-                      onClick={() => setSelectedProject(null)}
-                      className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
-                    >
-                      <ExternalLink size={14} />
-                      Projects
                     </a>
                    </div>
                  </div>
