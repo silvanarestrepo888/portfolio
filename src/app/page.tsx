@@ -1213,71 +1213,22 @@ export default function Home() {
       {/* EXPERIENCE SECTION - Horizontal Auto-Scroll Timeline */}
       <ExperienceTimeline />
 
-      {/* LANDOR STANDARDS FOOTER - ULTRA-LUXURY */}
-      <footer id="footer" className="footer-landor-standards">
-        <div className="footer-container-landor">
-          <div className="footer-content-landor">
-            {/* Brand Section */}
-            <div className="footer-brand-landor">
-              <a 
-                href="https://silvana.mmm.page/human-perspective"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-brand-name-landor typography-h3"
-                style={{ textDecoration: 'none', color: 'inherit' }}
-              >
-                silvana.
-              </a>
-              <p className="footer-brand-title-landor typography-body">Experience Architect</p>
-            </div>
-            
-            {/* Navigation section */}
-            <div className="footer-navigation-landor">
-              <h4 className="footer-nav-title-landor typography-body">Navigation</h4>
-              <div className="footer-nav-links-landor">
-                <a href="#about" className="footer-nav-link-landor typography-caption">About</a>
-                <a href="#projects" className="footer-nav-link-landor typography-caption">Projects</a>
-                <a href="#services" className="footer-nav-link-landor typography-caption">Services</a>
-                <a href="#experience" className="footer-nav-link-landor typography-caption">Experience</a>
-              </div>
-            </div>
-            
-            {/* Contact section */}
-            <div className="footer-contact-landor">
-              <h4 className="footer-contact-title-landor typography-body">Contact</h4>
-              <div className="footer-contact-links-landor">
-              <a 
-                href="mailto:silvanarestrepo888@gmail.com"
-                  className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
-              >
-                  <Mail size={14} />
-                Contact
-              </a>
-              <a 
-                href="https://linkedin.com/in/silvanarestrepo"
-                target="_blank"
-                rel="noopener noreferrer"
-                  className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
-              >
-                  <Linkedin size={14} />
-                Linkedin
-              </a>
-              </div>
-            </div>
-            </div>
-
-          {/* Footer Bottom - Enhanced */}
-          <div className="footer-bottom-landor">
-            <div className="footer-copyright-landor">
-              <span className="footer-copyright-text-landor typography-caption">
-                © 2026 Silvana Restrepo. All rights reserved.
-              </span>
-            </div>
-            <div className="footer-legal-landor">
-              <a href="#" className="footer-legal-link-landor typography-caption">Privacy Policy</a>
-              <a href="#" className="footer-legal-link-landor typography-caption">Terms of Service</a>
-            </div>
+      {/* EDITORIAL FOOTER */}
+      <footer id="footer" className="footer-editorial">
+        <div className="footer-editorial-inner">
+          <p className="footer-editorial-statement">
+            Let&rsquo;s build something<br />worth remembering.
+          </p>
+          <div className="footer-editorial-contact">
+            <a href="mailto:silvanarestrepo888@gmail.com" className="footer-editorial-link">
+              Mail
+            </a>
+            <span className="footer-editorial-sep" aria-hidden="true">·</span>
+            <a href="https://linkedin.com/in/silvanarestrepo" target="_blank" rel="noopener noreferrer" className="footer-editorial-link">
+              LinkedIn
+            </a>
           </div>
+          <p className="footer-editorial-credit">© 2026 Silvana Restrepo</p>
         </div>
       </footer>
       </main>
@@ -1675,74 +1626,22 @@ export default function Home() {
             </motion.div>
             </div>
           
-           {/* PROJECT DETAILS FOOTER - EXACT MATCH TO MAIN FOOTER */}
-           <footer className="footer-landor-standards">
-             <div className="footer-container-landor">
-               <div className="footer-content-landor">
-                 {/* Brand Section */}
-                 <div className="footer-brand-landor">
-                   <a 
-                     href="https://silvana.mmm.page/human-perspective"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     className="footer-brand-name-landor typography-h3"
-                     style={{ textDecoration: 'none', color: 'inherit' }}
-                   >
-                     silvana.
-                   </a>
-                   <p className="footer-brand-title-landor typography-body">Experience Architect</p>
-                   <p className="footer-brand-description-landor typography-caption">
-                     Transforming business challenges into strategic advantages through experience-driven innovation.
-                   </p>
-                 </div>
-                 
-                 {/* Navigation Section */}
-                 <div className="footer-navigation-landor">
-                   <h4 className="footer-nav-title-landor typography-body">Navigation</h4>
-                   <div className="footer-nav-links-landor">
-                     <a href="#about" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">About</a>
-                     <a href="#projects" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">Projects</a>
-                     <a href="#services" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">Services</a>
-                     <a href="#experience" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">Experience</a>
-                   </div>
-                 </div>
-                 
-                 {/* Contact Section */}
-                 <div className="footer-contact-landor">
-                   <h4 className="footer-contact-title-landor typography-body">Contact</h4>
-                   <div className="footer-contact-links-landor">
-                    <a 
-                      href="mailto:silvanarestrepo888@gmail.com"
-                      className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
-                    >
-                      <Mail size={14} />
-                      Contact
-                    </a>
-                    <a 
-                      href="https://linkedin.com/in/silvanarestrepo"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
-                    >
-                      <Linkedin size={14} />
-                      Linkedin
-                    </a>
-                   </div>
-                 </div>
+           {/* PROJECT DETAILS FOOTER - EDITORIAL */}
+           <footer className="footer-editorial">
+             <div className="footer-editorial-inner">
+               <p className="footer-editorial-statement">
+                 Let&rsquo;s build something<br />worth remembering.
+               </p>
+               <div className="footer-editorial-contact">
+                 <a href="mailto:silvanarestrepo888@gmail.com" className="footer-editorial-link">
+                   Mail
+                 </a>
+                 <span className="footer-editorial-sep" aria-hidden="true">·</span>
+                 <a href="https://linkedin.com/in/silvanarestrepo" target="_blank" rel="noopener noreferrer" className="footer-editorial-link">
+                   LinkedIn
+                 </a>
                </div>
-               
-               {/* Footer Bottom */}
-               <div className="footer-bottom-landor">
-                 <div className="footer-copyright-landor">
-                   <span className="footer-copyright-text-landor typography-caption">
-                     © 2026 Silvana Restrepo. All rights reserved.
-                   </span>
-                 </div>
-                 <div className="footer-legal-landor">
-                   <a href="#" className="footer-legal-link-landor typography-caption">Privacy Policy</a>
-                   <a href="#" className="footer-legal-link-landor typography-caption">Terms of Service</a>
-                 </div>
-               </div>
+               <p className="footer-editorial-credit">© 2026 Silvana Restrepo</p>
              </div>
            </footer>
         </motion.div>

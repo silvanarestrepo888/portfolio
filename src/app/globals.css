@@ -23744,3 +23744,68 @@ footer.footer-landor-standards .footer-brand-title-landor {
 * {
   cursor: none !important;
 }
+
+/* ── EDITORIAL FOOTER ───────────────────────────────────────────── */
+.footer-editorial {
+  background: var(--vanilla-warm);
+  border-top: 1px solid rgba(74, 85, 104, 0.1);
+  padding: clamp(4rem, 8vw, 7rem) clamp(32px, 5vw, 80px) clamp(2.5rem, 4vw, 4rem);
+}
+
+.footer-editorial-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(2rem, 3.5vw, 3rem);
+}
+
+.footer-editorial-statement {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--charcoal-mid);
+  margin: 0;
+}
+
+.footer-editorial-contact {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.75rem);
+}
+
+.footer-editorial-link {
+  font-family: var(--font-body);
+  font-size: clamp(0.8125rem, 1vw, 0.9375rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--charcoal-mid);
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+
+.footer-editorial-link:hover {
+  opacity: 1;
+  color: var(--coral);
+}
+
+.footer-editorial-sep {
+  color: var(--charcoal-mid);
+  opacity: 0.3;
+  font-size: 1rem;
+}
+
+.footer-editorial-credit {
+  font-family: var(--font-body);
+  font-size: clamp(0.6875rem, 0.85vw, 0.75rem);
+  color: var(--charcoal-mid);
+  opacity: 0.35;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+/* ── END EDITORIAL FOOTER ───────────────────────────────────────── */
