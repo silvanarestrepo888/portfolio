@@ -965,7 +965,7 @@ export default function Home() {
               transition={{ duration: 0.618, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              {String(filteredProjects.length).padStart(2, '0')} Case Studies
+              selected work
             </motion.p>
           </motion.div>
           

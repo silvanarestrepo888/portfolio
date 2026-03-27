@@ -217,7 +217,6 @@
   background: linear-gradient(135deg, 
     var(--grapefruit-pure) 0%, 
     var(--charcoal-light) 100%);
-  border-top: 3px solid var(--charcoal-mid);
   padding: 3rem 2rem 2rem;
   margin-top: 3rem; /* Reduced spacing */
   position: relative;
@@ -3422,7 +3421,6 @@ body {
 
 .service-column-reference {
   padding: 2rem 1.5rem;
-  border-right: 1px solid #e5e5e5;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -3499,7 +3497,6 @@ body {
   color: #555;
   margin-top: auto;
   padding-top: 1rem;
-  border-top: 1px solid rgba(255, 102, 99, 0.1);
 }
 
 /* RESPONSIVE SERVICES DESIGN */
@@ -3511,14 +3508,8 @@ body {
   }
   
   .service-column-reference {
-    border-right: none;
-    border-bottom: 1px solid #e5e5e5;
     padding: 2rem 1.5rem;
     min-height: 300px;
-  }
-  
-  .service-column-reference:nth-child(even) {
-    border-right: none;
   }
 }
 
@@ -3527,16 +3518,10 @@ body {
     grid-template-columns: 1fr;
     height: auto;
   }
-  
+
   .service-column-reference {
-    border-right: none;
-    border-bottom: 1px solid #e5e5e5;
     padding: 1.5rem 1rem;
     min-height: 250px;
-  }
-  
-  .service-column-reference:last-child {
-    border-bottom: none;
   }
 }
 
@@ -3628,8 +3613,6 @@ body {
   }
   
   .service-column-interactive {
-    border-right: none !important;
-    border-bottom: 1px solid #e5e5e5;
     padding: 1.5rem 1rem !important;
     min-height: 200px !important;
   }
@@ -3718,8 +3701,6 @@ body {
   }
   
   .service-column-interactive {
-    border-right: none !important;
-    border-bottom: 1px solid #e5e5e5;
     padding: 2rem 1.5rem !important;
     min-height: auto !important;
   }
@@ -3737,7 +3718,6 @@ body {
 }
 
 .about-header {
-  border-bottom: 1px solid rgba(255, 102, 99, 0.1);
   padding-bottom: var(--space-lg);
 }
 
@@ -4716,7 +4696,6 @@ body {
 }
 
 .philosophy-attribution {
-  border-top: 1px solid rgba(255, 102, 99, 0.1);
   padding-top: var(--space-md);
   text-align: center;
 }
@@ -5346,7 +5325,6 @@ body {
 .project-header-foundation {
   margin-bottom: 1.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(255, 102, 99, 0.1);
 }
 
 .project-title-foundation {
@@ -7993,8 +7971,6 @@ h4, .text-h4 {
   }
   
   .service-column-landor {
-    border-right: none !important;
-    border-bottom: 1px solid rgba(255, 102, 99, 0.1);
     padding: calc(var(--space-lg) * 1.618) !important;
     min-height: auto !important;
   }
@@ -8003,7 +7979,6 @@ h4, .text-h4 {
 @media (max-width: 768px) {
   .service-column-landor {
     padding: calc(var(--space-md) * 1.618) !important;
-    border-bottom: 1px solid rgba(255, 102, 99, 0.08);
   }
   
   .service-title-landor {
@@ -8135,12 +8110,6 @@ h4, .text-h4 {
   
   .service-column-landor {
     width: 100% !important;
-    border-right: none !important;
-    border-bottom: 1px solid rgba(255, 102, 99, 0.08) !important;
-  }
-  
-  .service-column-landor:last-child {
-    border-bottom: none !important;
   }
 }
 
@@ -23357,20 +23326,13 @@ footer.footer-landor-standards .footer-brand-title-landor {
   align-items: flex-start;
   gap: 0.875rem;
   padding: 0.875rem 0;
-  border-top: 1px solid rgba(255, 251, 240, 0.08);
   background: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: none;
+  border: none;
   cursor: pointer;
   text-align: left;
   width: 100%;
   position: relative;
   transition: opacity var(--duration-fast) ease;
-}
-
-.project-index-item:last-child {
-  border-bottom: 1px solid rgba(255, 251, 240, 0.08);
 }
 
 .project-index-item:hover {
@@ -23462,4 +23424,36 @@ footer.footer-landor-standards .footer-brand-title-landor {
   font-weight: 300;
   color: rgba(255, 251, 240, 0.30);
   letter-spacing: 0.05em;
+}
+
+
+/* ================================================================
+   ABOUT ELEVATION — Philosophy Declaration
+   ================================================================ */
+
+/* Philosophy quote — full-width declaration, no structural lines */
+.about-philosophy-ultra-luxury {
+  text-align: left !important;
+  max-width: 100% !important;
+  margin: 3rem 0 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.philosophy-quote-ultra-luxury {
+  font-size: clamp(1.125rem, 1.8vw, 1.5rem) !important;
+  font-weight: 300 !important;
+  color: var(--charcoal-warm, #2D3748) !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.6 !important;
+  text-align: left !important;
+}
+
+@media (max-width: 768px) {
+  .about-philosophy-ultra-luxury {
+    padding-left: 1.25rem !important;
+  }
 }
