@@ -23074,3 +23074,87 @@ footer.footer-landor-standards .footer-brand-title-landor {
   box-shadow: none !important;
   transform: none !important;
 }
+
+
+/* ================================================================
+   TYPOGRAPHY SYSTEM — AUTHORITATIVE MASTER RULES
+   Applied after all historical rules. !important wins the cascade.
+
+   TIER 1  Section headings   Cormorant 300 · lowercase · -0.02em · 1.0 lh
+   TIER 2  Section descs      Inter 300 · 20px · 0.01em · 1.7 lh
+   TIER 3  Body copy          Inter 300–400 · 16px · 0
+   TIER 4  Labels / meta      Inter 400 · 12px · 0.08–0.12em · uppercase
+   ================================================================ */
+
+/* ── TIER 1: All section headings must be identical ─────────────
+   Services and Experience were missing text-transform: lowercase
+   and rendering at 40px (minimum of their clamp) instead of 48px. */
+.svc-heading,
+.exp-heading {
+  font-family: var(--font-cormorant-display), "Cormorant Garamond", serif !important;
+  font-size: clamp(3rem, 6vw, 3.5rem) !important; /* 48px–56px, matches about/projects/snippets */
+  font-weight: 300 !important;
+  text-transform: lowercase !important;               /* THE critical missing rule */
+  letter-spacing: -0.02em !important;
+  line-height: 1.0 !important;
+}
+
+/* ── TIER 2: Section descriptions — elevated from 14px body size ─
+   svc-description was clamp(14px–16px) · exp-subheading same.
+   Both must read as a clear step above body text. */
+.svc-description {
+  font-family: var(--font-inter), "Inter", sans-serif !important;
+  font-size: var(--type-lg) !important;               /* 20px */
+  font-weight: 300 !important;
+  line-height: 1.7 !important;
+  letter-spacing: 0.01em !important;
+  color: rgba(245, 245, 220, 0.80) !important;        /* vanilla on coral surface */
+}
+
+.exp-subheading {
+  font-family: var(--font-inter), "Inter", sans-serif !important;
+  font-size: var(--type-lg) !important;               /* 20px */
+  font-weight: 300 !important;
+  line-height: 1.7 !important;
+  letter-spacing: 0.01em !important;
+  color: var(--charcoal-light) !important;            /* charcoal on parchment */
+}
+
+/* Preserve the italic+coral on <em> inside exp-subheading */
+.exp-subheading em {
+  font-style: italic !important;
+  color: var(--coral) !important;
+}
+
+/* ── SNIPPET CARD TITLES — Cormorant, never Playfair ────────────
+   var(--font-secondary) was falling through to Playfair Display.
+   Override with direct Cormorant reference + !important. */
+.snippet-title-text {
+  font-family: var(--font-cormorant-display), "Cormorant Garamond", serif !important;
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.3 !important;
+}
+
+/* ── EXPERIENCE COMPANY NAME — Inter, not display serif ──────────
+   Cormorant at 14px bold is the wrong register for a label-level
+   element. Inter 600 reads clearly at any size. */
+.exp-company {
+  font-family: var(--font-inter), "Inter", sans-serif !important;
+  font-size: clamp(0.9375rem, 1.2vw, 1.0625rem) !important; /* 15px–17px */
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  line-height: 1.3 !important;
+}
+
+/* ── ABOUT WELCOME LINE — reduce over-tracking ───────────────────
+   typography.css was setting 0.08em (nav-label register).
+   Italic body-adjacent text needs at most 0.02em. */
+.about-section-ultra-luxury .about-welcome,
+.about-welcome {
+  letter-spacing: 0.02em !important;
+  font-size: var(--type-base) !important;   /* 16px — consistent with body */
+  font-weight: 300 !important;
+  line-height: 1.7 !important;
+}
