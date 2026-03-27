@@ -18783,7 +18783,7 @@ img[class*="project-"] {
 
 .hero-photo-artistic-unified {
   object-fit: cover;
-  object-position: center 20%; /* FACE-CENTERED positioning (not chest) */
+  object-position: center 40%; /* Push face below floating nav bar */
   
   /* SIMPLE VISIBLE APPROACH - Remove complex filters */
   filter: brightness(1.0) contrast(1.1);
@@ -21346,11 +21346,11 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 
 /* ── The node dot ─────────────────────────────────────────── */
 .exp-dot {
-  width: 10px;
-  height: 10px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background: transparent;
-  border: 1.5px solid rgba(74, 85, 104, 0.3);
+  border: 2px solid rgba(74, 85, 104, 0.45);
   flex-shrink: 0;
   position: relative;
   z-index: 2;
@@ -22401,12 +22401,19 @@ body:has(.project-details-overlay) .navigation-floating {
 .gallery-section-label,
 .project-gallery-label {
   font-family: var(--font-body, 'Inter', sans-serif) !important;
-  font-size: 0.7rem !important;
+  font-size: 0.75rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.12em !important;
   text-transform: uppercase !important;
   color: var(--charcoal-mid, #4A5568) !important;
   opacity: 0.65 !important;
+}
+
+/* ── Gallery label inside dark overlay: flip to light ── */
+.project-details-overlay .gallery-section-label,
+.project-details-overlay .project-gallery-label {
+  color: rgba(255, 251, 240, 0.55) !important;
+  opacity: 1 !important;
 }
 
 /* ── Metadata items: tighter padding ── */
@@ -22500,5 +22507,258 @@ body:has(.project-details-overlay) .navigation-floating {
   color: rgba(255, 251, 240, 0.85) !important;
 }
 .project-details-overlay .sophisticated-nav-label {
-  color: rgba(255, 251, 240, 0.40) !important;
+  color: rgba(255, 251, 240, 0.55) !important;
+}
+
+
+/* ============================================================
+   WCAG AA — COMPREHENSIVE CONTRAST & SIZE FIXES
+   Last block wins. All issues found in full audit.
+   ============================================================ */
+
+/* ──────────────────────────────────────────────
+   EXPERIENCE TIMELINE  (section bg: vanilla-warm #F5F5DC, L≈0.905)
+   ────────────────────────────────────────────── */
+
+/* Year labels: coral #FF6663 at 0.7rem → 2.53:1 FAIL.
+   Default: charcoal-mid (6.87:1 ✓). Coral reinstated only on
+   hovered/active node where it's visually contextualised. */
+.exp-year {
+  color: var(--charcoal-mid, #4A5568) !important;
+  font-size: 0.75rem !important; /* 12px — was 11.2px */
+}
+.exp-node-col--active .exp-year,
+.exp-node-col:hover .exp-year {
+  color: var(--coral, #FF6663) !important;
+}
+
+/* Role labels: 50% opacity → 2.21:1 FAIL. Raise to 88% → 4.92:1 ✓ */
+.exp-role {
+  color: rgba(74, 85, 104, 0.88) !important;
+  font-size: clamp(0.75rem, 1vw, 0.8125rem) !important; /* 12–13px, was 10.4–12px */
+}
+
+/* Footer tagline (aria-hidden but still visible):
+   30% opacity → 1.53:1. Raise to 58% → 3.1:1 (acceptable for decorative). */
+.exp-footer-tagline {
+  color: rgba(74, 85, 104, 0.58) !important;
+  font-size: 0.75rem !important; /* 12px — was 11.2px */
+}
+
+
+/* ──────────────────────────────────────────────
+   NAVIGATION  (bg: rgba(253,252,248,0.94) ≈ vanilla, L≈0.96)
+   ────────────────────────────────────────────── */
+
+/* Section numbers: 60% coral → 1.85:1 FAIL.
+   Full opacity: 2.75:1 — best achievable for coral on vanilla at 12px.
+   (Decorative numerals, not primary navigation labels.) */
+.nav-section-number {
+  color: var(--coral, #FF6663) !important;
+  opacity: 1 !important;
+}
+
+
+/* ──────────────────────────────────────────────
+   FOOTER  (bg: coral-impact #E55A5A, L≈0.223)
+   Coral bg limits max achievable white contrast to ~4.6:1.
+   Maximise all opacities toward that ceiling.
+   ────────────────────────────────────────────── */
+
+/* Nav + contact links: 0.60 → ~2.78:1. Raise to 0.96 → ~4.5:1 ✓ */
+footer.footer-landor-standards .footer-nav-link-landor,
+footer.footer-landor-standards .footer-contact-link-landor {
+  color: rgba(255, 251, 240, 0.96) !important;
+}
+
+/* Copyright / legal: 0.32 → 1.94:1. Raise to 0.75 → ~3.5:1.
+   Coral bg prevents full AA at 12px — best achievable. */
+footer.footer-landor-standards .footer-copyright-text-landor,
+footer.footer-landor-standards .footer-legal-link-landor {
+  color: rgba(255, 251, 240, 0.78) !important;
+  font-size: 0.8125rem !important; /* bump to 13px to ease contrast requirement */
+}
+
+/* Brand title: increase for readability */
+footer.footer-landor-standards .footer-brand-title-landor {
+  color: rgba(255, 251, 240, 0.96) !important;
+}
+
+
+/* ──────────────────────────────────────────────
+   SERVICES ACCORDION  (bg: coral #FF6663, L≈0.317)
+   Same ceiling problem. Maximise vanilla/white toward 4.5:1.
+   Primary title + description are already at full vanilla (passes as
+   large/bold text). Secondary elements raised here.
+   ────────────────────────────────────────────── */
+
+/* Tagline: 0.60 → 1.75:1. Raise to 0.92 → ~2.6:1.
+   Coral bg hard ceiling. Compensate by increasing font-size. */
+.svc-tagline {
+  color: rgba(255, 251, 240, 0.92) !important;
+  font-size: clamp(0.875rem, 1.4vw, 1rem) !important; /* was 0.8–0.9rem → now 14–16px */
+}
+
+/* Demand text: 0.65 → ~2:1. Raise to 0.88. */
+.svc-demand {
+  color: rgba(255, 251, 240, 0.88) !important;
+  font-size: clamp(1rem, 1.6vw, 1.1rem) !important; /* was ~0.925–1.05rem → now 16–17.6px */
+}
+
+/* Service number badges: decorative, raise from 0.35 to 0.55 */
+.svc-num {
+  color: rgba(245, 245, 220, 0.55) !important;
+}
+.svc-row--open .svc-num,
+.svc-row-header:hover .svc-num {
+  color: rgba(245, 245, 220, 0.92) !important;
+}
+
+/* Capability tags: 11.6px → 12px */
+.svc-tag {
+  font-size: 0.75rem !important;
+  color: rgba(255, 251, 240, 0.92) !important;
+}
+
+/* Chevron: 0.50 → 0.85 */
+.svc-chevron {
+  color: rgba(245, 245, 220, 0.85) !important;
+}
+
+
+/* ──────────────────────────────────────────────
+   SNIPPET CARDS  (text area bg: vanilla-warm #F5F5DC, L≈0.905)
+   ────────────────────────────────────────────── */
+
+/* Service label above title: coral at 11px → 2.53:1 FAIL.
+   Switch to charcoal-muted (#667080) → 4.68:1 ✓ on vanilla-warm. */
+.snippet-card-service-label {
+  color: var(--charcoal-muted, #667080) !important;
+  font-size: 0.75rem !important; /* 12px — was 11px */
+}
+
+/* Industry metadata: 70% opacity charcoal-mid → ~3.41:1 FAIL.
+   Full opacity → 6.87:1 ✓ */
+.snippet-industry {
+  opacity: 1 !important;
+  color: var(--charcoal-mid, #4A5568) !important;
+}
+
+/* Industry pill on image: 0.6875rem = 11px. Raise to 12px. */
+.snippet-industry-pill {
+  font-size: 0.75rem !important; /* 12px — was 11px */
+}
+
+/* Touch targets — minimum 44×44px (WCAG 2.5.5 / mobile best practice) */
+.snippet-cta-bottom-right {
+  min-height: 44px !important;
+  min-width: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  padding: 0 12px !important;
+}
+
+.snippet-external-link {
+  min-width: 44px !important;
+  min-height: 44px !important;
+  bottom: 0 !important;
+  left: 0 !important;
+}
+
+
+/* ──────────────────────────────────────────────
+   CAROUSEL CHEVRONS  (projects section bg: ink #14141A, L≈0.002)
+   Current color: charcoal-mid #4A5568 → nearly invisible on dark bg.
+   ────────────────────────────────────────────── */
+
+.carousel-chevron {
+  color: rgba(255, 251, 240, 0.75) !important;
+  border-color: rgba(255, 251, 240, 0.22) !important;
+  background: rgba(255, 251, 240, 0.06) !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+}
+
+.carousel-chevron:hover {
+  color: var(--coral, #FF6663) !important;
+  border-color: var(--coral, #FF6663) !important;
+  background: rgba(255, 102, 99, 0.10) !important;
+}
+
+
+/* ──────────────────────────────────────────────
+   PROJECT OVERLAY — remaining fine-tuning
+   (bg: #1C1C22, L≈0.016)
+   ────────────────────────────────────────────── */
+
+/* Prev/Next navigation label: 0.40 → 3.44:1 FAIL. Raise to 0.58. */
+.project-details-overlay .sophisticated-nav-label {
+  color: rgba(255, 251, 240, 0.58) !important;
+}
+
+/* kbd hint overlay text */
+.kbd-hint {
+  font-size: 0.75rem !important; /* ensure 12px minimum */
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   VISUAL PERFECTION ELEVATION — 2026-03-27
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── HERO: Name label (Silvana Restrepo above the title) ─────── */
+.hero-name-label {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(0.75rem, 1.4vw, 1rem);
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 251, 240, 0.82);
+  margin: 0 0 1.25rem;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+}
+
+/* ── HERO: Secondary (Executive CV) button — visible on photo ── */
+/* Override the light-bg frosted-charcoal style with vanilla glass */
+.hero-cta-elegant .hero-cta-button--secondary {
+  background: rgba(255, 251, 240, 0.10) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  color: rgba(255, 251, 240, 0.90) !important;
+  border: 1.5px solid rgba(255, 251, 240, 0.42) !important;
+  box-shadow: none !important;
+}
+
+.hero-cta-elegant .hero-cta-button--secondary:hover {
+  background: rgba(255, 251, 240, 0.20) !important;
+  border-color: rgba(255, 251, 240, 0.68) !important;
+  color: #FFFBF0 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ── SERVICES: Chevron rotates to × on expand ───────────────── */
+.svc-chevron {
+  transition: transform 0.30s var(--ease-landor, cubic-bezier(0.23, 1, 0.32, 1)),
+              color 0.25s ease !important;
+}
+
+.svc-row--open .svc-chevron {
+  transform: rotate(45deg) !important;
+}
+
+/* ── EXPERIENCE: Dot size elevated for visual weight ────────── */
+/* (overrides 14px set above — ensure consistency) */
+.exp-dot {
+  width: 14px !important;
+  height: 14px !important;
+  border: 2px solid rgba(74, 85, 104, 0.45) !important;
+}
+
+.exp-node-col--active .exp-dot,
+.exp-node-col:hover .exp-dot {
+  width: 14px !important;
+  height: 14px !important;
 }

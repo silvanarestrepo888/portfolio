@@ -7,7 +7,7 @@ const experiences = [
   {
     company: "Globant",
     role: "Experience Tech Manager",
-    period: "2019 – Now",
+    period: "2019 – Present",
     impact: "Turned complex, undefined challenges into clear experience strategies. Seven industries. Thirty projects. Always on time, always with a business case behind the design.",
   },
   {

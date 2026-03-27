@@ -22,7 +22,6 @@ import {
 import { ExperienceTimeline } from '../components/ui/ExperienceTimeline';
 import {
   RevealHeading,
-  RevealSubheading,
   RevealBody,
   RevealImage,
   RevealGroup,
@@ -548,7 +547,7 @@ export default function Home() {
         setTimeout(() => setIsTransitioning(false), 1200);
         return nextIndex;
       });
-    }, 3000); // 3 seconds per slide - more engaging pace
+    }, 6000); // 6 seconds per slide — enough time to read
 
     return () => clearInterval(interval);
   }, [isAutoPlaying, filteredProjects.length, prefersReducedMotion]);
@@ -740,7 +739,17 @@ export default function Home() {
         
         {/* Content Over Photo */}
         <div className="hero-content-luxury">
-          <motion.h1 
+            {/* Name — above the primary title */}
+          <motion.p
+            className="hero-name-label"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: isMobile ? 0.5 : 1.0, delay: isMobile ? 0.05 : 0.18 }}
+          >
+            Silvana Restrepo
+          </motion.p>
+
+          <motion.h1
             id="hero-title"
             className="hero-title-luxury-centered"
             initial={{ opacity: 0, y: 30 }}
@@ -820,14 +829,6 @@ export default function Home() {
                 about
               </RevealHeading>
             </div>
-            <RevealSubheading
-              id="about-description"
-              as="p"
-              className="about-description-ultra-luxury typography-body text-center max-w-4xl mx-auto"
-              delay={0.1}
-            >
-              Two decades of transforming how global brands connect with human experiences
-            </RevealSubheading>
           </SectionReveal>
 
           {/* Two-Column Layout */}
@@ -939,15 +940,6 @@ export default function Home() {
               </motion.h2>
             </div>
             
-            <motion.p 
-              className="projects-description-award-winning typography-body text-center max-w-4xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.16 : 0.382 }}
-              viewport={{ once: true }}
-            >
-              A curated selection of projects that demonstrate my expertise in experience design, digital transformation, and business innovation across diverse industries and global markets.
-            </motion.p>
             
             {/* Sophisticated Filter Tags with Perfect Spacing */}
             <motion.div 
@@ -1127,15 +1119,6 @@ export default function Home() {
               </motion.h2>
             </div>
             
-            <motion.p 
-              className="projects-description-award-winning typography-body text-center max-w-4xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.16 : 0.382 }}
-              viewport={{ once: true }}
-            >
-              Quick glimpses into diverse work across sectors
-            </motion.p>
           </motion.div>
           
           {/* Snippet Projects Grid */}
@@ -1156,9 +1139,6 @@ export default function Home() {
             <RevealHeading as="h2" className="svc-heading">
               services
             </RevealHeading>
-            <RevealSubheading as="p" className="svc-subheading" delay={0.1}>
-              Meticulously architected solutions addressing demanding market realities and evolving client needs.
-            </RevealSubheading>
           </SectionReveal>
 
           {/* Enhanced editorial accordion */}
@@ -1262,9 +1242,6 @@ export default function Home() {
                 silvana.
               </a>
               <p className="footer-brand-title-landor typography-body">Experience Architect</p>
-              <p className="footer-brand-description-landor typography-caption">
-                Transforming business challenges into strategic advantages through experience-driven innovation.
-              </p>
             </div>
             
             {/* Navigation section */}
@@ -1313,7 +1290,7 @@ export default function Home() {
           <div className="footer-bottom-landor">
             <div className="footer-copyright-landor">
               <span className="footer-copyright-text-landor typography-caption">
-                © 2025 Silvana Restrepo. All rights reserved.
+                © 2026 Silvana Restrepo. All rights reserved.
               </span>
             </div>
             <div className="footer-legal-landor">
@@ -1786,7 +1763,7 @@ export default function Home() {
                <div className="footer-bottom-landor">
                  <div className="footer-copyright-landor">
                    <span className="footer-copyright-text-landor typography-caption">
-                     © 2025 Silvana Restrepo. All rights reserved.
+                     © 2026 Silvana Restrepo. All rights reserved.
                    </span>
                  </div>
                  <div className="footer-legal-landor">
