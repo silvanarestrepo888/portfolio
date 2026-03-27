@@ -1,169 +1,115 @@
 'use client';
 
-import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
+// Chronological order — past (left) → present (right)
 const experiences = [
-  {
-    company: "Globant",
-    role: "Experience Tech Manager",
-    period: "2019 – Present",
-    impact: "Turned complex, undefined challenges into clear experience strategies. Seven industries. Thirty projects. Always on time, always with a business case behind the design.",
-  },
-  {
-    company: "World Economic Forum — C4IR",
-    role: "Ecosystem Engagement Leader",
-    period: "2018 – 2019",
-    impact: "Connected governments, industry, and academia around technology governance. Built frameworks that held up under real policy pressure.",
-  },
-  {
-    company: "Designit (Wipro)",
-    role: "Strategic Design Director",
-    period: "2015 – 2018",
-    impact: "Led a 20-person multidisciplinary studio. Owned the P&L. Delivered strategy and design for complex clients. Built a team that could think independently.",
-  },
-  {
-    company: "Grupo Éxito",
-    role: "Marketing Director, Real Estate",
-    period: "2012 – 2015",
-    impact: "Ran experience and brand strategy across 32 retail destinations. Grew sales and market expansion above industry benchmarks two years running.",
-  },
-  {
-    company: "Haceb",
-    role: "Business Intelligence Director",
-    period: "2008 – 2012",
-    impact: "Built the consumer intelligence system behind 26% revenue growth. Shifted company culture from product-driven to consumer-driven.",
-  },
-  {
-    company: "UNE-TIGO (EPM)",
-    role: "Senior Marketing Leader",
-    period: "2004 – 2008",
-    impact: "Opened three new markets. Scaled a technology brand across 22 cities.",
-  },
+  { company: "UNE-TIGO (EPM)",         role: "Senior Marketing Leader",       period: "2004 – 2008" },
+  { company: "Haceb",                   role: "Business Intelligence Director", period: "2008 – 2012" },
+  { company: "Grupo Éxito",             role: "Marketing Director",             period: "2012 – 2015" },
+  { company: "Designit (Wipro)",        role: "Strategic Design Director",      period: "2015 – 2018" },
+  { company: "World Economic Forum",    role: "Ecosystem Engagement Leader",    period: "2018 – 2019" },
+  { company: "Globant",                 role: "Experience Tech Manager",        period: "2019 – Present" },
 ];
+
+const LINE_DURATION = 2.4;
+const LINE_DELAY    = 0.6;
+const LINE_EASE     = [0.4, 0, 0.2, 1] as const;
 
 export function ExperienceTimeline() {
   const sectionRef = useRef<HTMLElement>(null);
-  const trackRef  = useRef<HTMLDivElement>(null);
-  const isInView  = useInView(sectionRef, { once: true, amount: 0.25 });
-  const [hovered, setHovered] = useState<number | null>(null);
+  const isInView   = useInView(sectionRef, { once: true, amount: 0.25 });
 
   return (
-    <section
-      id="experience"
-      ref={sectionRef}
-      className="exp-section"
-      aria-labelledby="exp-heading"
-    >
-      {/* ── Section header ── */}
+    <section id="experience" ref={sectionRef} className="exp-section">
+
+      {/* ── Header ── */}
       <div className="exp-header">
         <motion.h2
-          id="exp-heading"
           className="exp-heading"
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1.0, ease: [0.23, 1, 0.32, 1] }}
+          transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
         >
           experience
         </motion.h2>
         <motion.p
           className="exp-subheading"
-          initial={{ opacity: 0, y: 16 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1.0, delay: 0.15, ease: [0.23, 1, 0.32, 1] }}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.9, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
         >
-          Some of the hats worn over{' '}
-          <em>more than 20 years</em>{' '}
+          Some of the hats worn over <em>more than 20 years</em>{' '}
           of non-stop upscaling, reinventing, and reimagining.
         </motion.p>
       </div>
 
-      {/* ── Timeline track ── */}
-      <div ref={trackRef} className="exp-track-wrapper">
+      {/* ── Timeline stage ── */}
+      <div className="exp-stage">
 
-        {/* Animated connecting line */}
-        <div className="exp-line-rail" aria-hidden="true">
-          <motion.div
-            className="exp-line"
-            initial={{ scaleX: 0 }}
-            animate={isInView ? { scaleX: 1 } : {}}
-            transition={{ duration: 1.4, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
-            style={{ transformOrigin: 'left center' }}
-          />
-        </div>
-
-        {/* Node row */}
-        <div className="exp-nodes" role="list">
-          {experiences.map((exp, i) => (
-            <div
-              key={exp.company}
-              className={`exp-node-col${hovered === i ? ' exp-node-col--active' : ''}`}
-              role="listitem"
-              onMouseEnter={() => setHovered(i)}
-              onMouseLeave={() => setHovered(null)}
-              onFocus={() => setHovered(i)}
-              onBlur={() => setHovered(null)}
-            >
-              {/* Year label — above the dot */}
+        {/* Year labels — above the line, reveal as line reaches each */}
+        <div className="exp-row exp-row--periods" aria-hidden="true">
+          {experiences.map((exp, i) => {
+            const fraction = i / (experiences.length - 1);
+            const delay    = LINE_DELAY + fraction * LINE_DURATION * 0.9;
+            return (
               <motion.span
-                className="exp-year"
-                initial={{ opacity: 0, y: -10 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.55 + i * 0.1, ease: [0.23, 1, 0.32, 1] }}
+                key={exp.period}
+                className="exp-period"
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ duration: 0.4, delay }}
               >
                 {exp.period}
               </motion.span>
+            );
+          })}
+        </div>
 
-              {/* The node dot */}
-              <motion.div
-                className="exp-dot"
-                initial={{ scale: 0, opacity: 0 }}
-                animate={isInView ? { scale: 1, opacity: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.5 + i * 0.1, type: 'spring', stiffness: 320, damping: 20 }}
-                aria-hidden="true"
-              />
+        {/* The moving line + coral tip */}
+        <div className="exp-line-track">
+          {/* Faint background rail */}
+          <div className="exp-line-rail" />
 
-              {/* Company + role — below the dot */}
+          {/* Animated fill — the line moving through time */}
+          <motion.div
+            className="exp-line-fill"
+            initial={{ width: '0%' }}
+            animate={isInView ? { width: '100%' } : {}}
+            transition={{ duration: LINE_DURATION, delay: LINE_DELAY, ease: LINE_EASE }}
+          />
+
+          {/* Coral tip — the present moment travelling forward */}
+          <motion.div
+            className="exp-line-tip"
+            initial={{ left: '0%', opacity: 0 }}
+            animate={isInView ? { left: '100%', opacity: 1 } : {}}
+            transition={{ duration: LINE_DURATION, delay: LINE_DELAY, ease: LINE_EASE }}
+          />
+        </div>
+
+        {/* Company + role — below the line, reveal as line arrives */}
+        <div className="exp-row exp-row--companies">
+          {experiences.map((exp, i) => {
+            const fraction = i / (experiences.length - 1);
+            const delay    = LINE_DELAY + fraction * LINE_DURATION * 0.9;
+            return (
               <motion.div
-                className="exp-label"
+                key={exp.company}
+                className="exp-entry"
                 initial={{ opacity: 0, y: 10 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.6 + i * 0.1, ease: [0.23, 1, 0.32, 1] }}
+                transition={{ duration: 0.5, delay, ease: [0.23, 1, 0.32, 1] }}
               >
-                <span className="exp-company">{exp.company}</span>
-                <span className="exp-role">{exp.role}</span>
+                <span className="exp-company-name">{exp.company}</span>
+                <span className="exp-role-name">{exp.role}</span>
               </motion.div>
-
-              {/* Hover card — floats above */}
-              <AnimatePresence>
-                {hovered === i && (
-                  <motion.div
-                    className="exp-card"
-                    initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 6, scale: 0.97 }}
-                    transition={{ duration: 0.25, ease: [0.23, 1, 0.32, 1] }}
-                    role="tooltip"
-                  >
-                    <p className="exp-card-impact">{exp.impact}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+            );
+          })}
         </div>
-      </div>
 
-      {/* ── Footer tagline ── */}
-      <motion.p
-        className="exp-footer-tagline"
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 1.0, delay: 1.2, ease: 'easeOut' }}
-        aria-hidden="true"
-      >
-        Two decades of continuous evolution
-      </motion.p>
+      </div>
     </section>
   );
 }

@@ -23560,3 +23560,179 @@ footer.footer-landor-standards .footer-brand-title-landor {
 .svc-num {
   display: none !important;
 }
+
+
+/* ================================================================
+   EXPERIENCE — Journey line: time moving forward
+   ================================================================ */
+
+/* Stage holds all three rows + the line */
+.exp-stage {
+  padding: 0 clamp(32px, 5vw, 80px) clamp(3rem, 5vw, 5rem);
+}
+
+/* Shared row layout — flex, items spaced to match line positions */
+.exp-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.exp-row--periods {
+  padding-bottom: clamp(0.75rem, 1.5vw, 1.125rem);
+  align-items: flex-end;
+}
+
+.exp-row--companies {
+  padding-top: clamp(0.875rem, 1.5vw, 1.25rem);
+}
+
+/* First and last align to line endpoints */
+.exp-row > *:first-child { text-align: left; }
+.exp-row > *:last-child  { text-align: right; }
+.exp-row > *:not(:first-child):not(:last-child) { text-align: center; }
+
+/* Year labels */
+.exp-period {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(0.5625rem, 0.85vw, 0.6875rem);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--charcoal-light, #718096);
+  opacity: 0.6;
+  display: block;
+  white-space: nowrap;
+}
+
+/* Line track */
+.exp-line-track {
+  position: relative;
+  height: 1px;
+}
+
+/* Faint background rail */
+.exp-line-rail {
+  position: absolute;
+  inset: 0;
+  background: rgba(74, 85, 104, 0.1);
+  display: block !important; /* override any hide rule */
+}
+
+/* Animated fill */
+.exp-line-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(74, 85, 104, 0.25) 0%,
+    rgba(74, 85, 104, 0.7)  100%
+  );
+  display: block !important;
+}
+
+/* Coral tip — the present moment */
+.exp-line-tip {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--coral, #FF6663);
+  box-shadow: 0 0 8px rgba(255, 102, 99, 0.45);
+  display: block !important;
+}
+
+/* Company entries */
+.exp-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  max-width: 140px;
+}
+
+.exp-row > .exp-entry:last-child {
+  align-items: flex-end;
+}
+
+.exp-company-name {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: clamp(0.875rem, 1.2vw, 1.0625rem);
+  font-weight: 400;
+  color: var(--charcoal-mid, #4A5568);
+  line-height: 1.2;
+}
+
+.exp-role-name {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(0.5625rem, 0.85vw, 0.6875rem);
+  font-weight: 400;
+  color: var(--charcoal-light, #718096);
+  line-height: 1.4;
+}
+
+/* Suppress old timeline elements that no longer exist in DOM */
+.exp-track-wrapper,
+.exp-nodes,
+.exp-node-col,
+.exp-dot,
+.exp-card,
+.exp-footer-tagline,
+.exp-label,
+.exp-year {
+  display: none !important;
+}
+
+/* Mobile: vertical stack */
+@media (max-width: 640px) {
+  .exp-stage { padding: 0 1.5rem 3rem; }
+
+  .exp-row--periods { display: none; }
+
+  .exp-row--companies {
+    flex-direction: column;
+    gap: 1.75rem;
+    padding-top: 1.5rem;
+  }
+
+  .exp-row > *:first-child,
+  .exp-row > *:last-child,
+  .exp-row > *:not(:first-child):not(:last-child) {
+    text-align: left;
+  }
+
+  .exp-entry { max-width: 100%; }
+  .exp-row > .exp-entry:last-child { align-items: flex-start; }
+}
+
+
+/* ── Experience row: grid gives each entry an equal, predictable cell ── */
+.exp-row {
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr) !important;
+  justify-content: initial !important;
+}
+
+/* Reset individual entry max-width — grid cell constrains width */
+.exp-entry {
+  max-width: 100% !important;
+}
+
+/* Last entry: right-align text so it meets the line's end */
+.exp-row > .exp-entry:last-child {
+  align-items: flex-end !important;
+  text-align: right !important;
+}
+
+.exp-row > .exp-entry:last-child .exp-company-name,
+.exp-row > .exp-entry:last-child .exp-role-name {
+  text-align: right !important;
+}
+
+/* Period last: match */
+.exp-row--periods > span:last-child {
+  text-align: right !important;
+}
