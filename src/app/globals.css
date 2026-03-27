@@ -3412,7 +3412,6 @@ body {
   grid-template-columns: repeat(5, 1fr);
   gap: 0;
   height: 75vh;
-  border: 1px solid #e5e5e5;
   border-radius: 1.5rem;
   overflow: hidden;
   background: white;
@@ -23456,4 +23455,43 @@ footer.footer-landor-standards .footer-brand-title-landor {
   .about-philosophy-ultra-luxury {
     padding-left: 1.25rem !important;
   }
+}
+
+
+/* ================================================================
+   DE-RIGIDIFY — dissolve hard lines, borders, rigid forms
+   ================================================================ */
+
+/* About: remove coral hairline above closing paragraph */
+.about-welcome::before {
+  display: none !important;
+}
+
+/* About: remove structural divider above closing area */
+.about-closing {
+  border: none !important;
+  padding-top: var(--space-md) !important;
+}
+
+/* Projects: remove bordered pill on tags */
+.project-tag {
+  border: none !important;
+}
+
+/* Signature / footer: remove horizontal rule */
+.about-signature-section,
+.signature-section {
+  border-top: none !important;
+}
+
+/* Testimonial: soften the hard coral border on quote container */
+.testimonial-quote-container {
+  border: none !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* Snippet tags: already dark pills — ensure no hard borders */
+.balanced-tag,
+.snippet-industry-pill {
+  border: none !important;
 }

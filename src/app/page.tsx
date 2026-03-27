@@ -958,15 +958,6 @@ export default function Home() {
             </div>
             
             
-            <motion.p
-              className="projects-count-line"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.618, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              selected work
-            </motion.p>
           </motion.div>
           
           {/* Projects: Editorial Index + Carousel */}
@@ -1082,14 +1073,6 @@ export default function Home() {
                   </motion.div>
                 </AnimatePresence>
 
-                {/* Progress counter — desktop only */}
-                {!isMobile && (
-                  <div className="projects-progress-counter">
-                    <span className="counter-current">{String(safeFeaturedProjectIndex + 1).padStart(2, '0')}</span>
-                    <span className="counter-divider"> / </span>
-                    <span className="counter-total">{String(filteredProjects.length).padStart(2, '0')}</span>
-                  </div>
-                )}
 
               </div>
             </div>
