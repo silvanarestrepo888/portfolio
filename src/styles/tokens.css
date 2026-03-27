@@ -112,6 +112,19 @@
   --type-4xl:            58px;
 
   /* ==========================================
+     BORDER RADIUS — 4-value system
+     --radius-sharp   editorial cards (near-flat)
+     --radius-soft    containers, quotes, labels, photo
+     --radius-action  all buttons and CTAs
+     --radius-pill    pill/capsule shapes
+     ========================================== */
+
+  --radius-sharp:        2px;
+  --radius-soft:         4px;
+  --radius-action:       6px;
+  --radius-pill:         100px;
+
+  /* ==========================================
      SPACING — Fibonacci / Golden Ratio
      ========================================== */
 

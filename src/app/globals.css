@@ -23158,3 +23158,62 @@ footer.footer-landor-standards .footer-brand-title-landor {
   font-weight: 300 !important;
   line-height: 1.7 !important;
 }
+
+
+/* ================================================================
+   BORDER-RADIUS SYSTEM — AUTHORITATIVE CONSOLIDATION
+   Four values. Everything maps to one of them.
+
+   --radius-sharp   2px  editorial cards (snippet cards)
+   --radius-soft    4px  containers, quotes, labels, photo
+   --radius-action  6px  every button + CTA + toggle
+   --radius-pill  100px  filter tags, nav brand (unchanged)
+   ================================================================ */
+
+/* ── BUTTONS & CTAS ─────────────────────────────────────────────
+   Hero CTAs were 10px. Service CTA 10px. Snippet CTA 8px.
+   Mobile toggle 16px. All collapse to 6px. */
+.hero-cta-button,
+.hero-cta-button--secondary,
+.svc-cta,
+.btn-primary-refined,
+.btn-secondary-refined,
+.btn-explore-clean,
+.service-cta-landor,
+.balanced-btn,
+.snippet-cta-bottom-right,
+.mobile-menu-toggle {
+  border-radius: var(--radius-action) !important; /* 6px */
+}
+
+/* ── CONTAINERS, QUOTES, LABELS ─────────────────────────────────
+   Philosophy quote was 20px. Project card 12px.
+   About containers 16px. Indicator labels 6px → 4px.
+   All collapse to 4px. */
+.about-philosophy-ultra-luxury,
+.balanced-content-section,
+.section-indicator-label,
+.snippet-card-number,
+.snippet-industry-pill,
+.snippet-external-link {
+  border-radius: var(--radius-soft) !important; /* 4px */
+}
+
+/* ── ABOUT PHOTO — reduce from 24px/20px/18px/16px to 4px ───────
+   24px made it look like an app profile picture.
+   4px is barely-there — editorial, not social. */
+.about-photo-perfect,
+.about-photo-cohesive,
+.about-photo-container,
+.about-photo-unified-sophisticated,
+.about-photo-unified-harmony,
+.about-photo-unified-accent,
+.about-header-ultra-luxury {
+  border-radius: var(--radius-soft) !important; /* 4px */
+}
+
+/* ── SNIPPET CARDS — keep sharp/editorial ───────────────────────
+   2px was already correct. Restate it explicitly for clarity. */
+.snippet-card {
+  border-radius: var(--radius-sharp) !important; /* 2px */
+}
