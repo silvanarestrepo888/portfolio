@@ -488,7 +488,7 @@ export default function Home() {
     if (index === featuredProjectIndex) return;
     setIsTransitioning(true);
     setFeaturedProjectIndex(Math.min(index, Math.max(0, filteredProjects.length - 1)));
-    setTimeout(() => setIsTransitioning(false), 1200);
+    setTimeout(() => setIsTransitioning(false), 450);
   }, [featuredProjectIndex, filteredProjects.length]);
 
   // Keyboard Navigation Support - Award-Winning Accessibility (moved after filteredProjects)
@@ -543,8 +543,7 @@ export default function Home() {
       setFeaturedProjectIndex(prev => {
         const nextIndex = prev === filteredProjects.length - 1 ? 0 : prev + 1;
         setIsTransitioning(true);
-        // Smooth 1.2s cinematic transition
-        setTimeout(() => setIsTransitioning(false), 1200);
+        setTimeout(() => setIsTransitioning(false), 450);
         return nextIndex;
       });
     }, 6000); // 6 seconds per slide — enough time to read
@@ -959,152 +958,142 @@ export default function Home() {
             </div>
             
             
-            {/* Sophisticated Filter Tags with Perfect Spacing */}
-            <motion.div 
-              className="projects-filter-tags-award"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.6 }}
+            <motion.p
+              className="projects-count-line"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.618, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              {projectCategories.map((category) => (
-                <span
-                  key={category}
-                  className="filter-tag-award-winning"
-                >
-                  {category}
-                </span>
-              ))}
-            </motion.div>
+              {String(filteredProjects.length).padStart(2, '0')} Case Studies
+            </motion.p>
           </motion.div>
           
-          {/* Award-Winning Project Carousel with Organic Flow */}
-            <motion.div 
+          {/* Projects: Editorial Index + Carousel */}
+          <motion.div
             className="projects-carousel-award-winning"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8 }}
+            transition={{ duration: 0.618, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {/* Elegant Dot Navigation */}
-            <motion.div
-              className="carousel-dot-navigation"
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 1.0 }}
-              viewport={{ once: true }}
-            >
-              {/* Previous chevron */}
-              <motion.button
-                onClick={() => {
-                  const prevIndex = safeFeaturedProjectIndex === 0
-                    ? filteredProjects.length - 1
-                    : safeFeaturedProjectIndex - 1;
-                  goToProjectWithTransition(prevIndex);
-                  setIsAutoPlaying(false);
-                }}
-                className="carousel-chevron"
-                aria-label="Previous project"
-                data-cursor="button"
-                whileHover={{ scale: 1.12, x: -2 }}
-                whileTap={{ scale: 0.88 }}
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="15,18 9,12 15,6" />
-                </svg>
-              </motion.button>
+            <div className="projects-main-layout">
 
-              {/* Dot indicators — one per project, tap any to jump */}
-              <div className="carousel-dots">
-                {filteredProjects.map((proj, dotIndex) => (
-                  <motion.button
-                    key={dotIndex}
-                    className="carousel-dot"
-                    onClick={() => {
-                      goToProjectWithTransition(dotIndex);
-                      setIsAutoPlaying(false);
-                    }}
-                    aria-label={`Go to ${proj.title}`}
-                    title={proj.title}
-                    animate={{
-                      width: dotIndex === safeFeaturedProjectIndex ? 24 : 8,
-                      background: dotIndex === safeFeaturedProjectIndex
-                        ? 'var(--coral)'
-                        : 'rgba(74, 85, 104, 0.28)'
-                    }}
-                    transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
-                    whileHover={{ scale: 1.35 }}
-                    whileTap={{ scale: 0.82 }}
-                  />
+              {/* ── Editorial Index — desktop sidebar ── */}
+              <nav className="projects-editorial-index" aria-label="Project index">
+                {filteredProjects.map((proj, idx) => (
+                  <button
+                    key={idx}
+                    className={`project-index-item${idx === safeFeaturedProjectIndex ? ' is-active' : ''}`}
+                    onClick={() => { goToProjectWithTransition(idx); setIsAutoPlaying(false); }}
+                    aria-label={`View ${proj.title}`}
+                    aria-current={idx === safeFeaturedProjectIndex ? 'true' : undefined}
+                  >
+                    <span className="project-index-num">{String(idx + 1).padStart(2, '0')}</span>
+                    <span className="project-index-name">{proj.title}</span>
+                  </button>
                 ))}
-              </div>
+              </nav>
 
-              {/* Next chevron */}
-              <motion.button
-                onClick={() => {
-                  const nextIndex = (safeFeaturedProjectIndex + 1) % filteredProjects.length;
-                  goToProjectWithTransition(nextIndex);
-                  setIsAutoPlaying(false);
-                }}
-                className="carousel-chevron"
-                aria-label="Next project"
-                data-cursor="button"
-                whileHover={{ scale: 1.12, x: 2 }}
-                whileTap={{ scale: 0.88 }}
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="9,18 15,12 9,6" />
-                </svg>
-              </motion.button>
-            </motion.div>
-            
-            {/* Mobile swipe hint */}
-            {isMobile && (
-              <div style={{ textAlign: 'center', color: 'var(--charcoal-mid)', fontSize: '0.8125rem', marginBottom: '0.5rem' }}>
-                Swipe to browse projects
+              {/* ── Carousel core ── */}
+              <div className="projects-carousel-core">
+
+                {/* Mobile: dots + chevrons */}
+                {isMobile && (
+                  <div className="carousel-dot-navigation">
+                    <motion.button
+                      onClick={() => {
+                        const prevIndex = safeFeaturedProjectIndex === 0
+                          ? filteredProjects.length - 1
+                          : safeFeaturedProjectIndex - 1;
+                        goToProjectWithTransition(prevIndex);
+                        setIsAutoPlaying(false);
+                      }}
+                      className="carousel-chevron"
+                      aria-label="Previous project"
+                      whileHover={{ scale: 1.12, x: -2 }}
+                      whileTap={{ scale: 0.88 }}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="15,18 9,12 15,6" />
+                      </svg>
+                    </motion.button>
+                    <div className="carousel-dots">
+                      {filteredProjects.map((proj, dotIndex) => (
+                        <motion.button
+                          key={dotIndex}
+                          className="carousel-dot"
+                          onClick={() => { goToProjectWithTransition(dotIndex); setIsAutoPlaying(false); }}
+                          aria-label={`Go to ${proj.title}`}
+                          animate={{
+                            width: dotIndex === safeFeaturedProjectIndex ? 24 : 8,
+                            background: dotIndex === safeFeaturedProjectIndex
+                              ? 'var(--coral)'
+                              : 'rgba(74, 85, 104, 0.28)'
+                          }}
+                          transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
+                          whileHover={{ scale: 1.35 }}
+                          whileTap={{ scale: 0.82 }}
+                        />
+                      ))}
+                    </div>
+                    <motion.button
+                      onClick={() => {
+                        const nextIndex = (safeFeaturedProjectIndex + 1) % filteredProjects.length;
+                        goToProjectWithTransition(nextIndex);
+                        setIsAutoPlaying(false);
+                      }}
+                      className="carousel-chevron"
+                      aria-label="Next project"
+                      whileHover={{ scale: 1.12, x: 2 }}
+                      whileTap={{ scale: 0.88 }}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="9,18 15,12 9,6" />
+                      </svg>
+                    </motion.button>
+                  </div>
+                )}
+
+                {/* Card */}
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    className="projects-3d-container"
+                    key={safeFeaturedProjectIndex}
+                    initial={{ opacity: 0, x: 40, scale: 0.98 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    exit={{ opacity: 0, x: -40, scale: 0.98 }}
+                    transition={{
+                      duration: 0.45,
+                      ease: [0.25, 0.46, 0.45, 0.94],
+                      opacity: { duration: 0.3 },
+                      scale: { duration: 0.4 }
+                    }}
+                    onHoverStart={() => setIsAutoPlaying(false)}
+                    onHoverEnd={() => setIsAutoPlaying(true)}
+                  >
+                    <InteractiveProjectCard
+                      project={filteredProjects[safeFeaturedProjectIndex]}
+                      index={safeFeaturedProjectIndex}
+                      isActive={!isTransitioning}
+                      onSelect={setSelectedProject}
+                      className="project-card-cinematic-flow"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Progress counter — desktop only */}
+                {!isMobile && (
+                  <div className="projects-progress-counter">
+                    <span className="counter-current">{String(safeFeaturedProjectIndex + 1).padStart(2, '0')}</span>
+                    <span className="counter-divider"> / </span>
+                    <span className="counter-total">{String(filteredProjects.length).padStart(2, '0')}</span>
+                  </div>
+                )}
+
               </div>
-            )}
-            
-            {/* CINEMATIC CAROUSEL - SMOOTH RIGHT→LEFT FLOW */}
-            <AnimatePresence mode="wait">
-            <motion.div 
-              className="projects-3d-container"
-              key={safeFeaturedProjectIndex}
-                initial={{ 
-                  opacity: 0, 
-                  x: 100, // Enter from RIGHT
-                  scale: 0.95
-                }}
-              animate={{ 
-                  opacity: 1, 
-                  x: 0, 
-                  scale: 1
-                }}
-                exit={{ 
-                  opacity: 0, 
-                  x: -100, // Exit to LEFT
-                  scale: 0.95
-              }}
-              transition={{
-                  duration: isMobile ? 0.6 : 1.2,
-                  ease: [0.25, 0.46, 0.45, 0.94], // Cubic bezier for elegance
-                  opacity: { duration: isMobile ? 0.4 : 0.8 },
-                  scale: { duration: isMobile ? 0.5 : 1.0 }
-              }}
-              onHoverStart={() => setIsAutoPlaying(false)}
-              onHoverEnd={() => setIsAutoPlaying(true)}
-            >
-              <InteractiveProjectCard
-                project={filteredProjects[safeFeaturedProjectIndex]}
-                index={safeFeaturedProjectIndex}
-                isActive={!isTransitioning}
-                onSelect={setSelectedProject}
-                className="project-card-cinematic-flow"
-              />
-            </motion.div>
-            </AnimatePresence>
-            
-            </motion.div>
+            </div>
+          </motion.div>
         </div>
       </section>
 

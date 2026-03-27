@@ -23307,3 +23307,159 @@ footer.footer-landor-standards .footer-brand-title-landor {
     color: rgba(255, 251, 240, 0.50) !important;
   }
 }
+
+
+/* ================================================================
+   PROJECTS ELEVATION — Editorial Index Architecture
+   Sidebar index · Count line · Progress counter
+   ================================================================ */
+
+/* Section heading count line */
+.projects-count-line {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(74, 85, 104, 0.5);
+  text-align: center;
+  margin: 0.5rem 0 0;
+}
+
+.section-projects-sophisticated .projects-count-line {
+  color: rgba(255, 251, 240, 0.38);
+}
+
+/* Two-column layout: index + carousel */
+.projects-main-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+/* ── Editorial index sidebar ── */
+.projects-editorial-index {
+  display: none; /* mobile: hidden */
+}
+
+@media (min-width: 1025px) {
+  .projects-editorial-index {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    flex-shrink: 0;
+    padding-top: 0.25rem;
+  }
+}
+
+.project-index-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  padding: 0.875rem 0;
+  border-top: 1px solid rgba(255, 251, 240, 0.08);
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  transition: opacity var(--duration-fast) ease;
+}
+
+.project-index-item:last-child {
+  border-bottom: 1px solid rgba(255, 251, 240, 0.08);
+}
+
+.project-index-item:hover {
+  opacity: 1;
+}
+
+.project-index-num {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.625rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: rgba(255, 251, 240, 0.28);
+  min-width: 20px;
+  padding-top: 3px;
+  transition: color var(--duration-fast) ease;
+}
+
+.project-index-name {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: rgba(255, 251, 240, 0.45);
+  line-height: 1.5;
+  transition: color var(--duration-fast) ease;
+}
+
+.project-index-item:hover .project-index-num {
+  color: rgba(255, 251, 240, 0.55);
+}
+
+.project-index-item:hover .project-index-name {
+  color: rgba(255, 251, 240, 0.80);
+}
+
+/* Active state */
+.project-index-item.is-active::before {
+  content: '';
+  position: absolute;
+  left: -0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 55%;
+  background: var(--coral);
+  border-radius: 1px;
+}
+
+.project-index-item.is-active .project-index-num {
+  color: var(--coral);
+}
+
+.project-index-item.is-active .project-index-name {
+  color: rgba(255, 251, 240, 0.95);
+  font-weight: 400;
+}
+
+/* Carousel core: takes remaining space */
+.projects-carousel-core {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Progress counter */
+.projects-progress-counter {
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  justify-content: flex-end;
+}
+
+.counter-current {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(255, 251, 240, 0.75);
+  letter-spacing: 0.05em;
+}
+
+.counter-divider {
+  font-size: 0.75rem;
+  color: rgba(255, 251, 240, 0.25);
+  margin: 0 0.25rem;
+}
+
+.counter-total {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: rgba(255, 251, 240, 0.30);
+  letter-spacing: 0.05em;
+}
