@@ -23020,12 +23020,12 @@ footer.footer-landor-standards .footer-brand-title-landor {
   color: var(--charcoal-warm) !important;
 }
 
-/* 5. Project cards — client name & tags neutral on dark surface */
+/* 5. Project cards — client name charcoal on parchment card */
 .balanced-client {
-  color: var(--vanilla-warm) !important;
+  color: var(--charcoal-mid) !important;
 }
 .balanced-client-link {
-  color: var(--vanilla-warm) !important;
+  color: var(--charcoal-mid) !important;
 }
 .balanced-client-link:hover {
   color: var(--coral) !important;
