@@ -23736,3 +23736,11 @@ footer.footer-landor-standards .footer-brand-title-landor {
 .exp-row--periods > span:last-child {
   text-align: right !important;
 }
+
+
+/* ================================================================
+   CUSTOM CURSOR — hide system cursor, "S" takes over
+   ================================================================ */
+* {
+  cursor: none !important;
+}
