@@ -23495,3 +23495,68 @@ footer.footer-landor-standards .footer-brand-title-landor {
 .snippet-industry-pill {
   border: none !important;
 }
+
+
+/* ================================================================
+   SERVICES — from menu to manifesto
+   ================================================================ */
+
+/* Remove all row borders — spacing does the separation */
+.svc-row {
+  border-top: none !important;
+  border-bottom: none !important;
+  padding: clamp(1.25rem, 2.5vw, 2rem) 0 !important;
+}
+
+.svc-row:last-child {
+  border-bottom: none !important;
+}
+
+/* Remove the number column — header is now title + chevron only */
+.svc-row-header {
+  grid-template-columns: 1fr auto !important;
+}
+
+/* Title becomes the declaration */
+.svc-title {
+  font-size: clamp(1.625rem, 3.2vw, 2.625rem) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.1 !important;
+}
+
+/* Tagline — readable, inviting */
+.svc-tagline {
+  font-size: clamp(0.875rem, 1.3vw, 1rem) !important;
+  font-weight: 300 !important;
+  color: rgba(245, 245, 220, 0.6) !important;
+  margin-top: 0.35rem !important;
+}
+
+/* Body inner — full width, no number offset, preserve horizontal padding for alignment */
+.svc-body-inner {
+  grid-template-columns: 1fr !important;
+}
+
+.svc-body-inner > * {
+  grid-column: 1 !important;
+}
+
+/* Demand quote — no left border, just italic breathing */
+.svc-demand {
+  border-left: none !important;
+  padding-left: 0 !important;
+  color: rgba(245, 245, 220, 0.55) !important;
+  font-size: clamp(0.975rem, 1.6vw, 1.125rem) !important;
+}
+
+/* Service tags — no borders on dark bg */
+.svc-tag {
+  border: none !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Hide the number span entirely */
+.svc-num {
+  display: none !important;
+}

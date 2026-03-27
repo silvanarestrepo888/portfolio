@@ -1135,7 +1135,6 @@ export default function Home() {
           <div className="svc-list">
             {referenceServices.map((service, index) => {
               const isOpen = expandedService === service.title;
-              const num = service.number || String(index + 1).padStart(2, '0');
               return (
                 <motion.div
                   key={service.title}
@@ -1152,8 +1151,6 @@ export default function Home() {
                     aria-expanded={isOpen}
                     aria-controls={`svc-body-${index}`}
                   >
-                    <span className="svc-num">{num}</span>
-
                     <div className="svc-text">
                       <span className="svc-title">{service.title}</span>
                       <span className="svc-tagline">{service.subtitle}</span>
