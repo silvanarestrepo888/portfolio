@@ -1219,6 +1219,14 @@ export default function Home() {
           <p className="footer-editorial-statement">
             Let&rsquo;s build something<br />worth remembering.
           </p>
+          <a
+            href="https://silvana.mmm.page/human-perspective"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-editorial-voice"
+          >
+            My design voice ↗
+          </a>
           <div className="footer-editorial-contact">
             <a href="mailto:silvanarestrepo888@gmail.com" className="footer-editorial-link">
               Mail
@@ -1632,6 +1640,14 @@ export default function Home() {
                <p className="footer-editorial-statement">
                  Let&rsquo;s build something<br />worth remembering.
                </p>
+               <a
+                 href="https://silvana.mmm.page/human-perspective"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="footer-editorial-voice"
+               >
+                 My design voice ↗
+               </a>
                <div className="footer-editorial-contact">
                  <a href="mailto:silvanarestrepo888@gmail.com" className="footer-editorial-link">
                    Mail
