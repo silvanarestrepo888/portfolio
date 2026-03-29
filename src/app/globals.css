@@ -23918,9 +23918,18 @@ footer.footer-landor-standards .footer-brand-title-landor {
   overflow: hidden !important;
 }
 
-/* Photo: full presence, face positioned centre-right so
-   Silvana's figure fills the frame edge-to-edge */
+/* Photo: true full-bleed, no parallax shift allowed */
 .hero-photo-artistic-unified {
+  /* Kill the JS parallax — translateY shifts the image out of the
+     container creating a gap at the top as the user scrolls */
+  transform: none !important;
+
+  /* Explicit fill — belt + suspenders on top of Next.js fill */
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+
   opacity: 1.0 !important;
   object-fit: cover !important;
   object-position: 62% 12% !important;
