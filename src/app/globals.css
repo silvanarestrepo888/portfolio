@@ -24031,3 +24031,30 @@ footer.footer-landor-standards .footer-brand-title-landor {
   align-self: center !important;
 }
 
+
+/* ================================================================
+   ABOUT SECTION — eliminate right-side white space
+   Root cause: max-width: 400px on the photo container caps the photo
+   at 400px while the right grid column is 600-650px wide, leaving
+   ~125px of bare cream on each side of the photo.
+   Fix: let the container fill 100% of its column.
+   ================================================================ */
+
+.about-photo-container {
+  max-width: 100% !important;   /* fill the full column, no width cap */
+  aspect-ratio: unset !important; /* let the inline image height dictate */
+  width: 100% !important;
+}
+
+/* Right column: stretch to column edges, no center-justification gap */
+.about-photo-column {
+  justify-content: stretch !important;
+  align-items: stretch !important;
+}
+
+/* Image already has width:100% inline — ensure it fills the container */
+.about-photo-perfect,
+.about-photo-cohesive {
+  width: 100% !important;
+  display: block !important;
+}
