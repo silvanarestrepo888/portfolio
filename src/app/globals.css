@@ -23295,11 +23295,12 @@ footer.footer-landor-standards .footer-brand-title-landor {
    ABOUT ELEVATION — Philosophy Declaration
    ================================================================ */
 
-/* Philosophy quote — full-width declaration, no structural lines */
+/* Philosophy quote — centered manifesto declaration across full section width */
 .about-philosophy-ultra-luxury {
-  text-align: left !important;
-  max-width: 100% !important;
-  margin: 1.5rem 0 0 !important;
+  text-align: center !important;
+  max-width: 860px !important;
+  width: 100% !important;
+  margin: 2rem auto 0 !important;   /* auto side margins → centred in container */
   padding: 0 !important;
   border: none !important;
   border-radius: 0 !important;
@@ -23313,12 +23314,13 @@ footer.footer-landor-standards .footer-brand-title-landor {
   color: var(--charcoal-warm, #2D3748) !important;
   letter-spacing: -0.01em !important;
   line-height: 1.6 !important;
-  text-align: left !important;
+  text-align: center !important;
 }
 
 @media (max-width: 768px) {
   .about-philosophy-ultra-luxury {
-    padding-left: 1.25rem !important;
+    padding-left: 0 !important;
+    max-width: 100% !important;
   }
 }
 
