@@ -343,8 +343,7 @@
 }
 
 .footer-brand-architectural p {
-  color: var(--charcoal-light); /* Sophisticated medium gray for footer description */
-  opacity: 0.8;
+  color: #4A5568; /* WCAG AA: 7.0:1 on vanilla/white footer bg */
   margin-bottom: 0.75rem;
 }
 
@@ -405,9 +404,9 @@
 }
 
 /* AWARD-WINNING: Graduated Color Hierarchy for Maximum Visual Impact */
-.typography-h1 { 
-  font-size: var(--type-4xl); 
-  color: var(--grapefruit-intelligence); /* Maximum impact - pure grapefruit */
+.typography-h1 {
+  font-size: var(--type-4xl);
+  color: #C2410C; /* WCAG AA: 4.7:1 on vanilla/white */
   letter-spacing: -0.03em; /* More dramatic for hero moments */
   transition: font-weight var(--duration-base) var(--ease-landor); /* Dynamic weight transitions */
 }
@@ -422,9 +421,9 @@
   font-weight: 400; /* Slightly heavier for visual presence */
 }
 
-.typography-h3 { 
-  font-size: var(--type-2xl); 
-  color: var(--charcoal-light); /* Sophisticated gray - supporting elegance */
+.typography-h3 {
+  font-size: var(--type-2xl);
+  color: #667080; /* WCAG AA: 4.7:1 on white/vanilla */
   font-weight: 400; /* Medium weight for clarity */
 }
 
@@ -442,8 +441,7 @@
 .typography-caption {
   font-family: var(--font-architectural-body);
   font-size: var(--type-sm);
-  color: var(--charcoal-light); /* Sophisticated medium gray for supporting text */
-  opacity: 0.85; /* Slightly more visible for accessibility */
+  color: #4A5568; /* WCAG AA: 7.0:1 on white/vanilla */
   line-height: 1.5;
   font-weight: 400;
   text-transform: none;
@@ -6648,7 +6646,7 @@ h4, .text-h4 {
   font-family: var(--font-display);
   font-size: 1.25rem; /* Reduced from 1.5rem */
   font-weight: 600;
-  color: var(--grapefruit-pure);
+  color: #C2410C; /* WCAG AA: 4.7:1 on vanilla nav bg */
   text-decoration: none;
   transition: all var(--duration-fast) var(--ease-landor);
   min-height: 40px; /* Reduced from 44px */
@@ -6737,31 +6735,27 @@ h4, .text-h4 {
 .nav-section-number {
   font-size: var(--type-xs);
   font-weight: 600;
-  color: var(--grapefruit-intelligence);
+  color: #C2410C; /* WCAG AA: 4.7:1 on vanilla nav bg */
   transition: all var(--duration-fast) ease;
   font-family: var(--font-architectural-body);
-  opacity: 0.8;
 }
 
 .nav-section-name {
   font-size: var(--type-sm);
   font-weight: 500;
   letter-spacing: 0.025em;
-  color: var(--grapefruit-intelligence);
+  color: #C2410C; /* WCAG AA: 4.7:1 on vanilla nav bg */
   transition: all var(--duration-fast) ease;
   font-family: var(--font-architectural-body);
-  opacity: 0.9;
 }
 
 .nav-item-enhanced:hover .nav-section-number {
-  color: var(--grapefruit-intelligence);
-  opacity: 1;
+  color: #C2410C;
   transform: scale(1.1);
 }
 
 .nav-item-enhanced:hover .nav-section-name {
-  color: var(--grapefruit-intelligence);
-  opacity: 1;
+  color: #C2410C;
   transform: translateY(-1px);
 }
 
@@ -9346,7 +9340,7 @@ h4, .text-h4 {
 .about-welcome {
   font-size: 18px;
   line-height: 1.618;
-  color: var(--charcoal-light);
+  color: #4A5568; /* WCAG AA: 7.0:1 on vanilla about bg */
   font-weight: 400;
   font-style: italic;
   margin-top: 1.5rem;
@@ -10437,7 +10431,7 @@ h4, .text-h4 {
   gap: 12px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: #4A5568; /* WCAG AA: 7.0:1 on light bg */
 }
 
 /* Auto-Play Controls */
@@ -11683,16 +11677,15 @@ h4, .text-h4 {
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-size: clamp(0.8rem, 1.5vw, var(--type-sm)); /* Responsive design system */
-  font-family: var(--font-architectural-body); /* Design system font */
-  color: var(--text-secondary); /* Design system color */
+  font-size: clamp(0.8rem, 1.5vw, var(--type-sm));
+  font-family: var(--font-architectural-body);
+  color: #4A5568; /* WCAG AA: 7.0:1 on vanilla card */
   font-weight: 500;
 }
 
 .balanced-divider {
-  color: var(--text-secondary); /* Design system color */
+  color: #4A5568; /* WCAG AA: 7.0:1 on vanilla card */
   font-weight: 300;
-  opacity: 0.6; /* Subtle visibility */
 }
 
 .balanced-description {
@@ -23826,3 +23819,24 @@ footer.footer-landor-standards .footer-brand-title-landor {
   opacity: 1;
   color: var(--coral);
 }
+
+/* SNIPPETS ELEVATION */
+.snippet-card-number { display: none !important; }
+.snippet-info { display: none !important; }
+
+.snippet-nav-arrow {
+  font-family: var(--font-display) !important;
+  font-size: 2rem !important;
+  font-weight: 300 !important;
+  font-style: italic !important;
+  line-height: 1 !important;
+  color: var(--charcoal-mid) !important;
+  background: none !important;
+  border: none !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+  cursor: none !important;
+  padding: 0 0.5rem !important;
+}
+.snippet-nav-arrow.visible { opacity: 0.55 !important; }
+.snippet-nav-arrow:hover  { opacity: 1 !important; color: var(--coral) !important; }
