@@ -9312,7 +9312,7 @@ h4, .text-h4 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--about-grid-gap, 40px);
-  align-items: center;
+  align-items: start;
   margin-bottom: 1rem;
 }
 
@@ -23299,7 +23299,7 @@ footer.footer-landor-standards .footer-brand-title-landor {
 .about-philosophy-ultra-luxury {
   text-align: left !important;
   max-width: 100% !important;
-  margin: 3rem 0 0 !important;
+  margin: 1.5rem 0 0 !important;
   padding: 0 !important;
   border: none !important;
   border-radius: 0 !important;
@@ -23769,6 +23769,14 @@ footer.footer-landor-standards .footer-brand-title-landor {
   z-index: 2;
 }
 
+/* Restore absolute positioning for the decorative topographic accent —
+   the > * rule above incorrectly forces position:relative on it,
+   pulling 588px of layout height into normal flow. */
+.about-section-ultra-luxury > .topographic-accent {
+  position: absolute !important;
+  z-index: 1 !important;
+}
+
 
 
 
@@ -24158,4 +24166,19 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   box-sizing: border-box !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
+}
+
+/* ================================================================
+   ABOUT PHOTO — controlled editorial height
+   height:auto !important (line ~13630) overrides the inline clamp.
+   Set an explicit height so the photo is tall and editorial without
+   being dictated by the image's natural aspect ratio.
+   align-items:start means the two columns top-align; the photo
+   starts at the same level as the first line of text.
+   ================================================================ */
+.about-section-ultra-luxury .about-photo-perfect {
+  height: clamp(440px, 52vw, 640px) !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  width: 100% !important;
 }
