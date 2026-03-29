@@ -31,7 +31,7 @@ import {
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
-  // REMOVED: selectedCategory state - filter tags are visual-only
+  const [selectedCategory, setSelectedCategory] = useState("ALL WORK");
   const [currentGalleryImage, setCurrentGalleryImage] = useState(0);
   const [galleryZoomOpen, setGalleryZoomOpen] = useState(false);
   const [heroImageZoom, setHeroImageZoom] = useState(false);
@@ -480,8 +480,18 @@ export default function Home() {
     return projectColorMoods[project.title as keyof typeof projectColorMoods] || 'project-charcoal-dominant';
   }, [selectedProject, projects]);
   
-  // Always show all projects - filter tags are visual-only
-  const filteredProjects = projects;
+  const filteredProjects = useMemo(() => {
+    if (selectedCategory === "ALL WORK") return projects;
+    const categoryToTechTag: Record<string, string> = {
+      "EXPERIENCE DESIGN": "Experience Design",
+      "PRODUCT STRATEGY": "Product Strategy",
+      "SERVICE DESIGN": "Service Design",
+      "USER RESEARCH": "User Research",
+      "DESIGN OPS": "Design Ops",
+    };
+    const tag = categoryToTechTag[selectedCategory];
+    return projects.filter(p => p.tech.some(t => t.toLowerCase() === tag.toLowerCase()));
+  }, [projects, selectedCategory]);
 
   // Sophisticated navigation functions - moved after filteredProjects declaration
   const goToProjectWithTransition = useCallback((index: number) => {
@@ -947,7 +957,7 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <div className="projects-header-content-award">
-              <motion.h2 
+              <motion.h2
                 className="projects-title-award-winning typography-h2"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -957,8 +967,25 @@ export default function Home() {
                 Projects
               </motion.h2>
             </div>
-            
-            
+
+            {/* Filter buttons */}
+            <div className="projects-filter-tags-award">
+              {projectCategories.map((cat) => (
+                <button
+                  key={cat}
+                  className={`filter-tag-award-winning${selectedCategory === cat ? ' active' : ''}`}
+                  onClick={() => {
+                    setSelectedCategory(cat);
+                    setFeaturedProjectIndex(0);
+                    setIsAutoPlaying(false);
+                  }}
+                  aria-pressed={selectedCategory === cat}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+
           </motion.div>
           
           {/* Projects: Editorial Index + Carousel */}
