@@ -23903,72 +23903,173 @@ footer.footer-landor-standards .footer-brand-title-landor {
 
 
 /* ================================================================
-   HERO LAYOUT CORRECTION — 2026-03-29
-   Left-anchor content into the protected dark zone.
-   Photo lives at 68% right; text anchors to the left gradient.
+   DIRECTION C — TYPOGRAPHIC DOMINATION + ELEVATED BLEED PHOTO
+   2026-03-29
+   Cream left column · Split enormous title · Photo bleeds right
    ================================================================ */
 
-/* Section: push content to the left */
+/* Section: cream background, left-flex */
 .hero-section-luxury {
+  background: var(--vanilla-warm) !important;
   justify-content: flex-start !important;
   align-items: center !important;
 }
 
-/* Content block: flush left with generous padding */
+/* Photo panel: right 44% only, full height bleed */
+.hero-bg-unified {
+  left: 56% !important;
+  right: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 44% !important;
+  overflow: hidden !important;
+}
+
+/* Photo: maximum presence, face framed at top */
+.hero-photo-artistic-unified {
+  opacity: 1.0 !important;
+  object-position: 50% 0% !important;
+  filter: contrast(1.06) brightness(1.01) !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Remove all overlays — clean split, no gradients needed */
+.hero-unified-color-story,
+.unified-gradient-foundation,
+.hero-vignette-luxury {
+  display: none !important;
+}
+
+/* Cream fade at the photo's left edge — soft seam */
+.unified-section-connector {
+  left: 56% !important;
+  right: 0 !important;
+  width: 44% !important;
+  background: linear-gradient(to bottom, transparent 60%, var(--vanilla-warm) 100%) !important;
+  z-index: 4 !important;
+  display: block !important;
+}
+
+/* Content: left column, vertically centered */
 .hero-content-luxury {
+  position: relative !important;
+  z-index: 20 !important;
+  width: 56% !important;
+  max-width: 56% !important;
+  padding-left: max(80px, 9vw) !important;
+  padding-right: clamp(32px, 4vw, 72px) !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   text-align: left !important;
-  max-width: 50% !important;
-  padding-left: max(72px, 8vw) !important;
-  padding-right: 0 !important;
+  color: var(--charcoal-mid) !important;
   margin: 0 !important;
 }
 
-/* All text must be bright vanilla — they sit on the dark gradient */
+/* Name label: restrained, charcoal on cream */
 .hero-name-label {
-  color: rgba(255, 251, 240, 0.72) !important;
+  color: rgba(74, 85, 104, 0.48) !important;
+  text-shadow: none !important;
+  letter-spacing: 0.30em !important;
+  font-size: clamp(0.6875rem, 0.8vw, 0.8125rem) !important;
+  margin-bottom: 1.25rem !important;
 }
 
+/* Title: two-line split, enormous, light weight */
 .hero-title-luxury-centered {
+  font-size: clamp(3.5rem, 8.5vw, 11.5rem) !important;
+  font-weight: 300 !important;
+  line-height: 0.90 !important;
+  letter-spacing: -0.04em !important;
+  color: var(--charcoal-mid) !important;
+  text-shadow: none !important;
   text-align: left !important;
-  color: var(--vanilla-pure, #FFFBF0) !important;
-  text-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.55),
-    0 6px 28px rgba(0, 0, 0, 0.30) !important;
+  display: block !important;
+  margin: 0 0 0 !important;
 }
 
+/* "Experience" — secondary, recessed */
+.hero-title-line1 {
+  display: block;
+  font-size: 0.72em;
+  opacity: 0.42;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+/* "Architect" — dominant, full weight */
+.hero-title-line2 {
+  display: block;
+  font-size: 1em;
+  opacity: 1;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  padding-left: 0.05em;
+}
+
+/* Tagline: charcoal, spaced */
 .hero-role-line {
-  color: rgba(255, 251, 240, 0.72) !important;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45) !important;
-  font-size: clamp(0.8125rem, 1.2vw, 1rem) !important;
-  letter-spacing: 0.14em !important;
+  color: rgba(74, 85, 104, 0.52) !important;
+  text-shadow: none !important;
+  font-size: clamp(0.6875rem, 0.8vw, 0.8125rem) !important;
+  letter-spacing: 0.24em !important;
   text-transform: uppercase !important;
-  margin-top: 0.75rem !important;
+  margin-top: 2rem !important;
 }
 
-/* CTA row: left-aligned */
+/* CTAs: left-aligned */
 .hero-cta-elegant {
   justify-content: flex-start !important;
+  margin-top: 2.5rem !important;
 }
 
-/* Scroll indicator: left-aligned */
+/* Scroll indicator: left side */
 .hero-scroll-indicator {
   align-self: flex-start !important;
   margin-left: 0 !important;
 }
 
-/* Mobile: restore center layout */
+/* Mobile: restore full-bleed, centered */
 @media (max-width: 768px) {
   .hero-section-luxury {
+    background: transparent !important;
     justify-content: center !important;
   }
+  .hero-bg-unified {
+    left: 0 !important;
+    width: 100% !important;
+  }
+  .hero-photo-artistic-unified {
+    opacity: 0.5 !important;
+    object-position: 75% center !important;
+  }
+  .hero-unified-color-story {
+    display: block !important;
+    background: rgba(255, 251, 240, 0.55) !important;
+    opacity: 1 !important;
+  }
+  .unified-section-connector {
+    left: 0 !important;
+    width: 100% !important;
+  }
   .hero-content-luxury {
-    text-align: center !important;
+    width: 90% !important;
     max-width: 90% !important;
     padding-left: 1.5rem !important;
     padding-right: 1.5rem !important;
+    text-align: center !important;
+    color: var(--charcoal-mid) !important;
+  }
+  .hero-name-label {
+    color: rgba(74, 85, 104, 0.65) !important;
   }
   .hero-title-luxury-centered {
     text-align: center !important;
+  }
+  .hero-title-line1 {
+    font-size: 0.78em;
+  }
+  .hero-role-line {
+    color: rgba(74, 85, 104, 0.65) !important;
   }
   .hero-cta-elegant {
     justify-content: center !important;
