@@ -23903,44 +23903,6 @@ footer.footer-landor-standards .footer-brand-title-landor {
 }
 
 
-/* ── 2. HERO — right-side typographic counterpoint ── */
-.hero-counter-right {
-  position: absolute;
-  right: clamp(2rem, 5vw, 5rem);
-  bottom: clamp(3rem, 6vw, 6rem);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.5rem;
-  pointer-events: none;
-  z-index: 4;
-}
-
-.hero-counter-number {
-  font-family: var(--font-display, 'Cormorant Garamond', serif);
-  font-size: clamp(5rem, 10vw, 10rem);
-  font-weight: 200;
-  font-style: italic;
-  line-height: 0.85;
-  color: rgba(255, 251, 240, 0.07);
-  letter-spacing: -0.04em;
-  user-select: none;
-}
-
-.hero-counter-label {
-  font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: clamp(0.5rem, 0.7vw, 0.625rem);
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(255, 251, 240, 0.25);
-  user-select: none;
-}
-
-/* Hide on small mobile */
-@media (max-width: 640px) {
-  .hero-counter-right { display: none; }
-}
 
 
 /* ── 3. TIMELINE — larger tip dot, visible rail ── */
@@ -24020,20 +23982,12 @@ footer.footer-landor-standards .footer-brand-title-landor {
 }
 
 
-/* ── 6. ABOUT PHOTO — organic mask with soft rounded clip ── */
+/* ── 6. ABOUT PHOTO — subtle shadow only ── */
 .about-photo-perfect,
 .about-photo-unified-sophisticated,
 .about-photo-cohesive {
-  border-radius: 2px 48% 4px 36% / 4px 2px 36% 48% !important;
   overflow: hidden !important;
   box-shadow: 0 24px 64px rgba(74, 85, 104, 0.18), 0 4px 16px rgba(74, 85, 104, 0.1) !important;
-  transition: border-radius 0.8s cubic-bezier(0.23, 1, 0.32, 1) !important;
-}
-
-.about-photo-perfect:hover,
-.about-photo-unified-sophisticated:hover,
-.about-photo-cohesive:hover {
-  border-radius: 4px 36% 48% 2px / 48% 4px 2px 36% !important;
 }
 
 
