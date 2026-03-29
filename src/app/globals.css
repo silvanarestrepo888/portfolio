@@ -23142,57 +23142,6 @@ footer.footer-landor-standards .footer-brand-title-landor {
   ) !important;
 }
 
-/* 5. Left-anchored layout on desktop */
-@media (min-width: 769px) {
-  .hero-section-luxury {
-    justify-content: flex-start !important;
-  }
-
-  .hero-content-luxury {
-    text-align: left !important;
-    max-width: 56% !important;
-    padding-left: max(64px, 7vw) !important;
-    padding-right: 0 !important;
-  }
-
-  .hero-name-label {
-    text-align: left !important;
-  }
-
-  /* 6. Title: clean shadow, vanilla-pure, left-align */
-  .section-hero-sophisticated .hero-title-luxury-centered,
-  .hero-title-luxury-centered {
-    text-align: left !important;
-    color: var(--vanilla-pure, #FFFEF9) !important;
-    font-weight: 300 !important;
-    line-height: 0.92 !important;
-    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.55) !important;
-  }
-
-  .hero-cta-elegant {
-    justify-content: flex-start !important;
-  }
-}
-
-/* 7. Discipline / role line */
-.hero-role-line {
-  font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: clamp(0.6875rem, 0.9vw, 0.8125rem);
-  font-weight: 300;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(255, 251, 240, 0.48);
-  margin: 1.25rem 0 2.75rem;
-  text-align: center;
-  text-shadow: none;
-}
-
-@media (min-width: 769px) {
-  .hero-role-line {
-    text-align: left !important;
-    color: rgba(255, 251, 240, 0.50) !important;
-  }
-}
 
 
 /* ================================================================
@@ -23869,6 +23818,7 @@ footer.footer-landor-standards .footer-brand-title-landor {
 .footer-editorial {
   background: #16181e !important;
   border-top: 1px solid rgba(255, 251, 240, 0.06) !important;
+  overflow: hidden !important;
 }
 
 .footer-editorial-statement {
@@ -23902,12 +23852,18 @@ footer.footer-landor-standards .footer-brand-title-landor {
 }
 
 
-/* ── 6. ABOUT PHOTO — subtle shadow only ── */
+/* ── 6. ABOUT PHOTO — clean, no decorative overlays ── */
 .about-photo-perfect,
 .about-photo-unified-sophisticated,
 .about-photo-cohesive {
   overflow: hidden !important;
   box-shadow: 0 24px 64px rgba(74, 85, 104, 0.18), 0 4px 16px rgba(74, 85, 104, 0.1) !important;
+}
+
+/* Hide decorative overlay divs that show as empty boxes */
+.about-photo-unified-harmony,
+.about-photo-unified-accent {
+  display: none !important;
 }
 
 
