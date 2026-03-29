@@ -24147,3 +24147,15 @@ footer.footer-landor-standards .footer-brand-title-landor {
   width: 100% !important;
   display: block !important;
 }
+
+/* ================================================================
+   ABOUT CONTAINER — guaranteed full-width (overrides !important width)
+   Section is now display:block so width:100% resolves simply
+   ================================================================ */
+html body .about-section-ultra-luxury .about-container-ultra-luxury {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}

@@ -839,13 +839,9 @@ export default function Home() {
         aria-labelledby="about-heading"
         aria-describedby="about-description"
         role="main"
-        style={{
-          display: 'flex',
-          alignItems: 'center'
-        }}
       >
         {/* Background interference elements removed for clean design */}
-        <div className="about-container-ultra-luxury" style={{ width: '100%', boxSizing: 'border-box', padding: '0 clamp(24px, 4vw, 64px)' }}>
+        <div className="about-container-ultra-luxury" style={{ display: 'block', width: '100%', boxSizing: 'border-box', padding: '0 clamp(24px, 4vw, 64px)', margin: '0' }}>
           {/* Section Header */}
           <SectionReveal as="header" className="about-header-ultra-luxury">
             <div className="about-header-content">
