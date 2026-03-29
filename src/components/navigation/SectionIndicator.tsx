@@ -151,28 +151,6 @@ export function SectionIndicator({ className = '' }: SectionIndicatorProps) {
         );
       })}
 
-      {/* Current section label below dots */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentSection}
-          style={{
-            position: 'absolute',
-            bottom: '-36px',
-            right: 0,
-            fontSize: '9px',
-            fontWeight: 600,
-            color: 'var(--coral)',
-            textTransform: 'uppercase',
-            letterSpacing: '1.5px',
-          }}
-          initial={{ opacity: 0, y: 6 }}
-          animate={{ opacity: 0.75, y: 0 }}
-          exit={{ opacity: 0, y: -6 }}
-          transition={{ duration: 0.382, ease: easeLandor }}
-        >
-          {currentSection}
-        </motion.div>
-      </AnimatePresence>
     </div>
   );
 }

@@ -23845,3 +23845,229 @@ footer.footer-landor-standards .footer-brand-title-landor {
 }
 .snippet-nav-arrow.visible { opacity: 0.55 !important; }
 .snippet-nav-arrow:hover  { opacity: 1 !important; color: var(--coral) !important; }
+
+
+/* ================================================================
+   ART DIRECTOR ELEVATION — Landor precision pass
+   ================================================================ */
+
+/* ── 1. GRAIN TEXTURE — unifying material language across all sections ── */
+@keyframes grain-shift {
+  0%, 100% { transform: translate(0, 0); }
+  20%       { transform: translate(-1px, 1px); }
+  40%       { transform: translate(1px, -1px); }
+  60%       { transform: translate(-1px, -1px); }
+  80%       { transform: translate(1px, 1px); }
+}
+
+.hero-section-luxury::after,
+.about-section-ultra-luxury::after,
+.projects-section-cinematic::after,
+.services-section-luxe::after,
+.exp-section::after,
+.footer-editorial::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+  animation: grain-shift 0.4s steps(1) infinite;
+  mix-blend-mode: overlay;
+}
+
+/* Ensure sections have position:relative for ::after to work */
+.hero-section-luxury,
+.about-section-ultra-luxury,
+.projects-section-cinematic,
+.services-section-luxe,
+.exp-section,
+.footer-editorial {
+  position: relative;
+}
+
+/* Keep content above grain */
+.hero-section-luxury > *,
+.about-section-ultra-luxury > *,
+.projects-section-cinematic > *,
+.services-section-luxe > *,
+.exp-section > *,
+.footer-editorial > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ── 2. HERO — right-side typographic counterpoint ── */
+.hero-counter-right {
+  position: absolute;
+  right: clamp(2rem, 5vw, 5rem);
+  bottom: clamp(3rem, 6vw, 6rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.hero-counter-number {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: clamp(5rem, 10vw, 10rem);
+  font-weight: 200;
+  font-style: italic;
+  line-height: 0.85;
+  color: rgba(255, 251, 240, 0.07);
+  letter-spacing: -0.04em;
+  user-select: none;
+}
+
+.hero-counter-label {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(0.5rem, 0.7vw, 0.625rem);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 251, 240, 0.25);
+  user-select: none;
+}
+
+/* Hide on small mobile */
+@media (max-width: 640px) {
+  .hero-counter-right { display: none; }
+}
+
+
+/* ── 3. TIMELINE — larger tip dot, visible rail ── */
+.exp-line-tip {
+  width: 10px !important;
+  height: 10px !important;
+  box-shadow: 0 0 14px rgba(255, 102, 99, 0.6), 0 0 4px rgba(255, 102, 99, 0.9) !important;
+}
+
+.exp-period {
+  color: var(--coral, #FF6663) !important;
+  opacity: 0.85 !important;
+}
+
+.exp-line-rail {
+  background: rgba(74, 85, 104, 0.18) !important;
+}
+
+
+/* ── 4. SERVICES — white text on coral for readability ── */
+.services-section-luxe .svc-title,
+.services-section-luxe .svc-subtitle {
+  color: rgba(255, 251, 240, 0.95) !important;
+}
+
+.services-section-luxe .svc-description,
+.services-section-luxe .svc-demand {
+  color: rgba(255, 251, 240, 0.75) !important;
+}
+
+.services-section-luxe .svc-tag {
+  border-color: rgba(255, 251, 240, 0.3) !important;
+  color: rgba(255, 251, 240, 0.7) !important;
+}
+
+/* Divider between service items */
+.services-section-luxe .svc-item + .svc-item,
+.services-section-luxe [class*="svc-accordion"] + [class*="svc-accordion"] {
+  border-top: 1px solid rgba(255, 251, 240, 0.12) !important;
+}
+
+
+/* ── 5. FOOTER — dark editorial stage for the CTA ── */
+.footer-editorial {
+  background: #16181e !important;
+  border-top: 1px solid rgba(255, 251, 240, 0.06) !important;
+}
+
+.footer-editorial-statement {
+  color: rgba(255, 251, 240, 0.92) !important;
+}
+
+.footer-editorial-link {
+  color: rgba(255, 251, 240, 0.5) !important;
+}
+
+.footer-editorial-link:hover {
+  color: var(--coral) !important;
+  opacity: 1 !important;
+}
+
+.footer-editorial-sep {
+  color: rgba(255, 251, 240, 0.2) !important;
+}
+
+.footer-editorial-credit {
+  color: rgba(255, 251, 240, 0.25) !important;
+}
+
+.footer-editorial-voice {
+  color: rgba(255, 251, 240, 0.4) !important;
+}
+
+.footer-editorial-voice:hover {
+  color: var(--coral) !important;
+  opacity: 1 !important;
+}
+
+
+/* ── 6. ABOUT PHOTO — organic mask with soft rounded clip ── */
+.about-photo-perfect,
+.about-photo-unified-sophisticated,
+.about-photo-cohesive {
+  border-radius: 2px 48% 4px 36% / 4px 2px 36% 48% !important;
+  overflow: hidden !important;
+  box-shadow: 0 24px 64px rgba(74, 85, 104, 0.18), 0 4px 16px rgba(74, 85, 104, 0.1) !important;
+  transition: border-radius 0.8s cubic-bezier(0.23, 1, 0.32, 1) !important;
+}
+
+.about-photo-perfect:hover,
+.about-photo-unified-sophisticated:hover,
+.about-photo-cohesive:hover {
+  border-radius: 4px 36% 48% 2px / 48% 4px 2px 36% !important;
+}
+
+
+/* ── 7. PROJECT CARDS — hover lift + surface warmth ── */
+.project-card-cinematic,
+[class*="project-card"],
+.interactive-project-card {
+  transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.45s cubic-bezier(0.23, 1, 0.32, 1) !important;
+}
+
+.project-card-cinematic:hover,
+[class*="project-card"]:hover,
+.interactive-project-card:hover {
+  transform: translateY(-6px) scale(1.012) !important;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.45), 0 8px 24px rgba(255, 102, 99, 0.12) !important;
+}
+
+/* Image zoom on card hover */
+.project-card-cinematic:hover .project-card-image,
+.project-card-cinematic:hover img,
+.interactive-project-card:hover img {
+  transform: scale(1.04) !important;
+}
+
+.project-card-image,
+.project-card-cinematic img,
+.interactive-project-card img {
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1) !important;
+}
+
+/* Service tag contrast on dark project cards */
+.project-card-cinematic .balanced-tag,
+.project-card-cinematic .balanced-client {
+  color: rgba(255, 251, 240, 0.85) !important;
+}
+

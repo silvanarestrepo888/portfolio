@@ -817,6 +817,18 @@ export default function Home() {
           >
             <span className="hero-scroll-line" />
           </motion.div>
+
+          {/* Right-side typographic counterpoint — anchors the visual void */}
+          <motion.div
+            className="hero-counter-right"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.8, duration: 1.4 }}
+            aria-hidden="true"
+          >
+            <span className="hero-counter-number">20</span>
+            <span className="hero-counter-label">years of craft</span>
+          </motion.div>
         </div>
       </section>
 
