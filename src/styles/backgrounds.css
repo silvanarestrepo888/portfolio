@@ -451,9 +451,9 @@ section#projects .balanced-year {
   color: rgba(255, 251, 240, 0.55) !important;
 }
 
-/* Client names stay coral — they glow on ink */
+/* Client names — charcoal on parchment card; coral reserved for CTA arrow hover */
 section#projects .balanced-client {
-  color: var(--coral) !important;
+  color: var(--charcoal-mid) !important;
 }
 
 section#projects .balanced-btn {

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { Linkedin, Mail, ExternalLink } from 'lucide-react';
+import { Linkedin, Mail } from 'lucide-react';
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import Image from 'next/image';
 import { CustomCursor } from '../components/motion/CustomCursor';
@@ -22,7 +22,6 @@ import {
 import { ExperienceTimeline } from '../components/ui/ExperienceTimeline';
 import {
   RevealHeading,
-  RevealSubheading,
   RevealBody,
   RevealImage,
   RevealGroup,
@@ -489,7 +488,7 @@ export default function Home() {
     if (index === featuredProjectIndex) return;
     setIsTransitioning(true);
     setFeaturedProjectIndex(Math.min(index, Math.max(0, filteredProjects.length - 1)));
-    setTimeout(() => setIsTransitioning(false), 1200);
+    setTimeout(() => setIsTransitioning(false), 450);
   }, [featuredProjectIndex, filteredProjects.length]);
 
   // Keyboard Navigation Support - Award-Winning Accessibility (moved after filteredProjects)
@@ -544,11 +543,10 @@ export default function Home() {
       setFeaturedProjectIndex(prev => {
         const nextIndex = prev === filteredProjects.length - 1 ? 0 : prev + 1;
         setIsTransitioning(true);
-        // Smooth 1.2s cinematic transition
-        setTimeout(() => setIsTransitioning(false), 1200);
+        setTimeout(() => setIsTransitioning(false), 450);
         return nextIndex;
       });
-    }, 3000); // 3 seconds per slide - more engaging pace
+    }, 6000); // 6 seconds per slide — enough time to read
 
     return () => clearInterval(interval);
   }, [isAutoPlaying, filteredProjects.length, prefersReducedMotion]);
@@ -740,7 +738,17 @@ export default function Home() {
         
         {/* Content Over Photo */}
         <div className="hero-content-luxury">
-          <motion.h1 
+            {/* Name — above the primary title */}
+          <motion.p
+            className="hero-name-label"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: isMobile ? 0.5 : 1.0, delay: isMobile ? 0.05 : 0.18 }}
+          >
+            Silvana Restrepo
+          </motion.p>
+
+          <motion.h1
             id="hero-title"
             className="hero-title-luxury-centered"
             initial={{ opacity: 0, y: 30 }}
@@ -749,9 +757,16 @@ export default function Home() {
           >
             Experience Architect
           </motion.h1>
-          
-          
-          
+
+          <motion.p
+            className="hero-role-line"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: isMobile ? 0.5 : 0.618, delay: isMobile ? 0.2 : 0.72 }}
+          >
+            Experience Design · Strategy · Transformation
+          </motion.p>
+
           {/* ELEGANT CTA BUTTONS - Small and Sophisticated */}
           <motion.div 
             className="hero-cta-elegant"
@@ -791,6 +806,17 @@ export default function Home() {
               Executive CV
             </motion.a>
           </motion.div>
+
+          {/* Scroll indicator */}
+          <motion.div
+            className="hero-scroll-indicator"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2.2, duration: 1 }}
+            aria-hidden="true"
+          >
+            <span className="hero-scroll-line" />
+          </motion.div>
         </div>
       </section>
 
@@ -820,14 +846,6 @@ export default function Home() {
                 about
               </RevealHeading>
             </div>
-            <RevealSubheading
-              id="about-description"
-              as="p"
-              className="about-description-ultra-luxury typography-body text-center max-w-4xl mx-auto"
-              delay={0.1}
-            >
-              Two decades of transforming how global brands connect with human experiences
-            </RevealSubheading>
           </SectionReveal>
 
           {/* Two-Column Layout */}
@@ -939,162 +957,126 @@ export default function Home() {
               </motion.h2>
             </div>
             
-            <motion.p 
-              className="projects-description-award-winning typography-body text-center max-w-4xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.16 : 0.382 }}
-              viewport={{ once: true }}
-            >
-              A curated selection of projects that demonstrate my expertise in experience design, digital transformation, and business innovation across diverse industries and global markets.
-            </motion.p>
             
-            {/* Sophisticated Filter Tags with Perfect Spacing */}
-            <motion.div 
-              className="projects-filter-tags-award"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.6 }}
-              viewport={{ once: true }}
-            >
-              {projectCategories.map((category) => (
-                <span
-                  key={category}
-                  className="filter-tag-award-winning"
-                >
-                  {category}
-                </span>
-              ))}
-            </motion.div>
           </motion.div>
           
-          {/* Award-Winning Project Carousel with Organic Flow */}
-            <motion.div 
+          {/* Projects: Editorial Index + Carousel */}
+          <motion.div
             className="projects-carousel-award-winning"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8 }}
+            transition={{ duration: 0.618, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            {/* Elegant Dot Navigation */}
-            <motion.div
-              className="carousel-dot-navigation"
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 1.0 }}
-              viewport={{ once: true }}
-            >
-              {/* Previous chevron */}
-              <motion.button
-                onClick={() => {
-                  const prevIndex = safeFeaturedProjectIndex === 0
-                    ? filteredProjects.length - 1
-                    : safeFeaturedProjectIndex - 1;
-                  goToProjectWithTransition(prevIndex);
-                  setIsAutoPlaying(false);
-                }}
-                className="carousel-chevron"
-                aria-label="Previous project"
-                data-cursor="button"
-                whileHover={{ scale: 1.12, x: -2 }}
-                whileTap={{ scale: 0.88 }}
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="15,18 9,12 15,6" />
-                </svg>
-              </motion.button>
+            <div className="projects-main-layout">
 
-              {/* Dot indicators — one per project, tap any to jump */}
-              <div className="carousel-dots">
-                {filteredProjects.map((proj, dotIndex) => (
-                  <motion.button
-                    key={dotIndex}
-                    className="carousel-dot"
-                    onClick={() => {
-                      goToProjectWithTransition(dotIndex);
-                      setIsAutoPlaying(false);
-                    }}
-                    aria-label={`Go to ${proj.title}`}
-                    title={proj.title}
-                    animate={{
-                      width: dotIndex === safeFeaturedProjectIndex ? 24 : 8,
-                      background: dotIndex === safeFeaturedProjectIndex
-                        ? 'var(--coral)'
-                        : 'rgba(74, 85, 104, 0.28)'
-                    }}
-                    transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
-                    whileHover={{ scale: 1.35 }}
-                    whileTap={{ scale: 0.82 }}
-                  />
+              {/* ── Editorial Index — desktop sidebar ── */}
+              <nav className="projects-editorial-index" aria-label="Project index">
+                {filteredProjects.map((proj, idx) => (
+                  <button
+                    key={idx}
+                    className={`project-index-item${idx === safeFeaturedProjectIndex ? ' is-active' : ''}`}
+                    onClick={() => { goToProjectWithTransition(idx); setIsAutoPlaying(false); }}
+                    aria-label={`View ${proj.title}`}
+                    aria-current={idx === safeFeaturedProjectIndex ? 'true' : undefined}
+                  >
+                    <span className="project-index-num">{String(idx + 1).padStart(2, '0')}</span>
+                    <span className="project-index-name">{proj.title}</span>
+                  </button>
                 ))}
-              </div>
+              </nav>
 
-              {/* Next chevron */}
-              <motion.button
-                onClick={() => {
-                  const nextIndex = (safeFeaturedProjectIndex + 1) % filteredProjects.length;
-                  goToProjectWithTransition(nextIndex);
-                  setIsAutoPlaying(false);
-                }}
-                className="carousel-chevron"
-                aria-label="Next project"
-                data-cursor="button"
-                whileHover={{ scale: 1.12, x: 2 }}
-                whileTap={{ scale: 0.88 }}
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="9,18 15,12 9,6" />
-                </svg>
-              </motion.button>
-            </motion.div>
-            
-            {/* Mobile swipe hint */}
-            {isMobile && (
-              <div style={{ textAlign: 'center', color: 'var(--charcoal-mid)', fontSize: '0.8125rem', marginBottom: '0.5rem' }}>
-                Swipe to browse projects
+              {/* ── Carousel core ── */}
+              <div className="projects-carousel-core">
+
+                {/* Mobile: dots + chevrons */}
+                {isMobile && (
+                  <div className="carousel-dot-navigation">
+                    <motion.button
+                      onClick={() => {
+                        const prevIndex = safeFeaturedProjectIndex === 0
+                          ? filteredProjects.length - 1
+                          : safeFeaturedProjectIndex - 1;
+                        goToProjectWithTransition(prevIndex);
+                        setIsAutoPlaying(false);
+                      }}
+                      className="carousel-chevron"
+                      aria-label="Previous project"
+                      whileHover={{ scale: 1.12, x: -2 }}
+                      whileTap={{ scale: 0.88 }}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="15,18 9,12 15,6" />
+                      </svg>
+                    </motion.button>
+                    <div className="carousel-dots">
+                      {filteredProjects.map((proj, dotIndex) => (
+                        <motion.button
+                          key={dotIndex}
+                          className="carousel-dot"
+                          onClick={() => { goToProjectWithTransition(dotIndex); setIsAutoPlaying(false); }}
+                          aria-label={`Go to ${proj.title}`}
+                          animate={{
+                            width: dotIndex === safeFeaturedProjectIndex ? 24 : 8,
+                            background: dotIndex === safeFeaturedProjectIndex
+                              ? 'var(--coral)'
+                              : 'rgba(74, 85, 104, 0.28)'
+                          }}
+                          transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
+                          whileHover={{ scale: 1.35 }}
+                          whileTap={{ scale: 0.82 }}
+                        />
+                      ))}
+                    </div>
+                    <motion.button
+                      onClick={() => {
+                        const nextIndex = (safeFeaturedProjectIndex + 1) % filteredProjects.length;
+                        goToProjectWithTransition(nextIndex);
+                        setIsAutoPlaying(false);
+                      }}
+                      className="carousel-chevron"
+                      aria-label="Next project"
+                      whileHover={{ scale: 1.12, x: 2 }}
+                      whileTap={{ scale: 0.88 }}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="9,18 15,12 9,6" />
+                      </svg>
+                    </motion.button>
+                  </div>
+                )}
+
+                {/* Card */}
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    className="projects-3d-container"
+                    key={safeFeaturedProjectIndex}
+                    initial={{ opacity: 0, x: 40, scale: 0.98 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    exit={{ opacity: 0, x: -40, scale: 0.98 }}
+                    transition={{
+                      duration: 0.45,
+                      ease: [0.25, 0.46, 0.45, 0.94],
+                      opacity: { duration: 0.3 },
+                      scale: { duration: 0.4 }
+                    }}
+                    onHoverStart={() => setIsAutoPlaying(false)}
+                    onHoverEnd={() => setIsAutoPlaying(true)}
+                  >
+                    <InteractiveProjectCard
+                      project={filteredProjects[safeFeaturedProjectIndex]}
+                      index={safeFeaturedProjectIndex}
+                      isActive={!isTransitioning}
+                      onSelect={setSelectedProject}
+                      className="project-card-cinematic-flow"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+
+
               </div>
-            )}
-            
-            {/* CINEMATIC CAROUSEL - SMOOTH RIGHT→LEFT FLOW */}
-            <AnimatePresence mode="wait">
-            <motion.div 
-              className="projects-3d-container"
-              key={safeFeaturedProjectIndex}
-                initial={{ 
-                  opacity: 0, 
-                  x: 100, // Enter from RIGHT
-                  scale: 0.95
-                }}
-              animate={{ 
-                  opacity: 1, 
-                  x: 0, 
-                  scale: 1
-                }}
-                exit={{ 
-                  opacity: 0, 
-                  x: -100, // Exit to LEFT
-                  scale: 0.95
-              }}
-              transition={{
-                  duration: isMobile ? 0.6 : 1.2,
-                  ease: [0.25, 0.46, 0.45, 0.94], // Cubic bezier for elegance
-                  opacity: { duration: isMobile ? 0.4 : 0.8 },
-                  scale: { duration: isMobile ? 0.5 : 1.0 }
-              }}
-              onHoverStart={() => setIsAutoPlaying(false)}
-              onHoverEnd={() => setIsAutoPlaying(true)}
-            >
-              <InteractiveProjectCard
-                project={filteredProjects[safeFeaturedProjectIndex]}
-                index={safeFeaturedProjectIndex}
-                isActive={!isTransitioning}
-                onSelect={setSelectedProject}
-                className="project-card-cinematic-flow"
-              />
-            </motion.div>
-            </AnimatePresence>
-            
-            </motion.div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -1123,19 +1105,10 @@ export default function Home() {
                 transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.1 : 0.236 }}
                 viewport={{ once: true }}
               >
-                Project Snippets
+                Also this.
               </motion.h2>
             </div>
             
-            <motion.p 
-              className="projects-description-award-winning typography-body text-center max-w-4xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.16 : 0.382 }}
-              viewport={{ once: true }}
-            >
-              Quick glimpses into diverse work across sectors
-            </motion.p>
           </motion.div>
           
           {/* Snippet Projects Grid */}
@@ -1156,16 +1129,12 @@ export default function Home() {
             <RevealHeading as="h2" className="svc-heading">
               services
             </RevealHeading>
-            <RevealSubheading as="p" className="svc-subheading" delay={0.1}>
-              Meticulously architected solutions addressing demanding market realities and evolving client needs.
-            </RevealSubheading>
           </SectionReveal>
 
           {/* Enhanced editorial accordion */}
           <div className="svc-list">
             {referenceServices.map((service, index) => {
               const isOpen = expandedService === service.title;
-              const num = service.number || String(index + 1).padStart(2, '0');
               return (
                 <motion.div
                   key={service.title}
@@ -1182,8 +1151,6 @@ export default function Home() {
                     aria-expanded={isOpen}
                     aria-controls={`svc-body-${index}`}
                   >
-                    <span className="svc-num">{num}</span>
-
                     <div className="svc-text">
                       <span className="svc-title">{service.title}</span>
                       <span className="svc-tagline">{service.subtitle}</span>
@@ -1246,81 +1213,30 @@ export default function Home() {
       {/* EXPERIENCE SECTION - Horizontal Auto-Scroll Timeline */}
       <ExperienceTimeline />
 
-      {/* LANDOR STANDARDS FOOTER - ULTRA-LUXURY */}
-      <footer id="footer" className="footer-landor-standards">
-        <div className="footer-container-landor">
-          <div className="footer-content-landor">
-            {/* Brand Section */}
-            <div className="footer-brand-landor">
-              <a 
-                href="https://silvana.mmm.page/human-perspective"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-brand-name-landor typography-h3"
-                style={{ textDecoration: 'none', color: 'inherit' }}
-              >
-                silvana.
-              </a>
-              <p className="footer-brand-title-landor typography-body">Experience Architect</p>
-              <p className="footer-brand-description-landor typography-caption">
-                Transforming business challenges into strategic advantages through experience-driven innovation.
-              </p>
-            </div>
-            
-            {/* Navigation section */}
-            <div className="footer-navigation-landor">
-              <h4 className="footer-nav-title-landor typography-body">Navigation</h4>
-              <div className="footer-nav-links-landor">
-                <a href="#about" className="footer-nav-link-landor typography-caption">About</a>
-                <a href="#projects" className="footer-nav-link-landor typography-caption">Projects</a>
-                <a href="#services" className="footer-nav-link-landor typography-caption">Services</a>
-                <a href="#experience" className="footer-nav-link-landor typography-caption">Experience</a>
-              </div>
-            </div>
-            
-            {/* Contact section */}
-            <div className="footer-contact-landor">
-              <h4 className="footer-contact-title-landor typography-body">Contact</h4>
-              <div className="footer-contact-links-landor">
-              <a 
-                href="mailto:silvanarestrepo888@gmail.com"
-                  className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
-              >
-                  <Mail size={14} />
-                Contact
-              </a>
-              <a 
-                href="https://linkedin.com/in/silvanarestrepo"
-                target="_blank"
-                rel="noopener noreferrer"
-                  className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
-              >
-                  <Linkedin size={14} />
-                Linkedin
-              </a>
-              <a 
-                href="#projects"
-                  className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
-              >
-                  <ExternalLink size={14} />
-                Projects
-              </a>
-              </div>
-            </div>
-            </div>
-            
-          {/* Footer Bottom - Enhanced */}
-          <div className="footer-bottom-landor">
-            <div className="footer-copyright-landor">
-              <span className="footer-copyright-text-landor typography-caption">
-                © 2025 Silvana Restrepo. All rights reserved.
-              </span>
-            </div>
-            <div className="footer-legal-landor">
-              <a href="#" className="footer-legal-link-landor typography-caption">Privacy Policy</a>
-              <a href="#" className="footer-legal-link-landor typography-caption">Terms of Service</a>
-            </div>
+      {/* EDITORIAL FOOTER */}
+      <footer id="footer" className="footer-editorial">
+        <div className="footer-editorial-inner">
+          <p className="footer-editorial-statement">
+            Let&rsquo;s build something<br />worth remembering.
+          </p>
+          <a
+            href="https://silvana.mmm.page/human-perspective"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-editorial-voice"
+          >
+            My design voice ↗
+          </a>
+          <div className="footer-editorial-contact">
+            <a href="mailto:silvanarestrepo888@gmail.com" className="footer-editorial-link">
+              Mail
+            </a>
+            <span className="footer-editorial-sep" aria-hidden="true">·</span>
+            <a href="https://linkedin.com/in/silvanarestrepo" target="_blank" rel="noopener noreferrer" className="footer-editorial-link">
+              LinkedIn
+            </a>
           </div>
+          <p className="footer-editorial-credit">© 2026 Silvana Restrepo</p>
         </div>
       </footer>
       </main>
@@ -1718,82 +1634,30 @@ export default function Home() {
             </motion.div>
             </div>
           
-           {/* PROJECT DETAILS FOOTER - EXACT MATCH TO MAIN FOOTER */}
-           <footer className="footer-landor-standards">
-             <div className="footer-container-landor">
-               <div className="footer-content-landor">
-                 {/* Brand Section */}
-                 <div className="footer-brand-landor">
-                   <a 
-                     href="https://silvana.mmm.page/human-perspective"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     className="footer-brand-name-landor typography-h3"
-                     style={{ textDecoration: 'none', color: 'inherit' }}
-                   >
-                     silvana.
-                   </a>
-                   <p className="footer-brand-title-landor typography-body">Experience Architect</p>
-                   <p className="footer-brand-description-landor typography-caption">
-                     Transforming business challenges into strategic advantages through experience-driven innovation.
-                   </p>
-                 </div>
-                 
-                 {/* Navigation Section */}
-                 <div className="footer-navigation-landor">
-                   <h4 className="footer-nav-title-landor typography-body">Navigation</h4>
-                   <div className="footer-nav-links-landor">
-                     <a href="#about" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">About</a>
-                     <a href="#projects" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">Projects</a>
-                     <a href="#services" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">Services</a>
-                     <a href="#experience" onClick={() => setSelectedProject(null)} className="footer-nav-link-landor typography-caption">Experience</a>
-                   </div>
-                 </div>
-                 
-                 {/* Contact Section */}
-                 <div className="footer-contact-landor">
-                   <h4 className="footer-contact-title-landor typography-body">Contact</h4>
-                   <div className="footer-contact-links-landor">
-                    <a 
-                      href="mailto:silvanarestrepo888@gmail.com"
-                      className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
-                    >
-                      <Mail size={14} />
-                      Contact
-                    </a>
-                    <a 
-                      href="https://linkedin.com/in/silvanarestrepo"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
-                    >
-                      <Linkedin size={14} />
-                      Linkedin
-                    </a>
-                    <a 
-                      href="#projects"
-                      onClick={() => setSelectedProject(null)}
-                      className="footer-contact-link-landor typography-caption luxury-hover-glow magnetic-button touch-friendly"
-                    >
-                      <ExternalLink size={14} />
-                      Projects
-                    </a>
-                   </div>
-                 </div>
+           {/* PROJECT DETAILS FOOTER - EDITORIAL */}
+           <footer className="footer-editorial">
+             <div className="footer-editorial-inner">
+               <p className="footer-editorial-statement">
+                 Let&rsquo;s build something<br />worth remembering.
+               </p>
+               <a
+                 href="https://silvana.mmm.page/human-perspective"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="footer-editorial-voice"
+               >
+                 My design voice ↗
+               </a>
+               <div className="footer-editorial-contact">
+                 <a href="mailto:silvanarestrepo888@gmail.com" className="footer-editorial-link">
+                   Mail
+                 </a>
+                 <span className="footer-editorial-sep" aria-hidden="true">·</span>
+                 <a href="https://linkedin.com/in/silvanarestrepo" target="_blank" rel="noopener noreferrer" className="footer-editorial-link">
+                   LinkedIn
+                 </a>
                </div>
-               
-               {/* Footer Bottom */}
-               <div className="footer-bottom-landor">
-                 <div className="footer-copyright-landor">
-                   <span className="footer-copyright-text-landor typography-caption">
-                     © 2025 Silvana Restrepo. All rights reserved.
-                   </span>
-                 </div>
-                 <div className="footer-legal-landor">
-                   <a href="#" className="footer-legal-link-landor typography-caption">Privacy Policy</a>
-                   <a href="#" className="footer-legal-link-landor typography-caption">Terms of Service</a>
-                 </div>
-               </div>
+               <p className="footer-editorial-credit">© 2026 Silvana Restrepo</p>
              </div>
            </footer>
         </motion.div>

@@ -217,7 +217,6 @@
   background: linear-gradient(135deg, 
     var(--grapefruit-pure) 0%, 
     var(--charcoal-light) 100%);
-  border-top: 3px solid var(--charcoal-mid);
   padding: 3rem 2rem 2rem;
   margin-top: 3rem; /* Reduced spacing */
   position: relative;
@@ -344,8 +343,7 @@
 }
 
 .footer-brand-architectural p {
-  color: var(--charcoal-light); /* Sophisticated medium gray for footer description */
-  opacity: 0.8;
+  color: #4A5568; /* WCAG AA: 7.0:1 on vanilla/white footer bg */
   margin-bottom: 0.75rem;
 }
 
@@ -406,9 +404,9 @@
 }
 
 /* AWARD-WINNING: Graduated Color Hierarchy for Maximum Visual Impact */
-.typography-h1 { 
-  font-size: var(--type-4xl); 
-  color: var(--grapefruit-intelligence); /* Maximum impact - pure grapefruit */
+.typography-h1 {
+  font-size: var(--type-4xl);
+  color: #C2410C; /* WCAG AA: 4.7:1 on vanilla/white */
   letter-spacing: -0.03em; /* More dramatic for hero moments */
   transition: font-weight var(--duration-base) var(--ease-landor); /* Dynamic weight transitions */
 }
@@ -423,9 +421,9 @@
   font-weight: 400; /* Slightly heavier for visual presence */
 }
 
-.typography-h3 { 
-  font-size: var(--type-2xl); 
-  color: var(--charcoal-light); /* Sophisticated gray - supporting elegance */
+.typography-h3 {
+  font-size: var(--type-2xl);
+  color: #667080; /* WCAG AA: 4.7:1 on white/vanilla */
   font-weight: 400; /* Medium weight for clarity */
 }
 
@@ -443,8 +441,7 @@
 .typography-caption {
   font-family: var(--font-architectural-body);
   font-size: var(--type-sm);
-  color: var(--charcoal-light); /* Sophisticated medium gray for supporting text */
-  opacity: 0.85; /* Slightly more visible for accessibility */
+  color: #4A5568; /* WCAG AA: 7.0:1 on white/vanilla */
   line-height: 1.5;
   font-weight: 400;
   text-transform: none;
@@ -3413,7 +3410,6 @@ body {
   grid-template-columns: repeat(5, 1fr);
   gap: 0;
   height: 75vh;
-  border: 1px solid #e5e5e5;
   border-radius: 1.5rem;
   overflow: hidden;
   background: white;
@@ -3422,7 +3418,6 @@ body {
 
 .service-column-reference {
   padding: 2rem 1.5rem;
-  border-right: 1px solid #e5e5e5;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -3499,7 +3494,6 @@ body {
   color: #555;
   margin-top: auto;
   padding-top: 1rem;
-  border-top: 1px solid rgba(255, 102, 99, 0.1);
 }
 
 /* RESPONSIVE SERVICES DESIGN */
@@ -3511,14 +3505,8 @@ body {
   }
   
   .service-column-reference {
-    border-right: none;
-    border-bottom: 1px solid #e5e5e5;
     padding: 2rem 1.5rem;
     min-height: 300px;
-  }
-  
-  .service-column-reference:nth-child(even) {
-    border-right: none;
   }
 }
 
@@ -3527,16 +3515,10 @@ body {
     grid-template-columns: 1fr;
     height: auto;
   }
-  
+
   .service-column-reference {
-    border-right: none;
-    border-bottom: 1px solid #e5e5e5;
     padding: 1.5rem 1rem;
     min-height: 250px;
-  }
-  
-  .service-column-reference:last-child {
-    border-bottom: none;
   }
 }
 
@@ -3628,8 +3610,6 @@ body {
   }
   
   .service-column-interactive {
-    border-right: none !important;
-    border-bottom: 1px solid #e5e5e5;
     padding: 1.5rem 1rem !important;
     min-height: 200px !important;
   }
@@ -3718,8 +3698,6 @@ body {
   }
   
   .service-column-interactive {
-    border-right: none !important;
-    border-bottom: 1px solid #e5e5e5;
     padding: 2rem 1.5rem !important;
     min-height: auto !important;
   }
@@ -3737,7 +3715,6 @@ body {
 }
 
 .about-header {
-  border-bottom: 1px solid rgba(255, 102, 99, 0.1);
   padding-bottom: var(--space-lg);
 }
 
@@ -4716,7 +4693,6 @@ body {
 }
 
 .philosophy-attribution {
-  border-top: 1px solid rgba(255, 102, 99, 0.1);
   padding-top: var(--space-md);
   text-align: center;
 }
@@ -5346,7 +5322,6 @@ body {
 .project-header-foundation {
   margin-bottom: 1.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(255, 102, 99, 0.1);
 }
 
 .project-title-foundation {
@@ -6671,7 +6646,7 @@ h4, .text-h4 {
   font-family: var(--font-display);
   font-size: 1.25rem; /* Reduced from 1.5rem */
   font-weight: 600;
-  color: var(--grapefruit-pure);
+  color: #C2410C; /* WCAG AA: 4.7:1 on vanilla nav bg */
   text-decoration: none;
   transition: all var(--duration-fast) var(--ease-landor);
   min-height: 40px; /* Reduced from 44px */
@@ -6760,31 +6735,27 @@ h4, .text-h4 {
 .nav-section-number {
   font-size: var(--type-xs);
   font-weight: 600;
-  color: var(--grapefruit-intelligence);
+  color: #C2410C; /* WCAG AA: 4.7:1 on vanilla nav bg */
   transition: all var(--duration-fast) ease;
   font-family: var(--font-architectural-body);
-  opacity: 0.8;
 }
 
 .nav-section-name {
   font-size: var(--type-sm);
   font-weight: 500;
   letter-spacing: 0.025em;
-  color: var(--grapefruit-intelligence);
+  color: #C2410C; /* WCAG AA: 4.7:1 on vanilla nav bg */
   transition: all var(--duration-fast) ease;
   font-family: var(--font-architectural-body);
-  opacity: 0.9;
 }
 
 .nav-item-enhanced:hover .nav-section-number {
-  color: var(--grapefruit-intelligence);
-  opacity: 1;
+  color: #C2410C;
   transform: scale(1.1);
 }
 
 .nav-item-enhanced:hover .nav-section-name {
-  color: var(--grapefruit-intelligence);
-  opacity: 1;
+  color: #C2410C;
   transform: translateY(-1px);
 }
 
@@ -7993,8 +7964,6 @@ h4, .text-h4 {
   }
   
   .service-column-landor {
-    border-right: none !important;
-    border-bottom: 1px solid rgba(255, 102, 99, 0.1);
     padding: calc(var(--space-lg) * 1.618) !important;
     min-height: auto !important;
   }
@@ -8003,7 +7972,6 @@ h4, .text-h4 {
 @media (max-width: 768px) {
   .service-column-landor {
     padding: calc(var(--space-md) * 1.618) !important;
-    border-bottom: 1px solid rgba(255, 102, 99, 0.08);
   }
   
   .service-title-landor {
@@ -8135,12 +8103,6 @@ h4, .text-h4 {
   
   .service-column-landor {
     width: 100% !important;
-    border-right: none !important;
-    border-bottom: 1px solid rgba(255, 102, 99, 0.08) !important;
-  }
-  
-  .service-column-landor:last-child {
-    border-bottom: none !important;
   }
 }
 
@@ -9378,7 +9340,7 @@ h4, .text-h4 {
 .about-welcome {
   font-size: 18px;
   line-height: 1.618;
-  color: var(--charcoal-light);
+  color: #4A5568; /* WCAG AA: 7.0:1 on vanilla about bg */
   font-weight: 400;
   font-style: italic;
   margin-top: 1.5rem;
@@ -10469,7 +10431,7 @@ h4, .text-h4 {
   gap: 12px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: #4A5568; /* WCAG AA: 7.0:1 on light bg */
 }
 
 /* Auto-Play Controls */
@@ -11705,7 +11667,7 @@ h4, .text-h4 {
   font-size: clamp(1rem, 2.5vw, var(--type-xl)); /* Responsive design system */
   font-family: var(--font-architectural-display); /* Design system font */
   font-weight: 500;
-  color: var(--grapefruit-intelligence) !important; /* Primary grapefruit color */
+  color: #C2410C !important; /* WCAG AA: 5.0:1 on vanilla */
   margin: 0 0 0.5rem 0;
   font-style: italic;
   transition: font-weight var(--duration-base) var(--ease-landor); /* Dynamic typography */
@@ -11715,16 +11677,15 @@ h4, .text-h4 {
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-size: clamp(0.8rem, 1.5vw, var(--type-sm)); /* Responsive design system */
-  font-family: var(--font-architectural-body); /* Design system font */
-  color: var(--text-secondary); /* Design system color */
+  font-size: clamp(0.8rem, 1.5vw, var(--type-sm));
+  font-family: var(--font-architectural-body);
+  color: #4A5568; /* WCAG AA: 7.0:1 on vanilla card */
   font-weight: 500;
 }
 
 .balanced-divider {
-  color: var(--text-secondary); /* Design system color */
+  color: #4A5568; /* WCAG AA: 7.0:1 on vanilla card */
   font-weight: 300;
-  opacity: 0.6; /* Subtle visibility */
 }
 
 .balanced-description {
@@ -11735,7 +11696,7 @@ h4, .text-h4 {
   font-size: clamp(1rem, 2vw, var(--type-lg)); /* Responsive design system */
   font-family: var(--font-architectural-display); /* Design system font */
   font-weight: 600;
-  color: var(--text-secondary) !important; /* Design system color */
+  color: #667080 !important; /* WCAG AA: 4.7:1 on white */
   margin: 0 0 1rem 0;
   line-height: 1.4;
   transition: font-weight var(--duration-base) var(--ease-landor); /* Dynamic typography */
@@ -11770,7 +11731,7 @@ h4, .text-h4 {
   border-radius: 3px;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--grapefruit-pure);
+  color: #C2410C; /* WCAG AA: 4.7:1 */
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   transition: all var(--duration-fast) ease;
   cursor: pointer;
@@ -13789,7 +13750,7 @@ h4, .text-h4 {
 :root {
   /* Font Families - Perfect Pairing */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-secondary: 'Playfair Display', 'Times New Roman', serif;
+  --font-secondary: var(--font-cormorant-display), "Cormorant Garamond", serif; /* unified — Cormorant only */
   --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
   
   /* Typography Scale - Golden Ratio (1.618) */
@@ -18783,7 +18744,7 @@ img[class*="project-"] {
 
 .hero-photo-artistic-unified {
   object-fit: cover;
-  object-position: center 20%; /* FACE-CENTERED positioning (not chest) */
+  object-position: center 40%; /* Push face below floating nav bar */
   
   /* SIMPLE VISIBLE APPROACH - Remove complex filters */
   filter: brightness(1.0) contrast(1.1);
@@ -19860,7 +19821,7 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 
 .snippet-description {
   font-size: clamp(0.875rem, 1.5vw, 1rem); /* Smaller description */
-  color: var(--charcoal-breath);
+  color: var(--charcoal-breath, #4A5568); /* fallback: --charcoal-breath was undefined */
   font-family: var(--font-architectural-body);
   line-height: 1.6;
   margin: 0;
@@ -20090,8 +20051,8 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #ffffff; /* Pure white for max contrast on coral */
-  background: rgba(255, 102, 99, 0.85); /* Solid enough to read through */
+  color: #ffffff; /* Pure white for max contrast on charcoal */
+  background: rgba(45, 55, 72, 0.85); /* WCAG AA: charcoal glass ~13:1 */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -20166,7 +20127,7 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--grapefruit-intelligence);
+  color: #C2410C; /* WCAG AA: 4.7:1 on vanilla-warm */
   margin: 0 0 6px 0;
   opacity: 1;
   display: block;
@@ -21346,11 +21307,11 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 
 /* ── The node dot ─────────────────────────────────────────── */
 .exp-dot {
-  width: 10px;
-  height: 10px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background: transparent;
-  border: 1.5px solid rgba(74, 85, 104, 0.3);
+  border: 2px solid rgba(74, 85, 104, 0.45);
   flex-shrink: 0;
   position: relative;
   z-index: 2;
@@ -22401,12 +22362,19 @@ body:has(.project-details-overlay) .navigation-floating {
 .gallery-section-label,
 .project-gallery-label {
   font-family: var(--font-body, 'Inter', sans-serif) !important;
-  font-size: 0.7rem !important;
+  font-size: 0.75rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.12em !important;
   text-transform: uppercase !important;
   color: var(--charcoal-mid, #4A5568) !important;
   opacity: 0.65 !important;
+}
+
+/* ── Gallery label inside dark overlay: flip to light ── */
+.project-details-overlay .gallery-section-label,
+.project-details-overlay .project-gallery-label {
+  color: rgba(255, 251, 240, 0.55) !important;
+  opacity: 1 !important;
 }
 
 /* ── Metadata items: tighter padding ── */
@@ -22500,5 +22468,1380 @@ body:has(.project-details-overlay) .navigation-floating {
   color: rgba(255, 251, 240, 0.85) !important;
 }
 .project-details-overlay .sophisticated-nav-label {
-  color: rgba(255, 251, 240, 0.40) !important;
+  color: rgba(255, 251, 240, 0.55) !important;
 }
+
+
+/* ============================================================
+   WCAG AA — COMPREHENSIVE CONTRAST & SIZE FIXES
+   Last block wins. All issues found in full audit.
+   ============================================================ */
+
+/* ──────────────────────────────────────────────
+   EXPERIENCE TIMELINE  (section bg: vanilla-warm #F5F5DC, L≈0.905)
+   ────────────────────────────────────────────── */
+
+/* Year labels: coral #FF6663 at 0.7rem → 2.53:1 FAIL.
+   Default: charcoal-mid (6.87:1 ✓). Coral reinstated only on
+   hovered/active node where it's visually contextualised. */
+.exp-year {
+  color: var(--charcoal-mid, #4A5568) !important;
+  font-size: 0.75rem !important; /* 12px — was 11.2px */
+}
+.exp-node-col--active .exp-year,
+.exp-node-col:hover .exp-year {
+  color: var(--coral, #FF6663) !important;
+}
+
+/* Role labels: 50% opacity → 2.21:1 FAIL. Raise to 88% → 4.92:1 ✓ */
+.exp-role {
+  color: rgba(74, 85, 104, 0.88) !important;
+  font-size: clamp(0.75rem, 1vw, 0.8125rem) !important; /* 12–13px, was 10.4–12px */
+}
+
+/* Footer tagline (aria-hidden but still visible):
+   30% opacity → 1.53:1. Raise to 58% → 3.1:1 (acceptable for decorative). */
+.exp-footer-tagline {
+  color: rgba(74, 85, 104, 0.58) !important;
+  font-size: 0.75rem !important; /* 12px — was 11.2px */
+}
+
+
+/* ──────────────────────────────────────────────
+   NAVIGATION  (bg: rgba(253,252,248,0.94) ≈ vanilla, L≈0.96)
+   ────────────────────────────────────────────── */
+
+/* Section numbers: 60% coral → 1.85:1 FAIL.
+   Full opacity: 2.75:1 — best achievable for coral on vanilla at 12px.
+   (Decorative numerals, not primary navigation labels.) */
+.nav-section-number {
+  color: var(--coral, #FF6663) !important;
+  opacity: 1 !important;
+}
+
+
+/* ──────────────────────────────────────────────
+   FOOTER  (bg: coral-impact #E55A5A, L≈0.223)
+   Coral bg limits max achievable white contrast to ~4.6:1.
+   Maximise all opacities toward that ceiling.
+   ────────────────────────────────────────────── */
+
+/* Nav + contact links: 0.60 → ~2.78:1. Raise to 0.96 → ~4.5:1 ✓ */
+footer.footer-landor-standards .footer-nav-link-landor,
+footer.footer-landor-standards .footer-contact-link-landor {
+  color: rgba(255, 251, 240, 0.96) !important;
+}
+
+/* Copyright / legal: 0.32 → 1.94:1. Raise to 0.75 → ~3.5:1.
+   Coral bg prevents full AA at 12px — best achievable. */
+footer.footer-landor-standards .footer-copyright-text-landor,
+footer.footer-landor-standards .footer-legal-link-landor {
+  color: rgba(255, 251, 240, 0.78) !important;
+  font-size: 0.8125rem !important; /* bump to 13px to ease contrast requirement */
+}
+
+/* Brand title: increase for readability */
+footer.footer-landor-standards .footer-brand-title-landor {
+  color: rgba(255, 251, 240, 0.96) !important;
+}
+
+
+/* ──────────────────────────────────────────────
+   SERVICES ACCORDION  (bg: coral #FF6663, L≈0.317)
+   Same ceiling problem. Maximise vanilla/white toward 4.5:1.
+   Primary title + description are already at full vanilla (passes as
+   large/bold text). Secondary elements raised here.
+   ────────────────────────────────────────────── */
+
+/* Tagline: 0.60 → 1.75:1. Raise to 0.92 → ~2.6:1.
+   Coral bg hard ceiling. Compensate by increasing font-size. */
+.svc-tagline {
+  color: rgba(255, 251, 240, 0.92) !important;
+  font-size: clamp(0.875rem, 1.4vw, 1rem) !important; /* was 0.8–0.9rem → now 14–16px */
+}
+
+/* Demand text: 0.65 → ~2:1. Raise to 0.88. */
+.svc-demand {
+  color: rgba(255, 251, 240, 0.88) !important;
+  font-size: clamp(1rem, 1.6vw, 1.1rem) !important; /* was ~0.925–1.05rem → now 16–17.6px */
+}
+
+/* Service number badges: decorative, raise from 0.35 to 0.55 */
+.svc-num {
+  color: rgba(245, 245, 220, 0.55) !important;
+}
+.svc-row--open .svc-num,
+.svc-row-header:hover .svc-num {
+  color: rgba(245, 245, 220, 0.92) !important;
+}
+
+/* Capability tags: 11.6px → 12px */
+.svc-tag {
+  font-size: 0.75rem !important;
+  color: rgba(255, 251, 240, 0.92) !important;
+}
+
+/* Chevron: 0.50 → 0.85 */
+.svc-chevron {
+  color: rgba(245, 245, 220, 0.85) !important;
+}
+
+
+/* ──────────────────────────────────────────────
+   SNIPPET CARDS  (text area bg: vanilla-warm #F5F5DC, L≈0.905)
+   ────────────────────────────────────────────── */
+
+/* Service label above title: coral at 11px → 2.53:1 FAIL.
+   Switch to charcoal-muted (#667080) → 4.68:1 ✓ on vanilla-warm. */
+.snippet-card-service-label {
+  color: var(--charcoal-muted, #667080) !important;
+  font-size: 0.75rem !important; /* 12px — was 11px */
+}
+
+/* Industry metadata: 70% opacity charcoal-mid → ~3.41:1 FAIL.
+   Full opacity → 6.87:1 ✓ */
+.snippet-industry {
+  opacity: 1 !important;
+  color: var(--charcoal-mid, #4A5568) !important;
+}
+
+/* Industry pill on image: 0.6875rem = 11px. Raise to 12px. */
+.snippet-industry-pill {
+  font-size: 0.75rem !important; /* 12px — was 11px */
+}
+
+/* Touch targets — minimum 44×44px (WCAG 2.5.5 / mobile best practice) */
+.snippet-cta-bottom-right {
+  min-height: 44px !important;
+  min-width: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  padding: 0 12px !important;
+}
+
+.snippet-external-link {
+  min-width: 44px !important;
+  min-height: 44px !important;
+  bottom: 0 !important;
+  left: 0 !important;
+}
+
+
+/* ──────────────────────────────────────────────
+   CAROUSEL CHEVRONS  (projects section bg: ink #14141A, L≈0.002)
+   Current color: charcoal-mid #4A5568 → nearly invisible on dark bg.
+   ────────────────────────────────────────────── */
+
+.carousel-chevron {
+  color: rgba(255, 251, 240, 0.75) !important;
+  border-color: rgba(255, 251, 240, 0.22) !important;
+  background: rgba(255, 251, 240, 0.06) !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+}
+
+.carousel-chevron:hover {
+  color: var(--coral, #FF6663) !important;
+  border-color: var(--coral, #FF6663) !important;
+  background: rgba(255, 102, 99, 0.10) !important;
+}
+
+
+/* ──────────────────────────────────────────────
+   PROJECT OVERLAY — remaining fine-tuning
+   (bg: #1C1C22, L≈0.016)
+   ────────────────────────────────────────────── */
+
+/* Prev/Next navigation label: 0.40 → 3.44:1 FAIL. Raise to 0.58. */
+.project-details-overlay .sophisticated-nav-label {
+  color: rgba(255, 251, 240, 0.58) !important;
+}
+
+/* kbd hint overlay text */
+.kbd-hint {
+  font-size: 0.75rem !important; /* ensure 12px minimum */
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   VISUAL PERFECTION ELEVATION — 2026-03-27
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── HERO: Name label (Silvana Restrepo above the title) ─────── */
+.hero-name-label {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(0.75rem, 1.4vw, 1rem);
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 251, 240, 0.82);
+  margin: 0 0 1.25rem;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+}
+
+/* ── HERO: Secondary (Executive CV) button — visible on photo ── */
+/* Override the light-bg frosted-charcoal style with vanilla glass */
+.hero-cta-elegant .hero-cta-button--secondary {
+  background: rgba(255, 251, 240, 0.10) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  color: rgba(255, 251, 240, 0.90) !important;
+  border: 1.5px solid rgba(255, 251, 240, 0.42) !important;
+  box-shadow: none !important;
+}
+
+.hero-cta-elegant .hero-cta-button--secondary:hover {
+  background: rgba(255, 251, 240, 0.20) !important;
+  border-color: rgba(255, 251, 240, 0.68) !important;
+  color: #FFFBF0 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ── SERVICES: Chevron rotates to × on expand ───────────────── */
+.svc-chevron {
+  transition: transform 0.30s var(--ease-landor, cubic-bezier(0.23, 1, 0.32, 1)),
+              color 0.25s ease !important;
+}
+
+.svc-row--open .svc-chevron {
+  transform: rotate(45deg) !important;
+}
+
+/* ── EXPERIENCE: Dot size elevated for visual weight ────────── */
+/* (overrides 14px set above — ensure consistency) */
+.exp-dot {
+  width: 14px !important;
+  height: 14px !important;
+  border: 2px solid rgba(74, 85, 104, 0.45) !important;
+}
+
+.exp-node-col--active .exp-dot,
+.exp-node-col:hover .exp-dot {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   SNIPPET CARDS — DARK EDITORIAL REDESIGN
+   Cards sit in the dark ink section. Redesigned for palette
+   cohesion: images desaturated → arbitrary color tints removed;
+   card body → dark glass (replaces jarring vanilla break);
+   text → vanilla palette; service label → coral accent.
+   ══════════════════════════════════════════════════════════════ */
+
+/* 1. Card shell — dark glass with defined border */
+.snippet-card {
+  background: rgba(22, 26, 34, 0.82) !important;
+  border: 1px solid rgba(245, 245, 220, 0.09) !important;
+  border-radius: 2px !important;
+  overflow: hidden !important;
+  transition: border-color var(--duration-base) var(--ease-landor),
+              transform var(--duration-base) var(--ease-landor),
+              box-shadow var(--duration-base) var(--ease-landor) !important;
+}
+
+.snippet-card:hover {
+  border-color: rgba(255, 102, 99, 0.32) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5),
+              0 0 0 1px rgba(255, 102, 99, 0.12) !important;
+}
+
+/* 2. Images: desaturate arbitrary tints, reveal on hover */
+.snippet-image {
+  filter: grayscale(0.82) contrast(1.08) brightness(1.06) !important;
+  transition: filter 0.55s ease,
+              transform var(--duration-fast) ease-out !important;
+}
+
+.snippet-card:hover .snippet-image {
+  filter: grayscale(0.25) contrast(1.08) brightness(1.06) !important;
+  transform: scale(1.04) !important;
+}
+
+/* 3. Coral palette wash on all images */
+.snippet-image-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 102, 99, 0.07);
+  mix-blend-mode: color;
+  pointer-events: none;
+  z-index: 1;
+  transition: background 0.55s ease;
+}
+
+.snippet-card:hover .snippet-image-container::after {
+  background: rgba(255, 102, 99, 0.20);
+}
+
+/* 4. Flush image-to-text join, subtle separator line */
+.snippet-image-container {
+  margin-bottom: 0 !important;
+  border-bottom: 1px solid rgba(245, 245, 220, 0.07) !important;
+}
+
+/* 5. Text area — transparent so card bg shows through */
+.snippet-title-section {
+  background: transparent !important;
+  padding: 18px 20px 8px 20px !important;
+}
+
+.snippet-info {
+  background: transparent !important;
+  padding: 0 20px 18px 20px !important;
+}
+
+/* Override hover rule that sets vanilla bg */
+.snippet-card:hover .snippet-title-section,
+.snippet-card:hover .snippet-info {
+  background: transparent !important;
+}
+
+/* 6. Title — vanilla on dark */
+.snippet-title-text {
+  color: var(--vanilla-warm, #F5F5DC) !important;
+  font-size: clamp(1rem, 1.8vw, 1.15rem) !important;
+}
+
+.snippet-title-text::after {
+  background: var(--coral, #FF6663) !important;
+}
+
+/* 7. Service label — coral (legible on dark) */
+.snippet-card-service-label {
+  color: var(--coral, #FF6663) !important;
+  font-size: 0.6875rem !important;
+  letter-spacing: 0.14em !important;
+  opacity: 0.88 !important;
+}
+
+/* 8. Industry — muted vanilla hierarchy */
+.snippet-industry {
+  color: rgba(245, 245, 220, 0.50) !important;
+  opacity: 1 !important;
+  font-size: 0.8125rem !important;
+}
+
+/* 9. Description — vanilla on dark card (--charcoal-breath was undefined, text was invisible) */
+.snippet-description {
+  color: rgba(245, 245, 220, 0.78) !important; /* WCAG AA: ~8:1 on dark glass */
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   VISUAL ELEVATION — FIVE SECTION FIXES
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── 1. ABOUT: Philosophy quote — visible on vanilla bg ─────── */
+/* The glassmorphism quote is invisible against vanilla-warm.    */
+/* Give it a cream card with a visible coral border.             */
+.about-philosophy-ultra-luxury {
+  background: rgba(255, 252, 242, 0.97) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid rgba(255, 102, 99, 0.28) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06),
+              0 1px 0 rgba(255, 255, 255, 0.9) inset !important;
+  border-radius: 4px !important;
+  padding: 2rem 2.5rem !important;
+  margin-top: 2.5rem !important;
+}
+
+.about-philosophy-ultra-luxury:hover {
+  background: rgba(255, 252, 242, 0.99) !important;
+  border-color: rgba(255, 102, 99, 0.42) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08),
+              0 1px 0 rgba(255, 255, 255, 0.9) inset !important;
+}
+
+/* ── 2. PROJECTS: Filter tags — editorial pill row ──────────── */
+/* From: 2×3 grid of equal-weight square buttons                 */
+/* To: single horizontally-scrollable pill row                   */
+.projects-filter-tags-award {
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  padding: 0 clamp(2rem, 6vw, 4rem) !important;
+  margin-top: 2rem !important;
+  /* Right fade hint */
+  -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%) !important;
+  mask-image: linear-gradient(to right, black 85%, transparent 100%) !important;
+}
+
+.projects-filter-tags-award::-webkit-scrollbar {
+  display: none !important;
+}
+
+.filter-tag-award-winning {
+  border-radius: 100px !important;
+  font-size: 0.6875rem !important;
+  letter-spacing: 0.12em !important;
+  padding: 7px 20px !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  background: transparent !important;
+  border: 1px solid rgba(245, 245, 220, 0.22) !important;
+  color: rgba(245, 245, 220, 0.60) !important;
+  cursor: default !important;
+  box-shadow: none !important;
+  transition: border-color 0.25s ease, color 0.25s ease !important;
+}
+
+/* Subtle section-specific override for the dark projects bg */
+.section-projects-sophisticated .filter-tag-award-winning {
+  background: transparent !important;
+  color: rgba(245, 245, 220, 0.60) !important;
+  border-color: rgba(245, 245, 220, 0.20) !important;
+}
+
+/* ── 3. EXPERIENCE: Company weight + tagline coral ──────────── */
+.exp-company {
+  font-weight: 600 !important;
+}
+
+.exp-footer-tagline {
+  color: var(--coral, #FF6663) !important;
+  opacity: 0.80 !important;
+  letter-spacing: 0.18em !important;
+}
+
+/* ── 4. HERO: Scroll indicator ──────────────────────────────── */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.hero-scroll-line {
+  display: block;
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom,
+    rgba(255, 102, 99, 0.85) 0%,
+    rgba(255, 102, 99, 0.10) 100%);
+  animation: hero-scroll-pulse 2.2s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+@keyframes hero-scroll-pulse {
+  0%   { opacity: 0; transform: scaleY(0.3) translateY(-8px); }
+  40%  { opacity: 1; transform: scaleY(1) translateY(0); }
+  80%  { opacity: 0.6; transform: scaleY(1) translateY(0); }
+  100% { opacity: 0; transform: scaleY(1) translateY(4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-line { animation: none; opacity: 0.5; }
+}
+
+
+/* ================================================================
+   CORAL REDUCTION — 38 → 6 intentional moments
+   Keeper list: nav brand · hero CTA · section indicator dot ·
+                philosophy border · project CTA arrow · snippet label
+   ================================================================ */
+
+/* 1. Hero H1 — luminous vanilla against photo; coral reserved for CTA */
+.hero-title-luxury-centered {
+  color: var(--vanilla-pure) !important;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.45),
+    0 6px 28px rgba(0, 0, 0, 0.22) !important;
+}
+
+/* 2. Hamburger — charcoal, not coral */
+.hamburger-line {
+  background: var(--charcoal-mid) !important;
+}
+.mobile-menu-toggle {
+  border-color: rgba(74, 85, 104, 0.25) !important;
+}
+
+/* 3. Nav section numbers — quiet charcoal; the brand mark carries coral */
+.nav-section-number {
+  color: var(--charcoal-light) !important;
+}
+.nav-item-premium:hover .nav-section-number,
+.nav-item-enhanced:hover .nav-section-number {
+  color: var(--charcoal-mid) !important;
+}
+
+/* 4. Philosophy quote text — charcoal; border is already the coral signal */
+.philosophy-quote-ultra-luxury {
+  color: var(--charcoal-warm) !important;
+}
+
+/* 5. Project cards — client name charcoal on parchment card */
+.balanced-client {
+  color: var(--charcoal-mid) !important;
+}
+.balanced-client-link {
+  color: var(--charcoal-mid) !important;
+}
+.balanced-client-link:hover {
+  color: var(--coral) !important;
+}
+.balanced-client-arrow {
+  color: rgba(245, 245, 220, 0.45) !important;
+}
+.balanced-client-link:hover .balanced-client-arrow {
+  color: var(--coral) !important;
+}
+.balanced-tag {
+  background: rgba(245, 245, 220, 0.06) !important;
+  border: 1px solid rgba(245, 245, 220, 0.14) !important;
+  color: rgba(245, 245, 220, 0.45) !important;
+}
+.balanced-tag:hover {
+  background: rgba(245, 245, 220, 0.10) !important;
+  color: rgba(245, 245, 220, 0.72) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* 6. Snippet industry pill — editorial dark, not coral */
+.snippet-industry-pill {
+  background: rgba(20, 20, 26, 0.72) !important;
+  border: 1px solid rgba(245, 245, 220, 0.18) !important;
+  color: rgba(245, 245, 220, 0.72) !important;
+}
+
+/* 7. Snippet sweep line — whisper vanilla hairline */
+.snippet-sweep-line {
+  background: rgba(245, 245, 220, 0.18) !important;
+  height: 1px !important;
+}
+
+/* 8. Snippet CTA button — charcoal with vanilla text */
+.snippet-cta-bottom-right {
+  background: rgba(245, 245, 220, 0.10) !important;
+  border: 1px solid rgba(245, 245, 220, 0.20) !important;
+  color: rgba(245, 245, 220, 0.80) !important;
+  box-shadow: none !important;
+}
+.snippet-cta-bottom-right:hover {
+  background: rgba(245, 245, 220, 0.18) !important;
+  color: var(--vanilla-pure) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+
+/* ================================================================
+   TYPOGRAPHY SYSTEM — AUTHORITATIVE MASTER RULES
+   Applied after all historical rules. !important wins the cascade.
+
+   TIER 1  Section headings   Cormorant 300 · lowercase · -0.02em · 1.0 lh
+   TIER 2  Section descs      Inter 300 · 20px · 0.01em · 1.7 lh
+   TIER 3  Body copy          Inter 300–400 · 16px · 0
+   TIER 4  Labels / meta      Inter 400 · 12px · 0.08–0.12em · uppercase
+   ================================================================ */
+
+/* ── TIER 1: All section headings must be identical ─────────────
+   Services and Experience were missing text-transform: lowercase
+   and rendering at 40px (minimum of their clamp) instead of 48px. */
+.svc-heading,
+.exp-heading {
+  font-family: var(--font-cormorant-display), "Cormorant Garamond", serif !important;
+  font-size: clamp(3rem, 6vw, 3.5rem) !important; /* 48px–56px, matches about/projects/snippets */
+  font-weight: 300 !important;
+  text-transform: lowercase !important;               /* THE critical missing rule */
+  letter-spacing: -0.02em !important;
+  line-height: 1.0 !important;
+}
+
+/* ── TIER 2: Section descriptions — elevated from 14px body size ─
+   svc-description was clamp(14px–16px) · exp-subheading same.
+   Both must read as a clear step above body text. */
+.svc-description {
+  font-family: var(--font-inter), "Inter", sans-serif !important;
+  font-size: var(--type-lg) !important;               /* 20px */
+  font-weight: 300 !important;
+  line-height: 1.7 !important;
+  letter-spacing: 0.01em !important;
+  color: rgba(245, 245, 220, 0.80) !important;        /* vanilla on coral surface */
+}
+
+.exp-subheading {
+  font-family: var(--font-inter), "Inter", sans-serif !important;
+  font-size: var(--type-lg) !important;               /* 20px */
+  font-weight: 300 !important;
+  line-height: 1.7 !important;
+  letter-spacing: 0.01em !important;
+  color: var(--charcoal-light) !important;            /* charcoal on parchment */
+}
+
+/* Preserve the italic+coral on <em> inside exp-subheading */
+.exp-subheading em {
+  font-style: italic !important;
+  color: var(--coral) !important;
+}
+
+/* ── SNIPPET CARD TITLES — Cormorant, never Playfair ────────────
+   var(--font-secondary) was falling through to Playfair Display.
+   Override with direct Cormorant reference + !important. */
+.snippet-title-text {
+  font-family: var(--font-cormorant-display), "Cormorant Garamond", serif !important;
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.3 !important;
+}
+
+/* ── EXPERIENCE COMPANY NAME — Inter, not display serif ──────────
+   Cormorant at 14px bold is the wrong register for a label-level
+   element. Inter 600 reads clearly at any size. */
+.exp-company {
+  font-family: var(--font-inter), "Inter", sans-serif !important;
+  font-size: clamp(0.9375rem, 1.2vw, 1.0625rem) !important; /* 15px–17px */
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  line-height: 1.3 !important;
+}
+
+/* ── ABOUT WELCOME LINE — reduce over-tracking ───────────────────
+   typography.css was setting 0.08em (nav-label register).
+   Italic body-adjacent text needs at most 0.02em. */
+.about-section-ultra-luxury .about-welcome,
+.about-welcome {
+  letter-spacing: 0.02em !important;
+  font-size: var(--type-base) !important;   /* 16px — consistent with body */
+  font-weight: 300 !important;
+  line-height: 1.7 !important;
+}
+
+
+/* ================================================================
+   BORDER-RADIUS SYSTEM — AUTHORITATIVE CONSOLIDATION
+   Four values. Everything maps to one of them.
+
+   --radius-sharp   2px  editorial cards (snippet cards)
+   --radius-soft    4px  containers, quotes, labels, photo
+   --radius-action  6px  every button + CTA + toggle
+   --radius-pill  100px  filter tags, nav brand (unchanged)
+   ================================================================ */
+
+/* ── BUTTONS & CTAS ─────────────────────────────────────────────
+   Hero CTAs were 10px. Service CTA 10px. Snippet CTA 8px.
+   Mobile toggle 16px. All collapse to 6px. */
+.hero-cta-button,
+.hero-cta-button--secondary,
+.svc-cta,
+.btn-primary-refined,
+.btn-secondary-refined,
+.btn-explore-clean,
+.service-cta-landor,
+.balanced-btn,
+.snippet-cta-bottom-right,
+.mobile-menu-toggle {
+  border-radius: var(--radius-action) !important; /* 6px */
+}
+
+/* ── CONTAINERS, QUOTES, LABELS ─────────────────────────────────
+   Philosophy quote was 20px. Project card 12px.
+   About containers 16px. Indicator labels 6px → 4px.
+   All collapse to 4px. */
+.about-philosophy-ultra-luxury,
+.balanced-content-section,
+.section-indicator-label,
+.snippet-card-number,
+.snippet-industry-pill,
+.snippet-external-link {
+  border-radius: var(--radius-soft) !important; /* 4px */
+}
+
+/* ── ABOUT PHOTO — reduce from 24px/20px/18px/16px to 4px ───────
+   24px made it look like an app profile picture.
+   4px is barely-there — editorial, not social. */
+.about-photo-perfect,
+.about-photo-cohesive,
+.about-photo-container,
+.about-photo-unified-sophisticated,
+.about-photo-unified-harmony,
+.about-photo-unified-accent,
+.about-header-ultra-luxury {
+  border-radius: var(--radius-soft) !important; /* 4px */
+}
+
+/* ── SNIPPET CARDS — keep sharp/editorial ───────────────────────
+   2px was already correct. Restate it explicitly for clarity. */
+.snippet-card {
+  border-radius: var(--radius-sharp) !important; /* 2px */
+}
+
+
+/* ================================================================
+   HERO ELEVATION — Editorial Asymmetric Architecture
+   Left-anchored text · Bold photo · Clean directional overlay
+   ================================================================ */
+
+/* 1. Photo: bolder presence (was 0.6) */
+.hero-photo-artistic-unified {
+  opacity: 0.88 !important;
+  object-position: 68% 28% !important;  /* Silvana lives in the right half */
+}
+
+/* 2. Remove the washed vanilla overlay */
+.unified-gradient-foundation {
+  opacity: 0 !important;
+}
+
+/* 3. Replace milky overlay with a directional gradient:
+      dark-left for text protection, transparent-right for photo */
+.hero-unified-color-story {
+  background: linear-gradient(
+    to right,
+    rgba(10, 10, 14, 0.80) 0%,
+    rgba(10, 10, 14, 0.52) 30%,
+    rgba(10, 10, 14, 0.12) 52%,
+    transparent 68%
+  ) !important;
+}
+
+/* 4. Bottom fade to bridge with next section — replace the harsh vanilla bridge */
+.unified-section-connector {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 251, 240, 0.55) 100%
+  ) !important;
+}
+
+/* 5. Left-anchored layout on desktop */
+@media (min-width: 769px) {
+  .hero-section-luxury {
+    justify-content: flex-start !important;
+  }
+
+  .hero-content-luxury {
+    text-align: left !important;
+    max-width: 56% !important;
+    padding-left: max(64px, 7vw) !important;
+    padding-right: 0 !important;
+  }
+
+  .hero-name-label {
+    text-align: left !important;
+  }
+
+  /* 6. Title: clean shadow, vanilla-pure, left-align */
+  .section-hero-sophisticated .hero-title-luxury-centered,
+  .hero-title-luxury-centered {
+    text-align: left !important;
+    color: var(--vanilla-pure, #FFFEF9) !important;
+    font-weight: 300 !important;
+    line-height: 0.92 !important;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.55) !important;
+  }
+
+  .hero-cta-elegant {
+    justify-content: flex-start !important;
+  }
+}
+
+/* 7. Discipline / role line */
+.hero-role-line {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(0.6875rem, 0.9vw, 0.8125rem);
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 251, 240, 0.48);
+  margin: 1.25rem 0 2.75rem;
+  text-align: center;
+  text-shadow: none;
+}
+
+@media (min-width: 769px) {
+  .hero-role-line {
+    text-align: left !important;
+    color: rgba(255, 251, 240, 0.50) !important;
+  }
+}
+
+
+/* ================================================================
+   PROJECTS ELEVATION — Editorial Index Architecture
+   Sidebar index · Count line · Progress counter
+   ================================================================ */
+
+/* Section heading count line */
+.projects-count-line {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(74, 85, 104, 0.5);
+  text-align: center;
+  margin: 0.5rem 0 0;
+}
+
+.section-projects-sophisticated .projects-count-line {
+  color: rgba(255, 251, 240, 0.38);
+}
+
+/* Two-column layout: index + carousel */
+.projects-main-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+/* ── Editorial index sidebar ── */
+.projects-editorial-index {
+  display: none; /* mobile: hidden */
+}
+
+@media (min-width: 1025px) {
+  .projects-editorial-index {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    flex-shrink: 0;
+    padding-top: 0.25rem;
+  }
+}
+
+.project-index-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  padding: 0.875rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  transition: opacity var(--duration-fast) ease;
+}
+
+.project-index-item:hover {
+  opacity: 1;
+}
+
+.project-index-num {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.625rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: rgba(255, 251, 240, 0.28);
+  min-width: 20px;
+  padding-top: 3px;
+  transition: color var(--duration-fast) ease;
+}
+
+.project-index-name {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: rgba(255, 251, 240, 0.45);
+  line-height: 1.5;
+  transition: color var(--duration-fast) ease;
+}
+
+.project-index-item:hover .project-index-num {
+  color: rgba(255, 251, 240, 0.55);
+}
+
+.project-index-item:hover .project-index-name {
+  color: rgba(255, 251, 240, 0.80);
+}
+
+/* Active state */
+.project-index-item.is-active::before {
+  content: '';
+  position: absolute;
+  left: -0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 55%;
+  background: var(--coral);
+  border-radius: 1px;
+}
+
+.project-index-item.is-active .project-index-num {
+  color: var(--coral);
+}
+
+.project-index-item.is-active .project-index-name {
+  color: rgba(255, 251, 240, 0.95);
+  font-weight: 400;
+}
+
+/* Carousel core: takes remaining space */
+.projects-carousel-core {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Progress counter */
+.projects-progress-counter {
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  justify-content: flex-end;
+}
+
+.counter-current {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(255, 251, 240, 0.75);
+  letter-spacing: 0.05em;
+}
+
+.counter-divider {
+  font-size: 0.75rem;
+  color: rgba(255, 251, 240, 0.25);
+  margin: 0 0.25rem;
+}
+
+.counter-total {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: rgba(255, 251, 240, 0.30);
+  letter-spacing: 0.05em;
+}
+
+
+/* ================================================================
+   ABOUT ELEVATION — Philosophy Declaration
+   ================================================================ */
+
+/* Philosophy quote — full-width declaration, no structural lines */
+.about-philosophy-ultra-luxury {
+  text-align: left !important;
+  max-width: 100% !important;
+  margin: 3rem 0 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.philosophy-quote-ultra-luxury {
+  font-size: clamp(1.125rem, 1.8vw, 1.5rem) !important;
+  font-weight: 300 !important;
+  color: var(--charcoal-warm, #2D3748) !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.6 !important;
+  text-align: left !important;
+}
+
+@media (max-width: 768px) {
+  .about-philosophy-ultra-luxury {
+    padding-left: 1.25rem !important;
+  }
+}
+
+
+/* ================================================================
+   DE-RIGIDIFY — dissolve hard lines, borders, rigid forms
+   ================================================================ */
+
+/* About: remove coral hairline above closing paragraph */
+.about-welcome::before {
+  display: none !important;
+}
+
+/* About: remove structural divider above closing area */
+.about-closing {
+  border: none !important;
+  padding-top: var(--space-md) !important;
+}
+
+/* Projects: remove bordered pill on tags */
+.project-tag {
+  border: none !important;
+}
+
+/* Signature / footer: remove horizontal rule */
+.about-signature-section,
+.signature-section {
+  border-top: none !important;
+}
+
+/* Testimonial: soften the hard coral border on quote container */
+.testimonial-quote-container {
+  border: none !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* Snippet tags: already dark pills — ensure no hard borders */
+.balanced-tag,
+.snippet-industry-pill {
+  border: none !important;
+}
+
+
+/* ================================================================
+   SERVICES — from menu to manifesto
+   ================================================================ */
+
+/* Remove all row borders — spacing does the separation */
+.svc-row {
+  border-top: none !important;
+  border-bottom: none !important;
+  padding: clamp(1.25rem, 2.5vw, 2rem) 0 !important;
+}
+
+.svc-row:last-child {
+  border-bottom: none !important;
+}
+
+/* Remove the number column — header is now title + chevron only */
+.svc-row-header {
+  grid-template-columns: 1fr auto !important;
+}
+
+/* Title becomes the declaration */
+.svc-title {
+  font-size: clamp(1.625rem, 3.2vw, 2.625rem) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.1 !important;
+}
+
+/* Tagline — readable, inviting */
+.svc-tagline {
+  font-size: clamp(0.875rem, 1.3vw, 1rem) !important;
+  font-weight: 300 !important;
+  color: rgba(245, 245, 220, 0.6) !important;
+  margin-top: 0.35rem !important;
+}
+
+/* Body inner — full width, no number offset, preserve horizontal padding for alignment */
+.svc-body-inner {
+  grid-template-columns: 1fr !important;
+}
+
+.svc-body-inner > * {
+  grid-column: 1 !important;
+}
+
+/* Demand quote — no left border, just italic breathing */
+.svc-demand {
+  border-left: none !important;
+  padding-left: 0 !important;
+  color: rgba(245, 245, 220, 0.55) !important;
+  font-size: clamp(0.975rem, 1.6vw, 1.125rem) !important;
+}
+
+/* Service tags — no borders on dark bg */
+.svc-tag {
+  border: none !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Hide the number span entirely */
+.svc-num {
+  display: none !important;
+}
+
+
+/* ================================================================
+   EXPERIENCE — Journey line: time moving forward
+   ================================================================ */
+
+/* Stage holds all three rows + the line */
+.exp-stage {
+  padding: 0 clamp(32px, 5vw, 80px) clamp(3rem, 5vw, 5rem);
+}
+
+/* Shared row layout — flex, items spaced to match line positions */
+.exp-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.exp-row--periods {
+  padding-bottom: clamp(0.75rem, 1.5vw, 1.125rem);
+  align-items: flex-end;
+}
+
+.exp-row--companies {
+  padding-top: clamp(0.875rem, 1.5vw, 1.25rem);
+}
+
+/* First and last align to line endpoints */
+.exp-row > *:first-child { text-align: left; }
+.exp-row > *:last-child  { text-align: right; }
+.exp-row > *:not(:first-child):not(:last-child) { text-align: center; }
+
+/* Year labels */
+.exp-period {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(0.5625rem, 0.85vw, 0.6875rem);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--charcoal-light, #718096);
+  opacity: 0.6;
+  display: block;
+  white-space: nowrap;
+}
+
+/* Line track */
+.exp-line-track {
+  position: relative;
+  height: 1px;
+}
+
+/* Faint background rail */
+.exp-line-rail {
+  position: absolute;
+  inset: 0;
+  background: rgba(74, 85, 104, 0.1);
+  display: block !important; /* override any hide rule */
+}
+
+/* Animated fill */
+.exp-line-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(74, 85, 104, 0.25) 0%,
+    rgba(74, 85, 104, 0.7)  100%
+  );
+  display: block !important;
+}
+
+/* Coral tip — the present moment */
+.exp-line-tip {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--coral, #FF6663);
+  box-shadow: 0 0 8px rgba(255, 102, 99, 0.45);
+  display: block !important;
+}
+
+/* Company entries */
+.exp-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  max-width: 140px;
+}
+
+.exp-row > .exp-entry:last-child {
+  align-items: flex-end;
+}
+
+.exp-company-name {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: clamp(0.875rem, 1.2vw, 1.0625rem);
+  font-weight: 400;
+  color: var(--charcoal-mid, #4A5568);
+  line-height: 1.2;
+}
+
+.exp-role-name {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(0.5625rem, 0.85vw, 0.6875rem);
+  font-weight: 400;
+  color: var(--charcoal-light, #718096);
+  line-height: 1.4;
+}
+
+/* Suppress old timeline elements that no longer exist in DOM */
+.exp-track-wrapper,
+.exp-nodes,
+.exp-node-col,
+.exp-dot,
+.exp-card,
+.exp-footer-tagline,
+.exp-label,
+.exp-year {
+  display: none !important;
+}
+
+/* Mobile: vertical stack */
+@media (max-width: 640px) {
+  .exp-stage { padding: 0 1.5rem 3rem; }
+
+  .exp-row--periods { display: none; }
+
+  .exp-row--companies {
+    flex-direction: column;
+    gap: 1.75rem;
+    padding-top: 1.5rem;
+  }
+
+  .exp-row > *:first-child,
+  .exp-row > *:last-child,
+  .exp-row > *:not(:first-child):not(:last-child) {
+    text-align: left;
+  }
+
+  .exp-entry { max-width: 100%; }
+  .exp-row > .exp-entry:last-child { align-items: flex-start; }
+}
+
+
+/* ── Experience row: grid gives each entry an equal, predictable cell ── */
+.exp-row {
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr) !important;
+  justify-content: initial !important;
+}
+
+/* Reset individual entry max-width — grid cell constrains width */
+.exp-entry {
+  max-width: 100% !important;
+}
+
+/* Last entry: right-align text so it meets the line's end */
+.exp-row > .exp-entry:last-child {
+  align-items: flex-end !important;
+  text-align: right !important;
+}
+
+.exp-row > .exp-entry:last-child .exp-company-name,
+.exp-row > .exp-entry:last-child .exp-role-name {
+  text-align: right !important;
+}
+
+/* Period last: match */
+.exp-row--periods > span:last-child {
+  text-align: right !important;
+}
+
+
+/* ================================================================
+   CUSTOM CURSOR — hide system cursor, "S" takes over
+   ================================================================ */
+* {
+  cursor: none !important;
+}
+
+/* ── EDITORIAL FOOTER ───────────────────────────────────────────── */
+.footer-editorial {
+  background: var(--vanilla-warm);
+  border-top: 1px solid rgba(74, 85, 104, 0.1);
+  padding: clamp(4rem, 8vw, 7rem) clamp(32px, 5vw, 80px) clamp(2.5rem, 4vw, 4rem);
+}
+
+.footer-editorial-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(2rem, 3.5vw, 3rem);
+}
+
+.footer-editorial-statement {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--charcoal-mid);
+  margin: 0;
+}
+
+.footer-editorial-contact {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.75rem);
+}
+
+.footer-editorial-link {
+  font-family: var(--font-body);
+  font-size: clamp(0.8125rem, 1vw, 0.9375rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--charcoal-mid);
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+
+.footer-editorial-link:hover {
+  opacity: 1;
+  color: var(--coral);
+}
+
+.footer-editorial-sep {
+  color: var(--charcoal-mid);
+  opacity: 0.3;
+  font-size: 1rem;
+}
+
+.footer-editorial-credit {
+  font-family: var(--font-body);
+  font-size: clamp(0.6875rem, 0.85vw, 0.75rem);
+  color: var(--charcoal-mid);
+  opacity: 0.35;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+/* ── END EDITORIAL FOOTER ───────────────────────────────────────── */
+
+.footer-editorial-voice {
+  font-family: var(--font-display);
+  font-size: clamp(0.9375rem, 1.2vw, 1.125rem);
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: var(--charcoal-mid);
+  text-decoration: none;
+  opacity: 0.55;
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+
+.footer-editorial-voice:hover {
+  opacity: 1;
+  color: var(--coral);
+}
+
+/* SNIPPETS ELEVATION */
+.snippet-card-number { display: none !important; }
+.snippet-info { display: none !important; }
+
+.snippet-nav-arrow {
+  font-family: var(--font-display) !important;
+  font-size: 2rem !important;
+  font-weight: 300 !important;
+  font-style: italic !important;
+  line-height: 1 !important;
+  color: var(--charcoal-mid) !important;
+  background: none !important;
+  border: none !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+  cursor: none !important;
+  padding: 0 0.5rem !important;
+}
+.snippet-nav-arrow.visible { opacity: 0.55 !important; }
+.snippet-nav-arrow:hover  { opacity: 1 !important; color: var(--coral) !important; }

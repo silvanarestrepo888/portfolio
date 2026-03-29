@@ -22,7 +22,6 @@ interface ProjectSnippetCardProps {
 export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project, index }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
-  const cardNumber = String(index + 1).padStart(2, '0');
   // Show only the primary service (before the | separator)
   const primaryService = project.serviceType.split('|')[0].trim();
 
@@ -68,9 +67,6 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
           onError={() => setImageLoaded(true)}
         />
 
-        {/* Editorial index number — top left */}
-        <div className="snippet-card-number">{cardNumber}</div>
-
         {/* Industry pill — top right */}
         <div className="snippet-industry-pill">{project.industry}</div>
 
@@ -108,10 +104,6 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
         <h3 className="snippet-title-text">{project.title}</h3>
       </div>
 
-      {/* Metadata row */}
-      <div className="snippet-info">
-        <span className="snippet-industry">{project.industry}</span>
-      </div>
     </motion.div>
   );
 };

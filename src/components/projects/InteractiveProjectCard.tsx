@@ -96,23 +96,19 @@ export function InteractiveProjectCard({
     <motion.div
       ref={cardRef}
       className={`project-card-cinematic enhanced-hover gpu-accelerated ${className}`}
-      initial={{ opacity: 0, y: 20, scale: 0.98 }}
-      animate={{ 
-        opacity: 1, 
-        y: 0, 
-        scale: 1
-      }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{
-        duration: 1.2,
-        delay: index * 0.15,
-        ease: [0.25, 0.46, 0.45, 0.94] // Cinematic easing
+        duration: 0.382,
+        delay: index * 0.08,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
       whileHover={{
-        y: -6,
-        transition: { duration: 0.5, ease: [0.23, 1, 0.32, 1] } /* Elegant single movement */
+        y: -4,
+        transition: { duration: 0.4, ease: [0.23, 1, 0.32, 1] }
       }}
       whileTap={{
         scale: 0.99,
@@ -213,11 +209,8 @@ export function InteractiveProjectCard({
                   alignItems: 'flex-end'
                 }}
               >
-                <motion.span 
+                <span
                   className="balanced-year-tag cinematic-tag"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 + 0.3 }}
                   style={{
                     background: 'rgba(45, 55, 72, 0.8)', /* Design system charcoal */
                     color: 'white',
@@ -229,12 +222,9 @@ export function InteractiveProjectCard({
                   }}
                 >
                   {project.year}
-                </motion.span>
-                <motion.span 
+                </span>
+                <span
                   className="balanced-category-tag cinematic-tag"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 + 0.4 }}
                   style={{
                     background: 'rgba(45, 55, 72, 0.8)', /* Design system charcoal */
                     color: 'white',
@@ -247,7 +237,7 @@ export function InteractiveProjectCard({
                   }}
                 >
                   {project.category}
-                </motion.span>
+                </span>
               </div>
               
               {/* Mobile: Expand Image Button */}
@@ -288,21 +278,11 @@ export function InteractiveProjectCard({
               
               {/* Clean Project Header */}
               <header className="balanced-header">
-                <motion.h3 
-                  className="balanced-title"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 + 0.2 }}
-                >
+                <h3 className="balanced-title">
                   {project.title}
-                </motion.h3>
-                
-                <motion.p
-                  className="balanced-client"
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 + 0.3 }}
-                >
+                </h3>
+
+                <p className="balanced-client">
                   {project.website ? (
                     <a
                       href={project.website}
@@ -316,27 +296,17 @@ export function InteractiveProjectCard({
                       <span className="balanced-client-arrow">↗</span>
                     </a>
                   ) : project.client}
-                </motion.p>
-                
-                <motion.div 
-                  className="balanced-meta"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 + 0.4 }}
-                >
+                </p>
+
+                <div className="balanced-meta">
                   <span>{project.year}</span>
                   <span className="balanced-divider">•</span>
                   <span>{project.location}</span>
-                </motion.div>
+                </div>
               </header>
               
               {/* Clean Description */}
-              <motion.div 
-                className="balanced-description"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 + 0.5 }}
-              >
+              <div className="balanced-description">
                 <p className="balanced-subtitle" style={isMobile ? {
                   display: '-webkit-box',
                   WebkitLineClamp: 2,
@@ -350,39 +320,23 @@ export function InteractiveProjectCard({
                     {project.description}
                   </p>
                 )}
-              </motion.div>
+              </div>
               
               {/* Clean Capability Tags */}
               {!isMobile && (
-                <motion.div 
-                  className="balanced-capabilities"
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 + 0.6 }}
-                >
+                <div className="balanced-capabilities">
                   <div className="balanced-tags">
-                    {project.tech.slice(0, 3).map((capability, tagIndex) => (
-                      <motion.span 
-                        key={capability} 
-                        className="balanced-tag"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: index * 0.1 + 0.7 + tagIndex * 0.1 }}
-                      >
+                    {project.tech.slice(0, 3).map((capability) => (
+                      <span key={capability} className="balanced-tag">
                         {capability}
-                      </motion.span>
+                      </span>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               )}
               
               {/* Editorial CTA strip — replaces disconnected buttons */}
-              <motion.div
-                className="card-cta-strip"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: index * 0.1 + 0.8 }}
-              >
+              <div className="card-cta-strip">
                 <span className="card-cta-label">View case study</span>
                 <motion.span
                   className="card-cta-arrow"
@@ -391,7 +345,7 @@ export function InteractiveProjectCard({
                 >
                   →
                 </motion.span>
-              </motion.div>
+              </div>
               
             </div>
           </div>
