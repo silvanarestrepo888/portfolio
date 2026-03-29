@@ -24252,3 +24252,223 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 .detail-hero-image {
   object-position: center center !important;
 }
+
+
+/* ================================================================
+   MOBILE RESPONSIVENESS — comprehensive fix pass
+   Targets: 375px–767px (iPhone SE → iPhone 14 Pro Max)
+   ================================================================ */
+
+/* ── 1. Hero title — prevent overflow at 376-767px ──────────────
+   The main rule sets clamp(4.5rem, 11.5vw, 15rem) which gives
+   a minimum of 72px. At 390px, "Experience" at 72px ≈ 450px wide
+   — far wider than the available 326px, causing right overflow.
+   Override to a mobile-friendly clamp that scales gracefully. ── */
+@media (max-width: 767px) {
+  .hero-title-luxury-centered {
+    font-size: clamp(2.5rem, 9.5vw, 4.25rem) !important;
+    /* 390px → 37px → min 2.5rem = 40px. "Experience" ≈ 230px — fits.
+       640px → 60.8px → 60.8px.  767px → 72.9px → max 4.25rem = 68px. */
+    line-height: 0.88 !important;
+  }
+
+  .hero-content-luxury {
+    padding: 1.5rem 1.5rem !important;
+    max-width: 100% !important;
+  }
+
+  /* Scale tagline and CTAs for small screens */
+  .hero-role-line {
+    font-size: clamp(0.65rem, 2.2vw, 0.875rem) !important;
+    letter-spacing: 0.18em !important;
+    margin-top: 1rem !important;
+  }
+
+  .hero-cta-elegant {
+    margin-top: 2rem !important;
+    gap: 0.75rem !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .hero-cta-button {
+    width: 100% !important;
+    max-width: 260px !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* ── 2. Experience timeline — override display:grid !important ──
+   The rule at line ~23580 sets display:grid !important outside
+   any media query, which overrides the existing @media(max-width:640px)
+   flex-direction:column rule. Re-apply the mobile layout after it. ── */
+@media (max-width: 640px) {
+  /* Force flex column layout — beats the later grid !important */
+  .exp-row {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: unset !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+  }
+
+  /* Companies: vertical list with breathing room */
+  .exp-row--companies {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    padding-top: 1.25rem !important;
+  }
+
+  /* Each entry: full width, left-aligned */
+  .exp-entry {
+    max-width: 100% !important;
+    width: 100% !important;
+    align-items: flex-start !important;
+    padding-bottom: 1.25rem !important;
+    border-bottom: 1px solid rgba(74, 85, 104, 0.08) !important;
+  }
+
+  .exp-row > .exp-entry:last-child {
+    align-items: flex-start !important;
+    text-align: left !important;
+    border-bottom: none !important;
+  }
+
+  .exp-row > .exp-entry:last-child .exp-company-name,
+  .exp-row > .exp-entry:last-child .exp-role-name {
+    text-align: left !important;
+  }
+
+  /* Hide the horizontal line — doesn't make sense when stacked */
+  .exp-line-track {
+    display: none !important;
+  }
+
+  /* Larger, readable text at mobile */
+  .exp-company-name {
+    font-size: 1rem !important;
+  }
+
+  .exp-role-name {
+    font-size: 0.75rem !important;
+  }
+
+  /* Header: tighter margins */
+  .exp-header {
+    margin-bottom: clamp(40px, 8vw, 64px) !important;
+  }
+}
+
+/* ── 3. About photo — reduce height on mobile ────────────────────
+   clamp(440px, 52vw, 640px) evaluates to 440px minimum at mobile
+   widths (52vw = 203px at 390px < 440px). A 440px photo below
+   the text column is too dominant on small screens. ── */
+@media (max-width: 768px) {
+  .about-section-ultra-luxury .about-photo-perfect {
+    height: clamp(260px, 72vw, 380px) !important;
+    /* 390px → 72vw = 281px → 281px. Clean portrait crop on mobile. */
+  }
+
+  /* About grid: ensure photo column doesn't exceed content area */
+  .about-content-ultra-luxury {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* Philosophy quote: tighten on mobile */
+  .about-philosophy-ultra-luxury {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 1.5rem auto 0 !important;
+  }
+}
+
+/* ── 4. Custom cursor — restore on touch devices ─────────────────
+   * { cursor: none !important } is set globally for the custom "S"
+   cursor. On mobile/touch, there is no cursor to hide — restoring
+   to auto ensures tap highlights and native touch affordances work. ── */
+@media (max-width: 768px) {
+  * {
+    cursor: auto !important;
+  }
+
+  a, button, [role="button"], [tabindex] {
+    cursor: pointer !important;
+  }
+}
+
+/* ── 5. Navigation: ensure pill fits small screens ───────────────
+   The pill nav may overflow or squeeze on iPhone SE (320px). ── */
+@media (max-width: 390px) {
+  .navigation-floating {
+    padding: 0.625rem 1rem !important;
+    max-width: calc(100vw - 2rem) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .nav-brand-enhanced {
+    font-size: 0.875rem !important;
+  }
+}
+
+/* ── 6. Section indicator dots — larger touch targets on mobile ──
+   Right-side dots are 8px — too small for touch. Increase target. ── */
+@media (max-width: 768px) {
+  .section-indicator,
+  .section-dot,
+  [class*="section-indicator"] {
+    width: 20px !important;
+    height: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* ── 7. Project detail overlay — mobile adjustments ─────────────
+   Hero height and layout need tuning at mobile widths. ── */
+@media (max-width: 768px) {
+  .project-details-overlay .project-hero-section {
+    height: 50vh !important;
+    min-height: 260px !important;
+  }
+
+  .project-details-overlay .project-title {
+    font-size: clamp(1.5rem, 6vw, 2.5rem) !important;
+  }
+
+  .project-details-overlay .project-subtitle {
+    font-size: clamp(0.875rem, 3vw, 1.1rem) !important;
+  }
+
+  /* Back button: full-width touch target */
+  .project-back-button-ultra {
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  /* Prev/next nav: stack vertically on small screens */
+  .sophisticated-navigation-section {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  .sophisticated-nav-project {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ── 8. Services section — stack cards on mobile ─────────────── */
+@media (max-width: 768px) {
+  .services-grid-reference,
+  [class*="services-grid"] {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+}
+
+/* ── END MOBILE RESPONSIVENESS FIX PASS ── */
