@@ -1279,44 +1279,41 @@ export default function Home() {
           exit={{ opacity: 0, y: -20, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } }}
           transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
         >
-          {/* ULTRA-PROMINENT NAVIGATION SYSTEM */}
+          {/* TOP NAVIGATION — unified minimal strip */}
           <div className="project-details-navigation-system">
-              <motion.button
-                onClick={() => setSelectedProject(null)}
+            <motion.button
+              onClick={() => setSelectedProject(null)}
               className="project-back-button-ultra"
-              whileHover={{ scale: 1.05, x: -6 }}
-              whileTap={{ scale: 0.98 }}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.618, delay: 0.25, ease: [0.23, 1, 0.32, 1] }}
+              whileHover={{ x: -4 }}
+              whileTap={{ scale: 0.97 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
             >
               <span className="back-icon">←</span>
-              <span className="back-text">back to projects</span>
-              </motion.button>
-            
-            <motion.div 
-              className="project-title-bar"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.618, delay: 0.35, ease: [0.23, 1, 0.32, 1] }}
+              <span className="back-text">projects</span>
+            </motion.button>
+
+            <motion.span
+              className="project-title-bar-text"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
             >
-              <span className="project-title-bar-text">
-                {selectedProject !== null ? projects[selectedProject].title : ''}
-              </span>
-              <kbd className="kbd-hint">ESC</kbd>
-            </motion.div>
-            
+              {selectedProject !== null ? projects[selectedProject].title : ''}
+            </motion.span>
+
             <motion.button
               onClick={() => setSelectedProject(null)}
               className="project-close-button-ultra"
-              whileHover={{ scale: 1.1, rotate: 90 }}
+              whileHover={{ rotate: 90 }}
               whileTap={{ scale: 0.9 }}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.382, delay: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
               aria-label="Close project details"
             >
-              <svg width={isMobile ? 32 : 24} height={isMobile ? 32 : 24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
@@ -1343,29 +1340,27 @@ export default function Home() {
                 onLoad={() => setDetailHeroLoaded(true)}
                 onError={() => setDetailHeroLoaded(true)}
               />
-              {/* Gradient overlay so nav buttons stay readable */}
-              <div className="detail-hero-gradient" aria-hidden="true" />
             </div>
+          </div>
 
-            {/* Project Title and Metadata - BELOW IMAGE with Proper Spacing */}
-            <div className="project-title-section">
-              <motion.h1 
-                className="project-title typography-h1"
-                initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
-                    {projects[selectedProject].title}
-              </motion.h1>
-              <motion.p 
-                className="project-subtitle typography-body"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                    {projects[selectedProject].subtitle}
-              </motion.p>
-            </div>
+          {/* Project Title — cleanly below the hero image */}
+          <div className="project-title-section">
+            <motion.h1
+              className="project-title typography-h1"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+            >
+              {projects[selectedProject].title}
+            </motion.h1>
+            <motion.p
+              className="project-subtitle typography-body"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              {projects[selectedProject].subtitle}
+            </motion.p>
           </div>
 
           {/* PROJECT METADATA SECTION - PROPER MARGINS */}
@@ -1838,16 +1833,6 @@ export default function Home() {
               ×
             </motion.button>
             
-            {/* Image Counter and Zoom Hint */}
-            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-6 py-3 rounded-full text-lg font-medium backdrop-blur-sm">
-              <div className="text-center">
-                <div>Image {currentGalleryImage + 1} of {selectedProject !== null && projects[selectedProject].galleryImages ? 
-                  projects[selectedProject].galleryImages.length : 0}</div>
-                <div className="text-sm text-white/70 mt-1">
-                  {imageZoomedIn ? 'Click to zoom out' : 'Click image to zoom in 25%'}
-                </div>
-              </div>
-            </div>
           </motion.div>
         </motion.div>
       )}

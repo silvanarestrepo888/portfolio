@@ -10003,135 +10003,101 @@ h4, .text-h4 {
   top: 0 !important;
   left: 0 !important;
   right: 0 !important;
-  z-index: 999999 !important; /* ULTRA MAXIMUM - 50TH TIME FIX! */
+  z-index: 99999 !important;
   display: grid !important;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  padding: var(--space-lg) var(--container-px) !important;
-  background: linear-gradient(180deg, 
-    rgba(253, 252, 248, 1) 0%, 
-    rgba(253, 252, 248, 0.98) 70%,
-    rgba(253, 252, 248, 0.9) 100%) !important; /* MORE SOLID */
-  backdrop-filter: blur(40px) saturate(200%);
+  gap: 1.5rem;
+  padding: 1rem clamp(20px, 4vw, 60px) !important;
+  background: rgba(253, 252, 248, 0.96) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(74, 85, 104, 0.08) !important;
   pointer-events: none;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1) !important; /* Add shadow for visibility */
 }
 
 .project-details-navigation-system > * {
   pointer-events: auto; /* Re-enable clicks on actual buttons */
 }
 
-/* BACK BUTTON - COHESIVE WITH CAROUSEL BUTTON DESIGN */
+/* BACK BUTTON — minimal ghost */
 .project-back-button-ultra {
   display: inline-flex !important;
   align-items: center !important;
-  gap: 0.75rem !important;
-  padding: 1rem 2rem !important;
-  /* GRAPEFRUIT GRADIENT - MATCHING CAROUSEL PRIMARY BUTTON */
-  background: linear-gradient(135deg, var(--grapefruit-pure) 0%, var(--grapefruit-soft) 100%) !important;
-  color: #FFFFFF !important; /* White text on grapefruit */
+  gap: 0.5rem !important;
+  padding: 0.5rem 0 !important;
+  background: none !important;
   border: none !important;
-  border-radius: 3px !important;
-  font-family: var(--font-architectural-body) !important;
-  font-size: 1rem !important;
-  font-weight: 600 !important;
+  color: var(--charcoal-mid) !important;
+  font-family: var(--font-body) !important;
+  font-size: 0.8125rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
   cursor: pointer !important;
-  transition: all var(--duration-base) var(--ease-landor) !important;
-  text-transform: none !important;
-  letter-spacing: 0.01em !important;
-  z-index: 999999 !important;
-  box-shadow: 0 6px 24px var(--grapefruit-whisper) !important;
+  transition: color 0.2s ease !important;
+  box-shadow: none !important;
   text-shadow: none !important;
 }
 
 .project-back-button-ultra:hover {
-  /* MATCHING CAROUSEL BUTTON HOVER */
-  transform: translateY(-2px) !important;
-  box-shadow: 0 10px 32px var(--grapefruit-breath) !important;
-  background: linear-gradient(135deg, var(--charcoal-mid) 0%, var(--grapefruit-pure) 100%) !important;
-}
-
-.project-back-button-ultra:active {
-  transform: scale(0.95) !important;
+  color: var(--grapefruit-pure) !important;
+  transform: none !important;
+  box-shadow: none !important;
+  background: none !important;
 }
 
 .back-icon {
-  transition: transform var(--duration-fast) ease;
   flex-shrink: 0;
-  font-size: 1.25rem !important; /* Cohesive size */
-  /* WHITE icon matching carousel */
-  color: #FFFFFF !important;
-  stroke: none !important;
-  fill: none !important;
+  font-size: 1rem !important;
+  color: inherit !important;
+  transition: transform 0.2s ease;
 }
 
 .project-back-button-ultra:hover .back-icon {
-  transform: translateX(-4px);
+  transform: translateX(-3px);
 }
 
 .back-text {
-  font-weight: 400 !important;
   white-space: nowrap;
-  font-size: var(--type-xs) !important;
-  letter-spacing: 0.10em !important;
-  text-transform: uppercase !important;
-  color: #FFFFFF !important;
+  color: inherit !important;
   text-shadow: none !important;
 }
 
-/* CLOSE BUTTON - TOP RIGHT */
-.project-close-button-ultra {
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, 
-    var(--vanilla-pure) 0%, 
-    var(--vanilla-warm) 100%);
-  border: 2px solid var(--grapefruit-soft);
-  border-radius: 50%;
-  color: var(--grapefruit-pure);
-  cursor: pointer;
-  transition: all var(--duration-base) var(--ease-landor);
-  box-shadow: 
-    0 8px 32px var(--grapefruit-subtle),
-    0 0 0 1px rgba(255, 255, 255, 0.5);
-}
-
-.project-close-button-ultra:hover {
-  background: var(--grapefruit-pure);
-  color: var(--vanilla-pure);
-  transform: rotate(90deg) scale(1.08);
-  box-shadow: 
-    0 12px 48px var(--grapefruit-soft),
-    0 0 0 2px var(--charcoal-light);
-  border-color: var(--charcoal-light);
-}
-
-/* PROJECT TITLE BAR - CENTER */
-.project-title-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  padding: 0.75rem 2rem;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(20px);
-  border-radius: 2rem;
-  border: 1px solid var(--grapefruit-whisper);
-  box-shadow: 0 4px 16px var(--grapefruit-breath);
-}
-
+/* PROJECT TITLE — center, minimal */
 .project-title-bar-text {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--grapefruit-pure);
-  max-width: 400px;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: rgba(74, 85, 104, 0.55);
+  text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* CLOSE BUTTON — minimal ghost, matches back button */
+.project-close-button-ultra {
+  width: 32px !important;
+  height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: none !important;
+  border: 1px solid rgba(74, 85, 104, 0.18) !important;
+  border-radius: 50% !important;
+  color: var(--charcoal-mid) !important;
+  cursor: pointer !important;
+  transition: border-color 0.2s ease, color 0.2s ease !important;
+  box-shadow: none !important;
+}
+
+.project-close-button-ultra:hover {
+  border-color: var(--grapefruit-pure) !important;
+  color: var(--grapefruit-pure) !important;
+  background: none !important;
+  transform: rotate(90deg) !important;
+  box-shadow: none !important;
 }
 
 .kbd-hint-inline {
@@ -10777,10 +10743,10 @@ h4, .text-h4 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, 
-    var(--vanilla-pure) 0%, 
+  background: linear-gradient(135deg,
+    var(--vanilla-pure) 0%,
     var(--vanilla-warm) 100%);
-  z-index: 50;
+  z-index: 200;
   overflow-y: auto;
   overflow-x: hidden;
   padding: 0;
@@ -13246,30 +13212,28 @@ h4, .text-h4 {
 
 /* Title Section */
 .project-title-section {
-  padding: var(--space-md) var(--container-px);
-  text-align: center;
+  padding: clamp(2rem, 4vw, 3.5rem) clamp(20px, 5vw, 80px) clamp(1rem, 2vw, 1.5rem);
+  text-align: left;
   max-width: var(--container-max);
   margin: 0 auto;
-  position: relative;
-  z-index: 2;
 }
 
 .project-title {
-  font-size: clamp(2rem, 4vw, 3rem); /* Reduced */
-  margin-bottom: 0.75rem; /* Reduced from 1.5rem */
-  color: var(--vanilla-whisper) !important; /* Design system breathing elegance */
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  margin-bottom: 0.75rem;
+  color: var(--charcoal-mid) !important;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  text-transform: lowercase;
 }
 
 .project-subtitle {
-  font-size: clamp(1rem, 2vw, 1.25rem); /* Reduced */
-  color: var(--vanilla-foundation) !important; /* Design system architectural base */
+  font-size: clamp(0.9375rem, 1.5vw, 1.125rem);
+  color: rgba(74, 85, 104, 0.65) !important;
   font-weight: 400;
-  line-height: 1.4; /* Tighter */
-  max-width: 700px; /* Reduced from 800px */
-  margin: 0 auto;
+  line-height: 1.5;
+  max-width: 620px;
 }
 
 /* Metadata Container with Proper Margins */
@@ -22106,58 +22070,11 @@ body:has(.project-details-overlay) .navigation-floating {
   z-index: 1;
 }
 
-/* 5. Nav system: glass floating over the hero image */
-.project-details-navigation-system {
-  background: transparent !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-}
+/* Nav system stays consistent — no hero-specific overrides needed */
 
-/* 6. Back button: coral pill keeps its style, add shadow for readability */
-.project-back-button-ultra {
-  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.20)) !important;
-}
-
-/* 7. Center title bar: white text over the image */
-.project-title-bar-text {
-  color: rgba(255, 255, 255, 0.92) !important;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.25) !important;
-}
-
-.kbd-hint {
-  border-color: rgba(255, 255, 255, 0.28) !important;
-  color: rgba(255, 255, 255, 0.55) !important;
-  background: rgba(255, 255, 255, 0.08) !important;
-}
-
-/* 8. Close button: frosted glass on dark gradient */
-.project-close-button-ultra {
-  background: rgba(255, 255, 255, 0.12) !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.26) !important;
-  color: rgba(255, 255, 255, 0.88) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-}
-
-/* 9. Title + subtitle overlaid at the bottom of the hero */
-.project-details-hero-section .project-title-section {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 2rem var(--container-px, 40px) !important;
-  background: linear-gradient(0deg, rgba(0,0,0,0.45) 0%, transparent 100%);
-  z-index: 2;
-}
-
-.project-details-hero-section .project-title {
-  color: #ffffff !important;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.28) !important;
-}
-
-.project-details-hero-section .project-subtitle {
-  color: rgba(255, 255, 255, 0.80) !important;
+/* Hero gradient no longer needed for text — keep for atmosphere */
+.detail-hero-gradient {
+  display: none;
 }
 
 @media (max-width: 640px) {
@@ -23225,57 +23142,6 @@ footer.footer-landor-standards .footer-brand-title-landor {
   ) !important;
 }
 
-/* 5. Left-anchored layout on desktop */
-@media (min-width: 769px) {
-  .hero-section-luxury {
-    justify-content: flex-start !important;
-  }
-
-  .hero-content-luxury {
-    text-align: left !important;
-    max-width: 56% !important;
-    padding-left: max(64px, 7vw) !important;
-    padding-right: 0 !important;
-  }
-
-  .hero-name-label {
-    text-align: left !important;
-  }
-
-  /* 6. Title: clean shadow, vanilla-pure, left-align */
-  .section-hero-sophisticated .hero-title-luxury-centered,
-  .hero-title-luxury-centered {
-    text-align: left !important;
-    color: var(--vanilla-pure, #FFFEF9) !important;
-    font-weight: 300 !important;
-    line-height: 0.92 !important;
-    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.55) !important;
-  }
-
-  .hero-cta-elegant {
-    justify-content: flex-start !important;
-  }
-}
-
-/* 7. Discipline / role line */
-.hero-role-line {
-  font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: clamp(0.6875rem, 0.9vw, 0.8125rem);
-  font-weight: 300;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(255, 251, 240, 0.48);
-  margin: 1.25rem 0 2.75rem;
-  text-align: center;
-  text-shadow: none;
-}
-
-@media (min-width: 769px) {
-  .hero-role-line {
-    text-align: left !important;
-    color: rgba(255, 251, 240, 0.50) !important;
-  }
-}
 
 
 /* ================================================================
@@ -23750,7 +23616,7 @@ footer.footer-landor-standards .footer-brand-title-landor {
 .footer-editorial {
   background: var(--vanilla-warm);
   border-top: 1px solid rgba(74, 85, 104, 0.1);
-  padding: clamp(4rem, 8vw, 7rem) clamp(32px, 5vw, 80px) clamp(2.5rem, 4vw, 4rem);
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(32px, 5vw, 80px) clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .footer-editorial-inner {
@@ -23758,7 +23624,7 @@ footer.footer-landor-standards .footer-brand-title-landor {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: clamp(2rem, 3.5vw, 3rem);
+  gap: clamp(1.25rem, 2.5vw, 2rem);
 }
 
 .footer-editorial-statement {
@@ -23952,6 +23818,7 @@ footer.footer-landor-standards .footer-brand-title-landor {
 .footer-editorial {
   background: #16181e !important;
   border-top: 1px solid rgba(255, 251, 240, 0.06) !important;
+  overflow: hidden !important;
 }
 
 .footer-editorial-statement {
@@ -23985,12 +23852,18 @@ footer.footer-landor-standards .footer-brand-title-landor {
 }
 
 
-/* ── 6. ABOUT PHOTO — subtle shadow only ── */
+/* ── 6. ABOUT PHOTO — clean, no decorative overlays ── */
 .about-photo-perfect,
 .about-photo-unified-sophisticated,
 .about-photo-cohesive {
   overflow: hidden !important;
   box-shadow: 0 24px 64px rgba(74, 85, 104, 0.18), 0 4px 16px rgba(74, 85, 104, 0.1) !important;
+}
+
+/* Hide decorative overlay divs that show as empty boxes */
+.about-photo-unified-harmony,
+.about-photo-unified-accent {
+  display: none !important;
 }
 
 
