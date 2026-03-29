@@ -23918,52 +23918,51 @@ footer.footer-landor-standards .footer-brand-title-landor {
   overflow: hidden !important;
 }
 
-/* Photo: true full-bleed, no parallax shift allowed */
+/* Photo: full-bleed, face anchored LEFT, parallax disabled */
 .hero-photo-artistic-unified {
-  /* Kill the JS parallax — translateY shifts the image out of the
-     container creating a gap at the top as the user scrolls */
   transform: none !important;
-
-  /* Explicit fill — belt + suspenders on top of Next.js fill */
   position: absolute !important;
   inset: 0 !important;
   width: 100% !important;
   height: 100% !important;
-
-  opacity: 1.0 !important;
+  opacity: 0.92 !important;
   object-fit: cover !important;
-  object-position: 62% 12% !important;
-  filter: contrast(1.06) brightness(0.88) saturate(0.92) !important;
+  /* 20% x keeps Silvana's face on the left of the frame */
+  object-position: 20% 15% !important;
+  filter: contrast(1.04) brightness(0.85) saturate(0.90) !important;
   mix-blend-mode: normal !important;
 }
 
-/* Primary overlay: even dark wash that kills the cream bleed
-   on the photo's light right-side background */
+/* THE KEY FIX: overlays must be z-index > 2 (hero-photo-layer-unified)
+   or they render BEHIND the photo and have zero visible effect. */
 .hero-unified-color-story {
   display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 3 !important;
+  /* Lighter on left so face reads — darker on right to kill cream wall */
   background: linear-gradient(
-    160deg,
-    rgba(6, 6, 10, 0.58) 0%,
-    rgba(6, 6, 10, 0.64) 50%,
-    rgba(6, 6, 10, 0.72) 100%
+    to right,
+    rgba(6, 6, 10, 0.15) 0%,
+    rgba(6, 6, 10, 0.40) 40%,
+    rgba(6, 6, 10, 0.65) 100%
   ) !important;
-  left: 0 !important;
-  width: 100% !important;
   opacity: 1 !important;
 }
 
-/* Secondary overlay: extra crush on the right edge where
-   the photo wall background is lightest */
+/* Extra right-edge crush for the cream wall */
 .unified-gradient-foundation {
   display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 4 !important;
   background: linear-gradient(
     to left,
     rgba(6, 6, 10, 0.40) 0%,
-    transparent 55%
+    transparent 52%
   ) !important;
   mix-blend-mode: normal !important;
   opacity: 1 !important;
-  z-index: 5 !important;
 }
 
 .hero-vignette-luxury { display: none !important; }
