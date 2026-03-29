@@ -765,8 +765,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
             transition={{ duration: isMobile ? 0.6 : 1.618, delay: isMobile ? 0.12 : 0.382 }} /* Faster on mobile */
           >
-            <span className="hero-title-line1">Experience</span>
-            <span className="hero-title-line2">Architect</span>
+            Experience Architect
           </motion.h1>
 
           <motion.p
