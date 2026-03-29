@@ -23903,68 +23903,64 @@ footer.footer-landor-standards .footer-brand-title-landor {
 
 
 /* ================================================================
-   HERO — FULL-BLEED IMPACT
-   Photo fills the entire container. Dark uniform overlay so both
-   the light-background right side and the dark left side read as
-   one coherent dark field. Content uses maximum width.
+   HERO — FULL-BLEED DEFINITIVE FIX
    ================================================================ */
 
-/* Photo panel: true 100% × 100% bleed, no clips escaping */
+/* Full-width photo panel */
 .hero-bg-unified {
   left: 0 !important;
   top: 0 !important;
   width: 100% !important;
   height: 100% !important;
+  overflow: visible !important;
+}
+
+/* Photo layer: full fill, face on left, parallax off */
+.hero-photo-layer-unified {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
   overflow: hidden !important;
 }
 
-/* Photo: full-bleed, face anchored LEFT, parallax disabled */
+/* Photo itself */
 .hero-photo-artistic-unified {
   transform: none !important;
   position: absolute !important;
   inset: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  opacity: 0.92 !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  opacity: 1 !important;
   object-fit: cover !important;
-  /* 20% x keeps Silvana's face on the left of the frame */
-  object-position: 20% 15% !important;
-  filter: contrast(1.04) brightness(0.85) saturate(0.90) !important;
+  /* left side of photo = Silvana's face */
+  object-position: left 15% !important;
+  filter: contrast(1.04) brightness(0.82) saturate(0.88) !important;
   mix-blend-mode: normal !important;
 }
 
-/* THE KEY FIX: overlays must be z-index > 2 (hero-photo-layer-unified)
-   or they render BEHIND the photo and have zero visible effect. */
-.hero-unified-color-story {
-  display: block !important;
+/* THE OVERLAY — lives INSIDE hero-photo-layer-unified as ::after,
+   so it is unambiguously on top of the <img> with no z-index fight */
+.hero-photo-layer-unified::after {
+  content: '' !important;
   position: absolute !important;
   inset: 0 !important;
-  z-index: 3 !important;
-  /* Lighter on left so face reads — darker on right to kill cream wall */
+  pointer-events: none !important;
+  /* Transparent on left (face) → dark on right (kills cream wall) */
   background: linear-gradient(
     to right,
-    rgba(6, 6, 10, 0.15) 0%,
-    rgba(6, 6, 10, 0.40) 40%,
-    rgba(6, 6, 10, 0.65) 100%
+    rgba(4, 4, 8, 0.08) 0%,
+    rgba(4, 4, 8, 0.38) 38%,
+    rgba(4, 4, 8, 0.72) 100%
   ) !important;
-  opacity: 1 !important;
+  z-index: 2 !important;
 }
 
-/* Extra right-edge crush for the cream wall */
-.unified-gradient-foundation {
-  display: block !important;
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: 4 !important;
-  background: linear-gradient(
-    to left,
-    rgba(6, 6, 10, 0.40) 0%,
-    transparent 52%
-  ) !important;
-  mix-blend-mode: normal !important;
-  opacity: 1 !important;
-}
-
+/* Kill all the other overlay divs — replaced by ::after above */
+.hero-unified-color-story,
+.unified-gradient-foundation,
 .hero-vignette-luxury { display: none !important; }
 
 /* Bottom fade into the about section */
