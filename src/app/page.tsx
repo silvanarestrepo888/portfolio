@@ -725,7 +725,7 @@ export default function Home() {
               alt="Silvana Restrepo, Principal Experience Architect, professional headshot in business attire with confident smile"
               fill
               className="hero-photo-artistic-unified parallax-element gpu-accelerated"
-              style={{ transform: parallaxTransform }}
+              style={{}}
               quality={100}
               unoptimized
               priority

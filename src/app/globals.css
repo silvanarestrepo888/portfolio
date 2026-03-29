@@ -24058,3 +24058,63 @@ footer.footer-landor-standards .footer-brand-title-landor {
   width: 100% !important;
   display: block !important;
 }
+
+/* ================================================================
+   HERO — NUCLEAR FIX (section-level overlay, dark fallback bg)
+   ================================================================ */
+
+/* Dark fallback: if photo has any gaps, section bg is dark not cream */
+.hero-section-luxury {
+  background: #08080c !important;
+}
+
+/* Section-level overlay — above hero-bg-unified (z:2), below content (z:10)
+   This bypasses ALL child stacking context conflicts entirely */
+.hero-section-luxury::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 5 !important;
+  pointer-events: none !important;
+  /* lighter on left (Silvana's face) → darker on right (cream wall) */
+  background: linear-gradient(
+    to right,
+    rgba(8, 8, 12, 0.05) 0%,
+    rgba(8, 8, 12, 0.30) 35%,
+    rgba(8, 8, 12, 0.70) 100%
+  ) !important;
+}
+
+/* Ensure content sits above the ::before overlay */
+.hero-content-luxury {
+  z-index: 15 !important;
+}
+
+/* Photo: parallax disabled, face anchored left */
+.hero-photo-artistic-unified {
+  transform: none !important;
+  object-position: left 15% !important;
+  filter: contrast(1.04) brightness(0.84) !important;
+}
+
+/* ================================================================
+   ABOUT SECTION — photo fills full right column (definitive)
+   ================================================================ */
+
+/* Remove flex centering — use block so child fills full width */
+.about-photo-column {
+  display: block !important;
+}
+
+/* Photo container: full column width, no cap */
+.about-photo-container {
+  max-width: 100% !important;
+  width: 100% !important;
+  aspect-ratio: unset !important;
+}
+
+/* RevealImage / motion.div wrapper: ensure it also fills width */
+.about-photo-column > * {
+  width: 100% !important;
+  display: block !important;
+}
