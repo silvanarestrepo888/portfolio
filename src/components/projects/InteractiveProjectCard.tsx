@@ -96,13 +96,6 @@ export function InteractiveProjectCard({
     <motion.div
       ref={cardRef}
       className={`project-card-cinematic enhanced-hover gpu-accelerated ${className}`}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{
-        duration: 0.382,
-        delay: index * 0.08,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
