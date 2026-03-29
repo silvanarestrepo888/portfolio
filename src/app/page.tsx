@@ -1287,7 +1287,7 @@ export default function Home() {
               transition={{ duration: 0.4, delay: 0.2 }}
             >
               <span className="back-icon">←</span>
-              <span className="back-text">projects</span>
+              <span className="back-text">Back</span>
             </motion.button>
 
             <motion.span

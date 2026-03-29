@@ -10,7 +10,7 @@ const experiences = [
   { company: "Grupo Éxito",             role: "Marketing Director",             period: "2012 – 2015" },
   { company: "Designit (Wipro)",        role: "Strategic Design Director",      period: "2015 – 2018" },
   { company: "World Economic Forum",    role: "Ecosystem Engagement Leader",    period: "2018 – 2019" },
-  { company: "Globant",                 role: "Experience Tech Manager",        period: "2019 – Present" },
+  { company: "Globant",                 role: "Experience Tech Manager",        period: "2019 – 2025" },
 ];
 
 export function ExperienceTimeline() {

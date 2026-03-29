@@ -24184,3 +24184,71 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   object-position: center top !important;
   width: 100% !important;
 }
+
+/* ================================================================
+   MULTI-ISSUE POLISH — commit b028a2f follow-up
+   6 fixes: progress bar, tag contrast, Globant, snippet titles,
+   back button, project detail accessibility
+   ================================================================ */
+
+/* ── Fix 2: balanced-tag contrast — was 0.45 opacity, barely visible
+   on the dark project card background. WCAG AA requires ≥4.5:1.
+   Raised to 0.82 → passes on #1C1C22 background. ── */
+.balanced-tag {
+  color: rgba(245, 245, 220, 0.82) !important;
+  border: 1px solid rgba(245, 245, 220, 0.28) !important;
+  background: rgba(245, 245, 220, 0.08) !important;
+}
+
+/* ── Fix 4a: snippet title text — prevent clipping at card edge.
+   Cards are fixed-width; long titles were getting clipped by the
+   card's parent overflow. Ensure title wraps instead of clipping. ── */
+.snippet-title-text {
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+}
+
+/* Fix 4b: snippet industry pill — allow text to wrap on long labels */
+.snippet-industry-pill {
+  white-space: normal !important;
+  text-align: right !important;
+  max-width: 140px !important;
+  line-height: 1.3 !important;
+}
+
+/* ── Fix 5: back button — comfortable solid padding ── */
+.project-back-button-ultra {
+  padding: 0.5rem 1.25rem !important;
+  letter-spacing: 0.06em !important;
+}
+
+/* ── Fix 6a: project detail overlay — title & subtitle are charcoal
+   on a dark #374151 background (near-invisible). Override to vanilla. ── */
+.project-details-overlay .project-title {
+  color: rgba(255, 251, 240, 0.97) !important;
+}
+
+.project-details-overlay .project-subtitle {
+  color: rgba(255, 251, 240, 0.72) !important;
+  max-width: 100% !important;   /* Fix 6c: subtitle was capped at 620px,
+                                    misaligning with full-width title */
+}
+
+/* Fix 6d: prev/next nav — subtitle text was 55% opacity on dark bg
+   (~2.1:1 contrast ratio — fails WCAG AA). Raised to 72%. ── */
+.project-details-overlay .sophisticated-nav-subtitle {
+  color: rgba(255, 251, 240, 0.72) !important;
+}
+
+/* Fix 6d: prev/next nav label (PREVIOUS PROJECT / NEXT PROJECT) —
+   was 58% opacity. Raise to 72% for WCAG AA compliance. */
+.project-details-overlay .sophisticated-nav-label {
+  color: rgba(255, 251, 240, 0.72) !important;
+}
+
+/* Fix 6b: hero image — use center/center instead of center top
+   so the image is never cropped to empty sky or background. ── */
+.detail-hero-image {
+  object-position: center center !important;
+}
