@@ -24472,3 +24472,149 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 }
 
 /* ── END MOBILE RESPONSIVENESS FIX PASS ── */
+
+
+/* ================================================================
+   MOBILE RESPONSIVENESS — COMPREHENSIVE FIX PASS 2
+   Targets: 320px – 767px  (iPhone SE → iPhone 16 Pro Max)
+   12 confirmed issues identified via code audit + device simulation
+   ================================================================ */
+
+/* ── 1. Hero role-line — fix size regression from pass 1 ─────────
+   Pass 1 set clamp(0.65rem, 2.2vw, 0.875rem) → 10.4 px min at 390 px,
+   SMALLER than the original 12 px. Restore to mobile-legible 13 px. ── */
+@media (max-width: 767px) {
+  .hero-role-line {
+    font-size: clamp(0.8125rem, 3.5vw, 0.9375rem) !important;
+    letter-spacing: 0.20em !important;
+  }
+}
+
+/* ── 2. Hero name label — 11 px → 12 px on mobile ───────────────
+   clamp(0.6875rem, 0.85vw, 0.875rem) collapses to 11 px at 390 px
+   because 0.85 vw = 3.3 px < 0.6875 rem = 11 px. Raise minimum. ── */
+@media (max-width: 767px) {
+  .hero-name-label {
+    font-size: 0.75rem !important;
+    letter-spacing: 0.24em !important;
+  }
+}
+
+/* ── 3. Hero photo — center composition on mobile portrait ───────
+   object-position: left 15% shows the leftmost slice of the landscape
+   photo on a 390 px portrait screen. Centre it so Silvana's face
+   (which is roughly centre of the photo) appears in frame. ── */
+@media (max-width: 767px) {
+  .hero-photo-artistic-unified {
+    object-position: center 15% !important;
+  }
+}
+
+/* ── 4. Hero overlay — replace horizontal gradient with vertical ──
+   The left-to-right gradient looks unbalanced on portrait mobile
+   (light left, dark right = half the face is obscured). A top-to-bottom
+   gradient adds depth while keeping the face and text equally lit. ── */
+@media (max-width: 767px) {
+  .hero-section-luxury::before {
+    background: linear-gradient(
+      to bottom,
+      rgba(8, 8, 12, 0.08) 0%,
+      rgba(8, 8, 12, 0.42) 55%,
+      rgba(8, 8, 12, 0.68) 100%
+    ) !important;
+  }
+  .hero-photo-layer-unified::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(4, 4, 8, 0.04) 0%,
+      rgba(4, 4, 8, 0.46) 100%
+    ) !important;
+  }
+}
+
+/* ── 5. Hero scroll indicator — clear mobile browser chrome ──────
+   2.5 rem from bottom may be hidden by the iOS/Android browser bar. ── */
+@media (max-width: 767px) {
+  .hero-scroll-indicator {
+    bottom: 1.25rem !important;
+  }
+}
+
+/* ── 6. About text — suppress forced <br> line breaks on narrow screens
+   Desktop JSX uses <br /> for poetic pacing; on 390 px these force
+   one-to-three-word orphan lines. Hiding <br> lets text flow naturally. ── */
+@media (max-width: 767px) {
+  .about-main-story br,
+  .about-welcome br {
+    display: none !important;
+  }
+}
+
+/* ── 7. Philosophy quote — reduce from 1.6 rem to 1.1 rem on mobile
+   The existing rule at ≤640 px sets font-size: 1.6rem (25.6 px). The
+   quote is 22 words; at 25.6 px it fills 6+ lines on a 390 px screen.
+   1.1 rem (17.6 px) is still editorial and italic — fits in 4 lines. ── */
+@media (max-width: 640px) {
+  .philosophy-quote-ultra-luxury {
+    font-size: 1.1rem !important;
+    line-height: 1.55 !important;
+  }
+}
+
+/* ── 8. Projects container — reduce 60 px → 32-48 px on mobile ───
+   At ≤768 px the rule sets padding: 60px 2rem (60 px top AND bottom).
+   The parent section-luxury already adds ~31 px padding-block via 8 vw.
+   Combined = ~91 px of dead space above/below the content on mobile. ── */
+@media (max-width: 768px) {
+  .projects-container-award-winning {
+    padding-top: clamp(32px, 7vw, 48px) !important;
+    padding-bottom: clamp(32px, 7vw, 48px) !important;
+  }
+}
+
+/* ── 9. Snippet grid — add spacing between carousel cards ─────────
+   No gap was defined between snippet-card elements; cards appear edge
+   to edge. A small gap separates them visually without hiding the
+   next card peek that signals scrollability. ── */
+.snippet-grid {
+  gap: clamp(12px, 2.5vw, 20px);
+}
+
+/* ── 10. Snippet grid — add leading/trailing padding for edge peek ─
+   Without padding on the flex container itself the first card is flush
+   against the container's left edge. Padding creates a consistent inset
+   and reveals the trailing edge of the last card on scroll. ── */
+@media (max-width: 640px) {
+  .snippet-grid {
+    padding-left: clamp(16px, 4vw, 24px) !important;
+    padding-right: clamp(16px, 4vw, 24px) !important;
+  }
+}
+
+/* ── 11. Services rows — comfortable touch targets on mobile ──────
+   The accordion buttons need min-height 48 px for iOS/Android tap accuracy.
+   centre-aligning the grid items keeps title + chevron vertically balanced. ── */
+@media (max-width: 640px) {
+  .svc-row-header {
+    min-height: 56px !important;
+    align-items: center !important;
+  }
+  /* Keep svc-text left-top aligned while the header is centred */
+  .svc-text {
+    align-self: center !important;
+  }
+}
+
+/* ── 12. About section — tighten vertical padding on small screens ─
+   section-luxury padding-block = clamp(space-lg, 8vw, space-2xl).
+   At 390 px: 8 vw ≈ 31 px. The about section also has padding-bottom:
+   var(--section-py). Clamp both explicitly so it breathes but doesn't
+   swallow the whole viewport on a short phone. ── */
+@media (max-width: 640px) {
+  .about-section-ultra-luxury {
+    padding-top: clamp(48px, 10vw, 80px) !important;
+    padding-bottom: clamp(48px, 10vw, 80px) !important;
+  }
+}
+
+/* ── END MOBILE RESPONSIVENESS FIX PASS 2 ── */
