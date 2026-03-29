@@ -23903,10 +23903,13 @@ footer.footer-landor-standards .footer-brand-title-landor {
 
 
 /* ================================================================
-   HERO RESET — original centered full-bleed layout, 2026-03-29
+   HERO — FULL-BLEED IMPACT
+   Photo fills the entire container. Dark uniform overlay so both
+   the light-background right side and the dark left side read as
+   one coherent dark field. Content uses maximum width.
    ================================================================ */
 
-/* Photo: full-bleed, face centered, original opacity */
+/* Photo panel: true 100% × 100% bleed, no clips escaping */
 .hero-bg-unified {
   left: 0 !important;
   top: 0 !important;
@@ -23915,85 +23918,109 @@ footer.footer-landor-standards .footer-brand-title-landor {
   overflow: hidden !important;
 }
 
+/* Photo: full presence, face positioned centre-right so
+   Silvana's figure fills the frame edge-to-edge */
 .hero-photo-artistic-unified {
-  opacity: 0.82 !important;
+  opacity: 1.0 !important;
   object-fit: cover !important;
-  object-position: center 15% !important;
-  filter: contrast(1.05) brightness(0.98) !important;
+  object-position: 62% 12% !important;
+  filter: contrast(1.06) brightness(0.88) saturate(0.92) !important;
   mix-blend-mode: normal !important;
 }
 
-/* Warm overlay: protects text readability across full width */
+/* Primary overlay: even dark wash that kills the cream bleed
+   on the photo's light right-side background */
 .hero-unified-color-story {
   display: block !important;
   background: linear-gradient(
-    to bottom,
-    rgba(10, 10, 14, 0.38) 0%,
-    rgba(10, 10, 14, 0.52) 100%
+    160deg,
+    rgba(6, 6, 10, 0.58) 0%,
+    rgba(6, 6, 10, 0.64) 50%,
+    rgba(6, 6, 10, 0.72) 100%
   ) !important;
   left: 0 !important;
   width: 100% !important;
   opacity: 1 !important;
 }
 
-.unified-gradient-foundation { display: none !important; }
-.hero-vignette-luxury         { display: none !important; }
+/* Secondary overlay: extra crush on the right edge where
+   the photo wall background is lightest */
+.unified-gradient-foundation {
+  display: block !important;
+  background: linear-gradient(
+    to left,
+    rgba(6, 6, 10, 0.40) 0%,
+    transparent 55%
+  ) !important;
+  mix-blend-mode: normal !important;
+  opacity: 1 !important;
+  z-index: 5 !important;
+}
 
+.hero-vignette-luxury { display: none !important; }
+
+/* Bottom fade into the about section */
 .unified-section-connector {
   display: block !important;
   left: 0 !important;
   width: 100% !important;
+  height: 200px !important;
 }
 
-/* Section: centered */
+/* Section: transparent so photo is the background */
 .hero-section-luxury {
   background: transparent !important;
   justify-content: center !important;
   align-items: center !important;
 }
 
-/* Content: centered over photo */
+/* Content: wider container for real impact */
 .hero-content-luxury {
   position: relative !important;
   z-index: 10 !important;
   text-align: center !important;
   color: var(--vanilla-pure) !important;
-  max-width: 860px !important;
-  width: 90% !important;
+  max-width: 1120px !important;
+  width: 92% !important;
   padding: 2rem !important;
   margin: 0 auto !important;
 }
 
-/* Name label: soft vanilla */
+/* Name label */
 .hero-name-label {
-  color: rgba(255, 251, 240, 0.72) !important;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.35) !important;
-  letter-spacing: 0.24em !important;
+  color: rgba(255, 251, 240, 0.60) !important;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55) !important;
+  letter-spacing: 0.30em !important;
+  font-size: clamp(0.6875rem, 0.85vw, 0.875rem) !important;
 }
 
-/* Title: crisp vanilla, centered */
+/* Title: large, commanding, full-width impact */
 .hero-title-luxury-centered {
   text-align: center !important;
-  color: var(--vanilla-pure) !important;
+  color: rgba(255, 251, 240, 0.97) !important;
+  font-size: clamp(4.5rem, 11.5vw, 15rem) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 0.90 !important;
   text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.5),
-    0 6px 32px rgba(0, 0, 0, 0.25) !important;
+    0 2px 20px rgba(0, 0, 0, 0.50),
+    0 8px 60px rgba(0, 0, 0, 0.28) !important;
 }
 
-/* Tagline: visible on dark overlay */
+/* Tagline */
 .hero-role-line {
-  color: rgba(255, 251, 240, 0.72) !important;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.40) !important;
-  font-size: clamp(0.8125rem, 1.1vw, 0.9375rem) !important;
-  letter-spacing: 0.18em !important;
+  color: rgba(255, 251, 240, 0.65) !important;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55) !important;
+  font-size: clamp(0.75rem, 0.95vw, 0.9375rem) !important;
+  letter-spacing: 0.24em !important;
   text-transform: uppercase !important;
-  margin-top: 1rem !important;
+  margin-top: 1.25rem !important;
 }
 
 /* CTAs: centered */
 .hero-cta-elegant {
   justify-content: center !important;
-  margin-top: 2.5rem !important;
+  margin-top: 3rem !important;
 }
 
 .hero-scroll-indicator {
