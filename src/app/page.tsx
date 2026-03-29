@@ -845,7 +845,7 @@ export default function Home() {
         }}
       >
         {/* Background interference elements removed for clean design */}
-        <div className="about-container-ultra-luxury" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 max(1rem, 3vw)' }}>
+        <div className="about-container-ultra-luxury" style={{ width: '100%', boxSizing: 'border-box', padding: '0 clamp(24px, 4vw, 64px)' }}>
           {/* Section Header */}
           <SectionReveal as="header" className="about-header-ultra-luxury">
             <div className="about-header-content">
@@ -889,8 +889,8 @@ export default function Home() {
             </div>
 
             {/* Right Column — photo reveals with scale */}
-            <div className="about-photo-column">
-              <RevealImage className="about-photo-container about-photo-unified-sophisticated">
+            <div className="about-photo-column" style={{ display: 'block', width: '100%' }}>
+              <RevealImage className="about-photo-container about-photo-unified-sophisticated" style={{ width: '100%', maxWidth: 'none', display: 'block' }}>
                 <Image
                   src="/silvana-about.jpg"
               alt="Silvana Restrepo working at her desk, black and white professional photo showing her workspace and thoughtful expression"

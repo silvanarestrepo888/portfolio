@@ -675,12 +675,12 @@
 }
 
 /* WHITE SPACE MASTERY - Visual Breathing */
-.about-container-ultra-luxury,
 .projects-container-award-winning,
 .container-foundation {
   padding-left: var(--container-px) !important;
   padding-right: var(--container-px) !important;
 }
+/* about-container uses its own responsive padding — NOT --container-px */
 
 /* Typography white space perfection */
 .about-main-story {
@@ -9377,16 +9377,14 @@ h4, .text-h4 {
 
 /* Right Column - Profile Photo - Floating Effect */
 .about-photo-column {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
 }
 
 .about-photo-container {
   position: relative;
   width: 100%;
-  max-width: 400px;
-  aspect-ratio: 4/5;
+  max-width: 100%;
+  aspect-ratio: unset;
   border-radius: 0;
   overflow: hidden;
   box-shadow: none;
