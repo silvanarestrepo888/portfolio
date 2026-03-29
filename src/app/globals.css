@@ -23901,3 +23901,77 @@ footer.footer-landor-standards .footer-brand-title-landor {
   color: rgba(255, 251, 240, 0.85) !important;
 }
 
+
+/* ================================================================
+   HERO LAYOUT CORRECTION — 2026-03-29
+   Left-anchor content into the protected dark zone.
+   Photo lives at 68% right; text anchors to the left gradient.
+   ================================================================ */
+
+/* Section: push content to the left */
+.hero-section-luxury {
+  justify-content: flex-start !important;
+  align-items: center !important;
+}
+
+/* Content block: flush left with generous padding */
+.hero-content-luxury {
+  text-align: left !important;
+  max-width: 50% !important;
+  padding-left: max(72px, 8vw) !important;
+  padding-right: 0 !important;
+  margin: 0 !important;
+}
+
+/* All text must be bright vanilla — they sit on the dark gradient */
+.hero-name-label {
+  color: rgba(255, 251, 240, 0.72) !important;
+}
+
+.hero-title-luxury-centered {
+  text-align: left !important;
+  color: var(--vanilla-pure, #FFFBF0) !important;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.55),
+    0 6px 28px rgba(0, 0, 0, 0.30) !important;
+}
+
+.hero-role-line {
+  color: rgba(255, 251, 240, 0.72) !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45) !important;
+  font-size: clamp(0.8125rem, 1.2vw, 1rem) !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  margin-top: 0.75rem !important;
+}
+
+/* CTA row: left-aligned */
+.hero-cta-elegant {
+  justify-content: flex-start !important;
+}
+
+/* Scroll indicator: left-aligned */
+.hero-scroll-indicator {
+  align-self: flex-start !important;
+  margin-left: 0 !important;
+}
+
+/* Mobile: restore center layout */
+@media (max-width: 768px) {
+  .hero-section-luxury {
+    justify-content: center !important;
+  }
+  .hero-content-luxury {
+    text-align: center !important;
+    max-width: 90% !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  .hero-title-luxury-centered {
+    text-align: center !important;
+  }
+  .hero-cta-elegant {
+    justify-content: center !important;
+  }
+}
+
