@@ -24638,12 +24638,17 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
    PERFECTIONISM PASS 3 — Final visual polish for 100% audit score
    ================================================================ */
 
-/* ── 1. Experience section — reduce oversized vertical padding ────
-   clamp(64px, 8vw, 104px) top creates dead space above the heading.
-   Tighten to match the spacing rhythm of other sections. ── */
+/* ── 1. Experience section — full-viewport height to prevent sandwich ──
+   Without min-height: 100vh the section content is shorter than the
+   viewport, causing the Services section (coral) and footer (dark) to
+   bleed in simultaneously from top and bottom. ── */
 .exp-section {
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
   padding-top: clamp(48px, 6vw, 80px) !important;
-  padding-bottom: clamp(32px, 4vw, 56px) !important;
+  padding-bottom: clamp(48px, 6vw, 80px) !important;
 }
 
 /* ── 2. Experience header — reduce bottom margin ─────────────────
