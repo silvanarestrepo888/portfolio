@@ -55,7 +55,7 @@ export function ExperienceTimeline() {
           className="exp-heading"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
         >
           experience
@@ -64,7 +64,7 @@ export function ExperienceTimeline() {
           className="exp-subheading"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
         >
           Some of the hats worn over <em>more than 20 years</em>{' '}

@@ -22787,7 +22787,7 @@ footer.footer-landor-standards .footer-brand-title-landor {
   -ms-overflow-style: none !important;
   justify-content: flex-start !important;
   gap: 10px !important;
-  padding: 0 clamp(2rem, 6vw, 4rem) !important;
+  padding: 0 !important;
   margin-top: 2rem !important;
   /* Right fade hint */
   -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%) !important;
@@ -22808,7 +22808,7 @@ footer.footer-landor-standards .footer-brand-title-landor {
   background: transparent !important;
   border: 1px solid rgba(245, 245, 220, 0.22) !important;
   color: rgba(245, 245, 220, 0.60) !important;
-  cursor: default !important;
+  cursor: pointer !important;
   box-shadow: none !important;
   transition: border-color 0.25s ease, color 0.25s ease !important;
 }
@@ -23372,7 +23372,7 @@ footer.footer-landor-standards .footer-brand-title-landor {
 .svc-row {
   border-top: none !important;
   border-bottom: none !important;
-  padding: clamp(1.25rem, 2.5vw, 2rem) 0 !important;
+  padding: clamp(0.4rem, 0.8vw, 0.7rem) 0 !important;
 }
 
 .svc-row:last-child {
@@ -23382,22 +23382,24 @@ footer.footer-landor-standards .footer-brand-title-landor {
 /* Remove the number column — header is now title + chevron only */
 .svc-row-header {
   grid-template-columns: 1fr auto !important;
+  padding-top: clamp(10px, 1.4vw, 16px) !important;
+  padding-bottom: clamp(10px, 1.4vw, 16px) !important;
 }
 
 /* Title becomes the declaration */
 .svc-title {
-  font-size: clamp(1.625rem, 3.2vw, 2.625rem) !important;
+  font-size: clamp(1.05rem, 1.9vw, 1.5rem) !important;
   font-weight: 300 !important;
   letter-spacing: -0.02em !important;
   line-height: 1.1 !important;
 }
 
-/* Tagline — readable, inviting */
+/* Tagline — readable, WCAG-compliant contrast on coral background */
 .svc-tagline {
-  font-size: clamp(0.875rem, 1.3vw, 1rem) !important;
+  font-size: clamp(0.8rem, 1.1vw, 0.875rem) !important;
   font-weight: 300 !important;
-  color: rgba(245, 245, 220, 0.6) !important;
-  margin-top: 0.35rem !important;
+  color: rgba(255, 251, 240, 0.88) !important;
+  margin-top: 0.25rem !important;
 }
 
 /* Body inner — full width, no number offset, preserve horizontal padding for alignment */
@@ -23851,9 +23853,10 @@ footer.footer-landor-standards .footer-brand-title-landor {
 }
 
 .footer-editorial-voice {
-  color: rgba(255, 251, 240, 0.75) !important;
-  font-size: clamp(1rem, 1.4vw, 1.25rem) !important;
+  color: rgba(255, 251, 240, 0.92) !important;
+  font-size: clamp(1.0625rem, 1.5vw, 1.3125rem) !important;
   letter-spacing: 0.01em !important;
+  opacity: 1 !important;
 }
 
 .footer-editorial-voice:hover {
