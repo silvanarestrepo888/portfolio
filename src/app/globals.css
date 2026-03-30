@@ -23834,7 +23834,7 @@ footer.footer-landor-standards .footer-brand-title-landor {
 }
 
 .footer-editorial-link {
-  color: rgba(255, 251, 240, 0.5) !important;
+  color: rgba(255, 251, 240, 0.72) !important;
 }
 
 .footer-editorial-link:hover {
@@ -23843,15 +23843,17 @@ footer.footer-landor-standards .footer-brand-title-landor {
 }
 
 .footer-editorial-sep {
-  color: rgba(255, 251, 240, 0.2) !important;
+  color: rgba(255, 251, 240, 0.3) !important;
 }
 
 .footer-editorial-credit {
-  color: rgba(255, 251, 240, 0.25) !important;
+  color: rgba(255, 251, 240, 0.4) !important;
 }
 
 .footer-editorial-voice {
-  color: rgba(255, 251, 240, 0.4) !important;
+  color: rgba(255, 251, 240, 0.75) !important;
+  font-size: clamp(1rem, 1.4vw, 1.25rem) !important;
+  letter-spacing: 0.01em !important;
 }
 
 .footer-editorial-voice:hover {
@@ -24618,3 +24620,55 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 }
 
 /* ── END MOBILE RESPONSIVENESS FIX PASS 2 ── */
+
+/* ================================================================
+   PERFECTIONISM PASS 3 — Final visual polish for 100% audit score
+   ================================================================ */
+
+/* ── 1. Experience section — reduce oversized vertical padding ────
+   clamp(64px, 8vw, 104px) top creates dead space above the heading.
+   Tighten to match the spacing rhythm of other sections. ── */
+.exp-section {
+  padding-top: clamp(48px, 6vw, 80px) !important;
+  padding-bottom: clamp(32px, 4vw, 56px) !important;
+}
+
+/* ── 2. Experience header — reduce bottom margin ─────────────────
+   clamp(64px, 10vw, 100px) bottom margin separates heading from
+   the timeline by up to 100px. Reduce for tighter, more intentional
+   vertical rhythm. ── */
+.exp-header {
+  margin-bottom: clamp(40px, 6vw, 64px) !important;
+}
+
+/* ── 3. About photo column — contain right-edge overflow ─────────
+   On viewports where the grid column doesn't perfectly align to the
+   container edge, the photo can bleed into the outer padding zone.
+   overflow: hidden clips any stray edge. ── */
+.about-photo-column {
+  overflow: hidden !important;
+}
+
+/* ── 4. About photo — consistent border-radius across breakpoints──
+   Ensure the photo card has a consistent, polished 8px radius that
+   matches the overall design language (not the 24px from an older
+   style pass that can feel heavy at smaller sizes). ── */
+.about-photo-perfect {
+  border-radius: 8px !important;
+}
+
+/* ── 5. Hero name label — higher contrast ────────────────────────
+   At 0.60 opacity the WCAG ratio on the dark overlay is marginal.
+   Raise to 0.80 so it reads confidently. ── */
+.hero-name-label {
+  color: rgba(255, 251, 240, 0.82) !important;
+}
+
+/* ── 6. Sophisticated project nav — ensure visibility baseline ───
+   In case any browser has a stale IntersectionObserver state,
+   guarantee the nav cards are never permanently hidden. ── */
+.sophisticated-nav-project {
+  opacity: 1 !important;
+}
+
+/* ── END PERFECTIONISM PASS 3 ── */

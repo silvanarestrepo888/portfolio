@@ -1580,12 +1580,11 @@ export default function Home() {
                 
           {/* SOPHISTICATED PROJECT NAVIGATION */}
           <div className="sophisticated-navigation-section">
-            <motion.div 
+            <motion.div
               className="sophisticated-nav-project prev-project"
               initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
                       onClick={() => {
                 const prevIndex = selectedProject === 0 ? projects.length - 1 : selectedProject - 1;
                 setSelectedProject(prevIndex);
@@ -1616,12 +1615,11 @@ export default function Home() {
                   </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="sophisticated-nav-project next-project"
               initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
                       onClick={() => {
                 const nextIndex = (selectedProject + 1) % projects.length;
                 setSelectedProject(nextIndex);
