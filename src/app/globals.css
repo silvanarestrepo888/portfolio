@@ -24206,13 +24206,14 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
    back button, project detail accessibility
    ================================================================ */
 
-/* ── Fix 2: balanced-tag contrast — was 0.45 opacity, barely visible
-   on the dark project card background. WCAG AA requires ≥4.5:1.
-   Raised to 0.82 → passes on #1C1C22 background. ── */
+/* ── Fix 2: balanced-tag — solid dark pill for background-agnostic contrast ──
+   Near-white text on near-transparent bg is readable only on dark. On any
+   lighter surface (mobile stacked layout, transitional states) the tags vanish.
+   Solid dark pill guarantees WCAG AA regardless of what's behind the card. ── */
 .balanced-tag {
-  color: rgba(245, 245, 220, 0.82) !important;
-  border: 1px solid rgba(245, 245, 220, 0.28) !important;
-  background: rgba(245, 245, 220, 0.08) !important;
+  color: rgba(255, 251, 240, 0.90) !important;
+  background: rgba(26, 13, 11, 0.82) !important;
+  border: 1px solid rgba(255, 102, 99, 0.25) !important;
 }
 
 /* ── Fix 4a: snippet title text — prevent clipping at card edge.
