@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import "./layout-fix.css";
+import "./enhanced-scroll-append.css";
 import { TopographicBackground } from "@/components/backgrounds/TopographicBackground";
 import { ChromaticIntelligence, QuantumCursor } from "@/components/ui/LandorLuxurySystem";
 
