@@ -24701,3 +24701,14 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   color: rgba(255, 251, 240, 1) !important;
   text-shadow: 0 1px 8px rgba(180, 60, 55, 0.18) !important;
 }
+
+/* ── Services section — full-viewport height to prevent sandwich ──
+   Without min-height: 100vh the 6 service rows + heading are shorter
+   than the viewport, causing the Experience section (cream) to bleed
+   in from below simultaneously. ── */
+.section-services-sophisticated {
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
