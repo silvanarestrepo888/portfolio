@@ -24823,6 +24823,19 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   opacity: 1 !important;
 }
 
+/* ── Experience timeline: minimum readable font sizes ────────────────────────
+   exp-period (year labels) at 11px + coral on cream = ~2.77:1 — fails WCAG AA.
+   exp-role-name at 11px gray — passes contrast maths but practically too small.
+   Nudging both to 12px is the minimum fix that keeps the compact timeline
+   aesthetic while bringing them above the "unreadable" threshold.
+   ──────────────────────────────────────────────────────────────────────── */
+.exp-period {
+  font-size: 12px !important;
+}
+.exp-role-name {
+  font-size: 12px !important;
+}
+
 /* ── Services section contrast pass ──────────────────────────────────────────
    All three elements used vanilla-warm (#F5F5DC) at partial opacity, which
    scores lower contrast on coral than plain near-white (#FFFBF0).
