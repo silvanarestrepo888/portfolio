@@ -10360,6 +10360,16 @@ h4, .text-h4 {
 .projects-carousel-award-winning {
   position: relative;
   margin-top: 1.25rem;
+  /* Cancel the blanket [class*="projects-carousel"] CSS animation so Framer
+     Motion can own opacity exclusively. Without this, the CSS forwards-fill
+     (opacity:1) conflicts with Framer Motion's inline opacity:0 initial state
+     and the carousel stays invisible when navigated to directly. */
+  animation: none !important;
+}
+
+/* Same fix for the card container */
+.projects-carousel-core {
+  animation: none !important;
 }
 
 /* Sophisticated Navigation Controls with Perfect Spacing */
