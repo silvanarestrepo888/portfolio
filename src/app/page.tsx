@@ -178,9 +178,9 @@ export default function Home() {
         "/projects/kayanee/Project Gallery /gallery-04-homepage-b.png",
         "/projects/kayanee/Project Gallery /gallery-05-innovations.png"
       ],
-      context: "For centuries, wellness has been a deeply personal journey—rooted in culture, tradition, and individual aspirations. In Saudi Arabia, a new chapter is being written, Kayanne is more than just a wellness brand; it's a movement, a vision, and a revolution in how women experience health, self-care, and empowerment. Kayanee is the first ecosystem integrating physical, digital, and social experiences for women's holistic wellbeing.",
-      scope: "Spaces were designed to intuitively recognise wellness needs, blending physical environments with AI-driven digital journeys. Crafted to be a phygital ecosystem merging behavioural science with technology to create deeply personalised transformative experiences. Seamless interactions across touch points—from retail environments to digital platforms—enhancing women's holistic wellbeing journey.",
-      impact: "Kayanee redefines possibility within Saudi Arabia's $19 billion wellness industry through cultural-technological fusion. The e-commerce platform launch initiates a vision extending beyond digital into integrated experiences. The full vision is still unfolding, with new innovations, experiences, and services continuously being developed to shape the future of women's wellness in Saudi Arabia.",
+      context: "Saudi Arabia's wellness market represents $19 billion. No platform connected physical wellness venues with digital products and e-commerce for women. Kayanee — backed by PIF — needed a complete experience ecosystem designed from scratch: consumer research, brand experience translation, omnichannel journey architecture, product design across three MVPs, and a design system serving two languages.\n\nWe shaped the solution from the pre-sale stage and led the experience design from day one, in strategic partnership with BCG. The scope covered the full design lifecycle — from qualitative research inside Saudi women's homes in Riyadh to a shipped bilingual e-commerce platform at kayanee.com.",
+      scope: "We designed and led the qualitative consumer research — in-home sessions in Riyadh using a discussion framework we authored, building on quantitative data from 552 women surveyed across Saudi Arabia. The research validated the digital product interaction and the value proposition itself. Parts of the planned offering turned out to be irrelevant to the women we sat with — the research reshaped what Kayanee would offer before a single screen was designed.\n\nWe mapped the complete omnichannel customer journey — nine stages from Inspire through Support, across six business lines (Fitness, Personal Care, Learning, Nutrition, Apparel, Healthy Eating) and four product versions. We translated that journey into feature sets, information architecture, and user flows for each MVP.\n\nWe designed the Health Screener, the Wellness Profile dashboard, and the data flows envisioning the connection with physical venue touchpoints (MS Fit biometric kiosk, proximity sensors, QR scanning, digital signage) with the mobile app and e-commerce platform. We built the design system — color tokens serving three surfaces and two alphabets from the ground up.",
+      impact: "$19 billion market addressed with a platform designed end to end. Consumer research across 552 women reshaped the product offering before development began. Three MVPs researched, designed, and shipped. Six experience pillars structured every touchpoint — digital and physical. Complete omnichannel journey architecture governing product decisions across four platform versions.\n\nBilingual design system (EN/AR) serving website, mobile app, and e-commerce. Content-led commerce platform live at kayanee.com — editorial storytelling and product discovery on one surface. Phygital ecosystem architecture connecting physical venues with digital channels through biometric data flows, behavioural personalisation, and proximity technology.",
       testimonial: {
         quote: "Amazing proposal and presentation for Kayanee and princess Reema @ KSA...you are already on the next level. Keep rocking!",
         author: "Martin Migoya",
@@ -1408,20 +1408,9 @@ export default function Home() {
                   <h2 className="section-title typography-h3">Context</h2>
                 </div>
                 <div className="section-content">
-                  {projects[selectedProject].context.split('. ').reduce((acc: string[], sentence: string, index: number, array: string[]) => {
-                    // Group sentences into 3 roughly equal paragraphs
-                    const sentencesPerParagraph = Math.ceil(array.length / 3);
-                    const paragraphIndex = Math.floor(index / sentencesPerParagraph);
-                    
-                    if (!acc[paragraphIndex]) {
-                      acc[paragraphIndex] = '';
-                    }
-                    
-                    acc[paragraphIndex] += (acc[paragraphIndex] ? '. ' : '') + sentence;
-                    return acc;
-                  }, []).map((paragraph: string, index: number) => (
-                    <p key={index} className="section-text typography-body" style={{ marginBottom: index < 2 ? '1.5rem' : '0' }}>
-                      {paragraph}{paragraph.endsWith('.') ? '' : '.'}
+                  {projects[selectedProject].context.split('\n\n').map((paragraph: string, index: number, arr: string[]) => (
+                    <p key={index} className="section-text typography-body" style={{ marginBottom: index < arr.length - 1 ? '1.5rem' : '0' }}>
+                      {paragraph}
                     </p>
                   ))}
                 </div>
@@ -1439,20 +1428,9 @@ export default function Home() {
                   <h2 className="section-title typography-h3">Scope of the Project</h2>
                 </div>
                 <div className="section-content">
-                  {projects[selectedProject].scope.split('. ').reduce((acc: string[], sentence: string, index: number, array: string[]) => {
-                    // Group sentences into 3 roughly equal paragraphs
-                    const sentencesPerParagraph = Math.ceil(array.length / 3);
-                    const paragraphIndex = Math.floor(index / sentencesPerParagraph);
-                    
-                    if (!acc[paragraphIndex]) {
-                      acc[paragraphIndex] = '';
-                    }
-                    
-                    acc[paragraphIndex] += (acc[paragraphIndex] ? '. ' : '') + sentence;
-                    return acc;
-                  }, []).map((paragraph: string, index: number) => (
-                    <p key={index} className="section-text typography-body" style={{ marginBottom: index < 2 ? '1.5rem' : '0' }}>
-                      {paragraph}{paragraph.endsWith('.') ? '' : '.'}
+                  {projects[selectedProject].scope.split('\n\n').map((paragraph: string, index: number, arr: string[]) => (
+                    <p key={index} className="section-text typography-body" style={{ marginBottom: index < arr.length - 1 ? '1.5rem' : '0' }}>
+                      {paragraph}
                     </p>
                   ))}
                 </div>
