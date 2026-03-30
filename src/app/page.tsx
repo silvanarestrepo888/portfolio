@@ -1448,20 +1448,9 @@ export default function Home() {
                   <h2 className="section-title typography-h3">Impact</h2>
                 </div>
                 <div className="section-content">
-                  {projects[selectedProject].impact.split('. ').reduce((acc: string[], sentence: string, index: number, array: string[]) => {
-                    // Group sentences into 3 roughly equal paragraphs
-                    const sentencesPerParagraph = Math.ceil(array.length / 3);
-                    const paragraphIndex = Math.floor(index / sentencesPerParagraph);
-                    
-                    if (!acc[paragraphIndex]) {
-                      acc[paragraphIndex] = '';
-                    }
-                    
-                    acc[paragraphIndex] += (acc[paragraphIndex] ? '. ' : '') + sentence;
-                    return acc;
-                  }, []).map((paragraph: string, index: number) => (
-                    <p key={index} className="section-text typography-body" style={{ marginBottom: index < 2 ? '1.5rem' : '0' }}>
-                      {paragraph}{paragraph.endsWith('.') ? '' : '.'}
+                  {projects[selectedProject].impact.split('\n\n').map((paragraph: string, index: number, arr: string[]) => (
+                    <p key={index} className="section-text typography-body" style={{ marginBottom: index < arr.length - 1 ? '1.5rem' : '0' }}>
+                      {paragraph}
                     </p>
                   ))}
                 </div>
