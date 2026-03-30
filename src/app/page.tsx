@@ -170,10 +170,13 @@ export default function Home() {
       image: "/projects/kayanee/hero-kayanee.jpeg",
       secondaryImage: "/projects/kayanee/secundary-kayanee.jpeg",
       video: "/projects/kayanee/kayanee-story.mp4",
+      galleryVideo: "/projects/kayanee/beat-concept.mp4",
       galleryImages: [
-        "/projects/kayanee/Project Gallery /secundary-kayanee.jpeg",
-        "/projects/kayanee/Project Gallery /Screenshot 2024-11-15 at 10.42.42.png",
-        "/projects/kayanee/Project Gallery /Screens-VSCO.jpeg"
+        "/projects/kayanee/Project Gallery /gallery-01-design-system.png",
+        "/projects/kayanee/Project Gallery /gallery-02-ecommerce.png",
+        "/projects/kayanee/Project Gallery /gallery-03-homepage-a.png",
+        "/projects/kayanee/Project Gallery /gallery-04-homepage-b.png",
+        "/projects/kayanee/Project Gallery /gallery-05-innovations.png"
       ],
       context: "For centuries, wellness has been a deeply personal journey—rooted in culture, tradition, and individual aspirations. In Saudi Arabia, a new chapter is being written, Kayanne is more than just a wellness brand; it's a movement, a vision, and a revolution in how women experience health, self-care, and empowerment. Kayanee is the first ecosystem integrating physical, digital, and social experiences for women's holistic wellbeing.",
       scope: "Spaces were designed to intuitively recognise wellness needs, blending physical environments with AI-driven digital journeys. Crafted to be a phygital ecosystem merging behavioural science with technology to create deeply personalised transformative experiences. Seamless interactions across touch points—from retail environments to digital platforms—enhancing women's holistic wellbeing journey.",
@@ -1528,16 +1531,37 @@ export default function Home() {
             >
               <h2 className="gallery-title typography-h3">Project Gallery</h2>
             </motion.div>
-            <div className="gallery-grid">
-              {/* Gallery Images - All 3 from galleryImages array */}
-              {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.slice(0, 3).map((image, index) => (
-                <motion.div 
+            <div className={`gallery-grid${(selectedProject !== null && (projects[selectedProject] as { galleryVideo?: string }).galleryVideo) ? ' gallery-grid-with-video' : ''}`}>
+              {/* Video container — only rendered when project has a galleryVideo field */}
+              {selectedProject !== null && (projects[selectedProject] as { galleryVideo?: string }).galleryVideo && (
+                <motion.div
+                  className="gallery-item gallery-item-video"
+                  initial={{ opacity: 0, scale: 0.95, y: 40 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2, type: 'spring', stiffness: 90 }}
+                  viewport={{ once: true, margin: '-50px' }}
+                >
+                  <video
+                    src={(projects[selectedProject] as { galleryVideo?: string }).galleryVideo}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="gallery-video-player"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: '8px' }}
+                  />
+                  <div className="gallery-video-badge">▶ Video</div>
+                </motion.div>
+              )}
+              {/* Gallery Images — no slice cap; renders all images in the array */}
+              {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.map((image, index) => (
+                <motion.div
                         key={index}
                   className="gallery-item"
                   initial={{ opacity: 0, scale: 0.8, y: 50 }}
                   whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.8, 
+                  transition={{
+                    duration: 0.8,
                     delay: 0.3 + index * 0.1,
                     type: "spring",
                     stiffness: 100

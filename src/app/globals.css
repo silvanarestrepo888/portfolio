@@ -24882,3 +24882,48 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 .footer-editorial-credit {
   color: rgba(255, 251, 240, 0.45) !important;
 }
+
+/* ── Kayanee gallery: video + 5 images layout ────────────────────────────────
+   .gallery-grid-with-video switches from the default 3-col grid to a
+   2-col layout where the video container spans the full width (row 1)
+   and the 5 images sit beneath in a 2+3 arrangement.
+   The video badge is a small pill overlay to signal interactivity.
+   No other project has galleryVideo so this class never fires elsewhere.
+   ──────────────────────────────────────────────────────────────────────── */
+.gallery-grid-with-video {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  grid-template-rows: auto !important;
+  gap: 16px !important;
+}
+
+/* Video item: spans both columns, fixed cinematic height */
+.gallery-item-video {
+  grid-column: 1 / -1 !important;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: #0d0d0d;
+}
+
+.gallery-video-player {
+  border-radius: 8px;
+}
+
+/* Small pill overlay in top-right of video */
+.gallery-video-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 102, 99, 0.90);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 100px;
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+  z-index: 2;
+}
