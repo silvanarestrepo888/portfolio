@@ -23208,7 +23208,7 @@ footer.footer-landor-standards .footer-brand-title-landor {
   font-size: 0.625rem;
   font-weight: 400;
   letter-spacing: 0.1em;
-  color: rgba(255, 251, 240, 0.28);
+  color: rgba(255, 251, 240, 0.48);
   min-width: 20px;
   padding-top: 3px;
   transition: color var(--duration-fast) ease;
@@ -23218,17 +23218,17 @@ footer.footer-landor-standards .footer-brand-title-landor {
   font-family: var(--font-body, 'Inter', sans-serif);
   font-size: 0.75rem;
   font-weight: 300;
-  color: rgba(255, 251, 240, 0.45);
+  color: rgba(255, 251, 240, 0.65);
   line-height: 1.5;
   transition: color var(--duration-fast) ease;
 }
 
 .project-index-item:hover .project-index-num {
-  color: rgba(255, 251, 240, 0.55);
+  color: rgba(255, 251, 240, 0.70);
 }
 
 .project-index-item:hover .project-index-name {
-  color: rgba(255, 251, 240, 0.80);
+  color: rgba(255, 251, 240, 0.88);
 }
 
 /* Active state */

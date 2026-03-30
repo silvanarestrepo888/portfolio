@@ -945,12 +945,12 @@ export default function Home() {
         {/* Background interference elements removed for clean design */}
         <div className="projects-container-award-winning">
           {/* Award-Winning Section Header with Sophisticated Spacing */}
-          <motion.div 
+          <motion.div
             className="projects-header-award-winning"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: isMobile ? 0.6 : 1.618, ease: [0.236, 0.618, 0.382, 1.0] }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.01 }}
           >
             <div className="projects-header-content-award">
               <motion.h2
@@ -990,7 +990,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.618, delay: 0.3 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.01 }}
           >
             <div className="projects-main-layout">
 
@@ -1113,12 +1113,12 @@ export default function Home() {
       >
         <div className="snippet-container">
           {/* Snippet Section Header */}
-          <motion.div 
+          <motion.div
             className="projects-header-award-winning"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: isMobile ? 0.6 : 1.618, ease: [0.236, 0.618, 0.382, 1.0] }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.01 }}
           >
             <div className="projects-header-content-award">
               <motion.h2 
