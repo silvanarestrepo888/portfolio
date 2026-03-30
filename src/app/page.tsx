@@ -1075,14 +1075,13 @@ export default function Home() {
                   <motion.div
                     className="projects-3d-container"
                     key={safeFeaturedProjectIndex}
-                    initial={{ opacity: 0, x: 40, scale: 0.98 }}
-                    animate={{ opacity: 1, x: 0, scale: 1 }}
-                    exit={{ opacity: 0, x: -40, scale: 0.98 }}
+                    initial={{ opacity: 0, x: 40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -40 }}
                     transition={{
                       duration: 0.45,
                       ease: [0.25, 0.46, 0.45, 0.94],
                       opacity: { duration: 0.3 },
-                      scale: { duration: 0.4 }
                     }}
                     onHoverStart={() => setIsAutoPlaying(false)}
                     onHoverEnd={() => setIsAutoPlaying(true)}
