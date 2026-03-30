@@ -24724,3 +24724,39 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 .svc-tagline {
   color: rgba(255, 251, 240, 0.82) !important;
 }
+
+/* ================================================================
+   PERFECTIONISM PASS 6 — Project carousel: remove font blur
+   ================================================================ */
+
+/* ── Project card content section — strip the award-winning-reveal blur ──
+   The CSS selector [class*="content-section"] in the award-winning-reveal
+   animation matches .balanced-content-section (which contains "content-section").
+   Because AnimatePresence remounts the card on every project switch (new key),
+   the entry animation re-fires: filter: blur(4px) → blur(0) is visible on the
+   description text each time the user hovers/selects a project.
+   Fix: suppress the animation on the content area entirely. The AnimatePresence
+   transition (opacity + x-slide) already provides a clean entry — no blur needed.
+   ── */
+.balanced-content-section,
+.balanced-content-inner,
+.balanced-title,
+.balanced-subtitle,
+.balanced-description-text,
+.balanced-client,
+.balanced-meta,
+.balanced-capabilities,
+.card-cta-strip {
+  animation: none !important;
+  filter: none !important;
+}
+
+/* ── Also kill will-change on the card outer wrapper during hover ──
+   The perspective: 1000px from .gpu-accelerated creates a 3D compositing
+   context that disables subpixel antialiasing on text during transform
+   transitions. Override to a flat 2D context for the card container.
+   ── */
+.project-card-cinematic.gpu-accelerated {
+  perspective: none !important;
+  will-change: transform !important;
+}
