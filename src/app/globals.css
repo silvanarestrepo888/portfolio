@@ -24712,3 +24712,15 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   flex-direction: column !important;
   justify-content: center !important;
 }
+
+/* ── Services row text contrast — raise from warm vanilla to near-white ──
+   .svc-title was set to var(--vanilla-warm) (#F5F5DC) = ~4:1 on coral,
+   borderline and visually weak due to warm-on-warm color interaction.
+   .svc-tagline base rule had rgba(245,245,220,0.6) = fails 3:1 minimum.
+   Both raised to near-white for clear legibility. ── */
+.svc-title {
+  color: rgba(255, 251, 240, 1) !important;
+}
+.svc-tagline {
+  color: rgba(255, 251, 240, 0.82) !important;
+}
