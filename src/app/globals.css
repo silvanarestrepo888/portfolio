@@ -24760,3 +24760,56 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   perspective: none !important;
   will-change: transform !important;
 }
+
+/* ================================================================
+   PERFECTIONISM PASS 7 — Warm dark footer
+   ================================================================ */
+
+/* ── Footer: cream → warm dark #1A0D0B ──────────────────────────
+   The current vanilla-warm background causes the footer to merge
+   visually with the Experience section above (both cream), giving
+   the page no sense of closure. Switching to a warm dark — a near-
+   black with a faint coral undertone — creates a definitive close
+   while keeping the full-site palette coherent. The warm undertone
+   is perceived subconsciously, not literally: it reads as black
+   but feels like it belongs to the coral/warm system.
+   ── */
+.footer-editorial {
+  background: #1A0D0B !important;
+  border-top: 1px solid rgba(255, 102, 99, 0.12) !important;
+}
+
+/* ── Flip all text to near-white on the dark ground ── */
+.footer-editorial-statement {
+  color: rgba(255, 251, 240, 0.92) !important;
+}
+
+.footer-editorial-link {
+  color: rgba(255, 251, 240, 0.65) !important;
+  opacity: 1 !important;
+}
+
+.footer-editorial-link:hover {
+  color: var(--coral, #FF6663) !important;
+  opacity: 1 !important;
+}
+
+.footer-editorial-sep {
+  color: rgba(255, 251, 240, 0.25) !important;
+  opacity: 1 !important;
+}
+
+.footer-editorial-credit {
+  color: rgba(255, 251, 240, 0.35) !important;
+  opacity: 1 !important;
+}
+
+.footer-editorial-voice {
+  color: rgba(255, 251, 240, 0.72) !important;
+  opacity: 1 !important;
+}
+
+.footer-editorial-voice:hover {
+  color: var(--coral, #FF6663) !important;
+  opacity: 1 !important;
+}
