@@ -24822,3 +24822,22 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   color: var(--coral, #FF6663) !important;
   opacity: 1 !important;
 }
+
+/* ── Services section contrast pass ──────────────────────────────────────────
+   All three elements used vanilla-warm (#F5F5DC) at partial opacity, which
+   scores lower contrast on coral than plain near-white (#FFFBF0).
+   · svc-chevron: weight-200 at 85% opacity = ~2.36:1 — nearly invisible
+   · svc-tagline: vanilla-warm 82% = worse than near-white
+   · svc-description: vanilla-warm 80% = similar issue
+   Switch all to rgba(255,251,240,…) so the warm-on-warm blending stops
+   washing them out, and raise chevron to full opacity.
+   ──────────────────────────────────────────────────────────────────────── */
+.svc-chevron {
+  color: rgba(255, 251, 240, 1.0) !important;
+}
+.svc-tagline {
+  color: rgba(255, 251, 240, 0.82) !important;
+}
+.svc-description {
+  color: rgba(255, 251, 240, 0.88) !important;
+}
