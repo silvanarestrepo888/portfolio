@@ -24214,6 +24214,14 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   color: rgba(255, 251, 240, 0.90) !important;
   background: rgba(26, 13, 11, 0.82) !important;
   border: 1px solid rgba(255, 102, 99, 0.25) !important;
+  padding: 0.35rem 0.85rem !important;
+  border-radius: 100px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
 }
 
 /* ── Fix 4a: snippet title text — prevent clipping at card edge.
