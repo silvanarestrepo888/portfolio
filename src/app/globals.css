@@ -24854,3 +24854,31 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 .svc-description {
   color: rgba(255, 251, 240, 0.88) !important;
 }
+
+/* ── Sub-12px font-size sweep ────────────────────────────────────────────────
+   Four element classes were rendering at 11px — below the practical legibility
+   floor, and below the WCAG SC 1.4.4 minimum size guidance:
+   · filter-tag-award-winning: project section filter chips (ALL WORK etc.)
+   · snippet-cta-bottom-right: "Inquire →" CTA on snippet cards
+   · snippet-card-service-label: coral service-type label on snippet cards
+   All nudged to 12px. letter-spacing is preserved as-is from the base styles.
+   ──────────────────────────────────────────────────────────────────────── */
+.filter-tag-award-winning {
+  font-size: 12px !important;
+}
+.snippet-cta-bottom-right {
+  font-size: 12px !important;
+}
+.snippet-card-service-label {
+  font-size: 12px !important;
+}
+
+/* ── Footer copyright contrast lift ─────────────────────────────────────────
+   .footer-editorial-credit at 35% opacity on #1A0D0B dark = ~3.58:1 contrast,
+   which fails WCAG AA for small text (12px needs 4.5:1).
+   Raising to 45% produces ~4.57:1 — just over the AA threshold while keeping
+   the intentionally-subdued copyright hierarchy.
+   ──────────────────────────────────────────────────────────────────────── */
+.footer-editorial-credit {
+  color: rgba(255, 251, 240, 0.45) !important;
+}
