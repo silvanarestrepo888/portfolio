@@ -243,7 +243,7 @@ export default function Home() {
         transformation: "Digital Workflow"
       },
       image: "/projects/chime-care/hero-j&j.jpeg",
-      secondaryImage: "/projects/chime-care/secundary-jjpeg.jpeg",
+      secondaryImage: "/projects/chime-care/hero-chime-clinical.png",
       galleryImages: [
         "/projects/chime-care/Project GalleryImages/Screenshot 2025-03-06 at 171139-VSCO.jpeg",
         "/projects/chime-care/Project GalleryImages/Screenshot 2025-04-15 at 13.23.31.png",
