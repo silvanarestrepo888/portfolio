@@ -25032,3 +25032,88 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
     aspect-ratio: 16 / 9 !important;
   }
 }
+
+/* ============================================================
+   NOMADE HORIZONTAL FILM-STRIP GALLERY
+   4 landscape screenshots at uniform height, natural widths,
+   horizontally scrollable.
+   ============================================================ */
+
+.gallery-strip-wrapper {
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+.gallery-strip {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 8px !important;
+  height: 420px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  cursor: grab !important;
+  scroll-behavior: smooth !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important; /* Firefox */
+  padding-bottom: 0 !important;
+}
+
+.gallery-strip::-webkit-scrollbar {
+  display: none !important; /* Chrome/Safari */
+}
+
+.gallery-strip:active {
+  cursor: grabbing !important;
+}
+
+.gallery-strip-cell {
+  position: relative !important;
+  flex: 0 0 auto !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  border-radius: 4px !important;
+  background: var(--charcoal-deep) !important;
+  transition: opacity 0.3s ease !important;
+}
+
+.gallery-strip-cell:hover {
+  opacity: 0.92 !important;
+}
+
+.gallery-strip-img {
+  height: 100% !important;
+  width: auto !important;
+  max-width: none !important;
+  display: block !important;
+  object-fit: cover !important;
+  pointer-events: none !important;
+  user-select: none !important;
+}
+
+/* Small index number bottom-left */
+.gallery-strip-index {
+  position: absolute !important;
+  bottom: 10px !important;
+  left: 12px !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.14em !important;
+  color: rgba(255, 251, 240, 0.45) !important;
+  pointer-events: none !important;
+}
+
+/* Scroll hint label */
+.gallery-strip-hint {
+  margin-top: 12px !important;
+  text-align: center !important;
+  font-size: 10px !important;
+  letter-spacing: 0.20em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 251, 240, 0.25) !important;
+}
+
+@media (max-width: 768px) {
+  .gallery-strip {
+    height: 260px !important;
+  }
+}

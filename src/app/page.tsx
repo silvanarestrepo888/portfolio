@@ -276,6 +276,7 @@ export default function Home() {
       },
       image: "/projects/nomade/main-hero-carrusel.jpeg",
       secondaryImage: "/projects/nomade/secundary-hero.jpeg",
+      galleryLayout: "strip",
       galleryImages: [
         "/projects/nomade/Project Gallery/Screenshot 2024-11-15 at 15.21.56.png",
         "/projects/nomade/Project Gallery/Screenshot 2025-04-15 at 13.46.25.png",
@@ -1505,10 +1506,54 @@ export default function Home() {
               <h2 className="gallery-title typography-h3">Project Gallery</h2>
             </motion.div>
 
-            {/* EDITORIAL GALLERY — images first, video last */}
+            {/* GALLERY — strip layout for horizontal images, editorial for everything else */}
             {selectedProject !== null && (() => {
               const imgs = projects[selectedProject].galleryImages || [];
               const vid = (projects[selectedProject] as { galleryVideo?: string }).galleryVideo;
+              const layout = (projects[selectedProject] as { galleryLayout?: string }).galleryLayout;
+
+              /* ── HORIZONTAL FILM-STRIP (e.g. Nomade: 4 wide landscape screenshots) ── */
+              if (layout === 'strip') {
+                return (
+                  <motion.div
+                    className="gallery-strip-wrapper"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.9 }}
+                    viewport={{ once: true, margin: '-60px' }}
+                  >
+                    <div className="gallery-strip">
+                      {imgs.map((image, index) => (
+                        <motion.div
+                          key={index}
+                          className="gallery-strip-cell"
+                          initial={{ opacity: 0, x: 40 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.7, delay: index * 0.08 }}
+                          viewport={{ once: true, margin: '-40px' }}
+                          onClick={() => { setCurrentGalleryImage(index); setGalleryZoomOpen(true); setImageZoomedIn(false); }}
+                          style={{ cursor: 'pointer' }}
+                        >
+                          <Image
+                            src={image}
+                            alt={`${projects[selectedProject].title} — ${index + 1}`}
+                            width={1600}
+                            height={900}
+                            className="gallery-strip-img"
+                            style={{ height: '100%', width: 'auto', maxWidth: 'none', display: 'block', objectFit: 'cover' }}
+                            quality={95}
+                            unoptimized
+                          />
+                          <div className="gallery-strip-index">{String(index + 1).padStart(2, '0')}</div>
+                        </motion.div>
+                      ))}
+                    </div>
+                    <div className="gallery-strip-hint">← scroll →</div>
+                  </motion.div>
+                );
+              }
+
+              /* ── EDITORIAL LAYOUT (default — images first, video last) ── */
               return (
                 <div className="gallery-editorial">
                   {/* Row 1 — Full-width hero image */}
