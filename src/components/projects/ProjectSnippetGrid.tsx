@@ -8,6 +8,9 @@ interface SnippetProject {
   id: string;
   client: string;
   title: string;
+  year: string;
+  location: string;
+  capabilities: string[];
   industry: string;
   serviceType: string;
   website: string;

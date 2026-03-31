@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -8,6 +8,9 @@ interface SnippetProject {
   id: string;
   client: string;
   title: string;
+  year: string;
+  location: string;
+  capabilities: string[];
   industry: string;
   serviceType: string;
   website: string;
@@ -22,9 +25,29 @@ interface ProjectSnippetCardProps {
 
 export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project, index }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
-  // Show only the primary service (before the | separator)
-  const primaryService = project.serviceType.split('|')[0].trim();
+  const rotatorItems = [project.year, project.location, ...project.capabilities];
+  const [activeIndex, setActiveIndex] = useState(index % rotatorItems.length);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    if (isHovered) return;
+
+    const holdTimer = setTimeout(() => {
+      setVisible(false);
+    }, 2500);
+
+    const swapTimer = setTimeout(() => {
+      setActiveIndex(i => (i + 1) % rotatorItems.length);
+      setVisible(true);
+    }, 2900);
+
+    return () => {
+      clearTimeout(holdTimer);
+      clearTimeout(swapTimer);
+    };
+  }, [activeIndex, isHovered, rotatorItems.length]);
 
   const handleEmailClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -46,8 +69,10 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true }}
       whileHover={{ scale: 1.015 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Image — fills the container, shimmer until ready */}
+      {/* Image */}
       <div className={`snippet-image-container${imageLoaded ? '' : ' img-loading'}`}>
         <Image
           src={project.image}
@@ -68,15 +93,14 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
           onError={() => setImageLoaded(true)}
         />
 
-        {/* Industry pill — top right */}
+        {/* Industry pill */}
         <div className="snippet-industry-pill">{project.industry}</div>
 
-        {/* Coral sweep line — CSS :after handles the animation */}
+        {/* Coral sweep line */}
         <div className="snippet-sweep-line" aria-hidden="true" />
 
-        {/* Overlay — contains action buttons */}
+        {/* Overlay — action buttons */}
         <div className="snippet-overlay">
-          {/* External link — bottom left, reveals on hover */}
           <motion.button
             className="snippet-external-link"
             onClick={handleExternalLink}
@@ -86,7 +110,6 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
             ↗
           </motion.button>
 
-          {/* Inquire CTA — bottom right */}
           <motion.button
             className="snippet-cta-bottom-right"
             onClick={handleEmailClick}
@@ -99,13 +122,28 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
         </div>
       </div>
 
-      {/* Text section — client + title + service */}
+      {/* Text section */}
       <div className="snippet-title-section">
         <p className="snippet-client-name">{project.client}</p>
         <h3 className="snippet-title-text">{project.title}</h3>
-        <p className="snippet-card-service-label">{primaryService}</p>
-      </div>
 
+        {/* Metadata rotator */}
+        <div className="snippet-rotator" aria-label={`${project.year}, ${project.location}, ${project.capabilities.join(', ')}`}>
+          {!isHovered ? (
+            <span
+              className="snippet-rotator-single"
+              style={{ opacity: visible ? 1 : 0 }}
+            >
+              {rotatorItems[activeIndex]}
+            </span>
+          ) : (
+            <div className="snippet-rotator-expanded">
+              <span className="snippet-rotator-meta">{project.year} · {project.location}</span>
+              <span className="snippet-rotator-caps">{project.capabilities.join(' · ')}</span>
+            </div>
+          )}
+        </div>
+      </div>
     </motion.div>
   );
 };

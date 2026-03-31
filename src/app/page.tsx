@@ -357,12 +357,41 @@ export default function Home() {
     }
   ], []); // Empty dependency array - static data
 
-  // SNIPPET PROJECTS DATA - Additional Work Across Diverse Sectors
+  // SNIPPET PROJECTS DATA - Ordered newest → oldest
   const snippetProjects = useMemo(() => [
+    {
+      id: 'parques-reunidos',
+      client: 'Parques Reunidos',
+      title: 'Catalog Harmonisation — 70 Venues',
+      year: '2023',
+      location: 'Europe',
+      capabilities: ['Business Design', 'Experience Design'],
+      industry: 'Themed Parks & Entertainment',
+      serviceType: 'Experience Design | Platform Architecture',
+      website: 'https://www.parquesreunidos.com/',
+      image: '/projects/parques-reunidos/hero-parque-reunidos.png',
+      emailSubject: 'Inquiry about Catalog Harmonisation - Parques Reunidos Project'
+    },
+    {
+      id: 'danone',
+      client: 'Danone',
+      title: 'Smart Pricing System',
+      year: '2020',
+      location: 'Global',
+      capabilities: ['Digital Transformation', 'Pricing Strategy'],
+      industry: 'Food & Beverage',
+      serviceType: 'Digital Transformation | Pricing Strategy',
+      website: 'https://www.danone.com/',
+      image: '/projects/danone/main-hero-carrusel.jpeg',
+      emailSubject: 'Inquiry about Smart Pricing System - Danone Digital Transformation Project'
+    },
     {
       id: 'c4ir-colombia',
       client: 'C4IR Colombia · WEF',
       title: 'Policy Innovation for Emerging Technologies',
+      year: '2019',
+      location: 'Colombia',
+      capabilities: ['Strategic Design', 'Policy Innovation'],
       industry: 'Government & Public Policy',
       serviceType: 'Strategic Framework Design | Stakeholder Orchestration',
       website: 'https://centres.weforum.org/centre-for-frontier-technologies-and-innovation/network',
@@ -373,6 +402,9 @@ export default function Home() {
       id: 'wef-designit',
       client: 'World Economic Forum · Designit',
       title: 'Industrial IoT Governance Models',
+      year: '2019',
+      location: 'Brazil',
+      capabilities: ['Strategic Design', 'Cross-Sector Partnerships'],
       industry: 'Technology Policy & Innovation',
       serviceType: 'Cross-Sector Partnership Design | Strategic Advisory',
       website: 'https://www.designit.com/',
@@ -381,8 +413,11 @@ export default function Home() {
     },
     {
       id: 'viva-malls',
-      client: 'CC Viva',
+      client: 'Viva Mall',
       title: 'Phygital Retail Revolution',
+      year: '2019',
+      location: 'Colombia',
+      capabilities: ['Experience Architecture', 'Digital Transformation'],
       industry: 'Retail & Real Estate',
       serviceType: 'Experience Architecture | Digital Transformation',
       website: 'https://ccviva.com/',
@@ -393,6 +428,9 @@ export default function Home() {
       id: 'grupo-exito',
       client: 'Grupo Éxito',
       title: 'Retail Experience Ecosystem',
+      year: '2019',
+      location: 'Colombia',
+      capabilities: ['Design Direction', 'Service Design', 'Phygital Design'],
       industry: 'Retail & Consumer Goods',
       serviceType: 'Service Design | Organizational Transformation',
       website: 'https://www.grupoexito.com.co/es',
@@ -403,31 +441,14 @@ export default function Home() {
       id: 'tigo-millicom',
       client: 'Tigo · Millicom',
       title: 'Telecom Customer Intelligence Platform',
+      year: '2010',
+      location: 'Colombia',
+      capabilities: ['Business Expansion', 'Customer Experience'],
       industry: 'Telecommunications',
-      serviceType: 'Product Direction| Market Expansion Strategy',
+      serviceType: 'Product Direction | Market Expansion Strategy',
       website: 'https://www.tigo.com.co/',
       image: '/projects/snippets/tigo-millicom.png',
       emailSubject: 'Inquiry about Telecom Customer Intelligence Platform - Telecommunications Project'
-    },
-    {
-      id: 'danone',
-      client: 'Danone',
-      title: 'Smart Pricing System',
-      industry: 'Food & Beverage',
-      serviceType: 'Digital Transformation | Pricing Strategy',
-      website: 'https://www.danone.com/',
-      image: '/projects/danone/main-hero-carrusel.jpeg',
-      emailSubject: 'Inquiry about Smart Pricing System - Danone Digital Transformation Project'
-    },
-    {
-      id: 'parques-reunidos',
-      client: 'Parques Reunidos',
-      title: 'Catalog Harmonisation — 70 Venues',
-      industry: 'Themed Parks & Entertainment',
-      serviceType: 'Experience Design | Platform Architecture',
-      website: 'https://www.parquesreunidos.com/',
-      image: '/projects/parques-reunidos/hero-parque-reunidos.png',
-      emailSubject: 'Inquiry about Catalog Harmonisation - Parques Reunidos Project'
     }
   ], []); // Empty dependency array - static data
 

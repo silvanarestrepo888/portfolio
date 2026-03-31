@@ -25273,3 +25273,67 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   color: rgba(30, 28, 26, 0.5) !important;
   margin: 0 !important;
 }
+
+/* ============================================================
+   SNIPPET METADATA ROTATOR
+   Single fading value at rest — year / location / capability.
+   Hover reveals all values at once in a two-line expansion.
+   ============================================================ */
+
+/* Container — fixed height prevents layout shift during swap */
+.snippet-rotator {
+  min-height: 2.4em !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  margin-top: 4px !important;
+}
+
+/* Single rotating value */
+.snippet-rotator-single {
+  display: block !important;
+  font-family: var(--font-body, 'Inter', sans-serif) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.10em !important;
+  text-transform: uppercase !important;
+  color: rgba(30, 28, 26, 0.45) !important;
+  transition: opacity 0.4s ease !important;
+  white-space: nowrap !important;
+}
+
+/* Expanded state on hover — two-line reveal */
+.snippet-rotator-expanded {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 5px !important;
+  animation: snippetRotatorReveal 0.25s ease forwards !important;
+}
+
+/* Year · Location line */
+.snippet-rotator-meta {
+  display: block !important;
+  font-family: var(--font-body, 'Inter', sans-serif) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.13em !important;
+  text-transform: uppercase !important;
+  color: var(--coral-energy, #ff6663) !important;
+}
+
+/* Capabilities line */
+.snippet-rotator-caps {
+  display: block !important;
+  font-family: var(--font-body, 'Inter', sans-serif) !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.05em !important;
+  color: rgba(30, 28, 26, 0.55) !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+@keyframes snippetRotatorReveal {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
