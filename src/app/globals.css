@@ -25269,7 +25269,7 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 
 /* Service label — below title, tertiary */
 .snippet-card-service-label {
-  font-size: 11px !important;
+  font-size: 12px !important; /* 12px minimum — WCAG legibility floor */
   color: rgba(30, 28, 26, 0.5) !important;
   margin: 0 !important;
 }

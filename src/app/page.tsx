@@ -1817,7 +1817,6 @@ export default function Home() {
           style={{ overflow: imageZoomedIn ? 'auto' : 'hidden' }}
           onMouseDown={(e) => {
             if (e.target === e.currentTarget) {
-              console.log('Gallery modal background clicked - closing');
               setGalleryZoomOpen(false);
               setImageZoomedIn(false); // Reset zoom when closing
             }
@@ -1828,7 +1827,7 @@ export default function Home() {
           transition={{ duration: 0.3 }}
         >
           <motion.div
-            className="relative max-w-[48vw] max-h-[48vh] w-full mx-4"
+            className="relative max-w-[85vw] max-h-[85vh] w-full mx-4"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
@@ -1906,7 +1905,6 @@ export default function Home() {
               onMouseDown={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                console.log('Gallery modal close button clicked');
                 setGalleryZoomOpen(false);
                 setImageZoomedIn(false);
               }}
