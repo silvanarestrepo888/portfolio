@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { Linkedin, Mail } from 'lucide-react';
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import { CustomCursor } from '../components/motion/CustomCursor';
 import { MagneticCursor } from '../components/ui/MagneticCursor';
@@ -79,8 +79,14 @@ export default function Home() {
   // Services hover expansion state
   const [expandedService, setExpandedService] = useState<string | null>(null);
   const [aboutLoaded, setAboutLoaded] = useState(false);
-  
-  
+
+  // Gallery video ref — controls playback speed for projects with galleryVideo
+  const galleryVideoRef = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    if (galleryVideoRef.current) {
+      galleryVideoRef.current.playbackRate = 1.75;
+    }
+  });
 
 
   // Sophisticated navigation functions with elegant transitions
@@ -170,7 +176,7 @@ export default function Home() {
       image: "/projects/kayanee/hero-kayanee.jpeg",
       secondaryImage: "/projects/kayanee/secundary-kayanee.jpeg",
       video: "/projects/kayanee/kayanee-story.mp4",
-      galleryVideo: "/projects/kayanee/beat-concept.mp4",
+      galleryVideo: "/projects/kayanee/beat-concept-v2.mp4",
       galleryImages: [
         "/projects/kayanee/Project Gallery /gallery-01-design-system.png",
         "/projects/kayanee/Project Gallery /gallery-02-ecommerce.png",
@@ -1489,7 +1495,7 @@ export default function Home() {
               
           {/* PROJECT GALLERY */}
           <div className="project-gallery-section project-details-gallery-section">
-                <motion.div 
+                <motion.div
               className="gallery-header"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1498,74 +1504,164 @@ export default function Home() {
             >
               <h2 className="gallery-title typography-h3">Project Gallery</h2>
             </motion.div>
-            <div className={`gallery-grid${(selectedProject !== null && (projects[selectedProject] as { galleryVideo?: string }).galleryVideo) ? ' gallery-grid-with-video' : ''}`}>
-              {/* Video container — only rendered when project has a galleryVideo field */}
-              {selectedProject !== null && (projects[selectedProject] as { galleryVideo?: string }).galleryVideo && (
-                <motion.div
-                  className="gallery-item gallery-item-video"
-                  initial={{ opacity: 0, scale: 0.95, y: 40 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2, type: 'spring', stiffness: 90 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                >
-                  <video
-                    src={(projects[selectedProject] as { galleryVideo?: string }).galleryVideo}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="gallery-video-player"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: '8px' }}
-                  />
-                  <div className="gallery-video-badge">▶ Video</div>
-                </motion.div>
-              )}
-              {/* Gallery Images — no slice cap; renders all images in the array */}
-              {selectedProject !== null && projects[selectedProject].galleryImages && projects[selectedProject].galleryImages.map((image, index) => (
-                <motion.div
-                        key={index}
-                  className="gallery-item"
-                  initial={{ opacity: 0, scale: 0.8, y: 50 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{
-                    duration: 0.8,
-                    delay: 0.3 + index * 0.1,
-                    type: "spring",
-                    stiffness: 100
-                  }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  whileHover={{ scale: 1.01 }}
-                  onClick={() => {
-                    setCurrentGalleryImage(index);
-                    setGalleryZoomOpen(true);
-                    setImageZoomedIn(false);
-                  }}
-                  style={{ cursor: 'pointer' }}
-                      >
-                        <Image
-                          src={image}
-                          alt={`${projects[selectedProject].title} - Image ${index + 2}`}
-                          width={1200}
-                          height={800}
-                          className="gallery-image-perfect"
-                          style={{
-                            width: '100%',
-                            height: 'auto',
-                            objectFit: 'cover',
-                            objectPosition: 'center',
-                            display: 'block'
-                          }}
-                          quality={95}
-                          unoptimized
-                          onError={(e) => {
-                            e.currentTarget.style.setProperty('background-color', 'var(--vanilla-depth)');
-                            e.currentTarget.style.setProperty('border', '1px solid var(--charcoal-light)');
-                          }}
-                          onLoad={() => {}}
+
+            {/* EDITORIAL GALLERY — images first, video last */}
+            {selectedProject !== null && (() => {
+              const imgs = projects[selectedProject].galleryImages || [];
+              const vid = (projects[selectedProject] as { galleryVideo?: string }).galleryVideo;
+              return (
+                <div className="gallery-editorial">
+                  {/* Row 1 — Full-width hero image */}
+                  {imgs[0] && (
+                    <motion.div
+                      className="gallery-editorial-hero"
+                      initial={{ opacity: 0, y: 40 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.9 }}
+                      viewport={{ once: true, margin: '-60px' }}
+                      onClick={() => { setCurrentGalleryImage(0); setGalleryZoomOpen(true); setImageZoomedIn(false); }}
+                      style={{ cursor: 'pointer' }}
+                    >
+                      <Image
+                        src={imgs[0]}
+                        alt={`${projects[selectedProject].title} — Design system overview`}
+                        width={2400}
+                        height={1200}
+                        className="gallery-editorial-img"
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
+                        quality={95}
+                        unoptimized
+                      />
+                    </motion.div>
+                  )}
+
+                  {/* Row 2 — Left dominant (wider left) */}
+                  {(imgs[1] || imgs[2]) && (
+                    <div className="gallery-editorial-row gallery-editorial-row--left">
+                      {imgs[1] && (
+                        <motion.div
+                          className="gallery-editorial-cell"
+                          initial={{ opacity: 0, y: 40 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.9, delay: 0.1 }}
+                          viewport={{ once: true, margin: '-60px' }}
+                          onClick={() => { setCurrentGalleryImage(1); setGalleryZoomOpen(true); setImageZoomedIn(false); }}
+                          style={{ cursor: 'pointer' }}
+                        >
+                          <Image
+                            src={imgs[1]}
+                            alt={`${projects[selectedProject].title} — E-commerce experience`}
+                            width={1600}
+                            height={1200}
+                            className="gallery-editorial-img"
+                            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+                            quality={95}
+                            unoptimized
+                          />
+                        </motion.div>
+                      )}
+                      {imgs[2] && (
+                        <motion.div
+                          className="gallery-editorial-cell"
+                          initial={{ opacity: 0, y: 40 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.9, delay: 0.2 }}
+                          viewport={{ once: true, margin: '-60px' }}
+                          onClick={() => { setCurrentGalleryImage(2); setGalleryZoomOpen(true); setImageZoomedIn(false); }}
+                          style={{ cursor: 'pointer' }}
+                        >
+                          <Image
+                            src={imgs[2]}
+                            alt={`${projects[selectedProject].title} — Homepage experience`}
+                            width={1200}
+                            height={1200}
+                            className="gallery-editorial-img"
+                            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+                            quality={95}
+                            unoptimized
+                          />
+                        </motion.div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Row 3 — Right dominant (wider right, Z-pattern) */}
+                  {(imgs[3] || imgs[4]) && (
+                    <div className="gallery-editorial-row gallery-editorial-row--right">
+                      {imgs[3] && (
+                        <motion.div
+                          className="gallery-editorial-cell"
+                          initial={{ opacity: 0, y: 40 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.9, delay: 0.1 }}
+                          viewport={{ once: true, margin: '-60px' }}
+                          onClick={() => { setCurrentGalleryImage(3); setGalleryZoomOpen(true); setImageZoomedIn(false); }}
+                          style={{ cursor: 'pointer' }}
+                        >
+                          <Image
+                            src={imgs[3]}
+                            alt={`${projects[selectedProject].title} — Homepage detail`}
+                            width={1200}
+                            height={1200}
+                            className="gallery-editorial-img"
+                            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+                            quality={95}
+                            unoptimized
+                          />
+                        </motion.div>
+                      )}
+                      {imgs[4] && (
+                        <motion.div
+                          className="gallery-editorial-cell"
+                          initial={{ opacity: 0, y: 40 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.9, delay: 0.2 }}
+                          viewport={{ once: true, margin: '-60px' }}
+                          onClick={() => { setCurrentGalleryImage(4); setGalleryZoomOpen(true); setImageZoomedIn(false); }}
+                          style={{ cursor: 'pointer' }}
+                        >
+                          <Image
+                            src={imgs[4]}
+                            alt={`${projects[selectedProject].title} — Progressive innovations`}
+                            width={1600}
+                            height={1200}
+                            className="gallery-editorial-img"
+                            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+                            quality={95}
+                            unoptimized
+                          />
+                        </motion.div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Video — last, understated, centered */}
+                  {vid && (
+                    <motion.div
+                      className="gallery-editorial-video-section"
+                      initial={{ opacity: 0, y: 40 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 1.0, delay: 0.1 }}
+                      viewport={{ once: true, margin: '-60px' }}
+                    >
+                      <div className="gallery-editorial-video-rule" />
+                      <p className="gallery-editorial-video-label">Process Documentation</p>
+                      <div className="gallery-editorial-video-container">
+                        <video
+                          ref={galleryVideoRef}
+                          src={vid}
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                         />
-                </motion.div>
-                    ))}
-            </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </div>
+              );
+            })()}
                   </div>
                 
           {/* SOPHISTICATED PROJECT NAVIGATION */}

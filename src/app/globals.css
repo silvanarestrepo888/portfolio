@@ -24927,3 +24927,108 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   pointer-events: none;
   z-index: 2;
 }
+
+/* ============================================================
+   KAYANEE EDITORIAL GALLERY — Art Director Layout
+   Images first (hero → left-dominant → right-dominant),
+   video last (understated, centered, smaller).
+   ============================================================ */
+
+.gallery-editorial {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  width: 100% !important;
+}
+
+/* Row 1 — Full-width cinematic hero */
+.gallery-editorial-hero {
+  width: 100% !important;
+  aspect-ratio: 16 / 7 !important;
+  overflow: hidden !important;
+  border-radius: 4px !important;
+  background: var(--charcoal-deep) !important;
+}
+
+/* Rows 2 & 3 — two-cell asymmetric grids */
+.gallery-editorial-row {
+  display: grid !important;
+  gap: 10px !important;
+  width: 100% !important;
+}
+
+.gallery-editorial-row--left {
+  grid-template-columns: 57fr 41fr !important; /* wider left */
+}
+
+.gallery-editorial-row--right {
+  grid-template-columns: 41fr 57fr !important; /* wider right — Z-pattern */
+}
+
+.gallery-editorial-cell {
+  aspect-ratio: 4 / 3 !important;
+  overflow: hidden !important;
+  border-radius: 4px !important;
+  background: var(--charcoal-deep) !important;
+}
+
+/* Shared image style inside editorial cells */
+.gallery-editorial-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  transition: transform 0.6s ease !important;
+}
+
+.gallery-editorial-hero:hover .gallery-editorial-img,
+.gallery-editorial-cell:hover .gallery-editorial-img {
+  transform: scale(1.025) !important;
+}
+
+/* Video section — understated, centered, comes last */
+.gallery-editorial-video-section {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 16px !important;
+  padding-top: 32px !important;
+  width: 100% !important;
+}
+
+.gallery-editorial-video-rule {
+  width: 100% !important;
+  height: 1px !important;
+  background: rgba(255, 251, 240, 0.10) !important;
+}
+
+.gallery-editorial-video-label {
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 251, 240, 0.35) !important;
+  margin: 0 !important;
+}
+
+.gallery-editorial-video-container {
+  width: 74% !important;
+  aspect-ratio: 16 / 9 !important;
+  overflow: hidden !important;
+  border-radius: 4px !important;
+  background: #0a0a0a !important;
+}
+
+@media (max-width: 768px) {
+  .gallery-editorial-row--left,
+  .gallery-editorial-row--right {
+    grid-template-columns: 1fr !important;
+  }
+  .gallery-editorial-video-container {
+    width: 100% !important;
+  }
+  .gallery-editorial-hero {
+    aspect-ratio: 16 / 9 !important;
+  }
+}
