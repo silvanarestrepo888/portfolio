@@ -178,11 +178,11 @@ export default function Home() {
       video: "/projects/kayanee/kayanee-story.mp4",
       galleryVideo: "/projects/kayanee/beat-concept-v2.mp4",
       galleryImages: [
-        "/projects/kayanee/Project Gallery /gallery-01-design-system.png",
-        "/projects/kayanee/Project Gallery /gallery-02-ecommerce.png",
-        "/projects/kayanee/Project Gallery /gallery-03-homepage-a.png",
-        "/projects/kayanee/Project Gallery /gallery-04-homepage-b.png",
-        "/projects/kayanee/Project Gallery /gallery-05-innovations.png"
+        "/projects/kayanee/Project Gallery /gallery-01-brand-expression.png",
+        "/projects/kayanee/Project Gallery /gallery-02-wellness-diagnostics.png",
+        "/projects/kayanee/Project Gallery /gallery-03-ecommerce.png",
+        "/projects/kayanee/Project Gallery /gallery-04-design-system.png",
+        "/projects/kayanee/Project Gallery /gallery-05-information-architecture.png"
       ],
       context: "Saudi Arabia's wellness market represents $19 billion. No platform connected physical wellness venues with digital products and e-commerce for women. Kayanee — backed by PIF — needed a complete experience ecosystem designed from scratch: consumer research, brand experience translation, omnichannel journey architecture, product design across three MVPs, and a design system serving two languages.\n\nWe shaped the solution from the pre-sale stage and led the experience design from day one, in strategic partnership with BCG. The scope covered the full design lifecycle — from qualitative research inside Saudi women's homes in Riyadh to a shipped bilingual e-commerce platform at kayanee.com.",
       scope: "We designed and led the qualitative consumer research — in-home sessions in Riyadh using a discussion framework we authored, building on quantitative data from 552 women surveyed across Saudi Arabia. The research validated the digital product interaction and the value proposition itself. Parts of the planned offering turned out to be irrelevant to the women we sat with — the research reshaped what Kayanee would offer before a single screen was designed.\n\nWe mapped the complete omnichannel customer journey — nine stages from Inspire through Support, across six business lines (Fitness, Personal Care, Learning, Nutrition, Apparel, Healthy Eating) and four product versions. We translated that journey into feature sets, information architecture, and user flows for each MVP.\n\nWe designed the Health Screener, the Wellness Profile dashboard, and the data flows envisioning the connection with physical venue touchpoints (MS Fit biometric kiosk, proximity sensors, QR scanning, digital signage) with the mobile app and e-commerce platform. We built the design system — color tokens serving three surfaces and two alphabets from the ground up.",
