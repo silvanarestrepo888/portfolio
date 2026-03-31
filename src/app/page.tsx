@@ -174,7 +174,7 @@ export default function Home() {
         transformation: "First-of-its-kind Platform"
       },
       image: "/projects/kayanee/hero-kayanee.jpeg",
-      secondaryImage: "/projects/kayanee/secundary-kayanee.jpeg",
+      secondaryImage: "/projects/kayanee/Project Gallery /gallery-01-brand-expression.png",
       video: "/projects/kayanee/kayanee-story.mp4",
       galleryVideo: "/projects/kayanee/beat-concept-v2.mp4",
       galleryImages: [
@@ -293,70 +293,6 @@ export default function Home() {
       }
     },
     {
-      title: "Danone Digital Transformation",
-      subtitle: "Driving Digital Transformation in Pricing Strategy",
-      description: "In volatile markets, reactive pricing costs opportunities. Danone's Smart Pricing System represents a fundamental shift—data intelligence and predictive analytics now enable real-time market response, transforming pricing from operational necessity into competitive advantage.",
-      tech: ["Digital Transformation", "Service Design", "Product Strategy"],
-      industryTags: ["Food and Beverage"],
-      category: "Food and Beverage",
-      year: "2021",
-      client: "Danone",
-      location: "Argentina",
-      website: "https://www.danone.com/",
-      impactMetrics: {
-        scale: "Corporate Strategy", 
-        reach: "Market Intelligence",
-        transformation: "Pricing Innovation"
-      },
-      image: "/projects/danone/main-hero-carrusel.jpeg",
-      secondaryImage: "/projects/danone/secundary-hero.png",
-      galleryImages: [
-        "/projects/danone/Project Gallery/Screenshot 2025-04-15 at 14.01.55.png",
-        "/projects/danone/Project Gallery/Screenshot 2025-04-15 at 14.03.20.png",
-        "/projects/danone/Project Gallery/secundary-danone.jpeg"
-      ],
-      context: "In food and beverage, pricing decisions must be intelligent and adaptive against rapidly shifting market dynamics. Danone needed to transition from a reactive, inflationary pricing approach to predictive models aligned with erratic market behaviour. A comprehensive Digital Maturity Assessment was undertaken to evaluate capabilities across technology, data, processes, and organisational culture.",
-      scope: "We led the maturity assessment, identifying capability gaps between Danone's digital ambition and its current operational reality. Critical challenges in data governance, technology automation, and cross-functional processes Scalability was diagnosed. A modular pricing framework was architected to ensure strategic alignment with broader organisational transformation objectives.",
-      impact: "The strategic roadmap established foundations for dynamic pricing capabilities leveraging predictive analytics and automation. Detailed implementation frameworks outlined pathways to overcome silos between pricing, sales, and finance teams. The discovery phase delivered a scalable vision positioning pricing as strategic advantage in Danone's digital transformation.",
-      testimonial: {
-        quote: "Silvana is a person who shows permanent commitment to the project, always responsible and collaborating not only with regard to her tasks and objectives but also with those of the team and the project. On the other hand, she has proven to be innovative, proposing, challenging and always seeking to optimize work dynamics and tools to work with clients.",
-        author: "Roberto Hernán Murdocca",
-        role: "Tech Director - Globant"
-      }
-    },
-    {
-      title: "Parques Reunidos",
-      subtitle: "Catalog Harmonisation",
-      description: "Seventy diverse entertainment venues created stunning operational complexity. A unified product language now preserves venue-specific narratives while enabling enterprise-wide product strategies, turning fragmented systems into coordinated platform across three continents.",
-      tech: ["Experience Design", "Service Design", "Digital Transformation"],
-      industryTags: ["Themed Parks"],
-      category: "Themed Parks",
-      year: "2023",
-      client: "Parques Reunidos",
-      location: "Spain",
-      website: "https://www.parquesreunidos.com/",
-      impactMetrics: {
-        scale: "70 Entertainment Venues",
-        reach: "3 Continents", 
-        transformation: "Unified Platform"
-      },
-      image: "/projects/parques-reunidos/hero-parque-reunidos.png",
-      secondaryImage: "/projects/parques-reunidos/secundary-image.jpeg",
-      galleryImages: [
-        "/projects/parques-reunidos/Project Gallery/Envisioning for Digital Planning and Booking.png",
-        "/projects/parques-reunidos/Project Gallery/Envisioning for Dynamic Booking.png",
-        "/projects/parques-reunidos/Project Gallery/Project Envisioning Customer Journey Unfied .png"
-      ],
-      context: "Parques Reunidos is a global leisure leader operating seventy diverse entertainment venues spanning three continents and multiple experience categories. Portfolio diversity created operational complexity—particularly across six sales channels and seven distinct product categories. Fragmented systems limited consistent guest experiences and prevented implementation of enterprise-wide product strategies.",
-      scope: "In collaboration with internal teams, we created a unified product taxonomy to enable operational efficiency while preserving the authenticity of local venue offerings. We designed governance frameworks that balance centralised intelligence with venue-specific innovation across diverse properties. Integration pathways were mapped to connect disparate systems into a coherent operational ecosystem, enhancing both efficiency and engagement.",
-      impact: "As Globant we established master catalog architecture, creating a unified product language while preserving unique venue-specific narratives. Designed a governance system, transforming fragmented decision processes into coordinated strategic actions across the portfolio. Envisioned an implementation roadmap elevating product ecosystems from operational necessities to strategic enablers of guest delight.",
-      testimonial: {
-        quote: "We have completed the Catalog Harmonisation Project in the expected time and conditions, despite having a very complex scope, with changes along the way. We have simultaneously created spaces for new project opportunities and increase client satisfactions with a NPS of 9",
-        author: "Diego Salcedo",
-        role: "Delivery Manager - Globant"
-      }
-    },
-    {
       title: "Flagship Entertainment Destination, KSA",
       subtitle: "PoC Guest Support Platform",
       description: "Saudi Arabia's flagship entertainment destination required comprehensive guest support systems navigating uncharted territory in a landmark entertainment project. Theme parks, water attractions, sports facilities, and retail centers operated through a unified digital infrastructure where both guests and operational staff would encounter these systems for the first time.",
@@ -467,6 +403,24 @@ export default function Home() {
       website: 'https://www.tigo.com.co/',
       image: '/projects/snippets/tigo-millicom.png',
       emailSubject: 'Inquiry about Telecom Customer Intelligence Platform - Telecommunications Project'
+    },
+    {
+      id: 'danone',
+      title: 'Smart Pricing System',
+      industry: 'Food & Beverage',
+      serviceType: 'Digital Transformation | Pricing Strategy',
+      website: 'https://www.danone.com/',
+      image: '/projects/danone/main-hero-carrusel.jpeg',
+      emailSubject: 'Inquiry about Smart Pricing System - Danone Digital Transformation Project'
+    },
+    {
+      id: 'parques-reunidos',
+      title: 'Catalog Harmonisation — 70 Venues',
+      industry: 'Themed Parks & Entertainment',
+      serviceType: 'Experience Design | Platform Architecture',
+      website: 'https://www.parquesreunidos.com/',
+      image: '/projects/parques-reunidos/hero-parque-reunidos.png',
+      emailSubject: 'Inquiry about Catalog Harmonisation - Parques Reunidos Project'
     }
   ], []); // Empty dependency array - static data
 
@@ -479,11 +433,9 @@ export default function Home() {
     const project = projects[selectedProject];
     const projectColorMoods = {
       'Kayanee': 'project-coral-dominant',
-      'Augoor': 'project-charcoal-dominant', 
+      'Augoor': 'project-charcoal-dominant',
       'Chime Care J&J': 'project-cream-dominant',
       'Nomade Tulum': 'project-charcoal-dominant',
-      'Danone Digital Transformation': 'project-coral-dominant',
-      'Parques Reunidos': 'project-charcoal-dominant',
       'Flagship Entertainment Destination, KSA': 'project-coral-dominant'
     };
     
