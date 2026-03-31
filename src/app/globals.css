@@ -25117,3 +25117,75 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
     height: 260px !important;
   }
 }
+
+/* ============================================================
+   SERVICES SECTION — use full container width
+   Remove the 900px centre-column constraint so the accordion
+   fills the section edge-to-edge within its container padding.
+   ============================================================ */
+
+/* Unconstrain the header and list */
+.svc-header {
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  text-align: left !important;
+}
+
+.svc-list {
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Heading aligns left — feels like an editorial label */
+.svc-heading {
+  text-align: left !important;
+}
+
+/* Expanded body: 2-column on wide screens
+   Description/demand on the left, tags + CTA on the right */
+.svc-body-inner {
+  display: grid !important;
+  grid-template-columns: 3fr 2fr !important;
+  grid-template-rows: auto !important;
+  column-gap: clamp(32px, 5vw, 80px) !important;
+  align-items: start !important;
+  padding: clamp(16px, 2.5vw, 28px) clamp(16px, 3vw, 32px) clamp(24px, 3.5vw, 40px) !important;
+}
+
+.svc-description {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+
+.svc-demand {
+  grid-column: 1 !important;
+  grid-row: 2 !important;
+}
+
+.svc-tags {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+}
+
+.svc-cta {
+  grid-column: 2 !important;
+  grid-row: 2 !important;
+  align-self: end !important;
+  justify-self: start !important;
+}
+
+/* On mobile collapse to single column */
+@media (max-width: 768px) {
+  .svc-body-inner {
+    grid-template-columns: 1fr !important;
+  }
+  .svc-description,
+  .svc-demand,
+  .svc-tags,
+  .svc-cta {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+}
