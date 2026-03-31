@@ -25189,3 +25189,42 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
     grid-row: auto !important;
   }
 }
+
+/* ============================================================
+   SERVICES — heading symmetry fix
+   Heading centres like every other section (about, projects).
+   The full-width list below it is unaffected.
+   ============================================================ */
+.svc-header {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.svc-heading {
+  text-align: center !important;
+}
+
+/* ============================================================
+   KAYANEE GALLERY — objectFit: contain for design artifacts
+   Hero (photography) keeps cover.
+   Inner cells switch to contain so no content is cropped.
+   ============================================================ */
+
+/* Row cells: contain + dark mat background */
+.gallery-editorial-cell {
+  background: #0f0f0f !important;
+}
+
+.gallery-editorial-cell .gallery-editorial-img {
+  object-fit: contain !important;
+  object-position: center center !important;
+  padding: clamp(8px, 1.5vw, 20px) !important;
+}
+
+/* Hero stays cover — it's photography, cropping is intentional */
+.gallery-editorial-hero .gallery-editorial-img {
+  object-fit: cover !important;
+  object-position: center center !important;
+  padding: 0 !important;
+}
