@@ -6,6 +6,7 @@ import { ProjectSnippetCard } from './ProjectSnippetCard';
 
 interface SnippetProject {
   id: string;
+  client: string;
   title: string;
   industry: string;
   serviceType: string;

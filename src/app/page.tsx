@@ -361,6 +361,7 @@ export default function Home() {
   const snippetProjects = useMemo(() => [
     {
       id: 'c4ir-colombia',
+      client: 'C4IR Colombia · WEF',
       title: 'Policy Innovation for Emerging Technologies',
       industry: 'Government & Public Policy',
       serviceType: 'Strategic Framework Design | Stakeholder Orchestration',
@@ -370,6 +371,7 @@ export default function Home() {
     },
     {
       id: 'wef-designit',
+      client: 'World Economic Forum · Designit',
       title: 'Industrial IoT Governance Models',
       industry: 'Technology Policy & Innovation',
       serviceType: 'Cross-Sector Partnership Design | Strategic Advisory',
@@ -379,6 +381,7 @@ export default function Home() {
     },
     {
       id: 'viva-malls',
+      client: 'CC Viva',
       title: 'Phygital Retail Revolution',
       industry: 'Retail & Real Estate',
       serviceType: 'Experience Architecture | Digital Transformation',
@@ -388,6 +391,7 @@ export default function Home() {
     },
     {
       id: 'grupo-exito',
+      client: 'Grupo Éxito',
       title: 'Retail Experience Ecosystem',
       industry: 'Retail & Consumer Goods',
       serviceType: 'Service Design | Organizational Transformation',
@@ -397,6 +401,7 @@ export default function Home() {
     },
     {
       id: 'tigo-millicom',
+      client: 'Tigo · Millicom',
       title: 'Telecom Customer Intelligence Platform',
       industry: 'Telecommunications',
       serviceType: 'Product Direction| Market Expansion Strategy',
@@ -406,6 +411,7 @@ export default function Home() {
     },
     {
       id: 'danone',
+      client: 'Danone',
       title: 'Smart Pricing System',
       industry: 'Food & Beverage',
       serviceType: 'Digital Transformation | Pricing Strategy',
@@ -415,6 +421,7 @@ export default function Home() {
     },
     {
       id: 'parques-reunidos',
+      client: 'Parques Reunidos',
       title: 'Catalog Harmonisation — 70 Venues',
       industry: 'Themed Parks & Entertainment',
       serviceType: 'Experience Design | Platform Architecture',

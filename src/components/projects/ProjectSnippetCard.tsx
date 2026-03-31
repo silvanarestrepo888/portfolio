@@ -6,6 +6,7 @@ import Image from 'next/image';
 
 interface SnippetProject {
   id: string;
+  client: string;
   title: string;
   industry: string;
   serviceType: string;
@@ -98,10 +99,11 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
         </div>
       </div>
 
-      {/* Title with reveal underline */}
+      {/* Text section — client + title + service */}
       <div className="snippet-title-section">
-        <p className="snippet-card-service-label">{primaryService}</p>
+        <p className="snippet-client-name">{project.client}</p>
         <h3 className="snippet-title-text">{project.title}</h3>
+        <p className="snippet-card-service-label">{primaryService}</p>
       </div>
 
     </motion.div>
