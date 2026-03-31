@@ -25337,3 +25337,162 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   from { opacity: 0; transform: translateY(5px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ================================================================
+   NAV ARROW POSITIONING — float over carousel, centered vertically
+   ================================================================ */
+
+.snippet-carousel-container {
+  position: relative !important;
+}
+
+/* Wrapper spans the full carousel area, arrows float at left/right edges */
+.snippet-nav-arrows {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  /* Height matches the image container portion */
+  height: clamp(200px, 25vw, 320px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 clamp(10px, 1.5vw, 18px) !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+}
+
+/* Each button re-enables pointer events */
+.snippet-nav-arrow {
+  pointer-events: all !important;
+}
+
+/* ================================================================
+   NAV ARROW VISIBILITY — pill buttons with backdrop
+   Previous: opacity 0.55 on bare text, invisible on dark bg
+   ================================================================ */
+
+.snippet-nav-arrow {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background: rgba(30, 28, 26, 0.72) !important;
+  border: 1px solid rgba(255, 251, 240, 0.18) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  color: rgba(255, 251, 240, 0.9) !important;
+  font-size: 1.5rem !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease !important;
+  opacity: 0 !important;
+}
+
+.snippet-nav-arrow.visible {
+  opacity: 1 !important;
+}
+
+.snippet-nav-arrow:hover {
+  background: rgba(255, 102, 99, 0.85) !important;
+  border-color: var(--coral, #ff6663) !important;
+  color: #fff !important;
+  transform: scale(1.08) !important;
+  opacity: 1 !important;
+}
+
+/* ================================================================
+   RIGHT-EDGE GRADIENT FADE — signals more content to the right
+   Fades out when at-end class is active (no more content)
+   ================================================================ */
+
+.snippet-carousel-container:not(.at-end) .snippet-grid {
+  -webkit-mask-image: linear-gradient(to right, black 75%, transparent 100%) !important;
+  mask-image: linear-gradient(to right, black 75%, transparent 100%) !important;
+}
+
+/* ================================================================
+   SNIPPET CARD SOPHISTICATION — less rigid, more alive
+   ================================================================ */
+
+/* Card base: add subtle warmth border, refined radius */
+.snippet-card {
+  border-radius: 2px !important;
+  border: 1px solid transparent !important;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.3s ease,
+              box-shadow 0.4s ease !important;
+}
+
+/* Hover: lift with shadow, reveal hairline border */
+.snippet-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow:
+    0 12px 40px -8px rgba(30, 28, 26, 0.18),
+    0 4px 12px -4px rgba(255, 102, 99, 0.08) !important;
+  border-color: rgba(255, 102, 99, 0.15) !important;
+}
+
+/* Image container: slight inner roundness to match card */
+.snippet-image-container {
+  border-radius: 2px 2px 0 0 !important;
+}
+
+/* Title section: refined padding + soft top border on hover */
+.snippet-title-section {
+  padding: clamp(14px, 2vw, 20px) 16px clamp(12px, 1.5vw, 16px) !important;
+  border-top: 1px solid transparent !important;
+  transition: border-color 0.3s ease !important;
+}
+
+.snippet-card:hover .snippet-title-section {
+  border-top-color: rgba(255, 102, 99, 0.12) !important;
+}
+
+/* Client name: more refined tracking */
+.snippet-client-name {
+  letter-spacing: 0.14em !important;
+}
+
+/* Title: slightly tighter, more editorial */
+.snippet-title-text {
+  letter-spacing: -0.02em !important;
+  line-height: 1.2 !important;
+}
+
+/* Hide native scrollbar — progress bar below is the indicator */
+.snippet-grid {
+  scrollbar-width: none !important;
+}
+.snippet-grid::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* ================================================================
+   SNIPPET PROGRESS BAR — thin line beneath carousel
+   ================================================================ */
+
+.snippet-progress-minimal {
+  padding: 16px clamp(24px, 4vw, 48px) 0 !important;
+}
+
+.snippet-progress-line {
+  width: 100% !important;
+  height: 1px !important;
+  background: rgba(30, 28, 26, 0.12) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.snippet-progress-fill {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  height: 100% !important;
+  background: var(--coral, #ff6663) !important;
+  transition: width 0.15s ease !important;
+  min-width: 0 !important;
+}
