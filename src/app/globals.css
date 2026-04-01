@@ -25496,3 +25496,176 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   transition: width 0.15s ease !important;
   min-width: 0 !important;
 }
+
+/* ================================================================
+   MOBILE RESPONSIVENESS — Enhancement Pass
+   Targets: footer stacking, rotator overflow, touch targets,
+   about readability, services tags, project details metrics
+   ================================================================ */
+
+/* ── 1. Footer contact row — stack on narrow screens ──────────────
+   .footer-editorial-contact is display:flex with no mobile override.
+   On 375px with a full email address the row can overflow or crowd.
+   Stack to column below 480px so each link gets its own line. ── */
+@media (max-width: 480px) {
+  .footer-editorial-contact {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+  }
+  .footer-editorial-sep {
+    display: none !important; /* Separator meaningless when stacked */
+  }
+  .footer-editorial-statement {
+    font-size: clamp(1.75rem, 9vw, 2.25rem) !important;
+  }
+}
+
+/* ── 2. Snippet rotator — allow wrapping on mobile ────────────────
+   white-space: nowrap causes long capability strings like
+   "Experience Architecture · Digital Transformation" to overflow
+   the 280px card width on 375px screens silently. Allow wrap. ── */
+@media (max-width: 640px) {
+  .snippet-rotator-single {
+    white-space: normal !important;
+    overflow: hidden !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+  }
+  .snippet-rotator {
+    min-height: 3.2em !important; /* Room for 2 lines */
+  }
+  .snippet-rotator-caps {
+    white-space: normal !important;
+  }
+}
+
+/* ── 3. Services tags — raise to 12px WCAG floor on mobile ────────
+   .svc-tag at max-width 640px was set to font-size: 0.675rem (10.8px).
+   Below the 12px minimum for legibility. ── */
+@media (max-width: 640px) {
+  .svc-tag {
+    font-size: 0.75rem !important; /* 12px */
+  }
+}
+
+/* ── 4. Filter tags — tighter gap + enforced 44px touch target ────
+   16px gap between pills takes up too much space on 375px viewport.
+   padding: 12px 24px = ~40px height, short of 44px touch target. ── */
+@media (max-width: 640px) {
+  .projects-filter-tags-award {
+    gap: 8px !important;
+  }
+  .filter-tag-award-winning {
+    padding: 10px 16px !important;
+    min-height: 44px !important;
+    font-size: 0.8125rem !important; /* 13px — readable at small size */
+  }
+}
+
+/* ── 5. About body text — left-align on mobile for readability ────
+   Centered alignment for long paragraphs creates ragged short lines
+   and an awkward reading experience on 375px. Left-align body copy
+   while keeping headings and quotes centered. ── */
+@media (max-width: 640px) {
+  .about-main-story,
+  .about-description-ultra-luxury {
+    text-align: left !important;
+  }
+  /* Keep the heading and philosophy quote centered */
+  .about-title-ultra-luxury,
+  .philosophy-quote-ultra-luxury {
+    text-align: center !important;
+  }
+}
+
+/* ── 6. Project details — impact metrics 1-column on mobile ───────
+   The impact metrics row (scale / reach / transformation) is displayed
+   as a horizontal flex or grid on desktop. On mobile collapse to column. ── */
+@media (max-width: 640px) {
+  .project-impact-metrics,
+  .impact-metrics-grid,
+  .project-metrics-row {
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .impact-metric,
+  .metric-item {
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(74, 85, 104, 0.1) !important;
+    padding-bottom: 1rem !important;
+  }
+  .impact-metric:last-child,
+  .metric-item:last-child {
+    border-bottom: none !important;
+  }
+}
+
+/* ── 7. Hero content — tighter horizontal padding on 375px ────────
+   1.5rem (24px) on each side leaves only 327px for text. On the
+   narrowest phones (320px), this gets very tight. Use 1rem. ── */
+@media (max-width: 390px) {
+  .hero-content-luxury {
+    padding: 1.5rem 1rem !important;
+  }
+  .hero-title-luxury-centered {
+    font-size: clamp(2.25rem, 9.5vw, 3.5rem) !important;
+  }
+}
+
+/* ── 8. Snippet nav arrows — smaller on mobile, don't hide cards ──
+   44px pill arrows on a 375px screen take up ~23% of viewport width.
+   Reduce to 36px on mobile so cards have more breathing room. ── */
+@media (max-width: 640px) {
+  .snippet-nav-arrow {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 1.25rem !important;
+  }
+  .snippet-nav-arrows {
+    padding: 0 clamp(6px, 1.5vw, 12px) !important;
+  }
+}
+
+/* ── 9. Project card — image height on mobile ─────────────────────
+   InteractiveProjectCard sets height: 62vh inline on isMobile.
+   This is handled in JSX but ensure min-height so very short images
+   don't collapse to nothing. ── */
+@media (max-width: 640px) {
+  .balanced-image-section {
+    min-height: 240px !important;
+  }
+}
+
+/* ── 10. Services expanded body — single column on mobile ─────────
+   The svc-body-inner 2-column grid (description left, tags+CTA right)
+   was added for desktop. On mobile collapse to 1 column. ── */
+@media (max-width: 640px) {
+  .svc-body-inner {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+}
+
+/* ── 11. Touch momentum + overscroll on horizontal carousels ──────
+   Ensure iOS/Android smooth momentum scrolling is enabled on all
+   horizontal scroll containers. ── */
+.snippet-grid,
+.exp-track-wrapper {
+  -webkit-overflow-scrolling: touch !important;
+  overscroll-behavior-x: contain !important;
+}
+
+/* ── 12. Global tap highlight removal ────────────────────────────
+   Blue flash on tap is jarring in a sophisticated portfolio. Remove
+   it across all interactive elements on touch devices. ── */
+@media (hover: none) and (pointer: coarse) {
+  button, a, [role="button"] {
+    -webkit-tap-highlight-color: transparent !important;
+  }
+}
+
+/* ── END MOBILE ENHANCEMENT PASS ── */
