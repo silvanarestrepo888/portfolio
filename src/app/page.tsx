@@ -310,6 +310,7 @@ export default function Home() {
       },
       image: "/projects/qiddiya/hero-qiddiya.png",
       secondaryImage: "/projects/qiddiya/secondary-qiddiya.png",
+      video: "/projects/qiddiya/qiddiya-city.mp4",
       galleryImages: [
         "/projects/qiddiya/emergency-management.png",
         "/projects/qiddiya/guest-search-digital-id.png",
