@@ -25707,3 +25707,31 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 }
 
 /* ── END MOBILE ENHANCEMENT PASS ── */
+
+/* ── Domain link — Option B: always visible below snippet title ── */
+.snippet-domain-link {
+  display: inline-block !important;
+  font-family: var(--font-body, 'Inter', sans-serif) !important;
+  font-size: clamp(0.6rem, 0.85vw, 0.7rem) !important;
+  letter-spacing: 0.08em !important;
+  color: var(--charcoal-mid, #4A5568) !important;
+  opacity: 0.5 !important;
+  text-decoration: none !important;
+  margin-top: 4px !important;
+  margin-bottom: 6px !important;
+  padding: 6px 0 !important;
+  transition: opacity 0.2s ease, color 0.2s ease !important;
+  white-space: nowrap !important;
+}
+
+.snippet-domain-link:hover {
+  color: var(--coral, #FF6663) !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 640px) {
+  .snippet-domain-link {
+    font-size: 0.7rem !important;
+    padding: 8px 0 !important;
+  }
+}
