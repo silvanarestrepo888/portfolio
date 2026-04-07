@@ -25710,7 +25710,7 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 
 /* ── Domain link — Option B: always visible below snippet title ── */
 .snippet-domain-link {
-  display: inline-block !important;
+  display: block !important;
   font-family: var(--font-body, 'Inter', sans-serif) !important;
   font-size: clamp(0.6rem, 0.85vw, 0.7rem) !important;
   letter-spacing: 0.08em !important;
@@ -25733,5 +25733,108 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   .snippet-domain-link {
     font-size: 0.7rem !important;
     padding: 8px 0 !important;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   EXPERIENCE TIMELINE — ascending curve architecture
+   Stage is a relative container; SVG fills absolutely;
+   pins are absolutely placed at bezier-calculated x/y
+   ══════════════════════════════════════════════════════════════ */
+
+#experience {
+  min-height: auto !important;
+  scroll-margin-top: 88px !important;
+}
+
+.exp-header {
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem) !important;
+}
+
+/* Stage overrides — must win over old padding-only rule */
+.exp-stage {
+  position: relative !important;
+  height: clamp(240px, 28vw, 340px) !important;
+  margin: 0 clamp(32px, 5vw, 80px) !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+/* SVG fills the stage absolutely */
+.exp-curve-svg {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Every pin is absolutely placed; text stack hangs below node */
+.exp-pin {
+  position: absolute !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding-top: 16px !important;
+  gap: 2px !important;
+}
+
+.exp-pin--start  { transform: translateX(0)     !important; align-items: flex-start !important; }
+.exp-pin--center { transform: translateX(-50%)   !important; align-items: center     !important; }
+.exp-pin--end    { transform: translateX(-100%)  !important; align-items: flex-end   !important; }
+
+.exp-company-name {
+  font-family: var(--font-body, 'Inter', sans-serif) !important;
+  font-size: clamp(0.5rem, 0.7vw, 0.65rem) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: var(--charcoal-mid, #4A5568) !important;
+  white-space: nowrap !important;
+}
+
+.exp-role-name {
+  font-family: var(--font-body, 'Inter', sans-serif) !important;
+  font-size: clamp(0.45rem, 0.6vw, 0.575rem) !important;
+  font-weight: 400 !important;
+  color: var(--charcoal-mid, #4A5568) !important;
+  opacity: 0.65 !important;
+  white-space: nowrap !important;
+}
+
+.exp-disc-label {
+  font-size: clamp(0.40rem, 0.50vw, 0.475rem) !important;
+  font-style: italic !important;
+  letter-spacing: 0.07em !important;
+  text-transform: uppercase !important;
+  color: var(--charcoal-mid, #4A5568) !important;
+  opacity: 0.40 !important;
+  margin-top: 4px !important;
+  white-space: nowrap !important;
+}
+
+/* Globant — last pin, coral and visually dominant */
+.exp-pin--last .exp-company-name {
+  color: var(--coral, #FF6663) !important;
+  font-weight: 700 !important;
+}
+.exp-pin--last .exp-role-name,
+.exp-pin--last .exp-disc-label {
+  color: var(--coral, #FF6663) !important;
+}
+
+/* Mobile — hide SVG, show as vertical list */
+@media (max-width: 767px) {
+  .exp-curve-svg { display: none !important; }
+  .exp-stage {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    margin: 0 1.5rem !important;
+    padding-bottom: 2rem !important;
+  }
+  .exp-pin {
+    position: static !important;
+    transform: none !important;
+    align-items: flex-start !important;
   }
 }
