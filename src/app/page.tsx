@@ -369,7 +369,7 @@ export default function Home() {
       capabilities: ['Brand Stretching', 'Consumer Research', 'Methodology Design'],
       industry: 'Health & Consumer Goods',
       serviceType: 'Product Strategy | Strategic Design',
-      website: 'https://badael.sa/',
+      website: 'https://www.dzrt.com/en-sa',
       image: '/projects/snippets/dzrt-badel.png',
       emailSubject: 'Inquiry about DZRT Brand Stretching Architecture — Badel · Saudi Arabia'
     },
