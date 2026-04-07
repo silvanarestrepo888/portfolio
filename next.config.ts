@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   experimental: {
-    optimizePackageImports: ['framer-motion', 'lucide-react', 'swiper'],
+    optimizePackageImports: ['lucide-react', 'swiper'],
     staleTimes: {
       dynamic: 0,
       static: 300,

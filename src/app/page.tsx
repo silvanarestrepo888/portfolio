@@ -361,6 +361,19 @@ export default function Home() {
   // SNIPPET PROJECTS DATA - Ordered newest → oldest
   const snippetProjects = useMemo(() => [
     {
+      id: 'dzrt-badel',
+      client: 'Badel · DZRT',
+      title: 'Permission before product. Always.',
+      year: '2026',
+      location: 'Saudi Arabia',
+      capabilities: ['Brand Stretching', 'Consumer Research', 'Methodology Design'],
+      industry: 'Health & Consumer Goods',
+      serviceType: 'Product Strategy | Strategic Design',
+      website: 'https://badael.sa/',
+      image: '/projects/snippets/dzrt-badel.png',
+      emailSubject: 'Inquiry about DZRT Brand Stretching Architecture — Badel · Saudi Arabia'
+    },
+    {
       id: 'parques-reunidos',
       client: 'Parques Reunidos',
       title: 'Catalog Harmonisation — 70 Venues',

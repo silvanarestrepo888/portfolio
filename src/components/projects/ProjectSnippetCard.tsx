@@ -31,6 +31,15 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
   const [activeIndex, setActiveIndex] = useState(index % rotatorItems.length);
   const [visible, setVisible] = useState(true);
 
+  // Extract clean domain for display: "https://www.badael.sa/" → "badael.sa"
+  const displayDomain = (() => {
+    try {
+      return new URL(project.website).hostname.replace(/^www\./, '');
+    } catch {
+      return project.website;
+    }
+  })();
+
   useEffect(() => {
     if (isHovered) return;
 
@@ -54,11 +63,6 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
     const subject = `Inquiry about ${project.title} - ${project.industry} Project`;
     const body = `Hi Silvana, I noticed your work on "${project.title}" in the ${project.industry} sector. I'd like to discuss how your ${project.serviceType} expertise might apply to my project. Could we schedule a conversation?`;
     window.location.href = `mailto:silvanarestrepo888@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  };
-
-  const handleExternalLink = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    window.open(project.website, '_blank', 'noopener noreferrer');
   };
 
   return (
@@ -99,17 +103,8 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
         {/* Coral sweep line */}
         <div className="snippet-sweep-line" aria-hidden="true" />
 
-        {/* Overlay — action buttons */}
+        {/* Overlay — Inquire CTA only */}
         <div className="snippet-overlay">
-          <motion.button
-            className="snippet-external-link"
-            onClick={handleExternalLink}
-            aria-label={`Visit ${project.title} website`}
-            whileTap={{ scale: 0.9 }}
-          >
-            ↗
-          </motion.button>
-
           <motion.button
             className="snippet-cta-bottom-right"
             onClick={handleEmailClick}
@@ -126,6 +121,18 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
       <div className="snippet-title-section">
         <p className="snippet-client-name">{project.client}</p>
         <h3 className="snippet-title-text">{project.title}</h3>
+
+        {/* Domain link — always visible, Option B */}
+        <a
+          href={project.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="snippet-domain-link"
+          onClick={e => e.stopPropagation()}
+          aria-label={`Visit ${project.client} website at ${displayDomain}`}
+        >
+          {displayDomain} ↗
+        </a>
 
         {/* Metadata rotator */}
         <div className="snippet-rotator" aria-label={`${project.year}, ${project.location}, ${project.capabilities.join(', ')}`}>

@@ -25457,6 +25457,37 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   letter-spacing: 0.14em !important;
 }
 
+/* Domain link — Option B: always visible, sits between title and rotator */
+.snippet-domain-link {
+  display: inline-block !important;
+  font-family: var(--font-body, 'Inter', sans-serif) !important;
+  font-size: clamp(0.6rem, 0.85vw, 0.7rem) !important;
+  letter-spacing: 0.08em !important;
+  color: var(--charcoal-mid, #4A5568) !important;
+  opacity: 0.5 !important;
+  text-decoration: none !important;
+  margin-top: 4px !important;
+  margin-bottom: 6px !important;
+  /* Generous tap target for mobile without adding visual height */
+  padding: 6px 0 !important;
+  transition: opacity 0.2s ease, color 0.2s ease !important;
+  /* Prevent line-break between domain and arrow */
+  white-space: nowrap !important;
+}
+
+.snippet-domain-link:hover {
+  color: var(--coral, #FF6663) !important;
+  opacity: 1 !important;
+}
+
+/* Mobile — slightly larger text for legibility on small screens */
+@media (max-width: 640px) {
+  .snippet-domain-link {
+    font-size: 0.7rem !important;
+    padding: 8px 0 !important;
+  }
+}
+
 /* Title: slightly tighter, more editorial */
 .snippet-title-text {
   letter-spacing: -0.02em !important;
@@ -25707,3 +25738,411 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 }
 
 /* ── END MOBILE ENHANCEMENT PASS ── */
+
+/* =============================================
+   EXPERIENCE — ORGANIC CURVE TIMELINE
+   ============================================= */
+
+/* Discipline row — above the curve */
+.exp-row--disciplines {
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr) !important;
+  width: 100%;
+  align-items: flex-end;
+  padding-bottom: 10px;
+}
+
+.exp-discipline-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.exp-discipline-cell--last {
+  align-items: flex-end !important;
+  text-align: right !important;
+}
+
+.exp-discipline-label {
+  font-family: var(--font-display);
+  font-size: clamp(0.45rem, 0.65vw, 0.6rem) !important;
+  font-style: italic !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: var(--charcoal-light) !important;
+  opacity: 0.65;
+  white-space: nowrap;
+  line-height: 1.3;
+}
+
+/* Last discipline — Experience Architecture — arrives in coral */
+.exp-discipline-cell--last .exp-discipline-label {
+  color: rgba(255, 102, 99, 0.7) !important;
+  opacity: 1 !important;
+}
+
+/* The organic curve container */
+.exp-curve-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.exp-curve-svg {
+  width: 100%;
+  height: clamp(48px, 5.5vw, 70px);
+  display: block;
+  overflow: visible;
+}
+
+/* Coral tip dot — positioned via Framer Motion left % */
+.exp-curve-dot {
+  position: absolute;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--coral);
+  box-shadow: 0 0 10px rgba(255, 102, 99, 0.45);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Company row — below the curve */
+.exp-row--companies {
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr) !important;
+  width: 100%;
+  align-items: flex-start;
+  padding-top: 10px;
+}
+
+.exp-entry--culmination {
+  align-items: flex-end !important;
+  text-align: right !important;
+}
+
+.exp-entry--culmination .exp-company-name {
+  color: rgba(255, 102, 99, 0.75) !important;
+}
+
+/* Period label — new addition */
+.exp-period-label {
+  font-family: var(--font-body);
+  font-size: clamp(0.45rem, 0.6vw, 0.5625rem) !important;
+  color: var(--charcoal-light) !important;
+  opacity: 0.45;
+  margin-top: 2px;
+  letter-spacing: 0.02em;
+}
+
+/* =============================================
+   EXPERIENCE — DESIGN ELEVATION
+   ============================================= */
+
+/* exp-heading and exp-subheading: owned by system CSS — no overrides */
+
+/* Discipline labels — whisper, not announce */
+.exp-discipline-label {
+  font-size: clamp(0.4rem, 0.55vw, 0.5rem) !important;
+  letter-spacing: 0.1em !important;
+  opacity: 0.45 !important;
+}
+
+/* Company names — speak */
+.exp-company-name {
+  font-size: clamp(0.75rem, 1vw, 0.9375rem) !important;
+}
+
+/* Progressive visual weight — entries grow left → right */
+.exp-row--disciplines .exp-discipline-cell:nth-child(1) { opacity: 0.5; }
+.exp-row--disciplines .exp-discipline-cell:nth-child(2) { opacity: 0.6; }
+.exp-row--disciplines .exp-discipline-cell:nth-child(3) { opacity: 0.7; }
+.exp-row--disciplines .exp-discipline-cell:nth-child(4) { opacity: 0.8; }
+.exp-row--disciplines .exp-discipline-cell:nth-child(5) { opacity: 0.9; }
+.exp-row--disciplines .exp-discipline-cell:nth-child(6) { opacity: 1.0; }
+
+.exp-row--companies .exp-entry:nth-child(1) .exp-company-name { font-size: clamp(0.625rem, 0.8vw, 0.75rem) !important; opacity: 0.55; }
+.exp-row--companies .exp-entry:nth-child(2) .exp-company-name { font-size: clamp(0.6875rem, 0.85vw, 0.8125rem) !important; opacity: 0.65; }
+.exp-row--companies .exp-entry:nth-child(3) .exp-company-name { font-size: clamp(0.75rem, 0.95vw, 0.875rem) !important; opacity: 0.75; }
+.exp-row--companies .exp-entry:nth-child(4) .exp-company-name { font-size: clamp(0.8125rem, 1vw, 0.9375rem) !important; opacity: 0.85; }
+.exp-row--companies .exp-entry:nth-child(5) .exp-company-name { font-size: clamp(0.875rem, 1.1vw, 1rem) !important; opacity: 0.9; }
+.exp-row--companies .exp-entry--culmination .exp-company-name { font-size: clamp(1rem, 1.4vw, 1.25rem) !important; opacity: 1; font-weight: 400 !important; }
+
+/* Role names — progressive too */
+.exp-row--companies .exp-entry:nth-child(1) .exp-role-name { opacity: 0.35; }
+.exp-row--companies .exp-entry:nth-child(2) .exp-role-name { opacity: 0.4; }
+.exp-row--companies .exp-entry:nth-child(3) .exp-role-name { opacity: 0.45; }
+.exp-row--companies .exp-entry:nth-child(4) .exp-role-name { opacity: 0.5; }
+.exp-row--companies .exp-entry:nth-child(5) .exp-role-name { opacity: 0.55; }
+.exp-entry--culmination .exp-role-name { opacity: 0.8 !important; }
+
+/* Entry markers — subtle dots connecting text to curve */
+.exp-discipline-cell::after {
+  content: '';
+  display: block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(74, 85, 104, 0.25);
+  margin-top: 6px;
+}
+
+.exp-discipline-cell--last::after {
+  background: rgba(255, 102, 99, 0.5);
+}
+
+.exp-entry::before {
+  content: '';
+  display: block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(74, 85, 104, 0.25);
+  margin-bottom: 6px;
+}
+
+.exp-entry--culmination::before {
+  background: rgba(255, 102, 99, 0.5);
+}
+
+/* More vertical breathing room */
+.exp-row--disciplines { padding-bottom: 14px !important; }
+.exp-row--companies { padding-top: 14px !important; }
+
+/* Curve height — slightly taller for more organic presence */
+.exp-curve-svg { height: clamp(56px, 6.5vw, 80px) !important; }
+
+/* System typography owns exp-heading and exp-subheading — no overrides here */
+
+/* ================================================================
+   EXPERIENCE — CURVE PROTAGONIST (absolute architecture v2)
+   Stage is a relative box; SVG fills it; pins anchor to curve geometry
+   ================================================================ */
+
+.exp-stage {
+  position: relative !important;
+  height: clamp(240px, 28vw, 340px) !important;
+  margin: 0 clamp(32px, 5vw, 80px) !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+.exp-curve-svg {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  overflow: visible !important;
+}
+
+/* Traveling coral dot — left% from Framer Motion */
+.exp-curve-dot {
+  position: absolute !important;
+  top: 50% !important;
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  background: var(--coral) !important;
+  box-shadow: 0 0 12px rgba(255, 102, 99, 0.55) !important;
+  transform: translate(-50%, -50%) !important;
+  pointer-events: none !important;
+}
+
+/* Pin: anchored at exact curve node */
+.exp-pin {
+  position: absolute !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+}
+
+.exp-pin--start  { transform: translateX(0) !important;    align-items: flex-start !important; }
+.exp-pin--center { transform: translateX(-50%) !important; align-items: center !important; }
+.exp-pin--end    { transform: translateX(-100%) !important; align-items: flex-end !important; }
+
+/* Discipline label: absolute — floats above the pin anchor */
+.exp-pin-disc {
+  position: absolute !important;
+  bottom: 100% !important;
+  padding-bottom: 10px !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
+  left: 0 !important;
+}
+.exp-pin--center .exp-pin-disc { left: 50% !important; transform: translateX(-50%) !important; }
+.exp-pin--end    .exp-pin-disc { left: auto !important; right: 0 !important; }
+
+/* Discipline label — bottom of pin stack, quietest element */
+.exp-disc-label {
+  font-family: var(--font-body) !important;
+  font-size: clamp(0.40rem, 0.50vw, 0.475rem) !important;
+  font-style: italic !important;
+  letter-spacing: 0.07em !important;
+  text-transform: uppercase !important;
+  color: var(--charcoal-mid) !important;
+  opacity: 0.40 !important;
+  display: block !important;
+  margin-top: 4px !important;
+}
+.exp-pin--last .exp-disc-label {
+  color: var(--coral) !important;
+  opacity: 0.55 !important;
+}
+
+/* Body: company / role / period — below the pin anchor */
+.exp-pin-body {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: inherit !important;
+  padding-top: 10px !important;
+  gap: 1px !important;
+}
+
+/* Base typography */
+.exp-company-name {
+  font-family: var(--font-display) !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.01em !important;
+  color: var(--charcoal-mid) !important;
+  line-height: 1.1 !important;
+  white-space: nowrap !important;
+  display: block !important;
+}
+
+.exp-role-name {
+  font-family: var(--font-body) !important;
+  font-weight: 400 !important;
+  color: var(--charcoal-mid) !important;
+  letter-spacing: 0.01em !important;
+  line-height: 1.3 !important;
+  white-space: nowrap !important;
+  display: block !important;
+}
+
+.exp-period-label {
+  font-family: var(--font-body) !important;
+  font-size: clamp(0.42rem, 0.52vw, 0.5rem) !important;
+  color: var(--charcoal-light) !important;
+  opacity: 0.4 !important;
+  letter-spacing: 0.06em !important;
+  margin-top: 2px !important;
+  display: block !important;
+}
+
+/* Progressive sizing — entries grow left → right */
+.exp-pin--e0 .exp-company-name { font-size: clamp(0.6rem,   0.70vw, 0.6875rem) !important; opacity: 0.50 !important; }
+.exp-pin--e1 .exp-company-name { font-size: clamp(0.65rem,  0.76vw, 0.75rem)   !important; opacity: 0.60 !important; }
+.exp-pin--e2 .exp-company-name { font-size: clamp(0.70rem,  0.82vw, 0.8125rem) !important; opacity: 0.70 !important; }
+.exp-pin--e3 .exp-company-name { font-size: clamp(0.75rem,  0.90vw, 0.875rem)  !important; opacity: 0.80 !important; }
+.exp-pin--e4 .exp-company-name { font-size: clamp(0.8125rem,1.00vw, 0.9375rem) !important; opacity: 0.90 !important; }
+
+.exp-pin--e0 .exp-role-name { font-size: clamp(0.48rem, 0.58vw, 0.55rem)  !important; opacity: 0.28 !important; }
+.exp-pin--e1 .exp-role-name { font-size: clamp(0.50rem, 0.61vw, 0.575rem) !important; opacity: 0.33 !important; }
+.exp-pin--e2 .exp-role-name { font-size: clamp(0.52rem, 0.64vw, 0.60rem)  !important; opacity: 0.38 !important; }
+.exp-pin--e3 .exp-role-name { font-size: clamp(0.55rem, 0.68vw, 0.625rem) !important; opacity: 0.44 !important; }
+.exp-pin--e4 .exp-role-name { font-size: clamp(0.58rem, 0.72vw, 0.6875rem)!important; opacity: 0.50 !important; }
+
+.exp-pin--e0 .exp-disc-label { opacity: 0.28 !important; }
+.exp-pin--e1 .exp-disc-label { opacity: 0.33 !important; }
+.exp-pin--e2 .exp-disc-label { opacity: 0.38 !important; }
+.exp-pin--e3 .exp-disc-label { opacity: 0.42 !important; }
+.exp-pin--e4 .exp-disc-label { opacity: 0.47 !important; }
+
+/* Culmination — Globant, coral, dominant */
+.exp-pin--last .exp-company-name {
+  font-size: clamp(1rem, 1.35vw, 1.25rem) !important;
+  font-weight: 400 !important;
+  color: var(--coral) !important;
+  opacity: 0.9 !important;
+}
+.exp-pin--last .exp-role-name {
+  font-size: clamp(0.625rem, 0.80vw, 0.75rem) !important;
+  opacity: 0.70 !important;
+}
+.exp-pin--last .exp-disc-label {
+  color: var(--coral) !important;
+  opacity: 0.60 !important;
+}
+.exp-pin--last .exp-period-label {
+  color: var(--coral) !important;
+  opacity: 0.50 !important;
+}
+
+/* ── Section-level fixes ──────────────────────────────────────────────────── */
+
+#experience {
+  min-height: auto !important;
+  scroll-margin-top: 88px !important;
+}
+
+/* Breathing room between the heading block and the stage */
+.exp-header {
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem) !important;
+}
+
+/* .exp-disc floating labels removed — discipline is now inside pin body at bottom */
+
+/* ── Pin bodies: company / role / period below the node ───────────────────
+   Now a flat flex column — no inner disc, no absolute child complications.
+   ────────────────────────────────────────────────────────────────────────── */
+
+.exp-pin {
+  position: absolute !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding-top: 16px !important; /* generous gap: node → first text line */
+  gap: 2px !important;
+}
+
+.exp-pin--start  { align-items: flex-start !important; transform: translateX(0) !important; }
+.exp-pin--center { align-items: center !important;     transform: translateX(-50%) !important; }
+.exp-pin--end    { align-items: flex-end !important;   transform: translateX(-100%) !important; }
+
+/* ── Legibility floor: quiet ≠ invisible ──────────────────────────────────── */
+.exp-pin--e0 .exp-company-name { font-size: clamp(0.70rem, 0.82vw, 0.8rem) !important;   opacity: 0.62 !important; }
+.exp-pin--e1 .exp-company-name { font-size: clamp(0.74rem, 0.88vw, 0.85rem) !important;  opacity: 0.70 !important; }
+.exp-pin--e0 .exp-role-name    { opacity: 0.42 !important; }
+.exp-pin--e1 .exp-role-name    { opacity: 0.48 !important; }
+
+/* Remove old exp-pin-disc rule — superseded by exp-disc */
+.exp-pin-disc { display: none !important; }
+
+/* Mobile: hide curve, stack entries vertically */
+@media (max-width: 767px) {
+  .exp-stage {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+    padding: 0 1.5rem 2rem !important;
+    margin: 0 !important;
+  }
+  .exp-curve-svg,
+  .exp-curve-dot { display: none !important; }
+  .exp-pin {
+    position: static !important;
+    transform: none !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+  }
+  .exp-pin-disc {
+    position: static !important;
+    padding-bottom: 0 !important;
+    min-width: 80px !important;
+    transform: none !important;
+  }
+  .exp-pin--center .exp-pin-disc { left: auto !important; transform: none !important; }
+  .exp-pin-body { padding-top: 0 !important; }
+  .exp-disc-label { white-space: normal !important; }
+  .exp-pin--e0 .exp-company-name,
+  .exp-pin--e1 .exp-company-name,
+  .exp-pin--e2 .exp-company-name,
+  .exp-pin--e3 .exp-company-name,
+  .exp-pin--e4 .exp-company-name { font-size: 0.875rem !important; opacity: 0.8 !important; }
+  .exp-pin--last .exp-company-name { font-size: 1rem !important; }
+  .exp-company-name,
+  .exp-role-name { white-space: normal !important; }
+}
