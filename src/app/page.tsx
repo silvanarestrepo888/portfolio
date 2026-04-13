@@ -350,11 +350,6 @@ export default function Home() {
       context: "One of the Gulf's leading telecom operators, serving millions of B2C and B2B customers across a fiercely competitive market. In late 2024, leadership embedded customer experience as a core strategic pillar — CX moved from aspiration to accountability. That decision created momentum and an urgent question: what does CX excellence actually look like when you build it from scratch?",
       scope: "The answer was a Customer Experience Center at the operator's headquarters — not a showroom, not a dashboard wall, but a working space where CX performance becomes visible, actionable, and accountable across the organisation. As Lead CX Architect, I owned the design inputs track — personas, use cases, spatial concept inputs, and the rituals that connect space to the people performing each scenario. Every claim, every persona, every use case traced back to specific stakeholder evidence. No assumptions.",
       impact: "Fifteen structured interviews engaging twenty-five stakeholders across ten functional areas: executive leadership, strategy, commercial, technology, retail, and quality. Thematic coding produced eight insight themes, six validated findings, and three strategic imperatives defining the path forward. Fifteen validated use cases mapped B2C and B2B scenarios across four readiness tiers and three delivery horizons — moving from insight trapped in silos to intelligence flowing across functions.",
-      testimonial: {
-        quote: "The primary barriers were not technical. They were structural and cultural — governance clarity, decision rights, and shared accountability across functions. This architecture gave us the foundation to address all three.",
-        author: "Engagement Stakeholder",
-        role: "Leading GCC Telecom Operator"
-      }
     }
   ], []); // Empty dependency array - static data
 
@@ -1458,6 +1453,7 @@ export default function Home() {
                   </motion.section>
                   
               {/* Testimonial Section */}
+                    {projects[selectedProject].testimonial && (
                     <motion.section
                 className="content-section"
                 initial={{ opacity: 0, y: 24 }}
@@ -1484,6 +1480,7 @@ export default function Home() {
                   </div>
                       </div>
                     </motion.section>
+                    )}
               
             </div>
           </div>
