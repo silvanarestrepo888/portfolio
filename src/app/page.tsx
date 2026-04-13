@@ -342,6 +342,7 @@ export default function Home() {
       },
       image: "/projects/gcc-telecom/hero-gcc-telecom.png",
       secondaryImage: "/projects/gcc-telecom/secondary-gcc-telecom.png",
+      galleryLayout: 'wide',
       galleryImages: [
         "/projects/gcc-telecom/gallery-gcc-telecom-1.png",
         "/projects/gcc-telecom/gallery-gcc-telecom-2.png"
@@ -1548,7 +1549,7 @@ export default function Home() {
 
               /* ── EDITORIAL LAYOUT (default — images first, video last) ── */
               return (
-                <div className="gallery-editorial">
+                <div className={`gallery-editorial${layout === 'wide' ? ' gallery-editorial--wide' : ''}`}>
                   {/* Row 1 — Full-width hero image */}
                   {imgs[0] && (
                     <motion.div

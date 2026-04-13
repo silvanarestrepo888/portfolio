@@ -25033,6 +25033,15 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   }
 }
 
+/* Wide (16:9) editorial layout — for projects where all images are landscape 16:9 */
+.gallery-editorial--wide .gallery-editorial-hero {
+  aspect-ratio: 16 / 9 !important;
+}
+
+.gallery-editorial--wide .gallery-editorial-cell {
+  aspect-ratio: 16 / 9 !important;
+}
+
 /* ============================================================
    NOMADE HORIZONTAL FILM-STRIP GALLERY
    4 landscape screenshots at uniform height, natural widths,
