@@ -326,34 +326,34 @@ export default function Home() {
       }
     },
     {
-      title: "STC Kuwait CEX Center",
+      title: "GCC Telecom Leader — Customer Experience Center",
       subtitle: "Building the Heart, Mind, and Soul of CX Transformation",
-      description: "Designed the full strategic and operational foundation for STC Kuwait's Customer Experience Center — a physical and operational hub on the 16th floor of HQ, unifying CX performance, accountability, and cross-functional action in one place.",
+      description: "Designed the full strategic and operational foundation for a leading GCC telecom operator's Customer Experience Center — a physical and operational hub, unifying CX performance, accountability, and cross-functional action in one place.",
       tech: ["CX Strategy", "Experience Design", "Service Design"],
       industryTags: ["Telecommunications"],
       category: "Telecommunications",
       year: "2025–2026",
-      client: "STC Kuwait — via Bejo Limited",
-      location: "Kuwait City, Kuwait",
+      client: "Leading GCC Telecom Operator",
+      location: "Gulf Region",
       impactMetrics: {
         scale: "25 Stakeholders",
         reach: "B2C & B2B",
         transformation: "15 Use Cases"
       },
-      image: "/projects/stc/hero-stc.png",
-      secondaryImage: "/projects/stc/secondary-stc.png",
+      image: "/projects/gcc-telecom/hero-gcc-telecom.png",
+      secondaryImage: "/projects/gcc-telecom/secondary-gcc-telecom.png",
       galleryImages: [
-        "/projects/stc/gallery-stc-1.png",
-        "/projects/stc/gallery-stc-2.png",
-        "/projects/stc/gallery-stc-3.png"
+        "/projects/gcc-telecom/gallery-gcc-telecom-1.png",
+        "/projects/gcc-telecom/gallery-gcc-telecom-2.png",
+        "/projects/gcc-telecom/gallery-gcc-telecom-3.png"
       ],
-      context: "STC Kuwait is one of the Gulf's leading telecom operators, serving millions of B2C and B2B customers across a fiercely competitive market. In late 2024, leadership embedded customer experience as a core strategic pillar through the REACH framework — CX moved from aspiration to accountability. That decision created momentum and an urgent question: what does CX excellence actually look like when you build it from scratch?",
-      scope: "The answer was a Customer Experience Center on the 16th floor of STC Kuwait HQ — not a showroom, not a dashboard wall, but a working space where CX performance becomes visible, actionable, and accountable across the organisation. As Lead CX Architect, contracted through Bejo Limited, I owned the design inputs track — personas, use cases, spatial concept inputs, and the rituals that connect space to the people performing each scenario. Every claim, every persona, every use case traced back to specific stakeholder evidence. No assumptions.",
+      context: "One of the Gulf's leading telecom operators, serving millions of B2C and B2B customers across a fiercely competitive market. In late 2024, leadership embedded customer experience as a core strategic pillar — CX moved from aspiration to accountability. That decision created momentum and an urgent question: what does CX excellence actually look like when you build it from scratch?",
+      scope: "The answer was a Customer Experience Center at the operator's headquarters — not a showroom, not a dashboard wall, but a working space where CX performance becomes visible, actionable, and accountable across the organisation. As Lead CX Architect, I owned the design inputs track — personas, use cases, spatial concept inputs, and the rituals that connect space to the people performing each scenario. Every claim, every persona, every use case traced back to specific stakeholder evidence. No assumptions.",
       impact: "Fifteen structured interviews engaging twenty-five stakeholders across ten functional areas: executive leadership, strategy, commercial, technology, retail, and quality. Thematic coding produced eight insight themes, six validated findings, and three strategic imperatives defining the path forward. Fifteen validated use cases mapped B2C and B2B scenarios across four readiness tiers and three delivery horizons — moving from insight trapped in silos to intelligence flowing across functions.",
       testimonial: {
         quote: "The primary barriers were not technical. They were structural and cultural — governance clarity, decision rights, and shared accountability across functions. This architecture gave us the foundation to address all three.",
         author: "Engagement Stakeholder",
-        role: "STC Kuwait — via Bejo Limited"
+        role: "Leading GCC Telecom Operator"
       }
     }
   ], []); // Empty dependency array - static data
@@ -361,17 +361,17 @@ export default function Home() {
   // SNIPPET PROJECTS DATA - Ordered newest → oldest
   const snippetProjects = useMemo(() => [
     {
-      id: 'dzrt-badel',
-      client: 'Badel · DZRT',
-      title: 'Permission before product. Always.',
-      year: '2026',
+      id: 'gcc-consumer-brand',
+      client: 'Pioneering GCC Consumer Brand',
+      title: 'Cultural trust before market entry. Always.',
+      year: '',
       location: 'Saudi Arabia',
       capabilities: ['Brand Stretching', 'Consumer Research', 'Methodology Design'],
       industry: 'Health & Consumer Goods',
       serviceType: 'Product Strategy | Strategic Design',
-      website: 'https://www.dzrt.com/en-sa',
-      image: '/projects/snippets/dzrt-badel.png',
-      emailSubject: 'Inquiry about DZRT Brand Stretching Architecture — Badel · Saudi Arabia'
+      website: '',
+      image: '/projects/snippets/gcc-consumer-brand.png',
+      emailSubject: 'Inquiry about Brand Stretching Architecture — GCC Consumer Brand'
     },
     {
       id: 'parques-reunidos',

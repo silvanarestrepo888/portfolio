@@ -75,7 +75,7 @@ export function InteractiveProjectCard({
       'Danone Digital Transformation': '4:3', // Corporate - square
       'Parques Reunidos': '16:9', // Entertainment - wide
       'Flagship Entertainment Destination, KSA': '16:9', // Entertainment - wide
-    'STC Kuwait CEX Center': '16:9'  // Telecom - wide cinematic
+    'GCC Telecom Leader — Customer Experience Center': '16:9'  // Telecom - wide cinematic
     };
     return ratios[projectTitle] || '4:3';
   };
