@@ -326,29 +326,28 @@ export default function Home() {
       }
     },
     {
-      title: "GCC Telecom Leader — Customer Experience Center",
+      title: "STC Kuwait CEX Center",
       subtitle: "Building the Heart, Mind, and Soul of CX Transformation",
-      description: "Designed the full strategic and operational foundation for a leading GCC telecom operator's Customer Experience Center — a physical and operational hub, unifying CX performance, accountability, and cross-functional action in one place.",
+      description: "Designed the full strategic and operational foundation for STC Kuwait's Customer Experience Center — a physical and operational hub on the 16th floor of HQ, unifying CX performance, accountability, and cross-functional action in one place.",
       tech: ["CX Strategy", "Experience Design", "Service Design"],
       industryTags: ["Telecommunications"],
       category: "Telecommunications",
       year: "2026",
-      client: "Leading GCC Telecom Operator",
-      location: "Gulf Region",
+      client: "STC Kuwait — via Bejo Limited",
+      location: "Kuwait City, Kuwait",
       impactMetrics: {
         scale: "25 Stakeholders",
         reach: "B2C & B2B",
         transformation: "15 Use Cases"
       },
-      image: "/projects/gcc-telecom/hero-gcc-telecom.png",
-      secondaryImage: "/projects/gcc-telecom/secondary-gcc-telecom.png",
-      galleryLayout: 'wide',
+      image: "/projects/stc/hero-stc.png",
+      secondaryImage: "/projects/stc/secondary-stc.png",
       galleryImages: [
-        "/projects/gcc-telecom/gallery-gcc-telecom-1.png",
-        "/projects/gcc-telecom/gallery-gcc-telecom-2.png"
+        "/projects/stc/gallery-stc-1.png",
+        "/projects/stc/gallery-stc-2.png"
       ],
-      context: "One of the Gulf's leading telecom operators, serving millions of B2C and B2B customers across a fiercely competitive market. In late 2024, leadership embedded customer experience as a core strategic pillar — CX moved from aspiration to accountability. That decision created momentum and an urgent question: what does CX excellence actually look like when you build it from scratch?",
-      scope: "The answer was a Customer Experience Center at the operator's headquarters — not a showroom, not a dashboard wall, but a working space where CX performance becomes visible, actionable, and accountable across the organisation. As Lead CX Architect, I owned the design inputs track — personas, use cases, spatial concept inputs, and the rituals that connect space to the people performing each scenario. Every claim, every persona, every use case traced back to specific stakeholder evidence. No assumptions.",
+      context: "STC Kuwait is one of the Gulf's leading telecom operators, serving millions of B2C and B2B customers across a fiercely competitive market. In late 2024, leadership embedded customer experience as a core strategic pillar through the REACH framework — CX moved from aspiration to accountability. That decision created momentum and an urgent question: what does CX excellence actually look like when you build it from scratch?",
+      scope: "The answer was a Customer Experience Center on the 16th floor of STC Kuwait HQ — not a showroom, not a dashboard wall, but a working space where CX performance becomes visible, actionable, and accountable across the organisation. As Lead CX Architect, contracted through Bejo Limited, I owned the design inputs track — personas, use cases, spatial concept inputs, and the rituals that connect space to the people performing each scenario. Every claim, every persona, every use case traced back to specific stakeholder evidence. No assumptions.",
       impact: "Fifteen structured interviews engaging twenty-five stakeholders across ten functional areas: executive leadership, strategy, commercial, technology, retail, and quality. Thematic coding produced eight insight themes, six validated findings, and three strategic imperatives defining the path forward. Fifteen validated use cases mapped B2C and B2B scenarios across four readiness tiers and three delivery horizons — moving from insight trapped in silos to intelligence flowing across functions.",
     }
   ], []); // Empty dependency array - static data
@@ -356,17 +355,17 @@ export default function Home() {
   // SNIPPET PROJECTS DATA - Ordered newest → oldest
   const snippetProjects = useMemo(() => [
     {
-      id: 'gcc-consumer-brand',
-      client: 'Pioneering GCC Consumer Brand',
-      title: 'Brand Stretching Architecture — Permission-First Market Entry',
-      year: '',
+      id: 'dzrt-badel',
+      client: 'Badel · DZRT',
+      title: 'Permission before product. Always.',
+      year: '2026',
       location: 'Saudi Arabia',
       capabilities: ['Brand Stretching', 'Consumer Research', 'Methodology Design'],
       industry: 'Health & Consumer Goods',
       serviceType: 'Product Strategy | Strategic Design',
-      website: '',
-      image: '/projects/snippets/gcc-consumer-brand.png',
-      emailSubject: 'Inquiry about Brand Stretching Architecture — GCC Consumer Brand'
+      website: 'https://www.dzrt.com/en-sa',
+      image: '/projects/snippets/dzrt-badel.png',
+      emailSubject: 'Inquiry about DZRT Brand Stretching Architecture — Badel · Saudi Arabia'
     },
     {
       id: 'parques-reunidos',
@@ -775,46 +774,6 @@ export default function Home() {
           >
             Experience Design · Strategy · Transformation
           </motion.p>
-
-          {/* ELEGANT CTA BUTTONS - Small and Sophisticated */}
-          <motion.div 
-            className="hero-cta-elegant"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: isMobile ? 0.5 : 1.0, delay: isMobile ? 0.24 : 0.8 }}
-          >
-            <motion.button
-              onClick={() => {
-                const projectsSection = document.getElementById('projects');
-                if (projectsSection) {
-                  projectsSection.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                  });
-                }
-              }}
-              className="hero-cta-button"
-              aria-label="Navigate to featured projects section"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: isMobile ? 0.4 : 0.618, delay: isMobile ? 0.36 : 1.0, ease: [0.34, 1.56, 0.64, 1] }}
-            >
-              Projects
-            </motion.button>
-            
-            <motion.a
-              href="/CV_Silvana_Restrepo_Final.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero-cta-button hero-cta-button--secondary"
-              aria-label="Open Silvana Restrepo's curriculum vitae in new tab"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: isMobile ? 0.4 : 0.618, delay: isMobile ? 0.48 : 1.382, ease: [0.34, 1.56, 0.64, 1] }}
-            >
-              Executive CV
-            </motion.a>
-          </motion.div>
 
           {/* Scroll indicator */}
           <motion.div
@@ -1546,7 +1505,7 @@ export default function Home() {
 
               /* ── EDITORIAL LAYOUT (default — images first, video last) ── */
               return (
-                <div className={`gallery-editorial${layout === 'wide' ? ' gallery-editorial--wide' : ''}`}>
+                <div className="gallery-editorial">
                   {/* Row 1 — Full-width hero image */}
                   {imgs[0] && (
                     <motion.div
