@@ -25919,3 +25919,134 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
     max-width: 100% !important;
   }
 }
+
+/* ============================================================
+   ── 4. PROJECT CAROUSEL — PERFECTIONIST EDITORIAL REDESIGN ──
+   Root causes:
+   • height:100% on both columns stretches card to 870px+
+   • vw-based font sizes render ~32px title in card context
+   • min-height:520px forces excessive card floor
+   • overflow:visible on image section causes bleed
+   Fix: image aspect-ratio drives card height; typography
+   uses fixed rem values proportional to a card, not a page.
+   ============================================================ */
+
+/* Card: remove floor that forced excess height; flush padding */
+.balanced-project-card {
+  min-height: 0 !important;
+  padding: 0 !important;
+}
+
+/* Grid: both columns stretch to same height (content drives card height) */
+.balanced-layout-grid {
+  height: auto !important;
+  align-items: stretch !important;
+}
+
+/* Image section: fills column via stretch; object-fit cover handles cropping.
+   overflow:hidden !important beats earlier overflow:visible !important */
+.balanced-image-section {
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Cinematic layers: must be absolutely positioned to fill the
+   aspect-ratio box (height:100% on a relative child of height:auto = 0) */
+.balanced-image-section .cinematic-image-layers {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Content: natural height, padding provides breathing room */
+.balanced-content-section {
+  height: auto !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  padding: 1.75rem 1.5rem !important;
+}
+
+/* Header */
+.balanced-header {
+  margin-bottom: 0.875rem !important;
+}
+
+/* Title: editorial card proportion — 19px, not viewport-scaled 32px */
+.balanced-title {
+  font-size: 1.1875rem !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+  margin: 0 0 0.375rem !important;
+}
+
+/* Client: small-caps label, not body-copy size */
+.balanced-client {
+  font-size: 0.625rem !important;
+  font-style: normal !important;
+  letter-spacing: 0.09em !important;
+  text-transform: uppercase !important;
+  margin: 0 0 0.25rem !important;
+}
+
+/* Year / location meta */
+.balanced-meta {
+  font-size: 0.625rem !important;
+  gap: 0.375rem !important;
+}
+
+/* Description block */
+.balanced-description {
+  margin-bottom: 0.875rem !important;
+}
+
+/* Subtitle: 2-line cap, tight */
+.balanced-subtitle {
+  font-size: 0.8125rem !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+  margin: 0 0 0.5rem !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+/* Description prose: 3-line cap */
+.balanced-description-text {
+  font-size: 0.75rem !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+/* Capability tags */
+.balanced-capabilities {
+  margin-bottom: 0.75rem !important;
+}
+
+.balanced-tags {
+  gap: 0.375rem !important;
+}
+
+.balanced-tag {
+  padding: 0.25rem 0.5625rem !important;
+  font-size: 0.625rem !important;
+  letter-spacing: 0.06em !important;
+}
+
+/* Mobile: stacked layout already uses display:block via JSX.
+   Compact padding and slightly larger title for readability. */
+@media (max-width: 640px) {
+  .balanced-content-section {
+    padding: 1.125rem !important;
+  }
+
+  .balanced-title {
+    font-size: 1.0625rem !important;
+  }
+}

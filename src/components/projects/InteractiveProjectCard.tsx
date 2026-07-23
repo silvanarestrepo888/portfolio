@@ -65,20 +65,6 @@ export function InteractiveProjectCard({
     }
   }, [isHovered, isActive, project.video]);
 
-  // Cinematic aspect ratios for different project types
-  const getAspectRatio = (projectTitle: string) => {
-    const ratios: { [key: string]: string } = {
-      'Kayanee': '16:10',        // Wellness - wide cinematic
-      'Augoor': '4:3',           // Software - square tech
-      'Chime Care J&J': '3:2',   // Healthcare - classic
-      'Nomade Tulum': '16:9',    // Hospitality - cinematic wide
-      'Danone Digital Transformation': '4:3', // Corporate - square
-      'Parques Reunidos': '16:9', // Entertainment - wide
-      'Flagship Entertainment Destination, KSA': '16:9', // Entertainment - wide
-    'GCC Telecom Leader — Customer Experience Center': '16:9'  // Telecom - wide cinematic
-    };
-    return ratios[projectTitle] || '4:3';
-  };
 
   const handleMouseEnter = useCallback(() => {
     setIsHovered(true);
@@ -123,16 +109,14 @@ export function InteractiveProjectCard({
         <div className="balanced-layout-grid" style={{ display: isMobile ? 'block' as const : undefined }}>
           
           {/* ULTRA-CLEAN IMAGE SECTION - No Frames, Pure Sophistication */}
-          <div 
+          <div
             className="balanced-image-section cinematic-container"
             style={{
-              aspectRatio: isMobile ? undefined : getAspectRatio(project.title),
-              height: isMobile ? '62vh' : undefined,
               overflow: 'hidden',
               position: 'relative',
-              background: 'transparent', /* NO gray background */
-              border: 'none', /* NO borders */
-              boxShadow: 'none' /* NO shadows */
+              background: 'transparent',
+              border: 'none',
+              boxShadow: 'none'
             }}
           >
             <div className="cinematic-image-layers">
@@ -149,7 +133,7 @@ export function InteractiveProjectCard({
                   src={project.image}
                   alt={project.title}
                   fill
-                  className={isMobile ? 'object-cover' : 'object-contain'}
+                  className="object-cover"
                   style={{
                     objectPosition: 'center',
                     filter: 'contrast(1.02) saturate(1.05)',
@@ -159,7 +143,7 @@ export function InteractiveProjectCard({
                   quality={100}
                   unoptimized
                   priority={index < 2}
-                  sizes={isMobile ? '100vw' : '(max-width: 1200px) 80vw, 1200px'}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1200px) 60vw, 720px"
                   onLoad={() => setImageLoaded(true)}
                   onError={() => setImageLoaded(true)}
                 />
@@ -178,7 +162,7 @@ export function InteractiveProjectCard({
                     inset: 0,
                     width: '100%',
                     height: '100%',
-                    objectFit: isMobile ? 'cover' : 'contain',
+                    objectFit: 'cover',
                     zIndex: 2,
                     background: 'transparent',
                   }}
