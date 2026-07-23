@@ -25847,3 +25847,75 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
     align-items: flex-start !important;
   }
 }
+
+/* ================================================================
+   MOBILE CRITICAL FIXES — applied last to win all specificity wars
+   ================================================================ */
+
+/* ── 1. Hero background: restore absolute positioning ─────────────
+   .hero-section-luxury > * { position: relative } overrides the
+   hero-bg-unified absolute. Fix: re-assert absolute here with !important
+   so the photo layer fills the full section instead of being a flex sibling. */
+@media (max-width: 768px) {
+  .hero-bg-unified {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* Hero content: full width, centered, good padding */
+  .hero-content-luxury {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1.5rem 1.75rem !important;
+    box-sizing: border-box !important;
+    text-align: left !important;
+  }
+
+  /* Title: scale down to fit mobile width */
+  .hero-title-luxury-centered {
+    font-size: clamp(3rem, 12vw, 4.5rem) !important;
+    text-align: left !important;
+    line-height: 0.90 !important;
+  }
+
+  /* Name label: allow wrapping, reduce letter-spacing */
+  .hero-name-label {
+    letter-spacing: 0.15em !important;
+    white-space: normal !important;
+  }
+
+  /* Tagline: tighten */
+  .hero-role-line {
+    letter-spacing: 0.12em !important;
+    font-size: clamp(0.6rem, 2.4vw, 0.8rem) !important;
+  }
+}
+
+/* ── 2. Section indicator: hide on mobile (definitive) ────────────
+   An earlier override block uses display:flex !important at ≤768px.
+   Force display:none here to properly hide it on small screens. */
+@media (max-width: 768px) {
+  .section-indicator,
+  [class*="section-indicator"] {
+    display: none !important;
+  }
+}
+
+/* ── 3. About section: single column on mobile ────────────────────
+   .about-section-ultra-luxury .about-content-ultra-luxury forces
+   grid-template-columns: 1fr 1fr !important — higher specificity than
+   the single-class mobile overrides. Match specificity + media query. */
+@media (max-width: 768px) {
+  .about-section-ultra-luxury .about-content-ultra-luxury {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .about-text-column,
+  .about-photo-column {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
