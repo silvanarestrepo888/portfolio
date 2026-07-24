@@ -22857,7 +22857,7 @@ footer.footer-landor-standards .footer-brand-title-landor {
 
 .hero-scroll-line {
   display: block;
-  width: 1px;
+  width: 1.5px;
   height: 48px;
   background: linear-gradient(to bottom,
     rgba(255, 102, 99, 0.85) 0%,
@@ -24067,6 +24067,8 @@ footer.footer-landor-standards .footer-brand-title-landor {
   max-width: 100% !important;   /* fill the full column, no width cap */
   aspect-ratio: unset !important; /* let the inline image height dictate */
   width: 100% !important;
+  border-radius: 20px !important; /* up from 0 — premium card feel */
+  overflow: hidden !important;
 }
 
 /* Right column: stretch to column edges, no center-justification gap */
@@ -24656,8 +24658,8 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   display: flex !important;
   flex-direction: column !important;
   justify-content: center !important;
-  padding-top: clamp(48px, 6vw, 80px) !important;
-  padding-bottom: clamp(48px, 6vw, 80px) !important;
+  padding-top: var(--section-py, 64px) !important;
+  padding-bottom: var(--section-py, 64px) !important;
 }
 
 /* ── 2. Experience header — reduce bottom margin ─────────────────
@@ -24676,12 +24678,11 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   overflow: hidden !important;
 }
 
-/* ── 4. About photo — consistent border-radius across breakpoints──
-   Ensure the photo card has a consistent, polished 8px radius that
-   matches the overall design language (not the 24px from an older
-   style pass that can feel heavy at smaller sizes). ── */
+/* ── 4. About photo — image radius is 0; container clips to 20px ──
+   border-radius lives on .about-photo-container (overflow:hidden).
+   Setting it here on the image element is a no-op. ── */
 .about-photo-perfect {
-  border-radius: 8px !important;
+  border-radius: 0 !important;
 }
 
 /* ── 5. Hero name label — higher contrast ────────────────────────

@@ -860,10 +860,9 @@ export default function Home() {
               className="about-photo-perfect about-photo-cohesive"
                   style={{
                 width: '100%',
-                height: 'clamp(360px, 50vw, 560px)',
+                height: 'clamp(320px, 42vw, 480px)',
                 objectFit: 'cover',
-                objectPosition: 'center',
-                borderRadius: '6px',
+                objectPosition: 'center top',
                 display: 'block',
                 opacity: aboutLoaded ? 1 : 0,
                 transition: 'opacity 0.6s ease',
