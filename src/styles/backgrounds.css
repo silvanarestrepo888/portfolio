@@ -451,9 +451,28 @@ section#projects .balanced-year {
   color: rgba(255, 251, 240, 0.55) !important;
 }
 
-/* Client names — charcoal on parchment card; coral reserved for CTA arrow hover */
-section#projects .balanced-client {
-  color: var(--charcoal-mid) !important;
+/* Client names and links — vanilla hierarchy on dark Encre surface */
+section#projects .balanced-client,
+section#projects .balanced-client-link {
+  color: rgba(255, 251, 240, 0.85) !important;
+}
+
+section#projects .balanced-subtitle {
+  color: rgba(255, 251, 240, 0.65) !important;
+}
+
+section#projects .balanced-meta,
+section#projects .balanced-meta span,
+section#projects .balanced-divider {
+  color: rgba(255, 251, 240, 0.4) !important;
+}
+
+section#projects .card-cta-label {
+  color: rgba(255, 251, 240, 0.72) !important;
+}
+
+section#projects .card-cta-strip {
+  border-top: 1px solid rgba(255, 251, 240, 0.08) !important;
 }
 
 section#projects .balanced-btn {
