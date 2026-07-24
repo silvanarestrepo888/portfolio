@@ -26185,3 +26185,76 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   margin-right: auto !important;
 }
 
+/* ── FIX 7: Card title — editorial serif on dark surface ─────────────
+   .balanced-title inherits Inter (body font) because --font-architectural-display
+   chains through --font-display which is a literal string not injected by next/font.
+   --font-cormorant-display IS injected and resolves correctly. Weight 400 at 21px
+   gives the editorial presence that 19px Inter 600 lacks on the Encre surface. */
+section#projects .balanced-title {
+  font-family: var(--font-cormorant-display), "Cormorant Garamond", serif !important;
+  font-weight: 400 !important;
+  font-size: 1.3125rem !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* ================================================================
+   ── MOBILE — PROJECT CARDS (≤ 640px) ────────────────────────────
+   Three root causes fixed here:
+   1. CSS `display: grid !important` overrides React inline `display: block`
+      on mobile — must be countered with !important in a media query.
+   2. .balanced-image-section has no explicit height when stacked; fill
+      images require the container to have a height.
+   3. Container gutter is 40px (desktop) — too wide on a 375px screen.
+   ================================================================ */
+
+@media (max-width: 640px) {
+  /* Override the desktop-only grid rule */
+  .balanced-layout-grid {
+    display: block !important;
+    grid-template-columns: unset !important;
+    gap: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Give the image section an explicit height so Next.js fill renders */
+  .balanced-image-section {
+    width: 100% !important;
+    height: 200px !important;
+  }
+
+  /* Content section — full width, comfortable mobile padding */
+  .balanced-content-section {
+    width: 100% !important;
+    padding: 0.875rem 1rem !important;
+  }
+
+  /* Capability tags — too many to scan on mobile, card is a teaser */
+  .balanced-capabilities {
+    display: none !important;
+  }
+
+  /* Title — slightly tighter on mobile; Cormorant stays */
+  section#projects .balanced-title {
+    font-size: 1.125rem !important;
+  }
+
+  /* Container gutter — 16px each side (standard mobile inset vs 40px desktop) */
+  .projects-container-award-winning {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Hero role line — fluid vw font compresses below readable threshold.
+     9.6px at 375px is illegible; 12px is the system minimum (--type-xs). */
+  .hero-role-line {
+    font-size: 12px !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  /* About section — swap stacking order on mobile.
+     DOM order is text → photo; on mobile photo should lead. */
+  .about-photo-column {
+    order: -1 !important;
+  }
+}
+

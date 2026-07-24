@@ -278,7 +278,7 @@ export default function Home() {
         transformation: "Digital-Physical Fusion"
       },
       image: "/projects/nomade/main-hero-carrusel.jpeg",
-      objectPosition: "center",
+      objectPosition: "40% 35%",
       secondaryImage: "/projects/nomade/secundary-hero.jpeg",
       galleryLayout: "strip",
       galleryImages: [
@@ -313,7 +313,7 @@ export default function Home() {
         transformation: "Guest Experience Platform"
       },
       image: "/projects/qiddiya/hero-qiddiya.png",
-      objectPosition: "center",
+      objectPosition: "center 55%",
       secondaryImage: "/projects/qiddiya/secondary-qiddiya.png",
       video: "/projects/qiddiya/qiddiya-city.mp4",
       galleryImages: [
@@ -727,10 +727,10 @@ export default function Home() {
           <div className="hero-photo-layer-unified">
             <Image
               src="/silvana-hero.jpg"
-              alt="Silvana Restrepo, Principal Experience Architect, professional headshot in business attire with confident smile"
+              alt="Silvana Restrepo, Principal Experience Architect — professional portrait"
               fill
               className="hero-photo-artistic-unified parallax-element gpu-accelerated"
-              style={{}}
+              style={{ objectPosition: 'center 15%' }}
               quality={100}
               unoptimized
               priority
@@ -826,25 +826,31 @@ export default function Home() {
             <div className="about-text-column">
               <RevealGroup as="div" className="about-text-content" stagger={0.14} delayChildren={0.1}>
                 <RevealItem as="p" className="about-main-story">
-                  I believe the most compelling stories begin with curiosity—<br />
-                  a spark that has carried me across continents, <br />
-                  blending diverse perspectives from anthropology to business, <br />
-                  from innovation to experience design, <br />
-                  and from emerging technologies to business transformation.
+                  Seven industries. Three continents.<br />
+                  Underneath all of it, one stubborn question: what makes people say yes?
                 </RevealItem>
 
                 <RevealItem as="p" className="about-main-story">
-                  Each endeavor deepens my mission: <br />
-                  bridging strategic business goals with the human truths <br />
-                  that drive transformation.
+                  I&apos;ve chased it through banking halls and retail corridors, through telecom networks and wellness ecosystems, through hospitality venues and entertainment destinations. Every industry answered differently, which is exactly why the pattern only shows itself to someone who&apos;s seen them all.
                 </RevealItem>
 
                 <RevealItem as="p" className="about-main-story">
-                  Whether leading teams in retail innovation or pioneering Experience design for global brands, my passion remains: to reveal what lies beneath and transform it into tangible expansion.
+                  Anthropology gave that chase a discipline.<br />
+                  Neuromarketing gave it a science.<br />
+                  Design gave it a language. And technology, finally, gave it hands.
+                </RevealItem>
+
+                <RevealItem as="p" className="about-main-story">
+                  Today those hands work across every piece of the system — the business case, the human behavior, the operations, the technology, and yes, the AI. But no piece was ever the point. The point is the connective tissue: how the pieces hold each other up, what order they compose in, where the whole breaks under real pressure. That knowledge doesn&apos;t come from mastering a tool. It comes from having run the system.
+                </RevealItem>
+
+                <RevealItem as="p" className="about-main-story">
+                  That&apos;s what I design: the system behind the system.<br />
+                  The experiences that transform a business are never the visible ones.
                 </RevealItem>
 
                 <RevealItem as="p" className="about-welcome">
-                  Welcome to my world—where strategy meets soul, and design becomes the universal language of possibility.
+                  Welcome to my world — where strategy meets soul, and design becomes the one language humans and machines both speak.
                 </RevealItem>
               </RevealGroup>
             </div>
