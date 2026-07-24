@@ -26107,10 +26107,11 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
    ── VISUAL AUDIT FIXES — 2026-07-24 ─────────────────────────────
    ================================================================ */
 
-/* ── FIX 1: Navigation pill centering ──────────────────────────────
+/* ── FIX 1: Navigation pill centering + glass blur ──────────────────
    Root cause: FM's animate={{ y: 0 }} sets inline transform:
    translateY(0px), overriding CSS transform: translateX(-50%).
-   Fix: center via left:0 + right:0 + margin:auto — no transform needed. */
+   Fix: center via left:0 + right:0 + margin:auto — no transform needed.
+   Also adds frosted-glass backdrop-filter (was missing — bf was "none"). */
 .navigation-floating {
   left: 0 !important;
   right: 0 !important;
@@ -26118,6 +26119,8 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   margin-right: auto !important;
   width: fit-content !important;
   max-width: 90vw !important;
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
 }
 
 /* ── FIX 2: Capability tags — horizontal scroll instead of clip ────
@@ -26152,11 +26155,3 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   font-family: var(--font-cormorant-display), "Cormorant Garamond", serif !important;
 }
 
-/* ── FIX 5: Nav backdrop blur ───────────────────────────────────────
-   The nav pill has no actual glass blur — backdrop-filter was unset.
-   This restores the frosted-glass effect as the pill scrolls over
-   different section backgrounds. */
-.navigation-floating {
-  backdrop-filter: blur(12px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
-}
