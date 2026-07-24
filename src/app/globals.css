@@ -26156,3 +26156,32 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   font-family: var(--font-cormorant-display), "Cormorant Garamond", serif !important;
 }
 
+/* ================================================================
+   ── CONTAINER SYSTEM AUDIT FIX — 2026-07-24 ─────────────────────
+   ================================================================ */
+
+/* ── FIX 5: Layout gutter — decouple from golden-ratio spacing ───────
+   Root cause: tokens.css defines --container-px: max(--space-xl, 5vw)
+   with --space-xl: 40px → intended gutter is max(40px, 64px) = 64px.
+   The golden-ratio system at line 1303 overrides --space-xl to 6.854rem
+   (109.7px), making --container-px = max(109.7px, 64px) = 109.7px.
+   This shrinks projects/services content from ~1152px to ~1061px.
+   Fix: re-declare --container-px as a literal value, bypassing --space-xl.
+   Source order (end of file) beats the earlier :root declaration. */
+:root {
+  --container-px: max(40px, 5vw);
+}
+
+/* ── FIX 6: Projects, Services, Snippet containers — add max-width cap ─
+   None of these had max-width, so on wide viewports content sprawls.
+   --container-max (1200px) is the canonical content-width token.
+   snippet-container had --container-max-wide (1400px) but at 1280px
+   that's not reached anyway; aligning all three gives visual harmony. */
+.projects-container-award-winning,
+.container-foundation,
+.snippet-container {
+  max-width: var(--container-max) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
