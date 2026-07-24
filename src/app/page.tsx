@@ -1234,34 +1234,6 @@ export default function Home() {
       {/* EXPERIENCE SECTION - Horizontal Auto-Scroll Timeline */}
       <ExperienceTimeline />
 
-      {/* CURRENTLY IN THE STUDIO */}
-      <section id="currently" className="currently-section" aria-label="Currently in the studio">
-        <div className="currently-inner">
-          <motion.p
-            className="currently-label"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.8 }}
-          >
-            Currently in the studio
-          </motion.p>
-          <motion.p
-            className="currently-body"
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 1.0, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
-          >
-            Venture design for a leading financial institution in Latin America, with Fruta — client confidential.
-            Vision architecture, value proposition, unified customer journey, go-to-market logic,
-            inside a regulated environment where every claim traces to a primary source,
-            on an investment-committee clock.{' '}
-            <em>Zero to one, where being wrong is not an option.</em>
-          </motion.p>
-        </div>
-      </section>
-
       {/* EDITORIAL FOOTER */}
       <footer id="footer" className="footer-editorial">
         <div className="footer-editorial-inner">
