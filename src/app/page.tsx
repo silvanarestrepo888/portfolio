@@ -926,16 +926,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Philosophy Quote */}
-          <RevealBody
-            as="div"
-            className="about-philosophy-ultra-luxury"
-            delay={0.1}
-          >
-            <blockquote className="philosophy-quote-ultra-luxury">
-              <em>The art of my craft lies in listening to the unspoken, seeing the invisible, and revealing the intangible nature of human desire.</em>
-            </blockquote>
-          </RevealBody>
         </div>
       </section>
 

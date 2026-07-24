@@ -20638,17 +20638,9 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   z-index: 1;
 }
 
-/* ENHANCE GLASSMORPHISM ON HOVER - NO TRANSFORMS (Let Framer Motion handle) */
+/* Content section: no visual change on hover — Framer Motion handles movement */
 .balanced-content-section:hover {
-  background: rgba(255, 251, 238, 0.9) !important; /* More opaque on hover */
-  backdrop-filter: blur(25px) saturate(1.9) brightness(1.08) !important;
-  border-color: rgba(255, 102, 99, 0.4) !important; /* Grapefruit accent border */
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.12),    /* REDUCED shadow complexity */
-    0 4px 16px rgba(255, 102, 99, 0.06), /* REDUCED grapefruit intensity */
-    inset 0 1px 0 rgba(255, 255, 255, 0.5) !important; /* SIMPLIFIED rim */
-  /* REMOVED: transform and complex transitions - let Framer Motion handle movement */
-  transition: background-color var(--duration-base) ease, border-color var(--duration-base) ease, backdrop-filter var(--duration-base) ease !important;
+  background: transparent !important;
 }
 
 
@@ -23960,7 +23952,7 @@ footer.footer-landor-standards .footer-brand-title-landor {
   object-fit: cover !important;
   /* left side of photo = Silvana's face */
   object-position: left 15% !important;
-  filter: contrast(1.04) brightness(0.82) saturate(0.88) !important;
+  filter: contrast(1.02) brightness(1.0) saturate(0.92) !important;
   mix-blend-mode: normal !important;
 }
 
@@ -23971,12 +23963,12 @@ footer.footer-landor-standards .footer-brand-title-landor {
   position: absolute !important;
   inset: 0 !important;
   pointer-events: none !important;
-  /* Transparent on left (face) → dark on right (kills cream wall) */
+  /* Transparent on left (face) → subtle dark on right for text contrast */
   background: linear-gradient(
     to right,
-    rgba(4, 4, 8, 0.08) 0%,
-    rgba(4, 4, 8, 0.38) 38%,
-    rgba(4, 4, 8, 0.72) 100%
+    rgba(4, 4, 8, 0.03) 0%,
+    rgba(4, 4, 8, 0.18) 38%,
+    rgba(4, 4, 8, 0.40) 100%
   ) !important;
   z-index: 2 !important;
 }
@@ -26435,6 +26427,19 @@ section#projects .balanced-title {
 .balanced-tags {
   flex-wrap: wrap !important;
   overflow: visible !important;
+}
+
+/* CAROUSEL IMAGE SECTION — enforce landscape ratio so videos/images never
+   get portrait-cropped. Content column scrolls independently. */
+.balanced-image-section {
+  aspect-ratio: 4 / 3 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  align-self: flex-start !important;
+}
+
+.balanced-layout-grid {
+  align-items: flex-start !important;
 }
 
 /* CURRENTLY IN THE STUDIO — editorial statement, dark surface */
