@@ -26319,3 +26319,26 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 /* 6 · Header rhythm: vertical budget goes to words, not gaps */
 .balanced-header { margin-bottom: 0.875rem !important; }
 .balanced-description { margin-bottom: 0.625rem !important; }
+
+/* ── Measured In strip — a career in verifiable units ── */
+.exp-measured {
+  font-family: var(--font-body, 'Inter', sans-serif) !important;
+  font-size: clamp(0.75rem, 0.95vw, 0.875rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.03em !important;
+  color: var(--charcoal-mid, #4A5568) !important;
+  opacity: 0.78 !important;
+  text-align: center !important;
+  margin: clamp(1.25rem, 2.5vw, 2rem) auto 0 !important;
+  max-width: 900px !important;
+  padding: 0 1.5rem !important;
+  line-height: 1.8 !important;
+}
+
+.exp-measured-label {
+  font-family: var(--font-serif, 'Libre Baskerville', serif) !important;
+  font-style: italic !important;
+  color: var(--coral, #FF6663) !important;
+  margin-right: 0.75em !important;
+  opacity: 0.9 !important;
+}

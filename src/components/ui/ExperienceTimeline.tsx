@@ -197,6 +197,18 @@ export function ExperienceTimeline() {
         </AnimatePresence>
       </div>
 
+      {/* Measured In — a career in verifiable units */}
+      <motion.p
+        className="exp-measured"
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 1.0, delay: 0.2 }}
+      >
+        <span className="exp-measured-label">Measured in</span>
+        4 telecoms merged · 3 malls built · 580,000 m² of retail · 31,000 engineers on one platform · 50 sourced use cases · 1 CX Center from zero
+      </motion.p>
+
       {/* The one sentence the section keeps */}
       <motion.p
         className="exp-fieldwork"
