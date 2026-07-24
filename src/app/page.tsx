@@ -779,7 +779,17 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: isMobile ? 0.5 : 0.618, delay: isMobile ? 0.2 : 0.72 }}
           >
-            Experience Design · Strategy · Transformation
+            Business is my mind. Design is my heart. Technology is my hands.
+          </motion.p>
+
+          <motion.p
+            className="hero-role-line"
+            style={{ opacity: 0.85, fontSize: '0.85em', letterSpacing: '0.12em', textTransform: 'uppercase' }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 0.85, y: 0 }}
+            transition={{ duration: isMobile ? 0.5 : 0.618, delay: isMobile ? 0.35 : 1.0 }}
+          >
+            Experience Strategy · Business Design · Agentic Systems
           </motion.p>
 
           {/* Scroll indicator */}
