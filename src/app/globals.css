@@ -20771,7 +20771,6 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 @media (prefers-reduced-motion: reduce) {
   .balanced-content-section,
   .about-header-ultra-luxury,
-  .projects-header-award-winning,
   .philosophy-quote-ultra-luxury {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
@@ -20792,11 +20791,15 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
     border-radius: 12px !important; /* Simplified radius */
   }
   
-  .about-header-ultra-luxury,
-  .projects-header-award-winning {
+  .about-header-ultra-luxury {
     backdrop-filter: blur(12px) saturate(1.3) !important; /* Performance-safe mobile blur */
     padding: 1.5rem 2rem !important; /* Optimized mobile padding */
     border-radius: 16px !important; /* Simplified for mobile */
+    margin-bottom: 2rem !important; /* Reduced mobile spacing */
+  }
+
+  .projects-header-award-winning {
+    padding: 1.5rem 2rem !important; /* Optimized mobile padding */
     margin-bottom: 2rem !important; /* Reduced mobile spacing */
   }
   
@@ -20816,7 +20819,6 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 @media (max-width: 480px) {
   .balanced-content-section,
   .about-header-ultra-luxury,
-  .projects-header-award-winning,
   .philosophy-quote-ultra-luxury {
     backdrop-filter: blur(8px) !important; /* Minimal blur for older devices */
     background: rgba(255, 251, 238, 0.95) !important; /* More solid for readability */
