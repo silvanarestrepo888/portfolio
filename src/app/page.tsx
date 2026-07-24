@@ -364,7 +364,7 @@ export default function Home() {
     {
       id: 'dzrt-badel',
       client: 'Badel · DZRT',
-      title: 'Permission before product. Always.',
+      title: 'Brand Stretching Architecture',
       year: '2026',
       location: 'Saudi Arabia',
       capabilities: ['Brand Stretching', 'Consumer Research', 'Methodology Design'],
@@ -392,7 +392,7 @@ export default function Home() {
       client: 'Danone',
       title: 'Smart Pricing System',
       year: '2020',
-      location: 'Global',
+      location: 'Argentina',
       capabilities: ['Digital Transformation', 'Pricing Strategy'],
       industry: 'Food & Beverage',
       serviceType: 'Digital Transformation | Pricing Strategy',
@@ -429,7 +429,7 @@ export default function Home() {
     {
       id: 'viva-malls',
       client: 'Viva Mall',
-      title: 'Phygital Retail Revolution',
+      title: 'Retail Experience Architecture',
       year: '2019',
       location: 'Colombia',
       capabilities: ['Experience Architecture', 'Digital Transformation'],
@@ -437,7 +437,7 @@ export default function Home() {
       serviceType: 'Experience Architecture | Digital Transformation',
       website: 'https://ccviva.com/',
       image: '/projects/snippets/viva-malls.png',
-      emailSubject: 'Inquiry about Phygital Retail Revolution - Retail & Real Estate Project'
+      emailSubject: 'Inquiry about Retail Experience Architecture - Retail & Real Estate Project'
     },
     {
       id: 'grupo-exito',
@@ -455,7 +455,7 @@ export default function Home() {
     {
       id: 'tigo-millicom',
       client: 'Tigo · Millicom',
-      title: 'Telecom Customer Intelligence Platform',
+      title: 'Merger & Acquisition Strategy',
       year: '2010',
       location: 'Colombia',
       capabilities: ['Business Expansion', 'Customer Experience'],
@@ -463,7 +463,8 @@ export default function Home() {
       serviceType: 'Product Direction | Market Expansion Strategy',
       website: 'https://www.tigo.com.co/',
       image: '/projects/snippets/tigo-millicom.png',
-      emailSubject: 'Inquiry about Telecom Customer Intelligence Platform - Telecommunications Project'
+      objectPosition: 'left center',
+      emailSubject: 'Inquiry about Merger & Acquisition Strategy - Telecommunications Project'
     }
   ], []); // Empty dependency array - static data
 

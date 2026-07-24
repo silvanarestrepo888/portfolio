@@ -15,6 +15,7 @@ interface SnippetProject {
   serviceType: string;
   website: string;
   image: string;
+  objectPosition?: string;
   emailSubject: string;
 }
 
@@ -85,7 +86,7 @@ export const ProjectSnippetCard: React.FC<ProjectSnippetCardProps> = ({ project,
           className="snippet-image"
           style={{
             objectFit: 'cover',
-            objectPosition: 'center',
+            objectPosition: project.objectPosition ?? 'center',
             opacity: imageLoaded ? 1 : 0,
             transition: 'opacity 0.5s ease',
           }}
