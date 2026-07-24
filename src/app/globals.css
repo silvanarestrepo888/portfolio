@@ -26266,3 +26266,56 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   }
   .exp-transformation { white-space: normal !important; }
 }
+
+/* ================================================================
+   PROJECT CAROUSEL — V3 FITTING FIX (text & image breathing room)
+   Live-DOM diagnosis at 1547px viewport: text column rendered at
+   255px usable width → title wrapping 3-4 lines, subtitle clamped
+   mid-sentence, tags clipped at the right edge, prose description
+   hidden by V2. This pass rebalances so nothing renders amputated.
+   ================================================================ */
+
+/* 1 · Rebalance the grid: text gets real estate (55/45, was 60/40) */
+.balanced-layout-grid {
+  grid-template-columns: 55% 45% !important;
+  gap: 1.75rem !important;
+}
+
+/* 2 · Kill the inner paddings that were eating text width */
+.balanced-content-section h3,
+.balanced-content-section p {
+  padding: 0 !important;
+}
+
+/* 3 · Title: presence without sprawl — max 2 lines, graceful ellipsis */
+.balanced-title {
+  font-size: clamp(1.25rem, 1.8vw, 1.625rem) !important;
+  line-height: 1.22 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  margin: 0 0 0.5rem 0 !important;
+}
+
+/* 4 · Subtitle: three lines of room — the teaser finishes its sentence */
+.balanced-subtitle {
+  font-size: 0.875rem !important;
+  line-height: 1.55 !important;
+  -webkit-line-clamp: 3 !important;
+}
+
+/* 5 · Tags: never clip — wrap to a second row when needed */
+.balanced-tags {
+  flex-wrap: wrap !important;
+  overflow: visible !important;
+  max-width: 100% !important;
+}
+.balanced-tag {
+  flex-shrink: 1 !important;
+  white-space: nowrap !important;
+}
+
+/* 6 · Header rhythm: vertical budget goes to words, not gaps */
+.balanced-header { margin-bottom: 0.875rem !important; }
+.balanced-description { margin-bottom: 0.625rem !important; }
