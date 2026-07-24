@@ -22988,9 +22988,9 @@ footer.footer-landor-standards .footer-brand-title-landor {
   font-family: var(--font-cormorant-display), "Cormorant Garamond", serif !important;
   font-size: clamp(3rem, 6vw, 3.5rem) !important; /* 48px–56px, matches about/projects/snippets */
   font-weight: 300 !important;
-  text-transform: lowercase !important;               /* THE critical missing rule */
+  text-transform: lowercase !important;
   letter-spacing: -0.02em !important;
-  line-height: 1.0 !important;
+  line-height: 1.1 !important;
 }
 
 /* ── TIER 2: Section descriptions — elevated from 14px body size ─
@@ -24015,10 +24015,10 @@ footer.footer-landor-standards .footer-brand-title-landor {
 
 /* Name label */
 .hero-name-label {
-  color: rgba(255, 251, 240, 0.60) !important;
+  color: rgba(255, 251, 240, 0.70) !important;
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55) !important;
-  letter-spacing: 0.30em !important;
-  font-size: clamp(0.6875rem, 0.85vw, 0.875rem) !important;
+  letter-spacing: 0.25em !important;
+  font-size: clamp(0.8125rem, 1.0vw, 1rem) !important;
 }
 
 /* Title: large, commanding, full-width impact */
@@ -24028,7 +24028,7 @@ footer.footer-landor-standards .footer-brand-title-landor {
   font-size: clamp(4.5rem, 11.5vw, 15rem) !important;
   font-weight: 300 !important;
   letter-spacing: -0.035em !important;
-  line-height: 0.90 !important;
+  line-height: 1.0 !important;
   text-shadow:
     0 2px 20px rgba(0, 0, 0, 0.50),
     0 8px 60px rgba(0, 0, 0, 0.28) !important;
@@ -24038,8 +24038,8 @@ footer.footer-landor-standards .footer-brand-title-landor {
 .hero-role-line {
   color: rgba(255, 251, 240, 0.65) !important;
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55) !important;
-  font-size: clamp(0.75rem, 0.95vw, 0.9375rem) !important;
-  letter-spacing: 0.24em !important;
+  font-size: clamp(0.8125rem, 1.05vw, 1.0625rem) !important;
+  letter-spacing: 0.20em !important;
   text-transform: uppercase !important;
   margin-top: 1.25rem !important;
 }
@@ -25792,9 +25792,9 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 
 .exp-company-name {
   font-family: var(--font-body, 'Inter', sans-serif) !important;
-  font-size: clamp(0.5rem, 0.7vw, 0.65rem) !important;
+  font-size: clamp(0.6875rem, 0.9vw, 0.8125rem) !important;
   font-weight: 600 !important;
-  letter-spacing: 0.12em !important;
+  letter-spacing: 0.10em !important;
   text-transform: uppercase !important;
   color: var(--charcoal-mid, #4A5568) !important;
   white-space: nowrap !important;
@@ -25802,7 +25802,7 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 
 .exp-role-name {
   font-family: var(--font-body, 'Inter', sans-serif) !important;
-  font-size: clamp(0.45rem, 0.6vw, 0.575rem) !important;
+  font-size: clamp(0.625rem, 0.8vw, 0.75rem) !important;
   font-weight: 400 !important;
   color: var(--charcoal-mid, #4A5568) !important;
   opacity: 0.65 !important;
@@ -25810,7 +25810,7 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 }
 
 .exp-disc-label {
-  font-size: clamp(0.40rem, 0.50vw, 0.475rem) !important;
+  font-size: clamp(0.5rem, 0.65vw, 0.625rem) !important;
   font-style: italic !important;
   letter-spacing: 0.07em !important;
   text-transform: uppercase !important;
@@ -26137,4 +26137,26 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
    Prevents invisible nav from intercepting clicks when slid off-screen. */
 .navigation-floating.hidden {
   pointer-events: none !important;
+}
+
+/* ================================================================
+   ── TYPOGRAPHY SYSTEM REFINEMENT — 2026-07-24 ───────────────────
+   ================================================================ */
+
+/* ── FIX 4: Hero title — font family ────────────────────────────────
+   --font-architectural-display chains through --font-display which is
+   NOT injected by Next.js next/font, so it resolves to empty and the
+   title falls back to the inherited Inter from body. --font-cormorant-display
+   IS injected by next/font and resolves correctly. */
+.hero-title-luxury-centered {
+  font-family: var(--font-cormorant-display), "Cormorant Garamond", serif !important;
+}
+
+/* ── FIX 5: Nav backdrop blur ───────────────────────────────────────
+   The nav pill has no actual glass blur — backdrop-filter was unset.
+   This restores the frosted-glass effect as the pill scrolls over
+   different section backgrounds. */
+.navigation-floating {
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
 }
