@@ -5,11 +5,11 @@ import { useRef, useState } from 'react';
 // THE LENS LINE — brands above, transformation below, depth on hover.
 // Read left to right, the labels tell the story without one sentence of prose.
 const experiences = [
-  { company: 'TIGO-MILLICOM',        label: 'Scale & Integration',            reveal: 'M&A brand integration.' },
-  { company: 'Haceb',                label: 'Data → Consumer',                reveal: '+26% sales — segmentation rebuilt around the consumer.' },
-  { company: 'Grupo Éxito',          label: 'Commerce → Belonging',           reveal: '3 additional shopping malls launched · 800+ brand partnerships.' },
-  { company: 'Designit · Wipro',     label: 'Creativity, Scaled',             reveal: '20+ person multidisciplinary team · regional operations.' },
-  { company: 'WEF · C4IR',           label: 'Technology, Governed',           reveal: 'C4IR — LATAM stakeholder architecture.' },
+  { company: 'Tigo · UNE',           label: 'Scale & Integration',            reveal: 'Regional expansion — rolled four acquired operators into one national brand.' },
+  { company: 'Haceb',                label: 'Data → Consumer',                reveal: 'Founded the Business Intelligence Unit — research and pilots steering investment to highest-impact bets.' },
+  { company: 'Grupo Éxito',          label: 'Commerce → Belonging',           reveal: '32 retail destinations · 3 new malls launched · 580,000 m² GLA portfolio.' },
+  { company: 'Designit · Wipro',     label: 'Creativity, Scaled',             reveal: 'Scaling creativity — 20+ multidisciplinary team, regional operations.' },
+  { company: 'WEF · C4IR',           label: 'Technology, Governed',           reveal: 'Co-authored C4IR white papers · LATAM stakeholder architecture across government, academia and industry.' },
   { company: 'Globant',              label: 'Experience, Engineered',         reveal: 'Client Partner, Inditex · Wellness, hospitality & gaming corporate ventures (PIF).' },
   { company: 'Experience Architect', label: 'Human-AI Workflow Architecture', reveal: 'stc CX Center · DZRT market entry · venture design, LATAM finance.' },
 ];
