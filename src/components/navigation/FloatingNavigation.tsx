@@ -37,6 +37,7 @@ export function FloatingNavigation() {
   const [lastScrollY, setLastScrollY]         = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile]               = useState(false);
+  const [hasLoaded, setHasLoaded]             = useState(false);
   const { scrollY } = useScroll();
   const { currentSection } = useSectionDetection();
 
@@ -49,6 +50,12 @@ export function FloatingNavigation() {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Mark nav as loaded after initial entrance animation completes (delay 0.5s + duration 1s)
+  useEffect(() => {
+    const timer = setTimeout(() => setHasLoaded(true), 1600);
+    return () => clearTimeout(timer);
   }, []);
 
   // Hide-on-scroll-down
@@ -96,9 +103,13 @@ export function FloatingNavigation() {
   return (
     <motion.nav
       className={`navigation-floating navigation-responsive ${isScrolled ? 'scrolled' : ''} ${isHidden ? 'hidden' : ''}`}
-      initial={{ opacity: 0, y: -100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, delay: 0.5, ease: easeNatural }}
+      initial={{ opacity: 0, y: -120 }}
+      animate={{ opacity: isHidden ? 0 : 1, y: isHidden ? -120 : 0 }}
+      transition={{
+        duration: hasLoaded ? (isHidden ? 0.3 : 0.4) : 1,
+        delay: hasLoaded ? 0 : 0.5,
+        ease: easeNatural,
+      }}
       aria-label="Main navigation"
       role="navigation"
     >

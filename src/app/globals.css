@@ -26102,3 +26102,39 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
     padding: 1rem !important;
   }
 }
+
+/* ================================================================
+   ── VISUAL AUDIT FIXES — 2026-07-24 ─────────────────────────────
+   ================================================================ */
+
+/* ── FIX 1: Navigation pill centering ──────────────────────────────
+   Root cause: FM's animate={{ y: 0 }} sets inline transform:
+   translateY(0px), overriding CSS transform: translateX(-50%).
+   Fix: center via left:0 + right:0 + margin:auto — no transform needed. */
+.navigation-floating {
+  left: 0 !important;
+  right: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: fit-content !important;
+  max-width: 90vw !important;
+}
+
+/* ── FIX 2: Capability tags — horizontal scroll instead of clip ────
+   flex-shrink:0 + overflow:hidden clips tags silently.
+   Switch to scrollable with hidden scrollbar for clean UX. */
+.balanced-tags {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+.balanced-tags::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* ── FIX 3: Nav pill — pointer-events off when hidden ──────────────
+   Prevents invisible nav from intercepting clicks when slid off-screen. */
+.navigation-floating.hidden {
+  pointer-events: none !important;
+}
