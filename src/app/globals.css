@@ -687,8 +687,11 @@
   margin-bottom: 24px; /* Visual rhythm between paragraphs */
 }
 
-.about-main-story:last-of-type {
-  margin-bottom: 32px; /* Slightly more before quote */
+/* :last-of-type never matched here — RevealItem renders .about-welcome
+   as a <p> too, so the true last <p> sibling is .about-welcome, not any
+   .about-main-story. :has() targets the one actually before it. */
+.about-main-story:has(+ .about-welcome) {
+  margin-bottom: 3em; /* More than the 2.5em paragraph rhythm, before the welcome line */
 }
 
 /* AWARD-WINNING: Scroll-in animations with blur */
@@ -9571,7 +9574,9 @@ h4, .text-h4 {
   
   .about-main-story {
     font-size: 1rem;
-    margin-bottom: 20px;
+    /* margin-bottom intentionally not set here — the higher-specificity
+       .about-section-ultra-luxury .about-main-story rule in typography.css
+       (2.5em) governs paragraph rhythm at every breakpoint. */
   }
   
   .about-welcome {

@@ -58,6 +58,15 @@
   text-shadow: none;
 }
 
+/* Body copy pinned to charcoal-mid (~7.3:1 on this surface). A generic
+   `.section-about-sophisticated p` rule elsewhere quietly downgrades
+   this to --charcoal-light (~5.2:1) since a bare tag+class selector
+   otherwise beats the plain .about-main-story/.about-welcome classes. */
+.about-section-ultra-luxury .about-main-story,
+.about-section-ultra-luxury .about-welcome {
+  color: var(--charcoal-mid);
+}
+
 
 /* ================================================================
    PROJECTS — Encre
