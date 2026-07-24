@@ -353,8 +353,8 @@ export default function Home() {
         "/projects/gcc-telecom/gallery-gcc-telecom-2.png",
         "/projects/gcc-telecom/gallery-gcc-telecom-3.png"
       ],
-      context: "STC Kuwait is one of the Gulf's leading telecom operators, serving millions of B2C and B2B customers across a fiercely competitive market. In late 2024, leadership embedded customer experience as a core strategic pillar through the REACH framework — CX moved from aspiration to accountability. That decision created momentum and an urgent question: what does CX excellence actually look like when you build it from scratch?",
-      scope: "The answer was a Customer Experience Center on the 16th floor of STC Kuwait HQ — not a showroom, not a dashboard wall, but a working space where CX performance becomes visible, actionable, and accountable across the organisation. As Lead CX Architect, contracted through Bejo Limited, I owned the design inputs track — personas, use cases, spatial concept inputs, and the rituals that connect space to the people performing each scenario. Every claim, every persona, every use case traced back to specific stakeholder evidence. No assumptions.",
+      context: "In the Gulf's most competitive telecom market, customer experience had become the last true differentiator. stc understood something subtler: experience can't be delegated to a department that doesn't exist yet — it has to be built as an organizational capability, with its own culture, its own rituals, its own operating logic. The mandate was not a project. It was a cultural change.",
+      scope: "We designed the Center on three fronts at once. Culture: making customer experience an internal language, not an external promise. Use cases: grounding the Center's purpose in concrete, operational cases rather than aspirational statements. Operational design: governance, cadence, and the working rhythms that let the Center function after the consultants leave — because a capability that needs its designers isn't a capability yet.",
       impact: "Fifteen structured interviews engaging twenty-five stakeholders across ten functional areas: executive leadership, strategy, commercial, technology, retail, and quality. Thematic coding produced eight insight themes, six validated findings, and three strategic imperatives defining the path forward. Fifteen validated use cases mapped B2C and B2B scenarios across four readiness tiers and three delivery horizons — moving from insight trapped in silos to intelligence flowing across functions.",
     }
   ], []); // Empty dependency array - static data
@@ -364,7 +364,7 @@ export default function Home() {
     {
       id: 'dzrt-badel',
       client: 'Badel · DZRT',
-      title: 'Brand Stretching Architecture',
+      title: 'Brand Stretching',
       year: '2026',
       location: 'Saudi Arabia',
       capabilities: ['Brand Stretching', 'Consumer Research', 'Methodology Design'],
@@ -372,7 +372,7 @@ export default function Home() {
       serviceType: 'Product Strategy | Strategic Design',
       website: 'https://www.dzrt.com/en-sa',
       image: '/projects/snippets/gcc-consumer-brand.png',
-      emailSubject: 'Inquiry about DZRT Brand Stretching Architecture — Badel · Saudi Arabia'
+      emailSubject: 'Inquiry about DZRT Brand Stretching — Badel · Saudi Arabia'
     },
     {
       id: 'parques-reunidos',
@@ -429,15 +429,15 @@ export default function Home() {
     {
       id: 'viva-malls',
       client: 'Viva Mall',
-      title: 'Retail Experience Architecture',
+      title: 'Retail Experience',
       year: '2019',
       location: 'Colombia',
-      capabilities: ['Experience Architecture', 'Digital Transformation'],
+      capabilities: ['Experience Design', 'Digital Transformation'],
       industry: 'Retail & Real Estate',
-      serviceType: 'Experience Architecture | Digital Transformation',
+      serviceType: 'Experience Design | Digital Transformation',
       website: 'https://ccviva.com/',
       image: '/projects/snippets/viva-malls.png',
-      emailSubject: 'Inquiry about Retail Experience Architecture - Retail & Real Estate Project'
+      emailSubject: 'Inquiry about Retail Experience - Retail & Real Estate Project'
     },
     {
       id: 'grupo-exito',

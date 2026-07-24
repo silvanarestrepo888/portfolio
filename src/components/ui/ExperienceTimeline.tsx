@@ -206,7 +206,7 @@ export function ExperienceTimeline() {
         transition={{ duration: 1.0, delay: 0.2 }}
       >
         <span className="exp-measured-label">Measured in</span>
-        3 telecoms merged · 32 shopping mall operations · 508,000 m² GLA of retail · 1,000 engineers on one platform · 60+ discovery projects · 1 CX Center from zero
+        3 telecoms merged · 32 shopping mall operations · 508,000 m² GLA of retail · 1,000 engineers on one platform · 60+ tech discovery projects · CX Center from zero
       </motion.p>
 
       {/* The one sentence the section keeps */}
