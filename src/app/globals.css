@@ -26388,3 +26388,36 @@ section#projects .balanced-title {
     order: -1 !important;
   }
 }
+
+/* ================================================================
+   SNIPPET CARDS — dark title section for Encre surface legibility
+   White phone mockup images need a dark backing, not cream.
+   ================================================================ */
+.snippet-title-section {
+  background: transparent !important;
+}
+
+.snippet-title-text {
+  color: rgba(255, 251, 240, 0.90) !important;
+}
+
+.snippet-domain-link {
+  color: rgba(255, 251, 240, 0.40) !important;
+  opacity: 1 !important;
+}
+
+.snippet-domain-link:hover {
+  color: var(--coral, #FF6663) !important;
+}
+
+.snippet-rotator-single {
+  color: rgba(255, 251, 240, 0.40) !important;
+}
+
+.snippet-rotator-caps {
+  color: rgba(255, 251, 240, 0.45) !important;
+}
+
+.snippet-card-service-label {
+  color: rgba(255, 251, 240, 0.40) !important;
+}
