@@ -11,7 +11,7 @@ const experiences = [
   { company: 'Designit · Wipro',     label: 'Creativity, Scaled',             reveal: 'Scaling creativity — 20+ multidisciplinary team, regional operations.' },
   { company: 'WEF · C4IR',           label: 'Technology, Governed',           reveal: 'Co-authored C4IR white papers · LATAM stakeholder architecture across government, academia and industry.' },
   { company: 'Globant',              label: 'Experience, Engineered',         reveal: 'Client Partner, Inditex · Wellness, hospitality & gaming corporate ventures (PIF).' },
-  { company: 'Experience Architect', label: 'Human-AI Workflow Architecture', reveal: 'stc CX Center · DZRT market entry · venture design, LATAM finance.' },
+  { company: 'Experience Architect', label: 'Human-AI Workflow Architecture', reveal: 'stc CX Center · DZRT market entry · Fruta — venture design, LATAM finance, client confidential.' },
 ];
 
 // SVG viewBox: 0 0 1000 200

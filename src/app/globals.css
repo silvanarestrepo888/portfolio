@@ -26436,3 +26436,39 @@ section#projects .balanced-title {
   flex-wrap: wrap !important;
   overflow: visible !important;
 }
+
+/* CURRENTLY IN THE STUDIO — editorial statement, dark surface */
+.currently-section {
+  background: var(--noir, #0A0A0F);
+  padding: clamp(4rem, 8vw, 8rem) var(--container-px, 2rem);
+}
+
+.currently-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.currently-label {
+  font-family: var(--font-cormorant-display), "Cormorant Garamond", serif;
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 251, 240, 0.35);
+  margin: 0 0 2rem;
+}
+
+.currently-body {
+  font-family: var(--font-cormorant-display), "Cormorant Garamond", serif;
+  font-size: clamp(1.375rem, 3vw, 2rem);
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(255, 251, 240, 0.75);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.currently-body em {
+  font-style: italic;
+  color: rgba(255, 251, 240, 0.95);
+}
