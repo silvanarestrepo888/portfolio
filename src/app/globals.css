@@ -26050,3 +26050,55 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
     font-size: 1.0625rem !important;
   }
 }
+
+/* ============================================================
+   ── 5. PROJECT CAROUSEL — V2 EDITORIAL PROPORTION FIX ───────
+   Issue: card is 487px tall because text column fills naturally
+   to 455px. Image looks underwhelming at near-square proportion.
+
+   Fix: strip the prose description (cards are teasers, not
+   summaries) and prevent tag wrapping. Result: content
+   collapses to ~280px → image renders at ~4:3 landscape,
+   visually commanding the card.
+   ============================================================ */
+
+/* Hide prose description — a card is a teaser, not a summary.
+   The subtitle already captures the value proposition in 2 lines. */
+.balanced-description-text {
+  display: none !important;
+}
+
+/* Remove the gap below description now that prose is gone */
+.balanced-description {
+  margin-bottom: 0.5rem !important;
+}
+
+/* Tags: single-row only — wrap creates unwanted height.
+   Overflow hidden clips any tag that doesn't fit. */
+.balanced-tags {
+  flex-wrap: nowrap !important;
+  overflow: hidden !important;
+  max-width: 100% !important;
+}
+
+.balanced-tag {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+/* Tighten content padding to reduce column height proportionally */
+.balanced-content-section {
+  padding: 1.375rem 1.25rem !important;
+}
+
+/* Tighter gap between CTA and capabilities */
+.balanced-capabilities {
+  margin-bottom: 0.5rem !important;
+}
+
+/* Mobile: keep stacked layout clean */
+@media (max-width: 640px) {
+  .balanced-content-section {
+    padding: 1rem !important;
+  }
+}
