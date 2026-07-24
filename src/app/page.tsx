@@ -174,6 +174,7 @@ export default function Home() {
         transformation: "First-of-its-kind Platform"
       },
       image: "/projects/kayanee/hero-kayanee.jpeg",
+      objectPosition: "center",
       secondaryImage: "/projects/kayanee/Project Gallery /gallery-01-brand-expression.png",
       video: "/projects/kayanee/kayanee-story.mp4",
       galleryVideo: "/projects/kayanee/beat-concept-v2.mp4",
@@ -210,6 +211,7 @@ export default function Home() {
         transformation: "AI-Driven Development"
       },
       image: "/projects/augoor/hero-2.png",
+      objectPosition: "left center",
       secondaryImage: "/projects/augoor/photo-main-carrusel.jpeg",
       video: "/projects/augoor/product-demo.mp4",
       galleryImages: [
@@ -243,6 +245,7 @@ export default function Home() {
         transformation: "Digital Workflow"
       },
       image: "/projects/chime-care/hero-j&j.jpeg",
+      objectPosition: "60% center",
       secondaryImage: "/projects/chime-care/hero-chime-clinical.png",
       galleryImages: [
         "/projects/chime-care/Project GalleryImages/Screenshot 2025-03-06 at 171139-VSCO.jpeg",
@@ -275,6 +278,7 @@ export default function Home() {
         transformation: "Digital-Physical Fusion"
       },
       image: "/projects/nomade/main-hero-carrusel.jpeg",
+      objectPosition: "center",
       secondaryImage: "/projects/nomade/secundary-hero.jpeg",
       galleryLayout: "strip",
       galleryImages: [
@@ -309,6 +313,7 @@ export default function Home() {
         transformation: "Guest Experience Platform"
       },
       image: "/projects/qiddiya/hero-qiddiya.png",
+      objectPosition: "center",
       secondaryImage: "/projects/qiddiya/secondary-qiddiya.png",
       video: "/projects/qiddiya/qiddiya-city.mp4",
       galleryImages: [
@@ -326,25 +331,27 @@ export default function Home() {
       }
     },
     {
-      title: "STC Kuwait CEX Center",
+      title: "GCC Telecom Leader — Customer Experience Center",
       subtitle: "Building the Heart, Mind, and Soul of CX Transformation",
-      description: "Designed the full strategic and operational foundation for STC Kuwait's Customer Experience Center — a physical and operational hub on the 16th floor of HQ, unifying CX performance, accountability, and cross-functional action in one place.",
+      description: "Designed the full strategic and operational foundation for a leading GCC telecom operator's Customer Experience Center — a physical and operational hub unifying CX performance, accountability, and cross-functional action in one place.",
       tech: ["CX Strategy", "Experience Design", "Service Design"],
       industryTags: ["Telecommunications"],
       category: "Telecommunications",
       year: "2026",
-      client: "STC Kuwait — via Bejo Limited",
+      client: "GCC Telecom Leader",
       location: "Kuwait City, Kuwait",
       impactMetrics: {
         scale: "25 Stakeholders",
         reach: "B2C & B2B",
         transformation: "15 Use Cases"
       },
-      image: "/projects/stc/hero-stc.png",
-      secondaryImage: "/projects/stc/secondary-stc.png",
+      image: "/projects/gcc-telecom/hero-gcc-telecom.png",
+      objectPosition: "center",
+      secondaryImage: "/projects/gcc-telecom/secondary-gcc-telecom.png",
       galleryImages: [
-        "/projects/stc/gallery-stc-1.png",
-        "/projects/stc/gallery-stc-2.png"
+        "/projects/gcc-telecom/gallery-gcc-telecom-1.png",
+        "/projects/gcc-telecom/gallery-gcc-telecom-2.png",
+        "/projects/gcc-telecom/gallery-gcc-telecom-3.png"
       ],
       context: "STC Kuwait is one of the Gulf's leading telecom operators, serving millions of B2C and B2B customers across a fiercely competitive market. In late 2024, leadership embedded customer experience as a core strategic pillar through the REACH framework — CX moved from aspiration to accountability. That decision created momentum and an urgent question: what does CX excellence actually look like when you build it from scratch?",
       scope: "The answer was a Customer Experience Center on the 16th floor of STC Kuwait HQ — not a showroom, not a dashboard wall, but a working space where CX performance becomes visible, actionable, and accountable across the organisation. As Lead CX Architect, contracted through Bejo Limited, I owned the design inputs track — personas, use cases, spatial concept inputs, and the rituals that connect space to the people performing each scenario. Every claim, every persona, every use case traced back to specific stakeholder evidence. No assumptions.",
@@ -364,7 +371,7 @@ export default function Home() {
       industry: 'Health & Consumer Goods',
       serviceType: 'Product Strategy | Strategic Design',
       website: 'https://www.dzrt.com/en-sa',
-      image: '/projects/snippets/dzrt-badel.png',
+      image: '/projects/snippets/gcc-consumer-brand.png',
       emailSubject: 'Inquiry about DZRT Brand Stretching Architecture — Badel · Saudi Arabia'
     },
     {

@@ -15,6 +15,7 @@ interface Project {
   location: string;
   website?: string;
   image: string;
+  objectPosition?: string;
   secondaryImage: string;
   galleryImages: string[];
   video?: string;
@@ -135,7 +136,7 @@ export function InteractiveProjectCard({
                   fill
                   className="object-cover"
                   style={{
-                    objectPosition: 'center',
+                    objectPosition: project.objectPosition ?? 'center',
                     filter: 'contrast(1.02) saturate(1.05)',
                     opacity: imageLoaded ? (project.video && (isHovered || isActive) ? 0 : 1) : 0,
                     transition: 'opacity 0.8s ease',
