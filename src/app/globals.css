@@ -26185,3 +26185,84 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   margin-right: auto !important;
 }
 
+
+/* ================================================================
+   THE LENS LINE — Experience timeline v2 (7 stops, hover reveals)
+   ================================================================ */
+
+/* Transformation label — the story, not the job title */
+.exp-transformation {
+  font-family: var(--font-body, 'Inter', sans-serif) !important;
+  font-size: clamp(0.6875rem, 0.85vw, 0.8125rem) !important;
+  font-weight: 400 !important;
+  font-style: italic !important;
+  letter-spacing: 0.04em !important;
+  color: var(--charcoal-mid, #4A5568) !important;
+  opacity: 0.68 !important;
+  white-space: nowrap !important;
+  margin-top: 2px !important;
+}
+
+.exp-pin { cursor: pointer !important; }
+.exp-pin:focus { outline: none !important; }
+.exp-pin:focus-visible .exp-company-name { text-decoration: underline !important; text-underline-offset: 3px !important; }
+
+.exp-pin--active .exp-company-name { color: var(--coral, #FF6663) !important; }
+.exp-pin--active .exp-transformation { opacity: 0.9 !important; }
+
+.exp-pin--last .exp-transformation { color: var(--coral, #FF6663) !important; opacity: 0.8 !important; }
+
+/* Desktop reveal strip — single centered line below the stage */
+.exp-reveal-strip {
+  min-height: 2.25rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: clamp(0.75rem, 1.5vw, 1.25rem) clamp(32px, 5vw, 80px) 0 !important;
+}
+
+.exp-reveal-text {
+  font-family: var(--font-body, 'Inter', sans-serif) !important;
+  font-size: clamp(0.8125rem, 1vw, 0.9375rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.02em !important;
+  color: var(--charcoal-mid, #4A5568) !important;
+  opacity: 0.85 !important;
+  text-align: center !important;
+  margin: 0 !important;
+}
+
+.exp-reveal-text--last { color: var(--coral, #FF6663) !important; }
+
+/* Inline reveal — mobile only */
+.exp-reveal-inline {
+  display: none !important;
+}
+
+/* Fieldwork line — the one sentence the section keeps */
+.exp-fieldwork {
+  font-family: var(--font-serif, 'Libre Baskerville', serif) !important;
+  font-style: italic !important;
+  font-size: clamp(0.8125rem, 1vw, 0.9375rem) !important;
+  color: var(--charcoal-mid, #4A5568) !important;
+  opacity: 0.45 !important;
+  text-align: center !important;
+  margin: clamp(1rem, 2vw, 1.75rem) auto 0 !important;
+}
+
+/* Mobile — vertical list, inline reveals instead of the strip */
+@media (max-width: 767px) {
+  .exp-reveal-strip { display: none !important; }
+  .exp-reveal-inline {
+    display: block !important;
+    font-family: var(--font-body, 'Inter', sans-serif) !important;
+    font-size: 0.75rem !important;
+    color: var(--charcoal-mid, #4A5568) !important;
+    opacity: 0.75 !important;
+    white-space: normal !important;
+    max-width: 90vw !important;
+    margin-top: 4px !important;
+    overflow: hidden !important;
+  }
+  .exp-transformation { white-space: normal !important; }
+}
