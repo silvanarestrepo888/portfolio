@@ -158,33 +158,6 @@ export default function Home() {
   // Memoize projects array to prevent unnecessary re-renders
   const projects = useMemo(() => [
     {
-      title: "Badel · DZRT",
-      subtitle: "Brand Stretching. Permission. Always.",
-      description: "A pioneering Saudi consumer brand asking the question most companies skip: not 'what else can we sell?' but 'what else will our customers let us be?' Brand stretching designed permission-first — because extension without permission is just noise.",
-      tech: ["Brand Strategy", "Experience Strategy", "Consumer Research"],
-      industryTags: ["Health & Consumer Goods"],
-      category: "Health & Consumer Goods",
-      year: "2026",
-      client: "Badel · DZRT",
-      location: "Saudi Arabia",
-      website: "https://dzrt.com",
-      impactMetrics: {
-        scale: "GCC Market",
-        reach: "Saudi Arabia",
-        transformation: "Permission-First Brand"
-      },
-      image: "/projects/badel-dzrt/hero-badel-dzrt.png",
-      objectPosition: "center",
-      secondaryImage: "/projects/badel-dzrt/secondary-badel-dzrt.png",
-      galleryImages: [
-        "/projects/badel-dzrt/hero-badel-dzrt.png",
-        "/projects/badel-dzrt/secondary-badel-dzrt.png",
-      ],
-      context: "DZRT built something rare in consumer goods: a brand people trust inside one of the most sensitive categories there is. That trust created an opportunity, and a trap. Every adjacent category the brand could enter would either compound that trust or spend it. Badel needed to know the difference before building anything.",
-      scope: "We inverted the usual sequence. Instead of starting from the product pipeline, we started from the audience's permission structure: what this brand is allowed to mean, where that permission ends, and what earns its extension.",
-      impact: "The principle now travels ahead of the products: permission first. Always.",
-    },
-    {
       title: "Kayanee",
       subtitle: "The First-of-Its-Kind Collective Saudi Wellness Experience Platform",
       description: "The first of its kind collective Saudi wellness experience platform. Beyond fitness or nutrition alone, Kayanee pioneers an ecosystem where women discover wellness as an holistic journey.",
