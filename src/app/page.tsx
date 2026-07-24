@@ -1042,7 +1042,7 @@ export default function Home() {
                             width: dotIndex === safeFeaturedProjectIndex ? 24 : 8,
                             background: dotIndex === safeFeaturedProjectIndex
                               ? 'var(--coral)'
-                              : 'rgba(74, 85, 104, 0.28)'
+                              : 'rgba(255, 251, 240, 0.4)'
                           }}
                           transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
                           whileHover={{ scale: 1.35 }}
