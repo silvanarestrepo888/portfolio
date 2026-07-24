@@ -1109,7 +1109,7 @@ export default function Home() {
                 transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.1 : 0.236 }}
                 viewport={{ once: true }}
               >
-                Also this.
+                also
               </motion.h2>
             </div>
             

@@ -24009,7 +24009,7 @@ footer.footer-landor-standards .footer-brand-title-landor {
   color: var(--vanilla-pure) !important;
   max-width: 1120px !important;
   width: 92% !important;
-  padding: 2rem !important;
+  padding: 7rem 2rem 2rem !important;
   margin: 0 auto !important;
 }
 
@@ -26420,4 +26420,19 @@ section#projects .balanced-title {
 
 .snippet-card-service-label {
   color: rgba(255, 251, 240, 0.40) !important;
+}
+
+/* HEADING CONSISTENCY — Services + Experience match About + Projects */
+.svc-heading,
+.exp-heading {
+  font-family: var(--font-cormorant-display), "Cormorant Garamond", serif !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.02em !important;
+  text-transform: lowercase !important;
+}
+
+/* CAROUSEL TAGS — allow wrap so no tag is ever clipped or scrolled off-screen */
+.balanced-tags {
+  flex-wrap: wrap !important;
+  overflow: visible !important;
 }
