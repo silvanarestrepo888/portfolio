@@ -848,7 +848,8 @@ export default function Home() {
                 <RevealItem as="p" className="about-main-story">
                   Anthropology gave that chase a discipline.<br />
                   Neuromarketing gave it a science.<br />
-                  Design gave it a language. And technology, finally, gave it hands.
+                  Design gave it a language.<br />
+                  And technology, finally, gave it hands.
                 </RevealItem>
 
                 <RevealItem as="p" className="about-main-story">
