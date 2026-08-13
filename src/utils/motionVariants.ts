@@ -23,6 +23,10 @@ export const ease = {
   natural:   [0.23, 1,    0.32, 1   ] as const,
   silk:      [0.445, 0.05, 0.55, 0.95] as const,
   back:      [0.34, 1.56, 0.64, 1   ] as const,
+  // φ-derived — the section-header curve. It was already in use inline on the
+  // Projects and Snippets headers; named here so it belongs to the system
+  // rather than living as an anonymous literal.
+  phi:       [0.236, 0.618, 0.382, 1.0] as const,
 };
 
 // Duration mirrors — φ-derived

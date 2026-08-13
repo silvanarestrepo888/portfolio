@@ -11,6 +11,7 @@ import { SectionIndicator } from '../components/navigation/SectionIndicator';
 import { useParallax } from '../hooks/useScrollAnimation';
 import { InteractiveProjectCard } from '../components/projects/InteractiveProjectCard';
 import { ProjectSnippetGrid } from '../components/projects/ProjectSnippetGrid';
+import { duration, ease } from '../utils/motionVariants';
 import { 
   AcceleratedInnovationIcon,
   ExperienceOrchestrationIcon,
@@ -872,7 +873,7 @@ export default function Home() {
             className="hero-scroll-indicator"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2.2, duration: 1 }}
+            transition={{ delay: 2.2, duration: duration.slow }}
             aria-hidden="true"
           >
             <span className="hero-scroll-line" />
@@ -995,7 +996,7 @@ export default function Home() {
             className="projects-header-award-winning"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: isMobile ? 0.6 : 1.618, ease: [0.236, 0.618, 0.382, 1.0] }}
+            transition={{ duration: isMobile ? 0.6 : 1.618, ease: ease.phi }}
             viewport={{ once: true, amount: 0.01 }}
           >
             <div className="projects-header-content-award">
@@ -1035,7 +1036,7 @@ export default function Home() {
             className="projects-carousel-award-winning"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.618, delay: 0.3 }}
+            transition={{ duration: duration.normal, delay: 0.3 }}
             viewport={{ once: true, amount: 0.01 }}
           >
             <div className="projects-main-layout">
@@ -1092,7 +1093,7 @@ export default function Home() {
                               ? 'var(--coral)'
                               : 'rgba(255, 251, 240, 0.4)'
                           }}
-                          transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
+                          transition={{ duration: duration.base, ease: ease.natural }}
                           whileHover={{ scale: 1.35 }}
                           whileTap={{ scale: 0.82 }}
                         />
@@ -1125,9 +1126,9 @@ export default function Home() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -40 }}
                     transition={{
-                      duration: 0.45,
-                      ease: [0.25, 0.46, 0.45, 0.94],
-                      opacity: { duration: 0.3 },
+                      duration: duration.base,
+                      ease: ease.landor,
+                      opacity: { duration: duration.base },
                     }}
                     onHoverStart={() => setIsAutoPlaying(false)}
                     onHoverEnd={() => setIsAutoPlaying(true)}
@@ -1162,7 +1163,7 @@ export default function Home() {
             className="projects-header-award-winning"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: isMobile ? 0.6 : 1.618, ease: [0.236, 0.618, 0.382, 1.0] }}
+            transition={{ duration: isMobile ? 0.6 : 1.618, ease: ease.phi }}
             viewport={{ once: true, amount: 0.01 }}
           >
             <div className="projects-header-content-award">
@@ -1210,7 +1211,7 @@ export default function Home() {
                   className={`svc-row${isOpen ? ' svc-row--open' : ''}`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.07, ease: [0.23, 1, 0.32, 1] }}
+                  transition={{ duration: duration.normal, delay: index * 0.07, ease: ease.natural }}
                   viewport={{ once: true }}
                 >
                   {/* ── Clickable header ── */}
@@ -1228,7 +1229,7 @@ export default function Home() {
                     <motion.span
                       className="svc-chevron"
                       animate={{ rotate: isOpen ? 45 : 0 }}
-                      transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+                      transition={{ duration: duration.base, ease: ease.natural }}
                     >
                       +
                     </motion.span>
@@ -1240,7 +1241,7 @@ export default function Home() {
                     className="svc-body"
                     initial={false}
                     animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
-                    transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+                    transition={{ duration: duration.normal, ease: ease.natural }}
                     style={{ overflow: 'hidden' }}
                   >
                     <div className="svc-body-inner">
@@ -1324,8 +1325,8 @@ export default function Home() {
              animation is ever interrupted, AnimatePresence can leave this
              full-screen node mounted at opacity 0, where it would silently
              swallow every click on the page behind it. */
-          exit={{ opacity: 0, y: -20, pointerEvents: 'none', transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } }}
-          transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+          exit={{ opacity: 0, y: -20, pointerEvents: 'none', transition: { duration: duration.base, ease: ease.landor } }}
+          transition={{ duration: duration.normal, ease: ease.natural }}
         >
           {/* TOP NAVIGATION — unified minimal strip */}
           <div className="project-details-navigation-system">
@@ -1336,7 +1337,7 @@ export default function Home() {
               whileTap={{ scale: 0.97 }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
+              transition={{ duration: duration.base, delay: 0.2 }}
             >
               <span className="back-icon">←</span>
               <span className="back-text">Back</span>
@@ -1346,7 +1347,7 @@ export default function Home() {
               className="project-title-bar-text"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.3 }}
+              transition={{ duration: duration.base, delay: 0.3 }}
             >
               {selectedProject !== null ? projects[selectedProject].title : ''}
             </motion.span>
@@ -1358,7 +1359,7 @@ export default function Home() {
               whileTap={{ scale: 0.9 }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
+              transition={{ duration: duration.base, delay: 0.2 }}
               aria-label="Close project details"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -1397,7 +1398,7 @@ export default function Home() {
               className="project-title typography-h1"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.15 }}
+              transition={{ duration: duration.slow, delay: 0.2 }}
             >
               {projects[selectedProject].title}
             </motion.h1>
@@ -1405,7 +1406,7 @@ export default function Home() {
               className="project-subtitle typography-body"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: duration.slow, delay: 0.3 }}
             >
               {projects[selectedProject].subtitle}
             </motion.p>
@@ -1451,7 +1452,7 @@ export default function Home() {
                     className="content-section"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.618, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+                transition={{ duration: duration.normal, delay: 0.1, ease: ease.natural }}
                 viewport={{ once: true, margin: '-8% 0px' }}
               >
                 <div className="section-header">
@@ -1471,7 +1472,7 @@ export default function Home() {
                     className="content-section"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.618, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+                transition={{ duration: duration.normal, delay: 0.1, ease: ease.natural }}
                 viewport={{ once: true, margin: '-8% 0px' }}
               >
                 <div className="section-header">
@@ -1491,7 +1492,7 @@ export default function Home() {
                     className="content-section"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.618, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+                transition={{ duration: duration.normal, delay: 0.1, ease: ease.natural }}
                 viewport={{ once: true, margin: '-8% 0px' }}
               >
                 <div className="section-header">
@@ -1512,7 +1513,7 @@ export default function Home() {
                 className="content-section"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.618, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+                transition={{ duration: duration.normal, delay: 0.1, ease: ease.natural }}
                 viewport={{ once: true, margin: '-8% 0px' }}
               >
                 <div className="section-header">
@@ -1545,7 +1546,7 @@ export default function Home() {
               className="gallery-header"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: duration.slow }}
               viewport={{ once: true }}
             >
               <h2 className="gallery-title typography-h3">Project Gallery</h2>
@@ -1564,7 +1565,7 @@ export default function Home() {
                     className="gallery-strip-wrapper"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.9 }}
+                    transition={{ duration: duration.slow }}
                     viewport={{ once: true, margin: '-60px' }}
                   >
                     <div className="gallery-strip">
@@ -1574,7 +1575,7 @@ export default function Home() {
                           className="gallery-strip-cell"
                           initial={{ opacity: 0, x: 40 }}
                           whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.7, delay: index * 0.08 }}
+                          transition={{ duration: duration.normal, delay: index * 0.08 }}
                           viewport={{ once: true, margin: '-40px' }}
                           onClick={() => { setCurrentGalleryImage(index); setGalleryZoomOpen(true); setImageZoomedIn(false); }}
                           style={{ cursor: 'pointer' }}
@@ -1607,7 +1608,7 @@ export default function Home() {
                       className="gallery-editorial-hero"
                       initial={{ opacity: 0, y: 40 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.9 }}
+                      transition={{ duration: duration.slow }}
                       viewport={{ once: true, margin: '-60px' }}
                       onClick={() => { setCurrentGalleryImage(0); setGalleryZoomOpen(true); setImageZoomedIn(false); }}
                       style={{ cursor: 'pointer' }}
@@ -1633,7 +1634,7 @@ export default function Home() {
                           className="gallery-editorial-cell"
                           initial={{ opacity: 0, y: 40 }}
                           whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.9, delay: 0.1 }}
+                          transition={{ duration: duration.slow, delay: 0.1 }}
                           viewport={{ once: true, margin: '-60px' }}
                           onClick={() => { setCurrentGalleryImage(1); setGalleryZoomOpen(true); setImageZoomedIn(false); }}
                           style={{ cursor: 'pointer' }}
@@ -1655,7 +1656,7 @@ export default function Home() {
                           className="gallery-editorial-cell"
                           initial={{ opacity: 0, y: 40 }}
                           whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.9, delay: 0.2 }}
+                          transition={{ duration: duration.slow, delay: 0.2 }}
                           viewport={{ once: true, margin: '-60px' }}
                           onClick={() => { setCurrentGalleryImage(2); setGalleryZoomOpen(true); setImageZoomedIn(false); }}
                           style={{ cursor: 'pointer' }}
@@ -1683,7 +1684,7 @@ export default function Home() {
                           className="gallery-editorial-cell"
                           initial={{ opacity: 0, y: 40 }}
                           whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.9, delay: 0.1 }}
+                          transition={{ duration: duration.slow, delay: 0.1 }}
                           viewport={{ once: true, margin: '-60px' }}
                           onClick={() => { setCurrentGalleryImage(3); setGalleryZoomOpen(true); setImageZoomedIn(false); }}
                           style={{ cursor: 'pointer' }}
@@ -1705,7 +1706,7 @@ export default function Home() {
                           className="gallery-editorial-cell"
                           initial={{ opacity: 0, y: 40 }}
                           whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.9, delay: 0.2 }}
+                          transition={{ duration: duration.slow, delay: 0.2 }}
                           viewport={{ once: true, margin: '-60px' }}
                           onClick={() => { setCurrentGalleryImage(4); setGalleryZoomOpen(true); setImageZoomedIn(false); }}
                           style={{ cursor: 'pointer' }}
@@ -1731,7 +1732,7 @@ export default function Home() {
                       className="gallery-editorial-video-section"
                       initial={{ opacity: 0, y: 40 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 1.0, delay: 0.1 }}
+                      transition={{ duration: duration.slow, delay: 0.1 }}
                       viewport={{ once: true, margin: '-60px' }}
                     >
                       <div className="gallery-editorial-video-rule" />
@@ -1760,7 +1761,7 @@ export default function Home() {
               className="sophisticated-nav-project prev-project"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: duration.normal, delay: 0.2, ease: ease.landor }}
                       onClick={() => {
                 const prevIndex = selectedProject === 0 ? projects.length - 1 : selectedProject - 1;
                 setSelectedProject(prevIndex);
@@ -1795,7 +1796,7 @@ export default function Home() {
               className="sophisticated-nav-project next-project"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: duration.normal, delay: 0.3, ease: ease.landor }}
                       onClick={() => {
                 const nextIndex = (selectedProject + 1) % projects.length;
                 setSelectedProject(nextIndex);
@@ -1865,14 +1866,14 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: duration.base }}
         >
           <motion.div
             className="hero-zoom-content"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: duration.base }}
             onClick={(e) => e.stopPropagation()}
           >
             <div
@@ -1910,19 +1911,19 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: duration.base }}
         >
           <motion.div
             className="relative max-w-[85vw] max-h-[85vh] w-full mx-4"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: duration.base }}
             onMouseDown={(e) => e.stopPropagation()}
           >
             <motion.div
               animate={{ scale: imageZoomedIn ? 1.25 : 1 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
+              transition={{ duration: duration.base, ease: "easeInOut" }}
               style={{ cursor: imageZoomedIn ? 'zoom-out' : 'zoom-in' }}
               onClick={(e) => {
                 e.stopPropagation();

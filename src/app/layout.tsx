@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import "./layout-fix.css";
 import "./enhanced-scroll-append.css";
+import { MotionProvider } from "@/components/motion/MotionProvider";
 import { TopographicBackground } from "@/components/backgrounds/TopographicBackground";
 import { ChromaticIntelligence, QuantumCursor } from "@/components/ui/LandorLuxurySystem";
 
@@ -88,10 +89,12 @@ export default function RootLayout({
           MozOsxFontSmoothing: 'grayscale'
         } as React.CSSProperties}
       >
-        <TopographicBackground />
-        <ChromaticIntelligence />
-        <QuantumCursor />
-        {children}
+        <MotionProvider>
+          <TopographicBackground />
+          <ChromaticIntelligence />
+          <QuantumCursor />
+          {children}
+        </MotionProvider>
       </body>
     </html>
   );
