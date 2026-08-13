@@ -26448,3 +26448,123 @@ section#projects .balanced-title {
 .balanced-layout-grid {
   align-items: flex-start !important;
 }
+
+/* ================================================================
+   HERO — SINGLE-SCRIM REBUILD (authoritative; supersedes all above)
+
+   Two defects fixed together:
+   1) The photo panel rendered 452px wide inside a 1272px section.
+      .hero-section-luxury is display:flex and an earlier rule sets
+      `.hero-section-luxury > * { position: relative }`, so
+      .hero-bg-unified became a flex SIBLING of the text and collapsed
+      to content width. Re-asserting absolute here restores full-bleed.
+   2) The portrait was darkened three times over: brightness(0.84) on
+      the img, a 0.40 gradient on the layer, a 0.70 gradient on the
+      section — plus four legacy overlay divs that an earlier
+      `display:none` rule failed to suppress (verified still painting
+      in production, incl. a 0.8 dark-left wash and a cream wash).
+      Result: one scrim, sitting on empty wall rather than on her face.
+   ================================================================ */
+
+/* Photo panel fills the section instead of collapsing as a flex child */
+.hero-bg-unified {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 1 !important;
+}
+
+/* Portrait at true luminance — no artificial darkening.
+   Note: the source is a portrait crop in a landscape frame, so
+   object-position X cannot pan; only the Y value does anything. */
+.hero-photo-artistic-unified {
+  filter: contrast(1.02) saturate(0.96) !important;
+  object-position: center 12% !important;
+}
+
+/* Legacy overlay divs — confirmed still rendering despite the earlier
+   kill rule. Suppressed here so exactly one scrim reaches the photo. */
+.hero-unified-color-story,
+.unified-gradient-foundation,
+.hero-vignette-luxury {
+  display: none !important;
+}
+
+/* Section-level scrim off — the single scrim lives inside the photo
+   layer (below), where no stacking context can outrank it. */
+.hero-section-luxury::before {
+  background: none !important;
+}
+
+/* Softer bridge into the About surface */
+.unified-section-connector {
+  background: linear-gradient(to bottom, transparent 0%, rgba(255, 251, 240, 0.30) 100%) !important;
+  height: 140px !important;
+}
+
+/* THE scrim — one layer, above the img, below the content */
+.hero-photo-layer-unified::after {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 3 !important;
+  pointer-events: none !important;
+}
+
+/* ── Desktop: type column left over empty wall, portrait clear right ── */
+@media (min-width: 769px) {
+  .hero-photo-layer-unified::after {
+    background: linear-gradient(
+      to right,
+      rgba(8, 8, 12, 0.68) 0%,
+      rgba(8, 8, 12, 0.60) 34%,
+      rgba(8, 8, 12, 0.46) 56%,   /* holds to here — type ends at ~52% */
+      rgba(8, 8, 12, 0.12) 76%,
+      rgba(8, 8, 12, 0.02) 100%
+    ) !important;
+  }
+
+  .hero-content-luxury {
+    max-width: 590px !important;
+    width: auto !important;
+    margin-left: clamp(2rem, 6vw, 5rem) !important;
+    margin-right: auto !important;
+    text-align: left !important;
+    padding: 6rem 0 2rem !important;
+  }
+
+  .hero-title-luxury-centered,
+  .hero-name-label,
+  .hero-role-line {
+    text-align: left !important;
+  }
+
+  .hero-scroll-indicator {
+    align-self: flex-start !important;
+  }
+}
+
+/* ── Mobile: bottom-up scrim, type in the lower third (unchanged grammar) ── */
+@media (max-width: 768px) {
+  .hero-photo-layer-unified::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(4, 4, 8, 0.02) 0%,
+      rgba(4, 4, 8, 0.10) 38%,
+      rgba(4, 4, 8, 0.56) 100%
+    ) !important;
+  }
+
+  /* The scroll indicator is absolutely positioned against
+     .hero-content-luxury, not the section — on mobile the content box
+     ends mid-photo, so it rendered as a coral line struck through the
+     capabilities text. It is decorative (aria-hidden), so drop it here. */
+  .hero-scroll-indicator {
+    display: none !important;
+  }
+}
+
+/* Type weight lifted off 0.65 alpha — measured 3.23:1 before, 5.61:1 after */
+.hero-role-line { color: rgba(255, 251, 240, 0.90) !important; }
+.hero-name-label { color: rgba(255, 251, 240, 0.82) !important; }
