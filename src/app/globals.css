@@ -26537,16 +26537,16 @@ section#projects .balanced-title {
     background: linear-gradient(
       to bottom,
       rgba(4, 4, 8, 0.02) 0%,
-      rgba(4, 4, 8, 0.04) 40%,    /* her face sits above here — kept clear */
-      rgba(4, 4, 8, 0.14) 52%,
-      rgba(4, 4, 8, 0.52) 64%,    /* type block starts at 65% */
-      rgba(4, 4, 8, 0.72) 82%,
+      rgba(4, 4, 8, 0.04) 38%,    /* her face sits above here — kept clear */
+      rgba(4, 4, 8, 0.12) 48%,
+      rgba(4, 4, 8, 0.46) 58%,    /* ramp starts before the block, not at it */
+      rgba(4, 4, 8, 0.70) 78%,
       rgba(4, 4, 8, 0.88) 100%
     ) !important;
   }
 
   .hero-content-luxury {
-    max-width: 760px !important;
+    max-width: 62vw !important;
     width: auto !important;
     margin-left: clamp(2.5rem, 6vw, 5rem) !important;
     margin-right: auto !important;
@@ -26555,11 +26555,23 @@ section#projects .balanced-title {
     align-self: flex-end !important;
   }
 
-  /* One line, not two — keeps the block clear of her face */
+  /* Title size is tied to viewport WIDTH, not a fixed clamp ceiling, so
+     "Experience Architect" stays on ONE line at every desktop size and the
+     block stays short and low. A fixed 6.2rem ceiling measured 812px against
+     a 760px box, wrapping to two lines from 1440px up — which lifted the
+     block to ~60% and put the type across her face on MacBook-class screens.
+     At 4.9vw the line renders ~40% of viewport width everywhere. */
   .hero-title-luxury-centered {
-    font-size: clamp(3.2rem, 7vw, 6.2rem) !important;
-    line-height: 0.92 !important;
+    font-size: clamp(2.6rem, 4.9vw, 5.5rem) !important;
+    line-height: 0.95 !important;
     margin: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  /* Supporting lines stay single-line — capping their measure only wraps
+     them, which lengthens the block and pushes it back up into her face. */
+  .hero-role-line {
+    max-width: none !important;
   }
 
   .hero-name-label {
