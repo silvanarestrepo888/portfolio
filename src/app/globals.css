@@ -26703,7 +26703,10 @@ section#projects .balanced-title {
   list-style: none;
   margin: 0 0 2.6em;
   padding: 0.1rem 0 0.1rem 1.35rem;
-  border-left: 1px solid rgba(74, 85, 104, 0.20);
+  /* The spine carries grapefruit. A rule is not text, so it has no contrast
+     floor to meet — this is where the real brand colour belongs on a light
+     surface, at full strength. */
+  border-left: 2px solid var(--coral);
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
@@ -26719,9 +26722,14 @@ section#projects .balanced-title {
   color: var(--charcoal-mid);
 }
 
+/* The disciplines are emphasised by weight and tone, not hue.
+   Grapefruit (#FF6663) measures 2.77:1 on this cream surface and cannot pass
+   AA as text at any size, and darkening it far enough to pass turns it into
+   brick — which is not the brand. So colour stays on the spine and the words
+   stay readable. */
 .about-section-ultra-luxury .about-ladder-term {
-  font-weight: 500;
-  color: var(--coral-text);
+  font-weight: 600;
+  color: var(--charcoal-ink);
 }
 
 /* CONTINUES — the argument splits at "But no piece was ever the point";
