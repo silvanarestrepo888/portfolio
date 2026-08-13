@@ -442,10 +442,13 @@ section#projects .filter-tag-award-winning {
   box-shadow: none !important;
 }
 
+/* Active pill keeps the brand coral at full strength; the label flips to ink.
+   Vanilla on coral measured 2.84:1 — ink on coral measures 6.08:1. */
 section#projects .filter-tag-award-winning.active {
   background: var(--coral) !important;
   border-color: var(--coral) !important;
-  color: var(--vanilla-pure) !important;
+  color: var(--charcoal-deep) !important;
+  font-weight: 600 !important;
   box-shadow: 0 4px 20px rgba(255, 102, 99, 0.35) !important;
 }
 

@@ -10,9 +10,19 @@
      COLOR SYSTEM — 3 palette colors, nothing else
      ========================================== */
 
-  /* Coral / Grapefruit — strategic impact only */
+  /* Coral / Grapefruit — strategic impact only
+     A single hue (0–1°) resolved into a tonal ramp. Each rung has one job.
+     Red channel steps evenly: FF → E5 → C9 → B0.
+       --coral               the brand mark: surfaces, borders, glows, dark-surface text
+       --coral-impact        hover / pressed states
+       --coral-surface-deep  surface gradients, shadow end (defined below)
+       --coral-text          THE rung for coral text on light surfaces
+     Raw --coral on vanilla/parchment measures 2.5–2.8:1 and cannot pass AA at
+     any size; --coral-text clears 5.27:1 on the worst light surface.
+     (Note: --coral-deep is a distinct legacy token owned by globals.css.) */
   --coral:               #FF6663;
   --coral-impact:        #E55A5A;
+  --coral-text:          #B03A3A;
   --coral-08:            rgba(255, 102, 99, 0.08);
   --coral-15:            rgba(255, 102, 99, 0.15);
   --coral-03:            rgba(255, 102, 99, 0.03);

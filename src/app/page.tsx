@@ -681,15 +681,15 @@ export default function Home() {
       {/* ACCESSIBILITY - Skip Navigation Links */}
       <a 
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-coral text-white px-6 py-3 rounded-lg z-50 font-medium"
-        style={{ backgroundColor: 'var(--coral)' }}
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-coral px-6 py-3 rounded-lg z-50 font-semibold"
+        style={{ backgroundColor: 'var(--coral)', color: 'var(--charcoal-deep)' }}
       >
         Skip to main content
       </a>
       <a 
         href="#about"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-40 bg-coral text-white px-6 py-3 rounded-lg z-50 font-medium"
-        style={{ backgroundColor: 'var(--coral)' }}
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-40 bg-coral px-6 py-3 rounded-lg z-50 font-semibold"
+        style={{ backgroundColor: 'var(--coral)', color: 'var(--charcoal-deep)' }}
       >
         Skip to about section
       </a>

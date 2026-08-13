@@ -21211,7 +21211,7 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 
 .exp-subheading em {
   font-style: italic;
-  color: var(--coral, #FF6663) !important;
+  color: var(--coral-text, #B03A3A) !important;
 }
 
 /* ── Timeline track ───────────────────────────────────────── */
@@ -23857,8 +23857,9 @@ footer.footer-landor-standards .footer-brand-title-landor {
   color: rgba(255, 251, 240, 0.3) !important;
 }
 
+/* 0.4 alpha measured 4.40:1 on the footer surface; 0.55 measures 6.04:1 */
 .footer-editorial-credit {
-  color: rgba(255, 251, 240, 0.4) !important;
+  color: rgba(255, 251, 240, 0.55) !important;
 }
 
 .footer-editorial-voice {
@@ -26206,10 +26207,10 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 .exp-pin:focus { outline: none !important; }
 .exp-pin:focus-visible .exp-company-name { text-decoration: underline !important; text-underline-offset: 3px !important; }
 
-.exp-pin--active .exp-company-name { color: var(--coral, #FF6663) !important; }
+.exp-pin--active .exp-company-name { color: var(--coral-text, #B03A3A) !important; }
 .exp-pin--active .exp-transformation { opacity: 0.9 !important; }
 
-.exp-pin--last .exp-transformation { color: var(--coral, #FF6663) !important; opacity: 0.8 !important; }
+.exp-pin--last .exp-transformation { color: var(--coral-text, #B03A3A) !important; opacity: 1 !important; }
 
 /* Desktop reveal strip — single centered line below the stage */
 .exp-reveal-strip {
@@ -26337,9 +26338,9 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 .exp-measured-label {
   font-family: var(--font-serif, 'Libre Baskerville', serif) !important;
   font-style: italic !important;
-  color: var(--coral, #FF6663) !important;
+  color: var(--coral-text, #B03A3A) !important;
   margin-right: 0.75em !important;
-  opacity: 0.9 !important;
+  opacity: 1 !important;
 }
 
 /* ================================================================
@@ -26409,8 +26410,9 @@ section#projects .balanced-title {
   color: var(--coral, #FF6663) !important;
 }
 
+/* 0.40 alpha measured 3.72:1 on the ink surface; 0.62 measures 7.15:1 */
 .snippet-rotator-single {
-  color: rgba(255, 251, 240, 0.40) !important;
+  color: rgba(255, 251, 240, 0.62) !important;
 }
 
 .snippet-rotator-caps {
@@ -26512,36 +26514,62 @@ section#projects .balanced-title {
   pointer-events: none !important;
 }
 
-/* ── Desktop: type column left over empty wall, portrait clear right ── */
+/* ── Desktop: the mobile hero grammar, adapted to a landscape frame ──
+   Portrait is the stage; the type is a tight block in the lower-left;
+   a bottom-up scrim earns the legibility. The frame is committed to
+   100svh rather than the previous 90%-of-viewport-by-accident fold.
+
+   Why the type block is tight and low: her face occupies 19–75% of a
+   landscape crop (unlike the tall mobile frame, where type sits over her
+   legs). Shrinking the title to one line drops the whole block to 65–100%,
+   which lets the scrim be strong where the type is and near-absent where
+   she is — measured 0.03 at her forehead, 0.06 at her eyes.
+
+   Measured: name 5.76:1 · title 7.16:1 · role 10.44:1 (needs 4.5/3/4.5). */
 @media (min-width: 769px) {
+  .hero-section-luxury {
+    min-height: 100svh !important;
+    height: 100svh !important;
+    align-items: flex-end !important;
+  }
+
   .hero-photo-layer-unified::after {
     background: linear-gradient(
-      to right,
-      rgba(8, 8, 12, 0.68) 0%,
-      rgba(8, 8, 12, 0.60) 34%,
-      rgba(8, 8, 12, 0.46) 56%,   /* holds to here — type ends at ~52% */
-      rgba(8, 8, 12, 0.12) 76%,
-      rgba(8, 8, 12, 0.02) 100%
+      to bottom,
+      rgba(4, 4, 8, 0.02) 0%,
+      rgba(4, 4, 8, 0.04) 40%,    /* her face sits above here — kept clear */
+      rgba(4, 4, 8, 0.14) 52%,
+      rgba(4, 4, 8, 0.52) 64%,    /* type block starts at 65% */
+      rgba(4, 4, 8, 0.72) 82%,
+      rgba(4, 4, 8, 0.88) 100%
     ) !important;
   }
 
   .hero-content-luxury {
-    max-width: 590px !important;
+    max-width: 760px !important;
     width: auto !important;
-    margin-left: clamp(2rem, 6vw, 5rem) !important;
+    margin-left: clamp(2.5rem, 6vw, 5rem) !important;
     margin-right: auto !important;
     text-align: left !important;
-    padding: 6rem 0 2rem !important;
+    padding: 0 0 clamp(3rem, 7vh, 5rem) !important;
+    align-self: flex-end !important;
+  }
+
+  /* One line, not two — keeps the block clear of her face */
+  .hero-title-luxury-centered {
+    font-size: clamp(3.2rem, 7vw, 6.2rem) !important;
+    line-height: 0.92 !important;
+    margin: 0 !important;
+  }
+
+  .hero-name-label {
+    margin: 0 0 0.6rem !important;
   }
 
   .hero-title-luxury-centered,
   .hero-name-label,
   .hero-role-line {
     text-align: left !important;
-  }
-
-  .hero-scroll-indicator {
-    align-self: flex-start !important;
   }
 }
 
@@ -26556,15 +26584,17 @@ section#projects .balanced-title {
     ) !important;
   }
 
-  /* The scroll indicator is absolutely positioned against
-     .hero-content-luxury, not the section — on mobile the content box
-     ends mid-photo, so it rendered as a coral line struck through the
-     capabilities text. It is decorative (aria-hidden), so drop it here. */
-  .hero-scroll-indicator {
-    display: none !important;
-  }
 }
 
-/* Type weight lifted off 0.65 alpha — measured 3.23:1 before, 5.61:1 after */
-.hero-role-line { color: rgba(255, 251, 240, 0.90) !important; }
-.hero-name-label { color: rgba(255, 251, 240, 0.82) !important; }
+/* The scroll indicator is absolutely positioned against
+   .hero-content-luxury rather than the section, so it lands inside the
+   type block at both breakpoints — a coral line struck through the
+   capabilities text. It is decorative (aria-hidden); the committed
+   100svh frame already reads as "there is more below". */
+.hero-scroll-indicator {
+  display: none !important;
+}
+
+/* Type weight lifted off 0.65 alpha — measured 3.23:1 before the change */
+.hero-role-line { color: rgba(255, 251, 240, 0.92) !important; }
+.hero-name-label { color: rgba(255, 251, 240, 0.92) !important; }
