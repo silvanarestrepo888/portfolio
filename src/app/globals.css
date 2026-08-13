@@ -24877,11 +24877,16 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 /* ── Footer copyright contrast lift ─────────────────────────────────────────
    .footer-editorial-credit at 35% opacity on #1A0D0B dark = ~3.58:1 contrast,
    which fails WCAG AA for small text (12px needs 4.5:1).
-   Raising to 45% produces ~4.57:1 — just over the AA threshold while keeping
-   the intentionally-subdued copyright hierarchy.
+   45% was estimated at ~4.57:1 but measures 4.40:1 against the rendered
+   footer surface — still short of AA. 55% measures 6.04:1 and keeps the
+   intentionally-subdued copyright hierarchy.
+
+   NOTE: this is the fourth rule for this one selector (see also ~23681,
+   ~23861, ~24812). It is the last, so it wins. Consolidate during the CSS
+   architecture pass.
    ──────────────────────────────────────────────────────────────────────── */
 .footer-editorial-credit {
-  color: rgba(255, 251, 240, 0.45) !important;
+  color: rgba(255, 251, 240, 0.55) !important;
 }
 
 /* ── Kayanee gallery: video + 5 images layout ────────────────────────────────
