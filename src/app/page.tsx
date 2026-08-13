@@ -1309,7 +1309,11 @@ export default function Home() {
           aria-label={`${projects[selectedProject].title} — case study`}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } }}
+          /* pointerEvents:none from the first frame of exit — if the exit
+             animation is ever interrupted, AnimatePresence can leave this
+             full-screen node mounted at opacity 0, where it would silently
+             swallow every click on the page behind it. */
+          exit={{ opacity: 0, y: -20, pointerEvents: 'none', transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } }}
           transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
         >
           {/* TOP NAVIGATION — unified minimal strip */}
