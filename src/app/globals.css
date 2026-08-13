@@ -26437,16 +26437,38 @@ section#projects .balanced-title {
   text-transform: lowercase !important;
 }
 
+/* CAROUSEL CARD — interior breathing room.
+
+   The CTA arrow sat flush against the card's right edge (measured 5px PAST
+   the strip's own edge, because the glyph box overruns its advance width),
+   so it read as crowded into the border. The content column also carried
+   only 20px of side padding against a 412px card.
+
+   Wider side padding plus an inset on the strip give the arrow air without
+   changing the card's proportions. */
+.balanced-content-section {
+  padding: 1.5rem 1.75rem !important;
+}
+
+.card-cta-strip {
+  padding-right: 0.375rem !important;
+}
+
 /* CAROUSEL TAGS — allow wrap so no tag is ever clipped or scrolled off-screen */
 .balanced-tags {
   flex-wrap: wrap !important;
   overflow: visible !important;
 }
 
-/* CAROUSEL IMAGE SECTION — enforce landscape ratio so videos/images never
-   get portrait-cropped. Content column scrolls independently. */
+/* CAROUSEL IMAGE SECTION — ratio matched to the actual assets.
+
+   Every carousel hero is shot wide: 1.75, 1.80, 1.83, 1.92, 2.10, 2.21, and
+   the videos are 1.98 (1280x648). The box was locked to 4/3 (1.33), so
+   object-fit: cover was discarding 25-40% of every frame — the "visually cut"
+   images and videos. 1.9 is the median of the set: the video loses ~4% and the
+   widest still image ~14%, instead of a third of the picture. */
 .balanced-image-section {
-  aspect-ratio: 4 / 3 !important;
+  aspect-ratio: 1.9 !important;
   height: auto !important;
   min-height: 0 !important;
   align-self: flex-start !important;

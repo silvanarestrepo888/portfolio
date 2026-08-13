@@ -504,9 +504,9 @@ export default function Home() {
       title: 'Retail Experience',
       year: '2019',
       location: 'Colombia',
-      capabilities: ['Experience Design', 'Digital Transformation'],
+      capabilities: ['Experience Design', 'Digital Channels'],
       industry: 'Retail & Real Estate',
-      serviceType: 'Experience Design | Digital Transformation',
+      serviceType: 'Experience Design | Digital Channels',
       website: 'https://ccviva.com/',
       image: '/projects/snippets/viva-malls.png',
       emailSubject: 'Inquiry about Retail Experience - Retail & Real Estate Project'
