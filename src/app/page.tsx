@@ -47,6 +47,17 @@ export default function Home() {
   const galleryZoomOpenRef = useRef(galleryZoomOpen);
   galleryZoomOpenRef.current = galleryZoomOpen;
 
+  // The overlay is full-screen at z-index 50. AnimatePresence keeps it mounted
+  // until its exit animation finishes — and if that animation never runs or is
+  // interrupted, the node stays at opacity 0 with pointer-events auto, where it
+  // silently swallows every click on the page behind it. Drive pointer-events
+  // from state rather than from the animation so closing is always safe.
+  useEffect(() => {
+    const overlay = document.querySelector('.project-details-overlay');
+    if (!(overlay instanceof HTMLElement)) return;
+    overlay.style.pointerEvents = selectedProject === null ? 'none' : '';
+  }, [selectedProject]);
+
   // Case-study overlay — modal semantics.
   // Escape closes it (the nested gallery first, if that is open), focus is
   // trapped inside while it is open, the page behind it stops scrolling, and
