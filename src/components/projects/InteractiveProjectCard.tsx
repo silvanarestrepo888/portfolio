@@ -115,7 +115,11 @@ export function InteractiveProjectCard({
             style={{
               overflow: 'hidden',
               position: 'relative',
-              background: 'transparent',
+              /* Media well: object-fit is `contain`, so the frame is never
+                 cropped and the leftover edges need a ground of their own.
+                 Set inline because this element asserts its own background
+                 here, which would otherwise win over the stylesheet. */
+              background: '#101015',
               border: 'none',
               boxShadow: 'none'
             }}

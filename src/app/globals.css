@@ -26467,12 +26467,6 @@ section#projects .balanced-title {
   overflow: visible !important;
 }
 
-/* Media well — the ground behind object-fit: contain. Sits just under the
-   Encre surface so letterbox edges read as a frame, not as a gap. */
-.balanced-image-section {
-  background: #101015 !important;
-}
-
 /* CAROUSEL IMAGE SECTION — ratio matched to the actual assets.
 
    Every carousel hero is shot wide: 1.75, 1.80, 1.83, 1.92, 2.10, 2.21, and
