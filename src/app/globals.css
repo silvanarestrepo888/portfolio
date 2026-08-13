@@ -26612,6 +26612,24 @@ section#projects .balanced-title {
   display: none !important;
 }
 
+/* ================================================================
+   CASE-STUDY OVERLAY — reading measure
+
+   Overlay prose ran ~107 characters per line (20px Inter across the full
+   overlay width). Comfortable longform measure is 55–75ch, and this is the
+   one surface on the site people actually read rather than scan. The About
+   section already sets a correct 59ch, so the system knew better — the
+   overlay simply never got the rule.
+
+   Applied to the prose only; headings, metadata and the gallery keep the
+   full column width so the layout rhythm is unchanged.
+   ================================================================ */
+.project-details-overlay .section-text,
+.project-details-overlay .section-body,
+.project-details-overlay .project-quote-text {
+  max-width: 68ch !important;
+}
+
 /* Type weight lifted off 0.65 alpha — measured 3.23:1 before the change */
 .hero-role-line { color: rgba(255, 251, 240, 0.92) !important; }
 .hero-name-label { color: rgba(255, 251, 240, 0.92) !important; }

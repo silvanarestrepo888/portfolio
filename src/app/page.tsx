@@ -42,6 +42,66 @@ export default function Home() {
   useEffect(() => {
     setDetailHeroLoaded(false);
   }, [selectedProject]);
+
+  // Read inside the overlay's key handler without re-running the effect
+  const galleryZoomOpenRef = useRef(galleryZoomOpen);
+  galleryZoomOpenRef.current = galleryZoomOpen;
+
+  // Case-study overlay — modal semantics.
+  // Escape closes it (the nested gallery first, if that is open), focus is
+  // trapped inside while it is open, the page behind it stops scrolling, and
+  // focus returns to whatever opened it on close.
+  useEffect(() => {
+    if (selectedProject === null) return;
+
+    const opener = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const FOCUSABLE =
+      'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        if (galleryZoomOpenRef.current) setGalleryZoomOpen(false);
+        else setSelectedProject(null);
+        return;
+      }
+
+      if (e.key !== 'Tab') return;
+      const overlay = document.querySelector('.project-details-overlay');
+      if (!overlay) return;
+      const items = Array.from(
+        overlay.querySelectorAll<HTMLElement>(FOCUSABLE)
+      ).filter(el => el.offsetParent !== null);
+      if (items.length === 0) return;
+
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    window.addEventListener('keydown', handleKey);
+
+    const focusTimer = setTimeout(() => {
+      const overlay = document.querySelector('.project-details-overlay');
+      overlay?.querySelector<HTMLElement>('.project-back-button-ultra')?.focus();
+    }, 120);
+
+    return () => {
+      window.removeEventListener('keydown', handleKey);
+      clearTimeout(focusTimer);
+      document.body.style.overflow = previousOverflow;
+      opener?.focus?.();
+    };
+  }, [selectedProject]);
   
   // Android viewport height fix
   useEffect(() => {
@@ -512,7 +572,10 @@ export default function Home() {
     const handleKeyNavigation = (e: KeyboardEvent) => {
       // Only handle if not typing in input fields
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
-      
+      // The case-study overlay owns the keyboard while it is open — otherwise
+      // arrow keys would drive the carousel hidden behind it.
+      if (selectedProject !== null) return;
+
       switch (e.key) {
         case 'ArrowLeft':
           e.preventDefault();
@@ -533,7 +596,7 @@ export default function Home() {
 
     window.addEventListener('keydown', handleKeyNavigation);
     return () => window.removeEventListener('keydown', handleKeyNavigation);
-  }, [featuredProjectIndex, filteredProjects.length, isAutoPlaying, goToProjectWithTransition]);
+  }, [featuredProjectIndex, filteredProjects.length, isAutoPlaying, goToProjectWithTransition, selectedProject]);
 
   // Detect prefers-reduced-motion for accessibility
   useEffect(() => {
@@ -1241,6 +1304,9 @@ export default function Home() {
       {selectedProject !== null && (
         <motion.div
           className={`project-details-overlay ${currentProjectColor}`}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${projects[selectedProject].title} — case study`}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } }}

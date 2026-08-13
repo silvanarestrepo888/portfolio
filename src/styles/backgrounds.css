@@ -152,7 +152,11 @@ section#services.section-services-sophisticated {
    palette without demanding attention.
    ================================================================ */
 
-section#experience.experience-infinite-section {
+/* The selector previously required .experience-infinite-section, a class the
+   markup no longer carries (the section now renders as .exp-section), so this
+   never matched and the section fell back to generic #F5F5DC — the Parchemin
+   surface was declared but never rendered. Keyed to the id, which is stable. */
+section#experience {
   background:
     /* Coral blush at base — archive warmth, barely present */
     radial-gradient(ellipse 90% 45% at 50% 100%,
