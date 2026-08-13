@@ -115,11 +115,12 @@ export function InteractiveProjectCard({
             style={{
               overflow: 'hidden',
               position: 'relative',
-              /* Media well: object-fit is `contain`, so the frame is never
-                 cropped and the leftover edges need a ground of their own.
-                 Set inline because this element asserts its own background
-                 here, which would otherwise win over the stylesheet. */
-              background: '#101015',
+              /* object-fit is `contain`, so the frame is never cropped. The
+                 letterbox edges intentionally show the dark Encre section
+                 surface rather than a well of their own — the card is
+                 frameless by design, and a `background: transparent
+                 !important` frameless rule wins here regardless. */
+              background: 'transparent',
               border: 'none',
               boxShadow: 'none'
             }}
