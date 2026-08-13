@@ -26764,3 +26764,29 @@ section#projects .balanced-title {
   font-weight: 500;
   color: var(--charcoal-ink);
 }
+
+/* ================================================================
+   SECTION SEAMS — close the sub-pixel gap
+
+   body is rgb(255,251,240) — cream. Sections paint their own
+   backgrounds over it, so the body is normally never visible. But the
+   sections land on fractional pixel offsets (projects ends at
+   3185.094, snippets at 4227.172, experience at 5307.172), and on a 2x
+   display the browser cannot paint two backgrounds into the same
+   device pixel. The seam that opens shows the cream body through it —
+   which between two dark sections renders as a full-width white
+   hairline.
+
+   Pulling each section up 1px makes it overlap the one above, so no
+   seam can open regardless of how the heights round. Total layout
+   shift across the page is 6px, and a 1px overlap of one background
+   on another is invisible on both light and dark surfaces.
+   ================================================================ */
+#about,
+#projects,
+#project-snippets,
+#services,
+#experience,
+#footer {
+  margin-top: -1px !important;
+}
