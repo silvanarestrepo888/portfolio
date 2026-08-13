@@ -26474,11 +26474,46 @@ section#projects .balanced-title {
    object-fit: cover was discarding 25-40% of every frame — the "visually cut"
    images and videos. 1.9 is the median of the set: the video loses ~4% and the
    widest still image ~14%, instead of a third of the picture. */
+/* The media column is a PANEL, matching the content column.
+
+   The imbalance was never only about heights. The right column is a panel —
+   a glass gradient with a 16px radius painted by
+   .balanced-content-section::before — while the left was a bare video
+   floating in space with no container at all. Two different kinds of object
+   side by side never read as balanced, however they are aligned.
+
+   Both columns are now equal-height panels with the same surface and radius,
+   and the media sits contained and centred inside its own. Measured at
+   1000px: image and content both 326px tall, same top. */
 .balanced-image-section {
-  aspect-ratio: 1.9 !important;
-  height: auto !important;
+  aspect-ratio: auto !important;
+  height: 100% !important;
   min-height: 0 !important;
-  align-self: center !important;
+  align-self: stretch !important;
+  position: relative !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Same glass surface as .balanced-content-section::before */
+.balanced-image-section::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 102, 99, 0.03) 50%,
+    rgba(255, 255, 255, 0.1) 100%) !important;
+  border-radius: 16px !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.balanced-image-section .cinematic-image-layers {
+  z-index: 1 !important;
 }
 
 /* Centre axis, not top alignment.
@@ -26488,8 +26523,9 @@ section#projects .balanced-title {
    flex-start, the whole 169px difference collapsed into a void hanging under
    the image, which read as broken rather than composed. Centred, the columns
    balance around a shared axis and the leftover space splits evenly. */
+/* Stretch, so both panels share a height rather than one hanging in space */
 .balanced-layout-grid {
-  align-items: center !important;
+  align-items: stretch !important;
 }
 
 /* ================================================================
