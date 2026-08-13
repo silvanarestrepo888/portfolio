@@ -104,10 +104,12 @@
 }
 
 .about-section-ultra-luxury .about-main-story {
-  line-height: 1.9;
+  /* 1.9 at 17px is 32px of leading — loose enough that the eye loses the
+     return sweep between lines. 1.65 keeps the literary feel and reads. */
+  line-height: 1.65;
   letter-spacing: 0.005em;
   /* Paragraph gap must read as clearly more than the gap between two
-     lines within a paragraph (1.9em), or breaks disappear into the
+     lines within a paragraph (1.65em), or breaks disappear into the
      leading. 2.5em keeps distinct paragraphs distinct at every
      breakpoint (font-size shifts responsively; em tracks it). */
   margin-bottom: 2.5em;

@@ -911,27 +911,36 @@ export default function Home() {
             {/* Left Column — text reveals as staggered group */}
             <div className="about-text-column">
               <RevealGroup as="div" className="about-text-content" stagger={0.14} delayChildren={0.1}>
-                <RevealItem as="p" className="about-main-story">
+                {/* Lead — the thesis, set as a standfirst */}
+                <RevealItem as="p" className="about-lead">
                   Seven industries. Three continents.<br />
                   Underneath all of it, one stubborn question: what makes people say yes?
                 </RevealItem>
 
                 <RevealItem as="p" className="about-main-story">
-                  I&apos;ve chased it through banking halls and retail corridors, through telecom networks and wellness ecosystems, through hospitality venues and entertainment destinations. Every industry answered differently, which is exactly why the pattern only shows itself to someone who&apos;s seen them all.
+                  I&apos;ve chased it through banking halls and retail corridors, through telecom networks and wellness ecosystems, through hospitality venues and entertainment destinations. Every industry answered differently, which is exactly why the pattern only shows itself to <em className="about-emphasis">someone who&apos;s seen them all</em>.
+                </RevealItem>
+
+                {/* The four disciplines are a progression, not prose — set as a spine.
+                    Copy is unchanged; only the structure carrying it. */}
+                <RevealItem as="ul" className="about-ladder">
+                  <li><span className="about-ladder-term">Anthropology</span> gave that chase a discipline.</li>
+                  <li><span className="about-ladder-term">Neuromarketing</span> gave it a science.</li>
+                  <li><span className="about-ladder-term">Design</span> gave it a language.</li>
+                  <li>And <span className="about-ladder-term">technology</span>, finally, gave it hands.</li>
+                </RevealItem>
+
+                {/* Split at the pivot — "But no piece was ever the point." */}
+                <RevealItem as="p" className="about-main-story about-continues">
+                  Today those hands work across every piece of the system — the business case, the human behavior, the operations, the technology, and yes, the AI. But no piece was ever the point.
                 </RevealItem>
 
                 <RevealItem as="p" className="about-main-story">
-                  Anthropology gave that chase a discipline.<br />
-                  Neuromarketing gave it a science.<br />
-                  Design gave it a language.<br />
-                  And technology, finally, gave it hands.
+                  The point is <em className="about-emphasis">the connective tissue</em>: how the pieces hold each other up, what order they compose in, where the whole breaks under real pressure. That knowledge doesn&apos;t come from mastering a tool. It comes from <em className="about-emphasis">having run the system</em>.
                 </RevealItem>
 
-                <RevealItem as="p" className="about-main-story">
-                  Today those hands work across every piece of the system — the business case, the human behavior, the operations, the technology, and yes, the AI. But no piece was ever the point. The point is the connective tissue: how the pieces hold each other up, what order they compose in, where the whole breaks under real pressure. That knowledge doesn&apos;t come from mastering a tool. It comes from having run the system.
-                </RevealItem>
-
-                <RevealItem as="p" className="about-main-story">
+                {/* The payoff — display register */}
+                <RevealItem as="p" className="about-thesis">
                   That&apos;s what I design: the system behind the system.<br />
                   The experiences that transform a business are never the visible ones.
                 </RevealItem>

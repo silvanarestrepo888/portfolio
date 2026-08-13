@@ -9335,7 +9335,8 @@ h4, .text-h4 {
   font-size: 17px;
   line-height: 1.618;
   color: var(--charcoal-mid);
-  font-weight: 300;
+  /* 300 at 17px on cream has no grip over 185 words of running text */
+  font-weight: 400;
   margin-bottom: 1rem;
   text-align: left;
 }
@@ -26659,3 +26660,86 @@ section#projects .balanced-title {
 /* Type weight lifted off 0.65 alpha — measured 3.23:1 before the change */
 .hero-role-line { color: rgba(255, 251, 240, 0.92) !important; }
 .hero-name-label { color: rgba(255, 251, 240, 0.92) !important; }
+
+/* ================================================================
+   ABOUT — reading hierarchy
+
+   The copy makes six rhetorical moves — hook, narrative, ladder,
+   argument, thesis, invitation — but every one of them was set at
+   17px / weight 300 / 1.9 leading with an identical 42.5px gap, and
+   the section carried zero emphasis elements. Nothing told the eye
+   where it was, so 185 words read as one undifferentiated block.
+
+   Three registers now: lead, body, thesis. The four disciplines
+   become a visible spine. Copy is unchanged throughout — only the
+   structure and typography carrying it.
+
+   (Leading 1.9 -> 1.65 and weight 300 -> 400 are fixed at their
+   authoritative rules in typography.css and above, not here.)
+   ================================================================ */
+
+/* LEAD — the opening is a thesis statement doing standfirst work */
+.about-section-ultra-luxury .about-lead {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: clamp(1.25rem, 1.5vw, 1.4rem);
+  font-weight: 300;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  color: var(--charcoal-warm);
+  text-align: left;
+  margin: 0 0 2.2em;
+}
+
+/* LADDER — four parallel clauses, previously a paragraph broken by <br>.
+   A hairline spine and one term per row make the densest-looking block
+   the most scannable thing in the section. */
+.about-section-ultra-luxury .about-ladder {
+  list-style: none;
+  margin: 0 0 2.6em;
+  padding: 0.1rem 0 0.1rem 1.35rem;
+  border-left: 1px solid rgba(74, 85, 104, 0.20);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-align: left;
+}
+
+.about-section-ultra-luxury .about-ladder li {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0.005em;
+  color: var(--charcoal-mid);
+}
+
+.about-section-ultra-luxury .about-ladder-term {
+  font-weight: 500;
+  color: var(--coral-text);
+}
+
+/* CONTINUES — the argument splits at "But no piece was ever the point";
+   a tighter gap keeps the two halves reading as one move */
+.about-section-ultra-luxury .about-main-story.about-continues {
+  margin-bottom: 1.15em;
+}
+
+/* THESIS — the payoff, in the display voice */
+.about-section-ultra-luxury .about-thesis {
+  font-family: var(--font-cormorant-display), "Cormorant Garamond", serif;
+  font-size: clamp(1.375rem, 1.9vw, 1.65rem);
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--charcoal-warm);
+  text-align: left;
+  margin: 0 0 2.1em;
+}
+
+/* EMPHASIS — three anchors only, so a scanner has a path through.
+   Not italic: weight and tone carry it. */
+.about-section-ultra-luxury .about-emphasis {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--charcoal-warm);
+}
