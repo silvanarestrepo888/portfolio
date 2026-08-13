@@ -134,7 +134,7 @@ export function InteractiveProjectCard({
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   style={{
                     objectPosition: project.objectPosition ?? 'center',
                     filter: 'contrast(1.02) saturate(1.05)',
@@ -163,7 +163,7 @@ export function InteractiveProjectCard({
                     inset: 0,
                     width: '100%',
                     height: '100%',
-                    objectFit: 'cover',
+                    objectFit: 'contain',
                     zIndex: 2,
                     background: 'transparent',
                   }}

@@ -26281,9 +26281,15 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
    hidden by V2. This pass rebalances so nothing renders amputated.
    ================================================================ */
 
-/* 1 · Rebalance the grid: text gets real estate (55/45, was 60/40) */
+/* 1 · Rebalance the grid: text gets real estate (55/45, was 60/40)
+
+   fr, not %. 55% + 45% sums to the FULL container width and then gap adds
+   1.75rem on top, so the grid overflowed its card by exactly the gap (28px
+   measured at 1512px) and the content column pushed past the card's right
+   edge. fr distributes what remains AFTER the gap. minmax(0,...) stops wide
+   media from blowing the column out. */
 .balanced-layout-grid {
-  grid-template-columns: 55% 45% !important;
+  grid-template-columns: minmax(0, 55fr) minmax(0, 45fr) !important;
   gap: 1.75rem !important;
 }
 
@@ -26459,6 +26465,12 @@ section#projects .balanced-title {
 .balanced-tags {
   flex-wrap: wrap !important;
   overflow: visible !important;
+}
+
+/* Media well — the ground behind object-fit: contain. Sits just under the
+   Encre surface so letterbox edges read as a frame, not as a gap. */
+.balanced-image-section {
+  background: #101015 !important;
 }
 
 /* CAROUSEL IMAGE SECTION — ratio matched to the actual assets.
