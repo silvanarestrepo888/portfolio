@@ -26685,7 +26685,7 @@ section#projects .balanced-title {
   font-weight: 300;
   line-height: 1.45;
   letter-spacing: -0.005em;
-  color: var(--charcoal-warm);
+  color: var(--charcoal-ink);
   text-align: left;
   margin: 0 0 2.2em;
 }
@@ -26731,7 +26731,7 @@ section#projects .balanced-title {
   font-weight: 300;
   line-height: 1.4;
   letter-spacing: -0.01em;
-  color: var(--charcoal-warm);
+  color: var(--charcoal-ink);
   text-align: left;
   margin: 0 0 2.1em;
 }
@@ -26741,5 +26741,5 @@ section#projects .balanced-title {
 .about-section-ultra-luxury .about-emphasis {
   font-style: normal;
   font-weight: 500;
-  color: var(--charcoal-warm);
+  color: var(--charcoal-ink);
 }

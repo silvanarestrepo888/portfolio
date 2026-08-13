@@ -40,6 +40,11 @@
   --charcoal-mid:        #4A5568;   /* Primary UI text */
   --charcoal-light:      #718096;   /* Secondary UI text */
   --charcoal-muted:      #667080;   /* Body copy */
+  /* Warm dark for display text on light surfaces. --charcoal-warm is declared
+     #2D3748 above but is redefined to a NEUTRAL #3a3a3a further down the
+     cascade, which reads cold beside --charcoal-mid (#4a5568) body copy.
+     This rung holds the warm value under a name nothing else overrides. */
+  --charcoal-ink:        #2D3748;
 
   /* ==========================================
      SEMANTIC ALIASES — what to use in components
