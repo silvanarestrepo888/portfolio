@@ -26478,11 +26478,18 @@ section#projects .balanced-title {
   aspect-ratio: 1.9 !important;
   height: auto !important;
   min-height: 0 !important;
-  align-self: flex-start !important;
+  align-self: center !important;
 }
 
+/* Centre axis, not top alignment.
+
+   A landscape image beside a taller text column can never match heights —
+   measured at 1920px the media is 197px and the content 366px. Pinned to
+   flex-start, the whole 169px difference collapsed into a void hanging under
+   the image, which read as broken rather than composed. Centred, the columns
+   balance around a shared axis and the leftover space splits evenly. */
 .balanced-layout-grid {
-  align-items: flex-start !important;
+  align-items: center !important;
 }
 
 /* ================================================================
