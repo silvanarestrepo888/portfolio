@@ -16,7 +16,6 @@ import {
   AcceleratedInnovationIcon,
   ExperienceOrchestrationIcon,
   IntelligentOperationsIcon,
-  TransformationFoundationsIcon,
   StrategyConsultingIcon,
   CustomerIntelligenceIcon
 } from '../components/icons/services';
@@ -191,35 +190,26 @@ export default function Home() {
       subtitle: "Building AI-augmented teams that outperform traditional structures",
       description: "Design agentic systems where AI specialists and human experts collaborate as unified intelligence. I architect operational ecosystems with embedded market monitoring, competitive intelligence, and automated research capabilities—creating self-optimizing organizations.",
       demand: "Operations that think, adapt, and evolve. Intelligence embedded in every process.",
-      tags: ["Agentic AI", "Org Design", "Intelligence Systems"],
+      tags: ["Agentic Systems", "Org Design", "Intelligence Systems"],
       icon: IntelligentOperationsIcon
     },
     {
       number: "04",
-      title: "Transformation Foundations",
-      subtitle: "Engineering organizational evolution through scalable design foundations",
-      description: "Design systems become organizational DNA. Every component strengthens the whole. Every decision accelerates the next. I create modular, scalable frameworks—turning organizational complexity into competitive advantage.",
-      demand: "Transformation that compounds. Every change strengthens the foundation for the next leap.",
-      tags: ["Design Systems", "Scalable Frameworks", "Cultural Change"],
-      icon: TransformationFoundationsIcon
-    },
-    {
-      number: "05",
-      title: "Strategic Innovation Consulting",
-      subtitle: "Converting market disruption into systematic advantage",
-      description: "Navigate complexity with frameworks that transform uncertainty into opportunity. I blend behavioral economics, emerging technology foresight, and cultural intelligence to create innovation strategies that don't just respond to change—they create it.",
-      demand: "Innovation with precision. Strategies that move from boardroom to market with velocity.",
-      tags: ["Strategic Advisory", "Behavioral Economics", "Foresight"],
-      icon: StrategyConsultingIcon
-    },
-    {
-      number: "06",
       title: "Customer Intelligence Platforms",
       subtitle: "Turning customer behavior into competitive advantage",
       description: "Architecting intelligence systems that don't just track customer behavior—they anticipate it. I design platforms where every interaction feeds learning algorithms, creating self-improving experiences that evolve faster than market demands.",
       demand: "Customer relationships that deepen with every interaction. Intelligence that scales intimacy.",
       tags: ["Behavioral Data", "Experience Intelligence", "Platform Design"],
       icon: CustomerIntelligenceIcon
+    },
+    {
+      number: "05",
+      title: "Venture Design",
+      subtitle: "Finding the condition every competitor is glued to, unnoticed",
+      description: "Most competitive strategy optimizes capability—what a team already knows how to build, made faster or cheaper. I go after the condition every competitor in the category depends on, the one thing all of them are still standing on without knowing it. Remove it, and the capability obsession stops mattering, because the ground everyone was optimizing on top of has already moved.",
+      demand: "What survives is never a product. It's a position.",
+      tags: ["Business Design", "Systems Thinking", "Service Design"],
+      icon: StrategyConsultingIcon
     }
   ];
 
