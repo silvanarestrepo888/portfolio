@@ -944,12 +944,6 @@ export default function Home() {
                   The point is <em className="about-emphasis">the connective tissue</em>: how the pieces hold each other up, what order they compose in, where the whole breaks under real pressure. That knowledge doesn&apos;t come from mastering a tool. It comes from <em className="about-emphasis">having run the system</em>.
                 </RevealItem>
 
-                {/* The payoff — display register */}
-                <RevealItem as="p" className="about-thesis">
-                  That&apos;s what I design: the system behind the system.<br />
-                  The experiences that transform a business are never the visible ones.
-                </RevealItem>
-
                 <RevealItem as="p" className="about-welcome">
                   Welcome to my world — where strategy meets soul, and design becomes the one language humans and machines both speak.
                 </RevealItem>

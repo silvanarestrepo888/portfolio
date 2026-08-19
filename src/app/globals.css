@@ -26865,3 +26865,42 @@ section#projects .balanced-title {
     min-height: 100svh !important;
   }
 }
+
+/* ================================================================
+   ABOUT — balance the two columns
+
+   The text column ran 1018px against a 640px photo, leaving 378px —
+   37% of the section — empty on the right. It cannot be closed by
+   resizing: silvana-about.jpg is 1024x1024, a perfect square, and
+   filling the column would need a 0.66 tall-portrait ratio.
+
+   Two moves instead. A taller 4:5 frame uses the column it has, and
+   the portrait sticks so it travels with the reader through the whole
+   argument rather than stopping partway. The text column is untouched
+   — 672px gives a 59-character measure, which is correct, so widening
+   it to close the gap would trade a good measure for a filled hole.
+
+   Desktop only: below 769px the columns stack, so there is nothing to
+   stick against and the portrait sits in the flow as before.
+   ================================================================ */
+@media (min-width: 769px) {
+  .about-content-ultra-luxury {
+    align-items: start !important;
+  }
+
+  .about-photo-column {
+    position: sticky !important;
+    top: 140px !important;          /* the floating nav clears at 116px */
+    align-self: start !important;
+    height: auto !important;
+  }
+
+  /* Specificity must match .about-section-ultra-luxury .about-photo-perfect,
+     which pins height to clamp(440px, 52vw, 640px). */
+  .about-section-ultra-luxury .about-photo-perfect {
+    aspect-ratio: 4 / 5 !important;
+    height: auto !important;
+    object-fit: cover !important;
+    object-position: 50% 18% !important;
+  }
+}
