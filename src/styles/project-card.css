@@ -1,0 +1,209 @@
+/* ================================================================
+   THE PLATE — project card
+   experiencearchitect.design
+
+   A scoped component. Every selector is namespaced .plate*, which no
+   rule in globals.css targets, so this file owns the card outright
+   and needs no !important to defend itself.
+
+   Governing rule: ONE panel, media-led. The media spans the plate edge
+   to edge; type alone builds the hierarchy beneath it. There is no
+   second container, so there is no symmetry to maintain and no column
+   that can hang in space.
+
+   Tokens come from tokens.css. Grapefruit is used at full strength —
+   on the ink surface #FF6663 clears 7:1, so the brand colour needs no
+   compromise here.
+   ================================================================ */
+
+.plate-shell {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.plate-shell:focus { outline: none; }
+
+.plate {
+  position: relative;
+  background: rgba(255, 251, 240, 0.035);
+  border: 1px solid rgba(255, 251, 240, 0.09);
+  border-radius: var(--radius-soft, 4px);
+  overflow: hidden;
+  transition:
+    transform 0.382s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.382s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.plate-shell:hover .plate {
+  transform: translateY(-4px);
+  border-color: rgba(255, 251, 240, 0.18);
+}
+
+.plate-shell:focus-visible .plate {
+  border-color: rgba(255, 251, 240, 0.18);
+  box-shadow: 0 0 0 3px rgba(255, 102, 99, 0.45);
+}
+
+/* ── Media band ────────────────────────────────────────────────
+   Full bleed, 2:1. Across the real asset range (1.68–2.21) the worst
+   crop is ~16%, and at full card width a gentle crop reads as framing.
+   max-height keeps the band cinematic rather than towering on wide
+   viewports. */
+.plate-media {
+  position: relative;
+  aspect-ratio: 2 / 1;
+  max-height: 460px;
+  background: #0E0E12;
+  overflow: hidden;
+}
+
+.plate-media img,
+.plate-media video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Screen recordings carry UI and text — cropping them destroys content,
+   so they are contained on the band's own ground, which reads as a
+   screening frame. Set per project, not globally. */
+.plate-media--contain img,
+.plate-media--contain video {
+  object-fit: contain;
+}
+
+.plate-media video {
+  opacity: 0;
+  transition: opacity 0.618s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 1;
+}
+.plate-media video.is-playing { opacity: 1; }
+
+.plate-media img.is-loading { opacity: 0; }
+.plate-media img { transition: opacity 0.618s ease; }
+
+/* ── Content band ──────────────────────────────────────────────── */
+.plate-body { padding: 32px; }
+
+.plate-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.plate-title {
+  font-family: var(--font-cormorant-display), "Cormorant Garamond", serif;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--vanilla, #FFFBF0);
+  margin: 0;
+}
+
+.plate-meta {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 251, 240, 0.46);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.plate-client {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--coral, #FF6663);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 6px;
+}
+.plate-client:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.plate-sub {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(255, 251, 240, 0.72);
+  margin: 20px 0 0;
+  max-width: 46ch;
+}
+
+.plate-rule {
+  height: 1px;
+  border: 0;
+  background: rgba(255, 251, 240, 0.09);
+  margin: 24px 0 20px;
+}
+
+.plate-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* Capabilities as one tracked credit line — nothing to wrap raggedly,
+   nothing to mis-tint. Replaces the pill row. */
+.plate-caps {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 251, 240, 0.40);
+  margin: 0;
+}
+.plate-caps i {
+  font-style: normal;
+  color: rgba(255, 251, 240, 0.22);
+  margin: 0 0.5em;
+}
+
+.plate-cta {
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--coral, #FF6663);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+.plate-arrow {
+  transition: transform 0.382s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.plate-shell:hover .plate-arrow { transform: translateX(4px); }
+
+/* ── Narrow viewports ──────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .plate-body { padding: 20px; }
+  .plate-title { font-size: 22px; }
+  .plate-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .plate-sub { font-size: 14px; margin-top: 16px; }
+  .plate-rule { margin: 20px 0 16px; }
+  .plate-foot { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .plate-media { max-height: 300px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plate,
+  .plate-arrow,
+  .plate-media video,
+  .plate-media img { transition: none; }
+  .plate-shell:hover .plate { transform: none; }
+  .plate-shell:hover .plate-arrow { transform: none; }
+}

@@ -7,6 +7,7 @@
 @import "../styles/typography.css";
 @import "../styles/spacing.css";
 @import "../styles/details.css";
+@import "../styles/project-card.css";   /* THE PLATE — scoped project card */
 
 /* ========================================== */
 /* ACCESSIBILITY FIRST - AWARD-WINNING COMPLIANCE */

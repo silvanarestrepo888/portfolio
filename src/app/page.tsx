@@ -286,6 +286,7 @@ export default function Home() {
       objectPosition: "left center",
       secondaryImage: "/projects/augoor/photo-main-carrusel.jpeg",
       video: "/projects/augoor/product-demo.mp4",
+      mediaFit: "contain" as const,  // screen recording — a crop destroys content
       galleryImages: [
         "/projects/augoor/Project Gallery/Screenshot 2025-04-15 at 13.33.51.png",
         "/projects/augoor/Project Gallery/Screenshot 2025-04-15 at 13.34.12.png",
