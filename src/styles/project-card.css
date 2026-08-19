@@ -207,3 +207,14 @@
   .plate-shell:hover .plate { transform: none; }
   .plate-shell:hover .plate-arrow { transform: none; }
 }
+
+/* ── Mobile tap target ─────────────────────────────────────────
+   The client link is an 11px caps line, which renders ~19px tall —
+   well under the 44px touch minimum. Padding enlarges the hit area
+   without changing where the text sits (the margin absorbs it). */
+@media (max-width: 640px) {
+  .plate-client {
+    padding: 12px 0;
+    margin-top: -6px;
+  }
+}

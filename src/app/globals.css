@@ -26827,3 +26827,25 @@ section#projects .balanced-title {
 #footer {
   margin-top: -1px !important;
 }
+
+/* ================================================================
+   MOBILE — carousel controls clear the fixed navigation
+
+   .carousel-dot-navigation renders at the top of the carousel core,
+   which on a 375px viewport puts the two 44px chevrons at y=6 —
+   directly beneath the fixed nav pill (y=12, 66px tall, z-index 100).
+   The pill covered them, so they were both unreadable and untappable.
+
+   Ordering the controls after the card puts them below it, where a
+   thumb reaches them anyway.
+   ================================================================ */
+@media (max-width: 640px) {
+  .projects-carousel-core {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .carousel-dot-navigation {
+    order: 2 !important;
+    margin-top: 20px !important;
+  }
+}
