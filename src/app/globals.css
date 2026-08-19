@@ -26904,3 +26904,38 @@ section#projects .balanced-title {
     object-position: 50% 18% !important;
   }
 }
+
+/* ================================================================
+   ABOUT — unframe the heading and the portrait
+
+   The About heading sat inside a glassmorphic card: a near-opaque
+   rgba(255,251,238,.95) fill with a 4px radius, a 0 4px 16px shadow
+   and an 8px backdrop blur, painted on top of a cream surface. It read
+   as a box drawn around the word "about" — and it was inconsistent
+   besides, since Projects, Services and Experience carry no such panel.
+
+   The portrait had the matching problem from the other direction: a
+   1px coral hairline top and bottom plus a heavy 0 24px 64px shadow,
+   which together framed the image rather than presenting it.
+
+   Both are unframed here. The heading now sits directly on the
+   surface like every other section heading, and the portrait keeps a
+   single soft shadow to sit on the page without being boxed in.
+   ================================================================ */
+.about-header-ultra-luxury,
+.about-section-ultra-luxury .about-header-ultra-luxury {
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.about-photo-perfect,
+.about-photo-cohesive {
+  border: none !important;
+  box-shadow: 0 14px 38px rgba(45, 55, 72, 0.10) !important;
+}
