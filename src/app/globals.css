@@ -26926,8 +26926,12 @@ section#projects .balanced-title {
 .about-section-ultra-luxury .about-header-ultra-luxury {
   background: transparent !important;
   box-shadow: none !important;
-  backdrop-filter: none !important;
+  /* Prefix first, standard second. Written the other way round, the CSS
+     optimizer dropped the unprefixed declaration and kept only
+     -webkit-backdrop-filter — which Chrome ignores, so the blur survived
+     and the heading still painted a rectangle. */
   -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
   border: none !important;
   border-radius: 0 !important;
   padding-left: 0 !important;
