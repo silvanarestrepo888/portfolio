@@ -25637,9 +25637,10 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
    44px pill arrows on a 375px screen take up ~23% of viewport width.
    Reduce to 36px on mobile so cards have more breathing room. ── */
 @media (max-width: 640px) {
+  /* 44px, not 36px — mobile is precisely where the touch floor applies */
   .snippet-nav-arrow {
-    width: 36px !important;
-    height: 36px !important;
+    width: 44px !important;
+    height: 44px !important;
     font-size: 1.25rem !important;
   }
   .snippet-nav-arrows {
@@ -25749,7 +25750,7 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 @media (max-width: 640px) {
   .snippet-domain-link {
     font-size: 0.7rem !important;
-    padding: 8px 0 !important;
+    padding: 13px 0 !important;   /* 35px tall -> 44px touch target */
   }
 }
 
@@ -26847,5 +26848,20 @@ section#projects .balanced-title {
   .carousel-dot-navigation {
     order: 2 !important;
     margin-top: 20px !important;
+  }
+}
+
+/* ================================================================
+   MOBILE — hero commits to a full frame
+
+   Desktop pins the hero to 100svh; mobile was rendering 650px of an
+   812px viewport (80%), which reads as an accidental fold rather than
+   a designed one. svh (small viewport height) is the correct unit —
+   it accounts for the mobile browser chrome, so the frame does not
+   jump as the address bar collapses.
+   ================================================================ */
+@media (max-width: 768px) {
+  .hero-section-luxury {
+    min-height: 100svh !important;
   }
 }

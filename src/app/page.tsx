@@ -350,9 +350,13 @@ export default function Home() {
         reach: "Riviera Maya",
         transformation: "Digital-Physical Fusion"
       },
-      image: "/projects/nomade/main-hero-carrusel.jpeg",
+      // Card hero swapped to the brand image: the previous asset was a
+      // website screenshot whose white navigation bar rendered as a bright
+      // strip across the top of a dark card. This one is 2860x1454 (1.97),
+      // an almost exact fit for the 2:1 band, with no chrome.
+      image: "/projects/nomade/secundary-hero.jpeg",
       objectPosition: "center",
-      secondaryImage: "/projects/nomade/secundary-hero.jpeg",
+      secondaryImage: "/projects/nomade/main-hero-carrusel.jpeg",
       galleryLayout: "strip",
       galleryImages: [
         "/projects/nomade/Project Gallery/Screenshot 2024-11-15 at 15.21.56.png",
