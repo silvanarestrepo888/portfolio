@@ -40,15 +40,13 @@
 .projects-title-award-winning.typography-h2,
 .projects-title-award-winning.typography-h3,
 .projects-title-award-winning,
-.svc-heading,
-.exp-heading,
 .project-hero-title,
 .project-details-overlay h1 {
   font-family: var(--font-cormorant-display), "Cormorant Garamond", serif;
   font-style: normal;
   font-weight: 300;
   letter-spacing: -0.02em;
-  line-height: 1.1;
+  line-height: 1.0;
   text-transform: lowercase;
 }
 
@@ -104,15 +102,8 @@
 }
 
 .about-section-ultra-luxury .about-main-story {
-  /* 1.9 at 17px is 32px of leading — loose enough that the eye loses the
-     return sweep between lines. 1.65 keeps the literary feel and reads. */
-  line-height: 1.65;
+  line-height: 1.9;
   letter-spacing: 0.005em;
-  /* Paragraph gap must read as clearly more than the gap between two
-     lines within a paragraph (1.65em), or breaks disappear into the
-     leading. 2.5em keeps distinct paragraphs distinct at every
-     breakpoint (font-size shifts responsively; em tracks it). */
-  margin-bottom: 2.5em;
 }
 
 .about-section-ultra-luxury .about-welcome {

@@ -7,7 +7,6 @@
 @import "../styles/typography.css";
 @import "../styles/spacing.css";
 @import "../styles/details.css";
-@import "../styles/project-card.css";   /* THE PLATE — scoped project card */
 
 /* ========================================== */
 /* ACCESSIBILITY FIRST - AWARD-WINNING COMPLIANCE */
@@ -688,11 +687,8 @@
   margin-bottom: 24px; /* Visual rhythm between paragraphs */
 }
 
-/* :last-of-type never matched here — RevealItem renders .about-welcome
-   as a <p> too, so the true last <p> sibling is .about-welcome, not any
-   .about-main-story. :has() targets the one actually before it. */
-.about-main-story:has(+ .about-welcome) {
-  margin-bottom: 3em; /* More than the 2.5em paragraph rhythm, before the welcome line */
+.about-main-story:last-of-type {
+  margin-bottom: 32px; /* Slightly more before quote */
 }
 
 /* AWARD-WINNING: Scroll-in animations with blur */
@@ -9336,8 +9332,7 @@ h4, .text-h4 {
   font-size: 17px;
   line-height: 1.618;
   color: var(--charcoal-mid);
-  /* 300 at 17px on cream has no grip over 185 words of running text */
-  font-weight: 400;
+  font-weight: 300;
   margin-bottom: 1rem;
   text-align: left;
 }
@@ -9576,9 +9571,7 @@ h4, .text-h4 {
   
   .about-main-story {
     font-size: 1rem;
-    /* margin-bottom intentionally not set here — the higher-specificity
-       .about-section-ultra-luxury .about-main-story rule in typography.css
-       (2.5em) governs paragraph rhythm at every breakpoint. */
+    margin-bottom: 20px;
   }
   
   .about-welcome {
@@ -20645,9 +20638,17 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
   z-index: 1;
 }
 
-/* Content section: no visual change on hover — Framer Motion handles movement */
+/* ENHANCE GLASSMORPHISM ON HOVER - NO TRANSFORMS (Let Framer Motion handle) */
 .balanced-content-section:hover {
-  background: transparent !important;
+  background: rgba(255, 251, 238, 0.9) !important; /* More opaque on hover */
+  backdrop-filter: blur(25px) saturate(1.9) brightness(1.08) !important;
+  border-color: rgba(255, 102, 99, 0.4) !important; /* Grapefruit accent border */
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.12),    /* REDUCED shadow complexity */
+    0 4px 16px rgba(255, 102, 99, 0.06), /* REDUCED grapefruit intensity */
+    inset 0 1px 0 rgba(255, 255, 255, 0.5) !important; /* SIMPLIFIED rim */
+  /* REMOVED: transform and complex transitions - let Framer Motion handle movement */
+  transition: background-color var(--duration-base) ease, border-color var(--duration-base) ease, backdrop-filter var(--duration-base) ease !important;
 }
 
 
@@ -20778,6 +20779,7 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 @media (prefers-reduced-motion: reduce) {
   .balanced-content-section,
   .about-header-ultra-luxury,
+  .projects-header-award-winning,
   .philosophy-quote-ultra-luxury {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
@@ -20798,15 +20800,11 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
     border-radius: 12px !important; /* Simplified radius */
   }
   
-  .about-header-ultra-luxury {
+  .about-header-ultra-luxury,
+  .projects-header-award-winning {
     backdrop-filter: blur(12px) saturate(1.3) !important; /* Performance-safe mobile blur */
     padding: 1.5rem 2rem !important; /* Optimized mobile padding */
     border-radius: 16px !important; /* Simplified for mobile */
-    margin-bottom: 2rem !important; /* Reduced mobile spacing */
-  }
-
-  .projects-header-award-winning {
-    padding: 1.5rem 2rem !important; /* Optimized mobile padding */
     margin-bottom: 2rem !important; /* Reduced mobile spacing */
   }
   
@@ -20826,6 +20824,7 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 @media (max-width: 480px) {
   .balanced-content-section,
   .about-header-ultra-luxury,
+  .projects-header-award-winning,
   .philosophy-quote-ultra-luxury {
     backdrop-filter: blur(8px) !important; /* Minimal blur for older devices */
     background: rgba(255, 251, 238, 0.95) !important; /* More solid for readability */
@@ -21213,7 +21212,7 @@ section#services div[style*="overflowY"]::-webkit-scrollbar-thumb:hover {
 
 .exp-subheading em {
   font-style: italic;
-  color: var(--coral-text, #B03A3A) !important;
+  color: var(--coral, #FF6663) !important;
 }
 
 /* ── Timeline track ───────────────────────────────────────── */
@@ -22858,7 +22857,7 @@ footer.footer-landor-standards .footer-brand-title-landor {
 
 .hero-scroll-line {
   display: block;
-  width: 1.5px;
+  width: 1px;
   height: 48px;
   background: linear-gradient(to bottom,
     rgba(255, 102, 99, 0.85) 0%,
@@ -22989,9 +22988,9 @@ footer.footer-landor-standards .footer-brand-title-landor {
   font-family: var(--font-cormorant-display), "Cormorant Garamond", serif !important;
   font-size: clamp(3rem, 6vw, 3.5rem) !important; /* 48px–56px, matches about/projects/snippets */
   font-weight: 300 !important;
-  text-transform: lowercase !important;
+  text-transform: lowercase !important;               /* THE critical missing rule */
   letter-spacing: -0.02em !important;
-  line-height: 1.1 !important;
+  line-height: 1.0 !important;
 }
 
 /* ── TIER 2: Section descriptions — elevated from 14px body size ─
@@ -23859,9 +23858,8 @@ footer.footer-landor-standards .footer-brand-title-landor {
   color: rgba(255, 251, 240, 0.3) !important;
 }
 
-/* 0.4 alpha measured 4.40:1 on the footer surface; 0.55 measures 6.04:1 */
 .footer-editorial-credit {
-  color: rgba(255, 251, 240, 0.55) !important;
+  color: rgba(255, 251, 240, 0.4) !important;
 }
 
 .footer-editorial-voice {
@@ -23962,7 +23960,7 @@ footer.footer-landor-standards .footer-brand-title-landor {
   object-fit: cover !important;
   /* left side of photo = Silvana's face */
   object-position: left 15% !important;
-  filter: contrast(1.02) brightness(1.0) saturate(0.92) !important;
+  filter: contrast(1.04) brightness(0.82) saturate(0.88) !important;
   mix-blend-mode: normal !important;
 }
 
@@ -23973,12 +23971,12 @@ footer.footer-landor-standards .footer-brand-title-landor {
   position: absolute !important;
   inset: 0 !important;
   pointer-events: none !important;
-  /* Transparent on left (face) → subtle dark on right for text contrast */
+  /* Transparent on left (face) → dark on right (kills cream wall) */
   background: linear-gradient(
     to right,
-    rgba(4, 4, 8, 0.03) 0%,
-    rgba(4, 4, 8, 0.18) 38%,
-    rgba(4, 4, 8, 0.40) 100%
+    rgba(4, 4, 8, 0.08) 0%,
+    rgba(4, 4, 8, 0.38) 38%,
+    rgba(4, 4, 8, 0.72) 100%
   ) !important;
   z-index: 2 !important;
 }
@@ -24011,16 +24009,16 @@ footer.footer-landor-standards .footer-brand-title-landor {
   color: var(--vanilla-pure) !important;
   max-width: 1120px !important;
   width: 92% !important;
-  padding: 7rem 2rem 2rem !important;
+  padding: 2rem !important;
   margin: 0 auto !important;
 }
 
 /* Name label */
 .hero-name-label {
-  color: rgba(255, 251, 240, 0.70) !important;
+  color: rgba(255, 251, 240, 0.60) !important;
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55) !important;
-  letter-spacing: 0.25em !important;
-  font-size: clamp(0.8125rem, 1.0vw, 1rem) !important;
+  letter-spacing: 0.30em !important;
+  font-size: clamp(0.6875rem, 0.85vw, 0.875rem) !important;
 }
 
 /* Title: large, commanding, full-width impact */
@@ -24030,7 +24028,7 @@ footer.footer-landor-standards .footer-brand-title-landor {
   font-size: clamp(4.5rem, 11.5vw, 15rem) !important;
   font-weight: 300 !important;
   letter-spacing: -0.035em !important;
-  line-height: 1.0 !important;
+  line-height: 0.90 !important;
   text-shadow:
     0 2px 20px rgba(0, 0, 0, 0.50),
     0 8px 60px rgba(0, 0, 0, 0.28) !important;
@@ -24040,8 +24038,8 @@ footer.footer-landor-standards .footer-brand-title-landor {
 .hero-role-line {
   color: rgba(255, 251, 240, 0.65) !important;
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55) !important;
-  font-size: clamp(0.8125rem, 1.05vw, 1.0625rem) !important;
-  letter-spacing: 0.20em !important;
+  font-size: clamp(0.75rem, 0.95vw, 0.9375rem) !important;
+  letter-spacing: 0.24em !important;
   text-transform: uppercase !important;
   margin-top: 1.25rem !important;
 }
@@ -24069,8 +24067,6 @@ footer.footer-landor-standards .footer-brand-title-landor {
   max-width: 100% !important;   /* fill the full column, no width cap */
   aspect-ratio: unset !important; /* let the inline image height dictate */
   width: 100% !important;
-  border-radius: 20px !important; /* up from 0 — premium card feel */
-  overflow: hidden !important;
 }
 
 /* Right column: stretch to column edges, no center-justification gap */
@@ -24660,8 +24656,8 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   display: flex !important;
   flex-direction: column !important;
   justify-content: center !important;
-  padding-top: var(--section-py, 64px) !important;
-  padding-bottom: var(--section-py, 64px) !important;
+  padding-top: clamp(48px, 6vw, 80px) !important;
+  padding-bottom: clamp(48px, 6vw, 80px) !important;
 }
 
 /* ── 2. Experience header — reduce bottom margin ─────────────────
@@ -24680,11 +24676,12 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
   overflow: hidden !important;
 }
 
-/* ── 4. About photo — image radius is 0; container clips to 20px ──
-   border-radius lives on .about-photo-container (overflow:hidden).
-   Setting it here on the image element is a no-op. ── */
+/* ── 4. About photo — consistent border-radius across breakpoints──
+   Ensure the photo card has a consistent, polished 8px radius that
+   matches the overall design language (not the 24px from an older
+   style pass that can feel heavy at smaller sizes). ── */
 .about-photo-perfect {
-  border-radius: 0 !important;
+  border-radius: 8px !important;
 }
 
 /* ── 5. Hero name label — higher contrast ────────────────────────
@@ -24879,16 +24876,11 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 /* ── Footer copyright contrast lift ─────────────────────────────────────────
    .footer-editorial-credit at 35% opacity on #1A0D0B dark = ~3.58:1 contrast,
    which fails WCAG AA for small text (12px needs 4.5:1).
-   45% was estimated at ~4.57:1 but measures 4.40:1 against the rendered
-   footer surface — still short of AA. 55% measures 6.04:1 and keeps the
-   intentionally-subdued copyright hierarchy.
-
-   NOTE: this is the fourth rule for this one selector (see also ~23681,
-   ~23861, ~24812). It is the last, so it wins. Consolidate during the CSS
-   architecture pass.
+   Raising to 45% produces ~4.57:1 — just over the AA threshold while keeping
+   the intentionally-subdued copyright hierarchy.
    ──────────────────────────────────────────────────────────────────────── */
 .footer-editorial-credit {
-  color: rgba(255, 251, 240, 0.55) !important;
+  color: rgba(255, 251, 240, 0.45) !important;
 }
 
 /* ── Kayanee gallery: video + 5 images layout ────────────────────────────────
@@ -25637,10 +25629,9 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
    44px pill arrows on a 375px screen take up ~23% of viewport width.
    Reduce to 36px on mobile so cards have more breathing room. ── */
 @media (max-width: 640px) {
-  /* 44px, not 36px — mobile is precisely where the touch floor applies */
   .snippet-nav-arrow {
-    width: 44px !important;
-    height: 44px !important;
+    width: 36px !important;
+    height: 36px !important;
     font-size: 1.25rem !important;
   }
   .snippet-nav-arrows {
@@ -25750,7 +25741,7 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 @media (max-width: 640px) {
   .snippet-domain-link {
     font-size: 0.7rem !important;
-    padding: 13px 0 !important;   /* 35px tall -> 44px touch target */
+    padding: 8px 0 !important;
   }
 }
 
@@ -25801,9 +25792,9 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 
 .exp-company-name {
   font-family: var(--font-body, 'Inter', sans-serif) !important;
-  font-size: clamp(0.6875rem, 0.9vw, 0.8125rem) !important;
+  font-size: clamp(0.5rem, 0.7vw, 0.65rem) !important;
   font-weight: 600 !important;
-  letter-spacing: 0.10em !important;
+  letter-spacing: 0.12em !important;
   text-transform: uppercase !important;
   color: var(--charcoal-mid, #4A5568) !important;
   white-space: nowrap !important;
@@ -25811,7 +25802,7 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 
 .exp-role-name {
   font-family: var(--font-body, 'Inter', sans-serif) !important;
-  font-size: clamp(0.625rem, 0.8vw, 0.75rem) !important;
+  font-size: clamp(0.45rem, 0.6vw, 0.575rem) !important;
   font-weight: 400 !important;
   color: var(--charcoal-mid, #4A5568) !important;
   opacity: 0.65 !important;
@@ -25819,7 +25810,7 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
 }
 
 .exp-disc-label {
-  font-size: clamp(0.5rem, 0.65vw, 0.625rem) !important;
+  font-size: clamp(0.40rem, 0.50vw, 0.475rem) !important;
   font-style: italic !important;
   letter-spacing: 0.07em !important;
   text-transform: uppercase !important;
@@ -25927,1019 +25918,4 @@ html body .about-section-ultra-luxury .about-container-ultra-luxury {
     width: 100% !important;
     max-width: 100% !important;
   }
-}
-
-/* ============================================================
-   ── 4. PROJECT CAROUSEL — PERFECTIONIST EDITORIAL REDESIGN ──
-   Root causes:
-   • height:100% on both columns stretches card to 870px+
-   • vw-based font sizes render ~32px title in card context
-   • min-height:520px forces excessive card floor
-   • overflow:visible on image section causes bleed
-   Fix: image aspect-ratio drives card height; typography
-   uses fixed rem values proportional to a card, not a page.
-   ============================================================ */
-
-/* Card: remove floor that forced excess height; flush padding */
-.balanced-project-card {
-  min-height: 0 !important;
-  padding: 0 !important;
-}
-
-/* Grid: both columns stretch to same height (content drives card height) */
-.balanced-layout-grid {
-  height: auto !important;
-  align-items: stretch !important;
-}
-
-/* Image section: fills column via stretch; object-fit cover handles cropping.
-   overflow:hidden !important beats earlier overflow:visible !important */
-.balanced-image-section {
-  height: auto !important;
-  min-height: 0 !important;
-  overflow: hidden !important;
-}
-
-/* Cinematic layers: must be absolutely positioned to fill the
-   aspect-ratio box (height:100% on a relative child of height:auto = 0) */
-.balanced-image-section .cinematic-image-layers {
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-}
-
-/* Content: natural height, padding provides breathing room */
-.balanced-content-section {
-  height: auto !important;
-  align-items: flex-start !important;
-  justify-content: flex-start !important;
-  padding: 1.75rem 1.5rem !important;
-}
-
-/* Header */
-.balanced-header {
-  margin-bottom: 0.875rem !important;
-}
-
-/* Title: editorial card proportion — 19px, not viewport-scaled 32px */
-.balanced-title {
-  font-size: 1.1875rem !important;
-  line-height: 1.15 !important;
-  letter-spacing: -0.02em !important;
-  margin: 0 0 0.375rem !important;
-}
-
-/* Client: small-caps label, not body-copy size */
-.balanced-client {
-  font-size: 0.625rem !important;
-  font-style: normal !important;
-  letter-spacing: 0.09em !important;
-  text-transform: uppercase !important;
-  margin: 0 0 0.25rem !important;
-}
-
-/* Year / location meta */
-.balanced-meta {
-  font-size: 0.625rem !important;
-  gap: 0.375rem !important;
-}
-
-/* Description block */
-.balanced-description {
-  margin-bottom: 0.875rem !important;
-}
-
-/* Subtitle: 2-line cap, tight */
-.balanced-subtitle {
-  font-size: 0.8125rem !important;
-  font-weight: 500 !important;
-  line-height: 1.5 !important;
-  margin: 0 0 0.5rem !important;
-  display: -webkit-box !important;
-  -webkit-line-clamp: 2 !important;
-  -webkit-box-orient: vertical !important;
-  overflow: hidden !important;
-}
-
-/* Description prose: 3-line cap */
-.balanced-description-text {
-  font-size: 0.75rem !important;
-  line-height: 1.6 !important;
-  margin: 0 !important;
-  display: -webkit-box !important;
-  -webkit-line-clamp: 3 !important;
-  -webkit-box-orient: vertical !important;
-  overflow: hidden !important;
-}
-
-/* Capability tags */
-.balanced-capabilities {
-  margin-bottom: 0.75rem !important;
-}
-
-.balanced-tags {
-  gap: 0.375rem !important;
-}
-
-.balanced-tag {
-  padding: 0.25rem 0.5625rem !important;
-  font-size: 0.625rem !important;
-  letter-spacing: 0.06em !important;
-}
-
-/* Mobile: stacked layout already uses display:block via JSX.
-   Compact padding and slightly larger title for readability. */
-@media (max-width: 640px) {
-  .balanced-content-section {
-    padding: 1.125rem !important;
-  }
-
-  .balanced-title {
-    font-size: 1.0625rem !important;
-  }
-}
-
-/* ============================================================
-   ── 5. PROJECT CAROUSEL — V2 EDITORIAL PROPORTION FIX ───────
-   Issue: card is 487px tall because text column fills naturally
-   to 455px. Image looks underwhelming at near-square proportion.
-
-   Fix: strip the prose description (cards are teasers, not
-   summaries) and prevent tag wrapping. Result: content
-   collapses to ~280px → image renders at ~4:3 landscape,
-   visually commanding the card.
-   ============================================================ */
-
-/* Hide prose description — a card is a teaser, not a summary.
-   The subtitle already captures the value proposition in 2 lines. */
-.balanced-description-text {
-  display: none !important;
-}
-
-/* Remove the gap below description now that prose is gone */
-.balanced-description {
-  margin-bottom: 0.5rem !important;
-}
-
-/* Tags: single-row only — wrap creates unwanted height.
-   Overflow hidden clips any tag that doesn't fit. */
-.balanced-tags {
-  flex-wrap: nowrap !important;
-  overflow: hidden !important;
-  max-width: 100% !important;
-}
-
-.balanced-tag {
-  white-space: nowrap !important;
-  flex-shrink: 0 !important;
-}
-
-/* Tighten content padding to reduce column height proportionally */
-.balanced-content-section {
-  padding: 1.375rem 1.25rem !important;
-}
-
-/* Tighter gap between CTA and capabilities */
-.balanced-capabilities {
-  margin-bottom: 0.5rem !important;
-}
-
-/* Mobile: keep stacked layout clean */
-@media (max-width: 640px) {
-  .balanced-content-section {
-    padding: 1rem !important;
-  }
-}
-
-/* ================================================================
-   ── VISUAL AUDIT FIXES — 2026-07-24 ─────────────────────────────
-   ================================================================ */
-
-/* ── FIX 1: Navigation pill centering + glass blur ──────────────────
-   Root cause: FM's animate={{ y: 0 }} sets inline transform:
-   translateY(0px), overriding CSS transform: translateX(-50%).
-   Fix: center via left:0 + right:0 + margin:auto — no transform needed.
-   Also adds frosted-glass backdrop-filter (was missing — bf was "none"). */
-.navigation-floating {
-  left: 0 !important;
-  right: 0 !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  width: fit-content !important;
-  max-width: 90vw !important;
-  backdrop-filter: blur(12px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
-}
-
-/* ── FIX 2: Capability tags — horizontal scroll instead of clip ────
-   flex-shrink:0 + overflow:hidden clips tags silently.
-   Switch to scrollable with hidden scrollbar for clean UX. */
-.balanced-tags {
-  overflow-x: auto !important;
-  overflow-y: hidden !important;
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
-}
-.balanced-tags::-webkit-scrollbar {
-  display: none !important;
-}
-
-/* ── FIX 3: Nav pill — pointer-events off when hidden ──────────────
-   Prevents invisible nav from intercepting clicks when slid off-screen. */
-.navigation-floating.hidden {
-  pointer-events: none !important;
-}
-
-/* ================================================================
-   ── TYPOGRAPHY SYSTEM REFINEMENT — 2026-07-24 ───────────────────
-   ================================================================ */
-
-/* ── FIX 4: Hero title — font family ────────────────────────────────
-   --font-architectural-display chains through --font-display which is
-   NOT injected by Next.js next/font, so it resolves to empty and the
-   title falls back to the inherited Inter from body. --font-cormorant-display
-   IS injected by next/font and resolves correctly. */
-.hero-title-luxury-centered {
-  font-family: var(--font-cormorant-display), "Cormorant Garamond", serif !important;
-}
-
-/* ================================================================
-   ── CONTAINER SYSTEM AUDIT FIX — 2026-07-24 ─────────────────────
-   ================================================================ */
-
-/* ── FIX 5: Layout gutter — decouple from golden-ratio spacing ───────
-   Root cause: tokens.css defines --container-px: max(--space-xl, 5vw)
-   with --space-xl: 40px → intended gutter is max(40px, 64px) = 64px.
-   The golden-ratio system at line 1303 overrides --space-xl to 6.854rem
-   (109.7px), making --container-px = max(109.7px, 64px) = 109.7px.
-   This shrinks projects/services content from ~1152px to ~1061px.
-   Fix: re-declare --container-px as a literal value, bypassing --space-xl.
-   Source order (end of file) beats the earlier :root declaration. */
-:root {
-  --container-px: max(40px, 5vw);
-}
-
-/* ── FIX 6: Projects, Services, Snippet containers — add max-width cap ─
-   None of these had max-width, so on wide viewports content sprawls.
-   --container-max (1200px) is the canonical content-width token.
-   snippet-container had --container-max-wide (1400px) but at 1280px
-   that's not reached anyway; aligning all three gives visual harmony. */
-.projects-container-award-winning,
-.container-foundation,
-.snippet-container {
-  max-width: var(--container-max) !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-
-/* ================================================================
-   THE LENS LINE — Experience timeline v2 (7 stops, hover reveals)
-   ================================================================ */
-
-/* Transformation label — the story, not the job title */
-.exp-transformation {
-  font-family: var(--font-body, 'Inter', sans-serif) !important;
-  font-size: clamp(0.6875rem, 0.85vw, 0.8125rem) !important;
-  font-weight: 400 !important;
-  font-style: italic !important;
-  letter-spacing: 0.04em !important;
-  color: var(--charcoal-mid, #4A5568) !important;
-  opacity: 0.68 !important;
-  white-space: nowrap !important;
-  margin-top: 2px !important;
-}
-
-.exp-pin { cursor: pointer !important; }
-.exp-pin:focus { outline: none !important; }
-.exp-pin:focus-visible .exp-company-name { text-decoration: underline !important; text-underline-offset: 3px !important; }
-
-.exp-pin--active .exp-company-name { color: var(--coral-text, #B03A3A) !important; }
-.exp-pin--active .exp-transformation { opacity: 0.9 !important; }
-
-.exp-pin--last .exp-transformation { color: var(--coral-text, #B03A3A) !important; opacity: 1 !important; }
-
-/* Desktop reveal strip — single centered line below the stage */
-.exp-reveal-strip {
-  min-height: 2.25rem !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  margin: clamp(0.75rem, 1.5vw, 1.25rem) clamp(32px, 5vw, 80px) 0 !important;
-}
-
-.exp-reveal-text {
-  font-family: var(--font-body, 'Inter', sans-serif) !important;
-  font-size: clamp(0.8125rem, 1vw, 0.9375rem) !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.02em !important;
-  color: var(--charcoal-mid, #4A5568) !important;
-  opacity: 0.85 !important;
-  text-align: center !important;
-  margin: 0 !important;
-}
-
-.exp-reveal-text--last { color: var(--coral, #FF6663) !important; }
-
-/* Inline reveal — mobile only */
-.exp-reveal-inline {
-  display: none !important;
-}
-
-/* Fieldwork line — the one sentence the section keeps */
-.exp-fieldwork {
-  font-family: var(--font-serif, 'Libre Baskerville', serif) !important;
-  font-style: italic !important;
-  font-size: clamp(0.8125rem, 1vw, 0.9375rem) !important;
-  color: var(--charcoal-mid, #4A5568) !important;
-  opacity: 0.45 !important;
-  text-align: center !important;
-  margin: clamp(1rem, 2vw, 1.75rem) auto 0 !important;
-}
-
-/* Mobile — vertical list, inline reveals instead of the strip */
-@media (max-width: 767px) {
-  .exp-reveal-strip { display: none !important; }
-  .exp-reveal-inline {
-    display: block !important;
-    font-family: var(--font-body, 'Inter', sans-serif) !important;
-    font-size: 0.75rem !important;
-    color: var(--charcoal-mid, #4A5568) !important;
-    opacity: 0.75 !important;
-    white-space: normal !important;
-    max-width: 90vw !important;
-    margin-top: 4px !important;
-    overflow: hidden !important;
-  }
-  .exp-transformation { white-space: normal !important; }
-}
-
-/* ================================================================
-   PROJECT CAROUSEL — V3 FITTING FIX (text & image breathing room)
-   Live-DOM diagnosis at 1547px viewport: text column rendered at
-   255px usable width → title wrapping 3-4 lines, subtitle clamped
-   mid-sentence, tags clipped at the right edge, prose description
-   hidden by V2. This pass rebalances so nothing renders amputated.
-   ================================================================ */
-
-/* 1 · Rebalance the grid: text gets real estate (55/45, was 60/40)
-
-   fr, not %. 55% + 45% sums to the FULL container width and then gap adds
-   1.75rem on top, so the grid overflowed its card by exactly the gap (28px
-   measured at 1512px) and the content column pushed past the card's right
-   edge. fr distributes what remains AFTER the gap. minmax(0,...) stops wide
-   media from blowing the column out. */
-.balanced-layout-grid {
-  grid-template-columns: minmax(0, 55fr) minmax(0, 45fr) !important;
-  gap: 1.75rem !important;
-}
-
-/* 2 · Kill the inner paddings that were eating text width */
-.balanced-content-section h3,
-.balanced-content-section p {
-  padding: 0 !important;
-}
-
-/* 3 · Title: presence without sprawl — max 2 lines, graceful ellipsis */
-.balanced-title {
-  font-size: clamp(1.25rem, 1.8vw, 1.625rem) !important;
-  line-height: 1.22 !important;
-  display: -webkit-box !important;
-  -webkit-line-clamp: 2 !important;
-  -webkit-box-orient: vertical !important;
-  overflow: hidden !important;
-  margin: 0 0 0.5rem 0 !important;
-}
-
-/* 4 · Subtitle: three lines of room — the teaser finishes its sentence */
-.balanced-subtitle {
-  font-size: 0.875rem !important;
-  line-height: 1.55 !important;
-  -webkit-line-clamp: 3 !important;
-}
-
-/* 5 · Tags: never clip — wrap to a second row when needed */
-.balanced-tags {
-  flex-wrap: wrap !important;
-  overflow: visible !important;
-  max-width: 100% !important;
-}
-.balanced-tag {
-  flex-shrink: 1 !important;
-  white-space: nowrap !important;
-}
-
-/* 6 · Header rhythm: vertical budget goes to words, not gaps */
-.balanced-header { margin-bottom: 0.875rem !important; }
-.balanced-description { margin-bottom: 0.625rem !important; }
-
-/* ── Measured In strip — a career in verifiable units ── */
-.exp-measured {
-  font-family: var(--font-body, 'Inter', sans-serif) !important;
-  font-size: clamp(0.75rem, 0.95vw, 0.875rem) !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.03em !important;
-  color: var(--charcoal-mid, #4A5568) !important;
-  opacity: 0.78 !important;
-  text-align: center !important;
-  margin: clamp(1.25rem, 2.5vw, 2rem) auto 0 !important;
-  max-width: 900px !important;
-  padding: 0 1.5rem !important;
-  line-height: 1.8 !important;
-}
-
-.exp-measured-label {
-  font-family: var(--font-serif, 'Libre Baskerville', serif) !important;
-  font-style: italic !important;
-  color: var(--coral-text, #B03A3A) !important;
-  margin-right: 0.75em !important;
-  opacity: 1 !important;
-}
-
-/* ================================================================
-   CARD TITLE — editorial serif on dark Encre surface
-   ================================================================ */
-section#projects .balanced-title {
-  font-family: var(--font-cormorant-display), "Cormorant Garamond", serif !important;
-  font-weight: 400 !important;
-  letter-spacing: -0.02em !important;
-}
-
-/* ================================================================
-   MOBILE — project cards, hero role line, about photo order
-   ================================================================ */
-@media (max-width: 640px) {
-  .balanced-layout-grid {
-    display: block !important;
-    grid-template-columns: unset !important;
-    gap: 0 !important;
-    padding: 0 !important;
-  }
-  .balanced-image-section {
-    width: 100% !important;
-    height: 200px !important;
-  }
-  .balanced-content-section {
-    width: 100% !important;
-    padding: 0.875rem 1rem !important;
-  }
-  .balanced-capabilities {
-    display: none !important;
-  }
-  section#projects .balanced-title {
-    font-size: 1.125rem !important;
-  }
-  .projects-container-award-winning {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-  }
-  .hero-role-line {
-    font-size: 12px !important;
-    letter-spacing: 0.1em !important;
-  }
-  .about-photo-column {
-    order: -1 !important;
-  }
-}
-
-/* ================================================================
-   SNIPPET CARDS — dark title section for Encre surface legibility
-   White phone mockup images need a dark backing, not cream.
-   ================================================================ */
-.snippet-title-section {
-  background: transparent !important;
-}
-
-.snippet-title-text {
-  color: rgba(255, 251, 240, 0.90) !important;
-}
-
-.snippet-domain-link {
-  color: rgba(255, 251, 240, 0.65) !important;
-  opacity: 1 !important;
-}
-
-.snippet-domain-link:hover {
-  color: var(--coral, #FF6663) !important;
-}
-
-/* 0.40 alpha measured 3.72:1 on the ink surface; 0.62 measures 7.15:1 */
-.snippet-rotator-single {
-  color: rgba(255, 251, 240, 0.62) !important;
-}
-
-.snippet-rotator-caps {
-  color: rgba(255, 251, 240, 0.45) !important;
-}
-
-.snippet-card-service-label {
-  color: rgba(255, 251, 240, 0.40) !important;
-}
-
-/* HEADING CONSISTENCY — Services + Experience match About + Projects */
-.svc-heading,
-.exp-heading {
-  font-family: var(--font-cormorant-display), "Cormorant Garamond", serif !important;
-  font-weight: 300 !important;
-  letter-spacing: -0.02em !important;
-  text-transform: lowercase !important;
-}
-
-/* CAROUSEL CARD — interior breathing room.
-
-   The CTA arrow sat flush against the card's right edge (measured 5px PAST
-   the strip's own edge, because the glyph box overruns its advance width),
-   so it read as crowded into the border. The content column also carried
-   only 20px of side padding against a 412px card.
-
-   Wider side padding plus an inset on the strip give the arrow air without
-   changing the card's proportions. */
-.balanced-content-section {
-  padding: 1.5rem 1.75rem !important;
-}
-
-.card-cta-strip {
-  padding-right: 0.375rem !important;
-}
-
-/* CAROUSEL TAGS — allow wrap so no tag is ever clipped or scrolled off-screen */
-.balanced-tags {
-  flex-wrap: wrap !important;
-  overflow: visible !important;
-}
-
-/* CAROUSEL IMAGE SECTION — ratio matched to the actual assets.
-
-   Every carousel hero is shot wide: 1.75, 1.80, 1.83, 1.92, 2.10, 2.21, and
-   the videos are 1.98 (1280x648). The box was locked to 4/3 (1.33), so
-   object-fit: cover was discarding 25-40% of every frame — the "visually cut"
-   images and videos. 1.9 is the median of the set: the video loses ~4% and the
-   widest still image ~14%, instead of a third of the picture. */
-/* The media column is a PANEL, matching the content column.
-
-   The imbalance was never only about heights. The right column is a panel —
-   a glass gradient with a 16px radius painted by
-   .balanced-content-section::before — while the left was a bare video
-   floating in space with no container at all. Two different kinds of object
-   side by side never read as balanced, however they are aligned.
-
-   Both columns are now equal-height panels with the same surface and radius,
-   and the media sits contained and centred inside its own. Measured at
-   1000px: image and content both 326px tall, same top. */
-.balanced-image-section {
-  aspect-ratio: auto !important;
-  height: 100% !important;
-  min-height: 0 !important;
-  align-self: stretch !important;
-  position: relative !important;
-  border-radius: 16px !important;
-  overflow: hidden !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-/* Same glass surface as .balanced-content-section::before */
-.balanced-image-section::before {
-  content: '' !important;
-  position: absolute !important;
-  inset: 0 !important;
-  background: linear-gradient(135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 102, 99, 0.03) 50%,
-    rgba(255, 255, 255, 0.1) 100%) !important;
-  border-radius: 16px !important;
-  pointer-events: none !important;
-  z-index: 0 !important;
-}
-
-.balanced-image-section .cinematic-image-layers {
-  z-index: 1 !important;
-}
-
-/* Centre axis, not top alignment.
-
-   A landscape image beside a taller text column can never match heights —
-   measured at 1920px the media is 197px and the content 366px. Pinned to
-   flex-start, the whole 169px difference collapsed into a void hanging under
-   the image, which read as broken rather than composed. Centred, the columns
-   balance around a shared axis and the leftover space splits evenly. */
-/* Stretch, so both panels share a height rather than one hanging in space */
-.balanced-layout-grid {
-  align-items: stretch !important;
-}
-
-/* ================================================================
-   HERO — SINGLE-SCRIM REBUILD (authoritative; supersedes all above)
-
-   Two defects fixed together:
-   1) The photo panel rendered 452px wide inside a 1272px section.
-      .hero-section-luxury is display:flex and an earlier rule sets
-      `.hero-section-luxury > * { position: relative }`, so
-      .hero-bg-unified became a flex SIBLING of the text and collapsed
-      to content width. Re-asserting absolute here restores full-bleed.
-   2) The portrait was darkened three times over: brightness(0.84) on
-      the img, a 0.40 gradient on the layer, a 0.70 gradient on the
-      section — plus four legacy overlay divs that an earlier
-      `display:none` rule failed to suppress (verified still painting
-      in production, incl. a 0.8 dark-left wash and a cream wash).
-      Result: one scrim, sitting on empty wall rather than on her face.
-   ================================================================ */
-
-/* Photo panel fills the section instead of collapsing as a flex child */
-.hero-bg-unified {
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  z-index: 1 !important;
-}
-
-/* Portrait at true luminance — no artificial darkening.
-   Note: the source is a portrait crop in a landscape frame, so
-   object-position X cannot pan; only the Y value does anything. */
-.hero-photo-artistic-unified {
-  filter: contrast(1.02) saturate(0.96) !important;
-  object-position: center 12% !important;
-}
-
-/* Legacy overlay divs — confirmed still rendering despite the earlier
-   kill rule. Suppressed here so exactly one scrim reaches the photo. */
-.hero-unified-color-story,
-.unified-gradient-foundation,
-.hero-vignette-luxury {
-  display: none !important;
-}
-
-/* Section-level scrim off — the single scrim lives inside the photo
-   layer (below), where no stacking context can outrank it. */
-.hero-section-luxury::before {
-  background: none !important;
-}
-
-/* Softer bridge into the About surface */
-.unified-section-connector {
-  background: linear-gradient(to bottom, transparent 0%, rgba(255, 251, 240, 0.30) 100%) !important;
-  height: 140px !important;
-}
-
-/* THE scrim — one layer, above the img, below the content */
-.hero-photo-layer-unified::after {
-  content: '' !important;
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: 3 !important;
-  pointer-events: none !important;
-}
-
-/* ── Desktop: the mobile hero grammar, adapted to a landscape frame ──
-   Portrait is the stage; the type is a tight block in the lower-left;
-   a bottom-up scrim earns the legibility. The frame is committed to
-   100svh rather than the previous 90%-of-viewport-by-accident fold.
-
-   Why the type block is tight and low: her face occupies 19–75% of a
-   landscape crop (unlike the tall mobile frame, where type sits over her
-   legs). Shrinking the title to one line drops the whole block to 65–100%,
-   which lets the scrim be strong where the type is and near-absent where
-   she is — measured 0.03 at her forehead, 0.06 at her eyes.
-
-   Measured: name 5.76:1 · title 7.16:1 · role 10.44:1 (needs 4.5/3/4.5). */
-@media (min-width: 769px) {
-  .hero-section-luxury {
-    min-height: 100svh !important;
-    height: 100svh !important;
-    align-items: flex-end !important;
-  }
-
-  .hero-photo-layer-unified::after {
-    background: linear-gradient(
-      to bottom,
-      rgba(4, 4, 8, 0.02) 0%,
-      rgba(4, 4, 8, 0.04) 38%,    /* her face sits above here — kept clear */
-      rgba(4, 4, 8, 0.12) 48%,
-      rgba(4, 4, 8, 0.46) 58%,    /* ramp starts before the block, not at it */
-      rgba(4, 4, 8, 0.70) 78%,
-      rgba(4, 4, 8, 0.88) 100%
-    ) !important;
-  }
-
-  .hero-content-luxury {
-    max-width: 62vw !important;
-    width: auto !important;
-    margin-left: clamp(2.5rem, 6vw, 5rem) !important;
-    margin-right: auto !important;
-    text-align: left !important;
-    padding: 0 0 clamp(3rem, 7vh, 5rem) !important;
-    align-self: flex-end !important;
-  }
-
-  /* Title size is tied to viewport WIDTH, not a fixed clamp ceiling, so
-     "Experience Architect" stays on ONE line at every desktop size and the
-     block stays short and low. A fixed 6.2rem ceiling measured 812px against
-     a 760px box, wrapping to two lines from 1440px up — which lifted the
-     block to ~60% and put the type across her face on MacBook-class screens.
-     At 4.9vw the line renders ~40% of viewport width everywhere. */
-  .hero-title-luxury-centered {
-    font-size: clamp(2.6rem, 4.9vw, 5.5rem) !important;
-    line-height: 0.95 !important;
-    margin: 0 !important;
-    white-space: nowrap !important;
-  }
-
-  /* Supporting lines stay single-line — capping their measure only wraps
-     them, which lengthens the block and pushes it back up into her face. */
-  .hero-role-line {
-    max-width: none !important;
-  }
-
-  .hero-name-label {
-    margin: 0 0 0.6rem !important;
-  }
-
-  .hero-title-luxury-centered,
-  .hero-name-label,
-  .hero-role-line {
-    text-align: left !important;
-  }
-}
-
-/* ── Mobile: bottom-up scrim, type in the lower third (unchanged grammar) ── */
-@media (max-width: 768px) {
-  .hero-photo-layer-unified::after {
-    background: linear-gradient(
-      to bottom,
-      rgba(4, 4, 8, 0.02) 0%,
-      rgba(4, 4, 8, 0.10) 38%,
-      rgba(4, 4, 8, 0.56) 100%
-    ) !important;
-  }
-
-}
-
-/* The scroll indicator is absolutely positioned against
-   .hero-content-luxury rather than the section, so it lands inside the
-   type block at both breakpoints — a coral line struck through the
-   capabilities text. It is decorative (aria-hidden); the committed
-   100svh frame already reads as "there is more below". */
-.hero-scroll-indicator {
-  display: none !important;
-}
-
-/* ================================================================
-   CASE-STUDY OVERLAY — reading measure
-
-   Overlay prose ran ~107 characters per line (20px Inter across the full
-   overlay width). Comfortable longform measure is 55–75ch, and this is the
-   one surface on the site people actually read rather than scan. The About
-   section already sets a correct 59ch, so the system knew better — the
-   overlay simply never got the rule.
-
-   Applied to the prose only; headings, metadata and the gallery keep the
-   full column width so the layout rhythm is unchanged.
-
-   62ch, not 68ch: the ch unit is the width of "0", which in Inter runs wider
-   than average text, so 68ch measured 76–79 real characters per line. 62ch
-   measures ~72 — mid-range rather than at the ceiling.
-   ================================================================ */
-.project-details-overlay .section-text,
-.project-details-overlay .section-body,
-.project-details-overlay .project-quote-text {
-  max-width: 62ch !important;
-}
-
-/* Type weight lifted off 0.65 alpha — measured 3.23:1 before the change */
-.hero-role-line { color: rgba(255, 251, 240, 0.92) !important; }
-.hero-name-label { color: rgba(255, 251, 240, 0.92) !important; }
-
-/* ================================================================
-   ABOUT — reading hierarchy
-
-   The copy makes six rhetorical moves — hook, narrative, ladder,
-   argument, thesis, invitation — but every one of them was set at
-   17px / weight 300 / 1.9 leading with an identical 42.5px gap, and
-   the section carried zero emphasis elements. Nothing told the eye
-   where it was, so 185 words read as one undifferentiated block.
-
-   Three registers now: lead, body, thesis. The four disciplines
-   become a visible spine. Copy is unchanged throughout — only the
-   structure and typography carrying it.
-
-   (Leading 1.9 -> 1.65 and weight 300 -> 400 are fixed at their
-   authoritative rules in typography.css and above, not here.)
-   ================================================================ */
-
-/* LEAD — the opening is a thesis statement doing standfirst work */
-.about-section-ultra-luxury .about-lead {
-  font-family: var(--font-inter), "Inter", sans-serif;
-  font-size: clamp(1.25rem, 1.5vw, 1.4rem);
-  font-weight: 300;
-  line-height: 1.45;
-  letter-spacing: -0.005em;
-  color: var(--charcoal-ink);
-  text-align: left;
-  margin: 0 0 2.2em;
-}
-
-/* LADDER — four parallel clauses, previously a paragraph broken by <br>.
-   A hairline spine and one term per row make the densest-looking block
-   the most scannable thing in the section. */
-.about-section-ultra-luxury .about-ladder {
-  list-style: none;
-  margin: 0 0 2.6em;
-  padding: 0.1rem 0 0.1rem 1.35rem;
-  /* The spine carries grapefruit. A rule is not text, so it has no contrast
-     floor to meet — this is where the real brand colour belongs on a light
-     surface, at full strength. */
-  border-left: 2px solid var(--coral);
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  text-align: left;
-}
-
-.about-section-ultra-luxury .about-ladder li {
-  font-family: var(--font-inter), "Inter", sans-serif;
-  font-size: 17px;
-  font-weight: 400;
-  line-height: 1.45;
-  letter-spacing: 0.005em;
-  color: var(--charcoal-mid);
-}
-
-/* The disciplines are emphasised by weight and tone, not hue.
-   Grapefruit (#FF6663) measures 2.77:1 on this cream surface and cannot pass
-   AA as text at any size, and darkening it far enough to pass turns it into
-   brick — which is not the brand. So colour stays on the spine and the words
-   stay readable. */
-.about-section-ultra-luxury .about-ladder-term {
-  font-weight: 600;
-  color: var(--charcoal-ink);
-}
-
-/* CONTINUES — the argument splits at "But no piece was ever the point";
-   a tighter gap keeps the two halves reading as one move */
-.about-section-ultra-luxury .about-main-story.about-continues {
-  margin-bottom: 1.15em;
-}
-
-/* THESIS — the payoff, in the display voice */
-.about-section-ultra-luxury .about-thesis {
-  font-family: var(--font-cormorant-display), "Cormorant Garamond", serif;
-  font-size: clamp(1.375rem, 1.9vw, 1.65rem);
-  font-weight: 300;
-  line-height: 1.4;
-  letter-spacing: -0.01em;
-  color: var(--charcoal-ink);
-  text-align: left;
-  margin: 0 0 2.1em;
-}
-
-/* EMPHASIS — three anchors only, so a scanner has a path through.
-   Not italic: weight and tone carry it. */
-.about-section-ultra-luxury .about-emphasis {
-  font-style: normal;
-  font-weight: 500;
-  color: var(--charcoal-ink);
-}
-
-/* ================================================================
-   SECTION SEAMS — close the sub-pixel gap
-
-   body is rgb(255,251,240) — cream. Sections paint their own
-   backgrounds over it, so the body is normally never visible. But the
-   sections land on fractional pixel offsets (projects ends at
-   3185.094, snippets at 4227.172, experience at 5307.172), and on a 2x
-   display the browser cannot paint two backgrounds into the same
-   device pixel. The seam that opens shows the cream body through it —
-   which between two dark sections renders as a full-width white
-   hairline.
-
-   Pulling each section up 1px makes it overlap the one above, so no
-   seam can open regardless of how the heights round. Total layout
-   shift across the page is 6px, and a 1px overlap of one background
-   on another is invisible on both light and dark surfaces.
-   ================================================================ */
-#about,
-#projects,
-#project-snippets,
-#services,
-#experience,
-#footer {
-  margin-top: -1px !important;
-}
-
-/* ================================================================
-   MOBILE — carousel controls clear the fixed navigation
-
-   .carousel-dot-navigation renders at the top of the carousel core,
-   which on a 375px viewport puts the two 44px chevrons at y=6 —
-   directly beneath the fixed nav pill (y=12, 66px tall, z-index 100).
-   The pill covered them, so they were both unreadable and untappable.
-
-   Ordering the controls after the card puts them below it, where a
-   thumb reaches them anyway.
-   ================================================================ */
-@media (max-width: 640px) {
-  .projects-carousel-core {
-    display: flex !important;
-    flex-direction: column !important;
-  }
-  .carousel-dot-navigation {
-    order: 2 !important;
-    margin-top: 20px !important;
-  }
-}
-
-/* ================================================================
-   MOBILE — hero commits to a full frame
-
-   Desktop pins the hero to 100svh; mobile was rendering 650px of an
-   812px viewport (80%), which reads as an accidental fold rather than
-   a designed one. svh (small viewport height) is the correct unit —
-   it accounts for the mobile browser chrome, so the frame does not
-   jump as the address bar collapses.
-   ================================================================ */
-@media (max-width: 768px) {
-  .hero-section-luxury {
-    min-height: 100svh !important;
-  }
-}
-
-/* ================================================================
-   ABOUT — balance the two columns
-
-   The text column ran 1018px against a 640px photo, leaving 378px —
-   37% of the section — empty on the right. It cannot be closed by
-   resizing: silvana-about.jpg is 1024x1024, a perfect square, and
-   filling the column would need a 0.66 tall-portrait ratio.
-
-   Two moves instead. A taller 4:5 frame uses the column it has, and
-   the portrait sticks so it travels with the reader through the whole
-   argument rather than stopping partway. The text column is untouched
-   — 672px gives a 59-character measure, which is correct, so widening
-   it to close the gap would trade a good measure for a filled hole.
-
-   Desktop only: below 769px the columns stack, so there is nothing to
-   stick against and the portrait sits in the flow as before.
-   ================================================================ */
-@media (min-width: 769px) {
-  .about-content-ultra-luxury {
-    align-items: start !important;
-  }
-
-  .about-photo-column {
-    position: sticky !important;
-    top: 140px !important;          /* the floating nav clears at 116px */
-    align-self: start !important;
-    height: auto !important;
-  }
-
-  /* Specificity must match .about-section-ultra-luxury .about-photo-perfect,
-     which pins height to clamp(440px, 52vw, 640px). */
-  .about-section-ultra-luxury .about-photo-perfect {
-    aspect-ratio: 4 / 5 !important;
-    height: auto !important;
-    object-fit: cover !important;
-    object-position: 50% 18% !important;
-  }
-}
-
-/* ================================================================
-   ABOUT — unframe the heading and the portrait
-
-   The About heading sat inside a glassmorphic card: a near-opaque
-   rgba(255,251,238,.95) fill with a 4px radius, a 0 4px 16px shadow
-   and an 8px backdrop blur, painted on top of a cream surface. It read
-   as a box drawn around the word "about" — and it was inconsistent
-   besides, since Projects, Services and Experience carry no such panel.
-
-   The portrait had the matching problem from the other direction: a
-   1px coral hairline top and bottom plus a heavy 0 24px 64px shadow,
-   which together framed the image rather than presenting it.
-
-   Both are unframed here. The heading now sits directly on the
-   surface like every other section heading, and the portrait keeps a
-   single soft shadow to sit on the page without being boxed in.
-   ================================================================ */
-.about-header-ultra-luxury,
-.about-section-ultra-luxury .about-header-ultra-luxury {
-  background: transparent !important;
-  box-shadow: none !important;
-  /* Prefix first, standard second. Written the other way round, the CSS
-     optimizer dropped the unprefixed declaration and kept only
-     -webkit-backdrop-filter — which Chrome ignores, so the blur survived
-     and the heading still painted a rectangle. */
-  -webkit-backdrop-filter: none !important;
-  backdrop-filter: none !important;
-  border: none !important;
-  border-radius: 0 !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.about-photo-perfect,
-.about-photo-cohesive {
-  border: none !important;
-  box-shadow: 0 14px 38px rgba(45, 55, 72, 0.10) !important;
 }

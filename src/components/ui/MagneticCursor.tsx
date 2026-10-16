@@ -32,7 +32,7 @@ const DARK_SELECTORS = [
   '.projects-carousel-core',
   '.project-card-wrapper',
   '[class*="snippet-card"]',
-  '.plate-shell',
+  '.balanced-content-section',
 ].join(', ');
 
 export function MagneticCursor() {
@@ -58,7 +58,7 @@ export function MagneticCursor() {
 
       // State detection
       if (target.closest(
-        '.project-card-wrapper, [class*="snippet-card"], .plate-shell, .projects-carousel-core'
+        '.project-card-wrapper, [class*="snippet-card"], .balanced-content-section, .projects-carousel-core'
       )) {
         setCursorState('project');
       } else if (target.closest('a, button, .svc-row-header, .exp-entry')) {

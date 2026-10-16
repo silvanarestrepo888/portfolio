@@ -234,17 +234,8 @@ export function QuantumCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
-  // A custom cursor is meaningless without a real pointer. Without this the
-  // 20px mark mounts on touch devices and sits parked at the top-left corner,
-  // and `cursor: none` is applied to a body that has no cursor to hide.
-  const [hasPointer, setHasPointer] = useState(false);
 
   useEffect(() => {
-    setHasPointer(window.matchMedia('(hover: hover) and (pointer: fine)').matches);
-  }, []);
-
-  useEffect(() => {
-    if (!hasPointer) return;
     const cursor = cursorRef.current;
     if (!cursor) return;
 
@@ -292,7 +283,7 @@ export function QuantumCursor() {
       document.removeEventListener('mousedown', handleMouseDown);
       document.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [hasPointer]);
+  }, []);
 
   const createTrail = (x: number, y: number) => {
     const trail = document.createElement('div');
@@ -308,8 +299,6 @@ export function QuantumCursor() {
       }, 1000);
     }, 10);
   };
-
-  if (!hasPointer) return null;
 
   return (
     <div 

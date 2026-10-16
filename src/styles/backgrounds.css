@@ -58,15 +58,6 @@
   text-shadow: none;
 }
 
-/* Body copy pinned to charcoal-mid (~7.3:1 on this surface). A generic
-   `.section-about-sophisticated p` rule elsewhere quietly downgrades
-   this to --charcoal-light (~5.2:1) since a bare tag+class selector
-   otherwise beats the plain .about-main-story/.about-welcome classes. */
-.about-section-ultra-luxury .about-main-story,
-.about-section-ultra-luxury .about-welcome {
-  color: var(--charcoal-mid);
-}
-
 
 /* ================================================================
    PROJECTS — Encre
@@ -152,11 +143,7 @@ section#services.section-services-sophisticated {
    palette without demanding attention.
    ================================================================ */
 
-/* The selector previously required .experience-infinite-section, a class the
-   markup no longer carries (the section now renders as .exp-section), so this
-   never matched and the section fell back to generic #F5F5DC — the Parchemin
-   surface was declared but never rendered. Keyed to the id, which is stable. */
-section#experience {
+section#experience.experience-infinite-section {
   background:
     /* Coral blush at base — archive warmth, barely present */
     radial-gradient(ellipse 90% 45% at 50% 100%,
@@ -446,13 +433,10 @@ section#projects .filter-tag-award-winning {
   box-shadow: none !important;
 }
 
-/* Active pill keeps the brand coral at full strength; the label flips to ink.
-   Vanilla on coral measured 2.84:1 — ink on coral measures 6.08:1. */
 section#projects .filter-tag-award-winning.active {
   background: var(--coral) !important;
   border-color: var(--coral) !important;
-  color: var(--charcoal-deep) !important;
-  font-weight: 600 !important;
+  color: var(--vanilla-pure) !important;
   box-shadow: 0 4px 20px rgba(255, 102, 99, 0.35) !important;
 }
 
@@ -467,28 +451,9 @@ section#projects .balanced-year {
   color: rgba(255, 251, 240, 0.55) !important;
 }
 
-/* Client names and links — vanilla hierarchy on dark Encre surface */
-section#projects .balanced-client,
-section#projects .balanced-client-link {
-  color: rgba(255, 251, 240, 0.85) !important;
-}
-
-section#projects .balanced-subtitle {
-  color: rgba(255, 251, 240, 0.65) !important;
-}
-
-section#projects .balanced-meta,
-section#projects .balanced-meta span,
-section#projects .balanced-divider {
-  color: rgba(255, 251, 240, 0.4) !important;
-}
-
-section#projects .card-cta-label {
-  color: rgba(255, 251, 240, 0.72) !important;
-}
-
-section#projects .card-cta-strip {
-  border-top: 1px solid rgba(255, 251, 240, 0.08) !important;
+/* Client names — charcoal on parchment card; coral reserved for CTA arrow hover */
+section#projects .balanced-client {
+  color: var(--charcoal-mid) !important;
 }
 
 section#projects .balanced-btn {

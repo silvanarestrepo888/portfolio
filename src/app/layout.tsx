@@ -3,7 +3,6 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import "./layout-fix.css";
 import "./enhanced-scroll-append.css";
-import { MotionProvider } from "@/components/motion/MotionProvider";
 import { TopographicBackground } from "@/components/backgrounds/TopographicBackground";
 import { ChromaticIntelligence, QuantumCursor } from "@/components/ui/LandorLuxurySystem";
 
@@ -25,32 +24,30 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Silvana Restrepo | Principal Experience Architect",
-  description: "Award-winning Experience Architect with 20+ years transforming Fortune 500 digital experiences. Specializing in AI-driven platforms, wellness ecosystems, and enterprise design systems for global impact.",
+  title: "Silvana Restrepo | Systems Architect — AI, Venture & Agentic Design",
+  description: "Systems Architect with 20+ years designing organizations where AI makes sense. Agentic systems, venture design, and experience strategy across 7 industries and 3 continents.",
   keywords: [
-    "experience architect",
-    "UX design",
-    "digital transformation",
-    "Fortune 500",
-    "Globant",
-    "WEF",
-    "AI platforms",
-    "wellness technology",
-    "enterprise design systems",
+    "systems architect",
+    "agentic systems",
+    "venture design",
+    "experience strategy",
+    "business design",
+    "AI architecture",
+    "agentic AI",
     "Silvana Restrepo"
   ],
   authors: [{ name: "Silvana Restrepo" }],
   openGraph: {
-    title: "Silvana Restrepo | Principal Experience Architect",
-    description: "Award-winning Experience Architect transforming Fortune 500 digital experiences",
+    title: "Silvana Restrepo | Systems Architect — AI, Venture & Agentic Design",
+    description: "Systems Architect with 20+ years designing organizations where AI makes sense. Agentic systems, venture design, and experience strategy.",
     type: "website",
     siteName: "Silvana Restrepo Portfolio",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Silvana Restrepo | Principal Experience Architect",
-    description: "Award-winning Experience Architect transforming Fortune 500 digital experiences",
+    title: "Silvana Restrepo | Systems Architect — AI, Venture & Agentic Design",
+    description: "Systems Architect with 20+ years designing organizations where AI makes sense.",
   },
   robots: {
     index: true,
@@ -89,12 +86,10 @@ export default function RootLayout({
           MozOsxFontSmoothing: 'grayscale'
         } as React.CSSProperties}
       >
-        <MotionProvider>
-          <TopographicBackground />
-          <ChromaticIntelligence />
-          <QuantumCursor />
-          {children}
-        </MotionProvider>
+        <TopographicBackground />
+        <ChromaticIntelligence />
+        <QuantumCursor />
+        {children}
       </body>
     </html>
   );
