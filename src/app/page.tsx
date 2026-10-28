@@ -1,20 +1,23 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
+import { Linkedin, Mail } from 'lucide-react';
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import { CustomCursor } from '../components/motion/CustomCursor';
 import { MagneticCursor } from '../components/ui/MagneticCursor';
 import { FloatingNavigation } from '../components/navigation/FloatingNavigation';
 import { SectionIndicator } from '../components/navigation/SectionIndicator';
+import { useParallax } from '../hooks/useScrollAnimation';
 import { InteractiveProjectCard } from '../components/projects/InteractiveProjectCard';
 import { ProjectSnippetGrid } from '../components/projects/ProjectSnippetGrid';
+import { duration, ease } from '../utils/motionVariants';
 import { 
   AcceleratedInnovationIcon,
   ExperienceOrchestrationIcon,
-  DigitalTransformationIcon,
-  CustomerIntelligenceIcon,
-  StrategyConsultingIcon
+  IntelligentOperationsIcon,
+  StrategyConsultingIcon,
+  CustomerIntelligenceIcon
 } from '../components/icons/services';
 import { ExperienceTimeline } from '../components/ui/ExperienceTimeline';
 import {
@@ -39,6 +42,77 @@ export default function Home() {
   useEffect(() => {
     setDetailHeroLoaded(false);
   }, [selectedProject]);
+
+  // Read inside the overlay's key handler without re-running the effect
+  const galleryZoomOpenRef = useRef(galleryZoomOpen);
+  galleryZoomOpenRef.current = galleryZoomOpen;
+
+  // The overlay is full-screen at z-index 50. AnimatePresence keeps it mounted
+  // until its exit animation finishes — and if that animation never runs or is
+  // interrupted, the node stays at opacity 0 with pointer-events auto, where it
+  // silently swallows every click on the page behind it. Drive pointer-events
+  // from state rather than from the animation so closing is always safe.
+  useEffect(() => {
+    const overlay = document.querySelector('.project-details-overlay');
+    if (!(overlay instanceof HTMLElement)) return;
+    overlay.style.pointerEvents = selectedProject === null ? 'none' : '';
+  }, [selectedProject]);
+
+  // Case-study overlay — modal semantics.
+  // Escape closes it (the nested gallery first, if that is open), focus is
+  // trapped inside while it is open, the page behind it stops scrolling, and
+  // focus returns to whatever opened it on close.
+  useEffect(() => {
+    if (selectedProject === null) return;
+
+    const opener = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const FOCUSABLE =
+      'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        if (galleryZoomOpenRef.current) setGalleryZoomOpen(false);
+        else setSelectedProject(null);
+        return;
+      }
+
+      if (e.key !== 'Tab') return;
+      const overlay = document.querySelector('.project-details-overlay');
+      if (!overlay) return;
+      const items = Array.from(
+        overlay.querySelectorAll<HTMLElement>(FOCUSABLE)
+      ).filter(el => el.offsetParent !== null);
+      if (items.length === 0) return;
+
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    window.addEventListener('keydown', handleKey);
+
+    const focusTimer = setTimeout(() => {
+      const overlay = document.querySelector('.project-details-overlay');
+      overlay?.querySelector<HTMLElement>('.project-back-button-ultra')?.focus();
+    }, 120);
+
+    return () => {
+      window.removeEventListener('keydown', handleKey);
+      clearTimeout(focusTimer);
+      document.body.style.overflow = previousOverflow;
+      opener?.focus?.();
+    };
+  }, [selectedProject]);
   
   // Android viewport height fix
   useEffect(() => {
@@ -58,6 +132,7 @@ export default function Home() {
   }, []);
   
   // Enhanced scroll animations
+  const parallaxTransform = useParallax(0.3);
   
   // Foundation Project Exploration System
   const [featuredProjectIndex, setFeaturedProjectIndex] = useState(0);
@@ -94,46 +169,46 @@ export default function Home() {
     {
       number: "01",
       title: "Accelerated Product Innovation",
-      subtitle: "Designing how ideas become products, faster",
-      description: "I design the architecture behind product innovation — the method, the sequence, the prototypes that test conviction before scale. AI shortens the iteration loop, but the craft is knowing what to build first.",
-      demand: "What you build matters. What you build first matters more.",
-      tags: ["Innovation Sprints", "Rapid Prototyping", "Go-to-Market"],
+      subtitle: "From concept to market in half the time",
+      description: "Transform product visions into market reality through AI-powered rapid prototyping and validation. Implementing innovation sprints where data accelerates ideation, AI accelerates testing, and go-to-market strategies—turning months of development into weeks of strategic clarity.",
+      demand: "Speed to market without sacrificing strategic depth.",
+      tags: ["AI Prototyping", "Innovation Sprints", "Go-to-Market"],
       icon: AcceleratedInnovationIcon
     },
     {
       number: "02",
       title: "Experience Orchestration",
-      subtitle: "Unified experience architectures that scale without losing soul",
-      description: "I design experience systems where every touchpoint — digital, physical, hybrid — feels like one conversation. Not seamlessness for its own sake. Coherence: the brand's logic holding across every surface.",
-      demand: "Coherent experiences that scale without losing soul.",
-      tags: ["Systems Thinking", "Brand Architecture", "Omnichannel"],
+      subtitle: "Harmonizing thousands of touchpoints into one resonant brand voice",
+      description: "Systems thinking applied to create unified experience architectures where daily interactions feel like one seamless conversation—whether digital, physical, or hybrid.",
+      demand: "Coherent brand experiences that scale without losing soul. Global reach with local resonance.",
+      tags: ["Omnichannel", "Systems Thinking", "Brand Architecture"],
       icon: ExperienceOrchestrationIcon
     },
     {
       number: "03",
-      title: "Road to AI",
-      subtitle: "I design the organization where agents make sense.",
-      description: "I don't deliver an AI roadmap. I deliver the route — reading who decides, what judgment stays human, where agents amplify rather than disrupt. One real agent, working on real documents, in weeks. Then the capacity to build the next one without me.",
-      demand: "AI that fits the organization, not the other way around.",
-      tags: ["Agentic Architecture", "Systemic Design", "Human-AI Workflow"],
-      icon: DigitalTransformationIcon
+      title: "Intelligent Operations Architecture",
+      subtitle: "Building AI-augmented teams that outperform traditional structures",
+      description: "Design agentic systems where AI specialists and human experts collaborate as unified intelligence. I architect operational ecosystems with embedded market monitoring, competitive intelligence, and automated research capabilities—creating self-optimizing organizations.",
+      demand: "Operations that think, adapt, and evolve. Intelligence embedded in every process.",
+      tags: ["Agentic Systems", "Org Design", "Intelligence Systems"],
+      icon: IntelligentOperationsIcon
     },
     {
       number: "04",
       title: "Customer Intelligence Platforms",
-      subtitle: "Reading what customers do, not what they say",
-      description: "I design intelligence systems that capture actual behavior — what people choose, abandon, repeat, ignore — not declared preference. The platform doesn't guess. It learns from the pattern. And the pattern changes how you decide.",
-      demand: "Behavior that teaches you something the survey never will.",
-      tags: ["Behavioral Data", "Platform Design", "Decision Systems"],
+      subtitle: "Turning customer behavior into competitive advantage",
+      description: "Architecting intelligence systems that don't just track customer behavior—they anticipate it. I design platforms where every interaction feeds learning algorithms, creating self-improving experiences that evolve faster than market demands.",
+      demand: "Customer relationships that deepen with every interaction. Intelligence that scales intimacy.",
+      tags: ["Behavioral Data", "Experience Intelligence", "Platform Design"],
       icon: CustomerIntelligenceIcon
     },
     {
       number: "05",
       title: "Venture Design",
-      subtitle: "Finding the condition every competitor depends on without knowing it",
-      description: "Most strategy optimizes what a team already knows how to build. I go after the condition every competitor depends on without knowing it — the one assumption holding the whole category up. Remove it, and the capability race stops mattering.",
+      subtitle: "Finding the condition every competitor is glued to, unnoticed",
+      description: "Most competitive strategy optimizes capability—what a team already knows how to build, made faster or cheaper. I go after the condition every competitor in the category depends on, the one thing all of them are still standing on without knowing it. Remove it, and the capability obsession stops mattering, because the ground everyone was optimizing on top of has already moved.",
       demand: "What survives is never a product. It's a position.",
-      tags: ["Business Design", "Category Strategy", "Systems Thinking"],
+      tags: ["Business Design", "Systems Thinking", "Service Design"],
       icon: StrategyConsultingIcon
     }
   ];
@@ -161,6 +236,7 @@ export default function Home() {
         transformation: "First-of-its-kind Platform"
       },
       image: "/projects/kayanee/hero-kayanee.jpeg",
+      objectPosition: "center",
       secondaryImage: "/projects/kayanee/Project Gallery /gallery-01-brand-expression.png",
       video: "/projects/kayanee/kayanee-story.mp4",
       galleryVideo: "/projects/kayanee/beat-concept-v2.mp4",
@@ -197,15 +273,17 @@ export default function Home() {
         transformation: "AI-Driven Development"
       },
       image: "/projects/augoor/hero-2.png",
+      objectPosition: "left center",
       secondaryImage: "/projects/augoor/photo-main-carrusel.jpeg",
       video: "/projects/augoor/product-demo.mp4",
+      mediaFit: "contain" as const,  // screen recording — a crop destroys content
       galleryImages: [
         "/projects/augoor/Project Gallery/Screenshot 2025-04-15 at 13.33.51.png",
         "/projects/augoor/Project Gallery/Screenshot 2025-04-15 at 13.34.12.png",
         "/projects/augoor/Project Gallery/Screenshot 2025-04-15 at 13.34.27.png"
       ],
       context: "In the ever-evolving landscape of software development, navigating and understanding vast, complex codebases is one of the most significant challenges developers face. Augoor was developed within Globant X—a pioneering incubator creating AI-driven products for digital acceleration. It transforms static repositories into dynamic, navigable data warehouses enhancing developer efficiency and collaboration.",
-      scope: "Back in 2020 we conducted global ethnographic research to uncover how developers search, document, and navigate complex code systems to transform writing code using plain English, a way of creating technology that today it's not only a reality, but a strong well established way of developing. Adaptive intelligence frameworks were architected with feedback loops that evolve through contextual developer interactions. We designed seamless UX patterns by integrating AI-assisted documentation, code dependencies and code search that feel natural within existing development workflows.",
+      scope: "Back in 2020 we conducted global ethnographic research to uncover how developers search, document, and navigate complex code systems to transform writing code using plain English, a way of creating technology that today, in 2025 It's not only a reality, but a strong well established way of developing. Adaptive intelligence frameworks were architected with feedback loops that evolve through contextual developer interactions. We designed seamless UX patterns by integrating AI-assisted documentation, code dependencies and code search that feel natural within existing development workflows.",
       impact: "Engineers now work with greater confidence, automating tedious tasks while focusing on creative development. Every feature is designed to feel like a natural extension of engineering workflows, not just another tool. Augoor amplifies human ingenuity rather than replacing it, unlocking collaborative innovation across development teams.",
       testimonial: {
         quote: "Silvana has been a great team player who is proactive to help, listen the issues, put herself in other's shoes and think about the solutions. She is very thoughtful in providing the solution which will help keep satisfying the customers. I have always enjoyed my conversation with her as it has taught me so many things from customer experience perspective.",
@@ -230,6 +308,7 @@ export default function Home() {
         transformation: "Digital Workflow"
       },
       image: "/projects/chime-care/hero-j&j.jpeg",
+      objectPosition: "60% center",
       secondaryImage: "/projects/chime-care/hero-chime-clinical.png",
       galleryImages: [
         "/projects/chime-care/Project GalleryImages/Screenshot 2025-03-06 at 171139-VSCO.jpeg",
@@ -261,8 +340,13 @@ export default function Home() {
         reach: "Riviera Maya",
         transformation: "Digital-Physical Fusion"
       },
-      image: "/projects/nomade/main-hero-carrusel.jpeg",
-      secondaryImage: "/projects/nomade/secundary-hero.jpeg",
+      // Card hero swapped to the brand image: the previous asset was a
+      // website screenshot whose white navigation bar rendered as a bright
+      // strip across the top of a dark card. This one is 2860x1454 (1.97),
+      // an almost exact fit for the 2:1 band, with no chrome.
+      image: "/projects/nomade/secundary-hero.jpeg",
+      objectPosition: "center",
+      secondaryImage: "/projects/nomade/main-hero-carrusel.jpeg",
       galleryLayout: "strip",
       galleryImages: [
         "/projects/nomade/Project Gallery/Screenshot 2024-11-15 at 15.21.56.png",
@@ -286,7 +370,7 @@ export default function Home() {
       tech: ["Product Strategy", "Service Design", "Prototyping"],
       industryTags: ["Hospitality-Themed Parks-Retail"],
       category: "Hospitality-Themed Parks-Retail",
-      year: "2026",
+      year: "2025",
       client: "Qiddiya",
       location: "KSA",
       website: "https://qiddiya.com/",
@@ -296,6 +380,7 @@ export default function Home() {
         transformation: "Guest Experience Platform"
       },
       image: "/projects/qiddiya/hero-qiddiya.png",
+      objectPosition: "center",
       secondaryImage: "/projects/qiddiya/secondary-qiddiya.png",
       video: "/projects/qiddiya/qiddiya-city.mp4",
       galleryImages: [
@@ -313,28 +398,30 @@ export default function Home() {
       }
     },
     {
-      title: "STC Kuwait CEX Center",
+      title: "GCC Telecom Leader — Customer Experience Center",
       subtitle: "Building the Heart, Mind, and Soul of CX Transformation",
-      description: "Designed the full strategic and operational foundation for STC Kuwait's Customer Experience Center — a physical and operational hub on the 16th floor of HQ, unifying CX performance, accountability, and cross-functional action in one place.",
+      description: "Designed the full strategic and operational foundation for a leading GCC telecom operator's Customer Experience Center — a physical and operational hub unifying CX performance, accountability, and cross-functional action in one place.",
       tech: ["CX Strategy", "Experience Design", "Service Design"],
       industryTags: ["Telecommunications"],
       category: "Telecommunications",
       year: "2026",
-      client: "STC Kuwait",
+      client: "GCC Telecom Leader",
       location: "Kuwait City, Kuwait",
       impactMetrics: {
         scale: "25 Stakeholders",
         reach: "B2C & B2B",
         transformation: "15 Use Cases"
       },
-      image: "/projects/stc/hero-stc.png",
-      secondaryImage: "/projects/stc/secondary-stc.png",
+      image: "/projects/gcc-telecom/hero-gcc-telecom.png",
+      objectPosition: "center",
+      secondaryImage: "/projects/gcc-telecom/secondary-gcc-telecom.png",
       galleryImages: [
-        "/projects/stc/gallery-stc-1.png",
-        "/projects/stc/gallery-stc-2.png"
+        "/projects/gcc-telecom/gallery-gcc-telecom-1.png",
+        "/projects/gcc-telecom/gallery-gcc-telecom-2.png",
+        "/projects/gcc-telecom/gallery-gcc-telecom-3.png"
       ],
-      context: "STC Kuwait is one of the Gulf's leading telecom operators, serving millions of B2C and B2B customers across a fiercely competitive market. In late 2024, leadership embedded customer experience as a core strategic pillar through the REACH framework — CX moved from aspiration to accountability. That decision created momentum and an urgent question: what does CX excellence actually look like when you build it from scratch?",
-      scope: "The answer was a Customer Experience Center on the 16th floor of STC Kuwait HQ — not a showroom, not a dashboard wall, but a working space where CX performance becomes visible, actionable, and accountable across the organisation. As Lead CX Architect, contracted through a strategic partner, I owned the design inputs track — personas, use cases, spatial concept inputs, and the rituals that connect space to the people performing each scenario. Every claim, every persona, every use case traced back to specific stakeholder evidence. No assumptions.",
+      context: "In the Gulf's most competitive telecom market, customer experience had become the last true differentiator. stc understood something subtler: experience can't be delegated to a department that doesn't exist yet — it has to be built as an organizational capability, with its own culture, its own rituals, its own operating logic. The mandate was not a project. It was a cultural change.",
+      scope: "We designed the Center on three fronts at once. Culture: making customer experience an internal language, not an external promise. Use cases: grounding the Center's purpose in concrete, operational cases rather than aspirational statements. Operational design: governance, cadence, and the working rhythms that let the Center function after the consultants leave — because a capability that needs its designers isn't a capability yet.",
       impact: "Fifteen structured interviews engaging twenty-five stakeholders across ten functional areas: executive leadership, strategy, commercial, technology, retail, and quality. Thematic coding produced eight insight themes, six validated findings, and three strategic imperatives defining the path forward. Fifteen validated use cases mapped B2C and B2B scenarios across four readiness tiers and three delivery horizons — moving from insight trapped in silos to intelligence flowing across functions.",
     }
   ], []); // Empty dependency array - static data
@@ -344,15 +431,15 @@ export default function Home() {
     {
       id: 'dzrt-badel',
       client: 'Badel · DZRT',
-      title: 'Permission before product. Always.',
+      title: 'Brand Stretching',
       year: '2026',
       location: 'Saudi Arabia',
       capabilities: ['Brand Stretching', 'Consumer Research', 'Methodology Design'],
       industry: 'Health & Consumer Goods',
       serviceType: 'Product Strategy | Strategic Design',
       website: 'https://www.dzrt.com/en-sa',
-      image: '/projects/snippets/dzrt-badel.png',
-      emailSubject: 'Inquiry about DZRT Brand Stretching Architecture — Badel · Saudi Arabia'
+      image: '/projects/snippets/gcc-consumer-brand.png',
+      emailSubject: 'Inquiry about DZRT Brand Stretching — Badel · Saudi Arabia'
     },
     {
       id: 'parques-reunidos',
@@ -372,7 +459,7 @@ export default function Home() {
       client: 'Danone',
       title: 'Smart Pricing System',
       year: '2020',
-      location: 'Global',
+      location: 'Argentina',
       capabilities: ['Digital Transformation', 'Pricing Strategy'],
       industry: 'Food & Beverage',
       serviceType: 'Digital Transformation | Pricing Strategy',
@@ -409,15 +496,15 @@ export default function Home() {
     {
       id: 'viva-malls',
       client: 'Viva Mall',
-      title: 'Phygital Retail Revolution',
+      title: 'Retail Experience',
       year: '2019',
       location: 'Colombia',
-      capabilities: ['Experience Architecture', 'Digital Transformation'],
+      capabilities: ['Experience Design', 'Digital Channels'],
       industry: 'Retail & Real Estate',
-      serviceType: 'Experience Architecture | Digital Transformation',
+      serviceType: 'Experience Design | Digital Channels',
       website: 'https://ccviva.com/',
       image: '/projects/snippets/viva-malls.png',
-      emailSubject: 'Inquiry about Phygital Retail Revolution - Retail & Real Estate Project'
+      emailSubject: 'Inquiry about Retail Experience - Retail & Real Estate Project'
     },
     {
       id: 'grupo-exito',
@@ -435,7 +522,7 @@ export default function Home() {
     {
       id: 'tigo-millicom',
       client: 'Tigo · Millicom',
-      title: 'Telecom Customer Intelligence Platform',
+      title: 'Merger & Acquisition Strategy',
       year: '2010',
       location: 'Colombia',
       capabilities: ['Business Expansion', 'Customer Experience'],
@@ -443,46 +530,8 @@ export default function Home() {
       serviceType: 'Product Direction | Market Expansion Strategy',
       website: 'https://www.tigo.com.co/',
       image: '/projects/snippets/tigo-millicom.png',
-      emailSubject: 'Inquiry about Telecom Customer Intelligence Platform - Telecommunications Project'
-    },
-    {
-      id: 'fruta-giulia',
-      client: 'Fruta',
-      title: 'GiulIA — Agentic Knowledge Base on Slack',
-      year: '2026',
-      location: 'Colombia',
-      capabilities: ['Agentic Architecture', 'Knowledge Systems', 'Slack Integration'],
-      industry: 'Technology & AI',
-      serviceType: 'Agentic Systems | Knowledge Architecture',
-      website: 'https://experiencearchitect.design',
-      image: '/projects/snippets/fruta-giulia.png',
-      emailSubject: 'Inquiry about GiulIA — Agentic Knowledge Base'
-    },
-    {
-      id: 'mobility-csuite-ai',
-      client: 'Mobility & automotive group — LATAM',
-      title: 'C-Suite Agentic Systems for Strategic Decisions',
-      year: '2026',
-      location: 'LATAM',
-      capabilities: ['Agentic Systems', 'Executive Strategy', 'AI Program Design'],
-      industry: 'Mobility & Automotive',
-      serviceType: 'Agentic Systems | Strategic Advisory',
-      website: 'https://experiencearchitect.design',
-      image: '/projects/snippets/mobility-csuite.png',
-      emailSubject: 'Inquiry about C-Suite Agentic Systems'
-    },
-    {
-      id: 'proprietary-agentic-mesh',
-      client: 'Proprietary',
-      title: 'Agentic Knowledge System — Proprietary Architecture',
-      year: '2026',
-      location: 'Global',
-      capabilities: ['Multi-Agent Systems', 'Knowledge Architecture', 'AI Governance'],
-      industry: 'Technology & AI',
-      serviceType: 'Agentic Architecture | Systems Design',
-      website: 'https://experiencearchitect.design',
-      image: '/projects/snippets/proprietary-mesh.png',
-      emailSubject: 'Inquiry about Agentic Knowledge System — Proprietary Architecture'
+      objectPosition: 'left center',
+      emailSubject: 'Inquiry about Merger & Acquisition Strategy - Telecommunications Project'
     }
   ], []); // Empty dependency array - static data
 
@@ -530,7 +579,10 @@ export default function Home() {
     const handleKeyNavigation = (e: KeyboardEvent) => {
       // Only handle if not typing in input fields
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
-      
+      // The case-study overlay owns the keyboard while it is open — otherwise
+      // arrow keys would drive the carousel hidden behind it.
+      if (selectedProject !== null) return;
+
       switch (e.key) {
         case 'ArrowLeft':
           e.preventDefault();
@@ -551,7 +603,7 @@ export default function Home() {
 
     window.addEventListener('keydown', handleKeyNavigation);
     return () => window.removeEventListener('keydown', handleKeyNavigation);
-  }, [featuredProjectIndex, filteredProjects.length, isAutoPlaying, goToProjectWithTransition]);
+  }, [featuredProjectIndex, filteredProjects.length, isAutoPlaying, goToProjectWithTransition, selectedProject]);
 
   // Detect prefers-reduced-motion for accessibility
   useEffect(() => {
@@ -699,15 +751,15 @@ export default function Home() {
       {/* ACCESSIBILITY - Skip Navigation Links */}
       <a 
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-coral text-white px-6 py-3 rounded-lg z-50 font-medium"
-        style={{ backgroundColor: 'var(--coral)' }}
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-coral px-6 py-3 rounded-lg z-50 font-semibold"
+        style={{ backgroundColor: 'var(--coral)', color: 'var(--charcoal-deep)' }}
       >
         Skip to main content
       </a>
       <a 
         href="#about"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-40 bg-coral text-white px-6 py-3 rounded-lg z-50 font-medium"
-        style={{ backgroundColor: 'var(--coral)' }}
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-40 bg-coral px-6 py-3 rounded-lg z-50 font-semibold"
+        style={{ backgroundColor: 'var(--coral)', color: 'var(--charcoal-deep)' }}
       >
         Skip to about section
       </a>
@@ -746,10 +798,10 @@ export default function Home() {
           <div className="hero-photo-layer-unified">
             <Image
               src="/silvana-hero.jpg"
-              alt="Silvana Restrepo, Principal Experience Architect, professional headshot in business attire with confident smile"
+              alt="Silvana Restrepo, Principal Experience Architect — professional portrait"
               fill
               className="hero-photo-artistic-unified parallax-element gpu-accelerated"
-              style={{}}
+              style={{ objectPosition: 'center 15%' }}
               quality={100}
               unoptimized
               priority
@@ -798,7 +850,17 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: isMobile ? 0.5 : 0.618, delay: isMobile ? 0.2 : 0.72 }}
           >
-            Agentic Systems · Experience Strategy · Business Design
+            Business is my mind. Design is my heart. Technology is my hands.
+          </motion.p>
+
+          <motion.p
+            className="hero-role-line"
+            style={{ opacity: 0.85, fontSize: '0.85em', letterSpacing: '0.12em', textTransform: 'uppercase' }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 0.85, y: 0 }}
+            transition={{ duration: isMobile ? 0.5 : 0.618, delay: isMobile ? 0.35 : 1.0 }}
+          >
+            Experience Strategy · Business Design · Agentic Systems
           </motion.p>
 
           {/* Scroll indicator */}
@@ -806,7 +868,7 @@ export default function Home() {
             className="hero-scroll-indicator"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2.2, duration: 1 }}
+            transition={{ delay: 2.2, duration: duration.slow }}
             aria-hidden="true"
           >
             <span className="hero-scroll-line" />
@@ -844,34 +906,32 @@ export default function Home() {
             {/* Left Column — text reveals as staggered group */}
             <div className="about-text-column">
               <RevealGroup as="div" className="about-text-content" stagger={0.14} delayChildren={0.1}>
-                <RevealItem as="p" className="about-main-story">
+                {/* Lead — the thesis, set as a standfirst */}
+                <RevealItem as="p" className="about-lead">
                   Seven industries. Three continents.<br />
                   Underneath all of it, one stubborn question: what makes people say yes?
                 </RevealItem>
 
                 <RevealItem as="p" className="about-main-story">
-                  I've chased it through banking halls and retail corridors, through telecom networks and wellness ecosystems, through hospitality venues and entertainment destinations. Every industry answered differently, which is exactly why the pattern only shows itself to <em>someone who's seen them all</em>.
+                  I chased it through banking halls and retail corridors, wellness ecosystems and entertainment destinations — and every industry answered differently. That&apos;s why the pattern only shows itself to <em className="about-emphasis">someone who&apos;s seen them all</em>.
+                </RevealItem>
+
+                {/* The disciplines are a progression, not prose — set as a spine. */}
+                <RevealItem as="ul" className="about-ladder">
+                  <li><span className="about-ladder-term">Anthropology</span> gave the question a discipline.</li>
+                  <li><span className="about-ladder-term">Design</span> gave it a language.</li>
+                  <li>And <span className="about-ladder-term">technology</span>, finally, gave it hands.</li>
+                </RevealItem>
+
+                {/* Split at the pivot — "But no piece was ever the point." */}
+                <RevealItem as="p" className="about-main-story about-continues">
+                  Today those hands work across the whole system — the business case, the human behavior, the operations, the AI. But no piece was ever the point.
                 </RevealItem>
 
                 <RevealItem as="p" className="about-main-story">
-                  Anthropology gave that chase a discipline. Neuromarketing gave it a science. Design gave it a language. And technology, finally, gave it hands.
+                  The point is <em className="about-emphasis">the connective tissue</em>: how the pieces hold each other up, what order they compose in, where the whole breaks under pressure. That doesn&apos;t come from mastering a tool. It comes from <em className="about-emphasis">having run the system</em>.
                 </RevealItem>
 
-                <RevealItem as="p" className="about-main-story">
-                  Today those hands work across every piece of the system — the business case, the human behavior, the operations, the technology, and yes, the AI. But no piece was ever the point.
-                </RevealItem>
-
-                <RevealItem as="p" className="about-main-story">
-                  The point is <em>the connective tissue</em>: how the pieces hold each other up, what order they compose in, where the whole breaks under real pressure. That knowledge doesn't come from mastering a tool. It comes from <em>having run the system</em>.
-                </RevealItem>
-
-                <RevealItem as="p" className="about-main-story">
-                  Today that same instinct shapes how I build agentic systems. I don't start with the technology. I start with the system — who decides, who loses power, what judgment stays human, what ritual the agent must respect. I don't deploy AI on top of organizations. I design the organization where the AI makes sense.
-                </RevealItem>
-
-                <RevealItem as="p" className="about-welcome">
-                  Welcome to my world — where strategy meets soul, and design becomes the one language humans and machines both speak.
-                </RevealItem>
               </RevealGroup>
             </div>
 
@@ -886,10 +946,9 @@ export default function Home() {
               className="about-photo-perfect about-photo-cohesive"
                   style={{
                 width: '100%',
-                height: 'clamp(360px, 50vw, 560px)',
+                height: 'clamp(320px, 42vw, 480px)',
                 objectFit: 'cover',
-                objectPosition: 'center',
-                borderRadius: '6px',
+                objectPosition: 'center top',
                 display: 'block',
                 opacity: aboutLoaded ? 1 : 0,
                 transition: 'opacity 0.6s ease',
@@ -909,16 +968,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Philosophy Quote */}
-          <RevealBody
-            as="div"
-            className="about-philosophy-ultra-luxury"
-            delay={0.1}
-          >
-            <blockquote className="philosophy-quote-ultra-luxury">
-              <em>The art of my craft lies in listening to the unspoken, seeing the invisible, and revealing the intangible nature of human desire.</em>
-            </blockquote>
-          </RevealBody>
         </div>
       </section>
 
@@ -940,7 +989,7 @@ export default function Home() {
             className="projects-header-award-winning"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: isMobile ? 0.6 : 1.618, ease: [0.236, 0.618, 0.382, 1.0] }}
+            transition={{ duration: isMobile ? 0.6 : 1.618, ease: ease.phi }}
             viewport={{ once: true, amount: 0.01 }}
           >
             <div className="projects-header-content-award">
@@ -980,7 +1029,7 @@ export default function Home() {
             className="projects-carousel-award-winning"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.618, delay: 0.3 }}
+            transition={{ duration: duration.normal, delay: 0.3 }}
             viewport={{ once: true, amount: 0.01 }}
           >
             <div className="projects-main-layout">
@@ -1035,9 +1084,9 @@ export default function Home() {
                             width: dotIndex === safeFeaturedProjectIndex ? 24 : 8,
                             background: dotIndex === safeFeaturedProjectIndex
                               ? 'var(--coral)'
-                              : 'rgba(74, 85, 104, 0.28)'
+                              : 'rgba(255, 251, 240, 0.4)'
                           }}
-                          transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
+                          transition={{ duration: duration.base, ease: ease.natural }}
                           whileHover={{ scale: 1.35 }}
                           whileTap={{ scale: 0.82 }}
                         />
@@ -1070,9 +1119,9 @@ export default function Home() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -40 }}
                     transition={{
-                      duration: 0.45,
-                      ease: [0.25, 0.46, 0.45, 0.94],
-                      opacity: { duration: 0.3 },
+                      duration: duration.base,
+                      ease: ease.landor,
+                      opacity: { duration: duration.base },
                     }}
                     onHoverStart={() => setIsAutoPlaying(false)}
                     onHoverEnd={() => setIsAutoPlaying(true)}
@@ -1107,7 +1156,7 @@ export default function Home() {
             className="projects-header-award-winning"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: isMobile ? 0.6 : 1.618, ease: [0.236, 0.618, 0.382, 1.0] }}
+            transition={{ duration: isMobile ? 0.6 : 1.618, ease: ease.phi }}
             viewport={{ once: true, amount: 0.01 }}
           >
             <div className="projects-header-content-award">
@@ -1119,7 +1168,7 @@ export default function Home() {
                 transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.1 : 0.236 }}
                 viewport={{ once: true }}
               >
-                Also this.
+                also
               </motion.h2>
             </div>
             
@@ -1155,7 +1204,7 @@ export default function Home() {
                   className={`svc-row${isOpen ? ' svc-row--open' : ''}`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.07, ease: [0.23, 1, 0.32, 1] }}
+                  transition={{ duration: duration.normal, delay: index * 0.07, ease: ease.natural }}
                   viewport={{ once: true }}
                 >
                   {/* ── Clickable header ── */}
@@ -1173,7 +1222,7 @@ export default function Home() {
                     <motion.span
                       className="svc-chevron"
                       animate={{ rotate: isOpen ? 45 : 0 }}
-                      transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+                      transition={{ duration: duration.base, ease: ease.natural }}
                     >
                       +
                     </motion.span>
@@ -1185,7 +1234,7 @@ export default function Home() {
                     className="svc-body"
                     initial={false}
                     animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
-                    transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+                    transition={{ duration: duration.normal, ease: ease.natural }}
                     style={{ overflow: 'hidden' }}
                   >
                     <div className="svc-body-inner">
@@ -1260,10 +1309,17 @@ export default function Home() {
       {selectedProject !== null && (
         <motion.div
           className={`project-details-overlay ${currentProjectColor}`}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${projects[selectedProject].title} — case study`}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } }}
-          transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+          /* pointerEvents:none from the first frame of exit — if the exit
+             animation is ever interrupted, AnimatePresence can leave this
+             full-screen node mounted at opacity 0, where it would silently
+             swallow every click on the page behind it. */
+          exit={{ opacity: 0, y: -20, pointerEvents: 'none', transition: { duration: duration.base, ease: ease.landor } }}
+          transition={{ duration: duration.normal, ease: ease.natural }}
         >
           {/* TOP NAVIGATION — unified minimal strip */}
           <div className="project-details-navigation-system">
@@ -1274,7 +1330,7 @@ export default function Home() {
               whileTap={{ scale: 0.97 }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
+              transition={{ duration: duration.base, delay: 0.2 }}
             >
               <span className="back-icon">←</span>
               <span className="back-text">Back</span>
@@ -1284,7 +1340,7 @@ export default function Home() {
               className="project-title-bar-text"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.3 }}
+              transition={{ duration: duration.base, delay: 0.3 }}
             >
               {selectedProject !== null ? projects[selectedProject].title : ''}
             </motion.span>
@@ -1296,7 +1352,7 @@ export default function Home() {
               whileTap={{ scale: 0.9 }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
+              transition={{ duration: duration.base, delay: 0.2 }}
               aria-label="Close project details"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -1335,7 +1391,7 @@ export default function Home() {
               className="project-title typography-h1"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.15 }}
+              transition={{ duration: duration.slow, delay: 0.2 }}
             >
               {projects[selectedProject].title}
             </motion.h1>
@@ -1343,7 +1399,7 @@ export default function Home() {
               className="project-subtitle typography-body"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: duration.slow, delay: 0.3 }}
             >
               {projects[selectedProject].subtitle}
             </motion.p>
@@ -1389,7 +1445,7 @@ export default function Home() {
                     className="content-section"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.618, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+                transition={{ duration: duration.normal, delay: 0.1, ease: ease.natural }}
                 viewport={{ once: true, margin: '-8% 0px' }}
               >
                 <div className="section-header">
@@ -1409,7 +1465,7 @@ export default function Home() {
                     className="content-section"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.618, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+                transition={{ duration: duration.normal, delay: 0.1, ease: ease.natural }}
                 viewport={{ once: true, margin: '-8% 0px' }}
               >
                 <div className="section-header">
@@ -1429,7 +1485,7 @@ export default function Home() {
                     className="content-section"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.618, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+                transition={{ duration: duration.normal, delay: 0.1, ease: ease.natural }}
                 viewport={{ once: true, margin: '-8% 0px' }}
               >
                 <div className="section-header">
@@ -1450,7 +1506,7 @@ export default function Home() {
                 className="content-section"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.618, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+                transition={{ duration: duration.normal, delay: 0.1, ease: ease.natural }}
                 viewport={{ once: true, margin: '-8% 0px' }}
               >
                 <div className="section-header">
@@ -1483,7 +1539,7 @@ export default function Home() {
               className="gallery-header"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: duration.slow }}
               viewport={{ once: true }}
             >
               <h2 className="gallery-title typography-h3">Project Gallery</h2>
@@ -1502,7 +1558,7 @@ export default function Home() {
                     className="gallery-strip-wrapper"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.9 }}
+                    transition={{ duration: duration.slow }}
                     viewport={{ once: true, margin: '-60px' }}
                   >
                     <div className="gallery-strip">
@@ -1512,7 +1568,7 @@ export default function Home() {
                           className="gallery-strip-cell"
                           initial={{ opacity: 0, x: 40 }}
                           whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.7, delay: index * 0.08 }}
+                          transition={{ duration: duration.normal, delay: index * 0.08 }}
                           viewport={{ once: true, margin: '-40px' }}
                           onClick={() => { setCurrentGalleryImage(index); setGalleryZoomOpen(true); setImageZoomedIn(false); }}
                           style={{ cursor: 'pointer' }}
@@ -1545,7 +1601,7 @@ export default function Home() {
                       className="gallery-editorial-hero"
                       initial={{ opacity: 0, y: 40 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.9 }}
+                      transition={{ duration: duration.slow }}
                       viewport={{ once: true, margin: '-60px' }}
                       onClick={() => { setCurrentGalleryImage(0); setGalleryZoomOpen(true); setImageZoomedIn(false); }}
                       style={{ cursor: 'pointer' }}
@@ -1571,7 +1627,7 @@ export default function Home() {
                           className="gallery-editorial-cell"
                           initial={{ opacity: 0, y: 40 }}
                           whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.9, delay: 0.1 }}
+                          transition={{ duration: duration.slow, delay: 0.1 }}
                           viewport={{ once: true, margin: '-60px' }}
                           onClick={() => { setCurrentGalleryImage(1); setGalleryZoomOpen(true); setImageZoomedIn(false); }}
                           style={{ cursor: 'pointer' }}
@@ -1593,7 +1649,7 @@ export default function Home() {
                           className="gallery-editorial-cell"
                           initial={{ opacity: 0, y: 40 }}
                           whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.9, delay: 0.2 }}
+                          transition={{ duration: duration.slow, delay: 0.2 }}
                           viewport={{ once: true, margin: '-60px' }}
                           onClick={() => { setCurrentGalleryImage(2); setGalleryZoomOpen(true); setImageZoomedIn(false); }}
                           style={{ cursor: 'pointer' }}
@@ -1621,7 +1677,7 @@ export default function Home() {
                           className="gallery-editorial-cell"
                           initial={{ opacity: 0, y: 40 }}
                           whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.9, delay: 0.1 }}
+                          transition={{ duration: duration.slow, delay: 0.1 }}
                           viewport={{ once: true, margin: '-60px' }}
                           onClick={() => { setCurrentGalleryImage(3); setGalleryZoomOpen(true); setImageZoomedIn(false); }}
                           style={{ cursor: 'pointer' }}
@@ -1643,7 +1699,7 @@ export default function Home() {
                           className="gallery-editorial-cell"
                           initial={{ opacity: 0, y: 40 }}
                           whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.9, delay: 0.2 }}
+                          transition={{ duration: duration.slow, delay: 0.2 }}
                           viewport={{ once: true, margin: '-60px' }}
                           onClick={() => { setCurrentGalleryImage(4); setGalleryZoomOpen(true); setImageZoomedIn(false); }}
                           style={{ cursor: 'pointer' }}
@@ -1669,7 +1725,7 @@ export default function Home() {
                       className="gallery-editorial-video-section"
                       initial={{ opacity: 0, y: 40 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 1.0, delay: 0.1 }}
+                      transition={{ duration: duration.slow, delay: 0.1 }}
                       viewport={{ once: true, margin: '-60px' }}
                     >
                       <div className="gallery-editorial-video-rule" />
@@ -1698,7 +1754,7 @@ export default function Home() {
               className="sophisticated-nav-project prev-project"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: duration.normal, delay: 0.2, ease: ease.landor }}
                       onClick={() => {
                 const prevIndex = selectedProject === 0 ? projects.length - 1 : selectedProject - 1;
                 setSelectedProject(prevIndex);
@@ -1733,7 +1789,7 @@ export default function Home() {
               className="sophisticated-nav-project next-project"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: duration.normal, delay: 0.3, ease: ease.landor }}
                       onClick={() => {
                 const nextIndex = (selectedProject + 1) % projects.length;
                 setSelectedProject(nextIndex);
@@ -1803,14 +1859,14 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: duration.base }}
         >
           <motion.div
             className="hero-zoom-content"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: duration.base }}
             onClick={(e) => e.stopPropagation()}
           >
             <div
@@ -1848,19 +1904,19 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: duration.base }}
         >
           <motion.div
             className="relative max-w-[85vw] max-h-[85vh] w-full mx-4"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: duration.base }}
             onMouseDown={(e) => e.stopPropagation()}
           >
             <motion.div
               animate={{ scale: imageZoomedIn ? 1.25 : 1 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
+              transition={{ duration: duration.base, ease: "easeInOut" }}
               style={{ cursor: imageZoomedIn ? 'zoom-out' : 'zoom-in' }}
               onClick={(e) => {
                 e.stopPropagation();

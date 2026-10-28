@@ -19,8 +19,8 @@
 /* ------------------------------------------ */
 [data-color-mode="gallery-sepia"] {
   /* Slightly warmer paper tone */
-  --vanilla-foundation: #FFF8EF;
-  --vanilla-warm: #FFF3E5;
+  --vanilla-foundation: #FFFDF6;
+  --vanilla-warm: #FFF8F2;
 }
 
 [data-color-mode="gallery-sepia"] .topographic-luxury {
