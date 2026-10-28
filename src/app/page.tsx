@@ -438,7 +438,7 @@ export default function Home() {
       industry: 'Health & Consumer Goods',
       serviceType: 'Product Strategy | Strategic Design',
       website: 'https://www.dzrt.com/en-sa',
-      image: '/projects/snippets/gcc-consumer-brand.png',
+      image: '/projects/snippets/dzrt-badel.png',
       emailSubject: 'Inquiry about DZRT Brand Stretching — Badel · Saudi Arabia'
     },
     {

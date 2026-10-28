@@ -8820,7 +8820,7 @@ h4, .text-h4 {
     transparent 0%, 
     transparent 40%, 
     rgba(0, 0, 0, 0.1) 70%, 
-    rgba(0, 0, 0, 0.25) 100%
+    rgba(0, 0, 0, 0.30) 100%
   );
   z-index: 4;
 }
@@ -26529,15 +26529,14 @@ section#projects .balanced-title {
    Note: the source is a portrait crop in a landscape frame, so
    object-position X cannot pan; only the Y value does anything. */
 .hero-photo-artistic-unified {
-  filter: contrast(1.02) saturate(0.96) !important;
+  filter: brightness(0.92) contrast(1.02) saturate(0.92) !important;
   object-position: center 12% !important;
 }
 
 /* Legacy overlay divs — confirmed still rendering despite the earlier
-   kill rule. Suppressed here so exactly one scrim reaches the photo. */
+   kill rule. Color overlays suppressed; vignette re-enabled as sole scrim. */
 .hero-unified-color-story,
-.unified-gradient-foundation,
-.hero-vignette-luxury {
+.unified-gradient-foundation {
   display: none !important;
 }
 

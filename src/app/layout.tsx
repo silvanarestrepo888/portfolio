@@ -24,12 +24,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Silvana Restrepo | Systems Architect — AI, Venture & Agentic Design",
-  description: "Systems Architect with 20+ years designing organizations where AI makes sense. Agentic systems, venture design, and experience strategy across 7 industries and 3 continents.",
+  title: "Silvana Restrepo | Experience Architect",
+  description: "Experience Architect with 20+ years designing organizations where AI makes sense. Agentic systems, experience strategy, and business design across 7 industries and 3 continents.",
   keywords: [
-    "systems architect",
+    "experience architect",
     "agentic systems",
-    "venture design",
     "experience strategy",
     "business design",
     "AI architecture",
@@ -38,16 +37,16 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Silvana Restrepo" }],
   openGraph: {
-    title: "Silvana Restrepo | Systems Architect — AI, Venture & Agentic Design",
-    description: "Systems Architect with 20+ years designing organizations where AI makes sense. Agentic systems, venture design, and experience strategy.",
+    title: "Silvana Restrepo | Experience Architect",
+    description: "Experience Architect with 20+ years designing organizations where AI makes sense. Agentic systems, experience strategy, and business design.",
     type: "website",
     siteName: "Silvana Restrepo Portfolio",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Silvana Restrepo | Systems Architect — AI, Venture & Agentic Design",
-    description: "Systems Architect with 20+ years designing organizations where AI makes sense.",
+    title: "Silvana Restrepo | Experience Architect",
+    description: "Experience Architect with 20+ years designing organizations where AI makes sense.",
   },
   robots: {
     index: true,
