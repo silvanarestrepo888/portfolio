@@ -5,7 +5,6 @@ import { Linkedin, Mail } from 'lucide-react';
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import { CustomCursor } from '../components/motion/CustomCursor';
-import { MagneticCursor } from '../components/ui/MagneticCursor';
 import { FloatingNavigation } from '../components/navigation/FloatingNavigation';
 import { SectionIndicator } from '../components/navigation/SectionIndicator';
 import { useParallax } from '../hooks/useScrollAnimation';
@@ -696,52 +695,6 @@ export default function Home() {
     };
   }, []);
 
-  // Award-Winning Context-Aware Cursor System
-  useEffect(() => {
-    if (isMobile) return;
-    
-    const cursor = document.getElementById('award-winning-cursor');
-    if (!cursor) return;
-
-    const updateCursor = (e: MouseEvent) => {
-      const x = e.clientX;
-      const y = e.clientY;
-      cursor.style.setProperty('--cursor-x', `${x}px`);
-      cursor.style.setProperty('--cursor-y', `${y}px`);
-      
-      // Context-aware cursor behavior
-      const target = e.target as HTMLElement;
-      const isButton = target.closest('button, [role="button"], a, .snippet-cta-bottom-right');
-      const isImage = target.closest('.snippet-image-container, .project-card, .gallery-item');
-      
-      cursor.className = 'award-winning-cursor';
-      
-      if (isButton) {
-        cursor.classList.add('cursor-button');
-      } else if (isImage) {
-        cursor.classList.add('cursor-image');
-      }
-    };
-
-    const handleMouseLeave = () => {
-      cursor.style.opacity = '0';
-    };
-
-    const handleMouseEnter = () => {
-      cursor.style.opacity = '1';
-    };
-
-    document.addEventListener('mousemove', updateCursor);
-    document.addEventListener('mouseleave', handleMouseLeave);
-    document.addEventListener('mouseenter', handleMouseEnter);
-
-    return () => {
-      document.removeEventListener('mousemove', updateCursor);
-      document.removeEventListener('mouseleave', handleMouseLeave);
-      document.removeEventListener('mouseenter', handleMouseEnter);
-    };
-  }, [isMobile]);
-
   // Ensure featuredProjectIndex is within bounds
   const safeFeaturedProjectIndex = Math.min(featuredProjectIndex, Math.max(0, filteredProjects.length - 1));
 
@@ -764,17 +717,8 @@ export default function Home() {
         Skip to about section
       </a>
       
-      {/* AWWWARDS MAGNETIC CURSOR SYSTEM (hidden on mobile) */}
-      {!isMobile && <MagneticCursor />}
+      {/* Custom cursor — consolidated single cursor system */}
       {!isMobile && <CustomCursor />}
-      
-      {/* Award-Winning Context-Aware Cursor */}
-      {!isMobile && (
-        <div 
-          className="award-winning-cursor"
-          id="award-winning-cursor"
-        />
-      )}
       
       {/* AWWWARDS FLOATING NAVIGATION SYSTEM */}
       <FloatingNavigation />
@@ -824,44 +768,15 @@ export default function Home() {
         
         {/* Content Over Photo */}
         <div className="hero-content-luxury">
-            {/* Name — above the primary title */}
-          <motion.p
-            className="hero-name-label"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: isMobile ? 0.5 : 1.0, delay: isMobile ? 0.05 : 0.18 }}
-          >
-            Silvana Restrepo
-          </motion.p>
-
-          <motion.h1
+            <motion.h1
             id="hero-title"
-            className="hero-title-luxury-centered"
+            className="hero-title-luxury-centered hero-title-solo"
             initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
             transition={{ duration: isMobile ? 0.6 : 1.618, delay: isMobile ? 0.12 : 0.382 }} /* Faster on mobile */
           >
-            Experience Architect
+            an experienced architect.
           </motion.h1>
-
-          <motion.p
-            className="hero-role-line"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: isMobile ? 0.5 : 0.618, delay: isMobile ? 0.2 : 0.72 }}
-          >
-            Business is my mind. Design is my heart. Technology is my hands.
-          </motion.p>
-
-          <motion.p
-            className="hero-role-line"
-            style={{ opacity: 0.85, fontSize: '0.85em', letterSpacing: '0.12em', textTransform: 'uppercase' }}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 0.85, y: 0 }}
-            transition={{ duration: isMobile ? 0.5 : 0.618, delay: isMobile ? 0.35 : 1.0 }}
-          >
-            Experience Strategy · Business Design · Agentic Systems
-          </motion.p>
 
           {/* Scroll indicator */}
           <motion.div
@@ -932,6 +847,9 @@ export default function Home() {
                   The point is <em className="about-emphasis">the connective tissue</em>: how the pieces hold each other up, what order they compose in, where the whole breaks under pressure. That doesn&apos;t come from mastering a tool. It comes from <em className="about-emphasis">having run the system</em>.
                 </RevealItem>
 
+<RevealItem as="p" className="about-welcome">
+                  Welcome to my world — where strategy meets soul, and design becomes the one language humans and machines both speak.
+                </RevealItem>
               </RevealGroup>
             </div>
 
@@ -1044,7 +962,6 @@ export default function Home() {
                     aria-label={`View ${proj.title}`}
                     aria-current={idx === safeFeaturedProjectIndex ? 'true' : undefined}
                   >
-                    <span className="project-index-num">{String(idx + 1).padStart(2, '0')}</span>
                     <span className="project-index-name">{proj.title}</span>
                   </button>
                 ))}
@@ -1168,7 +1085,7 @@ export default function Home() {
                 transition={{ duration: isMobile ? 0.5 : 1.618, delay: isMobile ? 0.1 : 0.236 }}
                 viewport={{ once: true }}
               >
-                also
+                Selected Engagements
               </motion.h2>
             </div>
             

@@ -12,10 +12,10 @@ interface NavigationItem {
 }
 
 const navigationItems: NavigationItem[] = [
-  { name: 'about',      number: '01', href: '#about',      sectionId: 'about' },
-  { name: 'projects',   number: '02', href: '#projects',   sectionId: 'projects' },
-  { name: 'services',   number: '03', href: '#services',   sectionId: 'services' },
-  { name: 'experience', number: '04', href: '#experience', sectionId: 'experience' },
+  { name: 'about',      number: '', href: '#about',      sectionId: 'about' },
+  { name: 'projects',   number: '', href: '#projects',   sectionId: 'projects' },
+  { name: 'services',   number: '', href: '#services',   sectionId: 'services' },
+  { name: 'experience', number: '', href: '#experience', sectionId: 'experience' },
 ];
 
 // Map any section that should highlight a nav item
@@ -139,18 +139,6 @@ export function FloatingNavigation() {
                 aria-label={`Navigate to ${item.name} section`}
                 aria-current={isActive ? 'location' : undefined}
               >
-                {/* Section number */}
-                <motion.span
-                  className="nav-section-number"
-                  animate={{
-                    color: isActive ? 'var(--coral)' : 'var(--charcoal-light)',
-                    opacity: isActive ? 1 : 0.5,
-                  }}
-                  transition={{ duration: 0.382, ease: easeLandor }}
-                >
-                  {item.number}
-                </motion.span>
-
                 {/* Section name */}
                 <motion.span
                   className="nav-section-name"
@@ -229,13 +217,6 @@ export function FloatingNavigation() {
                         aria-label={`Navigate to ${item.name} section`}
                         aria-current={isActive ? 'location' : undefined}
                       >
-                        <motion.span
-                          className="mobile-nav-number"
-                          animate={{ color: isActive ? 'var(--coral)' : 'var(--charcoal-light)' }}
-                          transition={{ duration: 0.382 }}
-                        >
-                          {item.number}
-                        </motion.span>
                         <motion.span
                           className="mobile-nav-name"
                           animate={{ color: isActive ? 'var(--charcoal-mid)' : 'var(--charcoal-light)' }}

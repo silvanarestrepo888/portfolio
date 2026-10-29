@@ -778,14 +778,18 @@
 
 /* AWARD-WINNING: Section Title Visual Enhancement */
 .projects-title-award-winning,
-.about-title-ultra-luxury {
+.about-title-ultra-luxury,
+.svc-heading,
+.exp-heading {
   position: relative;
   display: inline-block;
 }
 
 /* Subtle underline accent for section titles */
 .projects-title-award-winning::after,
-.about-title-ultra-luxury::after {
+.about-title-ultra-luxury::after,
+.svc-heading::after,
+.exp-heading::after {
   content: '';
   position: absolute;
   bottom: -8px;
@@ -6747,7 +6751,7 @@ h4, .text-h4 {
 .nav-section-name {
   font-size: var(--type-sm);
   font-weight: 500;
-  letter-spacing: 0.025em;
+  letter-spacing: 0.15em;
   color: #C2410C; /* WCAG AA: 4.7:1 on vanilla nav bg */
   transition: all var(--duration-fast) ease;
   font-family: var(--font-architectural-body);
@@ -8864,6 +8868,14 @@ h4, .text-h4 {
   width: 100%;
   z-index: 10; /* Force above all overlays */
   position: relative;
+}
+
+/* Solo hero title — editorial single-line treatment */
+.hero-title-solo {
+  font-size: clamp(2.75rem, 6.5vw, 6rem);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
 }
 
 /* HERO CTA BUTTONS - ELEGANT AND SMALL */
