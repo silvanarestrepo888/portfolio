@@ -39,6 +39,9 @@ export function InteractiveProjectCard({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  // Only hand the panel to the video once it has frames. Videos are excluded
+  // from deploys (.vercelignore), so a 404'd video must never hide the image.
+  const [videoReady, setVideoReady] = useState(false);
   const [isImageExpanded, setIsImageExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -153,7 +156,7 @@ export function InteractiveProjectCard({
                   style={{
                     objectPosition: 'center',
                     filter: 'contrast(1.02) saturate(1.05)',
-                    opacity: imageLoaded ? (project.video && (isHovered || isActive) ? 0 : 1) : 0,
+                    opacity: imageLoaded ? (project.video && videoReady && (isHovered || isActive) ? 0 : 1) : 0,
                     transition: 'opacity 0.8s ease',
                   }}
                   quality={100}
@@ -182,7 +185,9 @@ export function InteractiveProjectCard({
                     zIndex: 2,
                     background: 'transparent',
                   }}
-                  animate={{ opacity: (isHovered || isActive) ? 1 : 0 }}
+                  onLoadedData={() => setVideoReady(true)}
+                  onError={() => setVideoReady(false)}
+                  animate={{ opacity: videoReady && (isHovered || isActive) ? 1 : 0 }}
                   transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                 />
               )}

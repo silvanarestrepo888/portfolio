@@ -120,12 +120,15 @@ section#projects.projects-section-award-winning.section-projects-sophisticated {
    One colour, completely committed. Restraint is the power.
    ================================================================ */
 
+/* Contrast: raw --coral / --coral-surface-light top out at ~2.9:1 against
+   near-white text. The section now stays in the deep coral range
+   (--coral-text → --coral-surface-deep) so text-on-coral scores ≥4.7:1. */
 section#services.section-services-sophisticated {
   background:
     linear-gradient(145deg,
-      var(--coral-surface-deep) 0%,
-      var(--coral) 48%,
-      var(--coral-surface-light) 100%) !important;
+      var(--coral-text) 0%,
+      var(--coral-surface-deep) 55%,
+      var(--coral-text) 100%) !important;
   padding-top: var(--section-py) !important;
   padding-bottom: var(--section-py) !important;
   max-height: none !important;
