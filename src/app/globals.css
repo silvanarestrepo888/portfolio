@@ -26884,3 +26884,74 @@ section#projects .balanced-title {
     object-position: 50% 18% !important;
   }
 }
+
+/* ================================================================
+   VISUAL AUDIT — critical fixes (Nov 2026)
+   ================================================================ */
+
+/* ── Mobile hero: headline into the lower third, on the scrim ──
+   The mobile scrim block above says "type in the lower third", but no
+   mobile rule ever anchored it there: the h1 rendered at ~45% of the
+   frame, cream-white over her cream top (near 1:1 contrast). Anchor the
+   block to the bottom of a committed 100svh frame and let the scrim
+   ramp where the type actually sits. */
+@media (max-width: 768px) {
+  .hero-section-luxury {
+    min-height: 100svh !important;
+    height: 100svh !important;
+    align-items: flex-end !important;
+  }
+
+  .hero-content-luxury {
+    align-self: flex-end !important;
+    padding-bottom: clamp(3rem, 9svh, 5rem) !important;
+  }
+
+  .hero-photo-layer-unified::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(4, 4, 8, 0.02) 0%,
+      rgba(4, 4, 8, 0.06) 40%,    /* face kept clear */
+      rgba(4, 4, 8, 0.42) 62%,
+      rgba(4, 4, 8, 0.74) 82%,
+      rgba(4, 4, 8, 0.88) 100%
+    ) !important;
+  }
+}
+
+/* ── Services text on the deep-coral surface ──
+   Partial-alpha vanilla (0.55–0.88) washed every supporting line out
+   below AA. With the section now on --coral-surface-deep/--coral-text,
+   full-opacity --text-on-coral measures ≥4.7:1. */
+.svc-tagline,
+.svc-description,
+.svc-demand,
+.svc-demand em,
+.svc-tag,
+.svc-cta {
+  color: var(--text-on-coral) !important;
+}
+
+/* ── Hero title: "Experience Architect-Venture Designer" ──
+   One line on desktop (nowrap rule above). On mobile, break after the
+   hyphen so the two roles read as two units instead of wrapping mid-pair
+   ("Architect-Venture"). */
+@media (max-width: 768px) {
+  .hero-title-line2 {
+    display: block;
+  }
+}
+
+/* ── Mobile project carousel: restore the image panel ──
+   The "equal-height panels" rule (.balanced-image-section height:100%,
+   min-height:0) sits later in this file than the mobile 200px rule, so it
+   won at every width. On mobile the card grid is display:block, so 100% of
+   an auto-height parent resolved to 0 and the image panel vanished — cards
+   showed text only. Give the panel its own proportion on mobile. */
+@media (max-width: 640px) {
+  .balanced-image-section {
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+    margin-bottom: 0.75rem !important;
+  }
+}

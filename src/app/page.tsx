@@ -746,8 +746,7 @@ export default function Home() {
               fill
               className="hero-photo-artistic-unified parallax-element gpu-accelerated"
               style={{ objectPosition: 'center 15%' }}
-              quality={100}
-              unoptimized
+              quality={90}
               priority
               sizes="100vw"
             />
@@ -775,7 +774,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
             transition={{ duration: isMobile ? 0.6 : 1.618, delay: isMobile ? 0.12 : 0.382 }} /* Faster on mobile */
           >
-            an experienced architect.
+            Experience Architect-<span className="hero-title-line2">Venture Designer</span>
           </motion.h1>
 
           {/* Scroll indicator */}
