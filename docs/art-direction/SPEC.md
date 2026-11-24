@@ -62,7 +62,7 @@ New files you create under `public/art/**` sit outside the sparse definition. Ad
 git add --sparse public/art
 ```
 
-Videos: the source `*.mp4` files under `public/projects/**` are excluded from deploys by `.vercelignore` (they are 5–40 MB each), so **no video has ever played in production**; every request 404s. The fix is not to drop them. Re-encode web-size copies into `public/art/video/` (not matched by `.vercelignore`) and play those. See §5.6. Restore the sources for encoding with:
+Videos: the source `*.mp4` files under `public/projects/**` are excluded from deploys by `.vercelignore` (they are 5–40 MB each), so they have **not played in production since 28 Oct 2026**. They were live before that (the 19 Aug 2026 production deployment served them as `video/mp4`). Commit 4315672 (15 Oct) added the `.vercelignore` rule, and the 28 Oct deploy was the first without the videos. Every request now 404s. The fix is not to drop them. Re-encode web-size copies into `public/art/video/` (not matched by `.vercelignore`) and play those. See §5.6. Restore the sources for encoding with:
 
 ```bash
 git ls-files public/projects | grep -iE '\.(mp4|mov)$' | while IFS= read -r p; do mkdir -p "$(dirname "$p")"; git show "HEAD:$p" > "$p"; done
@@ -316,7 +316,7 @@ Snippets: `art: '/art/snippets/<id>.jpg'`. The ids match the slugs (`dzrt-badel`
 
 ### 5.6 Video system (motion is part of the work, keep it)
 
-Kayanee, Qiddiya and Augoor have real video. It is the strongest material on the site and must play, **but only as web-encoded derivatives**: never the raw sources, never in production as 404s again.
+Kayanee, Qiddiya and Augoor have real video. It was live until 28 Oct 2026 and is the strongest material on the site. It must play again, **as web-encoded derivatives**: the raw sources (up to 40 MB) are too heavy to autoplay and are blocked by `.vercelignore`. Do not edit `.vercelignore`; serve from `public/art/video/` instead.
 
 **Source inventory (in git, absent from production):**
 
@@ -327,7 +327,7 @@ Kayanee, Qiddiya and Augoor have real video. It is the strongest material on the
 | `public/projects/qiddiya/qiddiya-city.mp4` | 12.9 MB | Qiddiya **card loop** + case-study hero film |
 | `public/projects/augoor/product-demo.mp4` | 39.9 MB | Augoor case-study film only (screen recording; the card keeps the key art) |
 | `public/projects/kayanee/beat-concept.mp4` | 9.9 MB | Superseded by v2. Do not use, do not delete |
-| GCC Telecom / stc | none in repo | No video file exists. Ship the still. Add a `cardVideo` slot that stays empty, and list "stc CX Center film needed" in the report |
+| GCC Telecom / stc | none in repo | No video exists anywhere in git history, and the 19 Aug live page had no stc video field either. Ship the still. Add a `cardVideo` slot that stays empty, and list "stc CX Center film needed" in the report |
 
 **Encode** with `scripts/encode-video.mjs`, using `ffmpeg-static` (`npm i -D ffmpeg-static`; there is no system ffmpeg on this machine). Pick segments by extracting one frame per second to `docs/art-direction/qa/video-frames/<slug>/` and looking at them: the loop must be the most cinematic stretch with no title cards, UI chrome, logos-only frames or black frames.
 
