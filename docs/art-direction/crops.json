@@ -1,0 +1,159 @@
+{
+  "_doc": "Crop boxes are fractions of the SOURCE image: [left, top, width, height]. Validated visually on 2026-11-23 (see crops-final-preview.jpg). Output ratio is exact. Never upscale.",
+  "projects": {
+    "ratio": "16:10",
+    "outDir": "public/art/projects",
+    "items": [
+      {
+        "slug": "kayanee",
+        "source": "public/projects/kayanee/hero-kayanee.jpeg",
+        "crop": [
+          0.184,
+          0.17,
+          0.633,
+          0.83
+        ]
+      },
+      {
+        "slug": "augoor",
+        "source": "public/projects/augoor/photo-main-carrusel.jpeg",
+        "crop": [
+          0.125,
+          0.0,
+          0.875,
+          1.0
+        ]
+      },
+      {
+        "slug": "chime-care",
+        "source": "public/projects/chime-care/hero-j&j.jpeg",
+        "crop": [
+          0.3,
+          0.08,
+          0.67,
+          0.92
+        ]
+      },
+      {
+        "slug": "nomade",
+        "source": "public/projects/nomade/secundary-hero.jpeg",
+        "crop": [
+          0.094,
+          0.0,
+          0.813,
+          1.0
+        ]
+      },
+      {
+        "slug": "qiddiya",
+        "source": "public/projects/qiddiya/secondary-qiddiya.png",
+        "crop": [
+          0.05,
+          0.0,
+          0.897,
+          1.0
+        ],
+        "flag": "Source is 1606px. Acceptable at card size; flag for a larger original."
+      },
+      {
+        "slug": "gcc-telecom",
+        "source": "public/projects/gcc-telecom/gallery-gcc-telecom-1.png",
+        "crop": [
+          0.057,
+          0.0,
+          0.886,
+          1.0
+        ],
+        "flag": "LOW-RES source (1387px). Ship; flag in report: request a >=2400px original."
+      }
+    ]
+  },
+  "snippets": {
+    "ratio": "4:3",
+    "outDir": "public/art/snippets",
+    "items": [
+      {
+        "slug": "dzrt-badel",
+        "source": "public/projects/snippets/dzrt-badel.png",
+        "crop": [
+          0.0,
+          0.125,
+          1.0,
+          0.75
+        ],
+        "flag": "Source is 1057px. Acceptable at snippet size."
+      },
+      {
+        "slug": "parques-reunidos",
+        "source": "public/projects/parques-reunidos/hero-parque-reunidos.png",
+        "crop": [
+          0.08,
+          0.0,
+          0.84,
+          1.0
+        ]
+      },
+      {
+        "slug": "danone",
+        "source": "public/projects/danone/main-hero-carrusel.jpeg",
+        "crop": [
+          0.0,
+          0.1,
+          0.612,
+          0.84
+        ]
+      },
+      {
+        "slug": "c4ir-colombia",
+        "source": "public/projects/snippets/c4ir-colombia.png",
+        "crop": [
+          0.17,
+          0.002,
+          0.664,
+          0.878
+        ]
+      },
+      {
+        "slug": "wef-designit",
+        "source": "public/projects/snippets/wef-designit.png",
+        "crop": [
+          0.113,
+          0.0,
+          0.887,
+          1.0
+        ]
+      },
+      {
+        "slug": "viva-malls",
+        "source": "public/projects/snippets/viva-malls.png",
+        "crop": [
+          0.008,
+          0.13,
+          0.672,
+          0.7255
+        ]
+      },
+      {
+        "slug": "grupo-exito",
+        "source": "public/projects/snippets/grupo-exito.png",
+        "crop": [
+          0.06,
+          0.015,
+          0.879,
+          0.982
+        ]
+      },
+      {
+        "slug": "tigo-millicom",
+        "source": "public/projects/snippets/tigo-millicom.png",
+        "crop": [
+          0.0,
+          0.002,
+          0.7525,
+          0.997
+        ],
+        "flag": "REPLACE ASSET \u2014 no 4:3 crop keeps both logos whole. Ship with this crop; flag in report."
+      }
+    ]
+  }
+}

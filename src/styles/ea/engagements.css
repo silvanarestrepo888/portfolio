@@ -1,0 +1,87 @@
+/* engagements.css — one continuous ink band with Projects; scroll-snap rail (§7.6) */
+
+/* Projects and engagements share the band: no seam, half the padding between them */
+.ea-proj + .ea-eng {
+  padding-top: 0;
+}
+
+.ea-eng__controls {
+  display: none;
+  gap: var(--ea-s-3);
+}
+
+@media (min-width: 1024px) {
+  .ea-eng__controls { display: flex; }
+}
+
+.ea-eng {
+  --ea-rail-inset: max(var(--ea-grid-margin), calc((100% - var(--ea-grid-max)) / 2));
+}
+
+.ea-eng__rail {
+  list-style: none;
+  margin: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 85vw;
+  gap: var(--ea-grid-gutter);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--ea-rail-inset);
+  padding: 0 var(--ea-rail-inset);
+  scrollbar-width: none;
+}
+
+.ea-eng__rail::-webkit-scrollbar { display: none; }
+
+@media (min-width: 768px)  { .ea-eng__rail { grid-auto-columns: 45vw; } }
+@media (min-width: 1024px) { .ea-eng__rail { grid-auto-columns: 30vw; } }
+@media (min-width: 1440px) { .ea-eng__rail { grid-auto-columns: min(25vw, calc((var(--ea-grid-max) - 3 * var(--ea-grid-gutter)) / 3.4)); } }
+
+.ea-eng__card {
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ea-eng__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--ea-ratio-snippet);
+  overflow: hidden;
+  border-radius: var(--ea-radius-media);
+  background: var(--ea-surface-noir);
+}
+
+.ea-eng__img { object-fit: cover; }
+
+.ea-eng__client {
+  color: var(--ea-accent);
+  margin-top: var(--ea-s-5);
+}
+
+.ea-eng__title {
+  color: var(--ea-on-dark);
+  margin-top: var(--ea-s-2);
+}
+
+.ea-eng__meta {
+  color: var(--ea-on-dark-soft);
+  margin-top: var(--ea-s-3);
+}
+
+.ea-eng__site {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--ea-tap);
+  color: var(--ea-on-dark-faint);
+  transition: color var(--ea-dur-1) var(--ea-ease);
+}
+
+.ea-eng__site:hover { color: var(--ea-accent); }
+
+.ea-eng__inquire {
+  margin-top: auto;
+  padding-top: var(--ea-s-3);
+}

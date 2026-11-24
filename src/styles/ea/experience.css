@@ -1,0 +1,85 @@
+/* experience.css — straight 7-step timeline on parchment (§7.8) */
+
+.ea-exp__head { grid-column: 1 / -1; }
+
+.ea-exp__head .ea-section-header { margin-bottom: var(--ea-s-5); }
+
+.ea-exp__caption {
+  color: var(--ea-ink-soft);
+  margin-bottom: var(--ea-header-gap);
+}
+
+/* Mobile: vertical list, rule on the left */
+.ea-exp__line {
+  grid-column: 1 / -1;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 var(--ea-s-5);
+  border-left: 1px solid var(--ea-rule-light);
+  display: grid;
+  gap: var(--ea-s-5);
+}
+
+.ea-exp__item {
+  position: relative;
+  display: grid;
+  gap: var(--ea-s-1);
+  outline-offset: 6px;
+}
+
+.ea-exp__dot {
+  position: absolute;
+  left: calc(-1 * var(--ea-s-5) - 4px);
+  top: 4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ea-ink-strong);
+}
+
+.ea-exp__item.is-current .ea-exp__dot { background: var(--ea-accent-on-light); }
+
+.ea-exp__company { color: var(--ea-ink-strong); }
+.ea-exp__label   { color: var(--ea-ink-soft); }
+
+.ea-exp__item.is-current .ea-exp__company,
+.ea-exp__item.is-current .ea-exp__label { color: var(--ea-accent-on-light); }
+
+.ea-exp__item.is-active .ea-exp__company { color: var(--ea-accent-on-light); }
+
+.ea-exp__reveal {
+  display: none;
+  grid-column: 1 / -1;
+  color: var(--ea-ink);
+  margin-top: var(--ea-s-6);
+  min-height: 1.5em;
+  max-width: none;
+}
+
+.ea-exp__measured {
+  grid-column: 1 / -1;
+  color: var(--ea-ink);
+  margin-top: var(--ea-s-9);
+  max-width: none;
+}
+
+@media (min-width: 1024px) {
+  .ea-exp__line {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    column-gap: var(--ea-grid-gutter);
+    padding: var(--ea-s-6) 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--ea-rule-light);
+  }
+
+  .ea-exp__dot {
+    left: 0;
+    top: calc(-1 * var(--ea-s-6) - 4px);
+  }
+
+  .ea-exp__measured { grid-column: 1 / span 8; }
+}
+
+@media (hover: hover) and (min-width: 1024px) {
+  .ea-exp__reveal { display: block; }
+}
