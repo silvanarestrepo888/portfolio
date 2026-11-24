@@ -112,7 +112,6 @@ export function Projects({ onOpen }: { onOpen: (projectIndex: number) => void })
     writePaused(next);
   };
 
-  const meta = [project.category, project.location, project.year].filter(Boolean).join(' · ');
   const counter = `${String(safe + 1).padStart(2, '0')} / ${String(list.length).padStart(2, '0')}`;
 
   return (
@@ -163,15 +162,25 @@ export function Projects({ onOpen }: { onOpen: (projectIndex: number) => void })
             <ProjectMedia project={project} paused={paused} onOpen={open} />
           </div>
 
-          <div className="ea-proj__text" key={`t-${project.title}`} aria-live="polite">
-            <p className="ea-t-label ea-proj__client">{project.client}</p>
-            <h3 className="ea-t-title-1 ea-proj__title">{project.title}</h3>
-            <p className="ea-t-small ea-tnum ea-proj__meta">{meta}</p>
-            <p className="ea-t-body ea-proj__subtitle">{project.subtitle}</p>
-            <p className="ea-t-label ea-proj__caps">{project.tech.join(' · ')}</p>
-            <button type="button" className="ea-t-label ea-link ea-proj__cta" onClick={open}>
-              View case study <span aria-hidden="true">→</span>
-            </button>
+          {/* All texts share one grid cell, so the block is always as tall as the
+              tallest project: switching never changes the layout height. */}
+          <div className="ea-proj__texts" aria-live="polite">
+            {list.map((p, i) => {
+              const active = i === safe;
+              const m = [p.category, p.location, p.year].filter(Boolean).join(' · ');
+              return (
+                <div key={p.title} className={`ea-proj__text${active ? ' is-active' : ''}`} aria-hidden={!active} inert={!active}>
+                  <p className="ea-t-label ea-proj__client">{p.client}</p>
+                  <h3 className="ea-t-title-1 ea-proj__title">{p.title}</h3>
+                  <p className="ea-t-small ea-tnum ea-proj__meta">{m}</p>
+                  <p className="ea-t-body ea-proj__subtitle">{p.subtitle}</p>
+                  <p className="ea-t-label ea-proj__caps">{p.tech.join(' · ')}</p>
+                  <button type="button" className="ea-t-label ea-link ea-proj__cta" onClick={() => onOpen(projects.indexOf(p))}>
+                    View case study <span aria-hidden="true">→</span>
+                  </button>
+                </div>
+              );
+            })}
           </div>
 
           <div className="ea-proj__controls">
@@ -184,11 +193,16 @@ export function Projects({ onOpen }: { onOpen: (projectIndex: number) => void })
             <button type="button" className="ea-ctrl" aria-label="Next project" onClick={() => go(safe + 1)} disabled={list.length < 2}>
               <Chevron dir="right" />
             </button>
-            {project.cardVideo && (
-              <button type="button" className="ea-t-label ea-proj__motion" aria-pressed={paused} onClick={togglePaused}>
-                {paused ? 'Play motion' : 'Pause motion'}
-              </button>
-            )}
+            <button
+              type="button"
+              className={`ea-t-label ea-proj__motion${project.cardVideo ? '' : ' is-empty'}`}
+              aria-pressed={paused}
+              onClick={togglePaused}
+              tabIndex={project.cardVideo ? 0 : -1}
+              aria-hidden={!project.cardVideo}
+            >
+              {paused ? 'Play motion' : 'Pause motion'}
+            </button>
           </div>
         </div>
       </div>
