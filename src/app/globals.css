@@ -3363,8 +3363,7 @@ body {
   
   /* Android image rendering */
   img {
-    image-rendering: -webkit-optimize-contrast !important;
-    image-rendering: crisp-edges !important;
+    image-rendering: auto !important; /* was -webkit-optimize-contrast: disables smoothing, makes downscaled photos jagged */
   }
   
   /* Android safe area for notch/camera */
@@ -8752,7 +8751,7 @@ h4, .text-h4 {
   transform: scale(1.03) !important;
   /* REMOVED: animation for sophisticated stillness */
   /* Enhanced photo visibility */
-  image-rendering: -webkit-optimize-contrast;
+  image-rendering: auto;
   opacity: 0.98 !important;
   /* SOPHISTICATED STABILITY - No trembling */
   transition: filter 0.5s ease;
@@ -13698,8 +13697,7 @@ h4, .text-h4 {
   border-radius: 12px;
   transition: none;
   max-height: 600px;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+  image-rendering: auto; /* smooth downscaling for photos (was crisp-edges) */
 }
 
 /* Navigation Project Images Perfect */
@@ -15340,8 +15338,7 @@ h4, .text-h4 {
 
 /* Image Optimization */
 img {
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+  image-rendering: auto; /* smooth downscaling for photos (was crisp-edges) */
   max-width: 100%;
   height: auto;
 }
@@ -26953,5 +26950,16 @@ section#projects .balanced-title {
     height: auto !important;
     aspect-ratio: 4 / 3 !important;
     margin-bottom: 0.75rem !important;
+  }
+}
+
+/* ── Project card: expand button vs. category tags ──
+   .image-expand-btn had top:1rem in CSS while the component sets
+   bottom:12px inline; with both, top wins, so the button sat in the
+   top-right corner on top of the year/category tags (e.g. Kayanee's
+   "Health & Wellness"). Release top so it sits bottom-right as intended. */
+@media (max-width: 768px) {
+  .image-expand-btn {
+    top: auto !important;
   }
 }

@@ -78,7 +78,7 @@ export function InteractiveProjectCard({
       'Danone Digital Transformation': '4:3', // Corporate - square
       'Parques Reunidos': '16:9', // Entertainment - wide
       'Flagship Entertainment Destination, KSA': '16:9', // Entertainment - wide
-    'STC Kuwait CEX Center': '16:9'  // Telecom - wide cinematic
+    'GCC Telecom Leader — Customer Experience Center': '16:9'  // Telecom - wide cinematic
     };
     return ratios[projectTitle] || '4:3';
   };
@@ -159,8 +159,7 @@ export function InteractiveProjectCard({
                     opacity: imageLoaded ? (project.video && videoReady && (isHovered || isActive) ? 0 : 1) : 0,
                     transition: 'opacity 0.8s ease',
                   }}
-                  quality={100}
-                  unoptimized
+                  quality={90}
                   priority={index < 2}
                   sizes={isMobile ? '100vw' : '(max-width: 1200px) 80vw, 1200px'}
                   onLoad={() => setImageLoaded(true)}
