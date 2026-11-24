@@ -62,7 +62,11 @@ New files you create under `public/art/**` sit outside the sparse definition. Ad
 git add --sparse public/art
 ```
 
-Videos (`*.mp4`) are excluded from deploys by `.vercelignore` and do not exist in production. **Do not reference any video anywhere** (see §7.4).
+Videos: the source `*.mp4` files under `public/projects/**` are excluded from deploys by `.vercelignore` (they are 5–40 MB each), so **no video has ever played in production**; every request 404s. The fix is not to drop them. Re-encode web-size copies into `public/art/video/` (not matched by `.vercelignore`) and play those. See §5.6. Restore the sources for encoding with:
+
+```bash
+git ls-files public/projects | grep -iE '\.(mp4|mov)$' | while IFS= read -r p; do mkdir -p "$(dirname "$p")"; git show "HEAD:$p" > "$p"; done
+```
 
 ---
 
@@ -307,7 +311,47 @@ Snippets: `art: '/art/snippets/<id>.jpg'`. The ids match the slugs (`dzrt-badel`
 
 - `gcc-telecom` (1387px source), `qiddiya` (1606px), `dzrt-badel` (1057px): request ≥2400px originals.
 - `tigo-millicom`: no 4:3 crop keeps both the Tigo-UNE and Millicom lockups whole. Request a replacement image.
+- GCC Telecom / stc: no video file in the repo. Request the CX Center film so the card can loop like Kayanee and Qiddiya.
 - About portrait `public/silvana-about.jpg` is 1024×1024. It's soft at desktop size; request a ≥2000px original.
+
+### 5.6 Video system (motion is part of the work, keep it)
+
+Kayanee, Qiddiya and Augoor have real video. It is the strongest material on the site and must play, **but only as web-encoded derivatives**: never the raw sources, never in production as 404s again.
+
+**Source inventory (in git, absent from production):**
+
+| Source | Size | Use |
+|---|---|---|
+| `public/projects/kayanee/kayanee-story.mp4` | 29.9 MB | Kayanee **card loop** + case-study hero film |
+| `public/projects/kayanee/beat-concept-v2.mp4` | 5.5 MB | Kayanee case-study gallery film ("Process Documentation", keep `playbackRate = 1.75`) |
+| `public/projects/qiddiya/qiddiya-city.mp4` | 12.9 MB | Qiddiya **card loop** + case-study hero film |
+| `public/projects/augoor/product-demo.mp4` | 39.9 MB | Augoor case-study film only (screen recording; the card keeps the key art) |
+| `public/projects/kayanee/beat-concept.mp4` | 9.9 MB | Superseded by v2. Do not use, do not delete |
+| GCC Telecom / stc | none in repo | No video file exists. Ship the still. Add a `cardVideo` slot that stays empty, and list "stc CX Center film needed" in the report |
+
+**Encode** with `scripts/encode-video.mjs`, using `ffmpeg-static` (`npm i -D ffmpeg-static`; there is no system ffmpeg on this machine). Pick segments by extracting one frame per second to `docs/art-direction/qa/video-frames/<slug>/` and looking at them: the loop must be the most cinematic stretch with no title cards, UI chrome, logos-only frames or black frames.
+
+| Output | Spec |
+|---|---|
+| `public/art/video/<slug>-loop.mp4` (card) | 8–12 s, cropped to **16:10** (center crop unless the frames show the subject off-center), 1600 px wide, H.264 High, `-crf 26 -preset slow -pix_fmt yuv420p -movflags +faststart`, **audio stripped** (`-an`), ≤ **3.5 MB**. Last frame should cut cleanly back to the first (pick a segment that loops, or add a 0.4 s crossfade with `xfade`) |
+| `public/art/video/<slug>-film.mp4` (case study) | Full length, native ratio, max 1920 px wide, `-crf 24`, AAC 128k audio kept if the source has it, faststart, ≤ **12 MB** (raise CRF until it fits) |
+| `public/art/video/<slug>-poster.jpg` | The loop's first frame at 1600 px, JPEG q86, so the swap from still to video is invisible. For the card, this replaces `project.art` as the still layer |
+
+Slugs: `kayanee`, `qiddiya`, `augoor`, `kayanee-beat`. Commit with `git add --sparse public/art/video`.
+
+**Data:** add `cardVideo`, `cardPoster`, `filmVideo` to the project objects. Keep the existing `video`/`galleryVideo` fields untouched but stop reading them. Point `galleryVideo` usage at `/art/video/kayanee-beat-film.mp4`.
+
+**Card playback (`InteractiveProjectCard.tsx`):**
+- Still layer: `next/image` of `cardPoster` (or `art` if no video), `object-fit: cover`, as in §7.4.
+- Video layer on top, same frame, `object-fit: cover`: `<video muted playsInline loop preload="none" poster={cardPoster} aria-hidden="true">`. Set `src` and call `play()` **only when the project is the active one and the frame is ≥ 50% in the viewport** (IntersectionObserver). Pause and reset when it leaves or the project changes.
+- Fade the video in (opacity, `--ea-dur-2`) on `playing`, not on `loadeddata`. On `error` keep the still. This keeps the existing `videoReady` idea, rewritten cleanly.
+- **Do not play** when `prefers-reduced-motion: reduce` or `navigator.connection?.saveData` is true. Show the still.
+- No overlay on the video. Instead, WCAG 2.2.2: add a text control **in the controls row** (next to the counter, not on the image): "Pause motion" / "Play motion", `ea-t-label`, 44 px tall, shown only for projects with `cardVideo`. The choice persists for the session.
+- Mobile plays too (muted inline video is allowed on iOS), with the same viewport/active rules.
+
+**Case study (§7.5):** if `filmVideo` exists, the hero is that film instead of the still: `<video controls playsInline preload="metadata" poster={cardPoster}>`, 16:10 frame, `object-fit: cover`, `max-height: 78svh`. Kayanee's beat film stays last in the gallery at native ratio with native controls and `playbackRate = 1.75`.
+
+**Performance:** the poster is the LCP candidate, never the video. `preload="none"` on cards means no video bytes load until the project is active and visible. Lighthouse budgets (§9) still apply.
 
 ---
 
@@ -404,8 +448,9 @@ Keep what shipped on 2026-11-23: full-bleed portrait (`/silvana-hero.jpg`, objec
   - **No autoplay.** Remove any rotation timer.
   - Switching projects is a **crossfade only**: opacity, `--ea-dur-2`, `--ea-ease`. No x-slide, blur or 3D.
   - Keyboard ← → works when the section is focused.
+- **Video:** projects with `cardVideo` (Kayanee, Qiddiya) play a muted loop in the media frame. Follow §5.6 exactly.
 - **Remove from the card component:**
-  - The video layer and `videoReady` logic: the `<motion.video>` block, plus `video`/`galleryVideo` usage in the card.
+  - The old `<motion.video>` block that reads `project.video` (raw source path). Replace it with the §5.6 implementation.
   - The overlay tags (year/category chips).
   - The expand button and lightbox trigger. Clicking the media opens the case study instead.
   - Shimmer skeletons, all inline `style={{…}}` objects (move them to CSS), and `getAspectRatio`.
@@ -418,7 +463,7 @@ Keep what shipped on 2026-11-23: full-bleed portrait (`/silvana-hero.jpg`, objec
   - "← All projects" (`ea-t-label`, `--ea-ink`) on the left.
   - Project title (`ea-t-small`, `--ea-ink-soft`) in the center, ≥lg only.
   - Close × (44×44) on the right.
-- **Hero:** `project.art` (16:10), full-bleed, `max-height: 78svh`, `object-fit: cover`.
+- **Hero:** `project.art` (16:10), full-bleed, `max-height: 78svh`, `object-fit: cover`. If the project has `filmVideo` (Kayanee, Qiddiya, Augoor), the hero is the film with native controls instead (§5.6).
 - **Title block** (container, columns 1–9):
   - Client: `ea-t-label`, accent-on-light.
   - Title: `ea-t-display`, but **not** lowercased. Use `text-transform: none` because project names are proper nouns.
@@ -429,7 +474,7 @@ Keep what shipped on 2026-11-23: full-bleed portrait (`/silvana-hero.jpg`, objec
   - <lg: label stacked above text.
   - `--ea-s-8` between sections.
 - **Impact metrics** (`impactMetrics`): 3 columns. Value in `ea-t-title-1` with tabular numbers, key as `ea-t-label` below it.
-- **Gallery:** columns 2–11, one image per row at its **native ratio** (`object-fit` not needed; width 100%, height auto), `--ea-s-7` apart, no frames or captions. This is the only place images aren't cropped, because they are documentation.
+- **Gallery:** Kayanee's beat film is the last item (§5.6). Columns 2–11, one image per row at its **native ratio** (`object-fit` not needed; width 100%, height auto), `--ea-s-7` apart, no frames or captions. This is the only place images aren't cropped, because they are documentation.
 - **Footer of the overlay:** "Next project →" (`ea-t-title-2`, accent-on-light) linking to the next project. Remove the duplicated `footer-editorial` inside the overlay.
 
 ### 7.6 Selected engagements (`#project-snippets`, `ProjectSnippetGrid.tsx` / `ProjectSnippetCard.tsx`, `ea/engagements.css`, surface `--ea-surface-ink`)
@@ -513,7 +558,7 @@ Keep what shipped on 2026-11-23: full-bleed portrait (`/silvana-hero.jpg`, objec
 |---|---|---|---|
 | 0 | `git fetch origin && git switch -c feature/art-direction-v1 origin/docs/art-direction-spec`, restore images (§1), `npm ci`, baseline screenshots of production at the 6 widths into `docs/art-direction/qa/before/` | 30 min | `chore:` |
 | 1 | Foundation: tokens (§3), `site.css` + `ea/base`, `type`, `layout`; archive legacy CSS (§2); remove the components in §2.6. The site will look unstyled, which is expected. | 60 min | `feat(system):` |
-| 2 | Images: `scripts/art-direct.mjs`, generate `public/art/**`, check `crops-rendered.jpg` against `crops-final-preview.jpg`, add `art` fields | 45 min | `feat(art):` |
+| 2 | Images: `scripts/art-direct.mjs`, generate `public/art/**`, check `crops-rendered.jpg` against `crops-final-preview.jpg`, add `art` fields. Video: `scripts/encode-video.mjs`, pick segments from frames, encode loops/films/posters (§5.6), add video fields | 75 min | `feat(art):` |
 | 3 | Sections in order: nav → hero → about → projects → case study → engagements → services → experience → footer. **Build and screenshot after each section, one commit per section.** | 4 h 30 min | `feat(<section>):` |
 | 4 | QA pass (§11), fix every failure | 60 min | `fix(qa):` |
 | 5 | Open PR → wait for the Vercel preview → run §11 against the **preview URL** → merge gate (§12) | 30 min | none |
@@ -557,7 +602,11 @@ Then check, and record the result in the report:
 - [ ] All 6 projects open the case study, and "Next project" cycles through them.
 - [ ] The filters filter. The counter and prev/next work. No autoplay (the project shown stays the same for 10s).
 - [ ] Services accordion: open, close, `aria-expanded` toggles.
-- [ ] No console errors. Network: zero 404s (videos must no longer be requested).
+- [ ] No console errors. Network: zero 404s. Nothing under `/projects/**/*.mp4` is requested; only `/art/video/*`.
+- [ ] Kayanee and Qiddiya cards play their loop when active and visible, on desktop **and** at 375 px (check `video.paused === false` and `currentTime` advancing). The still-to-video swap shows no jump.
+- [ ] With `prefers-reduced-motion: reduce` emulated, no video plays and the stills show. "Pause motion" stops the loop.
+- [ ] Kayanee, Qiddiya and Augoor case studies open on a playable film; the Kayanee beat film plays at 1.75×.
+- [ ] Every `public/art/video/*-loop.mp4` ≤ 3.5 MB and every `*-film.mp4` ≤ 12 MB (`ls -l`).
 
 **Visual review (art direction): look at every screenshot yourself**
 - [ ] Each image's subject sits where `crops-final-preview.jpg` shows it.
@@ -602,6 +651,7 @@ These are deliberate art-direction calls made to finish overnight. Implement the
 8. The footer statement moves to **Cormorant display** (from italic sans-serif).
 9. Nav gains **CONTACT**. The mobile menu becomes a full-screen sheet.
 10. Card images use **new hero choices**: Augoor key art, Qiddiya aerial, GCC scene. The case-study `image` fields are unchanged.
+11. **Video returns.** Kayanee and Qiddiya cards play a muted 8–12 s loop; Kayanee, Qiddiya and Augoor case studies open on the full film. GCC/stc has no video file in the repo, so it ships as a still until Silvana supplies one.
 
 ---
 
