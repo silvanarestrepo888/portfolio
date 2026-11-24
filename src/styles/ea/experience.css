@@ -34,10 +34,10 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--ea-ink-strong);
+  background: var(--ea-rule-light-strong);
 }
 
-.ea-exp__item.is-current .ea-exp__dot { background: var(--ea-accent-on-light); }
+.ea-exp__item.is-current .ea-exp__dot { background: var(--ea-accent-mark); }
 
 .ea-exp__company { color: var(--ea-ink-strong); }
 .ea-exp__label   { color: var(--ea-ink-soft); }
@@ -45,7 +45,7 @@
 .ea-exp__item.is-current .ea-exp__company,
 .ea-exp__item.is-current .ea-exp__label { color: var(--ea-accent-on-light); }
 
-.ea-exp__item.is-active .ea-exp__company { color: var(--ea-accent-on-light); }
+.ea-exp__item.is-active .ea-exp__company { text-decoration: underline; text-underline-offset: 4px; }
 
 .ea-exp__reveal {
   display: none;

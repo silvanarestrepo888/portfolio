@@ -22,8 +22,6 @@
   height: 64px;
   padding-inline: var(--ea-grid-margin);
   background: var(--ea-overlay-bar);
-  backdrop-filter: saturate(1.2) blur(12px);
-  -webkit-backdrop-filter: saturate(1.2) blur(12px);
   border-bottom: 1px solid var(--ea-rule-light);
 }
 
@@ -35,7 +33,7 @@
   color: var(--ea-ink);
 }
 
-.ea-case__back:hover { color: var(--ea-accent-on-light); }
+.ea-case__back:hover { text-decoration: underline; text-underline-offset: 6px; }
 
 .ea-case__bar-title {
   display: none;
@@ -164,7 +162,7 @@
   display: grid;
   gap: var(--ea-s-4);
   padding-left: var(--ea-s-5);
-  border-left: 1px solid var(--ea-accent-on-light);
+  border-left: 1px solid var(--ea-rule-light-strong);
 }
 
 .ea-case__quote blockquote {

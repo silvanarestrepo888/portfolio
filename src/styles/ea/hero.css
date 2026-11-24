@@ -1,18 +1,20 @@
-/* hero.css — full-bleed portrait, bottom scrim, title anchored lower-left (§7.2) */
+/* hero.css — full-bleed portrait above, headline on a solid gallery band (§7.2).
+   Architectural Flux forbids gradients and transparency over images, so the
+   title sits on gallery instead of on a scrim. */
 
 .ea-hero {
-  position: relative;
   min-height: 100svh;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
   background: var(--ea-surface-noir);
   color: var(--ea-on-dark);
-  overflow: hidden;
 }
 
 .ea-hero__media {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 56svh;
+  overflow: hidden;
 }
 
 .ea-hero__img {
@@ -20,19 +22,9 @@
   object-position: center 12%;
 }
 
-.ea-hero__media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--ea-scrim-mobile);
-}
-
-@media (min-width: 769px) {
-  .ea-hero__media::after { background: var(--ea-scrim-desktop); }
-}
-
 .ea-hero__content {
   position: relative;
+  padding-top: var(--ea-s-7);
   padding-bottom: clamp(48px, 9svh, 96px);
   animation: ea-hero-in var(--ea-dur-3) var(--ea-ease) both;
 }
