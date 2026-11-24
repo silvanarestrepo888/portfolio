@@ -1,0 +1,78 @@
+/* about.css — text cols 1–6, portrait cols 8–12; portrait first on mobile (§7.3) */
+
+.ea-about__photo {
+  grid-column: 1 / -1;
+  margin-bottom: var(--ea-s-7);
+}
+
+.ea-about__frame {
+  position: relative;
+  aspect-ratio: var(--ea-ratio-portrait);
+  overflow: hidden;
+  border-radius: var(--ea-radius-media);
+  background: var(--ea-surface-paper);
+}
+
+.ea-about__img {
+  object-fit: cover;
+  object-position: 62% 30%;
+}
+
+.ea-about__text {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: var(--ea-s-7);
+  align-content: start;
+}
+
+.ea-about__text > .ea-t-body,
+.ea-about__thesis .ea-t-body {
+  color: var(--ea-ink);
+}
+
+.ea-about__hook {
+  color: var(--ea-ink-strong);
+  max-width: 26ch;
+}
+
+.ea-about__ladder {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 var(--ea-s-5);
+  border-left: 1px solid var(--ea-accent-on-light);
+  display: grid;
+  gap: var(--ea-s-2);
+  color: var(--ea-ink);
+}
+
+.ea-about__ladder strong {
+  color: var(--ea-ink-strong);
+}
+
+.ea-about__thesis {
+  display: grid;
+  gap: var(--ea-s-5);
+}
+
+.ea-about__welcome {
+  color: var(--ea-ink-soft);
+}
+
+@media (min-width: 768px) {
+  .ea-about__photo {
+    grid-column: 1 / span 6;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ea-about__text {
+    grid-column: 1 / span 6;
+    grid-row: 2;
+  }
+
+  .ea-about__photo {
+    grid-column: 8 / span 5;
+    grid-row: 2;
+    margin-bottom: 0;
+  }
+}

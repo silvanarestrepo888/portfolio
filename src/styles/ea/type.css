@@ -1,0 +1,112 @@
+/* type.css — the 8 type roles (§4). Nothing else sets type. */
+
+.ea-t-hero,
+.ea-t-display,
+.ea-t-title-1,
+.ea-t-title-2 {
+  font-family: var(--ea-font-display);
+  text-wrap: balance;
+  margin: 0;
+}
+
+.ea-t-hero {
+  font-size: var(--ea-fs-hero);
+  font-weight: 300;
+  line-height: var(--ea-lh-tight);
+  letter-spacing: var(--ea-track-display);
+}
+
+.ea-t-display {
+  font-size: var(--ea-fs-display);
+  font-weight: 300;
+  line-height: var(--ea-lh-tight);
+  letter-spacing: var(--ea-track-display);
+  text-transform: lowercase;
+}
+
+.ea-t-title-1 {
+  font-size: var(--ea-fs-title-1);
+  font-weight: 400;
+  line-height: var(--ea-lh-title);
+  letter-spacing: var(--ea-track-title);
+  max-width: 24ch;
+}
+
+.ea-t-title-2 {
+  font-size: var(--ea-fs-title-2);
+  font-weight: 400;
+  line-height: var(--ea-lh-title);
+  letter-spacing: var(--ea-track-title);
+  max-width: 32ch;
+}
+
+.ea-t-lead,
+.ea-t-body,
+.ea-t-small,
+.ea-t-label {
+  font-family: var(--ea-font-body);
+  margin: 0;
+}
+
+.ea-t-lead {
+  font-size: var(--ea-fs-lead);
+  font-weight: 400;
+  line-height: var(--ea-lh-lead);
+  max-width: var(--ea-measure-lead);
+  text-wrap: pretty;
+}
+
+.ea-t-body {
+  font-size: var(--ea-fs-body);
+  font-weight: 400;
+  line-height: var(--ea-lh-body);
+  max-width: var(--ea-measure-body);
+  text-wrap: pretty;
+}
+
+.ea-t-small {
+  font-size: var(--ea-fs-small);
+  font-weight: 400;
+  line-height: var(--ea-lh-small);
+  max-width: var(--ea-measure-lead);
+  text-wrap: pretty;
+}
+
+.ea-t-label {
+  font-size: var(--ea-fs-label);
+  font-weight: 500;
+  line-height: var(--ea-lh-label);
+  letter-spacing: var(--ea-track-label);
+  text-transform: uppercase;
+}
+
+.ea-t-italic {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.ea-tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+.ea-t-body strong,
+.ea-t-lead strong {
+  font-weight: 500;
+}
+
+.ea-t-title-1 em,
+.ea-t-title-2 em,
+.ea-t-display em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* em inside running text keeps the body face — no serif swaps mid-paragraph */
+.ea-t-body em,
+.ea-t-lead em {
+  font-style: italic;
+}
+
+.ea-nowrap {
+  white-space: nowrap;
+}

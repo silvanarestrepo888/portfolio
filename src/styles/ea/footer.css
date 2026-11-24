@@ -1,0 +1,62 @@
+/* footer.css — the closing line on noir (§7.9 + change #18) */
+
+.ea-foot__main {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ea-foot__statement {
+  color: var(--ea-on-dark);
+  text-transform: none;
+  max-width: 20ch;
+}
+
+.ea-foot__email {
+  margin-top: var(--ea-s-7);
+  color: var(--ea-accent);
+  max-width: none;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: color var(--ea-dur-1) var(--ea-ease);
+}
+
+.ea-foot__email:hover { color: var(--ea-on-dark); }
+
+.ea-foot__voice {
+  margin-top: var(--ea-s-6);
+  color: var(--ea-on-dark-soft);
+  transition: color var(--ea-dur-1) var(--ea-ease);
+}
+
+.ea-foot__voice:hover { color: var(--ea-accent); }
+
+.ea-foot__links {
+  list-style: none;
+  margin: var(--ea-s-5) 0 0;
+  padding: 0;
+  display: flex;
+  gap: var(--ea-s-5);
+}
+
+.ea-foot__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--ea-tap);
+  color: var(--ea-on-dark-soft);
+  transition: color var(--ea-dur-1) var(--ea-ease);
+}
+
+.ea-foot__link:hover { color: var(--ea-on-dark); }
+
+.ea-foot__credit {
+  margin-top: var(--ea-s-9);
+  color: var(--ea-on-dark-faint);
+}
+
+@media (min-width: 1024px) {
+  .ea-foot__main { grid-column: 1 / span 10; }
+}

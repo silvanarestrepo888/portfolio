@@ -1,0 +1,103 @@
+/* services.css — accordion on the coral band (§7.7). No opacity on text. */
+
+.ea-svc__head { grid-column: 1 / -1; }
+
+.ea-svc__list {
+  grid-column: 1 / -1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ea-rule-coral);
+}
+
+.ea-svc__row {
+  border-bottom: 1px solid var(--ea-rule-coral);
+}
+
+.ea-svc__h {
+  margin: 0;
+  font: inherit;
+}
+
+.ea-svc__header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "title icon"
+    "tag   icon";
+  column-gap: var(--ea-s-5);
+  row-gap: var(--ea-s-2);
+  align-items: center;
+  width: 100%;
+  min-height: 88px;
+  padding-block: var(--ea-s-5);
+  text-align: left;
+  color: var(--ea-on-coral);
+}
+
+.ea-svc__title { grid-area: title; }
+
+.ea-svc__tagline {
+  grid-area: tag;
+  color: var(--ea-on-coral);
+}
+
+.ea-svc__icon {
+  grid-area: icon;
+  align-self: start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ea-tap);
+  height: var(--ea-tap);
+  transition: transform var(--ea-dur-2) var(--ea-ease);
+}
+
+.ea-svc__icon svg { width: 20px; height: 20px; }
+
+.ea-svc__row.is-open .ea-svc__icon { transform: rotate(45deg); }
+
+.ea-svc__body:not([hidden]) {
+  animation: ea-fade var(--ea-dur-2) var(--ea-ease) both;
+}
+
+.ea-svc__inner {
+  display: grid;
+  gap: var(--ea-s-5);
+  padding-bottom: var(--ea-s-7);
+  color: var(--ea-on-coral);
+}
+
+.ea-svc__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: var(--ea-s-2);
+  min-height: var(--ea-tap);
+  color: var(--ea-on-coral);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}
+
+@media (min-width: 1024px) {
+  .ea-svc__header {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-areas: none;
+    column-gap: var(--ea-grid-gutter);
+  }
+
+  .ea-svc__title   { grid-area: auto; grid-column: 1 / span 5; }
+  .ea-svc__tagline { grid-area: auto; grid-column: 6 / span 6; }
+  .ea-svc__icon    { grid-area: auto; grid-column: 12; justify-self: end; align-self: center; }
+
+  .ea-svc__body {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--ea-grid-gutter);
+  }
+
+  .ea-svc__body[hidden] { display: none; }
+
+  .ea-svc__inner { grid-column: 6 / span 6; }
+}

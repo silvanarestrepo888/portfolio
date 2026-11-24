@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
-import "./globals.css";
-import "./layout-fix.css";
-import "./enhanced-scroll-append.css";
-import { TopographicBackground } from "@/components/backgrounds/TopographicBackground";
-import { ChromaticIntelligence, QuantumCursor } from "@/components/ui/LandorLuxurySystem";
+import "./site.css";
 
 const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-cormorant-display",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400"],
   style: ["normal", "italic"],
   display: "swap",
   preload: true,
@@ -18,7 +14,7 @@ const cormorantGaramond = Cormorant_Garamond({
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500"],
   display: "swap",
   preload: true,
 });
@@ -73,21 +69,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
-      <body
-        className={`${cormorantGaramond.variable} ${inter.variable} antialiased`}
-        style={{
-          textRendering: 'optimizeLegibility',
-          WebkitFontSmoothing: 'antialiased',
-          MozOsxFontSmoothing: 'grayscale'
-        } as React.CSSProperties}
-      >
-        <TopographicBackground />
-        <ChromaticIntelligence />
-        <QuantumCursor />
+      <body className={`${cormorantGaramond.variable} ${inter.variable}`}>
         {children}
       </body>
     </html>
