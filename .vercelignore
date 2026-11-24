@@ -1,3 +1,6 @@
-# Exclude all video files (too large for Vercel 100MB limit)
-public/projects/**/*.mp4
-public/projects/**/*.mov
+# Project videos are served from public/projects/** (Kayanee, Qiddiya, Augoor).
+# They were excluded here on 2026-10-15, which removed every video from
+# production starting with the 2026-10-28 deploy. Git-based deploys served
+# them fine before that (2026-08-19 deployment), so the rule is disabled.
+# public/projects/**/*.mp4
+# public/projects/**/*.mov
