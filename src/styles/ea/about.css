@@ -10,7 +10,7 @@
   aspect-ratio: var(--ea-ratio-portrait);
   overflow: hidden;
   border-radius: var(--ea-radius-media);
-  background: var(--ea-surface-paper);
+  background: var(--ea-surface-contained);
 }
 
 .ea-about__img {
@@ -39,7 +39,7 @@
   list-style: none;
   margin: 0;
   padding: 0 0 0 var(--ea-s-5);
-  border-left: 1px solid var(--ea-accent-on-light);
+  border-left: 1px solid var(--ea-rule-light-strong);
   display: grid;
   gap: var(--ea-s-2);
   color: var(--ea-ink);

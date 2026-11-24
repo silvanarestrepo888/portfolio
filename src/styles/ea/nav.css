@@ -13,8 +13,6 @@
   padding-inline: var(--ea-s-5) var(--ea-s-2);
   box-sizing: border-box;
   background: var(--ea-nav-bg);
-  backdrop-filter: saturate(1.2) blur(12px);
-  -webkit-backdrop-filter: saturate(1.2) blur(12px);
   border: 1px solid var(--ea-rule-light);
   border-radius: var(--ea-radius-pill);
   transition: background-color var(--ea-dur-2) var(--ea-ease);
@@ -65,7 +63,7 @@
   right: 0;
   bottom: 6px;
   height: 1px;
-  background: var(--ea-accent-on-light);
+  background: var(--ea-accent-mark);
 }
 
 .ea-nav__menu {
@@ -138,4 +136,4 @@
   color: var(--ea-ink-strong);
 }
 
-.ea-sheet__link:hover { color: var(--ea-accent-on-light); }
+.ea-sheet__link:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
