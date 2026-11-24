@@ -1,0 +1,572 @@
+[
+  {
+    "w": 375,
+    "ok": true,
+    "msg": "no horizontal overflow"
+  },
+  {
+    "w": 375,
+    "ok": true,
+    "msg": "no text < 12px"
+  },
+  {
+    "w": 375,
+    "ok": true,
+    "msg": "faces Cormorant 400, Inter 500, Cormorant 300, Inter 400"
+  },
+  {
+    "w": 375,
+    "ok": true,
+    "msg": "low density 1x ext/image?url=%2Fart%2Fvideo%2Fkayanee-poster.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 375,
+    "ok": true,
+    "msg": "low density 1x next/image?url=%2Fart%2Fsnippets%2Fdzrt-badel.jpg&w=320&q=85 (logged, not failing)"
+  },
+  {
+    "w": 375,
+    "ok": true,
+    "msg": "low density 1x mage?url=%2Fart%2Fsnippets%2Fparques-reunidos.jpg&w=320&q=85 (logged, not failing)"
+  },
+  {
+    "w": 375,
+    "ok": true,
+    "msg": "low density 1x 02/_next/image?url=%2Fart%2Fsnippets%2Fdanone.jpg&w=320&q=85 (logged, not failing)"
+  },
+  {
+    "w": 375,
+    "ok": true,
+    "msg": "low density 1x t/image?url=%2Fart%2Fsnippets%2Fc4ir-colombia.jpg&w=320&q=85 (logged, not failing)"
+  },
+  {
+    "w": 375,
+    "ok": true,
+    "msg": "low density 1x xt/image?url=%2Fart%2Fsnippets%2Fwef-designit.jpg&w=320&q=85 (logged, not failing)"
+  },
+  {
+    "w": 375,
+    "ok": true,
+    "msg": "low density 1x next/image?url=%2Fart%2Fsnippets%2Fviva-malls.jpg&w=320&q=85 (logged, not failing)"
+  },
+  {
+    "w": 375,
+    "ok": false,
+    "msg": "image not loaded "
+  },
+  {
+    "w": 375,
+    "ok": true,
+    "msg": "low density 0x  (logged, not failing)"
+  },
+  {
+    "w": 375,
+    "ok": false,
+    "msg": "image not loaded "
+  },
+  {
+    "w": 375,
+    "ok": true,
+    "msg": "low density 0x  (logged, not failing)"
+  },
+  {
+    "w": 375,
+    "ok": true,
+    "msg": "nav centred"
+  },
+  {
+    "w": 375,
+    "ok": true,
+    "msg": "header edge 20"
+  },
+  {
+    "w": 375,
+    "ok": true,
+    "msg": "section padding-bottom about:96px projects:96px project-snippets:96px services:96px experience:96px contact:96px"
+  },
+  {
+    "w": 375,
+    "ok": true,
+    "msg": "no console errors"
+  },
+  {
+    "w": 375,
+    "ok": true,
+    "msg": "no 4xx/5xx"
+  },
+  {
+    "w": 768,
+    "ok": true,
+    "msg": "no horizontal overflow"
+  },
+  {
+    "w": 768,
+    "ok": true,
+    "msg": "no text < 12px"
+  },
+  {
+    "w": 768,
+    "ok": true,
+    "msg": "faces Cormorant 400, Inter 500, Cormorant 300, Inter 400"
+  },
+  {
+    "w": 768,
+    "ok": true,
+    "msg": "low density 1x ext/image?url=%2Fart%2Fvideo%2Fkayanee-poster.jpg&w=768&q=85 (logged, not failing)"
+  },
+  {
+    "w": 768,
+    "ok": true,
+    "msg": "low density 1x next/image?url=%2Fart%2Fsnippets%2Fdzrt-badel.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 768,
+    "ok": true,
+    "msg": "low density 1x mage?url=%2Fart%2Fsnippets%2Fparques-reunidos.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 768,
+    "ok": true,
+    "msg": "low density 1x 02/_next/image?url=%2Fart%2Fsnippets%2Fdanone.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 768,
+    "ok": true,
+    "msg": "low density 1x t/image?url=%2Fart%2Fsnippets%2Fc4ir-colombia.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 768,
+    "ok": true,
+    "msg": "low density 1x xt/image?url=%2Fart%2Fsnippets%2Fwef-designit.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 768,
+    "ok": true,
+    "msg": "low density 1x next/image?url=%2Fart%2Fsnippets%2Fviva-malls.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 768,
+    "ok": true,
+    "msg": "low density 1x ext/image?url=%2Fart%2Fsnippets%2Fgrupo-exito.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 768,
+    "ok": false,
+    "msg": "image not loaded "
+  },
+  {
+    "w": 768,
+    "ok": true,
+    "msg": "low density 0x  (logged, not failing)"
+  },
+  {
+    "w": 768,
+    "ok": true,
+    "msg": "nav centred"
+  },
+  {
+    "w": 768,
+    "ok": true,
+    "msg": "header edge 40"
+  },
+  {
+    "w": 768,
+    "ok": true,
+    "msg": "section padding-bottom about:96px projects:96px project-snippets:96px services:96px experience:96px contact:96px"
+  },
+  {
+    "w": 768,
+    "ok": true,
+    "msg": "no console errors"
+  },
+  {
+    "w": 768,
+    "ok": true,
+    "msg": "no 4xx/5xx"
+  },
+  {
+    "w": 1024,
+    "ok": true,
+    "msg": "no horizontal overflow"
+  },
+  {
+    "w": 1024,
+    "ok": true,
+    "msg": "no text < 12px"
+  },
+  {
+    "w": 1024,
+    "ok": true,
+    "msg": "faces Cormorant 400, Inter 500, Cormorant 300, Inter 400"
+  },
+  {
+    "w": 1024,
+    "ok": true,
+    "msg": "low density 1.14x ext/image?url=%2Fart%2Fvideo%2Fkayanee-poster.jpg&w=768&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1024,
+    "ok": true,
+    "msg": "low density 1x next/image?url=%2Fart%2Fsnippets%2Fdzrt-badel.jpg&w=320&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1024,
+    "ok": true,
+    "msg": "low density 1x mage?url=%2Fart%2Fsnippets%2Fparques-reunidos.jpg&w=320&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1024,
+    "ok": true,
+    "msg": "low density 1x 02/_next/image?url=%2Fart%2Fsnippets%2Fdanone.jpg&w=320&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1024,
+    "ok": true,
+    "msg": "low density 1x t/image?url=%2Fart%2Fsnippets%2Fc4ir-colombia.jpg&w=320&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1024,
+    "ok": true,
+    "msg": "low density 1x xt/image?url=%2Fart%2Fsnippets%2Fwef-designit.jpg&w=320&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1024,
+    "ok": true,
+    "msg": "low density 1x next/image?url=%2Fart%2Fsnippets%2Fviva-malls.jpg&w=320&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1024,
+    "ok": true,
+    "msg": "low density 1x ext/image?url=%2Fart%2Fsnippets%2Fgrupo-exito.jpg&w=320&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1024,
+    "ok": true,
+    "msg": "low density 1x t/image?url=%2Fart%2Fsnippets%2Ftigo-millicom.jpg&w=320&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1024,
+    "ok": true,
+    "msg": "nav centred"
+  },
+  {
+    "w": 1024,
+    "ok": true,
+    "msg": "header edge 53"
+  },
+  {
+    "w": 1024,
+    "ok": true,
+    "msg": "section padding-bottom about:112.64px projects:112.64px project-snippets:112.64px services:112.64px experience:112.64px contact:112.64px"
+  },
+  {
+    "w": 1024,
+    "ok": true,
+    "msg": "no console errors"
+  },
+  {
+    "w": 1024,
+    "ok": true,
+    "msg": "no 4xx/5xx"
+  },
+  {
+    "w": 1280,
+    "ok": true,
+    "msg": "no horizontal overflow"
+  },
+  {
+    "w": 1280,
+    "ok": true,
+    "msg": "no text < 12px"
+  },
+  {
+    "w": 1280,
+    "ok": true,
+    "msg": "faces Cormorant 400, Inter 500, Cormorant 300, Inter 400"
+  },
+  {
+    "w": 1280,
+    "ok": true,
+    "msg": "low density 1.14x ext/image?url=%2Fart%2Fvideo%2Fkayanee-poster.jpg&w=768&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1280,
+    "ok": true,
+    "msg": "low density 1x next/image?url=%2Fart%2Fsnippets%2Fdzrt-badel.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1280,
+    "ok": true,
+    "msg": "low density 1x mage?url=%2Fart%2Fsnippets%2Fparques-reunidos.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1280,
+    "ok": true,
+    "msg": "low density 1x 02/_next/image?url=%2Fart%2Fsnippets%2Fdanone.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1280,
+    "ok": true,
+    "msg": "low density 1x t/image?url=%2Fart%2Fsnippets%2Fc4ir-colombia.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1280,
+    "ok": true,
+    "msg": "low density 1x xt/image?url=%2Fart%2Fsnippets%2Fwef-designit.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1280,
+    "ok": true,
+    "msg": "low density 1x next/image?url=%2Fart%2Fsnippets%2Fviva-malls.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1280,
+    "ok": true,
+    "msg": "low density 1x ext/image?url=%2Fart%2Fsnippets%2Fgrupo-exito.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1280,
+    "ok": false,
+    "msg": "image not loaded "
+  },
+  {
+    "w": 1280,
+    "ok": true,
+    "msg": "low density 0x  (logged, not failing)"
+  },
+  {
+    "w": 1280,
+    "ok": true,
+    "msg": "nav centred"
+  },
+  {
+    "w": 1280,
+    "ok": true,
+    "msg": "header edge 67"
+  },
+  {
+    "w": 1280,
+    "ok": true,
+    "msg": "section padding-bottom about:140.8px projects:140.8px project-snippets:140.8px services:140.8px experience:140.8px contact:140.8px"
+  },
+  {
+    "w": 1280,
+    "ok": true,
+    "msg": "no console errors"
+  },
+  {
+    "w": 1280,
+    "ok": true,
+    "msg": "no 4xx/5xx"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "no horizontal overflow"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "no text < 12px"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "faces Cormorant 400, Inter 500, Cormorant 300, Inter 400"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "low density 1.14x ext/image?url=%2Fart%2Fvideo%2Fkayanee-poster.jpg&w=768&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "low density 1x next/image?url=%2Fart%2Fsnippets%2Fdzrt-badel.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "low density 1x mage?url=%2Fart%2Fsnippets%2Fparques-reunidos.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "low density 1x 02/_next/image?url=%2Fart%2Fsnippets%2Fdanone.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "low density 1x t/image?url=%2Fart%2Fsnippets%2Fc4ir-colombia.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "low density 1x xt/image?url=%2Fart%2Fsnippets%2Fwef-designit.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "low density 1x next/image?url=%2Fart%2Fsnippets%2Fviva-malls.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "low density 1x ext/image?url=%2Fart%2Fsnippets%2Fgrupo-exito.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "low density 1x t/image?url=%2Fart%2Fsnippets%2Ftigo-millicom.jpg&w=384&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "nav centred"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "header edge 75"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "section padding-bottom about:158.4px projects:158.4px project-snippets:158.4px services:158.4px experience:158.4px contact:158.4px"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "no console errors"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "no 4xx/5xx"
+  },
+  {
+    "w": 1920,
+    "ok": true,
+    "msg": "no horizontal overflow"
+  },
+  {
+    "w": 1920,
+    "ok": true,
+    "msg": "no text < 12px"
+  },
+  {
+    "w": 1920,
+    "ok": true,
+    "msg": "faces Cormorant 400, Inter 500, Cormorant 300, Inter 400"
+  },
+  {
+    "w": 1920,
+    "ok": true,
+    "msg": "low density 1.44x xt/image?url=%2Fart%2Fvideo%2Fkayanee-poster.jpg&w=1024&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1920,
+    "ok": true,
+    "msg": "low density 1.29x next/image?url=%2Fart%2Fsnippets%2Fdzrt-badel.jpg&w=768&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1920,
+    "ok": true,
+    "msg": "low density 1.29x mage?url=%2Fart%2Fsnippets%2Fparques-reunidos.jpg&w=768&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1920,
+    "ok": true,
+    "msg": "low density 1.29x 02/_next/image?url=%2Fart%2Fsnippets%2Fdanone.jpg&w=768&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1920,
+    "ok": true,
+    "msg": "low density 1.29x t/image?url=%2Fart%2Fsnippets%2Fc4ir-colombia.jpg&w=768&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1920,
+    "ok": true,
+    "msg": "low density 1.29x xt/image?url=%2Fart%2Fsnippets%2Fwef-designit.jpg&w=768&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1920,
+    "ok": true,
+    "msg": "low density 1.29x next/image?url=%2Fart%2Fsnippets%2Fviva-malls.jpg&w=768&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1920,
+    "ok": true,
+    "msg": "low density 1.29x ext/image?url=%2Fart%2Fsnippets%2Fgrupo-exito.jpg&w=768&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1920,
+    "ok": true,
+    "msg": "low density 1.29x t/image?url=%2Fart%2Fsnippets%2Ftigo-millicom.jpg&w=768&q=85 (logged, not failing)"
+  },
+  {
+    "w": 1920,
+    "ok": true,
+    "msg": "nav centred"
+  },
+  {
+    "w": 1920,
+    "ok": true,
+    "msg": "header edge 280"
+  },
+  {
+    "w": 1920,
+    "ok": true,
+    "msg": "section padding-bottom about:160px projects:160px project-snippets:160px services:160px experience:160px contact:160px"
+  },
+  {
+    "w": 1920,
+    "ok": true,
+    "msg": "no console errors"
+  },
+  {
+    "w": 1920,
+    "ok": true,
+    "msg": "no 4xx/5xx"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "no autoplay over 10s"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "next works"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "filter works (Design Ops → 1)"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "all 6 case studies open and Next cycles"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "Esc closes case study"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "accordion opens"
+  },
+  {
+    "w": 1440,
+    "ok": true,
+    "msg": "accordion closes"
+  },
+  {
+    "w": "-",
+    "ok": true,
+    "msg": "WebKit not installed — video checks run in the browser pane instead"
+  }
+]

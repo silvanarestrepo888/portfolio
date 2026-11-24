@@ -13,6 +13,7 @@
   gap: var(--ea-s-6);
   overflow-x: auto;
   scroll-snap-type: x proximity;
+  scroll-padding-inline: var(--ea-grid-margin);
   scrollbar-width: none;
   padding-inline: var(--ea-grid-margin);
   margin-bottom: var(--ea-header-gap);
@@ -24,6 +25,7 @@
 @media (min-width: 1024px) {
   .ea-proj__tabs {
     padding-inline: 0;
+    scroll-padding-inline: 0;
     flex-wrap: wrap;
     column-gap: var(--ea-s-6);
     row-gap: 0;
