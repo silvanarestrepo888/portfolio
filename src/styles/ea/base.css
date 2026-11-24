@@ -43,20 +43,21 @@ a {
 
 ::selection {
   background: var(--ea-accent);
-  color: var(--ea-on-coral);
+  color: var(--ea-surface-noir);
 }
 
 :focus-visible {
-  outline: 2px solid var(--ea-focus-light);
+  outline: 2px solid var(--ea-accent-on-light);
   outline-offset: 3px;
 }
 
-.ea-on-dark :focus-visible {
-  outline-color: var(--ea-focus-dark);
+.ea-on-dark :focus-visible,
+.ea-on-coral :focus-visible {
+  outline-color: var(--ea-accent);
 }
 
 .ea-on-coral :focus-visible {
-  outline-color: var(--ea-focus-light);
+  outline-color: var(--ea-on-coral);
 }
 
 .ea-skip {

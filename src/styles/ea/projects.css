@@ -106,13 +106,26 @@
   }
 }
 
-.ea-proj__text {
+.ea-proj__texts {
   grid-column: 1 / -1;
+  display: grid;
+  margin-top: var(--ea-s-5);
+}
+
+.ea-proj__text {
+  grid-area: 1 / 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: var(--ea-s-5);
-  animation: ea-fade var(--ea-dur-2) var(--ea-ease) both;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--ea-dur-2) var(--ea-ease), visibility 0s linear var(--ea-dur-2);
+}
+
+.ea-proj__text.is-active {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity var(--ea-dur-2) var(--ea-ease);
 }
 
 .ea-proj__client { color: var(--ea-accent); }
@@ -164,6 +177,9 @@
 
 .ea-proj__motion:hover { color: var(--ea-on-dark); }
 
+/* Keeps the controls row the same height for projects without a loop */
+.ea-proj__motion.is-empty { visibility: hidden; }
+
 @media (min-width: 1024px) {
   .ea-proj__index {
     display: block;
@@ -204,7 +220,7 @@
     grid-row: 1 / span 2;
   }
 
-  .ea-proj__text {
+  .ea-proj__texts {
     grid-column: 10 / span 3;
     grid-row: 1;
     margin-top: 0;
