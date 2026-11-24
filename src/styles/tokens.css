@@ -232,55 +232,42 @@
      The new CSS (src/styles/ea/*) uses ONLY these.
      ========================================== */
 
-  /* ── ARCHITECTURAL FLUX — the authorized colour system (Claude Design).
-     Five colours. No tints, no transparencies, no gradients.
-     Every EA colour role below resolves to one of these five. ── */
-  --af-grapefruit: #ff6663;
-  --af-vanilla:    #fffbf0;
-  --af-charcoal:   #2c2c2c;
-  --af-gallery:    #14141a;
-  --af-stone:      #cfc8bd;
+  /* Surfaces — one per section */
+  --ea-surface-light:     var(--vanilla);
+  --ea-surface-paper:     var(--surface-parchment);
+  --ea-surface-ink:       var(--surface-ink);
+  --ea-surface-noir:      var(--surface-noir);
+  --ea-surface-coral:     linear-gradient(145deg, var(--coral-text) 0%, var(--coral-surface-deep) 55%, var(--coral-text) 100%);
+  --ea-surface-coral-solid: var(--coral-text);
 
-  /* Surfaces — light (vanilla) and dark (gallery) themes, accent fill */
-  --ea-surface-light:     var(--af-vanilla);
-  --ea-surface-paper:     var(--af-vanilla);
-  --ea-surface-contained: var(--af-stone);
-  --ea-surface-ink:       var(--af-gallery);
-  --ea-surface-noir:      var(--af-gallery);
-  --ea-surface-coral:     var(--af-grapefruit);
-  --ea-surface-coral-solid: var(--af-grapefruit);
+  /* Text on light surfaces */
+  --ea-ink-strong:        var(--charcoal-ink);
+  --ea-ink:               var(--charcoal-mid);
+  --ea-ink-soft:          var(--charcoal-muted);
 
-  /* Light theme — all text is ink (charcoal); hierarchy comes from type */
-  --ea-ink-strong:        var(--af-charcoal);
-  --ea-ink:               var(--af-charcoal);
-  --ea-ink-soft:          var(--af-charcoal);
+  /* Text on dark surfaces */
+  --ea-on-dark:           var(--vanilla);
+  --ea-on-dark-soft:      rgba(255, 254, 248, 0.72);
+  --ea-on-dark-faint:     rgba(255, 254, 248, 0.56);
+  --ea-rule-dark:         rgba(255, 254, 248, 0.14);
 
-  /* Dark theme — ink vanilla, ink-secondary stone, line charcoal */
-  --ea-on-dark:           var(--af-vanilla);
-  --ea-on-dark-soft:      var(--af-stone);
-  --ea-on-dark-faint:     var(--af-stone);
-  --ea-rule-dark:         var(--af-charcoal);
-  --ea-rule-dark-strong:  var(--af-stone);
+  /* Text on coral */
+  --ea-on-coral:          var(--vanilla-pure);
+  --ea-rule-coral:        rgba(255, 254, 249, 0.28);
+  --ea-rule-coral-strong: rgba(255, 254, 249, 0.6);
 
-  /* On an accent fill — on-accent is charcoal (4.88:1) */
-  --ea-on-coral:          var(--af-charcoal);
-  --ea-rule-coral:        var(--af-charcoal);
-  --ea-rule-coral-strong: var(--af-charcoal);
+  /* Accent */
+  --ea-accent:            var(--coral);
+  --ea-accent-on-light:   var(--coral-text);
+  --ea-rule-light:        rgba(45, 55, 72, 0.14);
 
-  /* Accent — grapefruit marks; as TEXT only on dark (accent-text) */
-  --ea-accent:            var(--af-grapefruit);
-  --ea-accent-text-dark:  var(--af-grapefruit);
-  --ea-accent-on-light:   var(--af-charcoal);   /* accent-text, light theme */
-  --ea-accent-mark:       var(--af-grapefruit); /* marks beside words, any theme */
-  --ea-rule-light:        var(--af-stone);      /* line */
-  --ea-rule-light-strong: var(--af-charcoal);   /* line-strong */
-  --ea-focus-light:       var(--af-charcoal);
-  --ea-focus-dark:        var(--af-grapefruit);
-
-  /* Chrome — solid, no transparency or blur */
-  --ea-nav-bg:            var(--af-vanilla);
-  --ea-nav-bg-scrolled:   var(--af-vanilla);
-  --ea-overlay-bar:       var(--af-vanilla);
+  /* Overlays (hero scrim, nav) */
+  --ea-nav-bg:            rgba(255, 254, 249, 0.92);
+  --ea-nav-bg-scrolled:   rgba(255, 254, 249, 0.97);
+  --ea-overlay-bar:       rgba(255, 254, 248, 0.94);
+  /* Hero scrim — ported exactly from the shipped hero (contrast 5.7–10:1) */
+  --ea-scrim-mobile: linear-gradient(to bottom, rgba(4, 4, 8, 0.02) 0%, rgba(4, 4, 8, 0.06) 40%, rgba(4, 4, 8, 0.42) 62%, rgba(4, 4, 8, 0.74) 82%, rgba(4, 4, 8, 0.88) 100%);
+  --ea-scrim-desktop: linear-gradient(to bottom, rgba(4, 4, 8, 0.02) 0%, rgba(4, 4, 8, 0.04) 38%, rgba(4, 4, 8, 0.12) 48%, rgba(4, 4, 8, 0.46) 58%, rgba(4, 4, 8, 0.70) 78%, rgba(4, 4, 8, 0.88) 100%);
 
   /* Type */
   --ea-font-display: var(--font-cormorant-display), "Cormorant Garamond", Georgia, serif;
